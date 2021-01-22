@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert
 {
-	internal sealed class ArgCount
+	public sealed class ArgCount
 	{
 		private short m_count;
 
-		internal short Count
+		public short Count
 		{
 			get
 			{

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartMarker : ReportObject
+	public class ChartMarker : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartMarker, Definition.Properties>
+		public class Definition : DefinitionStore<ChartMarker, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Type,
 				Size,
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartMarker(IPropertyStore propertyStore)
+		public ChartMarker(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

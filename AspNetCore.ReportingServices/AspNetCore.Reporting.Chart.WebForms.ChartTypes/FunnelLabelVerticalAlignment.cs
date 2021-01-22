@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal enum FunnelLabelVerticalAlignment
+	public enum FunnelLabelVerticalAlignment
 	{
 		Center,
 		Top,

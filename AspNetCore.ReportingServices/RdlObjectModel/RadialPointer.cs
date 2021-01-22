@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class RadialPointer : GaugePointer
+	public class RadialPointer : GaugePointer
 	{
-		internal new class Definition : DefinitionStore<RadialPointer, Definition.Properties>
+		public new class Definition : DefinitionStore<RadialPointer, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal RadialPointer(IPropertyStore propertyStore)
+		public RadialPointer(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

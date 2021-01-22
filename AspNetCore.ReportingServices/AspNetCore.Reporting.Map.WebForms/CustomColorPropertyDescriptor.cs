@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class CustomColorPropertyDescriptor : PropertyDescriptor
+	public class CustomColorPropertyDescriptor : PropertyDescriptor
 	{
 		private Field field;
 

@@ -7,9 +7,9 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal abstract class RuleBase : NamedElement
+	public abstract class RuleBase : NamedElement
 	{
-		internal abstract string Field
+		public abstract string Field
 		{
 			get;
 			set;
@@ -21,7 +21,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			set;
 		}
 
-		internal abstract DataGrouping DataGrouping
+		public abstract DataGrouping DataGrouping
 		{
 			get;
 			set;
@@ -67,19 +67,19 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal RuleBase(CommonElements common)
+		public RuleBase(CommonElements common)
 			: base(common)
 		{
 		}
 
-		internal abstract ArrayList GetSortedValues(Field field, object fromValue, object toValue);
+		public abstract ArrayList GetSortedValues(Field field, object fromValue, object toValue);
 
-		internal MapCore GetMapCore()
+		public MapCore GetMapCore()
 		{
 			return (MapCore)this.ParentElement;
 		}
 
-		internal bool IsValueInRange(Field field, object testValue, object fromValue, object toValue)
+		public bool IsValueInRange(Field field, object testValue, object fromValue, object toValue)
 		{
 			if (testValue != null && fromValue != null && toValue != null)
 			{
@@ -165,7 +165,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return false;
 		}
 
-		internal void GetEqualIntervals(Field field, object fromValue, object toValue, int intervalCount, ref object[] fromValues, ref object[] toValues)
+		public void GetEqualIntervals(Field field, object fromValue, object toValue, int intervalCount, ref object[] fromValues, ref object[] toValues)
 		{
 			fromValues = new object[intervalCount];
 			toValues = new object[intervalCount];
@@ -252,7 +252,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void GetEqualDistributionIntervals(Field field, ArrayList sortedList, object fromValue, object toValue, int intervalCount, ref object[] fromValues, ref object[] toValues)
+		public void GetEqualDistributionIntervals(Field field, ArrayList sortedList, object fromValue, object toValue, int intervalCount, ref object[] fromValues, ref object[] toValues)
 		{
 			if (sortedList.Count == 0)
 			{
@@ -300,7 +300,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void GetOptimalIntervals(Field field, ArrayList sortedList, object fromValue, object toValue, int intervalCount, ref object[] fromValues, ref object[] toValues)
+		public void GetOptimalIntervals(Field field, ArrayList sortedList, object fromValue, object toValue, int intervalCount, ref object[] fromValues, ref object[] toValues)
 		{
 			if (sortedList.Count == 0 || AspNetCore.Reporting.Map.WebForms.Field.ToStringInvariant(fromValue) == AspNetCore.Reporting.Map.WebForms.Field.ToStringInvariant(toValue))
 			{
@@ -430,7 +430,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return timeSpan2;
 		}
 
-		internal int[] GetJenksBreaks(ArrayList list, int itervalCount)
+		public int[] GetJenksBreaks(ArrayList list, int itervalCount)
 		{
 			int count = list.Count;
 			double[] array = (double[])list.ToArray(typeof(double));
@@ -495,7 +495,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (int[])arrayList.ToArray(typeof(int));
 		}
 
-		internal Color[] GetColors(ColoringMode coloringMode, MapColorPalette colorPalette, Color startColor, Color middleColor, Color endColor, int colorCount)
+		public Color[] GetColors(ColoringMode coloringMode, MapColorPalette colorPalette, Color startColor, Color middleColor, Color endColor, int colorCount)
 		{
 			if (colorCount == 0)
 			{
@@ -587,7 +587,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float[] GetWidths(float startWidth, float endWidth, int count)
+		public float[] GetWidths(float startWidth, float endWidth, int count)
 		{
 			switch (count)
 			{
@@ -621,6 +621,6 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal abstract Field GetField();
+		public abstract Field GetField();
 	}
 }

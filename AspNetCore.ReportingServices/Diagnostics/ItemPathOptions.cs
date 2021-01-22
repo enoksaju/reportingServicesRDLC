@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.Diagnostics
 {
 	[Flags]
-	internal enum ItemPathOptions
+	public enum ItemPathOptions
 	{
 		None = 0,
 		Validate = 1,

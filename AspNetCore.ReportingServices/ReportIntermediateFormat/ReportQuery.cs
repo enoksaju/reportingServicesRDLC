@@ -9,7 +9,7 @@ using System.Data;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ReportQuery : IPersistable
+	public sealed class ReportQuery : IPersistable
 	{
 		private CommandType m_commandType = CommandType.Text;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ReportQuery.GetDeclaration();
 
-		internal CommandType CommandType
+		public CommandType CommandType
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CommandText
+		public ExpressionInfo CommandText
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ParameterValue> Parameters
+		public List<ParameterValue> Parameters
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int TimeOut
+		public int TimeOut
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataSourceName
+		public string DataSourceName
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_commandText != null)
 			{
@@ -113,14 +113,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetExprHost(IndexedExprHost queryParamsExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IndexedExprHost queryParamsExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(queryParamsExprHost != null && reportObjectModel != null, "(queryParamsExprHost != null && reportObjectModel != null)");
 			this.m_queryParamsExprHost = queryParamsExprHost;
 			this.m_queryParamsExprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.CommandType, Token.Enum));

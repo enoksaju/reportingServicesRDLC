@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ActionItem : IPersistable
+	public sealed class ActionItem : IPersistable
 	{
 		private ExpressionInfo m_hyperLinkURL;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ActionItem.GetDeclaration();
 
-		internal ExpressionInfo HyperLinkURL
+		public ExpressionInfo HyperLinkURL
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DrillthroughReportName
+		public ExpressionInfo DrillthroughReportName
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ParameterValue> DrillthroughParameters
+		public List<ParameterValue> DrillthroughParameters
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DrillthroughBookmarkLink
+		public ExpressionInfo DrillthroughBookmarkLink
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BookmarkLink
+		public ExpressionInfo BookmarkLink
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Label
+		public ExpressionInfo Label
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ComputedIndex
+		public int ComputedIndex
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ActionExprHost ExprHost
+		public ActionExprHost ExprHost
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ActionStart();
 			if (this.m_hyperLinkURL != null)
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ActionEnd();
 		}
 
-		internal void SetExprHost(IList<ActionExprHost> actionItemExprHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<ActionExprHost> actionItemExprHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -199,31 +199,31 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string EvaluateHyperLinkURL(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
+		public string EvaluateHyperLinkURL(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
 		{
 			context.SetupContext(ownerItem, romInstance);
 			return context.ReportRuntime.EvaluateReportItemHyperlinkURLExpression(this, this.m_hyperLinkURL, objectType, objectName);
 		}
 
-		internal string EvaluateDrillthroughReportName(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
+		public string EvaluateDrillthroughReportName(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
 		{
 			context.SetupContext(ownerItem, romInstance);
 			return context.ReportRuntime.EvaluateReportItemDrillthroughReportName(this, this.m_drillthroughReportName, objectType, objectName);
 		}
 
-		internal string EvaluateBookmarkLink(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
+		public string EvaluateBookmarkLink(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
 		{
 			context.SetupContext(ownerItem, romInstance);
 			return context.ReportRuntime.EvaluateReportItemBookmarkLinkExpression(this, this.m_bookmarkLink, objectType, objectName);
 		}
 
-		internal string EvaluateLabel(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
+		public string EvaluateLabel(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
 		{
 			context.SetupContext(ownerItem, romInstance);
 			return context.ReportRuntime.EvaluateActionLabelExpression(this, this.m_label, objectType, objectName);
 		}
 
-		internal object EvaluateDrillthroughParamValue(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, List<string> fieldsUsedInOwnerValue, ParameterValue paramValue, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
+		public object EvaluateDrillthroughParamValue(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, List<string> fieldsUsedInOwnerValue, ParameterValue paramValue, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
 		{
 			context.SetupContext(ownerItem, romInstance);
 			AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRuntime = context.ReportRuntime;
@@ -233,13 +233,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return parameterValueResult.Value;
 		}
 
-		internal bool EvaluateDrillthroughParamOmit(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, ParameterValue paramValue, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
+		public bool EvaluateDrillthroughParamOmit(IReportScopeInstance romInstance, OnDemandProcessingContext context, IInstancePath ownerItem, ParameterValue paramValue, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName)
 		{
 			context.SetupContext(ownerItem, romInstance);
 			return context.ReportRuntime.EvaluateParamValueOmitExpression(paramValue, objectType, objectName);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.HyperLinkURL, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));

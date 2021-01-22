@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class PolygonTemplateMapper : SpatialElementTemplateMapper
+	public class PolygonTemplateMapper : SpatialElementTemplateMapper
 	{
 		private PolygonLayerMapper m_polygonLayerMapper;
 
@@ -23,13 +23,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PolygonTemplateMapper(MapMapper mapMapper, PolygonLayerMapper polygonLayerMapper, MapPolygonLayer mapPolygonLayer)
+		public PolygonTemplateMapper(MapMapper mapMapper, PolygonLayerMapper polygonLayerMapper, MapPolygonLayer mapPolygonLayer)
 			: base(mapMapper, mapPolygonLayer)
 		{
 			this.m_polygonLayerMapper = polygonLayerMapper;
 		}
 
-		internal void Render(MapPolygon mapPolygon, Shape coreShape, bool hasScope)
+		public void Render(MapPolygon mapPolygon, Shape coreShape, bool hasScope)
 		{
 			bool flag = PolygonTemplateMapper.UseCustomTemplate(mapPolygon, hasScope);
 			MapPolygonTemplate mapPolygonTemplate = (!flag) ? this.MapPolygonLayer.MapPolygonTemplate : mapPolygon.MapPolygonTemplate;

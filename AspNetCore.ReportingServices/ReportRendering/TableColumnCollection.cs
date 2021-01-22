@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableColumnCollection
+	public sealed class TableColumnCollection
 	{
 		private Table m_owner;
 
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableColumnCollection(Table owner, TableColumnList columnDefs)
+		public TableColumnCollection(Table owner, TableColumnList columnDefs)
 		{
 			this.m_owner = owner;
 			this.m_columnDefs = columnDefs;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalTextRun : TextRun, IROMActionOwner
+	public sealed class InternalTextRun : TextRun, IROMActionOwner
 	{
 		private ReportStringProperty m_toolTip;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun m_textRunDef;
 
-		internal override IStyleContainer StyleContainer
+		public override IStyleContainer StyleContainer
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun TextRunDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun TextRunDef
 		{
 			get
 			{
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override List<string> FieldsUsedInValueExpression
+		public override List<string> FieldsUsedInValueExpression
 		{
 			get
 			{
@@ -194,18 +194,18 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalTextRun(Paragraph paragraph, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun textRun, RenderingContext renderingContext)
+		public InternalTextRun(Paragraph paragraph, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun textRun, RenderingContext renderingContext)
 			: base(paragraph, indexIntoParentCollectionDef, renderingContext)
 		{
 			this.m_textRunDef = textRun;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			base.SetNewContextChildren();
 			if (this.m_compiledRichTextInstance != null)

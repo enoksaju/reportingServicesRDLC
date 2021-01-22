@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_Visibility
+	public class ST_Visibility
 	{
 		private string _ooxmlEnumerationValue;
 

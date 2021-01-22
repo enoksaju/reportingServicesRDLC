@@ -6,7 +6,7 @@ using System.Drawing.Design;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(CustomColorConverter))]
-	internal class CustomColor : NamedElement
+	public class CustomColor : NamedElement
 	{
 		private Color borderColor = Color.DarkGray;
 
@@ -236,7 +236,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ArrayList AffectedElements
+		public ArrayList AffectedElements
 		{
 			get
 			{
@@ -248,7 +248,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string FromValueInt
+		public string FromValueInt
 		{
 			get
 			{
@@ -264,7 +264,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string ToValueInt
+		public string ToValueInt
 		{
 			get
 			{
@@ -297,7 +297,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal CustomColor(CommonElements common)
+		public CustomColor(CommonElements common)
 			: base(common)
 		{
 			this.affectedElements = new ArrayList();
@@ -313,24 +313,24 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.AffectedElements;
 		}
 
-		internal RuleBase GetRule()
+		public RuleBase GetRule()
 		{
 			return (RuleBase)this.ParentElement;
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.InvalidateRules();
 		}
 
-		internal override void OnRemove()
+		public override void OnRemove()
 		{
 			base.OnRemove();
 			this.InvalidateRules();
 		}
 
-		internal void InvalidateRules()
+		public void InvalidateRules()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (mapCore != null)
@@ -340,7 +340,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapCore GetMapCore()
+		public MapCore GetMapCore()
 		{
 			RuleBase rule = this.GetRule();
 			if (rule != null)

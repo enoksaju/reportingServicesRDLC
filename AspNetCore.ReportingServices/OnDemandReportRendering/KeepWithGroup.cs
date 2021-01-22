@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum KeepWithGroup
+	public enum KeepWithGroup
 	{
 		None,
 		Before,

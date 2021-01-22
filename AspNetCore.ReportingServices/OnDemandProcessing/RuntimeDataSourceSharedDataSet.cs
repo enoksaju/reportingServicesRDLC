@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RuntimeDataSourceSharedDataSet : RuntimeAtomicDataSource
+	public sealed class RuntimeDataSourceSharedDataSet : RuntimeAtomicDataSource
 	{
 		private RuntimeSharedDataSet m_runtimeDataSet;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override bool NoRows
+		public override bool NoRows
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeDataSourceSharedDataSet(DataSetDefinition dataSetDefinition, OnDemandProcessingContext odpContext)
+		public RuntimeDataSourceSharedDataSet(DataSetDefinition dataSetDefinition, OnDemandProcessingContext odpContext)
 			: base(null, new DataSource(-1, dataSetDefinition.SharedDataSourceReferenceId, dataSetDefinition.DataSetCore), odpContext, false)
 		{
 			this.m_dataSetDefinition = dataSetDefinition;

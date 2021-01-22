@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class EmptyRoleException : ReportCatalogException
+	public sealed class EmptyRoleException : ReportCatalogException
 	{
 		public EmptyRoleException()
 			: base(ErrorCode.rsEmptyRole, ErrorStrings.rsEmptyRole, null, null)

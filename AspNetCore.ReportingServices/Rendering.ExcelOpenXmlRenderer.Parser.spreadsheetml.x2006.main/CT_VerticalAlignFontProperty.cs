@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_VerticalAlignFontProperty : OoxmlComplexType
+	public class CT_VerticalAlignFontProperty : OoxmlComplexType
 	{
 		private ST_VerticalAlignRun _val_attr;
 

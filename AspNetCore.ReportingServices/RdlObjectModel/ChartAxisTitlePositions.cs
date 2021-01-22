@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartAxisTitlePositions
+	public enum ChartAxisTitlePositions
 	{
 		Center,
 		Near,

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class CustomData2005 : CustomData
+	public class CustomData2005 : CustomData
 	{
 		public DataHierarchy DataColumnGroupings
 		{

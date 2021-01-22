@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class Panel : NamedElement, IToolTipProvider, IZOrderedObject, ISelectable, IDefaultValueProvider, IImageMapProvider
+	public class Panel : NamedElement, IToolTipProvider, IZOrderedObject, ISelectable, IDefaultValueProvider, IImageMapProvider
 	{
 		private const int DefaultMarginsAllValues = 5;
 
@@ -587,7 +587,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal Panel(CommonElements common)
+		public Panel(CommonElements common)
 			: base(common)
 		{
 			this.Margins = new PanelMargins((PanelMargins)this.GetDefaultPropertyValue("Margins", null));
@@ -718,7 +718,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal virtual GraphicsPath GetHotRegionPath(MapGraphics g)
+		public virtual GraphicsPath GetHotRegionPath(MapGraphics g)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			RectangleF rect = new RectangleF(this.GetAbsoluteLocation(), this.GetAbsoluteSize());
@@ -726,26 +726,26 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return graphicsPath;
 		}
 
-		internal void SizeChanged(MapSize size)
+		public void SizeChanged(MapSize size)
 		{
 			this.SizeLocationChanged(SizeLocationChangeInfo.Size);
 		}
 
-		internal virtual void LocationChanged(MapLocation size)
+		public virtual void LocationChanged(MapLocation size)
 		{
 			this.SizeLocationChanged(SizeLocationChangeInfo.Location);
 		}
 
-		internal virtual void Render(MapGraphics g)
+		public virtual void Render(MapGraphics g)
 		{
 		}
 
-		internal virtual bool ShouldRenderBackground()
+		public virtual bool ShouldRenderBackground()
 		{
 			return true;
 		}
 
-		internal virtual void RenderBackground(MapGraphics g)
+		public virtual void RenderBackground(MapGraphics g)
 		{
 			AntiAliasing antiAliasing = g.AntiAliasing;
 			g.AntiAliasing = AntiAliasing.None;
@@ -780,7 +780,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void RenderBorder(MapGraphics g)
+		public virtual void RenderBorder(MapGraphics g)
 		{
 			AntiAliasing antiAliasing = g.AntiAliasing;
 			g.AntiAliasing = AntiAliasing.None;
@@ -812,11 +812,11 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void SizeLocationChanged(SizeLocationChangeInfo info)
+		public virtual void SizeLocationChanged(SizeLocationChangeInfo info)
 		{
 		}
 
-		internal void RenderPanel(MapGraphics g)
+		public void RenderPanel(MapGraphics g)
 		{
 			if (this.IsVisible())
 			{
@@ -861,7 +861,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual bool IsRenderVisible(MapGraphics g, RectangleF clipRect)
+		public virtual bool IsRenderVisible(MapGraphics g, RectangleF clipRect)
 		{
 			if (!this.IsVisible())
 			{
@@ -870,7 +870,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return clipRect.IntersectsWith(this.GetBoundsInPixels());
 		}
 
-		internal PointF GetAbsoluteLocation()
+		public PointF GetAbsoluteLocation()
 		{
 			PointF locationInPixels = this.GetLocationInPixels();
 			locationInPixels.X += (float)this.Margins.Left;
@@ -878,7 +878,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return locationInPixels;
 		}
 
-		internal SizeF GetAbsoluteSize()
+		public SizeF GetAbsoluteSize()
 		{
 			SizeF sizeInPixels = this.GetSizeInPixels();
 			sizeInPixels.Width -= (float)(this.Margins.Left + this.Margins.Right);
@@ -886,7 +886,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return sizeInPixels;
 		}
 
-		internal virtual object GetDefaultPropertyValue(string prop, object currentValue)
+		public virtual object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object result = null;
 			switch (prop)
@@ -928,12 +928,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal virtual bool IsVisible()
+		public virtual bool IsVisible()
 		{
 			return this.Visible;
 		}
 
-		internal bool IsMakeTransparentRequired()
+		public bool IsMakeTransparentRequired()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (mapCore.RenderingMode != RenderingMode.SinglePanel)
@@ -956,7 +956,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return true;
 		}
 
-		internal Color GetColorForMakeTransparent()
+		public Color GetColorForMakeTransparent()
 		{
 			MapCore mapCore = this.GetMapCore();
 			RectangleF rectangleF = new RectangleF(mapCore.Viewport.GetLocationInPixels(), mapCore.Viewport.GetSizeInPixels());

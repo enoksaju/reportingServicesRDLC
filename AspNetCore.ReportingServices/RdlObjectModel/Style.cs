@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.RdlObjectModel.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Style : ReportObject, IShouldSerialize
+	public class Style : ReportObject, IShouldSerialize
 	{
-		internal class Definition : DefinitionStore<Style, Definition.Properties>
+		public class Definition : DefinitionStore<Style, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Border,
 				TopBorder,
@@ -520,7 +520,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			this.NumeralVariant = 1;
 		}
 
-		internal Style(IPropertyStore propertyStore)
+		public Style(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

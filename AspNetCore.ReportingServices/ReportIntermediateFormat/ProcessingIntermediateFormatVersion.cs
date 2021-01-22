@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ProcessingIntermediateFormatVersion
+	public sealed class ProcessingIntermediateFormatVersion
 	{
 		private IntermediateFormatVersion m_version;
 
-		internal int Major
+		public int Major
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int Minor
+		public int Minor
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int Build
+		public int Build
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsOldVersion
+		public bool IsOldVersion
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRIF11_orOlder
+		public bool IsRIF11_orOlder
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRIF11_orNewer
+		public bool IsRIF11_orNewer
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2000_Beta2_orOlder
+		public bool IsRS2000_Beta2_orOlder
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2000_WithSpecialRecursiveAggregates
+		public bool IsRS2000_WithSpecialRecursiveAggregates
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2000_WithNewChartYAxis
+		public bool IsRS2000_WithNewChartYAxis
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2000_WithOtherPageChunkSplit
+		public bool IsRS2000_WithOtherPageChunkSplit
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2000_RTM_orOlder
+		public bool IsRS2000_RTM_orOlder
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2000_RTM_orNewer
+		public bool IsRS2000_RTM_orNewer
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2000_WithUnusedFieldsOptimization
+		public bool IsRS2000_WithUnusedFieldsOptimization
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2000_WithImageInfo
+		public bool IsRS2000_WithImageInfo
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_Beta2_orOlder
+		public bool IsRS2005_Beta2_orOlder
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_WithMultipleActions
+		public bool IsRS2005_WithMultipleActions
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_WithSpecialChunkSplit
+		public bool IsRS2005_WithSpecialChunkSplit
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_IDW9_orOlder
+		public bool IsRS2005_IDW9_orOlder
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_WithTableDetailFix
+		public bool IsRS2005_WithTableDetailFix
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_WithPHFChunks
+		public bool IsRS2005_WithPHFChunks
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_WithTableOptimizations
+		public bool IsRS2005_WithTableOptimizations
 		{
 			get
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_WithSharedDrillthroughParams
+		public bool IsRS2005_WithSharedDrillthroughParams
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_WithSimpleTextBoxOptimizations
+		public bool IsRS2005_WithSimpleTextBoxOptimizations
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_WithChartHeadingInstanceFix
+		public bool IsRS2005_WithChartHeadingInstanceFix
 		{
 			get
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRS2005_WithXmlDataElementOutputChange
+		public bool IsRS2005_WithXmlDataElementOutputChange
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool Is_WithUserSort
+		public bool Is_WithUserSort
 		{
 			get
 			{
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ProcessingIntermediateFormatVersion(IntermediateFormatVersion version)
+		public ProcessingIntermediateFormatVersion(IntermediateFormatVersion version)
 		{
 			this.m_version = version;
 		}

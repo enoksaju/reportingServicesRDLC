@@ -1,39 +1,39 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal static class KeywordName
+	public static class KeywordName
 	{
-		internal const string Index = "#INDEX";
+		public const string Index = "#INDEX";
 
-		internal const string ValX = "#VALX";
+		public const string ValX = "#VALX";
 
-		internal const string ValY = "#VALY";
+		public const string ValY = "#VALY";
 
-		internal const string Val = "#VAL";
+		public const string Val = "#VAL";
 
-		internal const string Total = "#TOTAL";
+		public const string Total = "#TOTAL";
 
-		internal const string Percent = "#PERCENT";
+		public const string Percent = "#PERCENT";
 
-		internal const string Label = "#LABEL";
+		public const string Label = "#LABEL";
 
-		internal const string AxisLabel = "#AXISLABEL";
+		public const string AxisLabel = "#AXISLABEL";
 
-		internal const string LegendText = "#LEGENDTEXT";
+		public const string LegendText = "#LEGENDTEXT";
 
-		internal const string SeriesName = "#SERIESNAME";
+		public const string SeriesName = "#SERIESNAME";
 
-		internal const string Ser = "#SER";
+		public const string Ser = "#SER";
 
-		internal const string Avg = "#AVG";
+		public const string Avg = "#AVG";
 
-		internal const string Max = "#MAX";
+		public const string Max = "#MAX";
 
-		internal const string Min = "#MIN";
+		public const string Min = "#MIN";
 
-		internal const string Last = "#LAST";
+		public const string Last = "#LAST";
 
-		internal const string First = "#FIRST";
+		public const string First = "#FIRST";
 
-		internal const string CustomAttribute = "#CUSTOMATTRIBUTE";
+		public const string CustomAttribute = "#CUSTOMATTRIBUTE";
 	}
 }

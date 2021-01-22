@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
-    internal sealed class DataShape
+    public sealed class DataShape
 	{
 		public string ID
 		{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Internal
 			set;
 		}
 
-		internal DataShape()
+		public DataShape()
 		{
 		}
 	}

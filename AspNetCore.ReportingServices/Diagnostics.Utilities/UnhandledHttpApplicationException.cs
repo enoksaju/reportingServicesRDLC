@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal sealed class UnhandledHttpApplicationException : RSException
+	public sealed class UnhandledHttpApplicationException : RSException
 	{
 		public UnhandledHttpApplicationException(Exception innerException)
 			: base(ErrorCode.rsUnhandledHttpApplicationError, ErrorStrings.rsUnhandledHttpApplicationError, innerException, RSTrace.IsTraceInitialized ? RSTrace.WebServerTracer : null, null)

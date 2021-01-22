@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal static class BitField16
+	public static class BitField16
 	{
-		internal static short GetValue(short aValue, short aMask)
+		public static short GetValue(short aValue, short aMask)
 		{
 			short num = (short)(aValue & aMask);
 			while ((aMask & 1) != 1)
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return num;
 		}
 
-		internal static short PutValue(short aDst, short aMask, short aValue)
+		public static short PutValue(short aDst, short aMask, short aValue)
 		{
 			short num = aMask;
 			while ((num & 1) != 1)
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return aDst;
 		}
 
-		internal static ushort GetValue(ushort aValue, ushort aMask)
+		public static ushort GetValue(ushort aValue, ushort aMask)
 		{
 			aMask = (ushort)(aMask & 0xFFFF);
 			ushort num = (ushort)(aValue & aMask);
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return num;
 		}
 
-		internal static ushort PutValue(ushort aDst, ushort aMask, ushort aValue)
+		public static ushort PutValue(ushort aDst, ushort aMask, ushort aValue)
 		{
 			aMask = (ushort)(aMask & 0xFFFF);
 			ushort num = aMask;

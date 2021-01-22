@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLReportSize
+	public sealed class RPLReportSize
 	{
 		private string m_size;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return this.m_sizeInMM / 10.0;
 		}
 
-		internal void ParseSize()
+		public void ParseSize()
 		{
 			this.m_sizeInMM = RVUnit.Parse(this.m_size, CultureInfo.InvariantCulture).ToMillimeters();
 		}

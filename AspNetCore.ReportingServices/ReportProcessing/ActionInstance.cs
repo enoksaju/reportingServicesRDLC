@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ActionInstance
+	public sealed class ActionInstance
 	{
 		private ActionItemInstanceList m_actionItemsValues;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private int m_uniqueName;
 
-		internal ActionItemInstanceList ActionItemsValues
+		public ActionItemInstanceList ActionItemsValues
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] StyleAttributeValues
+		public object[] StyleAttributeValues
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -48,28 +48,28 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActionInstance(ReportProcessing.ProcessingContext pc)
+		public ActionInstance(ReportProcessing.ProcessingContext pc)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 		}
 
-		internal ActionInstance(ActionItemInstance actionItemInstance)
+		public ActionInstance(ActionItemInstance actionItemInstance)
 		{
 			this.m_actionItemsValues = new ActionItemInstanceList();
 			this.m_actionItemsValues.Add(actionItemInstance);
 		}
 
-		internal ActionInstance()
+		public ActionInstance()
 		{
 		}
 
-		internal object GetStyleAttributeValue(int index)
+		public object GetStyleAttributeValue(int index)
 		{
 			Global.Tracer.Assert(this.m_styleAttributeValues != null && 0 <= index && index < this.m_styleAttributeValues.Length);
 			return this.m_styleAttributeValues[index];
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ActionItemList, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ActionItemInstanceList));

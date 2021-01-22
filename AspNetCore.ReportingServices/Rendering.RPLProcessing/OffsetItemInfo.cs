@@ -2,9 +2,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class OffsetItemInfo : OffsetInfo, IRPLItemFactory
+	public sealed class OffsetItemInfo : OffsetInfo, IRPLItemFactory
 	{
-		internal OffsetItemInfo(long endOffset, RPLContext context)
+		public OffsetItemInfo(long endOffset, RPLContext context)
 			: base(endOffset, context)
 		{
 		}

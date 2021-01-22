@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Slider : IPersistable
+	public sealed class Slider : IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Slider.GetDeclaration();
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private LabelData m_labelData;
 
-		internal bool Hidden
+		public bool Hidden
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LabelData LabelData
+		public LabelData LabelData
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(Tablix tablix, InitializationContext context)
+		public void Initialize(Tablix tablix, InitializationContext context)
 		{
 			if (this.m_labelData != null)
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Hidden, Token.Boolean));

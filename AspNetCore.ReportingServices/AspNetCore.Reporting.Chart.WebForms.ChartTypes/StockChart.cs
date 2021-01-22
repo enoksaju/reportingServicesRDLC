@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class StockChart : IChartType
+	public class StockChart : IChartType
 	{
 		protected Axis vAxis;
 

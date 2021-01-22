@@ -3,7 +3,7 @@ using System.Data;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal class ParameterWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDataParameter
+	public class ParameterWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDataParameter
 	{
 		public virtual string ParameterName
 		{

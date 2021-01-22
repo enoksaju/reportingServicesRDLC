@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingQueryOnPremiseServiceException : ReportProcessingException
+	public sealed class ReportProcessingQueryOnPremiseServiceException : ReportProcessingException
 	{
 		private const string OnPremiseServiceExceptionCode = "OnPremiseServiceException";
 

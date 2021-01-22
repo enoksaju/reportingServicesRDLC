@@ -19,7 +19,7 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class RuntimeLiveQueryExecutor
+	public abstract class RuntimeLiveQueryExecutor
 	{
 		protected readonly AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource m_dataSource;
 
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		protected IDbCommand m_commandWrappedForCancel;
 
-		internal DataProcessingMetrics DataSetExecutionMetrics
+		public DataProcessingMetrics DataSetExecutionMetrics
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet DataSet
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet DataSet
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool IsConnectionOwner
+		public bool IsConnectionOwner
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeLiveQueryExecutor(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, OnDemandProcessingContext odpContext)
+		public RuntimeLiveQueryExecutor(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, OnDemandProcessingContext odpContext)
 		{
 			this.m_dataSource = dataSource;
 			this.m_dataSet = dataSet;
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_executionMetrics = new DataProcessingMetrics(dataSet, this.m_odpContext.JobContext, this.m_odpContext.ExecutionLogContext);
 		}
 
-		internal void Abort()
+		public void Abort()
 		{
 			IDbCommand command = this.m_command;
 			IDbCommand commandWrappedForCancel = this.m_commandWrappedForCancel;

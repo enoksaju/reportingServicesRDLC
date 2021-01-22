@@ -8,11 +8,11 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeDataPointCollection_DataPointCollection")]
-	internal class DataPointCollection : IList, ICollection, IEnumerable
+	public class DataPointCollection : IList, ICollection, IEnumerable
 	{
-		internal ArrayList array = new ArrayList();
+		public ArrayList array = new ArrayList();
 
-		internal Series series;
+		public Series series;
 
 		public DataPoint this[int index]
 		{
@@ -89,12 +89,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.series = series;
 		}
 
-		internal void DataPointInit(ref DataPoint dataPoint)
+		public void DataPointInit(ref DataPoint dataPoint)
 		{
 			DataPointCollection.DataPointInit(this.series, ref dataPoint);
 		}
 
-		internal static void DataPointInit(Series series, ref DataPoint dataPoint)
+		public static void DataPointInit(Series series, ref DataPoint dataPoint)
 		{
 			dataPoint.series = series;
 			if (dataPoint.AxisLabel.Length > 0 && series != null)
@@ -103,7 +103,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal static void ParsePointFieldsParameter(string otherFields, ref string[] otherAttributeNames, ref string[] otherFieldNames, ref string[] otherValueFormat)
+		public static void ParsePointFieldsParameter(string otherFields, ref string[] otherAttributeNames, ref string[] otherFieldNames, ref string[] otherValueFormat)
 		{
 			if (otherFields == null)
 			{
@@ -557,7 +557,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			throw new ArgumentOutOfRangeException("yValue", SR.ExceptionDataPointYValuesCountMismatch(this.series.YValuesPerPoint.ToString(CultureInfo.InvariantCulture)));
 		}
 
-		internal static bool IsEmptyValue(object val)
+		public static bool IsEmptyValue(object val)
 		{
 			if (!(val is DBNull) && val != null)
 			{
@@ -664,7 +664,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.array.Insert(index, dataPoint);
 		}
 
-		internal static IEnumerator GetDataSourceEnumerator(IEnumerable dataSource)
+		public static IEnumerator GetDataSourceEnumerator(IEnumerable dataSource)
 		{
 			if (dataSource is DataView)
 			{
@@ -682,7 +682,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return dataSource.GetEnumerator();
 		}
 
-		internal static object ConvertEnumerationItem(object item, string fieldName)
+		public static object ConvertEnumerationItem(object item, string fieldName)
 		{
 			object result = item;
 			if (item is DataRow)
@@ -805,7 +805,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal static void AutoDetectValuesType(Series series, IEnumerator xEnumerator, string xField, IEnumerator yEnumerator, string yField)
+		public static void AutoDetectValuesType(Series series, IEnumerator xEnumerator, string xField, IEnumerator yEnumerator, string yField)
 		{
 			if (series.XValueType == ChartValueTypes.Auto)
 			{

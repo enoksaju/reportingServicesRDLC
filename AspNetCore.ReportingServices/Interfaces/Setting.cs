@@ -2,7 +2,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal class Setting
+	public class Setting
 	{
 		private string m_name;
 

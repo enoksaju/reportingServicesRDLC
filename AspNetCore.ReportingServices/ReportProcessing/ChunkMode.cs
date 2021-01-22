@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum ChunkMode
+	public enum ChunkMode
 	{
 		Open,
 		OpenOrCreate

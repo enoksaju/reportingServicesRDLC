@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
 	[CompilerGenerated]
-	internal class ImageRendererRes
+	public class ImageRendererRes
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string IMAGELocalizedName = "IMAGELocalizedName";
 

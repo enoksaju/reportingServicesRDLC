@@ -4,23 +4,23 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Svg
 {
-	internal class ChartParameters : SvgParameters
+	public class ChartParameters : SvgParameters
 	{
-		internal Color chartBrushColor;
+		public Color chartBrushColor;
 
-		internal Color chartBrushSecondColor;
+		public Color chartBrushSecondColor;
 
-		internal Matrix chartMatrix;
+		public Matrix chartMatrix;
 
-		internal Font chartFont;
+		public Font chartFont;
 
-		internal StringFormat chartStringFormat;
+		public StringFormat chartStringFormat;
 
-		internal SvgGradientType chartSvgGradientType;
+		public SvgGradientType chartSvgGradientType;
 
-		internal Size chartPictureSize;
+		public Size chartPictureSize;
 
-		internal WrapMode imageWrapMode;
+		public WrapMode imageWrapMode;
 
 		private SvgFillType svgFillType;
 

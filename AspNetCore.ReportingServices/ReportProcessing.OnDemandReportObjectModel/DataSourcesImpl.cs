@@ -35,13 +35,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal DataSourcesImpl(int size)
+		public DataSourcesImpl(int size)
 		{
 			this.m_lockAdd = (size > 1);
 			this.m_collection = new Hashtable(size);
 		}
 
-		internal void Add(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSourceDef)
+		public void Add(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSourceDef)
 		{
 			try
 			{

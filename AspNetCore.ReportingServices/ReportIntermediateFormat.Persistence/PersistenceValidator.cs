@@ -4,15 +4,15 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal class PersistenceValidator
+	public class PersistenceValidator
 	{
 		[Conditional("DEBUG")]
-		internal static void VerifyReadOrWrite(MemberInfo CurrentMember, PersistMethod persistMethod)
+		public static void VerifyReadOrWrite(MemberInfo CurrentMember, PersistMethod persistMethod)
 		{
 		}
 
 		[Conditional("DEBUG")]
-		internal static void VerifyReadOrWrite(MemberInfo currentMember, PersistMethod persistMethod, Token primitiveType, ObjectType containedType)
+		public static void VerifyReadOrWrite(MemberInfo currentMember, PersistMethod persistMethod, Token primitiveType, ObjectType containedType)
 		{
 			switch (persistMethod)
 			{
@@ -50,12 +50,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 		}
 
 		[Conditional("DEBUG")]
-		internal static void VerifyDeclaredType(MemberInfo currentMember, ObjectType persistedType, Dictionary<ObjectType, Declaration> declarations, bool verify)
+		public static void VerifyDeclaredType(MemberInfo currentMember, ObjectType persistedType, Dictionary<ObjectType, Declaration> declarations, bool verify)
 		{
 		}
 
 		[Conditional("DEBUG")]
-		internal static void VerifyDeclaredType(MemberInfo currentMember, ObjectType persistedType, Dictionary<ObjectType, Declaration> declarations)
+		public static void VerifyDeclaredType(MemberInfo currentMember, ObjectType persistedType, Dictionary<ObjectType, Declaration> declarations)
 		{
 			if (declarations != null && currentMember.ContainedType != ObjectType.RIFObjectArray && currentMember.ContainedType != ObjectType.RIFObjectList && !PersistenceValidator.VerifyDeclaredType(currentMember.ObjectType, persistedType, declarations) && !PersistenceValidator.VerifyDeclaredType(currentMember.ContainedType, persistedType, declarations) && !PersistenceValidator.CheckSpecialCase(currentMember, persistedType))
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return true;
 		}
 
-		internal static bool CheckSpecialCase(MemberInfo currentMember, ObjectType persistedType)
+		public static bool CheckSpecialCase(MemberInfo currentMember, ObjectType persistedType)
 		{
 			for (int i = 0; i < 2; i++)
 			{

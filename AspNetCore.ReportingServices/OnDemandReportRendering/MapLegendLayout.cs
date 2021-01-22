@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapLegendLayout
+	public enum MapLegendLayout
 	{
 		AutoTable,
 		Column,

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum BarDrawingStyle
+	public enum BarDrawingStyle
 	{
 		Default,
 		Cylinder,

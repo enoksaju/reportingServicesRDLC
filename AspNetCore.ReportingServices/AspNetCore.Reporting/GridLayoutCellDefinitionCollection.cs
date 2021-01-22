@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class GridLayoutCellDefinitionCollection : ReadOnlyCollection<GridLayoutCellDefinition>
+	public sealed class GridLayoutCellDefinitionCollection : ReadOnlyCollection<GridLayoutCellDefinition>
 	{
 		private struct Index
 		{
@@ -36,7 +36,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal GridLayoutCellDefinitionCollection(IList<GridLayoutCellDefinition> cellDefinitions)
+		public GridLayoutCellDefinitionCollection(IList<GridLayoutCellDefinition> cellDefinitions)
 			: base(cellDefinitions)
 		{
 			foreach (GridLayoutCellDefinition cellDefinition in cellDefinitions)
@@ -46,7 +46,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal GridLayoutCellDefinitionCollection()
+		public GridLayoutCellDefinitionCollection()
 			: base((IList<GridLayoutCellDefinition>)new GridLayoutCellDefinition[0])
 		{
 		}

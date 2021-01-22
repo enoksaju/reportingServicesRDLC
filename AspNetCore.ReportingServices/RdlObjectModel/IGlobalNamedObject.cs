@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal interface IGlobalNamedObject : INamedObject
+	public interface IGlobalNamedObject : INamedObject
 	{
 	}
 }

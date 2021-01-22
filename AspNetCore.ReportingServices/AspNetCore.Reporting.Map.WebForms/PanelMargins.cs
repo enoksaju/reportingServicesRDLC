@@ -5,7 +5,7 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(PanelMarginsConverter))]
-	internal class PanelMargins
+	public class PanelMargins
 	{
 		private Panel owner;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		private bool all = true;
 
 		[Browsable(false)]
-		internal Panel Owner
+		public Panel Owner
 		{
 			get
 			{
@@ -152,17 +152,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal PanelMargins(Panel owner)
+		public PanelMargins(Panel owner)
 			: this(owner, 0, 0, 0, 0)
 		{
 		}
 
-		internal PanelMargins(int left, int top, int right, int bottom)
+		public PanelMargins(int left, int top, int right, int bottom)
 			: this(null, left, top, right, bottom)
 		{
 		}
 
-		internal PanelMargins(Panel owner, int left, int top, int right, int bottom)
+		public PanelMargins(Panel owner, int left, int top, int right, int bottom)
 		{
 			this.owner = owner;
 			this.left = left;
@@ -172,7 +172,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.SyncPropeties();
 		}
 
-		internal PanelMargins(PanelMargins margins)
+		public PanelMargins(PanelMargins margins)
 			: this(margins.Owner, margins.Left, margins.Top, margins.Right, margins.Bottom)
 		{
 		}
@@ -305,7 +305,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return string.Format(CultureInfo.CurrentCulture, "Left: {0}, Top: {0}, Right: {0}, Bottom: {0}", this.Left.ToString(CultureInfo.CurrentCulture), this.Top.ToString(CultureInfo.CurrentCulture), this.Right.ToString(CultureInfo.CurrentCulture), this.Bottom.ToString(CultureInfo.CurrentCulture));
 		}
 
-		internal bool IsEmpty()
+		public bool IsEmpty()
 		{
 			return this.All == 0;
 		}

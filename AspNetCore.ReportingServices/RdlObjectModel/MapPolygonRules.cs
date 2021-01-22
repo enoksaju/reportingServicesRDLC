@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapPolygonRules : ReportObject
+	public class MapPolygonRules : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapPolygonRules, Definition.Properties>
+		public class Definition : DefinitionStore<MapPolygonRules, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				MapColorRule,
 				PropertyCount
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapPolygonRules(IPropertyStore propertyStore)
+		public MapPolygonRules(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

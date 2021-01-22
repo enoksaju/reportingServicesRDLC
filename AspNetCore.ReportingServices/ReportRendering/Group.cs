@@ -3,13 +3,13 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal abstract class Group
+	public abstract class Group
 	{
 		protected ReportItem m_ownerItem;
 
-		internal Grouping m_groupingDef;
+		public Grouping m_groupingDef;
 
-		internal Visibility m_visibilityDef;
+		public Visibility m_visibilityDef;
 
 		protected int m_uniqueName;
 
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal virtual TextBox ToggleParent
+		public virtual TextBox ToggleParent
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataRegion OwnerDataRegion
+		public DataRegion OwnerDataRegion
 		{
 			get
 			{
@@ -198,13 +198,13 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Group(CustomReportItem owner, Grouping groupingDef)
+		public Group(CustomReportItem owner, Grouping groupingDef)
 		{
 			this.m_ownerItem = owner;
 			this.m_groupingDef = groupingDef;
 		}
 
-		internal Group(DataRegion owner, Grouping groupingDef, Visibility visibilityDef)
+		public Group(DataRegion owner, Grouping groupingDef, Visibility visibilityDef)
 		{
 			this.m_ownerItem = owner;
 			this.m_groupingDef = groupingDef;

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class HttpHandlerInputException : ReportViewerException
+	public sealed class HttpHandlerInputException : ReportViewerException
 	{
 		public HttpHandlerInputException(Exception e)
 			: base(new ArgumentException().Message, e)

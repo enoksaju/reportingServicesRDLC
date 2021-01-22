@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeDetailObj : RuntimeHierarchyObj
+	public abstract class RuntimeDetailObj : RuntimeHierarchyObj
 	{
 		protected IReference<IScope> m_outerScope;
 
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_outerDataAction = dataAction;
 		}
 
-		internal RuntimeDetailObj(RuntimeDetailObj detailRoot, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeDetailObj(RuntimeDetailObj detailRoot, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(detailRoot.OdpContext, objectType, detailRoot.Depth)
 		{
 			base.m_hierarchyRoot = (RuntimeDetailObjReference)detailRoot.SelfReference;

@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class LegendConverter : NoNameExpandableObjectConverter
+	public class LegendConverter : NoNameExpandableObjectConverter
 	{
 		public override bool GetPropertiesSupported(ITypeDescriptorContext context)
 		{

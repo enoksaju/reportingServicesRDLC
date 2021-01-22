@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class RoutePath
+	public class RoutePath
 	{
 		[DataMember(Name = "line", EmitDefaultValue = false)]
 		public Line Line

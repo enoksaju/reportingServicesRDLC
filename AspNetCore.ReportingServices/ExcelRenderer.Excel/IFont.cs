@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal interface IFont
+	public interface IFont
 	{
 		int Bold
 		{

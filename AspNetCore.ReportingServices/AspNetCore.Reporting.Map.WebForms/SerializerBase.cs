@@ -11,7 +11,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal abstract class SerializerBase
+	public abstract class SerializerBase
 	{
 		private bool ignoreUnknown;
 
@@ -23,13 +23,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private string nonSerializableContent = "";
 
-		internal static FontConverter fontConverter = new FontConverter();
+		public static FontConverter fontConverter = new FontConverter();
 
-		internal static CursorConverter cursorConverter = new CursorConverter();
+		public static CursorConverter cursorConverter = new CursorConverter();
 
-		internal static ColorConverter colorConverter = new ColorConverter();
+		public static ColorConverter colorConverter = new ColorConverter();
 
-		internal static SizeConverter sizeConverter = new SizeConverter();
+		public static SizeConverter sizeConverter = new SizeConverter();
 
 		private ArrayList serializableContentList;
 
@@ -234,7 +234,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal static string StreamToString(Stream stream)
+		public static string StreamToString(Stream stream)
 		{
 			stream.Seek(0L, SeekOrigin.Begin);
 			byte[] array = new byte[stream.Length];
@@ -242,7 +242,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return Convert.ToBase64String(array);
 		}
 
-		internal static Stream StreamFromString(string data)
+		public static Stream StreamFromString(string data)
 		{
 			byte[] array = new byte[1000];
 			MemoryStream memoryStream = new MemoryStream();
@@ -491,7 +491,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static object ReadConvertValue(object obj, string propertyValue, BinaryReader binaryReader)
+		public static object ReadConvertValue(object obj, string propertyValue, BinaryReader binaryReader)
 		{
 			if (binaryReader == null)
 			{

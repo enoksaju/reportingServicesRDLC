@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class RuntimeExpressionInfo : IStorable, IPersistable
+	public sealed class RuntimeExpressionInfo : IStorable, IPersistable
 	{
 		[StaticReference]
 		private ExpressionInfo m_expression;
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private static Declaration m_declaration = RuntimeExpressionInfo.GetDeclaration();
 
-		internal ExpressionInfo Expression
+		public ExpressionInfo Expression
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool Direction
+		public bool Direction
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IndexedExprHost ExpressionsHost
+		public IndexedExprHost ExpressionsHost
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionIndex
+		public int ExpressionIndex
 		{
 			get
 			{
@@ -60,11 +60,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RuntimeExpressionInfo()
+		public RuntimeExpressionInfo()
 		{
 		}
 
-		internal RuntimeExpressionInfo(List<ExpressionInfo> expressions, IndexedExprHost expressionsHost, List<bool> directions, int expressionIndex)
+		public RuntimeExpressionInfo(List<ExpressionInfo> expressions, IndexedExprHost expressionsHost, List<bool> directions, int expressionIndex)
 		{
 			this.m_expressionsHost = expressionsHost;
 			this.m_expressionIndex = expressionIndex;

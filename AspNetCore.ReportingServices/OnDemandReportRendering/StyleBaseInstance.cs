@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class StyleBaseInstance : BaseInstance
+	public abstract class StyleBaseInstance : BaseInstance
 	{
-		internal RenderingContext m_renderingContext;
+		public RenderingContext m_renderingContext;
 
 		public abstract List<StyleAttributeNames> StyleAttributes
 		{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			set;
 		}
 
-		internal StyleBaseInstance(RenderingContext context, IReportScope reportScope)
+		public StyleBaseInstance(RenderingContext context, IReportScope reportScope)
 			: base(reportScope)
 		{
 			this.m_renderingContext = context;

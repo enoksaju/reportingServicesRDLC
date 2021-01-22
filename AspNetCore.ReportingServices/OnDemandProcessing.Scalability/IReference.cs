@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface IReference : IStorable, IPersistable
+	public interface IReference : IStorable, IPersistable
 	{
 		ReferenceID Id
 		{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 
 		IReference TransferTo(IScalabilityCache scaleCache);
 	}
-	internal interface IReference<T> : IReference, IStorable, IPersistable
+	public interface IReference<T> : IReference, IStorable, IPersistable
 	{
 		T Value();
 	}

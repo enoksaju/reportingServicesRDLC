@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class RuntimeDataSourceDataProcessing : RuntimeAtomicDataSource
+	public abstract class RuntimeDataSourceDataProcessing : RuntimeAtomicDataSource
 	{
 		protected readonly DataSet m_dataSet;
 
 		private RuntimeOnDemandDataSet m_runtimeDataSet;
 
-		internal RuntimeOnDemandDataSet RuntimeDataSet
+		public RuntimeOnDemandDataSet RuntimeDataSet
 		{
 			get
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override bool NoRows
+		public override bool NoRows
 		{
 			get
 			{
@@ -27,13 +27,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeDataSourceDataProcessing(DataSet dataSet, OnDemandProcessingContext processingContext)
+		public RuntimeDataSourceDataProcessing(DataSet dataSet, OnDemandProcessingContext processingContext)
 			: base(processingContext.ReportDefinition, dataSet.DataSource, processingContext, false)
 		{
 			this.m_dataSet = dataSet;
 		}
 
-		internal void ProcessSingleOdp()
+		public void ProcessSingleOdp()
 		{
 			ExecutedQuery executedQuery = null;
 			try

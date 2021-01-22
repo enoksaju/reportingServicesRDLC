@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class GraphicsPathOutliner
+	public class GraphicsPathOutliner
 	{
 		private RectangleF[] boundsArray;
 

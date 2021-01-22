@@ -6,14 +6,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class SortFilterEventInfoMap : IPersistable
+	public sealed class SortFilterEventInfoMap : IPersistable
 	{
 		private Dictionary<string, SortFilterEventInfo> m_sortFilterEventInfos;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = SortFilterEventInfoMap.GetDeclaration();
 
-		internal SortFilterEventInfo this[string eventSourceUniqueName]
+		public SortFilterEventInfo this[string eventSourceUniqueName]
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -35,11 +35,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SortFilterEventInfoMap()
+		public SortFilterEventInfoMap()
 		{
 		}
 
-		internal void Add(string eventSourceUniqueName, SortFilterEventInfo eventInfo)
+		public void Add(string eventSourceUniqueName, SortFilterEventInfo eventInfo)
 		{
 			if (this.m_sortFilterEventInfos == null)
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_sortFilterEventInfos.Add(eventSourceUniqueName, eventInfo);
 		}
 
-		internal void Merge(SortFilterEventInfoMap partition)
+		public void Merge(SortFilterEventInfoMap partition)
 		{
 			if (partition.Count != 0)
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.SortFilterEventInfos, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.StringRIFObjectDictionary, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.SortFilterEventInfo));

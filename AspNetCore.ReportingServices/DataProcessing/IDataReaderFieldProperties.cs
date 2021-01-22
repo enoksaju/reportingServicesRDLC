@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDataReaderFieldProperties
+	public interface IDataReaderFieldProperties
 	{
 		int GetPropertyCount(int fieldIndex);
 

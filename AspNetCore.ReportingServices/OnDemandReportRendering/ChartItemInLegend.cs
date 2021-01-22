@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartItemInLegend : IROMActionOwner
+	public sealed class ChartItemInLegend : IROMActionOwner
 	{
 		private Chart m_chart;
 
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartItemInLegend ChartItemInLegendDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartItemInLegend ChartItemInLegendDef
 		{
 			get
 			{
@@ -152,21 +152,21 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartItemInLegend(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartItemInLegend chartItemInLegendDef, Chart chart)
+		public ChartItemInLegend(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartItemInLegend chartItemInLegendDef, Chart chart)
 		{
 			this.m_chartSeries = chartSeries;
 			this.m_chartItemInLegendDef = chartItemInLegendDef;
 			this.m_chart = chart;
 		}
 
-		internal ChartItemInLegend(InternalChartDataPoint chartDataPoint, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartItemInLegend chartItemInLegendDef, Chart chart)
+		public ChartItemInLegend(InternalChartDataPoint chartDataPoint, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartItemInLegend chartItemInLegendDef, Chart chart)
 		{
 			this.m_dataPoint = chartDataPoint;
 			this.m_chartItemInLegendDef = chartItemInLegendDef;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

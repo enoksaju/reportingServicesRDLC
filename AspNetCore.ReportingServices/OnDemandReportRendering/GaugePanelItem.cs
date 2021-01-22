@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class GaugePanelItem : GaugePanelObjectCollectionItem, IROMStyleDefinitionContainer, IROMActionOwner
+	public abstract class GaugePanelItem : GaugePanelObjectCollectionItem, IROMStyleDefinitionContainer, IROMActionOwner
 	{
-		internal GaugePanel m_gaugePanel;
+		public GaugePanel m_gaugePanel;
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanelItem m_defObject;
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanelItem m_defObject;
 
 		private Style m_style;
 
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanelItem GaugePanelItemDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanelItem GaugePanelItemDef
 		{
 			get
 			{
@@ -192,15 +192,15 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanelItem(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanelItem defObject, GaugePanel gaugePanel)
+		public GaugePanelItem(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanelItem defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal abstract BaseInstance GetInstance();
+		public abstract BaseInstance GetInstance();
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

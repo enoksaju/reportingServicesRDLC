@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class RadialGauge : Gauge
+	public class RadialGauge : Gauge
 	{
-		internal new class Definition : DefinitionStore<RadialGauge, Definition.Properties>
+		public new class Definition : DefinitionStore<RadialGauge, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal RadialGauge(IPropertyStore propertyStore)
+		public RadialGauge(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

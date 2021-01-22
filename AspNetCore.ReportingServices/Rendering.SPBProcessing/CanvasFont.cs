@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class CanvasFont : IDisposable
+	public class CanvasFont : IDisposable
 	{
 		private Font m_gdiFont;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private bool m_writingModeTopBottom;
 
-		internal Font GDIFont
+		public Font GDIFont
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal StringFormat TrimStringFormat
+		public StringFormat TrimStringFormat
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool WritingModeTopBottom
+		public bool WritingModeTopBottom
 		{
 			get
 			{
@@ -37,14 +37,14 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal CanvasFont(CanvasFont copyFont)
+		public CanvasFont(CanvasFont copyFont)
 		{
 			this.m_gdiFont = copyFont.GDIFont;
 			this.m_stringFormat = copyFont.TrimStringFormat;
 			this.m_writingModeTopBottom = copyFont.WritingModeTopBottom;
 		}
 
-		internal CanvasFont(string family, ReportSize size, FontStyles style, FontWeights weight, TextDecorations decoration, TextAlignments alignment, VerticalAlignments verticalAlignment, Directions direction, WritingModes writingMode)
+		public CanvasFont(string family, ReportSize size, FontStyles style, FontWeights weight, TextDecorations decoration, TextAlignments alignment, VerticalAlignments verticalAlignment, Directions direction, WritingModes writingMode)
 		{
 			this.CreateFont(family, size, style, weight, decoration, alignment, verticalAlignment, direction, writingMode);
 		}
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void NewFormatStrings(bool newFormatStrings)
+		public void NewFormatStrings(bool newFormatStrings)
 		{
 			if (newFormatStrings)
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void SetWritingMode(WritingModes writingMode)
+		public void SetWritingMode(WritingModes writingMode)
 		{
 			if (writingMode != WritingModes.Vertical && writingMode != WritingModes.Rotate270)
 			{
@@ -124,21 +124,21 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_writingModeTopBottom = true;
 		}
 
-		internal void SetTextStringAlignment(TextAlignments alignment, bool newFormatStrings)
+		public void SetTextStringAlignment(TextAlignments alignment, bool newFormatStrings)
 		{
 			StringAlignment alignment2 = this.CreateTextStringAlignment(alignment);
 			this.NewFormatStrings(newFormatStrings);
 			this.m_stringFormat.Alignment = alignment2;
 		}
 
-		internal void SetLineStringAlignment(VerticalAlignments verticalAlignment, bool newFormatStrings)
+		public void SetLineStringAlignment(VerticalAlignments verticalAlignment, bool newFormatStrings)
 		{
 			StringAlignment lineAlignment = this.CreateLineStringAlignment(verticalAlignment);
 			this.NewFormatStrings(newFormatStrings);
 			this.m_stringFormat.LineAlignment = lineAlignment;
 		}
 
-		internal void SetFormatFlags(Directions direction, bool setWritingMode, bool newFormatStrings)
+		public void SetFormatFlags(Directions direction, bool setWritingMode, bool newFormatStrings)
 		{
 			bool directionRightToLeft = false;
 			if (direction == Directions.RTL)
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void CreateGDIFont(string family, ReportSize size, FontStyles style, FontWeights weight, TextDecorations decoration)
+		public void CreateGDIFont(string family, ReportSize size, FontStyles style, FontWeights weight, TextDecorations decoration)
 		{
 			double num = 12.0;
 			bool flag = this.IsBold(weight);

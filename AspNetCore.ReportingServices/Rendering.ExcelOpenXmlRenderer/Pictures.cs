@@ -3,11 +3,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Pictures
+	public sealed class Pictures
 	{
 		private readonly IPictureShapesModel mModel;
 
-		internal Pictures(IPictureShapesModel model)
+		public Pictures(IPictureShapesModel model)
 		{
 			this.mModel = model;
 		}

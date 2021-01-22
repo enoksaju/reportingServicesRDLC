@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Action
+	public sealed class Action
 	{
 		private ReportStringProperty m_label;
 
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem ActionItemDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem ActionItemDef
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionInfo Owner
+		public ActionInfo Owner
 		{
 			get
 			{
@@ -170,20 +170,20 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Action(ActionInfo owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem actionItemDef, int index)
+		public Action(ActionInfo owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem actionItemDef, int index)
 		{
 			this.m_owner = owner;
 			this.m_actionItemDef = actionItemDef;
 			this.m_index = index;
 		}
 
-		internal Action(ActionInfo owner, AspNetCore.ReportingServices.ReportRendering.Action renderAction)
+		public Action(ActionInfo owner, AspNetCore.ReportingServices.ReportRendering.Action renderAction)
 		{
 			this.m_owner = owner;
 			this.m_renderAction = renderAction;
 		}
 
-		internal void Update(AspNetCore.ReportingServices.ReportRendering.Action newAction)
+		public void Update(AspNetCore.ReportingServices.ReportRendering.Action newAction)
 		{
 			if (this.m_instance != null)
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ConstructActionDefinition()
+		public void ConstructActionDefinition()
 		{
 			ActionInstance instance = this.Instance;
 			Global.Tracer.Assert(instance != null);

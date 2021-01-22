@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeGroupingObjDetail : RuntimeGroupingObjLinkedList
+	public sealed class RuntimeGroupingObjDetail : RuntimeGroupingObjLinkedList
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeGroupingObjDetail.GetDeclaration();
@@ -19,16 +19,16 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeGroupingObjDetail()
+		public RuntimeGroupingObjDetail()
 		{
 		}
 
-		internal RuntimeGroupingObjDetail(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeGroupingObjDetail(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(owner, objectType)
 		{
 		}
 
-		internal override void NextRow(object keyValue, bool hasParent, object parentKey)
+		public override void NextRow(object keyValue, bool hasParent, object parentKey)
 		{
 			Global.Tracer.Assert(!hasParent, "(!hasParent)");
 			base.CreateHierarchyObjAndAddToParent();

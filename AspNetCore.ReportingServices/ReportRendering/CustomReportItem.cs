@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class CustomReportItem : ReportItem
+	public sealed class CustomReportItem : ReportItem
 	{
 		private ReportItem m_altReportItem;
 
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal new TextBox ToggleParent
+		public new TextBox ToggleParent
 		{
 			get
 			{
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.CustomReportItem CriDefinition
+		public AspNetCore.ReportingServices.ReportProcessing.CustomReportItem CriDefinition
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal CustomReportItemInstance CriInstance
+		public CustomReportItemInstance CriInstance
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal new RenderingContext RenderingContext
+		public new RenderingContext RenderingContext
 		{
 			get
 			{
@@ -210,13 +210,13 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal CustomReportItem(AspNetCore.ReportingServices.ReportProcessing.CustomReportItem criDef, CustomReportItemInstance criInstance, CustomReportItemInstanceInfo instanceInfo)
+		public CustomReportItem(AspNetCore.ReportingServices.ReportProcessing.CustomReportItem criDef, CustomReportItemInstance criInstance, CustomReportItemInstanceInfo instanceInfo)
 			: base(criDef, criInstance, instanceInfo)
 		{
 			this.m_isProcessing = true;
 		}
 
-		internal CustomReportItem(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext, NonComputedUniqueNames[] childrenNonComputedUniqueNames)
+		public CustomReportItem(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext, NonComputedUniqueNames[] childrenNonComputedUniqueNames)
 			: base(uniqueName, intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 			this.m_isProcessing = false;

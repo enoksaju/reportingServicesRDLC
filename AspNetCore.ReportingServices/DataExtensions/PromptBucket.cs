@@ -7,9 +7,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class PromptBucket : ArrayList
+	public sealed class PromptBucket : ArrayList
 	{
-		internal new DataSourceInfo this[int index]
+		public new DataSourceInfo this[int index]
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal bool NeedPrompt
+		public bool NeedPrompt
 		{
 			get
 			{
@@ -25,17 +25,17 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal PromptBucket()
+		public PromptBucket()
 		{
 		}
 
-		internal DataSourceInfo GetRepresentative()
+		public DataSourceInfo GetRepresentative()
 		{
 			Global.Tracer.Assert(this.Count > 0, "Prompt Bucket is empty on get representative");
 			return this[0];
 		}
 
-		internal bool HasItemWithLinkID(Guid linkID)
+		public bool HasItemWithLinkID(Guid linkID)
 		{
 			for (int i = 0; i < this.Count; i++)
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return false;
 		}
 
-		internal bool HasItemWithOriginalName(string originalName)
+		public bool HasItemWithOriginalName(string originalName)
 		{
 			for (int i = 0; i < this.Count; i++)
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return false;
 		}
 
-		internal void SetCredentials(DatasourceCredentials credentials, IDataProtection dataProtection)
+		public void SetCredentials(DatasourceCredentials credentials, IDataProtection dataProtection)
 		{
 			int num = 0;
 			while (true)

@@ -2,89 +2,89 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 {
-	internal sealed class ReportRegularExpressions
+	public sealed class ReportRegularExpressions
 	{
 		private const string m_identifierStart = "\\p{Lu}\\p{Ll}\\p{Lt}\\p{Lm}\\p{Lo}\\p{Nl}";
 
 		private const string m_identifierExtend = "\\p{Mn}\\p{Mc}\\p{Nd}\\p{Pc}\\p{Cf}";
 
-		internal const string ClsReplacerPattern = "[^\\p{Lu}\\p{Ll}\\p{Lt}\\p{Lm}\\p{Lo}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Pc}\\p{Cf}]";
+		public const string ClsReplacerPattern = "[^\\p{Lu}\\p{Ll}\\p{Lt}\\p{Lm}\\p{Lo}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Pc}\\p{Cf}]";
 
-		internal Regex Whitespace;
+		public Regex Whitespace;
 
-		internal Regex NonConstant;
+		public Regex NonConstant;
 
-		internal Regex FieldDetection;
+		public Regex FieldDetection;
 
-		internal Regex ReportItemsDetection;
+		public Regex ReportItemsDetection;
 
-		internal Regex ParametersDetection;
+		public Regex ParametersDetection;
 
-		internal Regex PageGlobalsDetection;
+		public Regex PageGlobalsDetection;
 
-		internal Regex AggregatesDetection;
+		public Regex AggregatesDetection;
 
-		internal Regex UserDetection;
+		public Regex UserDetection;
 
-		internal Regex DataSetsDetection;
+		public Regex DataSetsDetection;
 
-		internal Regex DataSourcesDetection;
+		public Regex DataSourcesDetection;
 
-		internal Regex VariablesDetection;
+		public Regex VariablesDetection;
 
-		internal Regex MeDotValueExpression;
+		public Regex MeDotValueExpression;
 
-		internal Regex MeDotValueDetection;
+		public Regex MeDotValueDetection;
 
-		internal Regex IllegalCharacterDetection;
+		public Regex IllegalCharacterDetection;
 
-		internal Regex LineTerminatorDetection;
+		public Regex LineTerminatorDetection;
 
-		internal Regex FieldOnly;
+		public Regex FieldOnly;
 
-		internal Regex ParameterOnly;
+		public Regex ParameterOnly;
 
-		internal Regex StringLiteralOnly;
+		public Regex StringLiteralOnly;
 
-		internal Regex NothingOnly;
+		public Regex NothingOnly;
 
-		internal Regex ReportItemName;
+		public Regex ReportItemName;
 
-		internal Regex FieldName;
+		public Regex FieldName;
 
-		internal Regex ParameterName;
+		public Regex ParameterName;
 
-		internal Regex DataSetName;
+		public Regex DataSetName;
 
-		internal Regex DataSourceName;
+		public Regex DataSourceName;
 
-		internal Regex SpecialFunction;
+		public Regex SpecialFunction;
 
-		internal Regex PSAFunction;
+		public Regex PSAFunction;
 
-		internal Regex Arguments;
+		public Regex Arguments;
 
-		internal Regex DynamicFieldReference;
+		public Regex DynamicFieldReference;
 
-		internal Regex DynamicFieldPropertyReference;
+		public Regex DynamicFieldPropertyReference;
 
-		internal Regex StaticFieldPropertyReference;
+		public Regex StaticFieldPropertyReference;
 
-		internal Regex RewrittenCommandText;
+		public Regex RewrittenCommandText;
 
-		internal Regex SimpleDynamicFieldReference;
+		public Regex SimpleDynamicFieldReference;
 
-		internal Regex SimpleDynamicReportItemReference;
+		public Regex SimpleDynamicReportItemReference;
 
-		internal Regex SimpleDynamicVariableReference;
+		public Regex SimpleDynamicVariableReference;
 
-		internal Regex ReportItemValueReference;
+		public Regex ReportItemValueReference;
 
-		internal Regex VariableName;
+		public Regex VariableName;
 
-		internal Regex ClsIdentifierRegex;
+		public Regex ClsIdentifierRegex;
 
-		internal static readonly ReportRegularExpressions Value = new ReportRegularExpressions();
+		public static readonly ReportRegularExpressions Value = new ReportRegularExpressions();
 
 		private ReportRegularExpressions()
 		{

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartEmptyPoints : IROMStyleDefinitionContainer, IROMActionOwner
+	public sealed class ChartEmptyPoints : IROMStyleDefinitionContainer, IROMActionOwner
 	{
 		private Chart m_chart;
 
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartEmptyPoints ChartEmptyPointsDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartEmptyPoints ChartEmptyPointsDef
 		{
 			get
 			{
@@ -184,14 +184,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartEmptyPoints(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartEmptyPoints chartEmptyPointsDef, Chart chart)
+		public ChartEmptyPoints(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartEmptyPoints chartEmptyPointsDef, Chart chart)
 		{
 			this.m_chartEmptyPointsDef = chartEmptyPointsDef;
 			this.m_chart = chart;
 			this.m_chartSeries = chartSeries;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

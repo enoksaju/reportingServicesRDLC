@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace AspNetCore.Reporting
 {
     [Serializable]
-    internal sealed class ReportHierarchy : Stack<ReportInfo>, IDisposable
+    public sealed class ReportHierarchy : Stack<ReportInfo>, IDisposable
     {
         public ReportHierarchy()
         {

@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal interface IChartType
+	public interface IChartType
 	{
 		string Name
 		{

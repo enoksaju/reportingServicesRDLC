@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeEllipseAnnotation_EllipseAnnotation")]
-	internal class EllipseAnnotation : RectangleAnnotation
+	public class EllipseAnnotation : RectangleAnnotation
 	{
 		[Browsable(false)]
 		[SRCategory("CategoryAttributeMisc")]

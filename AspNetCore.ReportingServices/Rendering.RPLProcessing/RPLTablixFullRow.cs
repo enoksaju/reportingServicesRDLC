@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLTablixFullRow : RPLTablixRow
+	public sealed class RPLTablixFullRow : RPLTablixRow
 	{
 		private int m_headerStart = -1;
 
@@ -34,13 +34,13 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTablixFullRow(int headerStart, int bodyStart)
+		public RPLTablixFullRow(int headerStart, int bodyStart)
 		{
 			this.m_headerStart = headerStart;
 			this.m_bodyStart = bodyStart;
 		}
 
-		internal RPLTablixFullRow(List<RPLTablixCell> cells, List<RPLTablixMemberCell> omittedHeaders, int headerStart, int bodyStart)
+		public RPLTablixFullRow(List<RPLTablixCell> cells, List<RPLTablixMemberCell> omittedHeaders, int headerStart, int bodyStart)
 			: base(cells)
 		{
 			this.m_headerStart = headerStart;
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			this.m_omittedHeaders = omittedHeaders;
 		}
 
-		internal override void SetHeaderStart()
+		public override void SetHeaderStart()
 		{
 			if (this.m_headerStart < 0)
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal override void SetBodyStart()
+		public override void SetBodyStart()
 		{
 			if (this.m_bodyStart < 0)
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal override void AddOmittedHeader(RPLTablixMemberCell cell)
+		public override void AddOmittedHeader(RPLTablixMemberCell cell)
 		{
 			if (this.m_omittedHeaders == null)
 			{

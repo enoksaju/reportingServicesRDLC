@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum BorderStyles
+	public enum BorderStyles
 	{
 		Default,
 		None,

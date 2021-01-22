@@ -7,11 +7,11 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class SharedDataSetProcessReportParameters : ProcessReportParameters
+	public sealed class SharedDataSetProcessReportParameters : ProcessReportParameters
 	{
 		private DataSetCore m_dataSetCore;
 
-		internal override bool IsReportParameterProcessing
+		public override bool IsReportParameterProcessing
 		{
 			get
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal SharedDataSetProcessReportParameters(DataSetCore dataSetCore, OnDemandProcessingContext odpContext)
+		public SharedDataSetProcessReportParameters(DataSetCore dataSetCore, OnDemandProcessingContext odpContext)
 			: base(odpContext)
 		{
 			this.m_dataSetCore = dataSetCore;
@@ -30,12 +30,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal OnDemandProcessingContext GetOnDemandContext()
+		public OnDemandProcessingContext GetOnDemandContext()
 		{
 			return (OnDemandProcessingContext)base.ProcessingContext;
 		}
 
-		internal override IParameterDef GetParameterDef(int aParamIndex)
+		public override IParameterDef GetParameterDef(int aParamIndex)
 		{
 			return this.m_dataSetCore.Query.Parameters[aParamIndex] as DataSetParameterValue;
 		}
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return ProcessReportParameters.ApplySandboxRestriction(ref value, paramName, propertyName, this.GetOnDemandContext(), base.m_maxStringResultLength);
 		}
 
-		internal override void InitParametersContext(ParameterInfoCollection parameters)
+		public override void InitParametersContext(ParameterInfoCollection parameters)
 		{
 			OnDemandProcessingContext onDemandContext = this.GetOnDemandContext();
 			Global.Tracer.Assert(onDemandContext.ReportObjectModel != null && onDemandContext.ReportRuntime != null);
@@ -61,52 +61,52 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void Cleanup()
+		public override void Cleanup()
 		{
 		}
 
-		internal override void AddToRuntime(ParameterInfo aParamInfo)
+		public override void AddToRuntime(ParameterInfo aParamInfo)
 		{
 			ParameterImpl parameter = new ParameterImpl(aParamInfo);
 			this.GetOnDemandContext().ReportObjectModel.ParametersImpl.Add(aParamInfo.Name, parameter);
 		}
 
-		internal override void SetupExprHost(IParameterDef aParamDef)
+		public override void SetupExprHost(IParameterDef aParamDef)
 		{
 		}
 
-		internal override object EvaluateDefaultValueExpr(IParameterDef aParamDef, int aIndex)
+		public override object EvaluateDefaultValueExpr(IParameterDef aParamDef, int aIndex)
 		{
 			DataSetParameterValue dataSetParameterValue = aParamDef as DataSetParameterValue;
 			return dataSetParameterValue.EvaluateQueryParameterValue(this.GetOnDemandContext(), this.m_dataSetCore.ExprHost);
 		}
 
-		internal override object EvaluateValidValueExpr(IParameterDef aParamDef, int aIndex)
+		public override object EvaluateValidValueExpr(IParameterDef aParamDef, int aIndex)
 		{
 			throw new NotSupportedException();
 		}
 
-		internal override object EvaluateValidValueLabelExpr(IParameterDef aParamDef, int aIndex)
+		public override object EvaluateValidValueLabelExpr(IParameterDef aParamDef, int aIndex)
 		{
 			throw new NotSupportedException();
 		}
 
-		internal override string EvaluatePromptExpr(ParameterInfo aParamInfo, IParameterDef aParamDef)
+		public override string EvaluatePromptExpr(ParameterInfo aParamInfo, IParameterDef aParamDef)
 		{
 			throw new NotSupportedException();
 		}
 
-		internal override bool NeedPrompt(IParameterDataSource paramDS)
+		public override bool NeedPrompt(IParameterDataSource paramDS)
 		{
 			return false;
 		}
 
-		internal override void ThrowExceptionForQueryBackedParameter(ReportProcessingException_FieldError aError, string aParamName, int aDataSourceIndex, int aDataSetIndex, int aFieldIndex, string propertyName)
+		public override void ThrowExceptionForQueryBackedParameter(ReportProcessingException_FieldError aError, string aParamName, int aDataSourceIndex, int aDataSetIndex, int aFieldIndex, string propertyName)
 		{
 			throw new NotSupportedException();
 		}
 
-		internal override ReportParameterDataSetCache ProcessReportParameterDataSet(ParameterInfo aParam, IParameterDef aParamDef, IParameterDataSource paramDS, bool aRetrieveValidValues, bool aRetrievalDefaultValues)
+		public override ReportParameterDataSetCache ProcessReportParameterDataSet(ParameterInfo aParam, IParameterDef aParamDef, IParameterDataSource paramDS, bool aRetrieveValidValues, bool aRetrievalDefaultValues)
 		{
 			throw new NotSupportedException();
 		}

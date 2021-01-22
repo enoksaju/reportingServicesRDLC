@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartPaintEventArgs : EventArgs
+	public class ChartPaintEventArgs : EventArgs
 	{
 		private ChartGraphics chartGraph;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal CommonElements CommonElements
+		public CommonElements CommonElements
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Chart Chart
+		public Chart Chart
 		{
 			get
 			{

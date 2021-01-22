@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class MapAppearanceRule : ReportObject
+	public abstract class MapAppearanceRule : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapAppearanceRule, Definition.Properties>
+		public class Definition : DefinitionStore<MapAppearanceRule, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataValue,
 				DistributionType,
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapAppearanceRule(IPropertyStore propertyStore)
+		public MapAppearanceRule(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

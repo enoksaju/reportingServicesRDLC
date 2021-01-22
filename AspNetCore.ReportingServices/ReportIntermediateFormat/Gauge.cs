@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class Gauge : GaugePanelItem, IPersistable
+	public class Gauge : GaugePanelItem, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Gauge.GetDeclaration();
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_aspectRatio;
 
-		internal BackFrame BackFrame
+		public BackFrame BackFrame
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ClipContent
+		public ExpressionInfo ClipContent
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TopImage TopImage
+		public TopImage TopImage
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AspectRatio
+		public ExpressionInfo AspectRatio
 		{
 			get
 			{
@@ -72,16 +72,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Gauge()
+		public Gauge()
 		{
 		}
 
-		internal Gauge(GaugePanel gaugePanel, int id)
+		public Gauge(GaugePanel gaugePanel, int id)
 			: base(gaugePanel, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_backFrame != null)
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			Gauge gauge = (Gauge)base.PublishClone(context);
 			if (this.m_backFrame != null)
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return gauge;
 		}
 
-		internal void SetExprHost(GaugeExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(GaugeExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.BackFrame, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.BackFrame));
@@ -210,13 +210,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Gauge;
 		}
 
-		internal bool EvaluateClipContent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateClipContent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeClipContentExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateAspectRatio(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateAspectRatio(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeAspectRatioExpression(this, base.m_gaugePanel.Name);

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class IntersectJoinInfo : JoinInfo
+	public sealed class IntersectJoinInfo : JoinInfo
 	{
 		[Reference]
 		private DataSet m_rowParentDataSet;
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = IntersectJoinInfo.GetDeclaration();
 
-		internal DataSet RowParentDataSet
+		public DataSet RowParentDataSet
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet ColumnParentDataSet
+		public DataSet ColumnParentDataSet
 		{
 			get
 			{
@@ -43,17 +43,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal Relationship GetActiveRowRelationship(DataSet ourDataSet)
+		public Relationship GetActiveRowRelationship(DataSet ourDataSet)
 		{
 			return base.GetActiveRelationship(ourDataSet, this.m_rowParentDataSet);
 		}
 
-		internal Relationship GetActiveColumnRelationship(DataSet ourDataSet)
+		public Relationship GetActiveColumnRelationship(DataSet ourDataSet)
 		{
 			return base.GetActiveRelationship(ourDataSet, this.m_columnParentDataSet);
 		}
 
-		internal override bool ValidateRelationships(ScopeTree scopeTree, ErrorContext errorContext, DataSet ourDataSet, ParentDataSetContainer parentDataSets, IRIFReportDataScope currentScope)
+		public override bool ValidateRelationships(ScopeTree scopeTree, ErrorContext errorContext, DataSet ourDataSet, ParentDataSetContainer parentDataSets, IRIFReportDataScope currentScope)
 		{
 			Global.Tracer.Assert(parentDataSets != null, "IntersectJoinInfo can only be used with one or two parent data sets");
 			if (parentDataSets.Count == 1)
@@ -173,21 +173,21 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void CheckContainerJoinForNaturalJoin(IRIFDataScope startScope, ErrorContext errorContext, IRIFDataScope scope)
+		public override void CheckContainerJoinForNaturalJoin(IRIFDataScope startScope, ErrorContext errorContext, IRIFDataScope scope)
 		{
 			DataSet dataSet = scope.DataScopeInfo.DataSet;
 			base.CheckContainerRelationshipForNaturalJoin(startScope, errorContext, scope, this.GetActiveRowRelationship(dataSet));
 			base.CheckContainerRelationshipForNaturalJoin(startScope, errorContext, scope, this.GetActiveColumnRelationship(dataSet));
 		}
 
-		internal override void ValidateScopeRulesForIdcNaturalJoin(InitializationContext context, IRIFDataScope scope)
+		public override void ValidateScopeRulesForIdcNaturalJoin(InitializationContext context, IRIFDataScope scope)
 		{
 			DataSet dataSet = scope.DataScopeInfo.DataSet;
 			base.ValidateScopeRulesForIdcNaturalJoin(context, context.ScopeTree.GetParentRowScopeForIntersection(scope), this.GetActiveRowRelationship(dataSet));
 			base.ValidateScopeRulesForIdcNaturalJoin(context, context.ScopeTree.GetParentColumnScopeForIntersection(scope), this.GetActiveColumnRelationship(dataSet));
 		}
 
-		internal override void AddMappedFieldIndices(List<int> parentFieldIndices, DataSet parentDataSet, DataSet ourDataSet, List<int> ourFieldIndices)
+		public override void AddMappedFieldIndices(List<int> parentFieldIndices, DataSet parentDataSet, DataSet ourDataSet, List<int> ourFieldIndices)
 		{
 			Relationship relationship;
 			if (DataSet.AreEqualById(this.m_rowParentDataSet, parentDataSet))
@@ -206,7 +206,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			JoinInfo.AddMappedFieldIndices(relationship, parentFieldIndices, ourFieldIndices);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.RowParentDataSet, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataSet, Token.Reference));

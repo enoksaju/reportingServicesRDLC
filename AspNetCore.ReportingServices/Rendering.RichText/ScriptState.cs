@@ -1,36 +1,36 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class ScriptState
+	public sealed class ScriptState
 	{
 		private ushort m_value;
 
-		internal int uBidiLevel;
+		public int uBidiLevel;
 
-		internal int fOverrideDirection;
+		public int fOverrideDirection;
 
-		internal int fInhibitSymSwap;
+		public int fInhibitSymSwap;
 
-		internal int fCharShape;
+		public int fCharShape;
 
-		internal int fDigitSubstitute;
+		public int fDigitSubstitute;
 
-		internal int fInhibitLigate;
+		public int fInhibitLigate;
 
-		internal int fDisplayZWG;
+		public int fDisplayZWG;
 
-		internal int fArabicNumContext;
+		public int fArabicNumContext;
 
-		internal int fGcpClusters;
+		public int fGcpClusters;
 
-		internal int fReserved;
+		public int fReserved;
 
-		internal int fEngineReserved;
+		public int fEngineReserved;
 
-		internal ScriptState()
+		public ScriptState()
 		{
 		}
 
-		internal ScriptState(ushort value)
+		public ScriptState(ushort value)
 		{
 			this.m_value = value;
 			this.uBidiLevel = (this.m_value & 0x1F);
@@ -46,12 +46,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.fEngineReserved = (this.m_value >> 14 & 3);
 		}
 
-		internal static int GetBidiLevel(ushort value)
+		public static int GetBidiLevel(ushort value)
 		{
 			return value & 0x1F;
 		}
 
-		internal SCRIPT_STATE GetAs_SCRIPT_STATE()
+		public SCRIPT_STATE GetAs_SCRIPT_STATE()
 		{
 			SCRIPT_STATE result = default(SCRIPT_STATE);
 			result.word1 = (ushort)((this.uBidiLevel & 0x1F) | (this.fOverrideDirection & 1) << 5 | (this.fInhibitSymSwap & 1) << 6 | (this.fCharShape & 1) << 7 | (this.fDigitSubstitute & 1) << 8 | (this.fInhibitLigate & 1) << 9 | (this.fDisplayZWG & 1) << 10 | (this.fArabicNumContext & 1) << 11 | (this.fGcpClusters & 1) << 12 | (this.fReserved & 1) << 13 | (this.fEngineReserved & 3) << 14);

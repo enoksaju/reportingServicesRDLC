@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapPointLayer : MapVectorLayer, IPersistable
+	public sealed class MapPointLayer : MapVectorLayer, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapPointLayer.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private List<MapPoint> m_mapPoints;
 
-		internal MapPointTemplate MapPointTemplate
+		public MapPointTemplate MapPointTemplate
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPointRules MapPointRules
+		public MapPointRules MapPointRules
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapPoint> MapPoints
+		public List<MapPoint> MapPoints
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapPointLayerExprHost ExprHost
+		public new MapPointLayerExprHost ExprHost
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapPointLayerExprHost ExprHostMapMember
+		public new MapPointLayerExprHost ExprHostMapMember
 		{
 			get
 			{
@@ -80,16 +80,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPointLayer()
+		public MapPointLayer()
 		{
 		}
 
-		internal MapPointLayer(int ID, Map map)
+		public MapPointLayer(int ID, Map map)
 			: base(ID, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapPointLayerStart(base.Name);
 			base.Initialize(context);
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.MapPointLayerEnd();
 		}
 
-		internal override void InitializeMapMember(InitializationContext context)
+		public override void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapPointLayerStart(base.Name);
 			base.InitializeMapMember(context);
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostMapMemberID = context.ExprHostBuilder.MapPointLayerEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapPointLayer mapPointLayer = (MapPointLayer)(context.CurrentMapVectorLayerClone = (MapPointLayer)base.PublishClone(context));
 			if (this.m_mapPointTemplate != null)
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapPointLayer;
 		}
 
-		internal override void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void SetExprHostMapMember(MapVectorLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHostMapMember(MapVectorLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHostMapMember(exprHost, reportObjectModel);
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapPointTemplate, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapPointTemplate));

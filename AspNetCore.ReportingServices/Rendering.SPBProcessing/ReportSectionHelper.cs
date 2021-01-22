@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class ReportSectionHelper
+	public class ReportSectionHelper
 	{
 		private PaginationInfoItems m_type = PaginationInfoItems.ReportSection;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private PageItemHelper m_bodyHelper;
 
-		internal PaginationInfoItems Type
+		public PaginationInfoItems Type
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItemHelper BodyHelper
+		public PageItemHelper BodyHelper
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int SectionIndex
+		public int SectionIndex
 		{
 			get
 			{
@@ -44,11 +44,11 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ReportSectionHelper()
+		public ReportSectionHelper()
 		{
 		}
 
-		internal static ReportSectionHelper ReadReportSection(BinaryReader reader, long offsetEndPage)
+		public static ReportSectionHelper ReadReportSection(BinaryReader reader, long offsetEndPage)
 		{
 			if (reader != null && offsetEndPage > 0)
 			{

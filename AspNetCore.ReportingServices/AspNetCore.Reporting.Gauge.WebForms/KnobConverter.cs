@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class KnobConverter : CollectionItemTypeConverter
+	public class KnobConverter : CollectionItemTypeConverter
 	{
 		public KnobConverter()
 		{

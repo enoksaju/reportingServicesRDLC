@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DoubleAutoValueConverter : DoubleConverter
+	public class DoubleAutoValueConverter : DoubleConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

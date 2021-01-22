@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal class ReportParagraph : IParagraphProps
+	public class ReportParagraph : IParagraphProps
 	{
 		private RPLParagraphProps m_source;
 
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal string UniqueName
+		public string UniqueName
 		{
 			get
 			{
@@ -197,14 +197,14 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal ReportParagraph(RPLParagraphProps source)
+		public ReportParagraph(RPLParagraphProps source)
 		{
 			this.m_source = source;
 			this.m_uniqueName = source.UniqueName;
 			this.ParagraphNumber = source.ParagraphNumber;
 		}
 
-		internal ReportParagraph(RPLElementStyle style, string uniqueName)
+		public ReportParagraph(RPLElementStyle style, string uniqueName)
 		{
 			this.m_style = style;
 			this.m_uniqueName = uniqueName;

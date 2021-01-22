@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class DoughnutChart : PieChart
+	public class DoughnutChart : PieChart
 	{
 		public override string Name
 		{

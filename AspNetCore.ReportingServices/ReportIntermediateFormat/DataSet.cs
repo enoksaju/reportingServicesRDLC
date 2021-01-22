@@ -12,24 +12,24 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class DataSet : IDOwner, IAggregateHolder, ISortFilterScope, IReferenceable, IPersistable, IGloballyReferenceable, IGlobalIDOwner, IRIFDataScope
+	public sealed class DataSet : IDOwner, IAggregateHolder, ISortFilterScope, IReferenceable, IPersistable, IGloballyReferenceable, IGlobalIDOwner, IRIFDataScope
 	{
-		internal enum TriState
+		public enum TriState
 		{
 			Auto,
 			True,
 			False
 		}
 
-		internal const uint CompareFlag_Default = 0u;
+		public const uint CompareFlag_Default = 0u;
 
-		internal const uint CompareFlag_IgnoreCase = 1u;
+		public const uint CompareFlag_IgnoreCase = 1u;
 
-		internal const uint CompareFlag_IgnoreNonSpace = 2u;
+		public const uint CompareFlag_IgnoreNonSpace = 2u;
 
-		internal const uint CompareFlag_IgnoreKanatype = 65536u;
+		public const uint CompareFlag_IgnoreKanatype = 65536u;
 
-		internal const uint CompareFlag_IgnoreWidth = 131072u;
+		public const uint CompareFlag_IgnoreWidth = 131072u;
 
 		private DataSetCore m_dataSetCore;
 
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DataSet.GetDeclaration();
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSetCore DataSetCore
+		public DataSetCore DataSetCore
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<Field> Fields
+		public List<Field> Fields
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasAggregateIndicatorFields
+		public bool HasAggregateIndicatorFields
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportQuery Query
+		public ReportQuery Query
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SharedDataSetQuery SharedDataSetQuery
+		public SharedDataSetQuery SharedDataSetQuery
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsReferenceToSharedDataSet
+		public bool IsReferenceToSharedDataSet
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TriState CaseSensitivity
+		public TriState CaseSensitivity
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Collation
+		public string Collation
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string CollationCulture
+		public string CollationCulture
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TriState AccentSensitivity
+		public TriState AccentSensitivity
 		{
 			get
 			{
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TriState KanatypeSensitivity
+		public TriState KanatypeSensitivity
 		{
 			get
 			{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TriState WidthSensitivity
+		public TriState WidthSensitivity
 		{
 			get
 			{
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NullsAsBlanks
+		public bool NullsAsBlanks
 		{
 			get
 			{
@@ -246,7 +246,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UseOrdinalStringKeyGeneration
+		public bool UseOrdinalStringKeyGeneration
 		{
 			get
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<Filter> Filters
+		public List<Filter> Filters
 		{
 			get
 			{
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataRegion> DataRegions
+		public List<DataRegion> DataRegions
 		{
 			get
 			{
@@ -282,7 +282,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> Aggregates
+		public List<DataAggregateInfo> Aggregates
 		{
 			get
 			{
@@ -294,7 +294,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<LookupInfo> Lookups
+		public List<LookupInfo> Lookups
 		{
 			get
 			{
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<LookupDestinationInfo> LookupDestinationInfos
+		public List<LookupDestinationInfo> LookupDestinationInfos
 		{
 			get
 			{
@@ -318,7 +318,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasLookups
+		public bool HasLookups
 		{
 			get
 			{
@@ -326,7 +326,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasSameDataSetLookups
+		public bool HasSameDataSetLookups
 		{
 			get
 			{
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UsedOnlyInParametersSet
+		public bool UsedOnlyInParametersSet
 		{
 			get
 			{
@@ -360,7 +360,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UsedOnlyInParameters
+		public bool UsedOnlyInParameters
 		{
 			get
 			{
@@ -376,7 +376,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int NonCalculatedFieldCount
+		public int NonCalculatedFieldCount
 		{
 			get
 			{
@@ -388,7 +388,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> PostSortAggregates
+		public List<DataAggregateInfo> PostSortAggregates
 		{
 			get
 			{
@@ -400,7 +400,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal uint LCID
+		public uint LCID
 		{
 			get
 			{
@@ -412,7 +412,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasDetailUserSortFilter
+		public bool HasDetailUserSortFilter
 		{
 			get
 			{
@@ -424,7 +424,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> UserSortExpressions
+		public List<ExpressionInfo> UserSortExpressions
 		{
 			get
 			{
@@ -436,7 +436,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSetExprHost ExprHost
+		public DataSetExprHost ExprHost
 		{
 			get
 			{
@@ -444,7 +444,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool[] IsSortFilterTarget
+		public bool[] IsSortFilterTarget
 		{
 			get
 			{
@@ -520,7 +520,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UsedInAggregates
+		public bool UsedInAggregates
 		{
 			get
 			{
@@ -532,7 +532,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasScopeWithCustomAggregates
+		public bool HasScopeWithCustomAggregates
 		{
 			get
 			{
@@ -544,7 +544,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TriState InterpretSubtotalsAsDetails
+		public TriState InterpretSubtotalsAsDetails
 		{
 			get
 			{
@@ -556,7 +556,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasSubReports
+		public bool HasSubReports
 		{
 			get
 			{
@@ -568,7 +568,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int IndexInCollection
+		public int IndexInCollection
 		{
 			get
 			{
@@ -576,7 +576,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSource DataSource
+		public DataSource DataSource
 		{
 			get
 			{
@@ -588,7 +588,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DefaultRelationship> DefaultRelationships
+		public List<DefaultRelationship> DefaultRelationships
 		{
 			get
 			{
@@ -600,7 +600,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool AllowIncrementalProcessing
+		public bool AllowIncrementalProcessing
 		{
 			get
 			{
@@ -628,7 +628,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet(int id, int indexCounter)
+		public DataSet(int id, int indexCounter)
 			: base(id)
 		{
 			this.m_indexInCollection = indexCounter;
@@ -639,22 +639,22 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_dataSetCore.Fields = new List<Field>();
 		}
 
-		internal DataSet()
+		public DataSet()
 		{
 			this.m_dataSetCore = new DataSetCore();
 		}
 
-		internal DataSet(DataSetCore dataSetCore)
+		public DataSet(DataSetCore dataSetCore)
 		{
 			this.m_dataSetCore = dataSetCore;
 		}
 
-		internal CultureInfo CreateCultureInfoFromLcid()
+		public CultureInfo CreateCultureInfoFromLcid()
 		{
 			return this.m_dataSetCore.CreateCultureInfoFromLcid();
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = this.m_dataSetCore.Name;
@@ -687,7 +687,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_dataSetCore.ExprHostID = context.ExprHostBuilder.DataSetEnd();
 		}
 
-		internal void BindAndValidateDefaultRelationships(ErrorContext errorContext, Report report)
+		public void BindAndValidateDefaultRelationships(ErrorContext errorContext, Report report)
 		{
 			if (this.m_defaultRelationships != null)
 			{
@@ -707,7 +707,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void CheckCircularDefaultRelationshipReference(InitializationContext context)
+		public void CheckCircularDefaultRelationshipReference(InitializationContext context)
 		{
 			HashSet<int> visitedDataSetIds = new HashSet<int>();
 			this.CheckCircularDefaultRelationshipReference(context, this, visitedDataSetIds);
@@ -736,17 +736,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			visitedDataSetIds.Remove(base.ID);
 		}
 
-		internal bool HasDefaultRelationship(DataSet parentDataSet)
+		public bool HasDefaultRelationship(DataSet parentDataSet)
 		{
 			return this.GetDefaultRelationship(parentDataSet) != null;
 		}
 
-		internal DefaultRelationship GetDefaultRelationship(DataSet parentDataSet)
+		public DefaultRelationship GetDefaultRelationship(DataSet parentDataSet)
 		{
 			return JoinInfo.FindActiveRelationship(this.m_defaultRelationships, parentDataSet);
 		}
 
-		internal void DetermineDecomposability(InitializationContext context)
+		public void DetermineDecomposability(InitializationContext context)
 		{
 			if (!context.EvaluateAtomicityCondition(this.m_dataSetCore.Filters != null, this, AtomicityReason.Filters) && !context.EvaluateAtomicityCondition(this.HasAggregatesForAtomicityCheck(), this, AtomicityReason.Aggregates) && !context.EvaluateAtomicityCondition(this.HasLookups, this, AtomicityReason.Lookups) && !context.EvaluateAtomicityCondition(this.m_dataRegions.Count > 1, this, AtomicityReason.PeerChildScopes))
 			{
@@ -801,7 +801,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			this.m_dataSetCore.SetExprHost(reportExprHost, reportObjectModel);
 			if (this.m_lookups != null && reportExprHost.LookupExprHostsRemotable != null)
@@ -827,27 +827,27 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetFilterExprHost(ObjectModelImpl reportObjectModel)
+		public void SetFilterExprHost(ObjectModelImpl reportObjectModel)
 		{
 			this.m_dataSetCore.SetFilterExprHost(reportObjectModel);
 		}
 
-		internal void SetupRuntimeEnvironment(OnDemandProcessingContext odpContext)
+		public void SetupRuntimeEnvironment(OnDemandProcessingContext odpContext)
 		{
 			odpContext.SetComparisonInformation(this.m_dataSetCore);
 		}
 
-		internal bool NeedAutoDetectCollation()
+		public bool NeedAutoDetectCollation()
 		{
 			return this.m_dataSetCore.NeedAutoDetectCollation();
 		}
 
-		internal void MergeCollationSettings(ErrorContext errorContext, string dataSourceType, string cultureName, bool caseSensitive, bool accentSensitive, bool kanatypeSensitive, bool widthSensitive)
+		public void MergeCollationSettings(ErrorContext errorContext, string dataSourceType, string cultureName, bool caseSensitive, bool accentSensitive, bool kanatypeSensitive, bool widthSensitive)
 		{
 			this.m_dataSetCore.MergeCollationSettings(errorContext, dataSourceType, cultureName, caseSensitive, accentSensitive, kanatypeSensitive, widthSensitive);
 		}
 
-		internal void MarkDataRegionsAsNoRows()
+		public void MarkDataRegionsAsNoRows()
 		{
 			if (this.m_dataRegions != null)
 			{
@@ -858,12 +858,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CompareOptions GetCLRCompareOptions()
+		public CompareOptions GetCLRCompareOptions()
 		{
 			return this.m_dataSetCore.GetCLRCompareOptions();
 		}
 
-		internal void ClearDataRegionStreamingScopeInstances()
+		public void ClearDataRegionStreamingScopeInstances()
 		{
 			if (this.m_dataRegions != null)
 			{
@@ -874,7 +874,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RestrictDataSetAggregates(PublishingErrorContext m_errorContext)
+		public void RestrictDataSetAggregates(PublishingErrorContext m_errorContext)
 		{
 			if (!this.m_usedOnlyInParameters && this.m_usedInAggregates && (this.m_dataRegions == null || this.m_dataRegions.Count == 0))
 			{
@@ -895,7 +895,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new ReadOnlyMemberInfo(MemberName.Name, Token.String));

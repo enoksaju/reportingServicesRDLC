@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class CheckBox : ReportItem
+	public sealed class CheckBox : ReportItem
 	{
 		public bool Value
 		{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal CheckBox(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.CheckBox reportItemDef, CheckBoxInstance reportItemInstance, RenderingContext renderingContext)
+		public CheckBox(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.CheckBox reportItemDef, CheckBoxInstance reportItemInstance, RenderingContext renderingContext)
 			: base(uniqueName, intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 		}

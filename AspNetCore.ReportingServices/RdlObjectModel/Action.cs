@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Action : ReportObject
+	public class Action : ReportObject
 	{
-		internal class Definition : DefinitionStore<Action, Definition.Properties>
+		public class Definition : DefinitionStore<Action, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Hyperlink,
 				Drillthrough,
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Action(IPropertyStore propertyStore)
+		public Action(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

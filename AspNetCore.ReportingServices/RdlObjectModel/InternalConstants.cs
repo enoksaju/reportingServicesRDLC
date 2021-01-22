@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal static class InternalConstants
+	public static class InternalConstants
 	{
 		public static readonly int[] ChartMemberDataElementOutputTypes = new int[3]
 		{

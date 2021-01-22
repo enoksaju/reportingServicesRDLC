@@ -4,13 +4,13 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class ReportSectionPage : PageItem
+	public sealed class ReportSectionPage : PageItem
 	{
 		private new Page m_source;
 
 		private RPLPageLayout m_pageLayout;
 
-		internal override string SourceUniqueName
+		public override string SourceUniqueName
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override string SourceID
+		public override string SourceID
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal RPLPageLayout PageLayout
+		public RPLPageLayout PageLayout
 		{
 			set
 			{
@@ -34,17 +34,17 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal ReportSectionPage(Page source)
+		public ReportSectionPage(Page source)
 			: base(null)
 		{
 			this.m_source = source;
 		}
 
-		internal override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
-		internal void WriteItemStyle(RPLWriter rplWriter, PageContext pageContext)
+		public void WriteItemStyle(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (rplWriter != null)
 			{
@@ -85,19 +85,19 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BackgroundColor, 34);
 			base.WriteBackgroundImage(style, true, spbifWriter, pageContext);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			PageItem.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BackgroundColor, 34);
 			base.WriteBackgroundImage(style, true, rplStyleProps, pageContext);
 		}
 
-		internal override void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{

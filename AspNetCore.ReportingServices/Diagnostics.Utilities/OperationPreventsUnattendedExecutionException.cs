@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class OperationPreventsUnattendedExecutionException : ReportCatalogException
+	public sealed class OperationPreventsUnattendedExecutionException : ReportCatalogException
 	{
 		public OperationPreventsUnattendedExecutionException()
 			: base(ErrorCode.rsOperationPreventsUnattendedExecution, ErrorStrings.rsOperationPreventsUnattendedExecution, null, null)

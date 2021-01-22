@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class RuntimeIncrementalDataSet : RuntimeDataSet
+	public abstract class RuntimeIncrementalDataSet : RuntimeDataSet
 	{
 		protected override bool ShouldCancelCommandDuringCleanup
 		{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 		{
 		}
 
-		internal void Initialize(ExecutedQuery existingQuery)
+		public void Initialize(ExecutedQuery existingQuery)
 		{
 			try
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void Teardown()
+		public void Teardown()
 		{
 			try
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RecordSkippedRowCount(long rowCount)
+		public void RecordSkippedRowCount(long rowCount)
 		{
 			base.m_executionMetrics.AddSkippedRowCount(rowCount);
 		}

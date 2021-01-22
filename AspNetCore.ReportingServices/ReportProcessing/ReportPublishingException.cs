@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportPublishingException : ReportProcessingException
+	public sealed class ReportPublishingException : ReportProcessingException
 	{
 		private const string ReportProcessingFlagsName = "ReportProcessingFlags";
 

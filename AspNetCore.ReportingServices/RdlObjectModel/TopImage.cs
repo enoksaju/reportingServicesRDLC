@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TopImage : BaseGaugeImage
+	public class TopImage : BaseGaugeImage
 	{
-		internal new class Definition : DefinitionStore<TopImage, Definition.Properties>
+		public new class Definition : DefinitionStore<TopImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Source,
 				Value,
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TopImage(IPropertyStore propertyStore)
+		public TopImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

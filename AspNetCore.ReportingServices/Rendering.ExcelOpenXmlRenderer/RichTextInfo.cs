@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal class RichTextInfo : IRichTextInfo
+	public class RichTextInfo : IRichTextInfo
 	{
 		public delegate Style CreateStyle();
 

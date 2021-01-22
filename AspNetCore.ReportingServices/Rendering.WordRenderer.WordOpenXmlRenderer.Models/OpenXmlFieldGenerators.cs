@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal static class OpenXmlFieldGenerators
+	public static class OpenXmlFieldGenerators
 	{
 		private sealed class FieldWithCache : OpenXmlParagraphModel.IParagraphContent
 		{

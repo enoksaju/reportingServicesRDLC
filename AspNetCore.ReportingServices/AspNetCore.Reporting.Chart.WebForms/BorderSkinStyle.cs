@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum BorderSkinStyle
+	public enum BorderSkinStyle
 	{
 		None,
 		Emboss,

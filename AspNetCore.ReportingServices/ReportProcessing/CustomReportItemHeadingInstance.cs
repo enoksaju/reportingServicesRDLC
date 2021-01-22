@@ -5,7 +5,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CustomReportItemHeadingInstance
+	public sealed class CustomReportItemHeadingInstance
 	{
 		private CustomReportItemHeadingInstanceList m_subHeadingInstances;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_recursiveLevel = -1;
 
-		internal CustomReportItemHeadingInstanceList SubHeadingInstances
+		public CustomReportItemHeadingInstanceList SubHeadingInstances
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeading HeadingDefinition
+		public CustomReportItemHeading HeadingDefinition
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int HeadingCellIndex
+		public int HeadingCellIndex
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int HeadingSpan
+		public int HeadingSpan
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstanceList CustomPropertyInstances
+		public DataValueInstanceList CustomPropertyInstances
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal VariantList GroupExpressionValues
+		public VariantList GroupExpressionValues
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int RecursiveLevel
+		public int RecursiveLevel
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingInstance(ReportProcessing.ProcessingContext pc, int headingCellIndex, CustomReportItemHeading headingDef, VariantList groupExpressionValues, int recursiveLevel)
+		public CustomReportItemHeadingInstance(ReportProcessing.ProcessingContext pc, int headingCellIndex, CustomReportItemHeading headingDef, VariantList groupExpressionValues, int recursiveLevel)
 		{
 			if (headingDef.InnerHeadings != null)
 			{
@@ -151,11 +151,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_recursiveLevel = recursiveLevel;
 		}
 
-		internal CustomReportItemHeadingInstance()
+		public CustomReportItemHeadingInstance()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.SubHeadingInstances, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.CustomReportItemHeadingInstanceList));

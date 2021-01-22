@@ -12,9 +12,9 @@ using System.Text;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class DataAggregateInfo : IPersistable, IStaticReferenceable
+	public class DataAggregateInfo : IPersistable, IStaticReferenceable
 	{
-		internal enum AggregateTypes
+		public enum AggregateTypes
 		{
 			First,
 			Last,
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			Union
 		}
 
-		internal class PublishingValidationInfo
+		public class PublishingValidationInfo
 		{
 			private AspNetCore.ReportingServices.ReportProcessing.ObjectType m_objectType;
 
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 			private bool m_hasAnyFieldReferences;
 
-			internal AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+			public AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 			{
 				get
 				{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal string ObjectName
+			public string ObjectName
 			{
 				get
 				{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal string PropertyName
+			public string PropertyName
 			{
 				get
 				{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal IRIFDataScope EvaluationScope
+			public IRIFDataScope EvaluationScope
 			{
 				get
 				{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal List<DataAggregateInfo> NestedAggregates
+			public List<DataAggregateInfo> NestedAggregates
 			{
 				get
 				{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal string Scope
+			public string Scope
 			{
 				get
 				{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool HasScope
+			public bool HasScope
 			{
 				get
 				{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool Recursive
+			public bool Recursive
 			{
 				get
 				{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal int AggregateOfAggregatesLevel
+			public int AggregateOfAggregatesLevel
 			{
 				get
 				{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool HasAnyFieldReferences
+			public bool HasAnyFieldReferences
 			{
 				get
 				{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal PublishingValidationInfo PublishClone()
+			public PublishingValidationInfo PublishClone()
 			{
 				return (PublishingValidationInfo)base.MemberwiseClone();
 			}
@@ -219,7 +219,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private int m_staticId = -2147483648;
 
-		internal virtual bool MustCopyAggregateResult
+		public virtual bool MustCopyAggregateResult
 		{
 			get
 			{
@@ -227,7 +227,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -239,7 +239,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string EvaluationScopeName
+		public string EvaluationScopeName
 		{
 			get
 			{
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IRIFDataScope EvaluationScope
+		public IRIFDataScope EvaluationScope
 		{
 			get
 			{
@@ -263,7 +263,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AggregateTypes AggregateType
+		public AggregateTypes AggregateType
 		{
 			get
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo[] Expressions
+		public ExpressionInfo[] Expressions
 		{
 			get
 			{
@@ -287,7 +287,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<string> DuplicateNames
+		public List<string> DuplicateNames
 		{
 			get
 			{
@@ -299,7 +299,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int DataSetIndexInCollection
+		public int DataSetIndexInCollection
 		{
 			get
 			{
@@ -311,7 +311,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string ExpressionText
+		public string ExpressionText
 		{
 			get
 			{
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string ExpressionTextForCompaction
+		public string ExpressionTextForCompaction
 		{
 			get
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AggregateParamExprHost[] ExpressionHosts
+		public AggregateParamExprHost[] ExpressionHosts
 		{
 			get
 			{
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ExprHostInitialized
+		public bool ExprHostInitialized
 		{
 			get
 			{
@@ -355,7 +355,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool Recursive
+		public bool Recursive
 		{
 			get
 			{
@@ -367,7 +367,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsAggregateOfAggregate
+		public bool IsAggregateOfAggregate
 		{
 			get
 			{
@@ -379,7 +379,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int UpdateScopeID
+		public int UpdateScopeID
 		{
 			get
 			{
@@ -391,7 +391,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int UpdateScopeDepth
+		public int UpdateScopeDepth
 		{
 			get
 			{
@@ -403,7 +403,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UpdatesAtRowScope
+		public bool UpdatesAtRowScope
 		{
 			get
 			{
@@ -415,7 +415,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PublishingValidationInfo PublishingInfo
+		public PublishingValidationInfo PublishingInfo
 		{
 			get
 			{
@@ -435,7 +435,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void AddNestedAggregate(DataAggregateInfo agg)
+		public void AddNestedAggregate(DataAggregateInfo agg)
 		{
 			if (AggregateTypes.Previous != this.m_aggregateType)
 			{
@@ -452,12 +452,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ShouldRecordFieldReferences()
+		public bool ShouldRecordFieldReferences()
 		{
 			return !this.m_hasCachedFieldReferences;
 		}
 
-		internal void StoreFieldReferences(OnDemandProcessingContext odpContext, List<string> dataFieldNames)
+		public void StoreFieldReferences(OnDemandProcessingContext odpContext, List<string> dataFieldNames)
 		{
 			this.m_hasCachedFieldReferences = true;
 			odpContext.OdpMetadata.ReportSnapshot.AggregateFieldReferences[this.m_name] = dataFieldNames;
@@ -504,7 +504,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return dataAggregateInfo;
 		}
 
-		internal virtual string GetAsString()
+		public virtual string GetAsString()
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.Append(this.m_aggregateType.ToString());
@@ -537,19 +537,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return stringBuilder.ToString();
 		}
 
-		internal void SetScope(string scope)
+		public void SetScope(string scope)
 		{
 			this.PublishingInfo.HasScope = true;
 			this.PublishingInfo.Scope = scope;
 		}
 
-		internal bool GetScope(out string scope)
+		public bool GetScope(out string scope)
 		{
 			scope = this.PublishingInfo.Scope;
 			return this.PublishingInfo.HasScope;
 		}
 
-		internal void SetExprHosts(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHosts(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(reportExprHost != null && reportObjectModel != null, "(reportExprHost != null && reportObjectModel != null)");
 			if (!this.m_exprHostInitialized)
@@ -584,7 +584,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsPostSortAggregate()
+		public bool IsPostSortAggregate()
 		{
 			if (this.m_aggregateType != 0 && AggregateTypes.Last != this.m_aggregateType && AggregateTypes.Previous != this.m_aggregateType)
 			{
@@ -593,12 +593,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal virtual bool IsRunningValue()
+		public virtual bool IsRunningValue()
 		{
 			return false;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));

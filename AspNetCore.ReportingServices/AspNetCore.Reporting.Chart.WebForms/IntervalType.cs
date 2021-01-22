@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum IntervalType
+	public enum IntervalType
 	{
 		Number,
 		Years,

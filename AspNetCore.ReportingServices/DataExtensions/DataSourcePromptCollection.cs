@@ -6,7 +6,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class DataSourcePromptCollection
+	public sealed class DataSourcePromptCollection
 	{
 		private Hashtable m_collection = new Hashtable();
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return this.m_collection.Values.GetEnumerator();
 		}
 
-		internal void Add(DataSourceInfo dataSource, ServerDataSourceSettings serverDatasourceSettings)
+		public void Add(DataSourceInfo dataSource, ServerDataSourceSettings serverDatasourceSettings)
 		{
 			string originalName = dataSource.OriginalName;
 			Global.Tracer.Assert(this.m_collection[originalName] == null, "Collection already contains this data source.");

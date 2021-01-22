@@ -5,17 +5,17 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class FieldInfo : IPersistable
+	public class FieldInfo : IPersistable
 	{
 		private List<int> m_propertyReaderIndices;
 
 		private List<string> m_propertyNames;
 
 		[NonSerialized]
-		internal bool ErrorRegistered;
+		public bool ErrorRegistered;
 
 		[NonSerialized]
-		internal bool Missing;
+		public bool Missing;
 
 		[NonSerialized]
 		private readonly bool[] m_propertyErrorRegistered;
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_declaration = FieldInfo.GetDeclaration();
 
-		internal int PropertyCount
+		public int PropertyCount
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> PropertyReaderIndices
+		public List<int> PropertyReaderIndices
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<string> PropertyNames
+		public List<string> PropertyNames
 		{
 			get
 			{
@@ -51,19 +51,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal FieldInfo()
+		public FieldInfo()
 		{
 			this.m_propertyErrorRegistered = new bool[0];
 		}
 
-		internal FieldInfo(List<int> aPropIndices, List<string> aPropNames)
+		public FieldInfo(List<int> aPropIndices, List<string> aPropNames)
 		{
 			this.m_propertyReaderIndices = aPropIndices;
 			this.m_propertyNames = aPropNames;
 			this.m_propertyErrorRegistered = new bool[aPropIndices.Count];
 		}
 
-		internal bool IsPropertyErrorRegistered(int aIndex)
+		public bool IsPropertyErrorRegistered(int aIndex)
 		{
 			if (this.m_propertyErrorRegistered == null)
 			{
@@ -72,12 +72,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_propertyErrorRegistered[aIndex];
 		}
 
-		internal void SetPropertyErrorRegistered(int aIndex)
+		public void SetPropertyErrorRegistered(int aIndex)
 		{
 			this.m_propertyErrorRegistered[aIndex] = true;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.FieldPropertyNames, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.PrimitiveList, Token.String));

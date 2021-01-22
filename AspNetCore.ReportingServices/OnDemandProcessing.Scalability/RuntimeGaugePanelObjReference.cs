@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class RuntimeGaugePanelObjReference : RuntimeChartCriObjReference, IReference<RuntimeGaugePanelObj>, IReference, IStorable, IPersistable
+	public class RuntimeGaugePanelObjReference : RuntimeChartCriObjReference, IReference<RuntimeGaugePanelObj>, IReference, IStorable, IPersistable
 	{
-		internal RuntimeGaugePanelObjReference()
+		public RuntimeGaugePanelObjReference()
 		{
 		}
 

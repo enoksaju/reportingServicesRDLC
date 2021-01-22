@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMarkerTemplateInstance : MapPointTemplateInstance
+	public sealed class MapMarkerTemplateInstance : MapPointTemplateInstance
 	{
 		private MapMarkerTemplate m_defObject;
 
-		internal MapMarkerTemplateInstance(MapMarkerTemplate defObject)
+		public MapMarkerTemplateInstance(MapMarkerTemplate defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

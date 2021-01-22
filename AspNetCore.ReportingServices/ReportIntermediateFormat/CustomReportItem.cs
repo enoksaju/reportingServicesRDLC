@@ -11,7 +11,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class CustomReportItem : DataRegion, ICreateSubtotals, IPersistable
+	public sealed class CustomReportItem : DataRegion, ICreateSubtotals, IPersistable
 	{
 		private DataMemberList m_dataColumnMembers;
 
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private CustomReportItemExprHost m_criExprHost;
 
-		internal override bool IsDataRegion
+		public override bool IsDataRegion
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList ColumnMembers
+		public override HierarchyNodeList ColumnMembers
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList RowMembers
+		public override HierarchyNodeList RowMembers
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override RowList Rows
+		public override RowList Rows
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CustomReportItemExprHost CustomReportItemExprHost
+		public CustomReportItemExprHost CustomReportItemExprHost
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataMemberList DataColumnMembers
+		public DataMemberList DataColumnMembers
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataMemberList DataRowMembers
+		public DataMemberList DataRowMembers
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CustomDataRowList DataRows
+		public CustomDataRowList DataRows
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Type
+		public string Type
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItem AltReportItem
+		public ReportItem AltReportItem
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int AltReportItemIndexInParentCollectionDef
+		public int AltReportItemIndexInParentCollectionDef
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItemCollection RenderReportItem
+		public ReportItemCollection RenderReportItem
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ExplicitlyDefinedAltReportItem
+		public bool ExplicitlyDefinedAltReportItem
 		{
 			get
 			{
@@ -196,22 +196,22 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CustomReportItem(ReportItem parent)
+		public CustomReportItem(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal CustomReportItem(int id, ReportItem parent)
+		public CustomReportItem(int id, ReportItem parent)
 			: base(id, parent)
 		{
 		}
 
-		internal void SetAsDataRegion()
+		public void SetAsDataRegion()
 		{
 			this.m_isDataRegion = true;
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			CustomReportItem customReportItem = (CustomReportItem)(context.CurrentDataRegionClone = (CustomReportItem)base.PublishClone(context));
 			if (this.m_dataColumnMembers != null)
@@ -403,7 +403,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return num;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataColumnMembers, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataMember));
@@ -529,7 +529,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.CustomReportItem;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -539,7 +539,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
+		public override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
 		{
 			if (this.m_dataRows != null && this.m_dataRows.Count > 0)
 			{
@@ -568,7 +568,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object EvaluateNoRowsMessageExpression()
+		public override object EvaluateNoRowsMessageExpression()
 		{
 			return this.m_criExprHost.NoRowsExpr;
 		}

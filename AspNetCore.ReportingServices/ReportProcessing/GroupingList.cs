@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class GroupingList : ArrayList
+	public sealed class GroupingList : ArrayList
 	{
-		internal new Grouping this[int index]
+		public new Grouping this[int index]
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Grouping LastEntry
+		public Grouping LastEntry
 		{
 			get
 			{
@@ -26,16 +26,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal GroupingList()
+		public GroupingList()
 		{
 		}
 
-		internal GroupingList(int capacity)
+		public GroupingList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal new GroupingList Clone()
+		public new GroupingList Clone()
 		{
 			int count = this.Count;
 			GroupingList groupingList = new GroupingList(count);

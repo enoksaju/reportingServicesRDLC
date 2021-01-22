@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class Gauge : GaugePanelItem
+	public abstract class Gauge : GaugePanelItem
 	{
 		private BackFrame m_backFrame;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Gauge GaugeDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Gauge GaugeDef
 		{
 			get
 			{
@@ -76,14 +76,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Gauge(AspNetCore.ReportingServices.ReportIntermediateFormat.Gauge defObject, GaugePanel gaugePanel)
+		public Gauge(AspNetCore.ReportingServices.ReportIntermediateFormat.Gauge defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

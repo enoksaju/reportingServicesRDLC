@@ -1,4 +1,4 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal delegate void CallbackEventHandler(object sender, CallbackEventArgs e);
+	public delegate void CallbackEventHandler(object sender, CallbackEventArgs e);
 }

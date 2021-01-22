@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class TextBox : ReportItem, IActionOwner, IPersistable, IInScopeEventSource, IReferenceable, IGloballyReferenceable, IGlobalIDOwner
+	public sealed class TextBox : ReportItem, IActionOwner, IPersistable, IInScopeEventSource, IReferenceable, IGloballyReferenceable, IGlobalIDOwner
 	{
 		private List<Paragraph> m_paragraphs;
 
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private TextBoxImpl m_textBoxImpl;
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<Paragraph> Paragraphs
+		public List<Paragraph> Paragraphs
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool CanScrollVertically
+		public bool CanScrollVertically
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool CanGrow
+		public bool CanGrow
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool CanShrink
+		public bool CanShrink
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string HideDuplicates
+		public string HideDuplicates
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsToggle
+		public bool IsToggle
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo InitialToggleState
+		public ExpressionInfo InitialToggleState
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool RecursiveSender
+		public bool RecursiveSender
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasNonRecursiveSender
+		public bool HasNonRecursiveSender
 		{
 			get
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixMember RecursiveMember
+		public TablixMember RecursiveMember
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ValueReferenced
+		public bool ValueReferenced
 		{
 			get
 			{
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TextBoxExprHost TextBoxExprHost
+		public TextBoxExprHost TextBoxExprHost
 		{
 			get
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool DataElementStyleAttribute
+		public bool DataElementStyleAttribute
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal EndUserSort UserSort
+		public EndUserSort UserSort
 		{
 			get
 			{
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool OverrideReportDataElementStyle
+		public bool OverrideReportDataElementStyle
 		{
 			get
 			{
@@ -276,7 +276,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool KeepTogether
+		public bool KeepTogether
 		{
 			get
 			{
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasExpressionBasedValue
+		public bool HasExpressionBasedValue
 		{
 			get
 			{
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasValue
+		public bool HasValue
 		{
 			get
 			{
@@ -304,7 +304,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsSimple
+		public bool IsSimple
 		{
 			get
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override DataElementOutputTypes DataElementOutputDefault
+		public override DataElementOutputTypes DataElementOutputDefault
 		{
 			get
 			{
@@ -324,7 +324,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -356,7 +356,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool TextRunValueReferenced
+		public bool TextRunValueReferenced
 		{
 			get
 			{
@@ -368,7 +368,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int SequenceID
+		public int SequenceID
 		{
 			get
 			{
@@ -424,7 +424,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GroupingList ContainingScopes
+		public GroupingList ContainingScopes
 		{
 			get
 			{
@@ -492,18 +492,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TextBox(ReportItem parent)
+		public TextBox(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal TextBox(int id, ReportItem parent)
+		public TextBox(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_paragraphs = new List<Paragraph>();
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -649,12 +649,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return list;
 		}
 
-		internal string GetRecursiveUniqueName(int parentInstanceIndex)
+		public string GetRecursiveUniqueName(int parentInstanceIndex)
 		{
 			return InstancePathItem.GenerateUniqueNameString(base.ID, this.InstancePath, parentInstanceIndex);
 		}
 
-		internal bool EvaluateIsToggle(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public bool EvaluateIsToggle(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			bool flag = this.IsToggle;
 			if (flag && this.RecursiveSender && !this.HasNonRecursiveSender)
@@ -678,7 +678,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void InitializeRVDirectionDependentItems(InitializationContext context)
+		public override void InitializeRVDirectionDependentItems(InitializationContext context)
 		{
 			if (this.m_userSort != null)
 			{
@@ -686,7 +686,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			TextBox textBox = (TextBox)base.PublishClone(context);
 			textBox.m_sequenceID = context.GenerateTextboxSequenceID();
@@ -719,7 +719,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return textBox;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new ReadOnlyMemberInfo(MemberName.Value, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -1010,7 +1010,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_paragraphs[0].TextRuns[0];
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -1031,23 +1031,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool EvaluateInitialToggleState(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public bool EvaluateInitialToggleState(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateTextBoxInitialToggleStateExpression(this);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateValue(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateValue(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			return this.GetTextBoxImpl(context).GetResult(romInstance, false);
 		}
 
-		internal List<string> GetFieldsUsedInValueExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public List<string> GetFieldsUsedInValueExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			return this.GetTextBoxImpl(context).GetFieldsUsedInValueExpression(romInstance);
 		}
 
-		internal TextBoxImpl GetTextBoxImpl(OnDemandProcessingContext context)
+		public TextBoxImpl GetTextBoxImpl(OnDemandProcessingContext context)
 		{
 			if (this.m_textBoxImpl == null)
 			{
@@ -1059,17 +1059,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_textBoxImpl;
 		}
 
-		internal void ResetTextBoxImpl(OnDemandProcessingContext context)
+		public void ResetTextBoxImpl(OnDemandProcessingContext context)
 		{
 			this.GetTextBoxImpl(context).Reset();
 		}
 
-		internal void ResetDuplicates()
+		public void ResetDuplicates()
 		{
 			this.m_hasOldResult = false;
 		}
 
-		internal bool CalculateDuplicates(AspNetCore.ReportingServices.RdlExpressions.VariantResult currentResult, OnDemandProcessingContext context)
+		public bool CalculateDuplicates(AspNetCore.ReportingServices.RdlExpressions.VariantResult currentResult, OnDemandProcessingContext context)
 		{
 			bool flag = false;
 			if (this.m_hideDuplicates != null)

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface IMapAreaAttributes
+	public interface IMapAreaAttributes
 	{
 		string ToolTip
 		{

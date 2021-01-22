@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices
 {
-	internal sealed class RefCountedAppDomain : IDisposable
+	public sealed class RefCountedAppDomain : IDisposable
 	{
 		private class AppDomainRefCount
 		{

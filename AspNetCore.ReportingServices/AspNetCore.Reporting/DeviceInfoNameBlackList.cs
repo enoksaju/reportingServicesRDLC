@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class DeviceInfoNameBlackList
+	public sealed class DeviceInfoNameBlackList
 	{
 		private Dictionary<string, string> m_blackList = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 

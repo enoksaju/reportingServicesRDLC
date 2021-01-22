@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class CustomColorCollection : NamedCollection
+	public class CustomColorCollection : NamedCollection
 	{
 		private CustomColor this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal CustomColorCollection(NamedElement parent, CommonElements common)
+		public CustomColorCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(CustomColor);
@@ -82,12 +82,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Remove(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "CustomColor1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "CustomColor{0}";
 		}

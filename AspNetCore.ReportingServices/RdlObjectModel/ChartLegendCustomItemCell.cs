@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartLegendCustomItemCell : ReportObject, INamedObject
+	public class ChartLegendCustomItemCell : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<ChartLegendCustomItemCell, Definition.Properties>
+		public class Definition : DefinitionStore<ChartLegendCustomItemCell, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				CellType,
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartLegendCustomItemCell(IPropertyStore propertyStore)
+		public ChartLegendCustomItemCell(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

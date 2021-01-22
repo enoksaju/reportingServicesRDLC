@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimParagraphInstance : ParagraphInstance
+	public sealed class ShimParagraphInstance : ParagraphInstance
 	{
 		public override string UniqueName
 		{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimParagraphInstance(Paragraph paragraphDef)
+		public ShimParagraphInstance(Paragraph paragraphDef)
 			: base(paragraphDef)
 		{
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal abstract class StyleState : IStyle, IFont
+	public abstract class StyleState : IStyle, IFont
 	{
 		protected StyleContainer m_context;
 
@@ -145,6 +145,6 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			this.m_context = parent;
 		}
 
-		internal abstract void Finished();
+		public abstract void Finished();
 	}
 }

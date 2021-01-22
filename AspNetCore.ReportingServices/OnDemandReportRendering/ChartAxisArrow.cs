@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartAxisArrow
+	public enum ChartAxisArrow
 	{
 		None,
 		Triangle,

@@ -7,7 +7,7 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeLegendCellColumn_LegendCellColumn")]
-	internal class LegendCellColumn
+	public class LegendCellColumn
 	{
 		private Legend legend;
 
@@ -421,7 +421,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return true;
 		}
 
-		internal LegendCell CreateNewCell()
+		public LegendCell CreateNewCell()
 		{
 			LegendCell legendCell = new LegendCell();
 			legendCell.CellType = (LegendCellType)((this.ColumnType == LegendCellColumnType.SeriesSymbol) ? 1 : 0);
@@ -448,7 +448,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.legend;
 		}
 
-		internal void SetContainingLegend(Legend legend)
+		public void SetContainingLegend(Legend legend)
 		{
 			this.legend = legend;
 			if (this.legend != null)

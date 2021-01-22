@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IBaseImage
+	public interface IBaseImage
 	{
 		Image.SourceType Source
 		{

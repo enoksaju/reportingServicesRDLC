@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ChartImageAlign
+	public enum ChartImageAlign
 	{
 		TopLeft,
 		Top,

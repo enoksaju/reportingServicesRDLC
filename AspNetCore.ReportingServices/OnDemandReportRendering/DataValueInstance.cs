@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DataValueInstance : BaseInstance
+	public abstract class DataValueInstance : BaseInstance
 	{
 		public abstract string Name
 		{
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal DataValueInstance(IReportScope repotScope)
+		public DataValueInstance(IReportScope repotScope)
 			: base(repotScope)
 		{
 		}

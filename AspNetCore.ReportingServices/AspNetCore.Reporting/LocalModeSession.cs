@@ -8,7 +8,7 @@ using System.Text;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class LocalModeSession : ReportControlSession
+	public sealed class LocalModeSession : ReportControlSession
 	{
 		private InternalLocalReport m_localReport;
 

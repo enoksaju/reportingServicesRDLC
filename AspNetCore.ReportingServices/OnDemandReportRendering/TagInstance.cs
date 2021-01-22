@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TagInstance
+	public sealed class TagInstance
 	{
 		private readonly Tag m_tagDef;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TagInstance(Tag tagDef)
+		public TagInstance(Tag tagDef)
 		{
 			this.m_tagDef = tagDef;
 		}
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ResetInstanceCache()
+		public void ResetInstanceCache()
 		{
 			this.m_tag = null;
 		}

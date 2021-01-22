@@ -7,7 +7,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RenderingContext
+	public sealed class RenderingContext
 	{
 		private bool m_isSubReportContext;
 
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private string m_rendererID;
 
-		internal bool IsSubReportContext
+		public bool IsSubReportContext
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool SubReportProcessedWithError
+		public bool SubReportProcessedWithError
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool SubReportHasNoInstance
+		public bool SubReportHasNoInstance
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool SubReportHasErrorOrNoInstance
+		public bool SubReportHasErrorOrNoInstance
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool InstanceAccessDisallowed
+		public bool InstanceAccessDisallowed
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal OnDemandProcessingContext OdpContext
+		public OnDemandProcessingContext OdpContext
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IErrorContext ErrorContext
+		public IErrorContext ErrorContext
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal EventInformation EventInfo
+		public EventInformation EventInfo
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool EventInfoChanged
+		public bool EventInfoChanged
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot ReportSnapshot
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot ReportSnapshot
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool NativeAllCRITypes
+		public bool NativeAllCRITypes
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Hashtable NativeCRITypes
+		public Hashtable NativeCRITypes
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext(string rendererID, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot reportSnapshot, EventInformation eventInfo, OnDemandProcessingContext processingContext)
+		public RenderingContext(string rendererID, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot reportSnapshot, EventInformation eventInfo, OnDemandProcessingContext processingContext)
 		{
 			this.m_rendererID = rendererID;
 			this.m_isSubReportContext = false;
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext(string rendererID, AspNetCore.ReportingServices.ReportProcessing.ReportSnapshot reportSnapshot, IChunkFactory chunkFactory, EventInformation eventInfo)
+		public RenderingContext(string rendererID, AspNetCore.ReportingServices.ReportProcessing.ReportSnapshot reportSnapshot, IChunkFactory chunkFactory, EventInformation eventInfo)
 		{
 			this.m_rendererID = rendererID;
 			this.m_isSubReportContext = false;
@@ -194,12 +194,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext(RenderingContext parentContext)
+		public RenderingContext(RenderingContext parentContext)
 			: this(parentContext, false)
 		{
 		}
 
-		internal RenderingContext(RenderingContext parentContext, bool hasReportItemReferences)
+		public RenderingContext(RenderingContext parentContext, bool hasReportItemReferences)
 		{
 			this.m_rendererID = parentContext.m_rendererID;
 			this.m_isSubReportContext = true;
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_eventInfo.Changed = false;
 		}
 
-		internal RenderingContext(RenderingContext parentContext, OnDemandProcessingContext onDemandProcessingContext)
+		public RenderingContext(RenderingContext parentContext, OnDemandProcessingContext onDemandProcessingContext)
 		{
 			this.m_rendererID = parentContext.m_rendererID;
 			this.m_isSubReportContext = true;
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_odpContext = onDemandProcessingContext;
 		}
 
-		internal void AddDynamicInstance(IDynamicInstance instance)
+		public void AddDynamicInstance(IDynamicInstance instance)
 		{
 			if (this.m_dynamicInstances == null)
 			{
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_dynamicInstances.Add(instance);
 		}
 
-		internal void ResetContext()
+		public void ResetContext()
 		{
 			if (this.m_dynamicInstances != null)
 			{
@@ -265,12 +265,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetPageEvaluation(PageEvaluation pageEvaluation)
+		public void SetPageEvaluation(PageEvaluation pageEvaluation)
 		{
 			this.m_pageEvaluation = pageEvaluation;
 		}
 
-		internal void AddToCurrentPage(string textboxName, object textboxValue)
+		public void AddToCurrentPage(string textboxName, object textboxValue)
 		{
 			if (this.m_pageEvaluation != null)
 			{
@@ -278,7 +278,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void AddDrillthroughAction(string drillthroughId, string reportName, DrillthroughParameters reportParameters)
+		public void AddDrillthroughAction(string drillthroughId, string reportName, DrillthroughParameters reportParameters)
 		{
 			if (this.m_rendererID != null)
 			{
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void AddValidToggleSender(string senderUniqueName)
+		public void AddValidToggleSender(string senderUniqueName)
 		{
 			this.CheckResetEventInfo();
 			EventInformation.RendererEventInformation rendererEventInformation = this.m_eventInfo.GetRendererEventInformation(this.m_rendererID);
@@ -321,7 +321,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsSenderToggled(string uniqueName)
+		public bool IsSenderToggled(string uniqueName)
 		{
 			EventInformation eventInfo = this.EventInfo;
 			if (eventInfo != null)
@@ -336,7 +336,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal SortOptions GetSortState(string eventSourceUniqueName)
+		public SortOptions GetSortState(string eventSourceUniqueName)
 		{
 			if (this.m_eventInfo != null && this.m_eventInfo.OdpSortInfo != null)
 			{
@@ -345,12 +345,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return SortOptions.None;
 		}
 
-		internal string GenerateShimUniqueName(string baseUniqueName)
+		public string GenerateShimUniqueName(string baseUniqueName)
 		{
 			return 'x' + baseUniqueName;
 		}
 
-		internal Stream GetOrCreateChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes type, string chunkName, bool createChunkIfNotExists, out bool isNewChunk)
+		public Stream GetOrCreateChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes type, string chunkName, bool createChunkIfNotExists, out bool isNewChunk)
 		{
 			if (!this.IsChunkManagerValid())
 			{
@@ -360,7 +360,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_chunkManager.GetOrCreateChunk(type, chunkName, createChunkIfNotExists, out isNewChunk);
 		}
 
-		internal Stream CreateChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes type, string chunkName)
+		public Stream CreateChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes type, string chunkName)
 		{
 			if (!this.IsChunkManagerValid())
 			{
@@ -384,7 +384,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal void CloseRenderingChunkManager()
+		public void CloseRenderingChunkManager()
 		{
 			if (this.m_chunkManager != null)
 			{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsRenderAsNativeCri(AspNetCore.ReportingServices.ReportIntermediateFormat.CustomReportItem criDef)
+		public bool IsRenderAsNativeCri(AspNetCore.ReportingServices.ReportIntermediateFormat.CustomReportItem criDef)
 		{
 			if (this.m_nativeAllCRITypes)
 			{

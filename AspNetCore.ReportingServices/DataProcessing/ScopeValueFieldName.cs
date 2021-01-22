@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal class ScopeValueFieldName
+	public class ScopeValueFieldName
 	{
 		private readonly string m_fieldName;
 
 		private readonly object m_value;
 
-		internal object ScopeValue
+		public object ScopeValue
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.DataProcessing
 			}
 		}
 
-		internal string FieldName
+		public string FieldName
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.DataProcessing
 			}
 		}
 
-		internal ScopeValueFieldName(string fieldName, object value)
+		public ScopeValueFieldName(string fieldName, object value)
 		{
 			this.m_fieldName = fieldName;
 			this.m_value = value;

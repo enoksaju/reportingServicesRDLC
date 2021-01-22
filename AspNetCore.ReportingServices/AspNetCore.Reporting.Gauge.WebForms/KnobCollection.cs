@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class KnobCollection : NamedCollection
+	public class KnobCollection : NamedCollection
 	{
 		private Knob this[int index]
 		{
@@ -62,7 +62,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal KnobCollection(NamedElement parent, CommonElements common)
+		public KnobCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(Knob);
@@ -101,7 +101,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return base.List.IndexOf(value);
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Knob{0}";
 		}

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class Sum : DataAggregate
+	public class Sum : DataAggregate
 	{
 		private DataTypeCode m_expressionType;
 
@@ -10,13 +10,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		protected object m_currentTotal;
 
-		internal override void Init()
+		public override void Init()
 		{
 			this.m_currentTotalType = DataTypeCode.Null;
 			this.m_currentTotal = null;
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			Global.Tracer.Assert(null != expressions);
 			Global.Tracer.Assert(1 == expressions.Length);
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			return this.m_currentTotal;
 		}

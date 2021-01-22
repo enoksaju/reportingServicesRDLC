@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapSpatialDataSet : MapSpatialData, IPersistable
+	public sealed class MapSpatialDataSet : MapSpatialData, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapSpatialDataSet.GetDeclaration();
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private List<MapFieldName> m_mapFieldNames;
 
-		internal ExpressionInfo DataSetName
+		public ExpressionInfo DataSetName
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SpatialField
+		public ExpressionInfo SpatialField
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapFieldName> MapFieldNames
+		public List<MapFieldName> MapFieldNames
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapSpatialDataSetExprHost ExprHost
+		public new MapSpatialDataSetExprHost ExprHost
 		{
 			get
 			{
@@ -66,16 +66,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSpatialDataSet()
+		public MapSpatialDataSet()
 		{
 		}
 
-		internal MapSpatialDataSet(MapVectorLayer mapVectorLayer, Map map)
+		public MapSpatialDataSet(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapSpatialDataSetStart();
 			base.Initialize(context);
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapSpatialDataSetEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapSpatialDataSet mapSpatialDataSet = (MapSpatialDataSet)base.PublishClone(context);
 			if (this.m_dataSetName != null)
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapSpatialDataSet;
 		}
 
-		internal override void SetExprHost(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHostInternal(exprHost, reportObjectModel);
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataSetName, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -204,13 +204,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapSpatialDataSet;
 		}
 
-		internal string EvaluateDataSetName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateDataSetName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSpatialDataSetDataSetNameExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateSpatialField(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateSpatialField(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSpatialDataSetSpatialFieldExpression(this, base.m_map.Name);

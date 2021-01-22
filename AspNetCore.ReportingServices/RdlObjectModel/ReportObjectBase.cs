@@ -2,12 +2,12 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class ReportObjectBase : IContainedObject
+	public abstract class ReportObjectBase : IContainedObject
 	{
 		private IPropertyStore m_propertyStore;
 
 		[XmlIgnore]
-		internal IPropertyStore PropertyStore
+		public IPropertyStore PropertyStore
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			this.Initialize();
 		}
 
-		internal ReportObjectBase(IPropertyStore propertyStore)
+		public ReportObjectBase(IPropertyStore propertyStore)
 		{
 			this.m_propertyStore = this.WrapPropertyStore(propertyStore);
 		}
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal virtual IPropertyStore WrapPropertyStore(IPropertyStore propertyStore)
+		public virtual IPropertyStore WrapPropertyStore(IPropertyStore propertyStore)
 		{
 			return propertyStore;
 		}

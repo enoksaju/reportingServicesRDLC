@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class StyleWriterOM : StyleWriter
+	public class StyleWriterOM : StyleWriter
 	{
 		private RPLStyleProps m_styleProps;
 

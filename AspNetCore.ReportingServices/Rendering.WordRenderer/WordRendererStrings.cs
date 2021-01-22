@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal static class WordRendererStrings
+	public static class WordRendererStrings
 	{
 		public const string ColumnsError = "The rendered report contains a table that has more than 63 columns.";
 

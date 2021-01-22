@@ -3,13 +3,13 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class PaddItemSizes : ItemSizes
+	public sealed class PaddItemSizes : ItemSizes
 	{
 		private double m_paddingRight;
 
 		private double m_paddingBottom;
 
-		internal override double PadWidth
+		public override double PadWidth
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override double PadHeight
+		public override double PadHeight
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override double PaddingRight
+		public override double PaddingRight
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override double PaddingBottom
+		public override double PaddingBottom
 		{
 			get
 			{
@@ -49,46 +49,46 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PaddItemSizes()
+		public PaddItemSizes()
 		{
 		}
 
-		internal PaddItemSizes(ReportItem reportItem)
+		public PaddItemSizes(ReportItem reportItem)
 			: base(reportItem)
 		{
 		}
 
-		internal PaddItemSizes(PaddItemSizes paddItemSizes)
+		public PaddItemSizes(PaddItemSizes paddItemSizes)
 			: base(paddItemSizes)
 		{
 			this.m_paddingRight = paddItemSizes.PaddingRight;
 			this.m_paddingBottom = paddItemSizes.PaddingBottom;
 		}
 
-		internal PaddItemSizes(ItemSizes paddItemSizes)
+		public PaddItemSizes(ItemSizes paddItemSizes)
 			: base(paddItemSizes)
 		{
 		}
 
-		internal PaddItemSizes(ReportSize width, ReportSize height, string id)
+		public PaddItemSizes(ReportSize width, ReportSize height, string id)
 			: base(width, height, id)
 		{
 		}
 
-		internal override ItemSizes GetNewItem()
+		public override ItemSizes GetNewItem()
 		{
 			PaddItemSizes paddItemSizes = new PaddItemSizes(this);
 			paddItemSizes.DeltaY = base.m_deltaY;
 			return paddItemSizes;
 		}
 
-		internal override void Update(ReportItem reportItem)
+		public override void Update(ReportItem reportItem)
 		{
 			this.Clean();
 			base.Update(reportItem);
 		}
 
-		internal override void Update(ItemSizes paddItemSizes, bool returnPaddings)
+		public override void Update(ItemSizes paddItemSizes, bool returnPaddings)
 		{
 			this.Clean();
 			base.Update(paddItemSizes, returnPaddings);
@@ -103,20 +103,20 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void Update(ReportSize width, ReportSize height)
+		public override void Update(ReportSize width, ReportSize height)
 		{
 			this.Clean();
 			base.Update(width, height);
 		}
 
-		internal override void Clean()
+		public override void Clean()
 		{
 			base.Clean();
 			this.m_paddingRight = 0.0;
 			this.m_paddingBottom = 0.0;
 		}
 
-		internal override void SetPaddings(double right, double bottom)
+		public override void SetPaddings(double right, double bottom)
 		{
 			this.m_paddingRight = right;
 			this.m_paddingBottom = bottom;
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override int ReadPaginationInfo(BinaryReader reader, long offsetEndPage)
+		public override int ReadPaginationInfo(BinaryReader reader, long offsetEndPage)
 		{
 			if (reader != null && offsetEndPage > 0)
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return -1;
 		}
 
-		internal override void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public override void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override ItemSizes WritePaginationInfo()
+		public override ItemSizes WritePaginationInfo()
 		{
 			PaddItemSizes paddItemSizes = new PaddItemSizes(this);
 			paddItemSizes.DeltaY = base.m_deltaY;

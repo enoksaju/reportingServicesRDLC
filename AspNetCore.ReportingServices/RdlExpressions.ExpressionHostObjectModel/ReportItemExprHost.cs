@@ -8,11 +8,11 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		public ActionInfoExprHost ActionInfoHost;
 
 		[CLSCompliant(false)]
-		protected IList<DataValueExprHost> m_customPropertyHostsRemotable;
+		public IList<DataValueExprHost> m_customPropertyHostsRemotable;
 
 		public PageBreakExprHost PageBreakExprHost;
 
-		internal IList<DataValueExprHost> CustomPropertyHostsRemotable
+		public IList<DataValueExprHost> CustomPropertyHostsRemotable
 		{
 			get
 			{

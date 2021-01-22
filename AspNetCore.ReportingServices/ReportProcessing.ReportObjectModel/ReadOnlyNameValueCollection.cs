@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ReadOnlyNameValueCollection(NameValueCollection originalCollection)
+		public ReadOnlyNameValueCollection(NameValueCollection originalCollection)
 		{
 			if (originalCollection == null)
 			{

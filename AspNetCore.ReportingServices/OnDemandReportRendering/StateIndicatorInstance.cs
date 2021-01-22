@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class StateIndicatorInstance : GaugePanelItemInstance
+	public sealed class StateIndicatorInstance : GaugePanelItemInstance
 	{
 		private StateIndicator m_defObject;
 
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StateIndicatorInstance(StateIndicator defObject)
+		public StateIndicatorInstance(StateIndicator defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

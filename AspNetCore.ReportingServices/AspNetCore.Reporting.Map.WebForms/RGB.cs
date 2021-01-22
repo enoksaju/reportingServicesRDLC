@@ -2,15 +2,15 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal struct RGB
+	public struct RGB
 	{
-		internal int Red;
+		public int Red;
 
-		internal int Green;
+		public int Green;
 
-		internal int Blue;
+		public int Blue;
 
-		internal RGB(int R, int G, int B)
+		public RGB(int R, int G, int B)
 		{
 			this.Red = Math.Max(Math.Min(R, 255), 0);
 			this.Green = Math.Max(Math.Min(G, 255), 0);

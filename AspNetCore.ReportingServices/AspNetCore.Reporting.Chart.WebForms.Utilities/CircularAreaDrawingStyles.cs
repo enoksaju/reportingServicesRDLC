@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum CircularAreaDrawingStyles
+	public enum CircularAreaDrawingStyles
 	{
 		Polygon,
 		Circle

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal abstract class StyleTranslator
+	public abstract class StyleTranslator
 	{
 		private static bool CompareWithInvariantCulture(string strOne, string strTwo)
 		{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static int TranslateStyle(StyleAttributeNames styleName, string styleString, IErrorContext errorContext, bool isChartStyle)
+		public static int TranslateStyle(StyleAttributeNames styleName, string styleString, IErrorContext errorContext, bool isChartStyle)
 		{
 			switch (styleName)
 			{
@@ -57,12 +57,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static BorderStyles TranslateBorderStyle(string styleString, IErrorContext errorContext)
+		public static BorderStyles TranslateBorderStyle(string styleString, IErrorContext errorContext)
 		{
 			return StyleTranslator.TranslateBorderStyle(styleString, BorderStyles.Default, errorContext);
 		}
 
-		internal static BorderStyles TranslateBorderStyle(string styleString, BorderStyles defaultStyle, IErrorContext errorContext)
+		public static BorderStyles TranslateBorderStyle(string styleString, BorderStyles defaultStyle, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return defaultStyle;
 		}
 
-		internal static BackgroundGradients TranslateBackgroundGradientType(string styleString, IErrorContext errorContext)
+		public static BackgroundGradients TranslateBackgroundGradientType(string styleString, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumBackgroundGradient;
 		}
 
-		internal static BackgroundRepeatTypes TranslateBackgroundRepeat(string styleString, IErrorContext errorContext, bool isChartStyle)
+		public static BackgroundRepeatTypes TranslateBackgroundRepeat(string styleString, IErrorContext errorContext, bool isChartStyle)
 		{
 			if (styleString != null && !StyleTranslator.CompareWithInvariantCulture("Default", styleString))
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumBackgroundRepeatType;
 		}
 
-		internal static Positions TranslatePosition(string styleString, IErrorContext errorContext, bool isChartStyle)
+		public static Positions TranslatePosition(string styleString, IErrorContext errorContext, bool isChartStyle)
 		{
 			if (styleString != null && !StyleTranslator.CompareWithInvariantCulture("Default", styleString))
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return Positions.Center;
 		}
 
-		internal static FontStyles TranslateFontStyle(string styleString, IErrorContext errorContext)
+		public static FontStyles TranslateFontStyle(string styleString, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -300,7 +300,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumFontStyle;
 		}
 
-		internal static FontWeights TranslateFontWeight(string styleString, IErrorContext errorContext)
+		public static FontWeights TranslateFontWeight(string styleString, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -397,7 +397,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumFontWeight;
 		}
 
-		internal static TextDecorations TranslateTextDecoration(string styleString, IErrorContext errorContext)
+		public static TextDecorations TranslateTextDecoration(string styleString, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -430,7 +430,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumTextDecoration;
 		}
 
-		internal static TextAlignments TranslateTextAlign(string styleString, IErrorContext errorContext)
+		public static TextAlignments TranslateTextAlign(string styleString, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -463,7 +463,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumTextAlignment;
 		}
 
-		internal static VerticalAlignments TranslateVerticalAlign(string styleString, IErrorContext errorContext)
+		public static VerticalAlignments TranslateVerticalAlign(string styleString, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -492,7 +492,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumVerticalAlignment;
 		}
 
-		internal static Directions TranslateDirection(string styleString, IErrorContext errorContext)
+		public static Directions TranslateDirection(string styleString, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -517,7 +517,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumDirection;
 		}
 
-		internal static WritingModes TranslateWritingMode(string styleString, IErrorContext errorContext)
+		public static WritingModes TranslateWritingMode(string styleString, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -554,7 +554,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumWritingMode;
 		}
 
-		internal static UnicodeBiDiTypes TranslateUnicodeBiDi(string styleString, IErrorContext errorContext)
+		public static UnicodeBiDiTypes TranslateUnicodeBiDi(string styleString, IErrorContext errorContext)
 		{
 			if (styleString == null)
 			{
@@ -587,7 +587,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumUnicodeBiDiType;
 		}
 
-		internal static string TranslateCalendar(Calendars calendar)
+		public static string TranslateCalendar(Calendars calendar)
 		{
 			switch (calendar)
 			{
@@ -624,7 +624,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Calendars TranslateCalendar(string styleString, IErrorContext errorContext)
+		public static Calendars TranslateCalendar(string styleString, IErrorContext errorContext)
 		{
 			if (styleString != null && !StyleTranslator.CompareWithInvariantCulture("Default", styleString))
 			{
@@ -692,7 +692,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.OnDemandReportRendering.Style.DefaultEnumCalendar;
 		}
 
-		internal static BackgroundHatchTypes TranslateBackgroundHatchType(string styleValue, IErrorContext errorContext, bool isChartStyle)
+		public static BackgroundHatchTypes TranslateBackgroundHatchType(string styleValue, IErrorContext errorContext, bool isChartStyle)
 		{
 			if (styleValue != null)
 			{
@@ -928,7 +928,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return BackgroundHatchTypes.None;
 		}
 
-		internal static TextEffects TranslateTextEffect(string styleValue, IErrorContext errorContext, bool isChartStyle)
+		public static TextEffects TranslateTextEffect(string styleValue, IErrorContext errorContext, bool isChartStyle)
 		{
 			if (styleValue != null && !StyleTranslator.CompareWithInvariantCulture(styleValue, "Default"))
 			{

@@ -5,11 +5,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Subreport : ReportItem
+	public class Subreport : ReportItem
 	{
-		internal new class Definition : DefinitionStore<Subreport, Definition.Properties>
+		public new class Definition : DefinitionStore<Subreport, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Name,
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Subreport(IPropertyStore propertyStore)
+		public Subreport(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

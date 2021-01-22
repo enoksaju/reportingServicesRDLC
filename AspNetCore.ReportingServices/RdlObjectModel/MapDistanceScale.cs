@@ -2,11 +2,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapDistanceScale : MapDockableSubItem
+	public class MapDistanceScale : MapDockableSubItem
 	{
-		internal new class Definition : DefinitionStore<MapDistanceScale, Definition.Properties>
+		public new class Definition : DefinitionStore<MapDistanceScale, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				MapLocation,
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapDistanceScale(IPropertyStore propertyStore)
+		public MapDistanceScale(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

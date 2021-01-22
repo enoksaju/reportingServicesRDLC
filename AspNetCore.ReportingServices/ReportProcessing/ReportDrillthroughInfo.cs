@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportDrillthroughInfo
+	public sealed class ReportDrillthroughInfo
 	{
 		private TokensHashtable m_rewrittenCommands;
 
 		private DrillthroughHashtable m_drillthroughHashtable;
 
-		internal DrillthroughHashtable DrillthroughInformation
+		public DrillthroughHashtable DrillthroughInformation
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TokensHashtable RewrittenCommands
+		public TokensHashtable RewrittenCommands
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -46,11 +46,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportDrillthroughInfo()
+		public ReportDrillthroughInfo()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.RewrittenCommands, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.TokensHashtable));
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.None, memberInfoList);
 		}
 
-		internal void AddDrillthrough(string drillthroughId, DrillthroughInformation drillthroughInfo)
+		public void AddDrillthrough(string drillthroughId, DrillthroughInformation drillthroughInfo)
 		{
 			if (this.m_drillthroughHashtable == null)
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_drillthroughHashtable.Add(drillthroughId, drillthroughInfo);
 		}
 
-		internal void AddRewrittenCommand(int id, object value)
+		public void AddRewrittenCommand(int id, object value)
 		{
 			lock (this)
 			{

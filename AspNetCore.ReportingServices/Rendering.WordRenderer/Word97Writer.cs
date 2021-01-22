@@ -10,9 +10,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class Word97Writer : IWordWriter, IDisposable
+	public class Word97Writer : IWordWriter, IDisposable
 	{
-		internal enum HeaderFooterLocation
+		public enum HeaderFooterLocation
 		{
 			First,
 			Odd,
@@ -21,9 +21,9 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private class ListLevelInfo
 		{
-			internal RPLFormat.ListStyles? Style = null;
+			public RPLFormat.ListStyles? Style = null;
 
-			internal int ListIndex = -1;
+			public int ListIndex = -1;
 
 			public void Reset()
 			{

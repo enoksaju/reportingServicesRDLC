@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixHeadingInstance : InstanceInfoOwner, IShowHideContainer
+	public sealed class MatrixHeadingInstance : InstanceInfoOwner, IShowHideContainer
 	{
 		private int m_uniqueName;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_headingDefIndex;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeading MatrixHeadingDef
+		public MatrixHeading MatrixHeadingDef
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemInstance Content
+		public ReportItemInstance Content
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeadingInstanceList SubHeadingInstances
+		public MatrixHeadingInstanceList SubHeadingInstances
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsSubtotal
+		public bool IsSubtotal
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeadingInstanceInfo InstanceInfo
+		public MatrixHeadingInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int HeadingIndex
+		public int HeadingIndex
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RenderingPagesRangesList ChildrenStartAndEndPages
+		public RenderingPagesRangesList ChildrenStartAndEndPages
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeadingInstance(ReportProcessing.ProcessingContext pc, int headingCellIndex, MatrixHeading matrixHeadingDef, bool isSubtotal, int reportItemDefIndex, VariantList groupExpressionValues, out NonComputedUniqueNames nonComputedUniqueNames)
+		public MatrixHeadingInstance(ReportProcessing.ProcessingContext pc, int headingCellIndex, MatrixHeading matrixHeadingDef, bool isSubtotal, int reportItemDefIndex, VariantList groupExpressionValues, out NonComputedUniqueNames nonComputedUniqueNames)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 			if (isSubtotal && matrixHeadingDef.Subtotal.StyleClass != null)
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeadingInstance()
+		public MatrixHeadingInstance()
 		{
 		}
 
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.EndProcessContainer(this.m_uniqueName, this.m_matrixHeadingDef.Visibility);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.InstanceInfoOwner, memberInfoList);
 		}
 
-		internal object Find(int index, int targetUniqueName, ref NonComputedUniqueNames nonCompNames, ChunkManager.RenderingChunkManager chunkManager)
+		public object Find(int index, int targetUniqueName, ref NonComputedUniqueNames nonCompNames, ChunkManager.RenderingChunkManager chunkManager)
 		{
 			object obj = null;
 			ReportItemCollection reportItemCollection = (!this.IsSubtotal) ? this.MatrixHeadingDef.ReportItems : this.MatrixHeadingDef.Subtotal.ReportItems;
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal MatrixHeadingInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public MatrixHeadingInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{

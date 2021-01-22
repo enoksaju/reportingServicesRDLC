@@ -3,22 +3,22 @@ using System.Collections;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class MarkerPosition : IComparable
+	public class MarkerPosition : IComparable
 	{
-		internal float position;
+		public float position;
 
-		internal double value;
+		public double value;
 
-		internal Placement placement = Placement.Cross;
+		public Placement placement = Placement.Cross;
 
-		internal MarkerPosition(float position, double value, Placement placement)
+		public MarkerPosition(float position, double value, Placement placement)
 		{
 			this.position = position;
 			this.value = value;
 			this.placement = placement;
 		}
 
-		internal static bool IsExistsInArray(ArrayList array, MarkerPosition markerPos)
+		public static bool IsExistsInArray(ArrayList array, MarkerPosition markerPos)
 		{
 			foreach (MarkerPosition item in array)
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return false;
 		}
 
-		internal static double Snap(ArrayList array, double value)
+		public static double Snap(ArrayList array, double value)
 		{
 			for (int i = 0; i < array.Count - 1; i++)
 			{

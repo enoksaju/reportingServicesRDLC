@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Image : ReportItem, IActionOwner, IPersistable
+	public sealed class Image : ReportItem, IActionOwner, IPersistable
 	{
 		private Action m_action;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		private static readonly Declaration m_Declaration = Image.GetDeclaration();
 
 		[NonSerialized]
-		internal static readonly byte[] TransparentImageBytes = new byte[43]
+		public static readonly byte[] TransparentImageBytes = new byte[43]
 		{
 			71,
 			73,
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			59
 		};
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.OnDemandReportRendering.Image.SourceType Source
+		public AspNetCore.ReportingServices.OnDemandReportRendering.Image.SourceType Source
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MIMEType
+		public ExpressionInfo MIMEType
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.OnDemandReportRendering.Image.Sizings Sizing
+		public AspNetCore.ReportingServices.OnDemandReportRendering.Image.Sizings Sizing
 		{
 			get
 			{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> Tags
+		public List<ExpressionInfo> Tags
 		{
 			get
 			{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.OnDemandReportRendering.Image.EmbeddingModes EmbeddingMode
+		public AspNetCore.ReportingServices.OnDemandReportRendering.Image.EmbeddingModes EmbeddingMode
 		{
 			get
 			{
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ImageExprHost ImageExprHost
+		public ImageExprHost ImageExprHost
 		{
 			get
 			{
@@ -205,17 +205,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Image(ReportItem parent)
+		public Image(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Image(int id, ReportItem parent)
+		public Image(int id, ReportItem parent)
 			: base(id, parent)
 		{
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -261,7 +261,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			Image image = (Image)base.PublishClone(context);
 			if (this.m_action != null)
@@ -299,7 +299,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		}
 
 		[SkipMemberStaticValidation(MemberName.Tag)]
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Source, Token.Enum));
@@ -417,7 +417,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Image;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -431,7 +431,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ShouldTrackFieldsUsedInValue()
+		public bool ShouldTrackFieldsUsedInValue()
 		{
 			if (this.Action != null)
 			{
@@ -440,25 +440,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal string EvaluateMimeTypeExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public string EvaluateMimeTypeExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateImageMIMETypeExpression(this);
 		}
 
-		internal byte[] EvaluateBinaryValueExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context, out bool errOccurred)
+		public byte[] EvaluateBinaryValueExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context, out bool errOccurred)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateImageBinaryValueExpression(this, out errOccurred);
 		}
 
-		internal string EvaluateStringValueExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context, out bool errOccurred)
+		public string EvaluateStringValueExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context, out bool errOccurred)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateImageStringValueExpression(this, out errOccurred);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateTagExpression(ExpressionInfo tag, IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateTagExpression(ExpressionInfo tag, IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateImageTagExpression(this, tag);

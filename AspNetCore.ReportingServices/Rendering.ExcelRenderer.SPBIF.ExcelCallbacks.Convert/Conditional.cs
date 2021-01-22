@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert
 {
-	internal sealed class Conditional : Operator
+	public sealed class Conditional : Operator
 	{
 		private string m_gotoLabel;
 
 		private string m_label;
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal string GotoLabel
+		public string GotoLabel
 		{
 			get
 			{
@@ -30,17 +30,17 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal Conditional(string op, int precedence, OperatorType ot, ushort biffCode)
+		public Conditional(string op, int precedence, OperatorType ot, ushort biffCode)
 			: base(op, precedence, ot, biffCode)
 		{
 		}
 
-		internal Conditional(string op, int precedence, OperatorType ot, ushort biffCode, uint functionCode, short numOfArgs)
+		public Conditional(string op, int precedence, OperatorType ot, ushort biffCode, uint functionCode, short numOfArgs)
 			: base(op, precedence, ot, biffCode, functionCode, numOfArgs)
 		{
 		}
 
-		internal Conditional(Conditional conditionalOp)
+		public Conditional(Conditional conditionalOp)
 			: base(conditionalOp.Name, conditionalOp.Precedence, conditionalOp.Type, conditionalOp.BCode, conditionalOp.FCode, conditionalOp.ArgumentCount)
 		{
 			this.m_label = conditionalOp.Label;

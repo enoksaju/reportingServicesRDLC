@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ProjectionCenter : MapObject
+	public class ProjectionCenter : MapObject
 	{
 		private bool xIsNaN = true;
 
@@ -57,12 +57,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal ProjectionCenter(object parent)
+		public ProjectionCenter(object parent)
 			: base(parent)
 		{
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			MapCore mapCore = (MapCore)this.Parent;
 			if (mapCore != null)
@@ -74,12 +74,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsXNaN()
+		public bool IsXNaN()
 		{
 			return this.xIsNaN;
 		}
 
-		internal bool IsYNaN()
+		public bool IsYNaN()
 		{
 			return this.yIsNaN;
 		}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class EnumeratorMapping
+	public static class EnumeratorMapping
 	{
 		public static IEnumerable<U> Map<T, U>(IEnumerable<T> source, Converter<T, U> mapFunc)
 		{

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal interface IProcessingDataReader : IDisposable
+	public interface IProcessingDataReader : IDisposable
 	{
 		int AggregationFieldCount
 		{

@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal sealed class ImageResponseMessageElement : ImageMessageElement
+	public sealed class ImageResponseMessageElement : ImageMessageElement
 	{
 		public string ServerErrorCode
 		{

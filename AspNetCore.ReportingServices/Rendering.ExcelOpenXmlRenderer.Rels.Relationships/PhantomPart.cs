@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Rels.Relationships
 {
-	internal class PhantomPart : XmlPart
+	public class PhantomPart : XmlPart
 	{
 	}
 }

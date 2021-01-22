@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum ColoringMode
+	public enum ColoringMode
 	{
 		ColorRange,
 		DistinctColors

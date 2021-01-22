@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapSizeRule : MapAppearanceRule, IPersistable
+	public sealed class MapSizeRule : MapAppearanceRule, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapSizeRule.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_endSize;
 
-		internal ExpressionInfo StartSize
+		public ExpressionInfo StartSize
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo EndSize
+		public ExpressionInfo EndSize
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapSizeRuleExprHost ExprHost
+		public new MapSizeRuleExprHost ExprHost
 		{
 			get
 			{
@@ -52,16 +52,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSizeRule()
+		public MapSizeRule()
 		{
 		}
 
-		internal MapSizeRule(MapVectorLayer mapVectorLayer, Map map)
+		public MapSizeRule(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapSizeRuleStart();
 			base.Initialize(context);
@@ -78,14 +78,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapSizeRuleEnd();
 		}
 
-		internal override void InitializeMapMember(InitializationContext context)
+		public override void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapSizeRuleStart();
 			base.InitializeMapMember(context);
 			context.ExprHostBuilder.MapSizeRuleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapSizeRule mapSizeRule = (MapSizeRule)base.PublishClone(context);
 			if (this.m_startSize != null)
@@ -99,13 +99,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapSizeRule;
 		}
 
-		internal override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.StartSize, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -160,13 +160,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapSizeRule;
 		}
 
-		internal string EvaluateStartSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateStartSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSizeRuleStartSizeExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateEndSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateEndSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSizeRuleEndSizeExpression(this, base.m_map.Name);

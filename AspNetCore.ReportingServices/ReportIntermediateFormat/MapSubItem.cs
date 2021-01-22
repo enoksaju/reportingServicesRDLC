@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapSubItem : MapStyleContainer, IPersistable
+	public class MapSubItem : MapStyleContainer, IPersistable
 	{
 		protected int m_exprHostID = -1;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_zIndex;
 
-		internal MapLocation MapLocation
+		public MapLocation MapLocation
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSize MapSize
+		public MapSize MapSize
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LeftMargin
+		public ExpressionInfo LeftMargin
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo RightMargin
+		public ExpressionInfo RightMargin
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TopMargin
+		public ExpressionInfo TopMargin
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BottomMargin
+		public ExpressionInfo BottomMargin
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ZIndex
+		public ExpressionInfo ZIndex
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSubItemExprHost ExprHost
+		public MapSubItemExprHost ExprHost
 		{
 			get
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -143,16 +143,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSubItem()
+		public MapSubItem()
 		{
 		}
 
-		internal MapSubItem(Map map)
+		public MapSubItem(Map map)
 			: base(map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_mapLocation != null)
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapSubItem mapSubItem = (MapSubItem)base.PublishClone(context);
 			if (this.m_mapLocation != null)
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapSubItem;
 		}
 
-		internal void SetExprHost(MapSubItemExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapSubItemExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -239,7 +239,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapLocation, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapLocation));
@@ -336,31 +336,31 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapSubItem;
 		}
 
-		internal string EvaluateLeftMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateLeftMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSubItemLeftMarginExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateRightMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateRightMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSubItemRightMarginExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateTopMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateTopMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSubItemTopMarginExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateBottomMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateBottomMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSubItemBottomMarginExpression(this, base.m_map.Name);
 		}
 
-		internal int EvaluateZIndex(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateZIndex(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSubItemZIndexExpression(this, base.m_map.Name);

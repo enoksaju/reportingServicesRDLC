@@ -8,9 +8,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class DataProcessingMetrics
+	public sealed class DataProcessingMetrics
 	{
-		internal enum MetricType
+		public enum MetricType
 		{
 			ExecuteReader,
 			DataReaderMapping,
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private bool? m_connectionFromPool = null;
 
-		internal long TotalRowsRead
+		public long TotalRowsRead
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long TotalRowsSkipped
+		public long TotalRowsSkipped
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long TotalDurationMs
+		public long TotalDurationMs
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal TimeMetric TotalDuration
+		public TimeMetric TotalDuration
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long QueryDurationMs
+		public long QueryDurationMs
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long ExecuteReaderDurationMs
+		public long ExecuteReaderDurationMs
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long DataReaderMappingDurationMs
+		public long DataReaderMappingDurationMs
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long OpenConnectionDurationMs
+		public long OpenConnectionDurationMs
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long DisposeDataReaderDurationMs
+		public long DisposeDataReaderDurationMs
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long CancelCommandDurationMs
+		public long CancelCommandDurationMs
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal string ResolvedConnectionString
+		public string ResolvedConnectionString
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool? ConnectionFromPool
+		public bool? ConnectionFromPool
 		{
 			get
 			{
@@ -176,13 +176,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal DataProcessingMetrics(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, IJobContext jobContext, ExecutionLogContext executionLogContext)
+		public DataProcessingMetrics(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, IJobContext jobContext, ExecutionLogContext executionLogContext)
 			: this(jobContext, executionLogContext)
 		{
 			this.m_specificDataSet = dataSet;
 		}
 
-		internal DataProcessingMetrics(IJobContext jobContext, ExecutionLogContext executionLogContext)
+		public DataProcessingMetrics(IJobContext jobContext, ExecutionLogContext executionLogContext)
 		{
 			this.m_jobContext = jobContext;
 			if (jobContext != null)
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void Add(DataProcessingMetrics metrics)
+		public void Add(DataProcessingMetrics metrics)
 		{
 			if (metrics != null)
 			{
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long Add(MetricType type, Timer timer)
+		public long Add(MetricType type, Timer timer)
 		{
 			if (timer == null)
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return num;
 		}
 
-		internal void Add(MetricType type, long elapsedTimeMs)
+		public void Add(MetricType type, long elapsedTimeMs)
 		{
 			switch (type)
 			{
@@ -258,17 +258,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			currentDurationMs += ExecutionLogContext.TimerMeasurementAdjusted(elapsedTimeMs);
 		}
 
-		internal void AddRowCount(long rowCount)
+		public void AddRowCount(long rowCount)
 		{
 			this.m_totalRowsRead += rowCount;
 		}
 
-		internal void AddSkippedRowCount(long rowCount)
+		public void AddSkippedRowCount(long rowCount)
 		{
 			this.m_totalRowsSkipped += rowCount;
 		}
 
-		internal void StartTimer(MetricType type)
+		public void StartTimer(MetricType type)
 		{
 			if (this.m_jobContext != null)
 			{
@@ -276,7 +276,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long RecordTimerMeasurement(MetricType type)
+		public long RecordTimerMeasurement(MetricType type)
 		{
 			if (this.m_jobContext == null)
 			{
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return result;
 		}
 
-		internal long RecordTimerMeasurementWithUpdatedTotal(MetricType type)
+		public long RecordTimerMeasurementWithUpdatedTotal(MetricType type)
 		{
 			long num = this.RecordTimerMeasurement(type);
 			if (this.m_totalTimeMetric != null && !this.m_totalTimeMetric.IsRunning)
@@ -317,17 +317,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void SetStartAtParameters(IDataParameter[] startAtParameters)
+		public void SetStartAtParameters(IDataParameter[] startAtParameters)
 		{
 			this.m_startAtParameters = startAtParameters;
 		}
 
-		internal void SetQueryParameters(IDataParameterCollection queryParameters)
+		public void SetQueryParameters(IDataParameterCollection queryParameters)
 		{
 			this.m_queryParameters = queryParameters;
 		}
 
-		internal AspNetCore.ReportingServices.Diagnostics.Internal.DataSet ToAdditionalInfoDataSet(IJobContext jobContext)
+		public AspNetCore.ReportingServices.Diagnostics.Internal.DataSet ToAdditionalInfoDataSet(IJobContext jobContext)
 		{
 			if (jobContext != null && this.m_specificDataSet != null)
 			{

@@ -3,9 +3,9 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class RuntimeMapDataRegionObjReference : RuntimeChartCriObjReference, IReference<RuntimeMapDataRegionObj>, IReference, IStorable, IPersistable
+	public class RuntimeMapDataRegionObjReference : RuntimeChartCriObjReference, IReference<RuntimeMapDataRegionObj>, IReference, IStorable, IPersistable
 	{
-		internal RuntimeMapDataRegionObjReference()
+		public RuntimeMapDataRegionObjReference()
 		{
 		}
 

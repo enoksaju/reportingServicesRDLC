@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class DocumentMapReader
+	public sealed class DocumentMapReader
 	{
 		private AspNetCore.ReportingServices.OnDemandReportRendering.DocumentMapNode m_currentNode;
 

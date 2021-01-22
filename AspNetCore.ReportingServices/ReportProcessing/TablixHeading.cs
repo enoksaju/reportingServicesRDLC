@@ -6,7 +6,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class TablixHeading : ReportHierarchyNode
+	public abstract class TablixHeading : ReportHierarchyNode
 	{
 		protected bool m_subtotal;
 
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		protected Hashtable[] m_cellScopeNames;
 
-		internal new ReportHierarchyNode InnerHierarchy
+		public new ReportHierarchyNode InnerHierarchy
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Subtotal
+		public bool Subtotal
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsColumn
+		public bool IsColumn
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Level
+		public int Level
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasExprHost
+		public bool HasExprHost
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int HeadingSpan
+		public int HeadingSpan
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList Aggregates
+		public DataAggregateInfoList Aggregates
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList PostSortAggregates
+		public DataAggregateInfoList PostSortAggregates
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList RecursiveAggregates
+		public DataAggregateInfoList RecursiveAggregates
 		{
 			get
 			{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregatesImpl OutermostSTCellRVCol
+		public AggregatesImpl OutermostSTCellRVCol
 		{
 			get
 			{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregatesImpl CellRVCol
+		public AggregatesImpl CellRVCol
 		{
 			get
 			{
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregatesImpl[] OutermostSTCellScopedRVCollections
+		public AggregatesImpl[] OutermostSTCellScopedRVCollections
 		{
 			get
 			{
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregatesImpl[] CellScopedRVCollections
+		public AggregatesImpl[] CellScopedRVCollections
 		{
 			get
 			{
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Hashtable[] CellScopeNames
+		public Hashtable[] CellScopeNames
 		{
 			get
 			{
@@ -213,11 +213,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TablixHeading()
+		public TablixHeading()
 		{
 		}
 
-		internal TablixHeading(int id, DataRegion dataRegionDef)
+		public TablixHeading(int id, DataRegion dataRegionDef)
 			: base(id, dataRegionDef)
 		{
 			this.m_aggregates = new DataAggregateInfoList();
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_recursiveAggregates = new DataAggregateInfoList();
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Subtotal, Token.Boolean));

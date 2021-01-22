@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting
 {
-	internal interface ITemporaryStorage
+	public interface ITemporaryStorage
 	{
 		Stream CreateTemporaryStream();
 	}

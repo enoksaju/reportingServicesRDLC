@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ScrollBarButtonType
+	public enum ScrollBarButtonType
 	{
 		ThumbTracker,
 		SmallDecrement,

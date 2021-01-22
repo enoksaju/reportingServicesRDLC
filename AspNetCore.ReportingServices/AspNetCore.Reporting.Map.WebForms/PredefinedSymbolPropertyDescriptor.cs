@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PredefinedSymbolPropertyDescriptor : PropertyDescriptor
+	public class PredefinedSymbolPropertyDescriptor : PropertyDescriptor
 	{
 		private Field field;
 

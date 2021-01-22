@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 {
-	internal interface IUpgradeable
+	public interface IUpgradeable
 	{
 		void Upgrade(UpgradeImpl2005 upgrader);
 	}

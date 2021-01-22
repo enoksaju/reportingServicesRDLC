@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface ICustomPropertiesHolder
+	public interface ICustomPropertiesHolder
 	{
 		IInstancePath InstancePath
 		{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixCorner
+	public sealed class TablixCorner
 	{
 		private Tablix m_owner;
 
@@ -18,12 +18,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixCorner(Tablix owner)
+		public TablixCorner(Tablix owner)
 		{
 			this.m_owner = owner;
 		}
 
-		internal void ResetContext()
+		public void ResetContext()
 		{
 			if (this.m_rowCollection != null)
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_rowCollection != null)
 			{

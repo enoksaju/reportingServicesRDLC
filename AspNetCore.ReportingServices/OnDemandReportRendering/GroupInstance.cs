@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GroupInstance : BaseInstance
+	public sealed class GroupInstance : BaseInstance
 	{
 		private string m_uniqueName;
 
@@ -148,13 +148,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GroupInstance(Group owner)
+		public GroupInstance(Group owner)
 			: base(null)
 		{
 			this.m_owner = owner;
 		}
 
-		internal GroupInstance(Group owner, IReportScope reportScope)
+		public GroupInstance(Group owner, IReportScope reportScope)
 			: base(reportScope)
 		{
 			this.m_owner = owner;

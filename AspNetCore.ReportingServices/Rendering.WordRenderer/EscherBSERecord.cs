@@ -2,27 +2,27 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherBSERecord : EscherRecord
+	public class EscherBSERecord : EscherRecord
 	{
-		internal const string RECORD_DESCRIPTION = "MsofbtBSE";
+		public const string RECORD_DESCRIPTION = "MsofbtBSE";
 
-		internal const byte BT_ERROR = 0;
+		public const byte BT_ERROR = 0;
 
-		internal const byte BT_UNKNOWN = 1;
+		public const byte BT_UNKNOWN = 1;
 
-		internal const byte BT_EMF = 2;
+		public const byte BT_EMF = 2;
 
-		internal const byte BT_WMF = 3;
+		public const byte BT_WMF = 3;
 
-		internal const byte BT_PICT = 4;
+		public const byte BT_PICT = 4;
 
-		internal const byte BT_JPEG = 5;
+		public const byte BT_JPEG = 5;
 
-		internal const byte BT_PNG = 6;
+		public const byte BT_PNG = 6;
 
-		internal const byte BT_DIB = 7;
+		public const byte BT_DIB = 7;
 
-		internal static short RECORD_ID = -4089;
+		public static short RECORD_ID = -4089;
 
 		private byte field_1_blipTypeWin32;
 
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private bool _hideSub;
 
-		internal override int RecordSize
+		public override int RecordSize
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override string RecordName
+		public override string RecordName
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte BlipTypeWin32
+		public virtual byte BlipTypeWin32
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte BlipTypeMacOS
+		public virtual byte BlipTypeMacOS
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte[] Uid
+		public virtual byte[] Uid
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Tag
+		public virtual ushort Tag
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual int Size
+		public virtual int Size
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual int Ref
+		public virtual int Ref
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual int Offset
+		public virtual int Offset
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte Usage
+		public virtual byte Usage
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte Name
+		public virtual byte Name
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte Unused2
+		public virtual byte Unused2
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte Unused3
+		public virtual byte Unused3
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual EscherBSESubRecord SubRecord
+		public virtual EscherBSESubRecord SubRecord
 		{
 			get
 			{
@@ -210,11 +210,11 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherBSERecord()
+		public EscherBSERecord()
 		{
 		}
 
-		internal override int Serialize(BinaryWriter dataWriter)
+		public override int Serialize(BinaryWriter dataWriter)
 		{
 			dataWriter.Write(this.getOptions());
 			dataWriter.Write(this.GetRecordId());
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return 44 + ((this.field_12_sub != null && !this._hideSub) ? this.field_12_sub.RecordSize : 0);
 		}
 
-		internal virtual string GetBlipType(byte b)
+		public virtual string GetBlipType(byte b)
 		{
 			switch (b)
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual void hideSub()
+		public virtual void hideSub()
 		{
 			this._hideSub = true;
 		}

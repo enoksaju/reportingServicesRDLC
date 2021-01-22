@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableColumnInstance
+	public sealed class TableColumnInstance
 	{
 		private int m_uniqueName;
 
 		private bool m_startHidden;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableColumnInstance(ReportProcessing.ProcessingContext pc, TableColumn tableColumnDef, Table tableDef)
+		public TableColumnInstance(ReportProcessing.ProcessingContext pc, TableColumn tableColumnDef, Table tableDef)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 			if (pc.ShowHideType != 0)
@@ -43,11 +43,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableColumnInstance()
+		public TableColumnInstance()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));

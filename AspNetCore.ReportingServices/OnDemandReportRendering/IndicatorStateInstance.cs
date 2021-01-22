@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class IndicatorStateInstance : BaseInstance
+	public sealed class IndicatorStateInstance : BaseInstance
 	{
 		private IndicatorState m_defObject;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IndicatorStateInstance(IndicatorState defObject)
+		public IndicatorStateInstance(IndicatorState defObject)
 			: base(defObject.GaugePanelDef.ReportScope)
 		{
 			this.m_defObject = defObject;

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMarkerRuleInstance : MapAppearanceRuleInstance
+	public sealed class MapMarkerRuleInstance : MapAppearanceRuleInstance
 	{
 		private MapMarkerRule m_defObject;
 
-		internal MapMarkerRuleInstance(MapMarkerRule defObject)
+		public MapMarkerRuleInstance(MapMarkerRule defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

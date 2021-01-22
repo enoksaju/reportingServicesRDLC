@@ -12,7 +12,7 @@ using System.Text;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal abstract class ReportControlSession : IDisposable
+	public abstract class ReportControlSession : IDisposable
 	{
 		protected AspNetCore.Reporting.StreamCache m_htmlStreamCache = new AspNetCore.Reporting.StreamCache();
 

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class TexRunShapeData
+	public class TexRunShapeData
 	{
 		private GlyphShapeData m_glyphData;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private TextRunState m_runState;
 
-		internal GlyphShapeData GlyphData
+		public GlyphShapeData GlyphData
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal SCRIPT_ANALYSIS Analysis
+		public SCRIPT_ANALYSIS Analysis
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal SCRIPT_LOGATTR[] ScriptLogAttr
+		public SCRIPT_LOGATTR[] ScriptLogAttr
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal CachedFont Font
+		public CachedFont Font
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int? ItemizedScriptId
+		public int? ItemizedScriptId
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal TextRunState State
+		public TextRunState State
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal TexRunShapeData(TextRun run, bool storeGlyph)
+		public TexRunShapeData(TextRun run, bool storeGlyph)
 		{
 			if (storeGlyph && run.GlyphData != null)
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.m_itemizedScriptId = run.ItemizedScriptId;
 		}
 
-		internal TexRunShapeData(TextRun run, bool storeGlyph, int startIndex)
+		public TexRunShapeData(TextRun run, bool storeGlyph, int startIndex)
 			: this(run, storeGlyph)
 		{
 			SCRIPT_LOGATTR[] scriptLogAttr = run.ScriptLogAttr;

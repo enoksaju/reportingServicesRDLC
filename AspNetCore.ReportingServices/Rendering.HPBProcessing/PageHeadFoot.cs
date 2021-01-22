@@ -4,13 +4,13 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class PageHeadFoot : PageItemContainer
+	public class PageHeadFoot : PageItemContainer
 	{
 		private new PageSection m_source;
 
 		private bool m_isHeader;
 
-		internal override string SourceUniqueName
+		public override string SourceUniqueName
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override string SourceID
+		public override string SourceID
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override Style SharedStyle
+		public override Style SharedStyle
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override StyleInstance NonSharedStyle
+		public override StyleInstance NonSharedStyle
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override double OriginalLeft
+		public override double OriginalLeft
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override double OriginalWidth
+		public override double OriginalWidth
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override byte RPLFormatType
+		public override byte RPLFormatType
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal PageHeadFoot(PageSection source, double width, bool aIsHeader)
+		public PageHeadFoot(PageSection source, double width, bool aIsHeader)
 			: base(null)
 		{
 			base.m_itemPageSizes = new FixedItemSizes(width, source.Height.ToMillimeters());
@@ -83,36 +83,36 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			base.CreateChildren(this.m_source.ReportItemCollection, pageContext);
 		}
 
-		internal override bool HitsCurrentPage(double pageLeft, double pageTop, double pageRight, double pageBottom)
+		public override bool HitsCurrentPage(double pageLeft, double pageTop, double pageRight, double pageBottom)
 		{
 			return true;
 		}
 
-		internal override RPLElement CreateRPLElement()
+		public override RPLElement CreateRPLElement()
 		{
 			return new RPLHeaderFooter();
 		}
 
-		internal override RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext)
+		public override RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext)
 		{
 			RPLElement rPLElement = this.CreateRPLElement();
 			base.WriteElementProps(rPLElement.ElementProps, pageContext);
 			return rPLElement;
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BackgroundColor, 34);
 			base.WriteBackgroundImage(style, true, spbifWriter, pageContext);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			PageItem.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BackgroundColor, 34);
 			base.WriteBackgroundImage(style, true, rplStyleProps, pageContext);
 		}
 
-		internal override void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{

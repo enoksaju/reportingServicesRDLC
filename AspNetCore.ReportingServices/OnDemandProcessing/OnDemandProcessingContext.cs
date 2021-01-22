@@ -23,9 +23,9 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class OnDemandProcessingContext : IInternalProcessingContext, IStaticReferenceable
+	public sealed class OnDemandProcessingContext : IInternalProcessingContext, IStaticReferenceable
 	{
-		internal enum Mode
+		public enum Mode
 		{
 			Full,
 			Streaming,
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 			private readonly ImageCacheManager m_imageCacheManager;
 
-			internal IGetResource GetResourceCallback
+			public IGetResource GetResourceCallback
 			{
 				get
 				{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal string RequestUserName
+			public string RequestUserName
 			{
 				get
 				{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal DateTime ExecutionTime
+			public DateTime ExecutionTime
 			{
 				get
 				{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal CultureInfo UserLanguage
+			public CultureInfo UserLanguage
 			{
 				get
 				{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.OnDemandSubReportCallback SubReportCallback
+			public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.OnDemandSubReportCallback SubReportCallback
 			{
 				get
 				{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal UserProfileState AllowUserProfileState
+			public UserProfileState AllowUserProfileState
 			{
 				get
 				{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal bool StreamingMode
+			public bool StreamingMode
 			{
 				get
 				{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal bool ReprocessSnapshot
+			public bool ReprocessSnapshot
 			{
 				get
 				{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal bool ProcessWithCachedData
+			public bool ProcessWithCachedData
 			{
 				get
 				{
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal IChunkFactory ChunkFactory
+			public IChunkFactory ChunkFactory
 			{
 				get
 				{
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal ReportRuntimeSetup ReportRuntimeSetup
+			public ReportRuntimeSetup ReportRuntimeSetup
 			{
 				get
 				{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters StoreServerParameters
+			public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters StoreServerParameters
 			{
 				get
 				{
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal EventInformation UserSortFilterInfo
+			public EventInformation UserSortFilterInfo
 			{
 				get
 				{
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal SortFilterEventInfoMap OldSortFilterEventInfo
+			public SortFilterEventInfoMap OldSortFilterEventInfo
 			{
 				get
 				{
@@ -237,7 +237,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal SortFilterEventInfoMap NewSortFilterEventInfo
+			public SortFilterEventInfoMap NewSortFilterEventInfo
 			{
 				get
 				{
@@ -249,7 +249,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal string UserSortFilterEventSourceUniqueName
+			public string UserSortFilterEventSourceUniqueName
 			{
 				get
 				{
@@ -261,7 +261,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal List<IReference<AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.RuntimeSortFilterEventInfo>> ReportRuntimeUserSortFilterInfo
+			public List<IReference<AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.RuntimeSortFilterEventInfo>> ReportRuntimeUserSortFilterInfo
 			{
 				get
 				{
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal CreateAndRegisterStream CreateStreamCallback
+			public CreateAndRegisterStream CreateStreamCallback
 			{
 				get
 				{
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal ReportProcessingContext ExternalProcessingContext
+			public ReportProcessingContext ExternalProcessingContext
 			{
 				get
 				{
@@ -289,7 +289,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal CustomReportItemControls CriProcessingControls
+			public CustomReportItemControls CriProcessingControls
 			{
 				get
 				{
@@ -305,7 +305,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal bool EnableDataBackedParameters
+			public bool EnableDataBackedParameters
 			{
 				get
 				{
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal IJobContext JobContext
+			public IJobContext JobContext
 			{
 				get
 				{
@@ -321,7 +321,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal IExtensionFactory ExtFactory
+			public IExtensionFactory ExtFactory
 			{
 				get
 				{
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal IDataProtection DataProtection
+			public IDataProtection DataProtection
 			{
 				get
 				{
@@ -337,7 +337,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal ExecutionLogContext ExecutionLogContext
+			public ExecutionLogContext ExecutionLogContext
 			{
 				get
 				{
@@ -345,7 +345,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal RuntimeDataSourceInfoCollection DataSourceInfos
+			public RuntimeDataSourceInfoCollection DataSourceInfos
 			{
 				get
 				{
@@ -353,7 +353,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal RuntimeDataSetInfoCollection SharedDataSetReferences
+			public RuntimeDataSetInfoCollection SharedDataSetReferences
 			{
 				get
 				{
@@ -361,7 +361,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal IProcessingDataExtensionConnection CreateAndSetupDataExtensionFunction
+			public IProcessingDataExtensionConnection CreateAndSetupDataExtensionFunction
 			{
 				get
 				{
@@ -369,7 +369,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal IConfiguration Configuration
+			public IConfiguration Configuration
 			{
 				get
 				{
@@ -377,7 +377,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.DataSourceInfoHashtable GlobalDataSourceInfo
+			public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.DataSourceInfoHashtable GlobalDataSourceInfo
 			{
 				get
 				{
@@ -385,7 +385,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal AbortHelper AbortInfo
+			public AbortHelper AbortInfo
 			{
 				get
 				{
@@ -393,7 +393,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal uint LanguageInstanceId
+			public uint LanguageInstanceId
 			{
 				get
 				{
@@ -405,7 +405,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal UserProfileState HasUserProfileState
+			public UserProfileState HasUserProfileState
 			{
 				get
 				{
@@ -413,7 +413,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal bool HasRenderFormatDependencyInDocumentMap
+			public bool HasRenderFormatDependencyInDocumentMap
 			{
 				get
 				{
@@ -425,7 +425,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal OnDemandProcessingContext TopLevelContext
+			public OnDemandProcessingContext TopLevelContext
 			{
 				get
 				{
@@ -433,7 +433,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal Mode ContextMode
+			public Mode ContextMode
 			{
 				get
 				{
@@ -441,7 +441,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal ImageCacheManager ImageCacheManager
+			public ImageCacheManager ImageCacheManager
 			{
 				get
 				{
@@ -449,7 +449,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal CommonInfo(IChunkFactory chunkFactory, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.OnDemandSubReportCallback subReportCallback, IGetResource getResourceCallback, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, ReportRuntimeSetup reportRuntimeSetup, UserProfileState allowUserProfileState, string requestUserName, CultureInfo userLanguage, DateTime executionTime, bool reprocessSnapshot, bool processWithCachedData, CreateAndRegisterStream createStreamCallback, bool enableDataBackedParameters, IJobContext jobContext, IExtensionFactory extFactory, IDataProtection dataProtection, ExecutionLogContext executionLogContext, RuntimeDataSourceInfoCollection dataSourceInfos, RuntimeDataSetInfoCollection sharedDataSetReferences, IProcessingDataExtensionConnection createAndSetupDataExtensionFunction, IConfiguration configuration, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.DataSourceInfoHashtable globalDataSourceInfo, ReportProcessingContext externalProcessingContext, AbortHelper abortInfo, bool abortInfoInherited, UserProfileState hasUserProfileState, OnDemandProcessingContext topLevelContext, Mode contextMode, ImageCacheManager imageCacheManager)
+			public CommonInfo(IChunkFactory chunkFactory, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.OnDemandSubReportCallback subReportCallback, IGetResource getResourceCallback, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, ReportRuntimeSetup reportRuntimeSetup, UserProfileState allowUserProfileState, string requestUserName, CultureInfo userLanguage, DateTime executionTime, bool reprocessSnapshot, bool processWithCachedData, CreateAndRegisterStream createStreamCallback, bool enableDataBackedParameters, IJobContext jobContext, IExtensionFactory extFactory, IDataProtection dataProtection, ExecutionLogContext executionLogContext, RuntimeDataSourceInfoCollection dataSourceInfos, RuntimeDataSetInfoCollection sharedDataSetReferences, IProcessingDataExtensionConnection createAndSetupDataExtensionFunction, IConfiguration configuration, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.DataSourceInfoHashtable globalDataSourceInfo, ReportProcessingContext externalProcessingContext, AbortHelper abortInfo, bool abortInfoInherited, UserProfileState hasUserProfileState, OnDemandProcessingContext topLevelContext, Mode contextMode, ImageCacheManager imageCacheManager)
 			{
 				this.m_chunkFactory = chunkFactory;
 				this.m_subReportCallback = subReportCallback;
@@ -483,7 +483,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				this.m_imageCacheManager = imageCacheManager;
 			}
 
-			internal void MergeHasUserProfileState(UserProfileState newProfileStateFlags)
+			public void MergeHasUserProfileState(UserProfileState newProfileStateFlags)
 			{
 				lock (this.m_hasUserProfileStateLock)
 				{
@@ -491,7 +491,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal void UnregisterAbortInfo()
+			public void UnregisterAbortInfo()
 			{
 				if (this.m_abortInfo != null && !this.m_abortInfoInherited)
 				{
@@ -500,12 +500,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal int CreateUniqueID()
+			public int CreateUniqueID()
 			{
 				return ++this.m_uniqueIDCounter;
 			}
 
-			internal EventInformation GetUserSortFilterInformation(out string sourceUniqueName)
+			public EventInformation GetUserSortFilterInformation(out string sourceUniqueName)
 			{
 				sourceUniqueName = this.m_userSortFilterEventSourceUniqueName;
 				if (this.m_newOdpSortEventInfo == null)
@@ -517,7 +517,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				return eventInformation;
 			}
 
-			internal void MergeNewUserSortFilterInformation()
+			public void MergeNewUserSortFilterInformation()
 			{
 				int num = (this.m_reportRuntimeUserSortFilterInfo != null) ? this.m_reportRuntimeUserSortFilterInfo.Count : 0;
 				if (num != 0)
@@ -564,7 +564,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal void TraceOneTimeWarning(ProcessingErrorCode errorCode, ICatalogItemContext itemContext)
+			public void TraceOneTimeWarning(ProcessingErrorCode errorCode, ICatalogItemContext itemContext)
 			{
 				if (this.m_hasTracedOneTimeMessage != null && !this.m_hasTracedOneTimeMessage.ContainsKey(errorCode))
 				{
@@ -592,7 +592,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal sealed class CustomReportItemControls
+		public sealed class CustomReportItemControls
 		{
 			private class CustomControlInfo
 			{
@@ -600,7 +600,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 				private ICustomReportItem m_instance;
 
-				internal bool IsValid
+				public bool IsValid
 				{
 					get
 					{
@@ -612,7 +612,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 					}
 				}
 
-				internal ICustomReportItem Instance
+				public ICustomReportItem Instance
 				{
 					get
 					{
@@ -627,12 +627,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 			private Hashtable m_controls;
 
-			internal CustomReportItemControls()
+			public CustomReportItemControls()
 			{
 				this.m_controls = new Hashtable();
 			}
 
-			internal ICustomReportItem GetControlInstance(string name, IExtensionFactory extFactory)
+			public ICustomReportItem GetControlInstance(string name, IExtensionFactory extFactory)
 			{
 				lock (this)
 				{
@@ -767,7 +767,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance m_currentDataSetInstance;
 
-		internal UserProfileState HasUserProfileState
+		public UserProfileState HasUserProfileState
 		{
 			get
 			{
@@ -775,7 +775,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool HasRenderFormatDependencyInDocumentMap
+		public bool HasRenderFormatDependencyInDocumentMap
 		{
 			get
 			{
@@ -787,7 +787,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ExecutionLogContext ExecutionLogContext
+		public ExecutionLogContext ExecutionLogContext
 		{
 			get
 			{
@@ -795,7 +795,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IJobContext JobContext
+		public IJobContext JobContext
 		{
 			get
 			{
@@ -803,7 +803,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IExtensionFactory ExtFactory
+		public IExtensionFactory ExtFactory
 		{
 			get
 			{
@@ -811,7 +811,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IDataProtection DataProtection
+		public IDataProtection DataProtection
 		{
 			get
 			{
@@ -827,7 +827,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IChunkFactory ChunkFactory
+		public IChunkFactory ChunkFactory
 		{
 			get
 			{
@@ -835,7 +835,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal string RequestUserName
+		public string RequestUserName
 		{
 			get
 			{
@@ -851,7 +851,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal CultureInfo UserLanguage
+		public CultureInfo UserLanguage
 		{
 			get
 			{
@@ -859,7 +859,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.OnDemandSubReportCallback SubReportCallback
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.OnDemandSubReportCallback SubReportCallback
 		{
 			get
 			{
@@ -867,7 +867,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool HasBookmarks
+		public bool HasBookmarks
 		{
 			get
 			{
@@ -887,7 +887,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool HasShowHide
+		public bool HasShowHide
 		{
 			get
 			{
@@ -907,7 +907,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool HasUserSortFilter
+		public bool HasUserSortFilter
 		{
 			get
 			{
@@ -919,7 +919,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal UserProfileState AllowUserProfileState
+		public UserProfileState AllowUserProfileState
 		{
 			get
 			{
@@ -947,7 +947,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool ProcessWithCachedData
+		public bool ProcessWithCachedData
 		{
 			get
 			{
@@ -955,7 +955,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool StreamingMode
+		public bool StreamingMode
 		{
 			get
 			{
@@ -963,7 +963,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool UseVerboseExecutionLogging
+		public bool UseVerboseExecutionLogging
 		{
 			get
 			{
@@ -975,7 +975,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool ShouldExecuteLiveQueries
+		public bool ShouldExecuteLiveQueries
 		{
 			get
 			{
@@ -991,7 +991,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ReportRuntimeSetup ReportRuntimeSetup
+		public ReportRuntimeSetup ReportRuntimeSetup
 		{
 			get
 			{
@@ -999,7 +999,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters StoreServerParameters
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters StoreServerParameters
 		{
 			get
 			{
@@ -1007,7 +1007,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool HasPreviousAggregates
+		public bool HasPreviousAggregates
 		{
 			get
 			{
@@ -1019,7 +1019,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal EventInformation UserSortFilterInfo
+		public EventInformation UserSortFilterInfo
 		{
 			get
 			{
@@ -1031,7 +1031,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal SortFilterEventInfoMap OldSortFilterEventInfo
+		public SortFilterEventInfoMap OldSortFilterEventInfo
 		{
 			get
 			{
@@ -1043,7 +1043,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal string UserSortFilterEventSourceUniqueName
+		public string UserSortFilterEventSourceUniqueName
 		{
 			get
 			{
@@ -1055,7 +1055,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal SortFilterEventInfoMap NewSortFilterEventInfo
+		public SortFilterEventInfoMap NewSortFilterEventInfo
 		{
 			get
 			{
@@ -1067,7 +1067,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<IReference<AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.RuntimeSortFilterEventInfo>> ReportRuntimeUserSortFilterInfo
+		public List<IReference<AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.RuntimeSortFilterEventInfo>> ReportRuntimeUserSortFilterInfo
 		{
 			get
 			{
@@ -1079,7 +1079,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal CreateAndRegisterStream CreateStreamCallback
+		public CreateAndRegisterStream CreateStreamCallback
 		{
 			get
 			{
@@ -1087,7 +1087,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool IsPageHeaderFooter
+		public bool IsPageHeaderFooter
 		{
 			get
 			{
@@ -1095,7 +1095,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo> ReportAggregates
+		public Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo> ReportAggregates
 		{
 			get
 			{
@@ -1103,7 +1103,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal OnDemandStateManager StateManager
+		public OnDemandStateManager StateManager
 		{
 			get
 			{
@@ -1111,7 +1111,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ReportProcessingContext ExternalProcessingContext
+		public ReportProcessingContext ExternalProcessingContext
 		{
 			get
 			{
@@ -1119,7 +1119,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal DataSetContext ExternalDataSetContext
+		public DataSetContext ExternalDataSetContext
 		{
 			get
 			{
@@ -1127,7 +1127,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool ErrorSavingSnapshotData
+		public bool ErrorSavingSnapshotData
 		{
 			get
 			{
@@ -1139,7 +1139,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal OnDemandProcessingContext ParentContext
+		public OnDemandProcessingContext ParentContext
 		{
 			get
 			{
@@ -1147,7 +1147,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal OnDemandProcessingContext TopLevelContext
+		public OnDemandProcessingContext TopLevelContext
 		{
 			get
 			{
@@ -1155,7 +1155,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeDataSourceInfoCollection DataSourceInfos
+		public RuntimeDataSourceInfoCollection DataSourceInfos
 		{
 			get
 			{
@@ -1163,7 +1163,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeDataSetInfoCollection SharedDataSetReferences
+		public RuntimeDataSetInfoCollection SharedDataSetReferences
 		{
 			get
 			{
@@ -1171,7 +1171,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IProcessingDataExtensionConnection CreateAndSetupDataExtensionFunction
+		public IProcessingDataExtensionConnection CreateAndSetupDataExtensionFunction
 		{
 			get
 			{
@@ -1179,7 +1179,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal CultureInfo ThreadCulture
+		public CultureInfo ThreadCulture
 		{
 			get
 			{
@@ -1191,7 +1191,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal uint LanguageInstanceId
+		public uint LanguageInstanceId
 		{
 			get
 			{
@@ -1203,7 +1203,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ICatalogItemContext ReportContext
+		public ICatalogItemContext ReportContext
 		{
 			get
 			{
@@ -1211,7 +1211,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.ReportRuntime ReportRuntime
+		public AspNetCore.ReportingServices.RdlExpressions.ReportRuntime ReportRuntime
 		{
 			get
 			{
@@ -1223,7 +1223,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ObjectModelImpl ReportObjectModel
+		public ObjectModelImpl ReportObjectModel
 		{
 			get
 			{
@@ -1231,7 +1231,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Report ReportDefinition
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Report ReportDefinition
 		{
 			get
 			{
@@ -1239,7 +1239,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal OnDemandMetadata OdpMetadata
+		public OnDemandMetadata OdpMetadata
 		{
 			get
 			{
@@ -1247,7 +1247,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance CurrentReportInstance
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance CurrentReportInstance
 		{
 			get
 			{
@@ -1259,7 +1259,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal int CurrentDataSetIndex
+		public int CurrentDataSetIndex
 		{
 			get
 			{
@@ -1271,7 +1271,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ImageCacheManager ImageCacheManager
+		public ImageCacheManager ImageCacheManager
 		{
 			get
 			{
@@ -1279,7 +1279,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance CurrentOdpDataSetInstance
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance CurrentOdpDataSetInstance
 		{
 			get
 			{
@@ -1287,7 +1287,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IReportScope CurrentReportScope
+		public IReportScope CurrentReportScope
 		{
 			get
 			{
@@ -1300,7 +1300,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<object> GroupExpressionValues
+		public List<object> GroupExpressionValues
 		{
 			get
 			{
@@ -1308,7 +1308,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool PeerOuterGroupProcessing
+		public bool PeerOuterGroupProcessing
 		{
 			get
 			{
@@ -1320,7 +1320,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool ReportItemsReferenced
+		public bool ReportItemsReferenced
 		{
 			get
 			{
@@ -1328,7 +1328,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool ReportItemThisDotValueReferenced
+		public bool ReportItemThisDotValueReferenced
 		{
 			get
 			{
@@ -1336,7 +1336,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.DataSourceInfoHashtable GlobalDataSourceInfo
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.DataSourceInfoHashtable GlobalDataSourceInfo
 		{
 			get
 			{
@@ -1344,7 +1344,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo> EmbeddedImages
+		public Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo> EmbeddedImages
 		{
 			get
 			{
@@ -1360,7 +1360,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool ProcessReportParameters
+		public bool ProcessReportParameters
 		{
 			get
 			{
@@ -1372,7 +1372,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal CompareInfo CompareInfo
+		public CompareInfo CompareInfo
 		{
 			get
 			{
@@ -1380,7 +1380,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal CompareOptions ClrCompareOptions
+		public CompareOptions ClrCompareOptions
 		{
 			get
 			{
@@ -1392,7 +1392,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool NullsAsBlanks
+		public bool NullsAsBlanks
 		{
 			get
 			{
@@ -1400,7 +1400,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool UseOrdinalStringKeyGeneration
+		public bool UseOrdinalStringKeyGeneration
 		{
 			get
 			{
@@ -1408,7 +1408,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IDataComparer ProcessingComparer
+		public IDataComparer ProcessingComparer
 		{
 			get
 			{
@@ -1427,7 +1427,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal StringKeyGenerator StringKeyGenerator
+		public StringKeyGenerator StringKeyGenerator
 		{
 			get
 			{
@@ -1439,7 +1439,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IEqualityComparer<object> EqualityComparer
+		public IEqualityComparer<object> EqualityComparer
 		{
 			get
 			{
@@ -1447,7 +1447,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal string SubReportDataChunkNameModifier
+		public string SubReportDataChunkNameModifier
 		{
 			get
 			{
@@ -1455,7 +1455,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal string ProcessingAbortItemUniqueIdentifier
+		public string ProcessingAbortItemUniqueIdentifier
 		{
 			get
 			{
@@ -1467,7 +1467,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool FoundExistingSubReportInstance
+		public bool FoundExistingSubReportInstance
 		{
 			get
 			{
@@ -1475,7 +1475,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal string SubReportUniqueName
+		public string SubReportUniqueName
 		{
 			get
 			{
@@ -1487,7 +1487,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal string ReportFolder
+		public string ReportFolder
 		{
 			get
 			{
@@ -1512,7 +1512,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool InSubreport
+		public bool InSubreport
 		{
 			get
 			{
@@ -1520,7 +1520,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool InSubreportInDataRegion
+		public bool InSubreportInDataRegion
 		{
 			get
 			{
@@ -1528,7 +1528,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AbortHelper AbortInfo
+		public AbortHelper AbortInfo
 		{
 			get
 			{
@@ -1536,7 +1536,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal SecondPassOperations SecondPassOperation
+		public SecondPassOperations SecondPassOperation
 		{
 			get
 			{
@@ -1548,7 +1548,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool SpecialRecursiveAggregates
+		public bool SpecialRecursiveAggregates
 		{
 			get
 			{
@@ -1556,7 +1556,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool InitializedRuntime
+		public bool InitializedRuntime
 		{
 			get
 			{
@@ -1568,7 +1568,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool[] DataSetRetrievalComplete
+		public bool[] DataSetRetrievalComplete
 		{
 			get
 			{
@@ -1576,7 +1576,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ParameterInfoCollection ReportParameters
+		public ParameterInfoCollection ReportParameters
 		{
 			get
 			{
@@ -1588,7 +1588,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IScalabilityCache TablixProcessingScalabilityCache
+		public IScalabilityCache TablixProcessingScalabilityCache
 		{
 			get
 			{
@@ -1596,7 +1596,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal CommonRowCache TablixProcessingLookupRowCache
+		public CommonRowCache TablixProcessingLookupRowCache
 		{
 			get
 			{
@@ -1608,7 +1608,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal CustomReportItemControls CriProcessingControls
+		public CustomReportItemControls CriProcessingControls
 		{
 			get
 			{
@@ -1620,7 +1620,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IConfiguration Configuration
+		public IConfiguration Configuration
 		{
 			get
 			{
@@ -1628,7 +1628,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal DomainScopeContext DomainScopeContext
+		public DomainScopeContext DomainScopeContext
 		{
 			get
 			{
@@ -1640,7 +1640,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal Mode ContextMode
+		public Mode ContextMode
 		{
 			get
 			{
@@ -1648,7 +1648,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool ProhibitSerializableValues
+		public bool ProhibitSerializableValues
 		{
 			get
 			{
@@ -1660,7 +1660,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool IsTablixProcessingMode
+		public bool IsTablixProcessingMode
 		{
 			get
 			{
@@ -1673,7 +1673,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool IsUnrestrictedRenderFormatReferenceMode
+		public bool IsUnrestrictedRenderFormatReferenceMode
 		{
 			get
 			{
@@ -1685,7 +1685,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool IsTopLevelSubReportProcessing
+		public bool IsTopLevelSubReportProcessing
 		{
 			get
 			{
@@ -1697,7 +1697,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool IsSharedDataSetExecutionOnly
+		public bool IsSharedDataSetExecutionOnly
 		{
 			get
 			{
@@ -1705,7 +1705,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IInstancePath LastRIFObject
+		public IInstancePath LastRIFObject
 		{
 			get
 			{
@@ -1717,7 +1717,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal QueryRestartInfo QueryRestartInfo
+		public QueryRestartInfo QueryRestartInfo
 		{
 			get
 			{
@@ -1725,7 +1725,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IRIFReportScope LastTablixProcessingReportScope
+		public IRIFReportScope LastTablixProcessingReportScope
 		{
 			get
 			{
@@ -1737,7 +1737,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.UserSortFilterContext UserSortFilterContext
+		public AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.UserSortFilterContext UserSortFilterContext
 		{
 			get
 			{
@@ -1745,7 +1745,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<IReference<AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.RuntimeSortFilterEventInfo>> RuntimeSortFilterInfo
+		public List<IReference<AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.RuntimeSortFilterEventInfo>> RuntimeSortFilterInfo
 		{
 			get
 			{
@@ -1761,7 +1761,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal OnDemandProcessingContext(ProcessingContext externalProcessingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandMetadata odpMetadata, ErrorContext errorContext, DateTime executionTime, bool snapshotProcessing, bool reprocessSnapshot, bool processWithCachedData, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, UserProfileState userProfileState, ExecutionLogContext executionLogContext, IConfiguration configuration, Mode contextMode, IAbortHelper abortHelper)
+		public OnDemandProcessingContext(ProcessingContext externalProcessingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandMetadata odpMetadata, ErrorContext errorContext, DateTime executionTime, bool snapshotProcessing, bool reprocessSnapshot, bool processWithCachedData, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, UserProfileState userProfileState, ExecutionLogContext executionLogContext, IConfiguration configuration, Mode contextMode, IAbortHelper abortHelper)
 		{
 			IJobContext jobContext = externalProcessingContext.JobContext;
 			AbortHelper abortHelper2 = null;
@@ -1806,12 +1806,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_odpMetadata.OdpContexts.Add(this);
 		}
 
-		internal OnDemandProcessingContext(ProcessingContext externalProcessingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandMetadata odpMetadata, ErrorContext errorContext, DateTime executionTime, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, UserProfileState userProfileState, ExecutionLogContext executionLogContext, IConfiguration configuration, IAbortHelper abortHelper)
+		public OnDemandProcessingContext(ProcessingContext externalProcessingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandMetadata odpMetadata, ErrorContext errorContext, DateTime executionTime, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, UserProfileState userProfileState, ExecutionLogContext executionLogContext, IConfiguration configuration, IAbortHelper abortHelper)
 			: this(externalProcessingContext, report, odpMetadata, errorContext, executionTime, false, false, false, storeServerParameters, userProfileState, executionLogContext, configuration, Mode.DefinitionOnly, abortHelper)
 		{
 		}
 
-		internal OnDemandProcessingContext(OnDemandProcessingContext aContext, bool aReportItemsReferenced, AspNetCore.ReportingServices.ReportIntermediateFormat.Report aReport)
+		public OnDemandProcessingContext(OnDemandProcessingContext aContext, bool aReportItemsReferenced, AspNetCore.ReportingServices.ReportIntermediateFormat.Report aReport)
 		{
 			this.m_isPageHeaderFooter = true;
 			this.m_reportDefinition = aReport;
@@ -1848,7 +1848,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_odpMetadata.OdpContexts.Add(this);
 		}
 
-		internal OnDemandProcessingContext(ProcessingContext originalProcessingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, ErrorContext errorContext, DateTime executionTime, bool snapshotProcessing, IConfiguration configuration)
+		public OnDemandProcessingContext(ProcessingContext originalProcessingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, ErrorContext errorContext, DateTime executionTime, bool snapshotProcessing, IConfiguration configuration)
 		{
 			this.m_commonInfo = new CommonInfo(null, null, null, null, originalProcessingContext.ReportRuntimeSetup, originalProcessingContext.AllowUserProfileState, originalProcessingContext.RequestUserName, originalProcessingContext.UserLanguage, executionTime, false, false, originalProcessingContext.CreateStreamCallback, originalProcessingContext.EnableDataBackedParameters, originalProcessingContext.JobContext, originalProcessingContext.ExtFactory, originalProcessingContext.DataProtection, new ExecutionLogContext(originalProcessingContext.JobContext), originalProcessingContext.DataSources, originalProcessingContext.SharedDataSetReferences, originalProcessingContext.CreateAndSetupDataExtensionFunction, configuration, new AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.DataSourceInfoHashtable(), originalProcessingContext as ReportProcessingContext, new ReportAbortHelper(originalProcessingContext.JobContext, false), false, UserProfileState.None, this, Mode.Full, null);
 			this.m_errorContext = errorContext;
@@ -1878,7 +1878,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal OnDemandProcessingContext(DataSetContext dc, DataSetDefinition dataSetDefinition, ErrorContext errorContext, IConfiguration configuration)
+		public OnDemandProcessingContext(DataSetContext dc, DataSetDefinition dataSetDefinition, ErrorContext errorContext, IConfiguration configuration)
 		{
 			this.m_externalDataSetContext = dc;
 			AbortHelper abortHelper = dc.JobContext.GetAbortHelper() as AbortHelper;
@@ -1915,7 +1915,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_reportRuntime.LoadCompiledCode(dataSetCore, true, true, this.m_reportObjectModel, this.ReportRuntimeSetup);
 		}
 
-		internal OnDemandProcessingContext(OnDemandProcessingContext aContext, ICatalogItemContext reportContext, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
+		public OnDemandProcessingContext(OnDemandProcessingContext aContext, ICatalogItemContext reportContext, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
 		{
 			this.m_parentContext = aContext;
 			this.m_snapshotProcessing = aContext.SnapshotProcessing;
@@ -1995,17 +1995,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void MergeHasUserProfileState(UserProfileState newProfileStateFlags)
+		public void MergeHasUserProfileState(UserProfileState newProfileStateFlags)
 		{
 			this.m_commonInfo.MergeHasUserProfileState(newProfileStateFlags);
 		}
 
-		internal void CreatedScopeInstance(IRIFReportDataScope scope)
+		public void CreatedScopeInstance(IRIFReportDataScope scope)
 		{
 			this.m_stateManager.CreatedScopeInstance(scope);
 		}
 
-		internal void EnsureCultureIsSetOnCurrentThread()
+		public void EnsureCultureIsSetOnCurrentThread()
 		{
 			if (this.m_threadCulture != null && Thread.CurrentThread.CurrentCulture.LCID != this.m_threadCulture.LCID)
 			{
@@ -2013,19 +2013,19 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void SetupEnvironment(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
+		public void SetupEnvironment(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
 		{
 			this.m_currentDataSetIndex = -1;
 			this.m_currentReportInstance = reportInstance;
 			reportInstance.SetupEnvironment(this);
 		}
 
-		internal void SetComparisonInformation(DataSetCore dataSet)
+		public void SetComparisonInformation(DataSetCore dataSet)
 		{
 			this.SetComparisonInformation(dataSet.CreateCultureInfoFromLcid().CompareInfo, dataSet.GetCLRCompareOptions(), dataSet.NullsAsBlanks, dataSet.UseOrdinalStringKeyGeneration);
 		}
 
-		internal void SetComparisonInformation(CompareInfo compareInfo, CompareOptions clrCompareOptions, bool nullsAsBlanks, bool useOrdinalStringKeyGeneration)
+		public void SetComparisonInformation(CompareInfo compareInfo, CompareOptions clrCompareOptions, bool nullsAsBlanks, bool useOrdinalStringKeyGeneration)
 		{
 			this.m_compareInfo = compareInfo;
 			this.m_clrCompareOptions = clrCompareOptions;
@@ -2035,17 +2035,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_stringKeyGenerator = null;
 		}
 
-		internal void UnregisterAbortInfo()
+		public void UnregisterAbortInfo()
 		{
 			this.m_commonInfo.UnregisterAbortInfo();
 		}
 
-		internal bool HasSecondPassOperation(SecondPassOperations op)
+		public bool HasSecondPassOperation(SecondPassOperations op)
 		{
 			return (this.m_secondPassOperation & op) != SecondPassOperations.None;
 		}
 
-		internal void ResetUserSortFilterContext()
+		public void ResetUserSortFilterContext()
 		{
 			if (this.m_userSortFilterContext != null)
 			{
@@ -2053,7 +2053,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool IsRdlSandboxingEnabled()
+		public bool IsRdlSandboxingEnabled()
 		{
 			if (this.Configuration != null)
 			{
@@ -2062,7 +2062,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal int GetActiveCompatibilityVersion()
+		public int GetActiveCompatibilityVersion()
 		{
 			return ReportProcessingCompatibilityVersion.GetCompatibilityVersion(this.Configuration);
 		}
@@ -2081,7 +2081,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void InitializeDataSetMembers(int dataSetCount)
+		public void InitializeDataSetMembers(int dataSetCount)
 		{
 			if (dataSetCount >= 0)
 			{
@@ -2093,7 +2093,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RuntimeInitializePageSectionVariables(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, object[] reportVariableValues)
+		public void RuntimeInitializePageSectionVariables(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, object[] reportVariableValues)
 		{
 			if (report.Variables != null)
 			{
@@ -2110,7 +2110,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RuntimeInitializeVariables(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
+		public void RuntimeInitializeVariables(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
 		{
 			if (report.Variables != null)
 			{
@@ -2144,7 +2144,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RuntimeInitializeLookups(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
+		public void RuntimeInitializeLookups(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
 		{
 			if (report.DataSources != null)
 			{
@@ -2171,7 +2171,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RuntimeInitializeTextboxObjs(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection reportItems, bool setExprHost)
+		public void RuntimeInitializeTextboxObjs(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection reportItems, bool setExprHost)
 		{
 			for (int i = 0; i < reportItems.Count; i++)
 			{
@@ -2179,7 +2179,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RuntimeInitializeTextboxObjs(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItem, bool setExprHost)
+		public void RuntimeInitializeTextboxObjs(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItem, bool setExprHost)
 		{
 			if (setExprHost && this.m_reportRuntime.ReportExprHost != null)
 			{
@@ -2295,7 +2295,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RuntimeInitializeReportItemObjs(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection reportItems, bool traverseDataRegions)
+		public void RuntimeInitializeReportItemObjs(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection reportItems, bool traverseDataRegions)
 		{
 			for (int i = 0; i < reportItems.Count; i++)
 			{
@@ -2303,7 +2303,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RuntimeInitializeReportItemObjs(List<AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataRegion> mapDataRegions, bool traverseDataRegions)
+		public void RuntimeInitializeReportItemObjs(List<AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataRegion> mapDataRegions, bool traverseDataRegions)
 		{
 			for (int i = 0; i < mapDataRegions.Count; i++)
 			{
@@ -2311,7 +2311,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RuntimeInitializeReportItemObjs(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItem, bool traverseDataRegions)
+		public void RuntimeInitializeReportItemObjs(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItem, bool traverseDataRegions)
 		{
 			if (reportItem.IsDataRegion)
 			{
@@ -2384,7 +2384,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void RuntimeInitializeAggregates<AggregateType>(List<AggregateType> aggregates) where AggregateType : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
+		public void RuntimeInitializeAggregates<AggregateType>(List<AggregateType> aggregates) where AggregateType : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
 		{
 			if (aggregates != null)
 			{
@@ -2408,63 +2408,63 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal int RecursiveLevel(string scopeName)
+		public int RecursiveLevel(string scopeName)
 		{
 			return this.m_stateManager.RecursiveLevel(scopeName);
 		}
 
-		internal bool InScope(string scopeName)
+		public bool InScope(string scopeName)
 		{
 			return this.m_stateManager.InScope(scopeName);
 		}
 
-		internal Dictionary<string, object> GetCurrentSpecialGroupingValues()
+		public Dictionary<string, object> GetCurrentSpecialGroupingValues()
 		{
 			return this.m_stateManager.GetCurrentSpecialGroupingValues();
 		}
 
-		internal IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance)
+		public IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance)
 		{
 			return this.m_stateManager.CreateSequentialDataReader(dataSet, out dataSetInstance);
 		}
 
-		internal bool CalculateAggregate(string aggregateName)
+		public bool CalculateAggregate(string aggregateName)
 		{
 			return this.m_stateManager.CalculateAggregate(aggregateName);
 		}
 
-		internal bool CalculateLookup(LookupInfo lookup)
+		public bool CalculateLookup(LookupInfo lookup)
 		{
 			return this.m_stateManager.CalculateLookup(lookup);
 		}
 
-		internal bool PrepareFieldsCollectionForDirectFields()
+		public bool PrepareFieldsCollectionForDirectFields()
 		{
 			return this.m_stateManager.PrepareFieldsCollectionForDirectFields();
 		}
 
-		internal void RestoreContext(IInstancePath originalObject)
+		public void RestoreContext(IInstancePath originalObject)
 		{
 			this.m_stateManager.RestoreContext(originalObject);
 		}
 
-		internal void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance)
+		public void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance)
 		{
 			this.m_stateManager.SetupContext(rifObject, romInstance);
 		}
 
-		internal void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
+		public void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
 		{
 			this.m_stateManager.SetupContext(rifObject, romInstance, moveNextInstanceIndex);
 		}
 
-		internal void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
+		public void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
 		{
 			this.CheckAndThrowIfAborted();
 			this.m_stateManager.BindNextMemberInstance(rifObject, romInstance, moveNextInstanceIndex);
 		}
 
-		internal void OnDemandProcessDataPipelineWithRestore(DataSetAggregateDataPipelineManager pipeline)
+		public void OnDemandProcessDataPipelineWithRestore(DataSetAggregateDataPipelineManager pipeline)
 		{
 			FieldsContext currentFields = this.ReportObjectModel.CurrentFields;
 			IScalabilityCache tablixProcessingScalabilityCache = this.m_tablixProcessingScalabilityCache;
@@ -2478,28 +2478,28 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void SetupEmptyTopLevelFields()
+		public void SetupEmptyTopLevelFields()
 		{
 			this.m_reportObjectModel.SetupEmptyTopLevelFields();
 			this.m_currentDataSetIndex = -1;
 			this.m_currentDataSetInstance = null;
 		}
 
-		internal void SetupFieldsForNewDataSetPageSection(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset)
+		public void SetupFieldsForNewDataSetPageSection(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset)
 		{
 			this.m_reportObjectModel.SetupPageSectionDataSetFields(dataset);
 			this.m_currentDataSetIndex = dataset.IndexInCollection;
 			this.m_currentDataSetInstance = null;
 		}
 
-		internal void SetupFieldsForNewDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance, bool addRowIndex, bool noRows)
+		public void SetupFieldsForNewDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance, bool addRowIndex, bool noRows)
 		{
 			this.m_reportObjectModel.SetupFieldsForNewDataSet(dataset, addRowIndex, noRows, false);
 			this.m_currentDataSetIndex = dataset.IndexInCollection;
 			this.m_currentDataSetInstance = dataSetInstance;
 		}
 
-		internal void EnsureRuntimeEnvironmentForDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, bool noRows)
+		public void EnsureRuntimeEnvironmentForDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, bool noRows)
 		{
 			if (this.m_currentDataSetIndex != dataSet.IndexInCollection)
 			{
@@ -2508,7 +2508,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void AddSpecialDataRowSort(IReference<IDataRowSortOwner> sortOwner)
+		public void AddSpecialDataRowSort(IReference<IDataRowSortOwner> sortOwner)
 		{
 			if (this.m_dataRowSortOwners == null)
 			{
@@ -2517,7 +2517,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_dataRowSortOwners.Add(sortOwner);
 		}
 
-		internal void AddSpecialDataRegionFilters(Filters filters)
+		public void AddSpecialDataRegionFilters(Filters filters)
 		{
 			if (this.m_specialDataRegionFilters == null)
 			{
@@ -2555,51 +2555,51 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return flag;
 		}
 
-		internal bool PopulateRuntimeSortFilterEventInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet)
+		public bool PopulateRuntimeSortFilterEventInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet)
 		{
 			return this.m_userSortFilterContext.PopulateRuntimeSortFilterEventInfo(this, dataSet);
 		}
 
-		internal bool IsSortFilterTarget(bool[] isSortFilterTarget, IReference<IScope> outerScope, IReference<IHierarchyObj> target, ref AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.RuntimeUserSortTargetInfo userSortTargetInfo)
+		public bool IsSortFilterTarget(bool[] isSortFilterTarget, IReference<IScope> outerScope, IReference<IHierarchyObj> target, ref AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.RuntimeUserSortTargetInfo userSortTargetInfo)
 		{
 			return this.m_userSortFilterContext.IsSortFilterTarget(isSortFilterTarget, outerScope, target, ref userSortTargetInfo);
 		}
 
-		internal void ProcessUserSortForTarget(IReference<IHierarchyObj> target, ref ScalableList<DataFieldRow> dataRows, bool targetForNonDetailSort)
+		public void ProcessUserSortForTarget(IReference<IHierarchyObj> target, ref ScalableList<DataFieldRow> dataRows, bool targetForNonDetailSort)
 		{
 			this.m_userSortFilterContext.ProcessUserSortForTarget(this.m_reportObjectModel, this.m_reportRuntime, target, ref dataRows, targetForNonDetailSort);
 		}
 
-		internal void RegisterSortFilterExpressionScope(IReference<IScope> container, IReference<RuntimeDataRegionObj> scopeObj, bool[] isSortFilterExpressionScope)
+		public void RegisterSortFilterExpressionScope(IReference<IScope> container, IReference<RuntimeDataRegionObj> scopeObj, bool[] isSortFilterExpressionScope)
 		{
 			this.m_userSortFilterContext.RegisterSortFilterExpressionScope(container, scopeObj, isSortFilterExpressionScope);
 		}
 
-		internal EventInformation GetUserSortFilterInformation(out string oldUniqueName)
+		public EventInformation GetUserSortFilterInformation(out string oldUniqueName)
 		{
 			return this.m_commonInfo.GetUserSortFilterInformation(out oldUniqueName);
 		}
 
-		internal void MergeNewUserSortFilterInformation()
+		public void MergeNewUserSortFilterInformation()
 		{
 			this.m_commonInfo.MergeNewUserSortFilterInformation();
 		}
 
-		internal void FirstPassPostProcess()
+		public void FirstPassPostProcess()
 		{
 			while (this.ProcessDataRegionsWithSpecialFiltersOrDataRowSorting())
 			{
 			}
 		}
 
-		internal void ApplyUserSorts()
+		public void ApplyUserSorts()
 		{
 			while (this.m_userSortFilterContext.ProcessUserSort(this))
 			{
 			}
 		}
 
-		internal List<object>[] GetScopeValues(AspNetCore.ReportingServices.ReportIntermediateFormat.GroupingList containingScopes, IScope containingScope)
+		public List<object>[] GetScopeValues(AspNetCore.ReportingServices.ReportIntermediateFormat.GroupingList containingScopes, IScope containingScope)
 		{
 			List<object>[] array = null;
 			if (containingScopes != null && 0 < containingScopes.Count)
@@ -2611,14 +2611,14 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return array;
 		}
 
-		internal ProcessingMessageList RegisterComparisonErrorForSortFilterEvent(string propertyName)
+		public ProcessingMessageList RegisterComparisonErrorForSortFilterEvent(string propertyName)
 		{
 			Global.Tracer.Assert(null != this.m_userSortFilterContext.CurrentSortFilterEventSource, "(null != m_userSortFilterContext.CurrentSortFilterEventSource)");
 			this.ErrorContext.Register(ProcessingErrorCode.rsComparisonError, Severity.Error, this.m_userSortFilterContext.CurrentSortFilterEventSource.ObjectType, this.m_userSortFilterContext.CurrentSortFilterEventSource.Name, propertyName);
 			return this.ErrorContext.Messages;
 		}
 
-		internal void CheckAndThrowIfAborted()
+		public void CheckAndThrowIfAborted()
 		{
 			AbortHelper abortInfo = this.m_commonInfo.AbortInfo;
 			if (abortInfo != null)
@@ -2627,7 +2627,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void AddDataChunkReader(int dataSetIndexInCollection, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataReader)
+		public void AddDataChunkReader(int dataSetIndexInCollection, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataReader)
 		{
 			if (this.m_dataSetToDataReader == null)
 			{
@@ -2637,7 +2637,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_dataSetToDataReader[dataSetIndexInCollection] = dataReader;
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader GetDataChunkReader(int dataSetIndex)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader GetDataChunkReader(int dataSetIndex)
 		{
 			if (this.IsPageHeaderFooter)
 			{
@@ -2656,7 +2656,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return dataChunkReader;
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance GetDataSetInstance(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance GetDataSetInstance(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet)
 		{
 			if (this.StreamingMode)
 			{
@@ -2666,7 +2666,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return this.GetDataSetInstance(dataSet, out text);
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance GetDataSetInstance(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out string chunkName)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance GetDataSetInstance(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out string chunkName)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance = null;
 			chunkName = null;
@@ -2691,7 +2691,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return dataSetInstance;
 		}
 
-		internal bool[] GenerateDataSetExclusionList(out int unprocessedDataSetCount)
+		public bool[] GenerateDataSetExclusionList(out int unprocessedDataSetCount)
 		{
 			int num = unprocessedDataSetCount = this.m_reportDefinition.DataSetCount;
 			bool[] array = new bool[num];
@@ -2716,7 +2716,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return array;
 		}
 
-		internal void FreeAllResources()
+		public void FreeAllResources()
 		{
 			if (this.m_odpMetadata == null)
 			{
@@ -2752,7 +2752,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.EnsureScalabilityCleanup();
 		}
 
-		internal void EnsureScalabilitySetup()
+		public void EnsureScalabilitySetup()
 		{
 			if (this.m_tablixProcessingScalabilityCache == null)
 			{
@@ -2761,7 +2761,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void EnsureScalabilityCleanup()
+		public void EnsureScalabilityCleanup()
 		{
 			if (this.m_tablixProcessingScalabilityCache != null)
 			{
@@ -2771,17 +2771,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool IsTablixProcessingComplete(int dataSetIndexInCollection)
+		public bool IsTablixProcessingComplete(int dataSetIndexInCollection)
 		{
 			return this.m_odpMetadata.IsTablixProcessingComplete(this, dataSetIndexInCollection);
 		}
 
-		internal void SetTablixProcessingComplete(int dataSetIndexInCollection)
+		public void SetTablixProcessingComplete(int dataSetIndexInCollection)
 		{
 			this.m_odpMetadata.SetTablixProcessingComplete(this, dataSetIndexInCollection);
 		}
 
-		internal int CreateUniqueID()
+		public int CreateUniqueID()
 		{
 			int num = this.m_commonInfo.CreateUniqueID();
 			if (this.m_subReportInfo != null)
@@ -2792,7 +2792,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return num;
 		}
 
-		internal bool GetResource(string path, out byte[] resource, out string mimeType, out bool registerInvalidSizeWarning)
+		public bool GetResource(string path, out byte[] resource, out string mimeType, out bool registerInvalidSizeWarning)
 		{
 			if (this.m_commonInfo.GetResourceCallback != null)
 			{
@@ -2827,18 +2827,18 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal void TraceOneTimeWarning(ProcessingErrorCode errorCode)
+		public void TraceOneTimeWarning(ProcessingErrorCode errorCode)
 		{
 			this.m_commonInfo.TraceOneTimeWarning(errorCode, this.m_catalogItemContext);
 		}
 
-		internal void LoadExistingSubReportDataChunkNameModifier(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReportInstance subReportInstance)
+		public void LoadExistingSubReportDataChunkNameModifier(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReportInstance subReportInstance)
 		{
 			Global.Tracer.Assert(this.m_subReportInfo != null, "Cannot set DataChunkName modifier if the subreport definition could not be found");
 			this.m_subReportDataChunkNameModifier = subReportInstance.GetChunkNameModifier(this.m_subReportInfo, true, false, out this.m_foundExistingSubReportInstance);
 		}
 
-		internal void SetSubReportNameModifierAndParameters(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReportInstance subReportInstance, bool addEntry)
+		public void SetSubReportNameModifierAndParameters(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReportInstance subReportInstance, bool addEntry)
 		{
 			Global.Tracer.Assert(this.m_subReportInfo != null, "Cannot set DataChunkName modifier and parameters if the subreport definition could not be found");
 			this.m_subReportDataChunkNameModifier = subReportInstance.GetChunkNameModifier(this.m_subReportInfo, false, addEntry, out this.m_foundExistingSubReportInstance);
@@ -2856,7 +2856,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void SetSharedDataSetUniqueName(string chunkName)
+		public void SetSharedDataSetUniqueName(string chunkName)
 		{
 			this.m_subReportInstanceOrSharedDatasetUniqueName = chunkName;
 			AbortHelper abortInfo = this.m_commonInfo.AbortInfo;
@@ -2866,7 +2866,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void SetSubReportContext(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReportInstance subReportInstance, bool setupReportOM)
+		public void SetSubReportContext(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReportInstance subReportInstance, bool setupReportOM)
 		{
 			Global.Tracer.Assert(this.m_subReportInfo != null, "Cannot SetSubReportContext if the subreport definition could not be found");
 			string text = this.m_subReportInfo.UniqueName + 'x' + subReportInstance.InstanceUniqueName;
@@ -2912,7 +2912,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal static ParameterInfoCollection EvaluateSubReportParameters(OnDemandProcessingContext parentContext, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
+		public static ParameterInfoCollection EvaluateSubReportParameters(OnDemandProcessingContext parentContext, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
 		{
 			ParameterInfoCollection parameterInfoCollection = new ParameterInfoCollection();
 			if (subReport.Parameters != null && subReport.ParametersFromCatalog != null)
@@ -2949,12 +2949,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return ParameterInfoCollection.Combine(parameterInfoCollection2, parameterInfoCollection, true, false, false, false, Localization.ClientPrimaryCulture);
 		}
 
-		internal bool StoreUpdatedVariableValue(int index, object value)
+		public bool StoreUpdatedVariableValue(int index, object value)
 		{
 			return this.m_odpMetadata.StoreUpdatedVariableValue(this, this.m_currentReportInstance, index, value);
 		}
 
-		internal int CompareAndStopOnError(object value1, object value2, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName, bool extendedTypeComparisons)
+		public int CompareAndStopOnError(object value1, object value2, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName, bool extendedTypeComparisons)
 		{
 			try
 			{
@@ -2975,7 +2975,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ProcessingMessageList RegisterComparisonError(IDataComparisonError e, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public ProcessingMessageList RegisterComparisonError(IDataComparisonError e, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			if (e == null)
 			{
@@ -2988,7 +2988,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return this.m_errorContext.Messages;
 		}
 
-		internal ProcessingMessageList RegisterSpatialTypeComparisonError(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string spatialTypeName)
+		public ProcessingMessageList RegisterSpatialTypeComparisonError(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string spatialTypeName)
 		{
 			this.m_errorContext.Register(ProcessingErrorCode.rsCannotCompareSpatialType, Severity.Error, objectType, objectName, spatialTypeName);
 			return this.m_errorContext.Messages;

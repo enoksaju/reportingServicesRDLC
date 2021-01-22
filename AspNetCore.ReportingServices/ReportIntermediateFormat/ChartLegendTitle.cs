@@ -9,14 +9,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartLegendTitle : ChartTitleBase, IPersistable
+	public sealed class ChartLegendTitle : ChartTitleBase, IPersistable
 	{
 		private ExpressionInfo m_titleSeparator;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ChartLegendTitle.GetDeclaration();
 
-		internal ExpressionInfo TitleSeparator
+		public ExpressionInfo TitleSeparator
 		{
 			get
 			{
@@ -28,17 +28,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendTitle()
+		public ChartLegendTitle()
 		{
 		}
 
-		internal ChartLegendTitle(Chart chart)
+		public ChartLegendTitle(Chart chart)
 			: base(chart)
 		{
 			base.m_chart = chart;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartLegendTitleStart();
 			base.Initialize(context);
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartLegendTitleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartLegendTitle chartLegendTitle = (ChartLegendTitle)base.PublishClone(context);
 			if (this.m_titleSeparator != null)
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartLegendTitle;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.TitleSeparator, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartLegendTitle;
 		}
 
-		internal ChartSeparators EvaluateTitleSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartSeparators EvaluateTitleSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartSeparator(context.ReportRuntime.EvaluateChartLegendTitleTitleSeparatorExpression(this, base.m_chart.Name), context.ReportRuntime);

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class ScopedFieldInfo : IPersistable
+	public sealed class ScopedFieldInfo : IPersistable
 	{
 		private int m_fieldIndex;
 

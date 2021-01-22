@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ScaleRangePlacements
+	public enum ScaleRangePlacements
 	{
 		Inside,
 		Outside,

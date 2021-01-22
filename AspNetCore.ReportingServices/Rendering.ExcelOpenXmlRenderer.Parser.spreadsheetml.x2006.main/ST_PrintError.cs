@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_PrintError
+	public class ST_PrintError
 	{
 		private string _ooxmlEnumerationValue;
 

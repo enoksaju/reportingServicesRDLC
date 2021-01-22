@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportInstance : ReportItemInstance, IPageItem
+	public sealed class ReportInstance : ReportItemInstance, IPageItem
 	{
 		private ReportItemColInstance m_reportItemColInstance;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal ReportItemColInstance ReportItemColInstance
+		public ReportItemColInstance ReportItemColInstance
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Language
+		public string Language
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NumberOfPages
+		public int NumberOfPages
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportInstance(ReportProcessing.ProcessingContext pc, Report reportItemDef, ParameterInfoCollection parameters, string reportlanguage, bool noRows)
+		public ReportInstance(ReportProcessing.ProcessingContext pc, Report reportItemDef, ParameterInfoCollection parameters, string reportlanguage, bool noRows)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new ReportInstanceInfo(pc, reportItemDef, this, parameters, noRows);
@@ -102,11 +102,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_noRows = noRows;
 		}
 
-		internal ReportInstance()
+		public ReportInstance()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ReportItemColInstance, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemColInstance));
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ((ISearchByUniqueName)this.m_reportItemColInstance).Find(targetUniqueName, ref nonCompNames, chunkManager);
 		}
 
-		internal ReportInstanceInfo GetCachedReportInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public ReportInstanceInfo GetCachedReportInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return (ReportInstanceInfo)base.m_instanceInfo;
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadReportInstanceInfo((Report)base.m_reportItemDef);

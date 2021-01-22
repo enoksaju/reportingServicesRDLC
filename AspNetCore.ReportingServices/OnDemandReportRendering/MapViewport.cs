@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapViewport : MapSubItem
+	public sealed class MapViewport : MapSubItem
 	{
 		private ReportEnumProperty<MapCoordinateSystem> m_mapCoordinateSystem;
 
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapViewport MapViewportDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapViewport MapViewportDef
 		{
 			get
 			{
@@ -217,12 +217,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapViewport(AspNetCore.ReportingServices.ReportIntermediateFormat.MapViewport defObject, Map map)
+		public MapViewport(AspNetCore.ReportingServices.ReportIntermediateFormat.MapViewport defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapSubItemInstance GetInstance()
+		public override MapSubItemInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapSubItemInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

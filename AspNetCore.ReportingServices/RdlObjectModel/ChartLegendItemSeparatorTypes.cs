@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartLegendItemSeparatorTypes
+	public enum ChartLegendItemSeparatorTypes
 	{
 		None,
 		Line,

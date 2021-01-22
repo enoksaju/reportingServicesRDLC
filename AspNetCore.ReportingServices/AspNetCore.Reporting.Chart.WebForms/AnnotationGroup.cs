@@ -6,9 +6,9 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeAnnotationGroup_AnnotationGroup")]
-	internal class AnnotationGroup : Annotation
+	public class AnnotationGroup : Annotation
 	{
-		internal AnnotationCollection annotations;
+		public AnnotationCollection annotations;
 
 		[DefaultValue("NotSet")]
 		[SRDescription("DescriptionAttributeAnnotationGroup_ClipToChartArea")]
@@ -373,7 +373,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
 		[SRDescription("DescriptionAttributeSelectionPointsStyle3")]
-		internal override SelectionPointsStyle SelectionPointsStyle
+		public override SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{
@@ -387,7 +387,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.annotations.annotationGroup = this;
 		}
 
-		internal override void Paint(Chart chart, ChartGraphics graphics)
+		public override void Paint(Chart chart, ChartGraphics graphics)
 		{
 			this.Chart = chart;
 			foreach (Annotation annotation in this.annotations)

@@ -5,14 +5,14 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_NonExistingGlobalReference : Exception
+	public sealed class ReportProcessingException_NonExistingGlobalReference : Exception
 	{
-		internal ReportProcessingException_NonExistingGlobalReference(string globalName)
+		public ReportProcessingException_NonExistingGlobalReference(string globalName)
 			: base(string.Format(CultureInfo.CurrentCulture, RPRes.rsNonExistingGlobalReference(globalName)))
 		{
 		}
 
-		internal ReportProcessingException_NonExistingGlobalReference(SerializationInfo info, StreamingContext context)
+		public ReportProcessingException_NonExistingGlobalReference(SerializationInfo info, StreamingContext context)
 			: base(info, context)
 		{
 		}

@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ReportActionHandler
+	public sealed class ReportActionHandler
 	{
 		private Report m_report;
 

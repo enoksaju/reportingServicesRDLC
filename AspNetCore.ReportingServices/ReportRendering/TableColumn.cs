@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableColumn
+	public sealed class TableColumn
 	{
 		private Table m_owner;
 
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableColumnInstance ColumnInstance
+		public TableColumnInstance ColumnInstance
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.TableColumn ColumnDefinition
+		public AspNetCore.ReportingServices.ReportProcessing.TableColumn ColumnDefinition
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableColumn(Table owner, AspNetCore.ReportingServices.ReportProcessing.TableColumn columnDef, int index)
+		public TableColumn(Table owner, AspNetCore.ReportingServices.ReportProcessing.TableColumn columnDef, int index)
 		{
 			this.m_owner = owner;
 			this.m_columnDef = columnDef;

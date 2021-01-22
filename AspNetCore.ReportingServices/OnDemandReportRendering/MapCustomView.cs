@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapCustomView : MapView
+	public sealed class MapCustomView : MapView
 	{
 		private ReportDoubleProperty m_centerX;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapCustomView MapCustomViewDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapCustomView MapCustomViewDef
 		{
 			get
 			{
@@ -48,12 +48,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapCustomView(AspNetCore.ReportingServices.ReportIntermediateFormat.MapCustomView defObject, Map map)
+		public MapCustomView(AspNetCore.ReportingServices.ReportIntermediateFormat.MapCustomView defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapViewInstance GetInstance()
+		public override MapViewInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

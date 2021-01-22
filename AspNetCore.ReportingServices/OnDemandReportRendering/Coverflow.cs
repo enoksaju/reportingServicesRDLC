@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Coverflow : Navigation
+	public sealed class Coverflow : Navigation
 	{
 		private NavigationItem m_navigationItem;
 
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Coverflow(AspNetCore.ReportingServices.ReportIntermediateFormat.BandLayoutOptions bandLayout)
+		public Coverflow(AspNetCore.ReportingServices.ReportIntermediateFormat.BandLayoutOptions bandLayout)
 			: base(bandLayout)
 		{
 		}

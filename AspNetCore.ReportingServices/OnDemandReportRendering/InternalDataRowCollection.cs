@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalDataRowCollection : DataRowCollection
+	public sealed class InternalDataRowCollection : DataRowCollection
 	{
 		private CustomDataRowList m_dataRowDefs;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalDataRowCollection(CustomReportItem owner, CustomDataRowList dataRowDefs)
+		public InternalDataRowCollection(CustomReportItem owner, CustomDataRowList dataRowDefs)
 			: base(owner)
 		{
 			this.m_dataRowDefs = dataRowDefs;

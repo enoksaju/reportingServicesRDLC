@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 {
-	internal sealed class Declaration
+	public sealed class Declaration
 	{
 		private ObjectType m_baseType;
 
 		private MemberInfoList m_members;
 
-		internal ObjectType BaseType
+		public ObjectType BaseType
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal MemberInfoList Members
+		public MemberInfoList Members
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal Declaration(ObjectType baseType, MemberInfoList members)
+		public Declaration(ObjectType baseType, MemberInfoList members)
 		{
 			this.m_baseType = baseType;
 			Global.Tracer.Assert(null != members);

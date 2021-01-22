@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableDetailRow : TableRow
+	public sealed class TableDetailRow : TableRow
 	{
 		private TableDetailRowCollection m_detail;
 
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableDetailRow(Table owner, AspNetCore.ReportingServices.ReportProcessing.TableRow rowDef, TableRowInstance rowInstance, TableDetailRowCollection detail)
+		public TableDetailRow(Table owner, AspNetCore.ReportingServices.ReportProcessing.TableRow rowDef, TableRowInstance rowInstance, TableDetailRowCollection detail)
 			: base(owner, rowDef, rowInstance)
 		{
 			this.m_detail = detail;

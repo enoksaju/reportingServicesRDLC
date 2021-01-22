@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Image : ReportItem
+	public class Image : ReportItem
 	{
-		internal new class Definition : DefinitionStore<Image, Definition.Properties>
+		public new class Definition : DefinitionStore<Image, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Name,
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Image(IPropertyStore propertyStore)
+		public Image(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			Image.GetEmbeddedImgDependencies(ancestor, dependencies, this.Source, this.Value);
 		}
 
-		internal static void GetEmbeddedImgDependencies(Report report, ICollection<ReportObject> dependencies, SourceType imageSource, ReportExpression imageValue)
+		public static void GetEmbeddedImgDependencies(Report report, ICollection<ReportObject> dependencies, SourceType imageSource, ReportExpression imageValue)
 		{
 			if (report != null && dependencies != null && !string.IsNullOrEmpty(imageValue.Expression) && imageSource == SourceType.Embedded && !imageValue.IsExpression)
 			{

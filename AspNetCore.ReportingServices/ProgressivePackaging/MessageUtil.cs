@@ -3,16 +3,16 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal static class MessageUtil
+	public static class MessageUtil
 	{
-		internal static readonly Encoding StringEncoding;
+		public static readonly Encoding StringEncoding;
 
 		static MessageUtil()
 		{
 			MessageUtil.StringEncoding = Encoding.UTF8;
 		}
 
-		internal static string[] ReadStringArray(BinaryReader reader)
+		public static string[] ReadStringArray(BinaryReader reader)
 		{
 			string[] array = new string[reader.ReadInt32()];
 			for (int i = 0; i < array.Length; i++)
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			return array;
 		}
 
-		internal static void WriteStringArray(BinaryWriter writer, string[] value)
+		public static void WriteStringArray(BinaryWriter writer, string[] value)
 		{
 			writer.Write(value.Length);
 			for (int i = 0; i < value.Length; i++)
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			}
 		}
 
-		internal static void WriteByteArray(BinaryWriter writer, byte[] value, int offset, int length)
+		public static void WriteByteArray(BinaryWriter writer, byte[] value, int offset, int length)
 		{
 			writer.Write(length);
 			writer.Write(value, offset, length);

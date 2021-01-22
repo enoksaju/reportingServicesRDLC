@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class StringEqualityComparer : IEqualityComparer<string>
+	public class StringEqualityComparer : IEqualityComparer<string>
 	{
-		internal static readonly IEqualityComparer<string> Instance = new StringEqualityComparer();
+		public static readonly IEqualityComparer<string> Instance = new StringEqualityComparer();
 
 		private StringEqualityComparer()
 		{

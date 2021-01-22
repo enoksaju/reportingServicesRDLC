@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class IntAutoFitConverter : Int32Converter
+	public class IntAutoFitConverter : Int32Converter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

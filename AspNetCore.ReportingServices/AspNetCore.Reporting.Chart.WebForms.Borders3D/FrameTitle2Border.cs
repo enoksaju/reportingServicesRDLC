@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Borders3D
 {
-	internal class FrameTitle2Border : FrameThin2Border
+	public class FrameTitle2Border : FrameThin2Border
 	{
 		public override string Name
 		{

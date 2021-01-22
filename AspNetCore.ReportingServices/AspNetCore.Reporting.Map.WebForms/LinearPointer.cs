@@ -7,11 +7,11 @@ using System.Drawing.Imaging;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LinearPointer : MapObject, IToolTipProvider
+	public class LinearPointer : MapObject, IToolTipProvider
 	{
 		private double position;
 
-		internal bool dragging;
+		public bool dragging;
 
 		private LinearPointerType type;
 
@@ -521,7 +521,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal double Position
+		public double Position
 		{
 			get
 			{
@@ -538,7 +538,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -564,7 +564,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.fillGradientType = GradientType.DiagonalLeft;
 		}
 
-		internal void Render(MapGraphics g)
+		public void Render(MapGraphics g)
 		{
 			if (this.Common != null && this.Visible && this.GetScale() != null)
 			{
@@ -608,7 +608,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawImage(MapGraphics g, bool drawShadow)
+		public void DrawImage(MapGraphics g, bool drawShadow)
 		{
 			if (this.Visible)
 			{
@@ -661,7 +661,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MarkerStyleAttrib GetMarkerStyleAttrib(MapGraphics g)
+		public MarkerStyleAttrib GetMarkerStyleAttrib(MapGraphics g)
 		{
 			MarkerStyleAttrib markerStyleAttrib = new MarkerStyleAttrib();
 			if (!string.IsNullOrEmpty(this.Image))
@@ -702,7 +702,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float CalculateMarkerDistance()
+		public float CalculateMarkerDistance()
 		{
 			if (this.Placement == Placement.Cross)
 			{
@@ -715,7 +715,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (float)(this.GetScale().Position + this.GetScale().Width / 2.0 + this.DistanceFromScale + this.MarkerLength / 2.0);
 		}
 
-		internal GraphicsPath GetPointerPath(MapGraphics g)
+		public GraphicsPath GetPointerPath(MapGraphics g)
 		{
 			if (!this.Visible)
 			{
@@ -735,7 +735,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return graphicsPath;
 		}
 
-		internal GraphicsPath GetShadowPath(MapGraphics g)
+		public GraphicsPath GetShadowPath(MapGraphics g)
 		{
 			if (this.ShadowOffset != 0.0 && this.GetScale() != null)
 			{
@@ -763,12 +763,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (ZoomPanel)this.Parent;
 		}
 
-		internal LinearScale GetScale()
+		public LinearScale GetScale()
 		{
 			return this.GetGauge().Scale;
 		}
 
-		internal virtual void DragTo(int x, int y, PointF refPoint, bool dragging)
+		public virtual void DragTo(int x, int y, PointF refPoint, bool dragging)
 		{
 			LinearScale scale = this.GetScale();
 			this.dragging = dragging;
@@ -780,16 +780,16 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void RenderShadow(MapGraphics g)
+		public virtual void RenderShadow(MapGraphics g)
 		{
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 		}

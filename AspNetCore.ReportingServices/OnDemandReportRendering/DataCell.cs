@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DataCell : IReportScope, IDataRegionCell
+	public abstract class DataCell : IReportScope, IDataRegionCell
 	{
 		protected int m_rowIndex;
 
@@ -20,17 +20,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract AspNetCore.ReportingServices.ReportIntermediateFormat.DataCell DataCellDef
+		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.DataCell DataCellDef
 		{
 			get;
 		}
 
-		internal abstract AspNetCore.ReportingServices.ReportRendering.DataCell RenderItem
+		public abstract AspNetCore.ReportingServices.ReportRendering.DataCell RenderItem
 		{
 			get;
 		}
 
-		internal CustomReportItem CriDef
+		public CustomReportItem CriDef
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual IRIFReportScope RIFReportScope
+		public virtual IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataCell(CustomReportItem owner, int rowIndex, int colIndex)
+		public DataCell(CustomReportItem owner, int rowIndex, int colIndex)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.SetNewContext();
 		}
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

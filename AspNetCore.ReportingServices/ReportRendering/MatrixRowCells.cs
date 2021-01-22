@@ -2,13 +2,13 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class MatrixRowCells
+	public sealed class MatrixRowCells
 	{
 		private int m_count;
 
 		private MatrixCell[] m_matrixRowCells;
 
-		internal MatrixCell this[int index]
+		public MatrixCell this[int index]
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MatrixRowCells(int count)
+		public MatrixRowCells(int count)
 		{
 			this.m_count = count;
 		}

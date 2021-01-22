@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SymbolData
+	public class SymbolData
 	{
 		private MapPoint[] points = new MapPoint[1];
 
@@ -49,7 +49,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsEmpty
+		public bool IsEmpty
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void UpdateStoredParameters()
+		public void UpdateStoredParameters()
 		{
 			MapPoint mapPoint = new MapPoint(double.PositiveInfinity, double.PositiveInfinity);
 			MapPoint mapPoint2 = new MapPoint(double.NegativeInfinity, double.NegativeInfinity);
@@ -78,7 +78,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.MaximumExtent = mapPoint2;
 		}
 
-		internal void LoadFromStream(Stream stream)
+		public void LoadFromStream(Stream stream)
 		{
 			byte[] array = new byte[Marshal.SizeOf(typeof(int))];
 			byte[] array2 = new byte[Marshal.SizeOf(typeof(double))];
@@ -94,7 +94,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void SaveToStream(Stream stream)
+		public void SaveToStream(Stream stream)
 		{
 			if (this.Points != null)
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static string SymbolDataToString(SymbolData symbolData)
+		public static string SymbolDataToString(SymbolData symbolData)
 		{
 			MemoryStream memoryStream = new MemoryStream();
 			symbolData.SaveToStream(memoryStream);
@@ -122,7 +122,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return Convert.ToBase64String(inArray);
 		}
 
-		internal static SymbolData SymbolDataFromString(string data)
+		public static SymbolData SymbolDataFromString(string data)
 		{
 			byte[] array = new byte[1000];
 			MemoryStream memoryStream = new MemoryStream();

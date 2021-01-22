@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLAction
+	public sealed class RPLAction
 	{
 		private string m_label;
 
@@ -72,11 +72,11 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLAction()
+		public RPLAction()
 		{
 		}
 
-		internal RPLAction(string label)
+		public RPLAction(string label)
 		{
 			this.m_label = label;
 		}

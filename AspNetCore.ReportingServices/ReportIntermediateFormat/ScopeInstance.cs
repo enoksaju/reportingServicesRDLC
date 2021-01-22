@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class ScopeInstance : IStorable, IPersistable
+	public abstract class ScopeInstance : IStorable, IPersistable
 	{
 		protected long m_firstRowOffset = DataFieldRow.UnInitializedStreamOffset;
 
@@ -28,12 +28,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ScopeInstance.GetDeclaration();
 
-		internal abstract AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
+		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
 		{
 			get;
 		}
 
-		internal virtual IRIFReportScope RIFReportScope
+		public virtual IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal long FirstRowOffset
+		public long FirstRowOffset
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<IReference<DataRegionInstance>> DataRegionInstances
+		public List<IReference<DataRegionInstance>> DataRegionInstances
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<IReference<SubReportInstance>> SubreportInstances
+		public List<IReference<SubReportInstance>> SubreportInstances
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateObjResult> AggregateValues
+		public List<DataAggregateObjResult> AggregateValues
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsReadOnly
+		public bool IsReadOnly
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_firstRowOffset = firstRowOffset;
 		}
 
-		internal virtual void InstanceComplete()
+		public virtual void InstanceComplete()
 		{
 			this.m_cleanupRef.Dispose();
 			this.m_cleanupRef = null;
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return list.AddAndPin(item);
 		}
 
-		internal virtual void AddChildScope(IReference<ScopeInstance> childRef, int indexInCollection)
+		public virtual void AddChildScope(IReference<ScopeInstance> childRef, int indexInCollection)
 		{
 			switch (childRef.Value().ObjectType)
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void StoreAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggregateDefs) where AggregateType : DataAggregateInfo
+		public void StoreAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggregateDefs) where AggregateType : DataAggregateInfo
 		{
 			if (aggregateDefs != null)
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void StoreAggregates<AggregateType>(OnDemandProcessingContext odpContext, BucketedAggregatesCollection<AggregateType> aggregateDefs) where AggregateType : DataAggregateInfo
+		public void StoreAggregates<AggregateType>(OnDemandProcessingContext odpContext, BucketedAggregatesCollection<AggregateType> aggregateDefs) where AggregateType : DataAggregateInfo
 		{
 			if (aggregateDefs != null && !aggregateDefs.IsEmpty)
 			{
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void StoreAggregates(DataAggregateObjResult[] aggregateObjResults)
+		public void StoreAggregates(DataAggregateObjResult[] aggregateObjResults)
 		{
 			if (aggregateObjResults != null)
 			{
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void StoreAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggregateDefs, List<int> aggregateIndexes) where AggregateType : DataAggregateInfo
+		public void StoreAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggregateDefs, List<int> aggregateIndexes) where AggregateType : DataAggregateInfo
 		{
 			if (aggregateIndexes != null)
 			{
@@ -267,13 +267,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal void SetupFields(OnDemandProcessingContext odpContext, int dataSetIndex)
+		public void SetupFields(OnDemandProcessingContext odpContext, int dataSetIndex)
 		{
 			DataSetInstance dataSetInstance = odpContext.CurrentReportInstance.GetDataSetInstance(dataSetIndex, odpContext);
 			this.SetupFields(odpContext, dataSetInstance);
 		}
 
-		internal void SetupFields(OnDemandProcessingContext odpContext, DataSetInstance dataSetInstance)
+		public void SetupFields(OnDemandProcessingContext odpContext, DataSetInstance dataSetInstance)
 		{
 			if (!dataSetInstance.NoRows)
 			{
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetupAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggregateDefs, ref int aggregateValueOffset) where AggregateType : DataAggregateInfo
+		public void SetupAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggregateDefs, ref int aggregateValueOffset) where AggregateType : DataAggregateInfo
 		{
 			if (this.m_aggregateValues != null && aggregateDefs != null)
 			{
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetupAggregates<AggregateType>(OnDemandProcessingContext odpContext, BucketedAggregatesCollection<AggregateType> aggregateDefs, ref int aggregateValueOffset) where AggregateType : DataAggregateInfo
+		public void SetupAggregates<AggregateType>(OnDemandProcessingContext odpContext, BucketedAggregatesCollection<AggregateType> aggregateDefs, ref int aggregateValueOffset) where AggregateType : DataAggregateInfo
 		{
 			if (this.m_aggregateValues != null && aggregateDefs != null)
 			{
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetupAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggregateDefs, List<int> aggregateIndexes, ref int aggregateValueOffset) where AggregateType : DataAggregateInfo
+		public void SetupAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggregateDefs, List<int> aggregateIndexes, ref int aggregateValueOffset) where AggregateType : DataAggregateInfo
 		{
 			int num = (aggregateIndexes != null) ? aggregateIndexes.Count : 0;
 			for (int i = 0; i < num; i++)
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			odpContext.ReportObjectModel.AggregatesImpl.Set(aggregateDef.Name, (DataAggregateInfo)(object)aggregateDef, aggregateDef.DuplicateNames, aggregateObj);
 		}
 
-		internal static void CalculateVariables(OnDemandProcessingContext odpContext, List<Variable> variableDefs, out object[] variableValues)
+		public static void CalculateVariables(OnDemandProcessingContext odpContext, List<Variable> variableDefs, out object[] variableValues)
 		{
 			variableValues = null;
 			if (variableDefs != null && variableDefs.Count != 0)
@@ -345,7 +345,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static void ResetVariables(OnDemandProcessingContext odpContext, List<Variable> variableDefs)
+		public static void ResetVariables(OnDemandProcessingContext odpContext, List<Variable> variableDefs)
 		{
 			if (variableDefs != null)
 			{
@@ -358,7 +358,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static void SetupVariables(OnDemandProcessingContext odpContext, List<Variable> variableDefs, object[] variableValues)
+		public static void SetupVariables(OnDemandProcessingContext odpContext, List<Variable> variableDefs, object[] variableValues)
 		{
 			if (variableDefs != null)
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.FirstRowIndex, Token.Int64));

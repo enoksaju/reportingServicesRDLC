@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartNoMoveDirections : ReportObject
+	public class ChartNoMoveDirections : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartNoMoveDirections, Definition.Properties>
+		public class Definition : DefinitionStore<ChartNoMoveDirections, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Up,
 				Left,
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartNoMoveDirections(IPropertyStore propertyStore)
+		public ChartNoMoveDirections(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

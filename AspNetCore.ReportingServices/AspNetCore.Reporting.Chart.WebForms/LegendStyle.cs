@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum LegendStyle
+	public enum LegendStyle
 	{
 		Column,
 		Row,

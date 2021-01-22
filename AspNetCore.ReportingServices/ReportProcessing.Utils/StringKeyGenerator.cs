@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Utils
 {
-	internal sealed class StringKeyGenerator
+	public sealed class StringKeyGenerator
 	{
 		private static class TypePrefix
 		{

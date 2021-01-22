@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class NewToOldReportSizeCollection : ReportSizeCollection
+	public sealed class NewToOldReportSizeCollection : ReportSizeCollection
 	{
 		private ReportSizeCollection m_col;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal NewToOldReportSizeCollection(ReportSizeCollection col)
+		public NewToOldReportSizeCollection(ReportSizeCollection col)
 		{
 			this.m_col = col;
 		}

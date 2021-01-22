@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapSpatialElementTemplateInstance : BaseInstance
+	public abstract class MapSpatialElementTemplateInstance : BaseInstance
 	{
 		private MapSpatialElementTemplate m_defObject;
 
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSpatialElementTemplateInstance(MapSpatialElementTemplate defObject)
+		public MapSpatialElementTemplateInstance(MapSpatialElementTemplate defObject)
 			: base(defObject.ReportScope)
 		{
 			this.m_defObject = defObject;

@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapMember : ReportHierarchyNode, IPersistable
+	public sealed class MapMember : ReportHierarchyNode, IPersistable
 	{
 		[NonSerialized]
 		private MapMemberList m_innerMembers;
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapMember.GetDeclaration();
 
-		internal override string RdlElementName
+		public override string RdlElementName
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList InnerHierarchy
+		public override HierarchyNodeList InnerHierarchy
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMember ChildMapMember
+		public MapMember ChildMapMember
 		{
 			get
 			{
@@ -61,16 +61,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMember()
+		public MapMember()
 		{
 		}
 
-		internal MapMember(int id, MapDataRegion crItem)
+		public MapMember(int id, MapDataRegion crItem)
 			: base(id, crItem)
 		{
 		}
 
-		internal void SetIsCategoryMember(bool value)
+		public void SetIsCategoryMember(bool value)
 		{
 			base.m_isColumn = value;
 			if (this.ChildMapMember != null)
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return ((MapDataRegion)base.DataRegionDef).GetChildVectorLayers();
 		}
 
-		internal override bool InnerInitialize(InitializationContext context, bool restrictive)
+		public override bool InnerInitialize(InitializationContext context, bool restrictive)
 		{
 			List<MapVectorLayer> childMapLayers = this.GetChildMapLayers();
 			foreach (MapVectorLayer item in childMapLayers)
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return base.InnerInitialize(context, restrictive);
 		}
 
-		internal override bool Initialize(InitializationContext context, bool restrictive)
+		public override bool Initialize(InitializationContext context, bool restrictive)
 		{
 			if (!base.m_isColumn)
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return base.Initialize(context, restrictive);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context, DataRegion newContainingRegion)
+		public override object PublishClone(AutomaticSubtotalContext context, DataRegion newContainingRegion)
 		{
 			MapMember mapMember = (MapMember)base.PublishClone(context, newContainingRegion);
 			if (this.ChildMapMember != null)
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		}
 
 		[SkipMemberStaticValidation(MemberName.MapMember)]
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapMember, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapMember));
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapMember;
 		}
 
-		internal override void SetExprHost(IMemberNode memberExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(IMemberNode memberExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(memberExprHost != null && reportObjectModel != null);
 			base.MemberNodeSetExprHost(memberExprHost, reportObjectModel);
@@ -227,7 +227,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void MemberContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
+		public override void MemberContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
 		{
 		}
 	}

@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class PointAndFigureChart : RangeColumnChart
+	public class PointAndFigureChart : RangeColumnChart
 	{
 		private static bool customizeSubscribed;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal static void PrepareData(Series series, IServiceContainer serviceContainer)
+		public static void PrepareData(Series series, IServiceContainer serviceContainer)
 		{
 			if (string.Compare(series.ChartTypeName, "PointAndFigure", StringComparison.OrdinalIgnoreCase) == 0 && series.IsVisible())
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal static bool UnPrepareData(Series series, IServiceContainer serviceContainer)
+		public static bool UnPrepareData(Series series, IServiceContainer serviceContainer)
 		{
 			if (series.Name.StartsWith("POINTANDFIGURE_ORIGINAL_DATA_", StringComparison.Ordinal))
 			{

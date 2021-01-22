@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class LinearPointer : GaugePointer
+	public class LinearPointer : GaugePointer
 	{
-		internal new class Definition : DefinitionStore<LinearPointer, Definition.Properties>
+		public new class Definition : DefinitionStore<LinearPointer, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal LinearPointer(IPropertyStore propertyStore)
+		public LinearPointer(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

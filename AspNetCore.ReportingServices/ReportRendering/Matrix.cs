@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Matrix : DataRegion
+	public sealed class Matrix : DataRegion
 	{
 		private ReportItem m_corner;
 
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override string InstanceInfoNoRowMessage
+		public override string InstanceInfoNoRowMessage
 		{
 			get
 			{
@@ -334,7 +334,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Matrix(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Matrix reportItemDef, MatrixInstance reportItemInstance, RenderingContext renderingContext)
+		public Matrix(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Matrix reportItemDef, MatrixInstance reportItemInstance, RenderingContext renderingContext)
 			: base(intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 			if (reportItemInstance != null && reportItemInstance.Cells.Count != 0 && reportItemInstance.Cells[0].Count != 0)
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override bool Search(SearchContext searchContext)
+		public override bool Search(SearchContext searchContext)
 		{
 			if (!base.SkipSearch && !this.NoRows)
 			{
@@ -629,7 +629,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return flag;
 		}
 
-		internal static List<int> CalculateMapping(MatrixHeading headingDef, MatrixHeadingInstanceList headingInstances, bool inParentSubtotal)
+		public static List<int> CalculateMapping(MatrixHeading headingDef, MatrixHeadingInstanceList headingInstances, bool inParentSubtotal)
 		{
 			List<int> list = new List<int>();
 			if (headingInstances == null)

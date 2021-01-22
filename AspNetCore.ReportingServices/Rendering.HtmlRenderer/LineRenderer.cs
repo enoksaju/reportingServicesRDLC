@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class LineRenderer : IReportItemRenderer
+	public class LineRenderer : IReportItemRenderer
 	{
 		private HTML5Renderer html5Renderer;
 

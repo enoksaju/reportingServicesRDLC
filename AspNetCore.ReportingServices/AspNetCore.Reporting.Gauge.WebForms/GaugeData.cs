@@ -14,7 +14,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 	[ToolboxItem(false)]
 	[DesignerCategory("code")]
 	[DebuggerStepThrough]
-	internal sealed class GaugeData : DataSet
+	public sealed class GaugeData : DataSet
 	{
 		private ValuesDataTable tableValues;
 
@@ -116,7 +116,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return XmlSchema.Read(new XmlTextReader(memoryStream), null);
 		}
 
-		internal void InitVars()
+		public void InitVars()
 		{
 			this.tableValues = (ValuesDataTable)base.Tables["Values"];
 			if (this.tableValues != null)

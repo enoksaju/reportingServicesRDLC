@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class LocalProcessingHostMapTileServerConfiguration : IMapTileServerConfiguration
+	public sealed class LocalProcessingHostMapTileServerConfiguration : IMapTileServerConfiguration
 	{
 		private int m_maxConnections;
 
@@ -64,7 +64,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal LocalProcessingHostMapTileServerConfiguration()
+		public LocalProcessingHostMapTileServerConfiguration()
 		{
 			this.MaxConnections = 2;
 			this.Timeout = 10;

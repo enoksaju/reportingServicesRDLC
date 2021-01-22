@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class CachedFont : IDisposable
+	public sealed class CachedFont : IDisposable
 	{
 		private Win32ObjectSafeHandle m_hfont = Win32ObjectSafeHandle.Zero;
 
@@ -15,11 +15,11 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private float m_scaleFactor = 1f;
 
-		internal ScriptCacheSafeHandle ScriptCache = new ScriptCacheSafeHandle();
+		public ScriptCacheSafeHandle ScriptCache = new ScriptCacheSafeHandle();
 
 		private short? m_defaultGlyph = null;
 
-		internal Win32ObjectSafeHandle Hfont
+		public Win32ObjectSafeHandle Hfont
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal Font Font
+		public Font Font
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal Win32.TEXTMETRIC TextMetric
+		public Win32.TEXTMETRIC TextMetric
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal short? DefaultGlyph
+		public short? DefaultGlyph
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal CachedFont()
+		public CachedFont()
 		{
 		}
 
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return (int)((float)value / this.ScaleFactor + 0.5);
 		}
 
-		internal int GetHeight(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetHeight(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			if (!this.m_initialized)
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return this.m_textMetric.tmHeight;
 		}
 
-		internal int GetAscent(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetAscent(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			if (!this.m_initialized)
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return this.m_textMetric.tmAscent;
 		}
 
-		internal int GetDescent(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetDescent(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			if (!this.m_initialized)
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return this.m_textMetric.tmDescent;
 		}
 
-		internal int GetLeading(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetLeading(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			if (!this.m_initialized)
 			{

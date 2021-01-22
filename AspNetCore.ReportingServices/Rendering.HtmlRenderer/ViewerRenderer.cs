@@ -12,7 +12,7 @@ using System.Web;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class ViewerRenderer : HTML4Renderer
+	public class ViewerRenderer : HTML4Renderer
 	{
 		private sealed class DetachedReportWrapper : IReportWrapper
 		{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 				}
 			}
 
-			internal SPBProcessingStub(ReportControlSession reportControlSession, string streamRoot, PageCountMode pageCountMode)
+			public SPBProcessingStub(ReportControlSession reportControlSession, string streamRoot, PageCountMode pageCountMode)
 			{
 				this.m_reportControlSession = reportControlSession;
 				this.m_pageCountMode = pageCountMode;
@@ -167,11 +167,11 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal string PageStyle;
+		public string PageStyle;
 
 		private string m_fixedHeaderScript;
 
-		internal string FixedHeaderScript
+		public string FixedHeaderScript
 		{
 			get
 			{

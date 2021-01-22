@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ConnectionProperties : ReportObject
+	public class ConnectionProperties : ReportObject
 	{
-		internal class Definition : DefinitionStore<ConnectionProperties, Definition.Properties>
+		public class Definition : DefinitionStore<ConnectionProperties, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataProvider,
 				ConnectString,
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ConnectionProperties(IPropertyStore propertyStore)
+		public ConnectionProperties(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

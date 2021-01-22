@@ -5,7 +5,7 @@ using System.Drawing.Design;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class LinearLabelStyle : GaugeObject
+	public class LinearLabelStyle : GaugeObject
 	{
 		private string formatStr = string.Empty;
 
@@ -254,7 +254,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.font = font;
 		}
 
-		internal string GetFormatStr()
+		public string GetFormatStr()
 		{
 			if (this.formatStr == string.Empty)
 			{

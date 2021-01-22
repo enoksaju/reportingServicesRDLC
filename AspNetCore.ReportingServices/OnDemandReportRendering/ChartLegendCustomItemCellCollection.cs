@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartLegendCustomItemCellCollection : ChartObjectCollectionBase<ChartLegendCustomItemCell, ChartLegendCustomItemCellInstance>
+	public sealed class ChartLegendCustomItemCellCollection : ChartObjectCollectionBase<ChartLegendCustomItemCell, ChartLegendCustomItemCellInstance>
 	{
 		private Chart m_chart;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartLegendCustomItemCellCollection(ChartLegendCustomItem legendCustomItem, Chart chart)
+		public ChartLegendCustomItemCellCollection(ChartLegendCustomItem legendCustomItem, Chart chart)
 		{
 			this.m_legendCustomItem = legendCustomItem;
 			this.m_chart = chart;

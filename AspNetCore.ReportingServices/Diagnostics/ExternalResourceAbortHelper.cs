@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal class ExternalResourceAbortHelper : IAbortHelper
+	public class ExternalResourceAbortHelper : IAbortHelper
 	{
 		private bool m_isAborted;
 

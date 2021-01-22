@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal class MemberBase
+	public class MemberBase
 	{
 		private bool m_customControl;
 
-		internal bool IsCustomControl
+		public bool IsCustomControl
 		{
 			get
 			{
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MemberBase(bool isCustomControl)
+		public MemberBase(bool isCustomControl)
 		{
 			this.m_customControl = isCustomControl;
 		}

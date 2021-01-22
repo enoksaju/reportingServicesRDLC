@@ -6,7 +6,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportSnapshot
+	public sealed class ReportSnapshot
 	{
 		private DateTime m_executionTime;
 
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private string m_reportName;
 
-		internal Report Report
+		public Report Report
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterInfoCollection Parameters
+		public ParameterInfoCollection Parameters
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportInstance ReportInstance
+		public ReportInstance ReportInstance
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasDocumentMap
+		public bool HasDocumentMap
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasBookmarks
+		public bool HasBookmarks
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasShowHide
+		public bool HasShowHide
 		{
 			get
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasImageStreams
+		public bool HasImageStreams
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string RequestUserName
+		public string RequestUserName
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DateTime ExecutionTime
+		public DateTime ExecutionTime
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ReportServerUrl
+		public string ReportServerUrl
 		{
 			get
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ReportFolder
+		public string ReportFolder
 		{
 			get
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Language
+		public string Language
 		{
 			get
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ProcessingMessageList Warnings
+		public ProcessingMessageList Warnings
 		{
 			get
 			{
@@ -219,7 +219,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Int64List PageSectionOffsets
+		public Int64List PageSectionOffsets
 		{
 			get
 			{
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal List<PageSectionInstance> PageSections
+		public List<PageSectionInstance> PageSections
 		{
 			get
 			{
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OffsetInfo DocumentMapOffset
+		public OffsetInfo DocumentMapOffset
 		{
 			set
 			{
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OffsetInfo ShowHideSenderInfoOffset
+		public OffsetInfo ShowHideSenderInfoOffset
 		{
 			set
 			{
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OffsetInfo ShowHideReceiverInfoOffset
+		public OffsetInfo ShowHideReceiverInfoOffset
 		{
 			set
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OffsetInfo QuickFindOffset
+		public OffsetInfo QuickFindOffset
 		{
 			set
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DocumentMapNode DocumentMap
+		public DocumentMapNode DocumentMap
 		{
 			get
 			{
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BookmarksHashtable BookmarksInfo
+		public BookmarksHashtable BookmarksInfo
 		{
 			get
 			{
@@ -308,7 +308,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportDrillthroughInfo DrillthroughInfo
+		public ReportDrillthroughInfo DrillthroughInfo
 		{
 			get
 			{
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SenderInformationHashtable ShowHideSenderInfo
+		public SenderInformationHashtable ShowHideSenderInfo
 		{
 			get
 			{
@@ -341,7 +341,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReceiverInformationHashtable ShowHideReceiverInfo
+		public ReceiverInformationHashtable ShowHideReceiverInfo
 		{
 			get
 			{
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal QuickFindHashtable QuickFind
+		public QuickFindHashtable QuickFind
 		{
 			get
 			{
@@ -383,7 +383,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SortFilterEventInfoHashtable SortFilterEventInfo
+		public SortFilterEventInfoHashtable SortFilterEventInfo
 		{
 			get
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OffsetInfo SortFilterEventInfoOffset
+		public OffsetInfo SortFilterEventInfoOffset
 		{
 			get
 			{
@@ -421,7 +421,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSnapshot(Report report, string reportName, ParameterInfoCollection parameters, string requestUserName, DateTime executionTime, string reportServerUrl, string reportFolder, string language)
+		public ReportSnapshot(Report report, string reportName, ParameterInfoCollection parameters, string requestUserName, DateTime executionTime, string reportServerUrl, string reportFolder, string language)
 		{
 			this.m_report = report;
 			this.m_reportName = reportName;
@@ -433,12 +433,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_language = language;
 		}
 
-		internal ReportSnapshot()
+		public ReportSnapshot()
 		{
 			this.m_executionTime = DateTime.Now;
 		}
 
-		internal void CreateNavigationActions(ReportProcessing.NavigationInfo navigationInfo)
+		public void CreateNavigationActions(ReportProcessing.NavigationInfo navigationInfo)
 		{
 			if (this.m_reportInstance != null)
 			{
@@ -455,7 +455,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ExecutionTime, Token.DateTime));
@@ -475,7 +475,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.None, memberInfoList);
 		}
 
-		internal DocumentMapNode GetDocumentMap(ChunkManager.RenderingChunkManager chunkManager)
+		public DocumentMapNode GetDocumentMap(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			IntermediateFormatReader intermediateFormatReader = null;
 			if (this.m_documentMap != null)
@@ -513,7 +513,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SenderInformationHashtable GetShowHideSenderInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public SenderInformationHashtable GetShowHideSenderInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (this.m_showHideSenderInfo == null)
 			{
@@ -527,7 +527,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return (SenderInformationHashtable)this.m_showHideSenderInfo;
 		}
 
-		internal ReceiverInformationHashtable GetShowHideReceiverInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public ReceiverInformationHashtable GetShowHideReceiverInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (this.m_showHideReceiverInfo == null)
 			{
@@ -541,7 +541,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return (ReceiverInformationHashtable)this.m_showHideReceiverInfo;
 		}
 
-		internal QuickFindHashtable GetQuickFind(ChunkManager.RenderingChunkManager chunkManager)
+		public QuickFindHashtable GetQuickFind(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			IntermediateFormatReader intermediateFormatReader = null;
 			if (this.m_quickFind != null)
@@ -563,7 +563,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal BookmarksHashtable GetBookmarksInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public BookmarksHashtable GetBookmarksInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (this.m_bookmarksInfo != null)
 			{
@@ -577,7 +577,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal SortFilterEventInfoHashtable GetSortFilterEventInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public SortFilterEventInfoHashtable GetSortFilterEventInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			IntermediateFormatReader intermediateFormatReader = null;
 			if (this.m_sortFilterEventInfo != null)
@@ -592,7 +592,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal List<PageSectionInstance> GetPageSections(int pageNumber, ChunkManager.RenderingChunkManager chunkManager, PageSection headerDef, PageSection footerDef)
+		public List<PageSectionInstance> GetPageSections(int pageNumber, ChunkManager.RenderingChunkManager chunkManager, PageSection headerDef, PageSection footerDef)
 		{
 			List<PageSectionInstance> result = null;
 			int startPage = default(int);

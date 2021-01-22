@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class AxesArrayConverter : TypeConverter
+	public class AxesArrayConverter : TypeConverter
 	{
 		public override bool GetPropertiesSupported(ITypeDescriptorContext context)
 		{

@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class DocumentMapNode
+	public sealed class DocumentMapNode
 	{
 		private struct NodeStackEntry
 		{
@@ -44,7 +44,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal DocumentMapNode(string label, string id, DocumentMapNode[] children)
+		public DocumentMapNode(string label, string id, DocumentMapNode[] children)
 		{
 			this.m_label = label;
 			this.m_id = id;
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal static DocumentMapNode CreateTree(IDocumentMap docMap, string rootName)
+		public static DocumentMapNode CreateTree(IDocumentMap docMap, string rootName)
 		{
 			DocumentMapNode documentMapNode = DocumentMapNode.CreateNode(docMap);
 			if (documentMapNode != null)
@@ -69,7 +69,7 @@ namespace AspNetCore.Reporting
 		}
 
 
-		internal static DocumentMapNode CreateNode(IDocumentMap docMap)
+		public static DocumentMapNode CreateNode(IDocumentMap docMap)
 		{
 			if (docMap == null)
 			{

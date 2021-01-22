@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixRow
+	public sealed class MatrixRow
 	{
 		private string m_height;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_numberOfMatrixCells;
 
-		internal string Height
+		public string Height
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double HeightValue
+		public double HeightValue
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NumberOfMatrixCells
+		public int NumberOfMatrixCells
 		{
 			get
 			{
@@ -49,12 +49,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			this.m_heightValue = context.ValidateSize(ref this.m_height, "Height");
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Height, Token.String));

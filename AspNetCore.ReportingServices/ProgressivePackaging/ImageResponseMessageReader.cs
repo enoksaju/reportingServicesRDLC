@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal class ImageResponseMessageReader : ImageMessageReader<ImageResponseMessageElement>
+	public class ImageResponseMessageReader : ImageMessageReader<ImageResponseMessageElement>
 	{
 		private readonly IMessageReader m_reader;
 

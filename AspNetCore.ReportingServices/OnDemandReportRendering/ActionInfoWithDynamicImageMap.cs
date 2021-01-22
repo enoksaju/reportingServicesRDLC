@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ActionInfoWithDynamicImageMap : ActionInfo, IPersistable
+	public sealed class ActionInfoWithDynamicImageMap : ActionInfo, IPersistable
 	{
 		private ImageMapAreaInstanceCollection m_imageMapAreas;
 
@@ -25,29 +25,29 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionInfoWithDynamicImageMap(RenderingContext renderingContext, ReportItem owner, IROMActionOwner romActionOwner)
+		public ActionInfoWithDynamicImageMap(RenderingContext renderingContext, ReportItem owner, IROMActionOwner romActionOwner)
 			: this(renderingContext, new AspNetCore.ReportingServices.ReportIntermediateFormat.Action(), owner, romActionOwner)
 		{
 		}
 
-		internal ActionInfoWithDynamicImageMap(RenderingContext renderingContext, ReportItem owner, IReportScope reportScope, IInstancePath instancePath, IROMActionOwner romActionOwner, bool chartConstructor)
+		public ActionInfoWithDynamicImageMap(RenderingContext renderingContext, ReportItem owner, IReportScope reportScope, IInstancePath instancePath, IROMActionOwner romActionOwner, bool chartConstructor)
 			: this(renderingContext, reportScope, new AspNetCore.ReportingServices.ReportIntermediateFormat.Action(), instancePath, owner, romActionOwner)
 		{
 			base.m_chartConstruction = chartConstructor;
 		}
 
-		internal ActionInfoWithDynamicImageMap(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Action actionDef, ReportItem owner, IROMActionOwner romActionOwner)
+		public ActionInfoWithDynamicImageMap(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Action actionDef, ReportItem owner, IROMActionOwner romActionOwner)
 			: this(renderingContext, owner.ReportScope, actionDef, owner.ReportItemDef, owner, romActionOwner)
 		{
 		}
 
-		internal ActionInfoWithDynamicImageMap(RenderingContext renderingContext, IReportScope reportScope, AspNetCore.ReportingServices.ReportIntermediateFormat.Action actionDef, IInstancePath instancePath, ReportItem owner, IROMActionOwner romActionOwner)
+		public ActionInfoWithDynamicImageMap(RenderingContext renderingContext, IReportScope reportScope, AspNetCore.ReportingServices.ReportIntermediateFormat.Action actionDef, IInstancePath instancePath, ReportItem owner, IROMActionOwner romActionOwner)
 			: base(renderingContext, reportScope, actionDef, instancePath, owner, owner.ReportItemDef.ObjectType, owner.ReportItemDef.Name, romActionOwner)
 		{
 			base.IsDynamic = true;
 		}
 
-		internal ActionInfoWithDynamicImageMap(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.ActionInfo renderAction, ImageMapAreasCollection renderImageMap)
+		public ActionInfoWithDynamicImageMap(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.ActionInfo renderAction, ImageMapAreasCollection renderImageMap)
 			: base(renderingContext, renderAction)
 		{
 			base.IsDynamic = true;
@@ -77,13 +77,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 		}
 
 		[Obsolete("ActionInfoWithDynamicImageMap objects are completely volatile, so there is no reason to reuse the same instance of this class. Hence there is no need to support Update and SetNewContext methods.")]
-		internal new void Update(AspNetCore.ReportingServices.ReportRendering.ActionInfo newActionInfo)
+		public new void Update(AspNetCore.ReportingServices.ReportRendering.ActionInfo newActionInfo)
 		{
 			Global.Tracer.Assert(false, "Update(...) should not be called on ActionInfoWithDynamicImageMap");
 		}
 
 		[Obsolete("ActionInfoWithDynamicImageMap objects are completely volatile, so there is no reason to reuse the same instance of this class. Hence there is no need to support Update and SetNewContext methods.")]
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			Global.Tracer.Assert(false, "SetNewContext() should not be called on ActionInfoWithDynamicImageMap");
 		}

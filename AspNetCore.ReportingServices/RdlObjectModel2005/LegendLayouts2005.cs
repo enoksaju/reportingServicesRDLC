@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal enum LegendLayouts2005
+	public enum LegendLayouts2005
 	{
 		Column,
 		Row,

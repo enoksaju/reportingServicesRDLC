@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapBucketInstance : BaseInstance
+	public sealed class MapBucketInstance : BaseInstance
 	{
 		private MapBucket m_defObject;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapBucketInstance(MapBucket defObject)
+		public MapBucketInstance(MapBucket defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

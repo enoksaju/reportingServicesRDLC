@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum GridType
+	public enum GridType
 	{
 		Parallel,
 		Meridian

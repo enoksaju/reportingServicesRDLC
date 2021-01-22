@@ -12,7 +12,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class TextRun : IStorable, IPersistable, ITextRunProps
+	public sealed class TextRun : IStorable, IPersistable, ITextRunProps
 	{
 		[StaticReference]
 		private static Declaration m_declaration = TextRun.GetDeclaration();
@@ -191,11 +191,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal TextRun()
+		public TextRun()
 		{
 		}
 
-		internal TextRun(TextRunInstance instance, bool hideDuplicates)
+		public TextRun(TextRunInstance instance, bool hideDuplicates)
 		{
 			this.m_source = instance.Definition;
 			Utility.AddInstanceStyles(instance.Style, ref this.m_styles);
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_startCharacterOffset = startCharacterOffset;
 		}
 
-		internal AspNetCore.ReportingServices.Rendering.RichText.TextRun GetRichTextRun()
+		public AspNetCore.ReportingServices.Rendering.RichText.TextRun GetRichTextRun()
 		{
 			string text = this.m_text;
 			if (text == null && this.m_source != null && this.m_source.Value != null)
@@ -282,7 +282,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return rPLTextRun;
 		}
 
-		internal string GetStringValue(string fullValue, TextBox.TextBoxOffset startPosition, TextBox.TextBoxOffset endPosition, int previousRunCount, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextRuns, out TextRunItemizedData glyphData)
+		public string GetStringValue(string fullValue, TextBox.TextBoxOffset startPosition, TextBox.TextBoxOffset endPosition, int previousRunCount, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextRuns, out TextRunItemizedData glyphData)
 		{
 			glyphData = null;
 			if (string.IsNullOrEmpty(fullValue))
@@ -334,7 +334,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return fullValue.Substring(num, length);
 		}
 
-		internal TextRunItemizedData GetGlyphValue(string fullValue, int previousRunCount, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextRuns)
+		public TextRunItemizedData GetGlyphValue(string fullValue, int previousRunCount, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextRuns)
 		{
 			if (string.IsNullOrEmpty(fullValue))
 			{
@@ -544,7 +544,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			props.NonSharedStyle = rPLStyleProps;
 		}
 
-		internal long WriteToStream(BinaryWriter writer, PageContext pageContext, bool hideDuplicates, TextBox.TextBoxOffset startPosition, TextBox.TextBoxOffset endPosition, int previousRunCount, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextRuns)
+		public long WriteToStream(BinaryWriter writer, PageContext pageContext, bool hideDuplicates, TextBox.TextBoxOffset startPosition, TextBox.TextBoxOffset endPosition, int previousRunCount, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextRuns)
 		{
 			long position = writer.BaseStream.Position;
 			writer.Write((byte)20);
@@ -650,7 +650,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteActions(BinaryWriter spbifWriter)
+		public void WriteActions(BinaryWriter spbifWriter)
 		{
 			if (this.m_hyperlinks != null)
 			{
@@ -671,7 +671,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteSharedStyles(StyleWriter writer, Style style)
+		public void WriteSharedStyles(StyleWriter writer, Style style)
 		{
 			Utility.WriteStyleProperty(writer, style, StyleAttributeNames.FontFamily);
 			Utility.WriteStyleProperty(writer, style, StyleAttributeNames.FontSize);
@@ -784,7 +784,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (TextRun.m_declaration == null)
 			{

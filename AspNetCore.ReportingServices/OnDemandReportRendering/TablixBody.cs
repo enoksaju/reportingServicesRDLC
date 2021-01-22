@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixBody
+	public sealed class TablixBody
 	{
 		private Tablix m_owner;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private bool? m_ignoreCellPageBreaks = null;
 
-		internal bool HasRowCollection
+		public bool HasRowCollection
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixBody(Tablix owner)
+		public TablixBody(Tablix owner)
 		{
 			this.m_owner = owner;
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLItem : RPLElement, IRPLItemFactory
+	public class RPLItem : RPLElement, IRPLItemFactory
 	{
 		protected long m_startOffset = -1L;
 
@@ -52,22 +52,22 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLItem()
+		public RPLItem()
 		{
 		}
 
-		internal RPLItem(long startOffset, RPLContext context)
+		public RPLItem(long startOffset, RPLContext context)
 			: base(context)
 		{
 			this.m_startOffset = startOffset;
 		}
 
-		internal RPLItem(RPLItemProps rplElementProps)
+		public RPLItem(RPLItemProps rplElementProps)
 			: base(rplElementProps)
 		{
 		}
 
-		internal static RPLItem CreateItem(long offset, RPLContext context, byte type)
+		public static RPLItem CreateItem(long offset, RPLContext context, byte type)
 		{
 			switch (type)
 			{

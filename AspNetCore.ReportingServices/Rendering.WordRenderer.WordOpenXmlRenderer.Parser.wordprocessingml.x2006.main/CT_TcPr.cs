@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_TcPr : CT_TcPrInner, IOoxmlComplexType
+	public class CT_TcPr : CT_TcPrInner, IOoxmlComplexType
 	{
 		protected override void InitAttributes()
 		{

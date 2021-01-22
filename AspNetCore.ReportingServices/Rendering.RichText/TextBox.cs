@@ -7,21 +7,21 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class TextBox
+	public sealed class TextBox
 	{
-		internal const float PrefixIndent = 10.583333f;
+		public const float PrefixIndent = 10.583333f;
 
-		internal const float PrefixSpace = 4.233333f;
+		public const float PrefixSpace = 4.233333f;
 
-		internal const float INCH_TO_MILLIMETER = 25.4f;
+		public const float INCH_TO_MILLIMETER = 25.4f;
 
-		internal const float RoundDelta = 0.1f;
+		public const float RoundDelta = 0.1f;
 
 		private List<Paragraph> m_paragraphs;
 
 		private ITextBoxProps m_textBoxProps;
 
-		internal List<Paragraph> Paragraphs
+		public List<Paragraph> Paragraphs
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal ITextBoxProps TextBoxProps
+		public ITextBoxProps TextBoxProps
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool VerticalText
+		public bool VerticalText
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool HorizontalText
+		public bool HorizontalText
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal string Value
+		public string Value
 		{
 			get
 			{
@@ -83,12 +83,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 		{
 		}
 
-		internal TextBox(ITextBoxProps textBoxProps)
+		public TextBox(ITextBoxProps textBoxProps)
 		{
 			this.m_textBoxProps = textBoxProps;
 		}
 
-		internal static float MeasureFullHeight(TextBox textBox, Graphics g, FontCache fontCache, FlowContext flowContext, out float contentHeight)
+		public static float MeasureFullHeight(TextBox textBox, Graphics g, FontCache fontCache, FlowContext flowContext, out float contentHeight)
 		{
 			if (flowContext.Width <= 0.0)
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return num;
 		}
 
-		internal static void Render(TextBox textBox, List<Paragraph> paragraphs, Graphics g, FontCache fontCache, PointF offset, RectangleF layoutRectangle)
+		public static void Render(TextBox textBox, List<Paragraph> paragraphs, Graphics g, FontCache fontCache, PointF offset, RectangleF layoutRectangle)
 		{
 			float dpiX = g.DpiX;
 			Win32DCSafeHandle win32DCSafeHandle = new Win32DCSafeHandle(g.GetHdc(), false);
@@ -182,12 +182,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal static void Render(TextBox textBox, List<Paragraph> paragraphs, Win32DCSafeHandle hdc, FontCache fontCache, PointF offset, RectangleF layoutRectangle, float dpiX)
+		public static void Render(TextBox textBox, List<Paragraph> paragraphs, Win32DCSafeHandle hdc, FontCache fontCache, PointF offset, RectangleF layoutRectangle, float dpiX)
 		{
 			TextBox.Render(textBox, paragraphs, hdc, fontCache, offset, layoutRectangle, dpiX, true);
 		}
 
-		internal static void Render(TextBox textBox, List<Paragraph> paragraphs, Win32DCSafeHandle hdc, FontCache fontCache, PointF offset, RectangleF layoutRectangle, float dpiX, bool unitsInMM)
+		public static void Render(TextBox textBox, List<Paragraph> paragraphs, Win32DCSafeHandle hdc, FontCache fontCache, PointF offset, RectangleF layoutRectangle, float dpiX, bool unitsInMM)
 		{
 			if (paragraphs != null && paragraphs.Count != 0)
 			{
@@ -560,7 +560,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return Color.FromArgb(color.A, num, num2, num3);
 		}
 
-		internal static void DrawTextRun(TextRun run, Win32DCSafeHandle hdc, FontCache fontCache, int x, int baselineY, Underline underline)
+		public static void DrawTextRun(TextRun run, Win32DCSafeHandle hdc, FontCache fontCache, int x, int baselineY, Underline underline)
 		{
 			uint crColor = 0u;
 			try
@@ -587,7 +587,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal static void ExtDrawTextRun(TextRun run, Win32DCSafeHandle hdc, FontCache fontCache, int x, int baselineY, Underline underline)
+		public static void ExtDrawTextRun(TextRun run, Win32DCSafeHandle hdc, FontCache fontCache, int x, int baselineY, Underline underline)
 		{
 			uint crColor = 0u;
 			try
@@ -617,7 +617,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal static void DrawClippedTextRun(TextRun run, Win32DCSafeHandle hdc, FontCache fontCache, int x, int baselineY, uint fontColorOverride, Rectangle clipRect, Underline underline)
+		public static void DrawClippedTextRun(TextRun run, Win32DCSafeHandle hdc, FontCache fontCache, int x, int baselineY, uint fontColorOverride, Rectangle clipRect, Underline underline)
 		{
 			uint crColor = 0u;
 			IntPtr intPtr = IntPtr.Zero;
@@ -655,7 +655,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal static int ConvertToPixels(float mm, float dpi)
+		public static int ConvertToPixels(float mm, float dpi)
 		{
 			if (mm == 3.4028234663852886E+38)
 			{
@@ -664,7 +664,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return Convert.ToInt32((double)dpi * 0.03937007874 * (double)mm);
 		}
 
-		internal static float ConvertToMillimeters(int pixels, float dpi)
+		public static float ConvertToMillimeters(int pixels, float dpi)
 		{
 			if (dpi == 0.0)
 			{
@@ -673,7 +673,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return (float)(1.0 / dpi * (float)pixels * 25.399999618530273);
 		}
 
-		internal static float ConvertToPoints(float pixels, float dpi)
+		public static float ConvertToPoints(float pixels, float dpi)
 		{
 			if (dpi == 0.0)
 			{
@@ -682,7 +682,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return (float)(pixels * 72.0 / dpi);
 		}
 
-		internal static bool IsWhitespaceControlChar(char c)
+		public static bool IsWhitespaceControlChar(char c)
 		{
 			switch (c)
 			{
@@ -697,7 +697,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal void ScriptItemize()
+		public void ScriptItemize()
 		{
 			RPLFormat.Directions direction = this.m_textBoxProps.Direction;
 			for (int i = 0; i < this.m_paragraphs.Count; i++)

@@ -5,9 +5,9 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class RenderingEngine : IGaugeRenderingEngine
+	public class RenderingEngine : IGaugeRenderingEngine
 	{
-		internal bool shadowDrawingMode;
+		public bool shadowDrawingMode;
 
 		private RenderingType activeRenderingType;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private string documentTitle = string.Empty;
 
-		internal IGaugeRenderingEngine RenderingObject
+		public IGaugeRenderingEngine RenderingObject
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal RenderingType ActiveRenderingType
+		public RenderingType ActiveRenderingType
 		{
 			get
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal Color TransformHueColor(Color hueColor)
+		public Color TransformHueColor(Color hueColor)
 		{
 			HLSColor hLSColor = new HLSColor(hueColor.R, hueColor.G, hueColor.B);
 			float brightness = hueColor.GetBrightness();

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapPalette
+	public enum MapPalette
 	{
 		Random,
 		Light,

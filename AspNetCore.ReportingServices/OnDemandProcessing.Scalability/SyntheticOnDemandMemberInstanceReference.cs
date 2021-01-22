@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class SyntheticOnDemandMemberInstanceReference : SyntheticOnDemandScopeInstanceReference, IOnDemandMemberInstanceReference, IOnDemandMemberOwnerInstanceReference, IReference<IOnDemandScopeInstance>, IReference<IOnDemandMemberOwnerInstance>, IReference<IOnDemandMemberInstance>, IReference, IStorable, IPersistable
+	public class SyntheticOnDemandMemberInstanceReference : SyntheticOnDemandScopeInstanceReference, IOnDemandMemberInstanceReference, IOnDemandMemberOwnerInstanceReference, IReference<IOnDemandScopeInstance>, IReference<IOnDemandMemberOwnerInstance>, IReference<IOnDemandMemberInstance>, IReference, IStorable, IPersistable
 	{
 		public SyntheticOnDemandMemberInstanceReference(IOnDemandMemberInstance member)
 			: base(member)

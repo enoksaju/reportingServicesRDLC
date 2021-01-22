@@ -4,19 +4,19 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class LocalProcessingException : ReportViewerException
+	public sealed class LocalProcessingException : ReportViewerException
 	{
-		internal LocalProcessingException(Exception processingException)
+		public LocalProcessingException(Exception processingException)
 			: base(CommonStrings.LocalProcessingErrors, processingException)
 		{
 		}
 
-		internal LocalProcessingException(string message, Exception processingException)
+		public LocalProcessingException(string message, Exception processingException)
 			: base(message, processingException)
 		{
 		}
 
-		internal LocalProcessingException(string message)
+		public LocalProcessingException(string message)
 			: base(message)
 		{
 		}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimChartSeries : ChartSeries
+	public sealed class ShimChartSeries : ChartSeries
 	{
 		private List<ShimChartDataPoint> m_cells;
 
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ActionInfo ActionInfo
+		public override ActionInfo ActionInfo
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportStringProperty LegendText
+		public override ReportStringProperty LegendText
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportBoolProperty HideInLegend
+		public override ReportBoolProperty HideInLegend
 		{
 			get
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportStringProperty ToolTip
+		public override ReportStringProperty ToolTip
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimChartSeries(Chart owner, int seriesIndex, ShimChartMember seriesParentMember)
+		public ShimChartSeries(Chart owner, int seriesIndex, ShimChartMember seriesParentMember)
 			: base(owner, seriesIndex)
 		{
 			this.m_cells = new List<ShimChartDataPoint>();
@@ -302,7 +302,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 		}
 	}

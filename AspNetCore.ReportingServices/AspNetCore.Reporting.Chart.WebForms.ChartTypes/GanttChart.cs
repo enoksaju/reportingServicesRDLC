@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class GanttChart : BarChart
+	public class GanttChart : BarChart
 	{
 		public override string Name
 		{

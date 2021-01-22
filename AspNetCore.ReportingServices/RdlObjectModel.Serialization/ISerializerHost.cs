@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal interface ISerializerHost
+	public interface ISerializerHost
 	{
 		Type GetSubstituteType(Type type);
 

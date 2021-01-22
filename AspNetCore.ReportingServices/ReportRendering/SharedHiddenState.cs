@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal enum SharedHiddenState
+	public enum SharedHiddenState
 	{
 		Always,
 		Never,

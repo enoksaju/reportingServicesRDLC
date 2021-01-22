@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Borders3D
 {
-	internal class EmbossBorder : IBorderType
+	public class EmbossBorder : IBorderType
 	{
 		public float defaultRadiusSize = 15f;
 

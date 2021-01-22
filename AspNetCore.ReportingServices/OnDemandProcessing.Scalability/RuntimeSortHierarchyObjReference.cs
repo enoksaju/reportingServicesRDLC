@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class RuntimeSortHierarchyObjReference : Reference<IHierarchyObj>, IReference<RuntimeSortHierarchyObj>, IReference, IStorable, IPersistable
+	public class RuntimeSortHierarchyObjReference : Reference<IHierarchyObj>, IReference<RuntimeSortHierarchyObj>, IReference, IStorable, IPersistable
 	{
-		internal RuntimeSortHierarchyObjReference()
+		public RuntimeSortHierarchyObjReference()
 		{
 		}
 

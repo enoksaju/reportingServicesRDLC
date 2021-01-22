@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CustomReportItemHeading : TablixHeading, IRunningValueHolder
+	public sealed class CustomReportItemHeading : TablixHeading, IRunningValueHolder
 	{
 		private bool m_static;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private DataGroupingExprHost m_exprHost;
 
-		internal bool Static
+		public bool Static
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingList InnerHeadings
+		public CustomReportItemHeadingList InnerHeadings
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueList CustomProperties
+		public DataValueList CustomProperties
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataGroupingExprHost ExprHost
+		public DataGroupingExprHost ExprHost
 		{
 			get
 			{
@@ -91,11 +91,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeading()
+		public CustomReportItemHeading()
 		{
 		}
 
-		internal CustomReportItemHeading(int id, CustomReportItem crItem)
+		public CustomReportItemHeading(int id, CustomReportItem crItem)
 			: base(id, crItem)
 		{
 			this.m_runningValues = new RunningValueInfoList();
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Initialize(int level, CustomReportItemHeadingList peerHeadings, int headingIndex, DataCellsList dataRowCells, ref int currentIndex, ref int maxLevel, InitializationContext context)
+		public bool Initialize(int level, CustomReportItemHeadingList peerHeadings, int headingIndex, DataCellsList dataRowCells, ref int currentIndex, ref int maxLevel, InitializationContext context)
 		{
 			base.m_level = level;
 			if (level > maxLevel)
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return customReportItemHeadingList;
 		}
 
-		internal static bool ValidateProcessingRestrictions(CustomReportItemHeadingList headings, bool isColumn, bool hasStatic, InitializationContext context)
+		public static bool ValidateProcessingRestrictions(CustomReportItemHeadingList headings, bool isColumn, bool hasStatic, InitializationContext context)
 		{
 			bool flag = true;
 			bool flag2 = false;
@@ -353,7 +353,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return flag;
 		}
 
-		internal void CopySubHeadingAggregates()
+		public void CopySubHeadingAggregates()
 		{
 			if (this.m_innerHeadings != null)
 			{
@@ -369,7 +369,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void TransferHeadingAggregates()
+		public void TransferHeadingAggregates()
 		{
 			if (this.m_innerHeadings != null)
 			{
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			base.m_recursiveAggregates = null;
 		}
 
-		internal void SetExprHost(IList<DataGroupingExprHost> dataGroupingHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<DataGroupingExprHost> dataGroupingHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Static, Token.Boolean));

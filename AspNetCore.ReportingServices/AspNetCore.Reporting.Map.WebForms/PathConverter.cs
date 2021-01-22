@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PathConverter : CollectionItemTypeConverter
+	public class PathConverter : CollectionItemTypeConverter
 	{
 		public PathConverter()
 		{

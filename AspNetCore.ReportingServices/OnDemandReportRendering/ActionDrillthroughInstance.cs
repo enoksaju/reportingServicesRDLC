@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ActionDrillthroughInstance : BaseInstance
+	public sealed class ActionDrillthroughInstance : BaseInstance
 	{
 		private bool m_isOldSnapshot;
 
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionDrillthroughInstance(IReportScope reportScope, ActionDrillthrough actionDef, int index)
+		public ActionDrillthroughInstance(IReportScope reportScope, ActionDrillthrough actionDef, int index)
 			: base(reportScope)
 		{
 			this.m_isOldSnapshot = false;
@@ -144,14 +144,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_index = index;
 		}
 
-		internal ActionDrillthroughInstance(AspNetCore.ReportingServices.ReportRendering.Action renderAction)
+		public ActionDrillthroughInstance(AspNetCore.ReportingServices.ReportRendering.Action renderAction)
 			: base(null)
 		{
 			this.m_isOldSnapshot = true;
 			this.m_renderAction = renderAction;
 		}
 
-		internal void Update(AspNetCore.ReportingServices.ReportRendering.Action newAction)
+		public void Update(AspNetCore.ReportingServices.ReportRendering.Action newAction)
 		{
 			this.m_renderAction = newAction;
 			this.ResetInstanceCache();

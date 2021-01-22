@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface ITransferable
+	public interface ITransferable
 	{
 		void TransferTo(IScalabilityCache scaleCache);
 	}

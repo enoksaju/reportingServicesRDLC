@@ -3,12 +3,12 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class SimpleReference<T> : Reference<T> where T : IStorable
+	public class SimpleReference<T> : Reference<T> where T : IStorable
 	{
 		[NonSerialized]
 		private ObjectType m_objectType;
 
-		internal SimpleReference(ObjectType referenceType)
+		public SimpleReference(ObjectType referenceType)
 		{
 			this.m_objectType = referenceType;
 		}

@@ -9,7 +9,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[Serializable]
 	[DebuggerStepThrough]
-	internal sealed class ValuesDataTable : DataTable, IEnumerable, ISerializable
+	public sealed class ValuesDataTable : DataTable, IEnumerable, ISerializable
 	{
 		private const string DATESTAMP_COLUMN_SERIALIZATION_ID = "columnDateStamp";
 
@@ -28,7 +28,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal DataColumn DateStampColumn
+		public DataColumn DateStampColumn
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal DataColumn ValueColumn
+		public DataColumn ValueColumn
 		{
 			get
 			{
@@ -60,13 +60,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		public event ValuesRowChangeEventHandler ValuesRowDeleting;
 
-		internal ValuesDataTable()
+		public ValuesDataTable()
 			: base("Values")
 		{
 			this.InitClass();
 		}
 
-		internal ValuesDataTable(DataTable table)
+		public ValuesDataTable(DataTable table)
 			: base(table.TableName)
 		{
 			if (table.CaseSensitive != table.DataSet.CaseSensitive)
@@ -150,7 +150,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return new ValuesDataTable();
 		}
 
-		internal void InitVars()
+		public void InitVars()
 		{
 			this.columnDateStamp = base.Columns["DateStamp"];
 			this.columnValue = base.Columns["Value"];

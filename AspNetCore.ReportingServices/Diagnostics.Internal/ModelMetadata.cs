@@ -2,7 +2,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
-    internal sealed class ModelMetadata
+    public sealed class ModelMetadata
 	{
 		public string VersionRequested
 		{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Internal
 			}
 		}
 
-		internal ModelMetadata()
+		public ModelMetadata()
 		{
 		}
 	}

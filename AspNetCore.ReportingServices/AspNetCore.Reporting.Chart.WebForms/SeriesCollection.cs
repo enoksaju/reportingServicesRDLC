@@ -6,7 +6,7 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeSeriesCollection_SeriesCollection")]
-	internal class SeriesCollection : IList, ICollection, IEnumerable
+	public class SeriesCollection : IList, ICollection, IEnumerable
 	{
 		private ArrayList array = new ArrayList();
 

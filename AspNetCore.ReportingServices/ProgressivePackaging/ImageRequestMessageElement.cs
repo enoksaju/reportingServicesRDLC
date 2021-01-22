@@ -3,15 +3,15 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal sealed class ImageRequestMessageElement : ImageMessageElement
+	public sealed class ImageRequestMessageElement : ImageMessageElement
 	{
-		internal const string NameSpace2011 = "http://schemas.microsoft.com/sqlserver/reporting/2011/01/getexternalimages";
+		public const string NameSpace2011 = "http://schemas.microsoft.com/sqlserver/reporting/2011/01/getexternalimages";
 
-		internal const string ClientRequestElement = "ClientRequest";
+		public const string ClientRequestElement = "ClientRequest";
 
-		internal const string ExternalImagesElement = "ExternalImages";
+		public const string ExternalImagesElement = "ExternalImages";
 
-		internal const string ExternalImageElement = "ExternalImage";
+		public const string ExternalImageElement = "ExternalImage";
 
 		private const string UriElement = "Uri";
 

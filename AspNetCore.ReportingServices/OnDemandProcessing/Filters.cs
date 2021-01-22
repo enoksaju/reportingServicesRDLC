@@ -13,9 +13,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class Filters : IStaticReferenceable
+	public sealed class Filters : IStaticReferenceable
 	{
-		internal enum FilterTypes
+		public enum FilterTypes
 		{
 			DataSetFilter,
 			DataRegionFilter,
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 		{
 			private readonly IDataComparer m_comparer;
 
-			internal MyTopComparer(IDataComparer comparer)
+			public MyTopComparer(IDataComparer comparer)
 			{
 				this.m_comparer = comparer;
 			}
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 		{
 			private readonly IDataComparer m_comparer;
 
-			internal MyBottomComparer(IDataComparer comparer)
+			public MyBottomComparer(IDataComparer comparer)
 			{
 				this.m_comparer = comparer;
 			}
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 			protected Filters m_filters;
 
-			internal int Count
+			public int Count
 			{
 				get
 				{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal IEnumerator<object> Instances
+			public IEnumerator<object> Instances
 			{
 				get
 				{
@@ -90,15 +90,15 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal MySortedList(IComparer comparer, Filters filters)
+			public MySortedList(IComparer comparer, Filters filters)
 			{
 				this.m_comparer = comparer;
 				this.m_filters = filters;
 			}
 
-			internal abstract bool Add(FilterKey key, object value, FilterInfo owner);
+			public abstract bool Add(FilterKey key, object value, FilterInfo owner);
 
-			internal virtual void TrimInstanceSet(int maxSize, FilterInfo owner)
+			public virtual void TrimInstanceSet(int maxSize, FilterInfo owner)
 			{
 			}
 
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				return num;
 			}
 
-			internal void Clear()
+			public void Clear()
 			{
 				if (this.m_values != null)
 				{
@@ -140,11 +140,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal sealed class FilterKey : IStorable, IPersistable
+		public sealed class FilterKey : IStorable, IPersistable
 		{
-			internal object Key;
+			public object Key;
 
-			internal int ValueIndex;
+			public int ValueIndex;
 
 			private static readonly Declaration m_declaration = FilterKey.GetDeclaration();
 
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 		{
 			private int m_maxSize;
 
-			internal MySortedListWithMaxSize(IComparer comparer, int maxSize, Filters filters)
+			public MySortedListWithMaxSize(IComparer comparer, int maxSize, Filters filters)
 				: base(comparer, filters)
 			{
 				if (0 > maxSize)
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal override bool Add(FilterKey key, object value, FilterInfo owner)
+			public override bool Add(FilterKey key, object value, FilterInfo owner)
 			{
 				if (base.m_keys == null)
 				{
@@ -322,12 +322,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private sealed class MySortedListWithoutMaxSize : MySortedList
 		{
-			internal MySortedListWithoutMaxSize(IComparer comparer, Filters filters)
+			public MySortedListWithoutMaxSize(IComparer comparer, Filters filters)
 				: base(comparer, filters)
 			{
 			}
 
-			internal override bool Add(FilterKey key, object value, FilterInfo owner)
+			public override bool Add(FilterKey key, object value, FilterInfo owner)
 			{
 				if (base.m_keys == null)
 				{
@@ -351,7 +351,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				return true;
 			}
 
-			internal override void TrimInstanceSet(int maxSize, FilterInfo owner)
+			public override void TrimInstanceSet(int maxSize, FilterInfo owner)
 			{
 				int count = base.Count;
 				int num = count;
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 			private MySortedList m_dataInstances;
 
-			internal double Percentage
+			public double Percentage
 			{
 				get
 				{
@@ -406,7 +406,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal AspNetCore.ReportingServices.ReportIntermediateFormat.Filter.Operators Operator
+			public AspNetCore.ReportingServices.ReportIntermediateFormat.Filter.Operators Operator
 			{
 				get
 				{
@@ -418,7 +418,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal int InstanceCount
+			public int InstanceCount
 			{
 				get
 				{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal IEnumerator<object> Instances
+			public IEnumerator<object> Instances
 			{
 				get
 				{
@@ -434,25 +434,25 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal FilterInfo(MySortedList dataInstances)
+			public FilterInfo(MySortedList dataInstances)
 			{
 				Global.Tracer.Assert(null != dataInstances, "(null != dataInstances)");
 				this.m_dataInstances = dataInstances;
 			}
 
-			internal bool Add(object key, object dataInstance)
+			public bool Add(object key, object dataInstance)
 			{
 				FilterKey filterKey = new FilterKey();
 				filterKey.Key = key;
 				return this.m_dataInstances.Add(filterKey, dataInstance, this);
 			}
 
-			internal void RemoveAll()
+			public void RemoveAll()
 			{
 				this.m_dataInstances.Clear();
 			}
 
-			internal void TrimInstanceSet(int maxSize)
+			public void TrimInstanceSet(int maxSize)
 			{
 				this.m_dataInstances.TrimInstanceSet(maxSize, this);
 			}
@@ -484,7 +484,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private int m_id = -2147483648;
 
-		internal bool FailFilters
+		public bool FailFilters
 		{
 			set
 			{
@@ -500,13 +500,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal Filters(FilterTypes filterType, IReference<AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner> owner, List<AspNetCore.ReportingServices.ReportIntermediateFormat.Filter> filters, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, OnDemandProcessingContext processingContext, int scalabilityPriority)
+		public Filters(FilterTypes filterType, IReference<AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner> owner, List<AspNetCore.ReportingServices.ReportIntermediateFormat.Filter> filters, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, OnDemandProcessingContext processingContext, int scalabilityPriority)
 			: this(filterType, filters, objectType, objectName, processingContext, scalabilityPriority)
 		{
 			this.m_owner = owner;
 		}
 
-		internal Filters(FilterTypes filterType, RuntimeParameterDataSet owner, List<AspNetCore.ReportingServices.ReportIntermediateFormat.Filter> filters, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, OnDemandProcessingContext processingContext, int scalabilityPriority)
+		public Filters(FilterTypes filterType, RuntimeParameterDataSet owner, List<AspNetCore.ReportingServices.ReportIntermediateFormat.Filter> filters, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, OnDemandProcessingContext processingContext, int scalabilityPriority)
 			: this(filterType, filters, objectType, objectName, processingContext, scalabilityPriority)
 		{
 			this.m_ownerObj = owner;
@@ -522,7 +522,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_scalabilityPriority = scalabilityPriority;
 		}
 
-		internal bool PassFilters(object dataInstance)
+		public bool PassFilters(object dataInstance)
 		{
 			bool flag = default(bool);
 			return this.PassFilters(dataInstance, out flag);
@@ -548,7 +548,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool PassFilters(object dataInstance, out bool specialFilter)
+		public bool PassFilters(object dataInstance, out bool specialFilter)
 		{
 			bool flag = true;
 			specialFilter = false;
@@ -784,12 +784,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return this.m_processingContext.ProcessingComparer.Compare(value1, value2);
 		}
 
-		internal void FinishReadingGroups(AggregateUpdateContext context)
+		public void FinishReadingGroups(AggregateUpdateContext context)
 		{
 			this.FinishFilters(context);
 		}
 
-		internal void FinishReadingRows()
+		public void FinishReadingRows()
 		{
 			this.FinishFilters(null);
 		}

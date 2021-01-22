@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum AtomicityReason
+	public enum AtomicityReason
 	{
 		Filters,
 		Sorts,

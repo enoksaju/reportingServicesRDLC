@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class DefinitionStore<T, E>
+	public class DefinitionStore<T, E>
 	{
 		private static PropertyStore m_propertyDefinitions = new PropertyStore(null);
 

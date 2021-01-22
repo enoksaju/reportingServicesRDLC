@@ -10,7 +10,7 @@ using System.Text;
 
 namespace AspNetCore.Reporting
 {
-	internal static class LocalHtmlRenderer
+	public static class LocalHtmlRenderer
 	{
 		private const string c_htmlMimeType = "text/html";
 
@@ -26,7 +26,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal static TextWriter CreateWriter(string streamName, string mimeType, AspNetCore.ReportingServices.Interfaces.CreateAndRegisterStream createStreamCallback, AspNetCore.ReportingServices.Interfaces.StreamOper streamOper)
+		public static TextWriter CreateWriter(string streamName, string mimeType, AspNetCore.ReportingServices.Interfaces.CreateAndRegisterStream createStreamCallback, AspNetCore.ReportingServices.Interfaces.StreamOper streamOper)
 		{
 			Stream stream = LocalHtmlRenderer.CreateHTMLStream(streamName, mimeType, createStreamCallback, streamOper);
             
@@ -37,7 +37,7 @@ namespace AspNetCore.Reporting
 
 		[SecurityTreatAsSafe]
 		[SecurityCritical]
-		internal static Stream CreateHTMLStream(string streamName, string mimeType, AspNetCore.ReportingServices.Interfaces.CreateAndRegisterStream createStreamCallback, AspNetCore.ReportingServices.Interfaces.StreamOper streamOper)
+		public static Stream CreateHTMLStream(string streamName, string mimeType, AspNetCore.ReportingServices.Interfaces.CreateAndRegisterStream createStreamCallback, AspNetCore.ReportingServices.Interfaces.StreamOper streamOper)
 		{
 			return createStreamCallback(streamName, "html", Encoding.UTF8, mimeType, false, streamOper);
 		}

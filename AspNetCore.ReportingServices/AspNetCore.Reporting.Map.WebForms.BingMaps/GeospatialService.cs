@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class GeospatialService
+	public class GeospatialService
 	{
 		[DataMember(Name = "endpoint", EmitDefaultValue = false)]
 		public string Endpoint

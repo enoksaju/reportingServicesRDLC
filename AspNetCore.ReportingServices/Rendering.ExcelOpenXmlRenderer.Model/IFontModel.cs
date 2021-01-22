@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IFontModel : ICloneable
+	public interface IFontModel : ICloneable
 	{
 		Font Interface
 		{

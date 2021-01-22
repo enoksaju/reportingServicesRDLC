@@ -6,20 +6,20 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 	public abstract class DataRegionExprHost<TMemberType, TCellType> : ReportItemExprHost where TMemberType : MemberNodeExprHost<TMemberType> where TCellType : CellExprHost
 	{
 		[CLSCompliant(false)]
-		protected IList<FilterExprHost> m_filterHostsRemotable;
+		public IList<FilterExprHost> m_filterHostsRemotable;
 
-		protected SortExprHost m_sortHost;
-
-		[CLSCompliant(false)]
-        internal IList<IMemberNode> m_memberTreeHostsRemotable;
+		public SortExprHost m_sortHost;
 
 		[CLSCompliant(false)]
-		protected IList<TCellType> m_cellHostsRemotable;
+        public IList<IMemberNode> m_memberTreeHostsRemotable;
+
+		[CLSCompliant(false)]
+		public IList<TCellType> m_cellHostsRemotable;
 
 		public IndexedExprHost UserSortExpressionsHost;
 
 		[CLSCompliant(false)]
-		protected IList<JoinConditionExprHost> m_joinConditionExprHostsRemotable;
+		public IList<JoinConditionExprHost> m_joinConditionExprHostsRemotable;
 
 		public virtual object NoRowsExpr
 		{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<FilterExprHost> FilterHostsRemotable
+		public IList<FilterExprHost> FilterHostsRemotable
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal SortExprHost SortHost
+		public SortExprHost SortHost
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<IMemberNode> MemberTreeHostsRemotable
+		public IList<IMemberNode> MemberTreeHostsRemotable
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<TCellType> CellHostsRemotable
+		public IList<TCellType> CellHostsRemotable
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<JoinConditionExprHost> JoinConditionExprHostsRemotable
+		public IList<JoinConditionExprHost> JoinConditionExprHostsRemotable
 		{
 			get
 			{

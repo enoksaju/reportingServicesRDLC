@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal interface IDbConnectionTest : IDbConnection, IDisposable, IExtension
+	public interface IDbConnectionTest : IDbConnection, IDisposable, IExtension
 	{
 		void TestConnection();
 	}

@@ -7,7 +7,7 @@ using System.Xml;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(FieldConverter))]
-	internal class Field : NamedElement
+	public class Field : NamedElement
 	{
 		private Type type;
 
@@ -99,7 +99,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal Field(CommonElements common)
+		public Field(CommonElements common)
 			: base(common)
 		{
 			this.type = typeof(string);
@@ -130,7 +130,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return "#" + text;
 		}
 
-		internal MapCore GetMapCore()
+		public MapCore GetMapCore()
 		{
 			return (MapCore)this.ParentElement;
 		}
@@ -144,7 +144,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return true;
 		}
 
-		internal string FormatValue(object value)
+		public string FormatValue(object value)
 		{
 			if (value == null)
 			{
@@ -177,7 +177,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return XmlConvert.ToString((TimeSpan)value);
 		}
 
-		internal void ParseValue(string fieldValue, Hashtable fields)
+		public void ParseValue(string fieldValue, Hashtable fields)
 		{
 			if (this.Type == typeof(string))
 			{
@@ -209,7 +209,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void SetValue(object value, Hashtable fields)
+		public void SetValue(object value, Hashtable fields)
 		{
 			if (this.Type == typeof(string))
 			{
@@ -241,7 +241,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal object Parse(string stringValue)
+		public object Parse(string stringValue)
 		{
 			try
 			{
@@ -281,7 +281,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static object ConvertToSupportedValue(object value)
+		public static object ConvertToSupportedValue(object value)
 		{
 			Type type = value.GetType();
 			Type type2 = Field.ConvertToSupportedType(type);
@@ -292,7 +292,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return Convert.ChangeType(value, type2, CultureInfo.InvariantCulture);
 		}
 
-		internal static Type ConvertToSupportedType(Type valueType)
+		public static Type ConvertToSupportedType(Type valueType)
 		{
 			if (Field.IsValid(valueType))
 			{
@@ -317,7 +317,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return typeof(int);
 		}
 
-		internal double ConvertToDouble(object fieldValue)
+		public double ConvertToDouble(object fieldValue)
 		{
 			if (fieldValue == null)
 			{
@@ -347,7 +347,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			throw new Exception(fieldValue.ToString() + " is not a supported numeric type.");
 		}
 
-		internal static string ToStringInvariant(object fieldValue)
+		public static string ToStringInvariant(object fieldValue)
 		{
 			if (fieldValue == null)
 			{
@@ -360,7 +360,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return fieldValue.ToString();
 		}
 
-		internal bool FieldHasData()
+		public bool FieldHasData()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (mapCore != null && mapCore.IsDesignMode())

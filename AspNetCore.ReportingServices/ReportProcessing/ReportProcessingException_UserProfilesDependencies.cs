@@ -4,9 +4,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_UserProfilesDependencies : Exception
+	public sealed class ReportProcessingException_UserProfilesDependencies : Exception
 	{
-		internal ReportProcessingException_UserProfilesDependencies()
+		public ReportProcessingException_UserProfilesDependencies()
 		{
 		}
 

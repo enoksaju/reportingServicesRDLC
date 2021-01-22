@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class GaugeLabel : GaugePanelItem
+	public class GaugeLabel : GaugePanelItem
 	{
-		internal new class Definition : DefinitionStore<GaugeLabel, Definition.Properties>
+		public new class Definition : DefinitionStore<GaugeLabel, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal GaugeLabel(IPropertyStore propertyStore)
+		public GaugeLabel(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

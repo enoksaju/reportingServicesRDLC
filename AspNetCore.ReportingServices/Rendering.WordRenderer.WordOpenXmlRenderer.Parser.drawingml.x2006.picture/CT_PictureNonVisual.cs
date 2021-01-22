@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.drawingml.x2006.picture
 {
-	internal class CT_PictureNonVisual : OoxmlComplexType, IOoxmlComplexType
+	public class CT_PictureNonVisual : OoxmlComplexType, IOoxmlComplexType
 	{
 		private CT_NonVisualDrawingProps _cNvPr;
 

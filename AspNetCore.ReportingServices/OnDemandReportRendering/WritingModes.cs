@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum WritingModes
+	public enum WritingModes
 	{
 		Default,
 		Horizontal,

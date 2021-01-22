@@ -4,26 +4,26 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal abstract class NamedElement : IDisposable, ICloneable
+	public abstract class NamedElement : IDisposable, ICloneable
 	{
 		private string name = string.Empty;
 
-		internal CommonElements common;
+		public CommonElements common;
 
-		internal NamedCollection collection;
+		public NamedCollection collection;
 
-		internal bool initialized = true;
+		public bool initialized = true;
 
 		private object tag;
 
-		internal bool disposed;
+		public bool disposed;
 
 		[SerializationVisibility(SerializationVisibility.Hidden)]
 		[Browsable(false)]
 		[Description("Indicates that map area is custom.")]
 		[DefaultValue("")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		internal virtual CommonElements Common
+		public virtual CommonElements Common
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[DefaultValue("")]
 		[Browsable(false)]
-		internal virtual NamedCollection Collection
+		public virtual NamedCollection Collection
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual string DefaultName
+		public virtual string DefaultName
 		{
 			get
 			{
@@ -132,12 +132,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal NamedElement(CommonElements common)
+		public NamedElement(CommonElements common)
 		{
 			this.Common = common;
 		}
 
-		internal virtual void OnRemove()
+		public virtual void OnRemove()
 		{
 			if (this.Common != null)
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void OnAdded()
+		public virtual void OnAdded()
 		{
 			if (this.Common != null)
 			{
@@ -153,21 +153,21 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void OnNameChanged()
+		public virtual void OnNameChanged()
 		{
 		}
 
-		internal virtual void BeginInit()
+		public virtual void BeginInit()
 		{
 			this.initialized = false;
 		}
 
-		internal virtual void EndInit()
+		public virtual void EndInit()
 		{
 			this.initialized = true;
 		}
 
-		internal virtual void Invalidate()
+		public virtual void Invalidate()
 		{
 			if (this.Common != null)
 			{
@@ -175,7 +175,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void Invalidate(RectangleF rect)
+		public virtual void Invalidate(RectangleF rect)
 		{
 			if (this.Common != null)
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void InvalidateViewport(bool invalidateGridSections)
+		public virtual void InvalidateViewport(bool invalidateGridSections)
 		{
 			if (this.Common != null)
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void InvalidateViewport()
+		public virtual void InvalidateViewport()
 		{
 			if (this.Common != null)
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void InvalidateDistanceScalePanel()
+		public virtual void InvalidateDistanceScalePanel()
 		{
 			if (this.Common != null)
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void InvalidateAndLayout()
+		public virtual void InvalidateAndLayout()
 		{
 			if (this.Common != null)
 			{
@@ -215,20 +215,20 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void ReconnectData(bool exact)
+		public virtual void ReconnectData(bool exact)
 		{
 		}
 
-		internal virtual void Notify(MessageType msg, NamedElement element, object param)
+		public virtual void Notify(MessageType msg, NamedElement element, object param)
 		{
 		}
 
-		internal string GetNameAsParent()
+		public string GetNameAsParent()
 		{
 			return this.GetNameAsParent(this.Name);
 		}
 
-		internal string GetNameAsParent(string newName)
+		public string GetNameAsParent(string newName)
 		{
 			if (this.Collection != null)
 			{
@@ -261,12 +261,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.CloneInternals(this.InitiateCopy());
 		}
 
-		internal virtual object InitiateCopy()
+		public virtual object InitiateCopy()
 		{
 			return base.MemberwiseClone();
 		}
 
-		internal virtual object CloneInternals(object copy)
+		public virtual object CloneInternals(object copy)
 		{
 			return copy;
 		}

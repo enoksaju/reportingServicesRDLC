@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartLegendReversedTypes
+	public enum ChartLegendReversedTypes
 	{
 		Auto,
 		True,

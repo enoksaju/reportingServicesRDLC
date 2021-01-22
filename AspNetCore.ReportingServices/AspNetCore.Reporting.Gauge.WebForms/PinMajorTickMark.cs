@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class PinMajorTickMark : CustomTickMark
+	public class PinMajorTickMark : CustomTickMark
 	{
 		[NotifyParentProperty(true)]
 		[DefaultValue(MarkerStyle.Circle)]

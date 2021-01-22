@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartSeriesType
+	public enum ChartSeriesType
 	{
 		Column,
 		Bar,

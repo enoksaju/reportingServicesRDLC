@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartCategoryHierarchy : ReportObject, IHierarchy
+	public class ChartCategoryHierarchy : ReportObject, IHierarchy
 	{
-		internal class Definition : DefinitionStore<ChartCategoryHierarchy, Definition.Properties>
+		public class Definition : DefinitionStore<ChartCategoryHierarchy, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ChartMembers,
 				PropertyCount
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartCategoryHierarchy(IPropertyStore propertyStore)
+		public ChartCategoryHierarchy(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

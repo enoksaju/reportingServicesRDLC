@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Picture
+	public sealed class Picture
 	{
 		private readonly IShapeModel mModel;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal Picture(IShapeModel model)
+		public Picture(IShapeModel model)
 		{
 			this.mModel = model;
 		}

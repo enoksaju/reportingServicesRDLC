@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum ProcessMode
+	public enum ProcessMode
 	{
 		Paint = 1,
 		HotRegions = 2,

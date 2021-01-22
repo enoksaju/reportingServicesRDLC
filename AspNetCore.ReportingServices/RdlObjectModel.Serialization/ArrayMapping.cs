@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class ArrayMapping : TypeMapping
+	public class ArrayMapping : TypeMapping
 	{
 		public Dictionary<string, Type> ElementTypes;
 

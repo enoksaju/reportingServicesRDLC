@@ -3,9 +3,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal static class DataSegmentRendererFactory
+	public static class DataSegmentRendererFactory
 	{
-		//internal static IDataSegmentRenderer CreateDataSegmentRenderer()
+		//public static IDataSegmentRenderer CreateDataSegmentRenderer()
 		//{
   //          AspNetCore.ReportingServices.Rendering.DataSegmentRenderer.DataSegmentRenderer
   //             ObjectHandle objectHandle = Activator.CreateInstance("AspNetCore.ReportingServices.DataSegmentRendering", "AspNetCore.ReportingServices.Rendering.DataSegmentRenderer.DataSegmentRenderer");

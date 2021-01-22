@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<MapCustomColorExprHost> m_mapCustomColorsHostsRemotable;
 
-		internal IList<MapCustomColorExprHost> MapCustomColorsHostsRemotable
+		public IList<MapCustomColorExprHost> MapCustomColorsHostsRemotable
 		{
 			get
 			{

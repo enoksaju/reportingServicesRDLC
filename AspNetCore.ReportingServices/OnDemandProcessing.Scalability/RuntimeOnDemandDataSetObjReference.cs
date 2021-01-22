@@ -5,9 +5,9 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class RuntimeOnDemandDataSetObjReference : IScopeReference, IReference<IHierarchyObj>, IReference<RuntimeOnDemandDataSetObj>, IReference<AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner>, IReference, IStorable, IPersistable
+	public class RuntimeOnDemandDataSetObjReference : IScopeReference, IReference<IHierarchyObj>, IReference<RuntimeOnDemandDataSetObj>, IReference<AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner>, IReference, IStorable, IPersistable
 	{
-		internal RuntimeOnDemandDataSetObjReference()
+		public RuntimeOnDemandDataSetObjReference()
 		{
 		}
 

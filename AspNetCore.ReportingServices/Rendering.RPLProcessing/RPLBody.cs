@@ -1,19 +1,19 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLBody : RPLContainer
+	public sealed class RPLBody : RPLContainer
 	{
-		internal RPLBody()
+		public RPLBody()
 		{
 			base.m_rplElementProps = new RPLItemProps();
 			base.m_rplElementProps.Definition = new RPLItemPropsDef();
 		}
 
-		internal RPLBody(RPLItemProps props)
+		public RPLBody(RPLItemProps props)
 			: base(props)
 		{
 		}
 
-		internal RPLBody(long startOffset, RPLContext context, RPLItemMeasurement[] children)
+		public RPLBody(long startOffset, RPLContext context, RPLItemMeasurement[] children)
 			: base(startOffset, context, children)
 		{
 		}

@@ -9,9 +9,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class DataValueList : ArrayList, IList<DataValue>, ICollection<DataValue>, IEnumerable<DataValue>, IEnumerable
+	public class DataValueList : ArrayList, IList<DataValue>, ICollection<DataValue>, IEnumerable<DataValue>, IEnumerable
 	{
-		internal new DataValue this[int index]
+		public new DataValue this[int index]
 		{
 			get
 			{
@@ -51,12 +51,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal DataValueList(int capacity)
+		public DataValueList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal static string CreatePropertyNameString(string prefix, int rowIndex, int cellIndex, int valueIndex)
+		public static string CreatePropertyNameString(string prefix, int rowIndex, int cellIndex, int valueIndex)
 		{
 			if (rowIndex > 0)
 			{
@@ -65,12 +65,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return prefix + "CustomProperty(Index:" + valueIndex + ")";
 		}
 
-		internal void Initialize(string prefix, InitializationContext context)
+		public void Initialize(string prefix, InitializationContext context)
 		{
 			this.Initialize(prefix, -1, -1, true, context);
 		}
 
-		internal void Initialize(string prefix, int rowIndex, int cellIndex, bool isCustomProperty, InitializationContext context)
+		public void Initialize(string prefix, int rowIndex, int cellIndex, bool isCustomProperty, InitializationContext context)
 		{
 			int count = this.Count;
 			AspNetCore.ReportingServices.ReportPublishing.CustomPropertyUniqueNameValidator validator = new AspNetCore.ReportingServices.ReportPublishing.CustomPropertyUniqueNameValidator();
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetExprHost(IList<DataValueExprHost> dataValueHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<DataValueExprHost> dataValueHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (dataValueHosts != null)
 			{

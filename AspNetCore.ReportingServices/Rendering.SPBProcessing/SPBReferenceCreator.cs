@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class SPBReferenceCreator : IReferenceCreator
+	public class SPBReferenceCreator : IReferenceCreator
 	{
 		private static SPBReferenceCreator m_instance = new SPBReferenceCreator();
 
-		internal static SPBReferenceCreator Instance
+		public static SPBReferenceCreator Instance
 		{
 			get
 			{

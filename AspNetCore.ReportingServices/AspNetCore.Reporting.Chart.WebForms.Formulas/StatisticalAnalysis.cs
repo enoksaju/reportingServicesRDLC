@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 {
-	internal class StatisticalAnalysis : IFormula
+	public class StatisticalAnalysis : IFormula
 	{
 		public virtual string Name
 		{

@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<JoinConditionExprHost> m_joinConditionExprHostsRemotable;
 
-		internal IList<JoinConditionExprHost> JoinConditionExprHostsRemotable
+		public IList<JoinConditionExprHost> JoinConditionExprHostsRemotable
 		{
 			get
 			{

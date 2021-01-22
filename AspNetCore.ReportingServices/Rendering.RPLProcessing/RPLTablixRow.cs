@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLTablixRow
+	public class RPLTablixRow
 	{
 		protected List<RPLTablixCell> m_cells;
 
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal List<RPLTablixCell> RowCells
+		public List<RPLTablixCell> RowCells
 		{
 			get
 			{
@@ -62,29 +62,29 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTablixRow()
+		public RPLTablixRow()
 		{
 			this.m_cells = new List<RPLTablixCell>();
 		}
 
-		internal RPLTablixRow(List<RPLTablixCell> cells)
+		public RPLTablixRow(List<RPLTablixCell> cells)
 		{
 			this.m_cells = cells;
 		}
 
-		internal virtual void SetHeaderStart()
+		public virtual void SetHeaderStart()
 		{
 		}
 
-		internal virtual void SetBodyStart()
+		public virtual void SetBodyStart()
 		{
 		}
 
-		internal virtual void AddOmittedHeader(RPLTablixMemberCell cell)
+		public virtual void AddOmittedHeader(RPLTablixMemberCell cell)
 		{
 		}
 
-		internal void AddCells(List<RPLTablixCell> cells)
+		public void AddCells(List<RPLTablixCell> cells)
 		{
 			if (cells != null)
 			{

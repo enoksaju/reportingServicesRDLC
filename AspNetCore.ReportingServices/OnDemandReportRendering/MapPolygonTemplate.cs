@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPolygonTemplate : MapSpatialElementTemplate
+	public sealed class MapPolygonTemplate : MapSpatialElementTemplate
 	{
 		private ReportDoubleProperty m_scaleFactor;
 
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapPolygonTemplate MapPolygonTemplateDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapPolygonTemplate MapPolygonTemplateDef
 		{
 			get
 			{
@@ -90,12 +90,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapPolygonTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPolygonTemplate defObject, MapPolygonLayer shapeLayer, Map map)
+		public MapPolygonTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPolygonTemplate defObject, MapPolygonLayer shapeLayer, Map map)
 			: base(defObject, shapeLayer, map)
 		{
 		}
 
-		internal override MapSpatialElementTemplateInstance GetInstance()
+		public override MapSpatialElementTemplateInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

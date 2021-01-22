@@ -10,9 +10,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeStripLine_StripLine")]
 	[DefaultProperty("IntervalOffset")]
-	internal class StripLine : IMapAreaAttributes
+	public class StripLine : IMapAreaAttributes
 	{
-		internal Axis axis;
+		public Axis axis;
 
 		private double intervalOffset;
 
@@ -20,9 +20,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private DateTimeIntervalType intervalType;
 
-		internal DateTimeIntervalType intervalOffsetType;
+		public DateTimeIntervalType intervalOffsetType;
 
-		internal bool interlaced;
+		public bool interlaced;
 
 		private double stripWidth;
 
@@ -573,7 +573,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Axis GetAxis()
+		public Axis GetAxis()
 		{
 			return this.axis;
 		}
@@ -591,7 +591,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.TextOrientation;
 		}
 
-		internal void Paint(ChartGraphics graph, CommonElements common, bool drawLinesOnly)
+		public void Paint(ChartGraphics graph, CommonElements common, bool drawLinesOnly)
 		{
 			if (!this.axis.chartArea.chartAreaIsCurcular)
 			{

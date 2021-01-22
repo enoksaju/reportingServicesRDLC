@@ -50,13 +50,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal DataSetImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetDef, DataSetInstance dataSetInstance, DateTime reportExecutionTime)
+		public DataSetImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetDef, DataSetInstance dataSetInstance, DateTime reportExecutionTime)
 		{
 			this.m_dataSet = dataSetDef;
 			this.Update(dataSetInstance, reportExecutionTime);
 		}
 
-		internal void Update(DataSetInstance dataSetInstance, DateTime reportExecutionTime)
+		public void Update(DataSetInstance dataSetInstance, DateTime reportExecutionTime)
 		{
 			this.m_dataSetInstance = dataSetInstance;
 			if (dataSetInstance != null)

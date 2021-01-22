@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalTextRunInstance : TextRunInstance
+	public sealed class InternalTextRunInstance : TextRunInstance
 	{
 		private string m_toolTip;
 
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun TextRunDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun TextRunDef
 		{
 			get
 			{
@@ -159,12 +159,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalTextRunInstance(InternalTextRun textRunDef)
+		public InternalTextRunInstance(InternalTextRun textRunDef)
 			: base(textRunDef)
 		{
 		}
 
-		internal VariantResult GetOriginalValue()
+		public VariantResult GetOriginalValue()
 		{
 			this.EvaluateOriginalValue();
 			return this.m_originalValue;
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal List<string> GetFieldsUsedInValueExpression()
+		public List<string> GetFieldsUsedInValueExpression()
 		{
 			List<string> result = null;
 			ExpressionInfo value = this.TextRunDef.Value;

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeLabelPlacements
+	public enum GaugeLabelPlacements
 	{
 		Inside,
 		Outside,

@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class BendingText
+	public class BendingText
 	{
 		protected char WHITESPACE_SUBSTITUTE = '-';
 

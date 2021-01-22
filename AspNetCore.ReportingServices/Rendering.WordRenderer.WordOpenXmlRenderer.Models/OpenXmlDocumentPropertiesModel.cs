@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Pa
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlDocumentPropertiesModel
+	public sealed class OpenXmlDocumentPropertiesModel
 	{
 		private CorePropertiesPart _propertyPart;
 
-		internal CorePropertiesPart PropertiesPart
+		public CorePropertiesPart PropertiesPart
 		{
 			get
 			{
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal OpenXmlDocumentPropertiesModel(string author, string title, string description)
+		public OpenXmlDocumentPropertiesModel(string author, string title, string description)
 		{
 			this._propertyPart = new CorePropertiesPart();
 			CT_CoreProperties cT_CoreProperties = (CT_CoreProperties)this._propertyPart.Root;

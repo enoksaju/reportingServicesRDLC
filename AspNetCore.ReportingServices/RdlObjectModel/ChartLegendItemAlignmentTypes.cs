@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartLegendItemAlignmentTypes
+	public enum ChartLegendItemAlignmentTypes
 	{
 		Center,
 		Top,

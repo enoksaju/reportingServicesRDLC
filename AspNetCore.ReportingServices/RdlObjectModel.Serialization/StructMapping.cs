@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class StructMapping : TypeMapping
+	public class StructMapping : TypeMapping
 	{
 		private struct UseTypeInfo
 		{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			return null;
 		}
 
-		internal void ResolveChildAttributes()
+		public void ResolveChildAttributes()
 		{
 			if (base.ChildAttributes != null)
 			{

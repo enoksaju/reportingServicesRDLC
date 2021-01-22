@@ -1,12 +1,12 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ElementEventArgs
+	public class ElementEventArgs
 	{
 		private MapControl control;
 
 		private NamedElement mapElement;
 
-		internal MapControl MapControl
+		public MapControl MapControl
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ElementEventArgs(MapControl control, NamedElement mapElement)
+		public ElementEventArgs(MapControl control, NamedElement mapElement)
 		{
 			this.control = control;
 			this.mapElement = mapElement;

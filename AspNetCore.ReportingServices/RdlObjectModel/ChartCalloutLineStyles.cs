@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartCalloutLineStyles
+	public enum ChartCalloutLineStyles
 	{
 		Solid,
 		Dotted,

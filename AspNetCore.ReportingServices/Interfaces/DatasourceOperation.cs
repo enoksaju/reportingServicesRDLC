@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal enum DatasourceOperation
+	public enum DatasourceOperation
 	{
 		Delete,
 		ReadProperties,

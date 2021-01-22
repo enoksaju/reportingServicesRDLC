@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class DataMember : Group
+	public sealed class DataMember : Group
 	{
 		private CustomReportItemHeading m_headingDef;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override TextBox ToggleParent
+		public override TextBox ToggleParent
 		{
 			get
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataMember(CustomReportItem owner, DataMember parent, CustomReportItemHeading headingDef, CustomReportItemHeadingInstance headingInstance, bool isSubtotal, int index)
+		public DataMember(CustomReportItem owner, DataMember parent, CustomReportItemHeading headingDef, CustomReportItemHeadingInstance headingInstance, bool isSubtotal, int index)
 			: base(owner, headingDef.Grouping)
 		{
 			Global.Tracer.Assert(null != headingDef);

@@ -7,7 +7,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixHeading : PivotHeading, IPageBreakItem
+	public sealed class MatrixHeading : PivotHeading, IPageBreakItem
 	{
 		private string m_size;
 
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ReportSize m_sizeForRendering;
 
-		internal new MatrixHeading SubHeading
+		public new MatrixHeading SubHeading
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Size
+		public string Size
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double SizeValue
+		public double SizeValue
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItem ReportItem
+		public ReportItem ReportItem
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool OwcGroupExpression
+		public bool OwcGroupExpression
 		{
 			get
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InFirstPage
+		public bool InFirstPage
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BoolList FirstHeadingInstances
+		public BoolList FirstHeadingInstances
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string RenderingModelID
+		public string RenderingModelID
 		{
 			get
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string[] RenderingModelIDs
+		public string[] RenderingModelIDs
 		{
 			get
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSize SizeForRendering
+		public ReportSize SizeForRendering
 		{
 			get
 			{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixDynamicGroupExprHost ExprHost
+		public MatrixDynamicGroupExprHost ExprHost
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InOutermostSubtotalCell
+		public bool InOutermostSubtotalCell
 		{
 			get
 			{
@@ -205,17 +205,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeading()
+		public MatrixHeading()
 		{
 		}
 
-		internal MatrixHeading(int id, int idForReportItems, Matrix matrixDef)
+		public MatrixHeading(int id, int idForReportItems, Matrix matrixDef)
 			: base(id, matrixDef)
 		{
 			this.m_reportItems = new ReportItemCollection(idForReportItems, false);
 		}
 
-		internal int DynamicInitialize(bool column, int level, InitializationContext context, ref double cornerSize)
+		public int DynamicInitialize(bool column, int level, InitializationContext context, ref double cornerSize)
 		{
 			base.m_level = level;
 			base.m_isColumn = column;
@@ -274,7 +274,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return base.m_subtotalSpan + 1;
 		}
 
-		internal void DynamicRegisterReceiver(InitializationContext context)
+		public void DynamicRegisterReceiver(InitializationContext context)
 		{
 			if (base.m_grouping == null)
 			{
@@ -309,7 +309,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int StaticInitialize(InitializationContext context)
+		public int StaticInitialize(InitializationContext context)
 		{
 			if (base.m_grouping != null)
 			{
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return 0;
 		}
 
-		internal void StaticRegisterReceiver(InitializationContext context)
+		public void StaticRegisterReceiver(InitializationContext context)
 		{
 			if (base.m_grouping != null)
 			{
@@ -367,7 +367,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return base.IgnorePageBreaks(base.m_visibility);
 		}
 
-		internal void SetExprHost(MatrixDynamicGroupExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MatrixDynamicGroupExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null && base.HasExprHost);
 			this.m_exprHost = exprHost;
@@ -375,7 +375,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			base.ReportHierarchyNodeSetExprHost(this.m_exprHost, reportObjectModel);
 		}
 
-		internal ReportItem GetContent(out bool computed)
+		public ReportItem GetContent(out bool computed)
 		{
 			ReportItem result = null;
 			computed = false;
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Size, Token.String));

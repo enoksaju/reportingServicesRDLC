@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal static class ImageMapArea
+	public static class ImageMapArea
 	{
-		internal enum ImageMapAreaShape
+		public enum ImageMapAreaShape
 		{
 			Rectangle,
 			Polygon,

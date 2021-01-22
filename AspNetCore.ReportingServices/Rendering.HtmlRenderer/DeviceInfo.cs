@@ -5,71 +5,71 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal abstract class DeviceInfo
+	public abstract class DeviceInfo
 	{
-		internal string ActionScript;
+		public string ActionScript;
 
-		internal bool AllowScript = true;
+		public bool AllowScript = true;
 
-		internal string BookmarkId;
+		public string BookmarkId;
 
-		internal bool ExpandContent;
+		public bool ExpandContent;
 
-		internal bool HasActionScript;
+		public bool HasActionScript;
 
-		internal bool HTMLFragment;
+		public bool HTMLFragment;
 
-		internal bool OnlyVisibleStyles = true;
+		public bool OnlyVisibleStyles = true;
 
-		internal bool EnablePowerBIFeatures;
+		public bool EnablePowerBIFeatures;
 
-		internal string FindString;
+		public string FindString;
 
-		internal string HtmlPrefixId = "";
+		public string HtmlPrefixId = "";
 
-		internal string JavascriptPrefixId = "";
+		public string JavascriptPrefixId = "";
 
-		internal string LinkTarget;
+		public string LinkTarget;
 
-		internal string ReplacementRoot;
+		public string ReplacementRoot;
 
-		internal string ResourceStreamRoot;
+		public string ResourceStreamRoot;
 
-		internal int Section;
+		public int Section;
 
-		internal string StylePrefixId = "a";
+		public string StylePrefixId = "a";
 
-		internal bool StyleStream;
+		public bool StyleStream;
 
-		internal bool OutlookCompat;
+		public bool OutlookCompat;
 
-		internal int Zoom = 100;
+		public int Zoom = 100;
 
-		internal bool AccessibleTablix;
+		public bool AccessibleTablix;
 
-		internal DataVisualizationFitSizing DataVisualizationFitSizing;
+		public DataVisualizationFitSizing DataVisualizationFitSizing;
 
-		internal bool IsBrowserIE = true;
+		public bool IsBrowserIE = true;
 
-		internal bool IsBrowserSafari;
+		public bool IsBrowserSafari;
 
-		internal bool IsBrowserGeckoEngine;
+		public bool IsBrowserGeckoEngine;
 
-		internal bool IsBrowserIE6Or7StandardsMode;
+		public bool IsBrowserIE6Or7StandardsMode;
 
-		internal bool IsBrowserIE6;
+		public bool IsBrowserIE6;
 
-		internal bool IsBrowserIE7;
+		public bool IsBrowserIE7;
 
-		internal BrowserMode BrowserMode;
+		public BrowserMode BrowserMode;
 
-		internal readonly string BrowserMode_Quirks = "quirks";
+		public readonly string BrowserMode_Quirks = "quirks";
 
-		internal readonly string BrowserMode_Standards = "standards";
+		public readonly string BrowserMode_Standards = "standards";
 
-		internal string NavigationId;
+		public string NavigationId;
 
-		internal bool ImageConsolidation = true;
+		public bool ImageConsolidation = true;
 
 		private static readonly Regex m_safeForJavascriptRegex = new Regex("^([a-zA-Z0-9_\\.]+)$", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
 
@@ -290,7 +290,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void VerifySafeForRoots(string value)
+		public void VerifySafeForRoots(string value)
 		{
 			bool flag = default(bool);
 			if (this.IsSupported(value, true, out flag) && !flag)

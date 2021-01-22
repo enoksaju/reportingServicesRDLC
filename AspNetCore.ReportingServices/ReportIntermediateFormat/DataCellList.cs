@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class DataCellList : CellList
+	public sealed class DataCellList : CellList
 	{
-		internal new DataCell this[int index]
+		public new DataCell this[int index]
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal DataCellList(int capacity)
+		public DataCellList(int capacity)
 			: base(capacity)
 		{
 		}

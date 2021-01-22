@@ -2,7 +2,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class ContainedObject : IContainedObject
+	public abstract class ContainedObject : IContainedObject
 	{
 		private IContainedObject m_parent;
 

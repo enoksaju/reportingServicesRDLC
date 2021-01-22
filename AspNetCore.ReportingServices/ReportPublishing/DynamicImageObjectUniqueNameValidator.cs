@@ -2,24 +2,24 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class DynamicImageObjectUniqueNameValidator : DynamicImageOrCustomUniqueNameValidator
+	public sealed class DynamicImageObjectUniqueNameValidator : DynamicImageOrCustomUniqueNameValidator
 	{
-		internal DynamicImageObjectUniqueNameValidator()
+		public DynamicImageObjectUniqueNameValidator()
 		{
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			base.m_dictionary.Clear();
 		}
 
-		internal override bool Validate(Severity severity, ObjectType objectType, string objectName, string propertyNameValue, ErrorContext errorContext)
+		public override bool Validate(Severity severity, ObjectType objectType, string objectName, string propertyNameValue, ErrorContext errorContext)
 		{
 			Global.Tracer.Assert(false);
 			return this.Validate(severity, "", objectType, objectName, propertyNameValue, errorContext);
 		}
 
-		internal override bool Validate(Severity severity, string propertyName, ObjectType objectType, string objectName, string propertyNameValue, ErrorContext errorContext)
+		public override bool Validate(Severity severity, string propertyName, ObjectType objectType, string objectName, string propertyNameValue, ErrorContext errorContext)
 		{
 			bool result = true;
 			if (propertyNameValue == null || !base.IsUnique(propertyNameValue))

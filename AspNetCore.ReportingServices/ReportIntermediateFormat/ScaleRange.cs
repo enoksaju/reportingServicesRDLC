@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ScaleRange : GaugePanelStyleContainer, IPersistable, IActionOwner
+	public sealed class ScaleRange : GaugePanelStyleContainer, IPersistable, IActionOwner
 	{
 		private Action m_action;
 
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private int m_id;
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ID
+		public int ID
 		{
 			get
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DistanceFromScale
+		public ExpressionInfo DistanceFromScale
 		{
 			get
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue StartValue
+		public GaugeInputValue StartValue
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue EndValue
+		public GaugeInputValue EndValue
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo StartWidth
+		public ExpressionInfo StartWidth
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo EndWidth
+		public ExpressionInfo EndWidth
 		{
 			get
 			{
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo InRangeBarPointerColor
+		public ExpressionInfo InRangeBarPointerColor
 		{
 			get
 			{
@@ -178,7 +178,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo InRangeLabelColor
+		public ExpressionInfo InRangeLabelColor
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo InRangeTickMarksColor
+		public ExpressionInfo InRangeTickMarksColor
 		{
 			get
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BackgroundGradientType
+		public ExpressionInfo BackgroundGradientType
 		{
 			get
 			{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Placement
+		public ExpressionInfo Placement
 		{
 			get
 			{
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ScaleRangeExprHost ExprHost
+		public ScaleRangeExprHost ExprHost
 		{
 			get
 			{
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -274,17 +274,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ScaleRange()
+		public ScaleRange()
 		{
 		}
 
-		internal ScaleRange(GaugePanel gaugePanel, int id)
+		public ScaleRange(GaugePanel gaugePanel, int id)
 			: base(gaugePanel)
 		{
 			this.m_id = id;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ScaleRangeStart(this.m_name);
 			base.Initialize(context);
@@ -345,7 +345,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ScaleRangeEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ScaleRange scaleRange = (ScaleRange)base.PublishClone(context);
 			if (this.m_action != null)
@@ -403,7 +403,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return scaleRange;
 		}
 
-		internal void SetExprHost(ScaleRangeExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ScaleRangeExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -414,7 +414,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -576,61 +576,61 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ScaleRange;
 		}
 
-		internal double EvaluateDistanceFromScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateDistanceFromScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleRangeDistanceFromScaleExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateStartWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateStartWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleRangeStartWidthExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateEndWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateEndWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleRangeEndWidthExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateInRangeBarPointerColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateInRangeBarPointerColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleRangeInRangeBarPointerColorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateInRangeLabelColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateInRangeLabelColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleRangeInRangeLabelColorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateInRangeTickMarksColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateInRangeTickMarksColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleRangeInRangeTickMarksColorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal BackgroundGradientTypes EvaluateBackgroundGradientType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public BackgroundGradientTypes EvaluateBackgroundGradientType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateBackgroundGradientTypes(context.ReportRuntime.EvaluateScaleRangeBackgroundGradientTypeExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal ScaleRangePlacements EvaluatePlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ScaleRangePlacements EvaluatePlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateScaleRangePlacements(context.ReportRuntime.EvaluateScaleRangePlacementExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleRangeToolTipExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleRangeHiddenExpression(this, base.m_gaugePanel.Name);

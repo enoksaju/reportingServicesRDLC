@@ -6,16 +6,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal struct CodeClass : IPersistable
+	public struct CodeClass : IPersistable
 	{
-		internal string ClassName;
+		public string ClassName;
 
-		internal string InstanceName;
+		public string InstanceName;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = CodeClass.GetDeclaration();
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ClassName, Token.String));

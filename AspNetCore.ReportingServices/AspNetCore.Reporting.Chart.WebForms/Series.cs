@@ -12,9 +12,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeSeries_Series")]
 	[DefaultProperty("Points")]
-	internal class Series : DataPointAttributes
+	public class Series : DataPointAttributes
 	{
-		internal enum SeriesValuesFormulaType
+		public enum SeriesValuesFormulaType
 		{
 			Total,
 			Average,
@@ -62,117 +62,117 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private string dataSourceMemberY = string.Empty;
 
-		internal bool autoXValueType;
+		public bool autoXValueType;
 
-		internal bool autoYValueType;
+		public bool autoYValueType;
 
 		private double totalYvalue = double.NaN;
 
 		private double[] dummyDoubleValues;
 
-		internal ChartValueTypes indexedXValueType;
+		public ChartValueTypes indexedXValueType;
 
-		internal static DataPointAttributes defaultAttributes;
+		public static DataPointAttributes defaultAttributes;
 
-		internal bool tempMarkerStyleIsSet;
+		public bool tempMarkerStyleIsSet;
 
 		private bool defaultChartArea;
 
 		private bool checkPointsNumber = true;
 
-		internal Chart chart;
+		public Chart chart;
 
-		internal FinancialMarkersCollection financialMarkers;
+		public FinancialMarkersCollection financialMarkers;
 
 		private SmartLabelsStyle smartLabels;
 
-		internal bool noLabelsInPoints = true;
+		public bool noLabelsInPoints = true;
 
-		internal bool xValuesZeros;
+		public bool xValuesZeros;
 
-		internal bool xValuesZerosChecked;
+		public bool xValuesZerosChecked;
 
-		internal DataPointCollection fakeDataPoints;
+		public DataPointCollection fakeDataPoints;
 
-		internal string label = "";
+		public string label = "";
 
-		internal string axisLabel = "";
+		public string axisLabel = "";
 
-		internal string labelFormat = "";
+		public string labelFormat = "";
 
-		internal bool showLabelAsValue;
+		public bool showLabelAsValue;
 
-		internal Color color = Color.Empty;
+		public Color color = Color.Empty;
 
-		internal Color borderColor = Color.Empty;
+		public Color borderColor = Color.Empty;
 
-		internal ChartDashStyle borderStyle = ChartDashStyle.Solid;
+		public ChartDashStyle borderStyle = ChartDashStyle.Solid;
 
-		internal int borderWidth = 1;
+		public int borderWidth = 1;
 
-		internal int markerBorderWidth = 1;
+		public int markerBorderWidth = 1;
 
-		internal string backImage = "";
+		public string backImage = "";
 
-		internal ChartImageWrapMode backImageMode;
+		public ChartImageWrapMode backImageMode;
 
-		internal Color backImageTranspColor = Color.Empty;
+		public Color backImageTranspColor = Color.Empty;
 
-		internal ChartImageAlign backImageAlign;
+		public ChartImageAlign backImageAlign;
 
-		internal GradientType backGradientType;
+		public GradientType backGradientType;
 
-		internal Color backGradientEndColor = Color.Empty;
+		public Color backGradientEndColor = Color.Empty;
 
-		internal ChartHatchStyle backHatchStyle;
+		public ChartHatchStyle backHatchStyle;
 
-		internal Font font = new Font(ChartPicture.GetDefaultFontFamilyName(), 8f);
+		public Font font = new Font(ChartPicture.GetDefaultFontFamilyName(), 8f);
 
-		internal Color fontColor = Color.Black;
+		public Color fontColor = Color.Black;
 
-		internal int fontAngle;
+		public int fontAngle;
 
-		internal MarkerStyle markerStyle;
+		public MarkerStyle markerStyle;
 
-		internal int markerSize = 5;
+		public int markerSize = 5;
 
-		internal string markerImage = "";
+		public string markerImage = "";
 
-		internal Color markerImageTranspColor = Color.Empty;
+		public Color markerImageTranspColor = Color.Empty;
 
-		internal Color markerColor = Color.Empty;
+		public Color markerColor = Color.Empty;
 
-		internal Color markerBorderColor = Color.Empty;
+		public Color markerBorderColor = Color.Empty;
 
-		internal string toolTip = "";
+		public string toolTip = "";
 
-		internal string href = "";
+		public string href = "";
 
-		internal string mapAreaAttributes = "";
+		public string mapAreaAttributes = "";
 
-		internal bool showInLegend = true;
+		public bool showInLegend = true;
 
-		internal string legendText = "";
+		public string legendText = "";
 
-		internal string legendToolTip = "";
+		public string legendToolTip = "";
 
-		internal Color labelBackColor = Color.Empty;
+		public Color labelBackColor = Color.Empty;
 
-		internal Color labelBorderColor = Color.Empty;
+		public Color labelBorderColor = Color.Empty;
 
-		internal ChartDashStyle labelBorderStyle = ChartDashStyle.Solid;
+		public ChartDashStyle labelBorderStyle = ChartDashStyle.Solid;
 
-		internal int labelBorderWidth = 1;
+		public int labelBorderWidth = 1;
 
-		internal string labelToolTip = "";
+		public string labelToolTip = "";
 
-		internal string labelHref = "";
+		public string labelHref = "";
 
-		internal string labelMapAreaAttributes = "";
+		public string labelMapAreaAttributes = "";
 
-		internal string legendHref = "";
+		public string legendHref = "";
 
-		internal string legendMapAreaAttributes = "";
+		public string legendMapAreaAttributes = "";
 
 		[SRCategory("CategoryAttributeData")]
 		[SRDescription("DescriptionAttributeSeries_Name")]
@@ -526,7 +526,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[Bindable(true)]
 		[SRDescription("DescriptionAttributeSeries_YSubAxisName")]
 		[DefaultValue("")]
-		internal string YSubAxisName
+		public string YSubAxisName
 		{
 			get
 			{
@@ -542,7 +542,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SRCategory("CategoryAttributeAxes")]
 		[SRDescription("DescriptionAttributeSeries_XSubAxisName")]
 		[DefaultValue("")]
-		internal string XSubAxisName
+		public string XSubAxisName
 		{
 			get
 			{
@@ -806,7 +806,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.smartLabels = new SmartLabelsStyle(this);
 		}
 
-		internal string GetCaption()
+		public string GetCaption()
 		{
 			if (this.IsAttributeSet("SeriesCaption"))
 			{
@@ -815,7 +815,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.Name;
 		}
 
-		internal void GetPointDepthAndGap(ChartGraphics graph, Axis axis, ref double pointDepth, ref double pointGapDepth)
+		public void GetPointDepthAndGap(ChartGraphics graph, Axis axis, ref double pointDepth, ref double pointGapDepth)
 		{
 			string text = base["PixelPointDepth"];
 			if (text != null)
@@ -855,7 +855,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal double GetPointWidth(ChartGraphics graph, Axis axis, double interval, double defaultWidth)
+		public double GetPointWidth(ChartGraphics graph, Axis axis, double interval, double defaultWidth)
 		{
 			double num = defaultWidth;
 			double num2 = 0.0;
@@ -946,7 +946,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num2;
 		}
 
-		internal static string GetChartTypeName(SeriesChartType type)
+		public static string GetChartTypeName(SeriesChartType type)
 		{
 			switch (type)
 			{
@@ -961,7 +961,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal bool IsYValueDateTime()
+		public bool IsYValueDateTime()
 		{
 			if (this.YValueType != ChartValueTypes.Date && this.YValueType != ChartValueTypes.DateTime && this.YValueType != ChartValueTypes.Time && this.YValueType != ChartValueTypes.DateTimeOffset)
 			{
@@ -970,7 +970,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return true;
 		}
 
-		internal bool IsXValueDateTime()
+		public bool IsXValueDateTime()
 		{
 			if (this.XValueType != ChartValueTypes.Date && this.XValueType != ChartValueTypes.DateTime && this.XValueType != ChartValueTypes.Time && this.XValueType != ChartValueTypes.DateTimeOffset)
 			{
@@ -979,7 +979,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return true;
 		}
 
-		internal bool IsVisible()
+		public bool IsVisible()
 		{
 			if (this.Enabled && this.ChartArea.Length > 0)
 			{
@@ -988,7 +988,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal bool IsFastChartType()
+		public bool IsFastChartType()
 		{
 			if (this.ChartType == SeriesChartType.FastLine)
 			{
@@ -1001,7 +1001,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal void CheckSupportedTypes(Type type)
+		public void CheckSupportedTypes(Type type)
 		{
 			if (type != typeof(double) && type != typeof(DateTime) && type != typeof(string) && type != typeof(int) && type != typeof(uint) && type != typeof(decimal) && type != typeof(float) && type != typeof(short) && type != typeof(ushort) && type != typeof(long) && type != typeof(ulong) && type != typeof(byte) && type != typeof(sbyte) && type != typeof(DBNull) && type != typeof(bool))
 			{
@@ -1009,7 +1009,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void ApplyPaletteColors()
+		public void ApplyPaletteColors()
 		{
 			ChartColorPalette palette = this.Palette;
 			DataManager dataManager = (DataManager)base.serviceContainer.GetService(typeof(DataManager));
@@ -1042,7 +1042,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal IEnumerable GetDummyData(ChartValueTypes type)
+		public IEnumerable GetDummyData(ChartValueTypes type)
 		{
 			string[] result = new string[6]
 			{
@@ -1099,12 +1099,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal double GetTotalYValue()
+		public double GetTotalYValue()
 		{
 			return this.GetTotalYValue(0);
 		}
 
-		internal double GetTotalYValue(int yValueIndex)
+		public double GetTotalYValue(int yValueIndex)
 		{
 			if (yValueIndex == 0)
 			{
@@ -1131,7 +1131,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num;
 		}
 
-		internal string ReplaceKeywords(string strOriginal)
+		public string ReplaceKeywords(string strOriginal)
 		{
 			if (strOriginal != null && strOriginal.Length != 0)
 			{
@@ -1149,7 +1149,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return strOriginal;
 		}
 
-		internal string ReplaceOneKeyword(Chart chart, object obj, ChartElementType elementType, string strOriginal, string keyword, SeriesValuesFormulaType formulaType, ChartValueTypes valueType, string defaultFormat)
+		public string ReplaceOneKeyword(Chart chart, object obj, ChartElementType elementType, string strOriginal, string keyword, SeriesValuesFormulaType formulaType, ChartValueTypes valueType, string defaultFormat)
 		{
 			string text = strOriginal;
 			int num = -1;
@@ -1225,7 +1225,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return text;
 		}
 
-		internal string ReplaceOneKeyword(Chart chart, object obj, ChartElementType elementType, string strOriginal, string keyword, double value, ChartValueTypes valueType, string defaultFormat)
+		public string ReplaceOneKeyword(Chart chart, object obj, ChartElementType elementType, string strOriginal, string keyword, double value, ChartValueTypes valueType, string defaultFormat)
 		{
 			string text = strOriginal;
 			int num = -1;
@@ -1249,7 +1249,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return text;
 		}
 
-		internal void TraceWrite(string category, string message)
+		public void TraceWrite(string category, string message)
 		{
 			if (base.serviceContainer != null)
 			{
@@ -1283,7 +1283,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.TraceWrite("ChartData", SR.TraceMessageEndSortingDataPoints(this.Name));
 		}
 
-		internal bool UnPrepareData(ISite controlSite)
+		public bool UnPrepareData(ISite controlSite)
 		{
 			bool result = false;
 			if (RenkoChart.UnPrepareData(this, base.serviceContainer))
@@ -1315,12 +1315,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal void ResetAutoValues()
+		public void ResetAutoValues()
 		{
 			this.ResetAutoValues(true);
 		}
 
-		internal void ResetAutoValues(bool reset)
+		public void ResetAutoValues(bool reset)
 		{
 			if (this.IsAttributeSet("TempDesignData"))
 			{
@@ -1381,7 +1381,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void PrepareData(ISite controlSite, bool applyPaletteColors)
+		public void PrepareData(ISite controlSite, bool applyPaletteColors)
 		{
 			if (this.IsVisible())
 			{
@@ -1550,7 +1550,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Invalidate(bool invalidateAreaOnly, bool invalidateLegend)
+		public void Invalidate(bool invalidateAreaOnly, bool invalidateLegend)
 		{
 		}
 	}

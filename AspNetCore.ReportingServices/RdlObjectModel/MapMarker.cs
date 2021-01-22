@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapMarker : ReportObject
+	public class MapMarker : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapMarker, Definition.Properties>
+		public class Definition : DefinitionStore<MapMarker, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				MapMarkerStyle,
 				MapMarkerImage,
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapMarker(IPropertyStore propertyStore)
+		public MapMarker(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_BooleanProperty : OoxmlComplexType
+	public class CT_BooleanProperty : OoxmlComplexType
 	{
 		private OoxmlBool _val_attr;
 

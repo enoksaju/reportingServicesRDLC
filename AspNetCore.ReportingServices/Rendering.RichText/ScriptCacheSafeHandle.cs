@@ -4,7 +4,7 @@ using System.Runtime.ConstrainedExecution;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class ScriptCacheSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
+	public sealed class ScriptCacheSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
 	{
 		public ScriptCacheSafeHandle()
 			: base(true)

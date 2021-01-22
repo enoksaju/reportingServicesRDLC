@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ImageInstance : ReportItemInstance, IImageInstance
+	public abstract class ImageInstance : ReportItemInstance, IImageInstance
 	{
 		public abstract byte[] ImageData
 		{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract bool IsNullImage
+		public abstract bool IsNullImage
 		{
 			get;
 		}
@@ -43,12 +43,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract string ImageDataId
+		public abstract string ImageDataId
 		{
 			get;
 		}
 
-		internal Image ImageDef
+		public Image ImageDef
 		{
 			get
 			{
@@ -56,12 +56,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ImageInstance(Image reportItemDef)
+		public ImageInstance(Image reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal abstract List<string> GetFieldsUsedInValueExpression();
+		public abstract List<string> GetFieldsUsedInValueExpression();
 
 		public abstract ActionInfoWithDynamicImageMap CreateActionInfoWithDynamicImageMap();
 	}

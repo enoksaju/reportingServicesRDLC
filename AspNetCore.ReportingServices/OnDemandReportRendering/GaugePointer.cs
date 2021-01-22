@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class GaugePointer : GaugePanelObjectCollectionItem, IROMStyleDefinitionContainer, IROMActionOwner
+	public abstract class GaugePointer : GaugePanelObjectCollectionItem, IROMStyleDefinitionContainer, IROMActionOwner
 	{
-		internal GaugePanel m_gaugePanel;
+		public GaugePanel m_gaugePanel;
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePointer m_defObject;
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePointer m_defObject;
 
 		private Style m_style;
 
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePointer GaugePointerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePointer GaugePointerDef
 		{
 			get
 			{
@@ -269,15 +269,15 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePointer(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePointer defObject, GaugePanel gaugePanel)
+		public GaugePointer(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePointer defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal abstract GaugePointerInstance GetInstance();
+		public abstract GaugePointerInstance GetInstance();
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

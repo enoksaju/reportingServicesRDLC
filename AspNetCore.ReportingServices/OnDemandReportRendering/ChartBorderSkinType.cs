@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartBorderSkinType
+	public enum ChartBorderSkinType
 	{
 		None,
 		Emboss,

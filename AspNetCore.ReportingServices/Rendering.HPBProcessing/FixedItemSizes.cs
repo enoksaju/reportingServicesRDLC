@@ -1,53 +1,53 @@
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class FixedItemSizes : ItemSizes
+	public class FixedItemSizes : ItemSizes
 	{
-		internal override double Left
+		public override double Left
 		{
 			set
 			{
 			}
 		}
 
-		internal override double Top
+		public override double Top
 		{
 			set
 			{
 			}
 		}
 
-		internal override double Width
+		public override double Width
 		{
 			set
 			{
 			}
 		}
 
-		internal override double Height
+		public override double Height
 		{
 			set
 			{
 			}
 		}
 
-		internal FixedItemSizes(double width, double height)
+		public FixedItemSizes(double width, double height)
 			: base(0.0, 0.0, width, height)
 		{
 		}
 
-		internal override void AdjustHeightTo(double amount)
+		public override void AdjustHeightTo(double amount)
 		{
 		}
 
-		internal override void AdjustWidthTo(double amount)
+		public override void AdjustWidthTo(double amount)
 		{
 		}
 
-		internal override void MoveVertical(double delta)
+		public override void MoveVertical(double delta)
 		{
 		}
 
-		internal override void MoveHorizontal(double delta)
+		public override void MoveHorizontal(double delta)
 		{
 		}
 	}

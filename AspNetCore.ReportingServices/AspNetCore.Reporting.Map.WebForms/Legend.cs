@@ -11,9 +11,9 @@ namespace AspNetCore.Reporting.Map.WebForms
 	[TypeConverter(typeof(LegendConverter))]
 	[DefaultProperty("Enabled")]
 	[Description("Legend style, position, custom elements and other properties.")]
-	internal class Legend : AutoSizePanel, IToolTipProvider
+	public class Legend : AutoSizePanel, IToolTipProvider
 	{
-		internal class LegendConverter : AutoSizePanelConverter
+		public class LegendConverter : AutoSizePanelConverter
 		{
 			public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private SizeF itemCellSize = SizeF.Empty;
 
-		internal Font autofitFont;
+		public Font autofitFont;
 
 		private bool interlacedRows;
 
@@ -119,7 +119,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private int numberOfCells = -1;
 
-		internal Size singleWCharacterSize = System.Drawing.Size.Empty;
+		public Size singleWCharacterSize = System.Drawing.Size.Empty;
 
 		private bool showSelectedTitle;
 
@@ -140,7 +140,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[DefaultValue(false)]
 		[NotifyParentProperty(true)]
 		[Browsable(false)]
-		internal bool ShowSelectedTitle
+		public bool ShowSelectedTitle
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[NotifyParentProperty(true)]
 		[DefaultValue(false)]
 		[Browsable(false)]
-		internal RectangleF TitleSelectionRectangle
+		public RectangleF TitleSelectionRectangle
 		{
 			get
 			{
@@ -555,7 +555,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override bool IsEmpty
+		public override bool IsEmpty
 		{
 			get
 			{
@@ -700,7 +700,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override string DefaultName
+		public override string DefaultName
 		{
 			get
 			{
@@ -708,7 +708,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -733,7 +733,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal Legend(CommonElements common)
+		public Legend(CommonElements common)
 			: base(common)
 		{
 			this.customLegends = new LegendItemsCollection(this, common);
@@ -1010,7 +1010,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal override SizeF GetOptimalSize(MapGraphics g, SizeF maxSizeAbs)
+		public override SizeF GetOptimalSize(MapGraphics g, SizeF maxSizeAbs)
 		{
 			this.offset = System.Drawing.Size.Empty;
 			this.itemColumns = 0;
@@ -1710,7 +1710,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void Render(MapGraphics g)
+		public override void Render(MapGraphics g)
 		{
 			base.Render(g);
 			this.RenderLegend(g);
@@ -2040,7 +2040,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Size GetSeparatorSize(MapGraphics chartGraph, LegendSeparatorType separatorType)
+		public Size GetSeparatorSize(MapGraphics chartGraph, LegendSeparatorType separatorType)
 		{
 			Size result = System.Drawing.Size.Empty;
 			switch (separatorType)
@@ -2192,7 +2192,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return tableStyle;
 		}
 
-		internal override bool IsRenderVisible(MapGraphics g, RectangleF clipRect)
+		public override bool IsRenderVisible(MapGraphics g, RectangleF clipRect)
 		{
 			if (base.AutoSize && this.MaxAutoSize == 0.0)
 			{
@@ -2201,7 +2201,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return base.IsRenderVisible(g, clipRect);
 		}
 
-		internal override object GetDefaultPropertyValue(string prop, object currentValue)
+		public override object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object obj = null;
 			switch (prop)
@@ -2221,7 +2221,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			this.InvalidateAndLayout();
 		}

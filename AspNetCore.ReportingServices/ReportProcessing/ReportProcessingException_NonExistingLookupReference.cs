@@ -5,14 +5,14 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_NonExistingLookupReference : Exception
+	public sealed class ReportProcessingException_NonExistingLookupReference : Exception
 	{
-		internal ReportProcessingException_NonExistingLookupReference()
+		public ReportProcessingException_NonExistingLookupReference()
 			: base(string.Format(CultureInfo.CurrentCulture, RPRes.rsNonExistingLookupReference))
 		{
 		}
 
-		internal ReportProcessingException_NonExistingLookupReference(SerializationInfo info, StreamingContext context)
+		public ReportProcessingException_NonExistingLookupReference(SerializationInfo info, StreamingContext context)
 			: base(info, context)
 		{
 		}

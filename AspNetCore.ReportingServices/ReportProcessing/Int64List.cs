@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Int64List : ArrayList
+	public sealed class Int64List : ArrayList
 	{
-		internal new long this[int index]
+		public new long this[int index]
 		{
 			get
 			{
@@ -18,11 +18,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Int64List()
+		public Int64List()
 		{
 		}
 
-		internal Int64List(int capacity)
+		public Int64List(int capacity)
 			: base(capacity)
 		{
 		}

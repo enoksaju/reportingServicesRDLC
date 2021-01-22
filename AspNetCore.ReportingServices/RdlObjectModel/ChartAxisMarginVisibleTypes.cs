@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartAxisMarginVisibleTypes
+	public enum ChartAxisMarginVisibleTypes
 	{
 		Auto,
 		True,

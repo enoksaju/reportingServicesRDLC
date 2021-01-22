@@ -2,11 +2,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapViewport : MapSubItem
+	public class MapViewport : MapSubItem
 	{
-		internal new class Definition : DefinitionStore<MapViewport, Definition.Properties>
+		public new class Definition : DefinitionStore<MapViewport, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				MapLocation,
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapViewport(IPropertyStore propertyStore)
+		public MapViewport(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

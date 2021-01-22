@@ -2,9 +2,9 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ParamValueList : ArrayList
+	public sealed class ParamValueList : ArrayList
 	{
-		internal new ParamValue this[int index]
+		public new ParamValue this[int index]
 		{
 			get
 			{
@@ -12,11 +12,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParamValueList()
+		public ParamValueList()
 		{
 		}
 
-		internal ParamValueList(int capacity)
+		public ParamValueList(int capacity)
 			: base(capacity)
 		{
 		}

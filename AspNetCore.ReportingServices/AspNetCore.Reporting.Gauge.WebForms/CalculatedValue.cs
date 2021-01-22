@@ -4,19 +4,19 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CalculatedValueConverter))]
-	internal class CalculatedValue : ValueBase, IValueConsumer
+	public class CalculatedValue : ValueBase, IValueConsumer
 	{
 		private IValueProvider provider;
 
 		private TimerData timerData = new TimerData();
 
-		internal bool timerRefreshCall;
+		public bool timerRefreshCall;
 
-		internal bool noMoreData;
+		public bool noMoreData;
 
-		internal GaugePeriod refreshRate = new GaugePeriod(double.NaN, AspNetCore.Reporting.Gauge.WebForms.PeriodType.Seconds);
+		public GaugePeriod refreshRate = new GaugePeriod(double.NaN, AspNetCore.Reporting.Gauge.WebForms.PeriodType.Seconds);
 
-		internal GaugeDuration aggregateDuration = new GaugeDuration(0.0, DurationType.Infinite);
+		public GaugeDuration aggregateDuration = new GaugeDuration(0.0, DurationType.Infinite);
 
 		private string baseValueName = string.Empty;
 
@@ -152,7 +152,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal InputValue InputValueObj
+		public InputValue InputValueObj
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal void InitTimerData()
+		public void InitTimerData()
 		{
 			if (this.Common != null)
 			{
@@ -206,7 +206,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void StartTimer()
+		public void StartTimer()
 		{
 		}
 
@@ -266,7 +266,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return false;
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			if (this.baseValueName == string.Empty && this.IsConnectedInCollecton())
@@ -279,14 +279,14 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.InitTimerData();
 			this.AttachToProvider();
 		}
 
-		internal override object CloneInternals(object copy)
+		public override object CloneInternals(object copy)
 		{
 			copy = base.CloneInternals(copy);
 			((CalculatedValue)copy).provider = null;
@@ -297,13 +297,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return copy;
 		}
 
-		internal override void Recalculate(double value, DateTime timestamp)
+		public override void Recalculate(double value, DateTime timestamp)
 		{
 			this.noMoreData = false;
 			base.Recalculate(value, timestamp);
 		}
 
-		internal override void CalculateValue(double value, DateTime timestamp)
+		public override void CalculateValue(double value, DateTime timestamp)
 		{
 			base.CalculateValue(value, timestamp);
 			if (this.IsConnectedInCollecton() && !this.noMoreData && !double.IsNaN(base.outputValue))

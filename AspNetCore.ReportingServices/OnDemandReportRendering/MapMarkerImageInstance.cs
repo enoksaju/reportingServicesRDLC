@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMarkerImageInstance : BaseInstance
+	public sealed class MapMarkerImageInstance : BaseInstance
 	{
 		private MapMarkerImage m_defObject;
 
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMarkerImageInstance(MapMarkerImage defObject)
+		public MapMarkerImageInstance(MapMarkerImage defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

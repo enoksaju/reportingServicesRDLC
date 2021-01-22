@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser
 {
-	internal abstract class OoxmlPart
+	public abstract class OoxmlPart
 	{
 		public static string XmlDeclaration
 		{

@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 namespace AspNetCore.ReportingServices.Diagnostics
 {
 	[Serializable]
-	internal sealed class DatasourceCredentialsCollection : CollectionBase
+	public sealed class DatasourceCredentialsCollection : CollectionBase
 	{
 		public DatasourceCredentials this[int index]
 		{

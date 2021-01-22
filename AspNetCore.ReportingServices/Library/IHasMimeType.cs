@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Library
 {
-	internal interface IHasMimeType
+	public interface IHasMimeType
 	{
 		string MimeType
 		{

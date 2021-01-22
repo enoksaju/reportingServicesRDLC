@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeDataTablixMemberObj : RuntimeMemberObj
+	public sealed class RuntimeDataTablixMemberObj : RuntimeMemberObj
 	{
 		private bool m_hasStaticMembers;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeDataTablixMemberObj()
+		public RuntimeDataTablixMemberObj()
 		{
 		}
 
@@ -48,13 +48,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static IReference<RuntimeMemberObj> CreateRuntimeMemberObject(IReference<IScope> owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode dynamicMemberDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, IReference<RuntimeMemberObj>[] innerGroupings, HierarchyNodeList staticMembers, bool outerMostStatics, int headingLevel, AspNetCore.ReportingServices.ReportProcessing.ObjectType dataRegionType)
+		public static IReference<RuntimeMemberObj> CreateRuntimeMemberObject(IReference<IScope> owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode dynamicMemberDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, IReference<RuntimeMemberObj>[] innerGroupings, HierarchyNodeList staticMembers, bool outerMostStatics, int headingLevel, AspNetCore.ReportingServices.ReportProcessing.ObjectType dataRegionType)
 		{
 			RuntimeDataTablixMemberObj obj = new RuntimeDataTablixMemberObj(owner, dynamicMemberDef, ref dataAction, odpContext, innerGroupings, staticMembers, outerMostStatics, headingLevel, dataRegionType);
 			return odpContext.TablixProcessingScalabilityCache.Allocate((RuntimeMemberObj)obj, headingLevel);
 		}
 
-		internal override void CreateInstances(IReference<RuntimeDataRegionObj> containingScopeRef, OnDemandProcessingContext odpContext, DataRegionInstance dataRegionInstance, bool isOuterGrouping, IReference<RuntimeDataTablixGroupRootObj> currOuterGroupRoot, ScopeInstance parentInstance, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeaf)
+		public override void CreateInstances(IReference<RuntimeDataRegionObj> containingScopeRef, OnDemandProcessingContext odpContext, DataRegionInstance dataRegionInstance, bool isOuterGrouping, IReference<RuntimeDataTablixGroupRootObj> currOuterGroupRoot, ScopeInstance parentInstance, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeaf)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef = dataRegionInstance.DataRegionDef;
 			if (isOuterGrouping && this.m_hasStaticMembers)

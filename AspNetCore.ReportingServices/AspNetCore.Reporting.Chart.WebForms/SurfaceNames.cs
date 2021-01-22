@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum SurfaceNames
+	public enum SurfaceNames
 	{
 		Front = 1,
 		Back = 2,

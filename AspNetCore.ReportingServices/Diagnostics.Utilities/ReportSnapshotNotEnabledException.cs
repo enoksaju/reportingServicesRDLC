@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ReportSnapshotNotEnabledException : ReportCatalogException
+	public sealed class ReportSnapshotNotEnabledException : ReportCatalogException
 	{
 		public ReportSnapshotNotEnabledException()
 			: base(ErrorCode.rsReportSnapshotNotEnabled, ErrorStrings.rsReportSnapshotNotEnabled, null, null)

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum StockShowOpenCloseTypes
+	public enum StockShowOpenCloseTypes
 	{
 		Both,
 		Open,

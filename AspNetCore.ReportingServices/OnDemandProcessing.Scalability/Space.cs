@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal struct Space
+	public struct Space
 	{
-		internal long Offset;
+		public long Offset;
 
-		internal long Size;
+		public long Size;
 
-		internal Space(long freeOffset, long freeSize)
+		public Space(long freeOffset, long freeSize)
 		{
 			this.Offset = freeOffset;
 			this.Size = freeSize;

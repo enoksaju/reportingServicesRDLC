@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimTableMemberCollection : ShimMemberCollection
+	public sealed class ShimTableMemberCollection : ShimMemberCollection
 	{
 		private int m_rowDefinitionStartIndex = -1;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PageBreakLocation PropagatedGroupBreakLocation
+		public PageBreakLocation PropagatedGroupBreakLocation
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimTableMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, bool isColumnGroup)
+		public ShimTableMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, bool isColumnGroup)
 			: base(parentDefinitionPath, owner, isColumnGroup)
 		{
 			if (base.m_isColumnGroup)
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimTableMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, AspNetCore.ReportingServices.ReportRendering.TableGroup tableGroup)
+		public ShimTableMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, AspNetCore.ReportingServices.ReportRendering.TableGroup tableGroup)
 			: base(parentDefinitionPath, owner, false)
 		{
 			this.m_rowDefinitionStartIndex = owner.GetCurrentMemberCellDefinitionIndex();
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_rowDefinitionEndIndex = owner.GetCurrentMemberCellDefinitionIndex();
 		}
 
-		internal ShimTableMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, TableDetailRowCollection detailRows)
+		public ShimTableMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, TableDetailRowCollection detailRows)
 			: base(parentDefinitionPath, owner, false)
 		{
 			this.m_rowDefinitionStartIndex = owner.GetCurrentMemberCellDefinitionIndex();
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateContext()
+		public void UpdateContext()
 		{
 			if (base.m_children != null)
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateHeaderFooter(TableHeaderFooterRows headerRows, TableHeaderFooterRows footerRows)
+		public void UpdateHeaderFooter(TableHeaderFooterRows headerRows, TableHeaderFooterRows footerRows)
 		{
 			if (base.m_children != null)
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateDetails(TableDetailRowCollection newRenderDetails)
+		public void UpdateDetails(TableDetailRowCollection newRenderDetails)
 		{
 			if (base.m_children != null && newRenderDetails != null)
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			throw new RenderingObjectModelException(ProcessingErrorCode.rsInvalidOperation);
 		}
 
-		internal void ResetContext(AspNetCore.ReportingServices.ReportRendering.TableGroup newRenderGroup)
+		public void ResetContext(AspNetCore.ReportingServices.ReportRendering.TableGroup newRenderGroup)
 		{
 			if (base.m_children != null)
 			{

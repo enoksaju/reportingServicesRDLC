@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapBorderSkin : ReportObject
+	public class MapBorderSkin : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapBorderSkin, Definition.Properties>
+		public class Definition : DefinitionStore<MapBorderSkin, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				MapBorderSkinType,
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapBorderSkin(IPropertyStore propertyStore)
+		public MapBorderSkin(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum ProcessingErrorCode
+	public enum ProcessingErrorCode
 	{
 		rsNone,
 		rsAggregateInFilterExpression,

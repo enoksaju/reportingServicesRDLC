@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal interface IShouldSerialize
+	public interface IShouldSerialize
 	{
 		bool ShouldSerializeThis();
 

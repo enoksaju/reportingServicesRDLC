@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.spreadsheetDrawing
 {
-	internal class ST_EditAs
+	public class ST_EditAs
 	{
 		private string _ooxmlEnumerationValue;
 

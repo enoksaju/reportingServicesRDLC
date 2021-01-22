@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface IIndexStrategy
+	public interface IIndexStrategy
 	{
 		ReferenceID MaxId
 		{

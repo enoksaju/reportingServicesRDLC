@@ -9,9 +9,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class ReportPaginationInfo
+	public class ReportPaginationInfo
 	{
-		internal const string PaginationInfoChunk = "PaginationInfo";
+		public const string PaginationInfoChunk = "PaginationInfo";
 
 		private Version m_version = new Version(0, 0, 0);
 
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private bool m_newPagesMetadata;
 
-		internal Version Version
+		public Version Version
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int PaginatedPages
+		public int PaginatedPages
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal long OffsetLastPage
+		public long OffsetLastPage
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal BinaryWriter BinaryWriter
+		public BinaryWriter BinaryWriter
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal BinaryReader BinaryReader
+		public BinaryReader BinaryReader
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool IsDone
+		public bool IsDone
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ReportPaginationInfo()
+		public ReportPaginationInfo()
 		{
 			this.m_stream = null;
 			this.m_version = new Version(0, 0, 0);
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_reportDone = false;
 		}
 
-		internal ReportPaginationInfo(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, Version serverRPLVersion, double pageHeight)
+		public ReportPaginationInfo(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, Version serverRPLVersion, double pageHeight)
 		{
 			bool flag = false;
 			this.m_stream = report.GetOrCreateChunk(AspNetCore.ReportingServices.OnDemandReportRendering.Report.ChunkTypes.Pagination, "PaginationInfo", out flag);
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool HasPaginationInfoStream()
+		public bool HasPaginationInfoStream()
 		{
 			Version value = new Version(0, 0, 0);
 			if (this.m_version.CompareTo(value) == 0)
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal void ReadPageInfo(int page, out ReportSectionHelper pageInfo)
+		public void ReadPageInfo(int page, out ReportSectionHelper pageInfo)
 		{
 			RSTrace.RenderingTracer.Assert(this.m_stream != null, "The pagination stream is null.");
 			RSTrace.RenderingTracer.Assert(this.m_paginatedPages >= 0, "The number of paginated pages is negative.");
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void ReadRegionPageTotalInfo(PageTotalInfo pageTotalInfo)
+		public void ReadRegionPageTotalInfo(PageTotalInfo pageTotalInfo)
 		{
 			if (this.m_regionPageTotalInfoOffset > 0)
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void SavePaginationMetadata(bool reportDone, PageTotalInfo pageTotalInfo)
+		public void SavePaginationMetadata(bool reportDone, PageTotalInfo pageTotalInfo)
 		{
 			if (this.m_stream != null && !this.m_reportDone && this.m_newPagesMetadata)
 			{
@@ -272,7 +272,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void UpdateReportInfo()
+		public void UpdateReportInfo()
 		{
 			if (this.m_stream != null)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum ThermometerStyle
+	public enum ThermometerStyle
 	{
 		Standard,
 		Flask

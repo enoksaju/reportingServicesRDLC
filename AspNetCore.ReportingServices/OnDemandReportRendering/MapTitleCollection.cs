@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapTitleCollection : MapObjectCollectionBase<MapTitle>
+	public sealed class MapTitleCollection : MapObjectCollectionBase<MapTitle>
 	{
 		private Map m_map;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapTitleCollection(Map map)
+		public MapTitleCollection(Map map)
 		{
 			this.m_map = map;
 		}

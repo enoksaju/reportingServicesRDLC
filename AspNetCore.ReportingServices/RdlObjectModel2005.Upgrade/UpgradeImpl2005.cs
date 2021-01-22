@@ -15,7 +15,7 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 {
-	internal class UpgradeImpl2005 : UpgradeImpl2008
+	public class UpgradeImpl2005 : UpgradeImpl2008
 	{
 		private class Cloner
 		{
@@ -280,9 +280,9 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			}
 		}
 
-		internal delegate AspNetCore.ReportingServices.RdlObjectModel.Group GroupAccessor(object member);
+		public delegate AspNetCore.ReportingServices.RdlObjectModel.Group GroupAccessor(object member);
 
-		internal delegate IList<CustomProperty> CustomPropertiesAccessor(object member);
+		public delegate IList<CustomProperty> CustomPropertiesAccessor(object member);
 
 		private delegate string AggregateFunctionFixup(string expression, int currentOffset, string specialFunctionName, int specialFunctionPos, int argumentsPos, int scopePos, int scopeLength, ref int offset);
 
@@ -495,7 +495,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			AspNetCore.ReportingServices.RdlObjectModel.Style.Definition.Properties.NumeralVariant
 		};
 
-		internal void UpgradeMatrix(Matrix2005 matrix)
+		public void UpgradeMatrix(Matrix2005 matrix)
 		{
 			this.UpgradeReportItem(matrix);
 			this.UpgradePageBreak(matrix);
@@ -1206,7 +1206,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			this.m_regexes = ReportRegularExpressions.Value;
 		}
 
-		internal override Type GetReportType()
+		public override Type GetReportType()
 		{
 			return typeof(Report2005);
 		}
@@ -1330,42 +1330,42 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			}
 		}
 
-		internal static AspNetCore.ReportingServices.RdlObjectModel.Group TablixMemberGroupAccessor(object member)
+		public static AspNetCore.ReportingServices.RdlObjectModel.Group TablixMemberGroupAccessor(object member)
 		{
 			return ((TablixMember)member).Group;
 		}
 
-		internal static IList<CustomProperty> TablixMemberCustomPropertiesAccessor(object member)
+		public static IList<CustomProperty> TablixMemberCustomPropertiesAccessor(object member)
 		{
 			return ((TablixMember)member).CustomProperties;
 		}
 
-		internal static AspNetCore.ReportingServices.RdlObjectModel.Group ChartMemberGroupAccessor(object member)
+		public static AspNetCore.ReportingServices.RdlObjectModel.Group ChartMemberGroupAccessor(object member)
 		{
 			return ((ChartMember)member).Group;
 		}
 
-		internal static IList<CustomProperty> ChartMemberCustomPropertiesAccessor(object member)
+		public static IList<CustomProperty> ChartMemberCustomPropertiesAccessor(object member)
 		{
 			return ((ChartMember)member).CustomProperties;
 		}
 
-		internal static AspNetCore.ReportingServices.RdlObjectModel.Group DataMemberGroupAccessor(object member)
+		public static AspNetCore.ReportingServices.RdlObjectModel.Group DataMemberGroupAccessor(object member)
 		{
 			return ((DataMember)member).Group;
 		}
 
-		internal static IList<CustomProperty> DataMemberCustomPropertiesAccessor(object member)
+		public static IList<CustomProperty> DataMemberCustomPropertiesAccessor(object member)
 		{
 			return ((DataMember)member).CustomProperties;
 		}
 
-		internal static string SplitName(string name)
+		public static string SplitName(string name)
 		{
 			return Regex.Replace(name, "(\\p{Ll})(\\p{Lu})|_+", "$1 $2");
 		}
 
-		internal void UpgradeReport(Report2005 report)
+		public void UpgradeReport(Report2005 report)
 		{
 			report.ConsumeContainerWhitespace = true;
 			Body2005 body = report.Body as Body2005;
@@ -1407,7 +1407,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			}
 		}
 
-		internal void UpgradeReportItem(AspNetCore.ReportingServices.RdlObjectModel.ReportItem item)
+		public void UpgradeReportItem(AspNetCore.ReportingServices.RdlObjectModel.ReportItem item)
 		{
 			IReportItem2005 reportItem = (IReportItem2005)item;
 			if (reportItem.Action != null)
@@ -1418,7 +1418,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			this.UpgradeDataElementOutput(item);
 		}
 
-		internal void UpgradeDataElementOutput(AspNetCore.ReportingServices.RdlObjectModel.ReportItem reportItem)
+		public void UpgradeDataElementOutput(AspNetCore.ReportingServices.RdlObjectModel.ReportItem reportItem)
 		{
 			if (reportItem.DataElementOutput == DataElementOutputTypes.Auto && reportItem.Visibility != null && reportItem.Visibility.Hidden.IsExpression)
 			{
@@ -1426,7 +1426,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			}
 		}
 
-		internal void UpgradePageBreak(IPageBreakLocation2005 item)
+		public void UpgradePageBreak(IPageBreakLocation2005 item)
 		{
 			if (item.PageBreak == null)
 			{
@@ -1439,7 +1439,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			}
 		}
 
-		internal void UpgradeRectangle(Rectangle2005 rectangle)
+		public void UpgradeRectangle(Rectangle2005 rectangle)
 		{
 			if (rectangle.DataElementOutput == DataElementOutputTypes.Auto)
 			{
@@ -1449,12 +1449,12 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			this.UpgradePageBreak(rectangle);
 		}
 
-		internal void UpgradeCustomReportItem(CustomReportItem2005 cri)
+		public void UpgradeCustomReportItem(CustomReportItem2005 cri)
 		{
 			this.UpgradeReportItem(cri);
 		}
 
-		internal void UpgradeDataGrouping(DataGrouping2005 dataGrouping)
+		public void UpgradeDataGrouping(DataGrouping2005 dataGrouping)
 		{
 			if (!dataGrouping.Static && dataGrouping.Group == null)
 			{
@@ -1469,7 +1469,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			}
 		}
 
-		internal void UpgradeList(List2005 list)
+		public void UpgradeList(List2005 list)
 		{
 			this.UpgradeReportItem(list);
 			this.UpgradePageBreak(list);
@@ -1641,7 +1641,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			return false;
 		}
 
-		internal void UpgradeTable(Table2005 table)
+		public void UpgradeTable(Table2005 table)
 		{
 			this.UpgradeReportItem(table);
 			this.UpgradePageBreak(table);
@@ -2365,7 +2365,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			return tablixRow;
 		}
 
-		internal void UpgradeChart(Chart2005 chart2005)
+		public void UpgradeChart(Chart2005 chart2005)
 		{
 			this.UpgradeReportItem(chart2005);
 			this.UpgradePageBreak(chart2005);
@@ -3173,7 +3173,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			return style2006;
 		}
 
-		internal void UpgradeTextbox(Textbox2005 textbox)
+		public void UpgradeTextbox(Textbox2005 textbox)
 		{
 			this.UpgradeReportItem(textbox);
 			textbox.KeepTogether = true;
@@ -3279,12 +3279,12 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			return stringBuilder.ToString();
 		}
 
-		internal void UpgradeQuery(Query2005 query)
+		public void UpgradeQuery(Query2005 query)
 		{
 			query.DataSourceName = this.GetDataSourceName(query.DataSourceName);
 		}
 
-		internal void UpgradeDataSource(DataSource2005 dataSource)
+		public void UpgradeDataSource(DataSource2005 dataSource)
 		{
 			if (this.m_renameInvalidDataSources)
 			{
@@ -3292,13 +3292,13 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			}
 		}
 
-		internal void UpgradeSubreport(Subreport2005 subreport)
+		public void UpgradeSubreport(Subreport2005 subreport)
 		{
 			this.UpgradeReportItem(subreport);
 			subreport.KeepTogether = true;
 		}
 
-		internal void UpgradeStyle(Style2005 style2005)
+		public void UpgradeStyle(Style2005 style2005)
 		{
 			((AspNetCore.ReportingServices.RdlObjectModel.Style)style2005).FontWeight = this.UpgradeStyleEnum<FontWeights, FontWeight2005>(style2005.FontWeight);
 			if (!style2005.FontWeight.IsExpression)
@@ -3404,7 +3404,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 			}
 		}
 
-		internal void UpgradeEmptyColorStyle(EmptyColorStyle2005 emptyColorStyle2005)
+		public void UpgradeEmptyColorStyle(EmptyColorStyle2005 emptyColorStyle2005)
 		{
 			if (emptyColorStyle2005.BorderColor == null)
 			{

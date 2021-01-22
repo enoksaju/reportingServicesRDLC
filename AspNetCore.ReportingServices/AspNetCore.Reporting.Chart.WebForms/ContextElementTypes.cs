@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum ContextElementTypes
+	public enum ContextElementTypes
 	{
 		None = 0,
 		ChartArea = 1,

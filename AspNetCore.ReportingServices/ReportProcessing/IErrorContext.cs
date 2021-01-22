@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IErrorContext
+	public interface IErrorContext
 	{
 		void Register(ProcessingErrorCode code, Severity severity, params string[] arguments);
 

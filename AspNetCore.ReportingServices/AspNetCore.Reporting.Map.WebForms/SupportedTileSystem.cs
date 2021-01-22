@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum SupportedTileSystem
+	public enum SupportedTileSystem
 	{
 		All,
 		VirtualEarthAerial,

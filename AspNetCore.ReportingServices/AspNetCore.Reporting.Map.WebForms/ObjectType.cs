@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum ObjectType
+	public enum ObjectType
 	{
 		Shape,
 		Symbol,

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlExpressions
 {
-	internal sealed class RdlExpressionComparer : IComparer<ExpressionInfo>
+	public sealed class RdlExpressionComparer : IComparer<ExpressionInfo>
 	{
 		private static readonly RdlExpressionComparer m_instance = new RdlExpressionComparer();
 

@@ -8,9 +8,9 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class Style : StyleBase
+	public class Style : StyleBase
 	{
-		internal sealed class StyleDefaults
+		public sealed class StyleDefaults
 		{
 			private Hashtable m_nameMap;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 			private object[] m_valueCollection;
 
-			internal object this[int index]
+			public object this[int index]
 			{
 				get
 				{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal object this[string styleName]
+			public object this[string styleName]
 			{
 				get
 				{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal StyleDefaults(bool isLine, string defaultFontFamily)
+			public StyleDefaults(bool isLine, string defaultFontFamily)
 			{
 				this.m_nameMap = new Hashtable(51);
 				this.m_keyCollection = new string[51];
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				Global.Tracer.Assert(51 == num, "(Style.StyleAttributeCount == index)");
 			}
 
-			internal string GetName(int index)
+			public string GetName(int index)
 			{
 				return this.m_keyCollection[index];
 			}
@@ -251,29 +251,29 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private bool m_disallowBorderTransparencyOnDynamicImage;
 
-		internal static FontStyles DefaultEnumFontStyle = FontStyles.Normal;
+		public static FontStyles DefaultEnumFontStyle = FontStyles.Normal;
 
-		internal static FontWeights DefaultEnumFontWeight = FontWeights.Normal;
+		public static FontWeights DefaultEnumFontWeight = FontWeights.Normal;
 
-		internal static TextDecorations DefaultEnumTextDecoration = TextDecorations.None;
+		public static TextDecorations DefaultEnumTextDecoration = TextDecorations.None;
 
-		internal static TextAlignments DefaultEnumTextAlignment = TextAlignments.General;
+		public static TextAlignments DefaultEnumTextAlignment = TextAlignments.General;
 
-		internal static VerticalAlignments DefaultEnumVerticalAlignment = VerticalAlignments.Top;
+		public static VerticalAlignments DefaultEnumVerticalAlignment = VerticalAlignments.Top;
 
-		internal static Directions DefaultEnumDirection = Directions.LTR;
+		public static Directions DefaultEnumDirection = Directions.LTR;
 
-		internal static WritingModes DefaultEnumWritingMode = WritingModes.Horizontal;
+		public static WritingModes DefaultEnumWritingMode = WritingModes.Horizontal;
 
-		internal static UnicodeBiDiTypes DefaultEnumUnicodeBiDiType = UnicodeBiDiTypes.Normal;
+		public static UnicodeBiDiTypes DefaultEnumUnicodeBiDiType = UnicodeBiDiTypes.Normal;
 
-		internal static Calendars DefaultEnumCalendar = Calendars.Default;
+		public static Calendars DefaultEnumCalendar = Calendars.Default;
 
-		internal static BackgroundGradients DefaultEnumBackgroundGradient = BackgroundGradients.None;
+		public static BackgroundGradients DefaultEnumBackgroundGradient = BackgroundGradients.None;
 
-		internal static BackgroundRepeatTypes DefaultEnumBackgroundRepeatType = BackgroundRepeatTypes.Repeat;
+		public static BackgroundRepeatTypes DefaultEnumBackgroundRepeatType = BackgroundRepeatTypes.Repeat;
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportElement ReportElement
+		public ReportElement ReportElement
 		{
 			get
 			{
@@ -625,7 +625,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -633,7 +633,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsDynamicImageStyle
+		public bool IsDynamicImageStyle
 		{
 			get
 			{
@@ -641,7 +641,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.Style CachedRenderStyle
+		public AspNetCore.ReportingServices.ReportRendering.Style CachedRenderStyle
 		{
 			get
 			{
@@ -649,7 +649,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IStyleContainer StyleContainer
+		public IStyleContainer StyleContainer
 		{
 			get
 			{
@@ -657,7 +657,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StyleDefaults NormalStyleDefaults
+		public StyleDefaults NormalStyleDefaults
 		{
 			get
 			{
@@ -665,7 +665,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StyleDefaults LineStyleDefaults
+		public StyleDefaults LineStyleDefaults
 		{
 			get
 			{
@@ -673,7 +673,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Style(ReportElement reportElement, IReportScope reportScope, IStyleContainer styleContainer, RenderingContext renderingContext)
+		public Style(ReportElement reportElement, IReportScope reportScope, IStyleContainer styleContainer, RenderingContext renderingContext)
 			: base(renderingContext)
 		{
 			this.m_reportElement = reportElement;
@@ -718,7 +718,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Style(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext, bool useRenderStyle)
+		public Style(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext, bool useRenderStyle)
 			: base(renderingContext)
 		{
 			this.m_isOldSnapshot = true;
@@ -740,7 +740,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Style(AspNetCore.ReportingServices.ReportProcessing.Style styleDefinition, object[] styleValues, RenderingContext renderingContext)
+		public Style(AspNetCore.ReportingServices.ReportProcessing.Style styleDefinition, object[] styleValues, RenderingContext renderingContext)
 			: base(renderingContext)
 		{
 			this.m_isOldSnapshot = true;
@@ -752,7 +752,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_styleDefaults = this.NormalStyleDefaults;
 		}
 
-		internal Style(ReportElement reportElement, RenderingContext renderingContext)
+		public Style(ReportElement reportElement, RenderingContext renderingContext)
 			: base(renderingContext)
 		{
 			this.m_isOldSnapshot = true;
@@ -763,7 +763,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_reportScope = reportElement.ReportScope;
 		}
 
-		internal void UpdateStyleCache(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public void UpdateStyleCache(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			if (renderReportItem != null)
 			{
@@ -772,12 +772,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateStyleCache(object[] styleValues)
+		public void UpdateStyleCache(object[] styleValues)
 		{
 			this.m_styleValues = styleValues;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_backgroundImage != null && this.m_backgroundImage.Instance != null)
 			{
@@ -805,7 +805,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportColor EvaluateInstanceReportColor(StyleAttributeNames style)
+		public ReportColor EvaluateInstanceReportColor(StyleAttributeNames style)
 		{
 			ReportColor result = null;
 			if (this.m_isOldSnapshot)
@@ -874,7 +874,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal ReportSize EvaluateInstanceReportSize(StyleAttributeNames style)
+		public ReportSize EvaluateInstanceReportSize(StyleAttributeNames style)
 		{
 			ReportSize result = null;
 			if (this.m_isOldSnapshot)
@@ -921,7 +921,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal string EvaluateInstanceStyleString(StyleAttributeNames style)
+		public string EvaluateInstanceStyleString(StyleAttributeNames style)
 		{
 			string result = null;
 			if (this.m_isOldSnapshot)
@@ -950,14 +950,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal string EvaluateInstanceStyleString(AspNetCore.ReportingServices.ReportIntermediateFormat.Style.StyleId style)
+		public string EvaluateInstanceStyleString(AspNetCore.ReportingServices.ReportIntermediateFormat.Style.StyleId style)
 		{
 			string text = null;
 			base.m_renderingContext.OdpContext.SetupContext(this.m_iStyleContainer.InstancePath, this.m_reportScope.ReportScopeInstance);
 			return this.m_iStyleContainer.StyleClass.EvaluateStyle(this.m_iStyleContainer.ObjectType, this.m_iStyleContainer.Name, style, base.m_renderingContext.OdpContext) as string;
 		}
 
-		internal int EvaluateInstanceStyleInt(StyleAttributeNames style, int defaultValue)
+		public int EvaluateInstanceStyleInt(StyleAttributeNames style, int defaultValue)
 		{
 			object obj = null;
 			if (this.m_isOldSnapshot)
@@ -997,12 +997,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_iStyleContainer.StyleClass.EvaluateStyle(this.m_iStyleContainer.ObjectType, this.m_iStyleContainer.Name, style, base.m_renderingContext.OdpContext);
 		}
 
-		internal int EvaluateInstanceStyleEnum(StyleAttributeNames style)
+		public int EvaluateInstanceStyleEnum(StyleAttributeNames style)
 		{
 			return this.EvaluateInstanceStyleEnum(style, 1);
 		}
 
-		internal int EvaluateInstanceStyleEnum(StyleAttributeNames style, int styleDefaultValueIfNull)
+		public int EvaluateInstanceStyleEnum(StyleAttributeNames style, int styleDefaultValueIfNull)
 		{
 			int? nullable = null;
 			if (this.m_isOldSnapshot)
@@ -1044,7 +1044,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return nullable.Value;
 		}
 
-		internal int? EvaluateInstanceStyleEnum(AspNetCore.ReportingServices.ReportIntermediateFormat.Style.StyleId style)
+		public int? EvaluateInstanceStyleEnum(AspNetCore.ReportingServices.ReportIntermediateFormat.Style.StyleId style)
 		{
 			int? result = null;
 			base.m_renderingContext.OdpContext.SetupContext(this.m_iStyleContainer.InstancePath, this.m_reportScope.ReportScopeInstance);
@@ -1061,14 +1061,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal object EvaluateInstanceStyleVariant(AspNetCore.ReportingServices.ReportIntermediateFormat.Style.StyleId style)
+		public object EvaluateInstanceStyleVariant(AspNetCore.ReportingServices.ReportIntermediateFormat.Style.StyleId style)
 		{
 			object obj = null;
 			base.m_renderingContext.OdpContext.SetupContext(this.m_iStyleContainer.InstancePath, this.m_reportScope.ReportScopeInstance);
 			return this.m_iStyleContainer.StyleClass.EvaluateStyle(this.m_iStyleContainer.ObjectType, this.m_iStyleContainer.Name, style, base.m_renderingContext.OdpContext);
 		}
 
-		internal void ConstructStyleDefinition()
+		public void ConstructStyleDefinition()
 		{
 			Global.Tracer.Assert(this.ReportElement != null, "(ReportElement != null)");
 			Global.Tracer.Assert(this.ReportElement is ReportItem, "(ReportElement is ReportItem)");
@@ -1550,7 +1550,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string GetStyleStringFromEnum(StyleAttributeNames style)
+		public string GetStyleStringFromEnum(StyleAttributeNames style)
 		{
 			switch (style)
 			{
@@ -1683,7 +1683,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return reportProperty;
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo GetAttributeInfo(string styleNameString, out string expressionString)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo GetAttributeInfo(string styleNameString, out string expressionString)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo attributeInfo = null;
 			expressionString = null;

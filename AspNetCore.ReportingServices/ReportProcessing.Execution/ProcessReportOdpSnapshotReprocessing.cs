@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class ProcessReportOdpSnapshotReprocessing : ProcessReportOdpSnapshot
+	public class ProcessReportOdpSnapshotReprocessing : ProcessReportOdpSnapshot
 	{
 		protected override bool ReprocessSnapshot
 		{

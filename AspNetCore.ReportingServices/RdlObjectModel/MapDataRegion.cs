@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapDataRegion : ReportObject, INamedObject
+	public class MapDataRegion : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<MapDataRegion, Definition.Properties>
+		public class Definition : DefinitionStore<MapDataRegion, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				DataSetName,
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapDataRegion(IPropertyStore propertyStore)
+		public MapDataRegion(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

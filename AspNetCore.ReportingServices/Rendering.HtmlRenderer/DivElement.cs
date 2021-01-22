@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class DivElement : HtmlElement
+	public sealed class DivElement : HtmlElement
 	{
 		public SizeAttribute Size
 		{

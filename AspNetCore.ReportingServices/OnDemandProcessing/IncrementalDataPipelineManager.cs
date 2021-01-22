@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class IncrementalDataPipelineManager : DataPipelineManager
+	public sealed class IncrementalDataPipelineManager : DataPipelineManager
 	{
 		private RuntimeDataSourceIncrementalDataProcessing m_runtimeDataSource;
 

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.officeDocument.x2006.docPropsVTypes
 {
-	internal class VariantPart : OoxmlPart
+	public class VariantPart : OoxmlPart
 	{
 		private CT_Variant _root;
 

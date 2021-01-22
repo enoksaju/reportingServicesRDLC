@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbConnection : IDisposable, IExtension
+	public interface IDbConnection : IDisposable, IExtension
 	{
 		string ConnectionString
 		{

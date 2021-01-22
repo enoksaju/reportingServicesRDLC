@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal class ExternSheetInfo
+	public class ExternSheetInfo
 	{
-		internal class XTI
+		public class XTI
 		{
-			internal const int LENGTH = 6;
+			public const int LENGTH = 6;
 
 			private ushort m_firstTab;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 			private ushort m_supBookIndex;
 
-			internal ushort SupBookIndex
+			public ushort SupBookIndex
 			{
 				get
 				{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				}
 			}
 
-			internal ushort FirstTab
+			public ushort FirstTab
 			{
 				get
 				{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				}
 			}
 
-			internal ushort LastTab
+			public ushort LastTab
 			{
 				get
 				{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				}
 			}
 
-			internal XTI(ushort supBookIndex, ushort firstTab, ushort lastTab)
+			public XTI(ushort supBookIndex, ushort firstTab, ushort lastTab)
 			{
 				this.m_firstTab = firstTab;
 				this.m_lastTab = lastTab;
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private List<XTI> m_xtiStructures;
 
-		internal List<XTI> XTIStructures
+		public List<XTI> XTIStructures
 		{
 			get
 			{
@@ -56,12 +56,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ExternSheetInfo()
+		public ExternSheetInfo()
 		{
 			this.m_xtiStructures = new List<XTI>();
 		}
 
-		internal int AddXTI(ushort supBookIndex, ushort firstTab, ushort lastTab)
+		public int AddXTI(ushort supBookIndex, ushort firstTab, ushort lastTab)
 		{
 			this.m_xtiStructures.Add(new XTI(supBookIndex, firstTab, lastTab));
 			return this.m_xtiStructures.Count - 1;

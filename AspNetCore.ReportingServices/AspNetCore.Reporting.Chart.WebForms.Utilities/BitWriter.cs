@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal class BitWriter
+	public class BitWriter
 	{
 		private Stream baseStream;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IParameterDataSource
+	public interface IParameterDataSource
 	{
 		int DataSourceIndex
 		{

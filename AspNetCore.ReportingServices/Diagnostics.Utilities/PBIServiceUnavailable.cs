@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class PBIServiceUnavailable : ReportCatalogException
+	public sealed class PBIServiceUnavailable : ReportCatalogException
 	{
 		public PBIServiceUnavailable(string correlationId)
 			: base(ErrorCode.rsPBIServiceUnavailable, ErrorStrings.rsPBIServiceUnavailable(correlationId), null, null)

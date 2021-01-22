@@ -8,11 +8,11 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal static class GroupTreeTracer
+	public static class GroupTreeTracer
 	{
 		private static List<string> m_strings = new List<string>();
 
-		internal static void TraceReportInstance(OnDemandMetadata odpMetadata, ReportInstance reportInstance, Report reportDefinition, int level)
+		public static void TraceReportInstance(OnDemandMetadata odpMetadata, ReportInstance reportInstance, Report reportDefinition, int level)
 		{
 			if (Global.Tracer.TraceVerbose && reportInstance != null)
 			{

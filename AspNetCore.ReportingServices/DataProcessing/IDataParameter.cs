@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDataParameter
+	public interface IDataParameter
 	{
 		string ParameterName
 		{

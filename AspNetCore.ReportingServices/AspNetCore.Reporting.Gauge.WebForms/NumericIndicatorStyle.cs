@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum NumericIndicatorStyle
+	public enum NumericIndicatorStyle
 	{
 		Digital7Segment,
 		Digital14Segment,

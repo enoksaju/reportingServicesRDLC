@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal DataFieldStatus FieldStatus
+		public DataFieldStatus FieldStatus
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal string ExceptionMessage
+		public string ExceptionMessage
 		{
 			get
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool IsAggregationField
+		public bool IsAggregationField
 		{
 			get
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool AggregationFieldChecked
+		public bool AggregationFieldChecked
 		{
 			get
 			{
@@ -215,7 +215,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal new Hashtable Properties
+		public new Hashtable Properties
 		{
 			get
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.Field FieldDef
+		public AspNetCore.ReportingServices.ReportProcessing.Field FieldDef
 		{
 			get
 			{
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool UsedInExpression
+		public bool UsedInExpression
 		{
 			get
 			{
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal FieldImpl(object value, bool isAggregationField, AspNetCore.ReportingServices.ReportProcessing.Field fieldDef)
+		public FieldImpl(object value, bool isAggregationField, AspNetCore.ReportingServices.ReportProcessing.Field fieldDef)
 		{
 			this.m_value = value;
 			this.m_isAggregationField = isAggregationField;
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_usedInExpression = false;
 		}
 
-		internal FieldImpl(DataFieldStatus status, string exceptionMessage, AspNetCore.ReportingServices.ReportProcessing.Field fieldDef)
+		public FieldImpl(DataFieldStatus status, string exceptionMessage, AspNetCore.ReportingServices.ReportProcessing.Field fieldDef)
 		{
 			this.m_value = null;
 			this.m_isAggregationField = false;
@@ -265,12 +265,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_usedInExpression = false;
 		}
 
-		internal void SetValue(object value)
+		public void SetValue(object value)
 		{
 			this.m_value = value;
 		}
 
-		internal void SetProperty(string propertyName, object propertyValue)
+		public void SetProperty(string propertyName, object propertyValue)
 		{
 			if (this.m_properties == null)
 			{

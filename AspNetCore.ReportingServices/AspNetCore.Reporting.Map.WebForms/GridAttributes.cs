@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class GridAttributes : MapObject, ISelectable
+	public class GridAttributes : MapObject, ISelectable
 	{
 		private GridLine[] gridLines;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private string labelFormatString = "#°E;#°W;0°";
 
-		internal GridLine[] GridLines
+		public GridLine[] GridLines
 		{
 			get
 			{
@@ -229,12 +229,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapCore GetMapCore()
+		public MapCore GetMapCore()
 		{
 			return (MapCore)this.Parent;
 		}
 
-		internal Pen GetPen()
+		public Pen GetPen()
 		{
 			Pen pen = new Pen(this.LineColor, (float)this.LineWidth);
 			pen.Width = (float)this.LineWidth;

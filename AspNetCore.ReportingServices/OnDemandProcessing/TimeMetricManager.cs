@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class TimeMetricManager
+	public sealed class TimeMetricManager
 	{
 		private readonly TimeMetric[] m_timeMetrics;
 

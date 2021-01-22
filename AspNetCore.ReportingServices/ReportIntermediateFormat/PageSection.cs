@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class PageSection : ReportItem, IPersistable
+	public sealed class PageSection : ReportItem, IPersistable
 	{
 		private bool m_printOnFirstPage;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = PageSection.GetDeclaration();
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsHeader
+		public bool IsHeader
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool PrintOnFirstPage
+		public bool PrintOnFirstPage
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool PrintOnLastPage
+		public bool PrintOnLastPage
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool PrintBetweenSections
+		public bool PrintBetweenSections
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UpgradedSnapshotPostProcessEvaluate
+		public bool UpgradedSnapshotPostProcessEvaluate
 		{
 			get
 			{
@@ -110,19 +110,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PageSection(bool isHeader, int id, int idForReportItems, ReportSection reportSection)
+		public PageSection(bool isHeader, int id, int idForReportItems, ReportSection reportSection)
 			: base(id, reportSection)
 		{
 			this.m_reportItems = new ReportItemCollection(idForReportItems, true);
 			this.m_isHeader = isHeader;
 		}
 
-		internal PageSection(ReportItem parent)
+		public PageSection(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.Location |= AspNetCore.ReportingServices.ReportPublishing.LocationFlags.InPageSection;
 			context.ObjectType = this.ObjectType;
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		}
 
 		[SkipMemberStaticValidation(MemberName.PostProcessEvaluate)]
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.PrintOnFirstPage, Token.Boolean));
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.PageSection;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{

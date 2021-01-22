@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class RIFAppendOnlyStorage : IStorage, IDisposable
+	public sealed class RIFAppendOnlyStorage : IStorage, IDisposable
 	{
 		private Stream m_stream;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 
 		private readonly bool m_prohibitSerializableValues;
 
-		internal bool FromExistingStream
+		public bool FromExistingStream
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal RIFAppendOnlyStorage(IStreamHandler streamHandler, IScalabilityObjectCreator appObjectCreator, IReferenceCreator appReferenceCreator, GlobalIDOwnerCollection globalIdsFromOtherStream, bool fromExistingStream, int rifCompatVersion, bool prohibitSerializableValues)
+		public RIFAppendOnlyStorage(IStreamHandler streamHandler, IScalabilityObjectCreator appObjectCreator, IReferenceCreator appReferenceCreator, GlobalIDOwnerCollection globalIdsFromOtherStream, bool fromExistingStream, int rifCompatVersion, bool prohibitSerializableValues)
 		{
 			this.m_streamCreator = streamHandler;
 			this.m_scalabilityCache = null;
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal void Reset(IStreamHandler streamHandler)
+		public void Reset(IStreamHandler streamHandler)
 		{
 			this.Close();
 			this.m_writerSetup = false;

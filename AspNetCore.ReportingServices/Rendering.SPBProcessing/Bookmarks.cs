@@ -3,14 +3,14 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class Bookmarks : InteractivityChunks
+	public sealed class Bookmarks : InteractivityChunks
 	{
-		internal Bookmarks(Stream stream, int page)
+		public Bookmarks(Stream stream, int page)
 			: base(stream, page)
 		{
 		}
 
-		internal void WriteBookmark(ReportItemInstance itemInstance)
+		public void WriteBookmark(ReportItemInstance itemInstance)
 		{
 			if (itemInstance != null && itemInstance.Bookmark != null)
 			{

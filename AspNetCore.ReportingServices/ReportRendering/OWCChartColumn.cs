@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class OWCChartColumn
+	public sealed class OWCChartColumn
 	{
 		private ChartColumn m_chartColumnDef;
 
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal OWCChartColumn(ChartColumn chartColumnDef, ArrayList columnData)
+		public OWCChartColumn(ChartColumn chartColumnDef, ArrayList columnData)
 		{
 			this.m_chartColumnDef = chartColumnDef;
 			this.m_data = columnData;

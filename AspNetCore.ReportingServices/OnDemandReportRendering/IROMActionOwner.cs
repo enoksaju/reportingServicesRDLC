@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IROMActionOwner
+	public interface IROMActionOwner
 	{
 		string UniqueName
 		{

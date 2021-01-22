@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CustomData : IReportScopeInstance
+	public sealed class CustomData : IReportScopeInstance
 	{
 		private CustomReportItem m_owner;
 
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool HasDataRowCollection
+		public bool HasDataRowCollection
 		{
 			get
 			{
@@ -128,12 +128,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomData(CustomReportItem owner)
+		public CustomData(CustomReportItem owner)
 		{
 			this.m_owner = owner;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			this.m_isNewContext = true;
 			if (this.m_rows != null)

@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Style2005 : Style, IUpgradeable
+	public class Style2005 : Style, IUpgradeable
 	{
-		internal new class Definition : DefinitionStore<Style, Definition.Properties>
+		public new class Definition : DefinitionStore<Style, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				BorderColor = 34,
 				BorderStyle,

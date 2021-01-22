@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class RichTextRenderer : IDisposable
+	public class RichTextRenderer : IDisposable
 	{
 		private float m_width;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private List<Paragraph> m_cachedrtparagraphs;
 
-		internal bool LineLimit
+		public bool LineLimit
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool CharTrimLastLine
+		public bool CharTrimLastLine
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal float Width
+		public float Width
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int WidthInPX
+		public int WidthInPX
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal float FlowHeight
+		public float FlowHeight
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int FlowHeightInPX
+		public int FlowHeightInPX
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal float Dpi
+		public float Dpi
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal FontCache FontCache
+		public FontCache FontCache
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal List<Paragraph> RTParagraphs
+		public List<Paragraph> RTParagraphs
 		{
 			get
 			{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal TextBox RTTextbox
+		public TextBox RTTextbox
 		{
 			get
 			{
@@ -173,31 +173,31 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal RichTextRenderer()
+		public RichTextRenderer()
 		{
 		}
 
-		internal void Render(Graphics g, RectangleF rectangle)
+		public void Render(Graphics g, RectangleF rectangle)
 		{
 			this.Render(g, rectangle, null, true);
 		}
 
-		internal void Render(Graphics g, RectangleF rectangle, bool unitsInMM)
+		public void Render(Graphics g, RectangleF rectangle, bool unitsInMM)
 		{
 			this.Render(g, rectangle, null, unitsInMM);
 		}
 
-		internal void Render(Graphics g, RectangleF rectangle, IEnumerable<RTSelectionHighlight> highlights)
+		public void Render(Graphics g, RectangleF rectangle, IEnumerable<RTSelectionHighlight> highlights)
 		{
 			this.Render(g, rectangle, highlights, true);
 		}
 
-		internal void Render(Graphics g, RectangleF rectangle, IEnumerable<RTSelectionHighlight> highlights, bool unitsInMM)
+		public void Render(Graphics g, RectangleF rectangle, IEnumerable<RTSelectionHighlight> highlights, bool unitsInMM)
 		{
 			this.Render(g, rectangle, PointF.Empty, highlights, unitsInMM);
 		}
 
-		internal void Render(Graphics g, RectangleF rectangle, PointF offset, IEnumerable<RTSelectionHighlight> highlights, bool unitsInMM)
+		public void Render(Graphics g, RectangleF rectangle, PointF offset, IEnumerable<RTSelectionHighlight> highlights, bool unitsInMM)
 		{
 			List<Paragraph> rTParagraphs = this.RTParagraphs;
 			if (rTParagraphs != null && rTParagraphs.Count != 0)
@@ -364,7 +364,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return start.ParagraphIndex <= end.ParagraphIndex;
 		}
 
-		internal Rectangle GetTextBoundingBoxPx(Rectangle rect, RPLFormat.VerticalAlignments vAlign)
+		public Rectangle GetTextBoundingBoxPx(Rectangle rect, RPLFormat.VerticalAlignments vAlign)
 		{
 			if (this.RTParagraphs == null)
 			{
@@ -436,24 +436,24 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return Rectangle.Intersect(rect, rectangle);
 		}
 
-		internal TextBoxContext MapPoint(PointF pt)
+		public TextBoxContext MapPoint(PointF pt)
 		{
 			bool flag = default(bool);
 			return this.MapPoint((Graphics)null, pt, out flag);
 		}
 
-		internal TextBoxContext MapPoint(PointF pt, out bool atEndOfLine)
+		public TextBoxContext MapPoint(PointF pt, out bool atEndOfLine)
 		{
 			return this.MapPoint((Graphics)null, pt, out atEndOfLine);
 		}
 
-		internal TextBoxContext MapPoint(Graphics g, PointF pt)
+		public TextBoxContext MapPoint(Graphics g, PointF pt)
 		{
 			bool flag = default(bool);
 			return this.MapPoint(g, pt, out flag);
 		}
 
-		internal TextBoxContext MapPoint(Graphics g, PointF pt, out bool atEndOfLine)
+		public TextBoxContext MapPoint(Graphics g, PointF pt, out bool atEndOfLine)
 		{
 			TextBoxContext textBoxContext = null;
 			atEndOfLine = false;
@@ -861,22 +861,22 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return null;
 		}
 
-		internal CaretInfo MapLocation(TextBoxContext location)
+		public CaretInfo MapLocation(TextBoxContext location)
 		{
 			return this.MapLocation(null, location, false);
 		}
 
-		internal CaretInfo MapLocation(Graphics g, TextBoxContext location)
+		public CaretInfo MapLocation(Graphics g, TextBoxContext location)
 		{
 			return this.MapLocation(g, location, false);
 		}
 
-		internal CaretInfo MapLocation(TextBoxContext location, bool moveCaretToNextLine)
+		public CaretInfo MapLocation(TextBoxContext location, bool moveCaretToNextLine)
 		{
 			return this.MapLocation(null, location, moveCaretToNextLine);
 		}
 
-		internal CaretInfo MapLocation(Graphics g, TextBoxContext location, bool moveCaretToNextLine)
+		public CaretInfo MapLocation(Graphics g, TextBoxContext location, bool moveCaretToNextLine)
 		{
 			TextRun textRun = default(TextRun);
 			return this.MapLocation(g, location, false, moveCaretToNextLine, out textRun);
@@ -1098,7 +1098,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return Point.Empty;
 		}
 
-		internal float GetHeight()
+		public float GetHeight()
 		{
 			if (this.m_height == 0.0)
 			{
@@ -1107,12 +1107,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return this.m_height;
 		}
 
-		internal int GetHeightInPX()
+		public int GetHeightInPX()
 		{
 			return TextBox.ConvertToPixels(this.GetHeight(), this.Dpi);
 		}
 
-		internal void SetTextbox(TextBox textbox)
+		public void SetTextbox(TextBox textbox)
 		{
 			this.m_rttextbox = textbox;
 			this.ResetCachedObjects();

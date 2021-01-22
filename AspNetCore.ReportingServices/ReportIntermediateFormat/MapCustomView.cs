@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapCustomView : MapView, IPersistable
+	public sealed class MapCustomView : MapView, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapCustomView.GetDeclaration();
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_centerY;
 
-		internal ExpressionInfo CenterX
+		public ExpressionInfo CenterX
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CenterY
+		public ExpressionInfo CenterY
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapCustomViewExprHost ExprHost
+		public new MapCustomViewExprHost ExprHost
 		{
 			get
 			{
@@ -51,16 +51,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapCustomView()
+		public MapCustomView()
 		{
 		}
 
-		internal MapCustomView(Map map)
+		public MapCustomView(Map map)
 			: base(map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapCustomViewStart();
 			base.Initialize(context);
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapCustomViewEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapCustomView mapCustomView = (MapCustomView)base.PublishClone(context);
 			if (this.m_centerX != null)
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapCustomView;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.CenterX, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -146,13 +146,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapCustomView;
 		}
 
-		internal double EvaluateCenterX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateCenterX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapCustomViewCenterXExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateCenterY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateCenterY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapCustomViewCenterYExpression(this, base.m_map.Name);

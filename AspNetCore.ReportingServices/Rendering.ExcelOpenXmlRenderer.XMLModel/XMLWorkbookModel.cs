@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal abstract class XMLWorkbookModel : IWorkbookModel
+	public abstract class XMLWorkbookModel : IWorkbookModel
 	{
 		protected PartManager _manager;
 

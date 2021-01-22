@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Cell
+	public sealed class Cell
 	{
-		internal sealed class CellValueType
+		public sealed class CellValueType
 		{
 			private readonly int mValue;
 
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal Cell(ICellModel model)
+		public Cell(ICellModel model)
 		{
 			this.mModel = model;
 		}

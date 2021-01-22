@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapBindingFieldPairInstance : BaseInstance
+	public sealed class MapBindingFieldPairInstance : BaseInstance
 	{
 		private MapBindingFieldPair m_defObject;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapBindingFieldPairInstance(MapBindingFieldPair defObject)
+		public MapBindingFieldPairInstance(MapBindingFieldPair defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

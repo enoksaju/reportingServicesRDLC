@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapSimplifier
+	public class MapSimplifier
 	{
 		private class ReducedPointList : List<MapPoint>
 		{

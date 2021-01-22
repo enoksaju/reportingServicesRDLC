@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal abstract class BaseIdcDataManager : IDisposable
+	public abstract class BaseIdcDataManager : IDisposable
 	{
 		protected OnDemandProcessingContext m_odpContext;
 

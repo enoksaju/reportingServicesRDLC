@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapTileLayer : MapLayer
+	public class MapTileLayer : MapLayer
 	{
-		internal new class Definition : DefinitionStore<MapTileLayer, Definition.Properties>
+		public new class Definition : DefinitionStore<MapTileLayer, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				VisibilityMode,
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapTileLayer(IPropertyStore propertyStore)
+		public MapTileLayer(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

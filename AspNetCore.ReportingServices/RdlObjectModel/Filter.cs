@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Filter : ReportObject
+	public class Filter : ReportObject
 	{
-		internal class Definition
+		public class Definition
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				FilterExpression,
 				Operator,
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Filter(IPropertyStore propertyStore)
+		public Filter(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

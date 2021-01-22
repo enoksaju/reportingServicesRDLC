@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapSpatialElement : IPersistable
+	public class MapSpatialElement : IPersistable
 	{
 		protected int m_exprHostID = -1;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private List<MapField> m_mapFields;
 
-		internal string VectorData
+		public string VectorData
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapField> MapFields
+		public List<MapField> MapFields
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSpatialElementExprHost ExprHost
+		public MapSpatialElementExprHost ExprHost
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -85,21 +85,21 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSpatialElement()
+		public MapSpatialElement()
 		{
 		}
 
-		internal MapSpatialElement(MapVectorLayer mapVectorLayer, Map map)
+		public MapSpatialElement(MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_map = map;
 			this.m_mapVectorLayer = mapVectorLayer;
 		}
 
-		internal virtual void Initialize(InitializationContext context, int index)
+		public virtual void Initialize(InitializationContext context, int index)
 		{
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapSpatialElement mapSpatialElement = (MapSpatialElement)base.MemberwiseClone();
 			mapSpatialElement.m_map = context.CurrentMapClone;
@@ -118,14 +118,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapSpatialElement;
 		}
 
-		internal void SetExprHost(MapSpatialElementExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapSpatialElementExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.VectorData, Token.String));

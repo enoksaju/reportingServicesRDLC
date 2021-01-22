@@ -3,9 +3,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_TcPrInner : CT_TcPrBase, IOoxmlComplexType
+	public class CT_TcPrInner : CT_TcPrBase, IOoxmlComplexType
 	{
-		internal enum ChoiceBucket_0
+		public enum ChoiceBucket_0
 		{
 			cellIns,
 			cellDel,

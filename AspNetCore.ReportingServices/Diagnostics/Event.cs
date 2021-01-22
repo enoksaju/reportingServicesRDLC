@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal enum Event
+	public enum Event
 	{
 		SqlAgentNotRunning = 106,
 		CouldNotCommunicateToCatalog,

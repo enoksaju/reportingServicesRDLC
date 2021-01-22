@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportEnumProperty<EnumType> : ReportProperty where EnumType : struct
+	public sealed class ReportEnumProperty<EnumType> : ReportProperty where EnumType : struct
 	{
 		private EnumType m_value;
 
@@ -12,22 +12,22 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportEnumProperty()
+		public ReportEnumProperty()
 		{
 			this.m_value = default(EnumType);
 		}
 
-		internal ReportEnumProperty(EnumType value)
+		public ReportEnumProperty(EnumType value)
 		{
 			this.m_value = value;
 		}
 
-		internal ReportEnumProperty(bool isExpression, string expressionString, EnumType value)
+		public ReportEnumProperty(bool isExpression, string expressionString, EnumType value)
 			: this(isExpression, expressionString, value, default(EnumType))
 		{
 		}
 
-		internal ReportEnumProperty(bool isExpression, string expressionString, EnumType value, EnumType defaultValue)
+		public ReportEnumProperty(bool isExpression, string expressionString, EnumType value, EnumType defaultValue)
 			: base(isExpression, expressionString)
 		{
 			if (!isExpression)

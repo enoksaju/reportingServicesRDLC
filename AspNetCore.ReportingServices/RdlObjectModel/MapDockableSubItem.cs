@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class MapDockableSubItem : MapSubItem
+	public abstract class MapDockableSubItem : MapSubItem
 	{
-		internal new class Definition : DefinitionStore<MapDockableSubItem, Definition.Properties>
+		public new class Definition : DefinitionStore<MapDockableSubItem, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				MapLocation,
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapDockableSubItem(IPropertyStore propertyStore)
+		public MapDockableSubItem(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

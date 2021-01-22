@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class UnknownUserNameException : ReportCatalogException
+	public sealed class UnknownUserNameException : ReportCatalogException
 	{
 		public UnknownUserNameException(string userName)
 			: base(ErrorCode.rsUnknownUserName, ErrorStrings.rsUnknownUserName(userName), null, null)

@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum LabelsAutoFitStyles
+	public enum LabelsAutoFitStyles
 	{
 		None = 0,
 		IncreaseFont = 1,

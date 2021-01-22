@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(MapCoordinateConverter))]
-	internal class MapCoordinate
+	public class MapCoordinate
 	{
 		private double value;
 

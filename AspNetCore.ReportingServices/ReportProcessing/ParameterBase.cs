@@ -12,38 +12,38 @@ using System.IO;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class ParameterBase : IPersistable
+	public abstract class ParameterBase : IPersistable
 	{
-		internal enum UsedInQueryType
+		public enum UsedInQueryType
 		{
 			False,
 			True,
 			Auto
 		}
 
-		internal const string NameXmlElement = "Name";
+		public const string NameXmlElement = "Name";
 
-		internal const string TypeXmlElement = "Type";
+		public const string TypeXmlElement = "Type";
 
-		internal const string NullableXmlElement = "Nullable";
+		public const string NullableXmlElement = "Nullable";
 
-		internal const string AllowBlankXmlElement = "AllowBlank";
+		public const string AllowBlankXmlElement = "AllowBlank";
 
-		internal const string MultiValueXmlElement = "MultiValue";
+		public const string MultiValueXmlElement = "MultiValue";
 
-		internal const string PromptXmlElement = "Prompt";
+		public const string PromptXmlElement = "Prompt";
 
-		internal const string PromptUserXmlElement = "PromptUser";
+		public const string PromptUserXmlElement = "PromptUser";
 
-		internal const string ValueXmlElement = "Value";
+		public const string ValueXmlElement = "Value";
 
-		internal const string UsedInQueryXmlElement = "UsedInQuery";
+		public const string UsedInQueryXmlElement = "UsedInQuery";
 
-		internal const string DefaultValuesXmlElement = "DefaultValues";
+		public const string DefaultValuesXmlElement = "DefaultValues";
 
-		internal const string ValidValuesXmlElement = "ValidValues";
+		public const string ValidValuesXmlElement = "ValidValues";
 
-		internal const string StateXmlElement = "State";
+		public const string StateXmlElement = "State";
 
 		private string m_name;
 
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private static readonly AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Declaration m_Declaration = ParameterBase.GetNewDeclaration();
 
-		internal ObjectType ParameterObjectType
+		public ObjectType ParameterObjectType
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Hashtable Dependencies
+		public Hashtable Dependencies
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal UsedInQueryType UsedInQueryAsDefined
+		public UsedInQueryType UsedInQueryAsDefined
 		{
 			get
 			{
@@ -208,14 +208,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 		}
 
-		internal ParameterBase(AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue source)
+		public ParameterBase(AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue source)
 		{
 			this.m_dataType = DataType.Object;
 			this.m_name = source.Name;
 			this.m_usedInQuery = false;
 		}
 
-		internal ParameterBase(DataSetParameterValue source, bool usedInQuery)
+		public ParameterBase(DataSetParameterValue source, bool usedInQuery)
 		{
 			this.m_dataType = DataType.Object;
 			this.m_name = source.UniqueName;
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterBase(ParameterBase source)
+		public ParameterBase(ParameterBase source)
 		{
 			this.m_name = source.m_name;
 			this.m_dataType = source.m_dataType;
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_usedInQuery = source.m_usedInQuery;
 		}
 
-		internal static AspNetCore.ReportingServices.ReportProcessing.Persistence.Declaration GetDeclaration()
+		public static AspNetCore.ReportingServices.ReportProcessing.Persistence.Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new AspNetCore.ReportingServices.ReportProcessing.Persistence.MemberInfo(AspNetCore.ReportingServices.ReportProcessing.Persistence.MemberName.Name, AspNetCore.ReportingServices.ReportProcessing.Persistence.Token.String));
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new AspNetCore.ReportingServices.ReportProcessing.Persistence.Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.None, memberInfoList);
 		}
 
-		internal static AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Declaration GetNewDeclaration()
+		public static AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Declaration GetNewDeclaration()
 		{
 			List<AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberInfo> list = new List<AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberInfo>();
 			list.Add(new AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberName.Name, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Token.String));
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ParameterBase, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.None, list);
 		}
 
-		internal void Serialize(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.IntermediateFormatWriter writer)
+		public void Serialize(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.IntermediateFormatWriter writer)
 		{
 			writer.RegisterDeclaration(ParameterBase.m_Declaration);
 			while (writer.NextMember())
@@ -318,7 +318,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Deserialize(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.IntermediateFormatReader reader)
+		public void Deserialize(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.IntermediateFormatReader reader)
 		{
 			reader.RegisterDeclaration(ParameterBase.m_Declaration);
 			while (reader.NextMember())
@@ -376,7 +376,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ParameterBase;
 		}
 
-		internal static bool ValidateValueForNull(object newValue, bool nullable, ErrorContext errorContext, ObjectType parameterType, string parameterName, string parameterValueProperty)
+		public static bool ValidateValueForNull(object newValue, bool nullable, ErrorContext errorContext, ObjectType parameterType, string parameterName, string parameterValueProperty)
 		{
 			bool result = true;
 			bool flag = errorContext is PublishingErrorContext;
@@ -391,7 +391,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal bool ValidateValueForBlank(object newValue, ErrorContext errorContext, string parameterValueProperty)
+		public bool ValidateValueForBlank(object newValue, ErrorContext errorContext, string parameterValueProperty)
 		{
 			bool result = true;
 			bool flag = errorContext is PublishingErrorContext;
@@ -410,13 +410,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal void ValidateValue(object newValue, ErrorContext errorContext, ObjectType parameterType, string parameterValueProperty)
+		public void ValidateValue(object newValue, ErrorContext errorContext, ObjectType parameterType, string parameterValueProperty)
 		{
 			ParameterBase.ValidateValueForNull(newValue, this.Nullable, errorContext, parameterType, this.Name, parameterValueProperty);
 			this.ValidateValueForBlank(newValue, errorContext, parameterValueProperty);
 		}
 
-		internal virtual void Parse(string name, List<string> defaultValues, string type, string nullable, object prompt, string promptUser, string allowBlank, string multiValue, string usedInQuery, bool hidden, ErrorContext errorContext, CultureInfo language)
+		public virtual void Parse(string name, List<string> defaultValues, string type, string nullable, object prompt, string promptUser, string allowBlank, string multiValue, string usedInQuery, bool hidden, ErrorContext errorContext, CultureInfo language)
 		{
 			if (name != null && name.Length != 0)
 			{
@@ -605,7 +605,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			throw new MissingElementException("Name");
 		}
 
-		internal static bool Cast(object oldValue, DataType oldType, out object newValue, DataType newType, CultureInfo language)
+		public static bool Cast(object oldValue, DataType oldType, out object newValue, DataType newType, CultureInfo language)
 		{
 			if (oldValue == null)
 			{
@@ -636,7 +636,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool DecodeObjectFromBase64String(string originalValue, out object newValue)
+		public static bool DecodeObjectFromBase64String(string originalValue, out object newValue)
 		{
 			newValue = null;
 			if (string.IsNullOrEmpty(originalValue))
@@ -737,7 +737,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool CastFromBoolean(bool oldBoolean, out object newValue, DataType newType, CultureInfo language)
+		public static bool CastFromBoolean(bool oldBoolean, out object newValue, DataType newType, CultureInfo language)
 		{
 			newValue = null;
 			switch (newType)
@@ -764,7 +764,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool CastFromDouble(double oldDouble, out object newValue, DataType newType, CultureInfo language)
+		public static bool CastFromDouble(double oldDouble, out object newValue, DataType newType, CultureInfo language)
 		{
 			newValue = null;
 			checked
@@ -813,7 +813,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool CastFromInteger(int oldInteger, out object newValue, DataType newType, CultureInfo language)
+		public static bool CastFromInteger(int oldInteger, out object newValue, DataType newType, CultureInfo language)
 		{
 			newValue = null;
 			switch (newType)
@@ -852,7 +852,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool CastFromDateTime(DateTime oldDateTime, out object newValue, DataType newType, CultureInfo language)
+		public static bool CastFromDateTime(DateTime oldDateTime, out object newValue, DataType newType, CultureInfo language)
 		{
 			newValue = null;
 			switch (newType)
@@ -886,7 +886,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool CastFromDateTimeOffset(DateTimeOffset oldDateTime, out object newValue, DataType newType, CultureInfo language)
+		public static bool CastFromDateTimeOffset(DateTimeOffset oldDateTime, out object newValue, DataType newType, CultureInfo language)
 		{
 			newValue = null;
 			switch (newType)
@@ -916,7 +916,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return object.Equals(o1, o2);
 		}
 
-		internal static bool IsSharedDataSetParameterObjectType(ObjectType ot)
+		public static bool IsSharedDataSetParameterObjectType(ObjectType ot)
 		{
 			switch (ot)
 			{

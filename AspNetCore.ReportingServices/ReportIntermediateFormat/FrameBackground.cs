@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class FrameBackground : GaugePanelStyleContainer, IPersistable
+	public sealed class FrameBackground : GaugePanelStyleContainer, IPersistable
 	{
 		[NonSerialized]
 		private FrameBackgroundExprHost m_exprHost;
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = FrameBackground.GetDeclaration();
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal FrameBackgroundExprHost ExprHost
+		public FrameBackgroundExprHost ExprHost
 		{
 			get
 			{
@@ -33,35 +33,35 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal FrameBackground()
+		public FrameBackground()
 		{
 		}
 
-		internal FrameBackground(GaugePanel gaugePanel)
+		public FrameBackground(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.FrameBackgroundStart();
 			base.Initialize(context);
 			context.ExprHostBuilder.FrameBackgroundEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			return (FrameBackground)base.PublishClone(context);
 		}
 
-		internal void SetExprHost(FrameBackgroundExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(FrameBackgroundExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = exprHost;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.FrameBackground, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugePanelStyleContainer, memberInfoList);

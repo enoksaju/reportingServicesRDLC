@@ -7,13 +7,13 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class FontCache : IDisposable
+	public sealed class FontCache : IDisposable
 	{
 		private const int DEFAULT_EM_HEIGHT = 2048;
 
-		internal static List<string> FontFallback = FontCache.PopulateFontFallBack();
+		public static List<string> FontFallback = FontCache.PopulateFontFallBack();
 
-		internal static Dictionary<int, int> ScriptFontMapping = FontCache.PopulateScriptFontMapping();
+		public static Dictionary<int, int> ScriptFontMapping = FontCache.PopulateScriptFontMapping();
 
 		private Dictionary<string, CachedFont> m_fontDict;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private uint m_fontQuality;
 
-		internal float Dpi
+		public float Dpi
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal RPLFormat.WritingModes WritingMode
+		public RPLFormat.WritingModes WritingMode
 		{
 			set
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool VerticalMode
+		public bool VerticalMode
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool UseEmSquare
+		public bool UseEmSquare
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool AllowVerticalFont
+		public bool AllowVerticalFont
 		{
 			get
 			{
@@ -89,13 +89,13 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal FontCache(float dpi)
+		public FontCache(float dpi)
 		{
 			this.m_fontDict = new Dictionary<string, CachedFont>();
 			this.m_dpi = dpi;
 		}
 
-		internal FontCache(float dpi, bool useEmSquare)
+		public FontCache(float dpi, bool useEmSquare)
 			: this(dpi)
 		{
 			this.m_useEmSquare = useEmSquare;
@@ -128,13 +128,13 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.Dispose(false);
 		}
 
-		internal void ResetGraphics()
+		public void ResetGraphics()
 		{
 			this.m_selectedHdc = Win32DCSafeHandle.Zero;
 			this.m_selectedFont = Win32ObjectSafeHandle.Zero;
 		}
 
-		internal CachedFont GetFont(ITextRunProps textRunProps, byte charset, bool verticalFont)
+		public CachedFont GetFont(ITextRunProps textRunProps, byte charset, bool verticalFont)
 		{
 			string fontFamily = null;
 			float fontSize = 0f;
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return result;
 		}
 
-		internal CachedFont GetFallbackFont(ITextRunProps textRunProps, byte charset, int script, bool verticalFont)
+		public CachedFont GetFallbackFont(ITextRunProps textRunProps, byte charset, int script, bool verticalFont)
 		{
 			string fontFamily = null;
 			float fontSize = 0f;
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return result;
 		}
 
-		internal CachedFont GetFont(ITextRunProps textRunProps, byte charset, float fontSize, bool verticalFont)
+		public CachedFont GetFont(ITextRunProps textRunProps, byte charset, float fontSize, bool verticalFont)
 		{
 			string fontFamily = null;
 			float num = 0f;
@@ -304,7 +304,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return stringBuilder.ToString();
 		}
 
-		internal void SelectFontObject(Win32DCSafeHandle hdc, Win32ObjectSafeHandle hFont)
+		public void SelectFontObject(Win32DCSafeHandle hdc, Win32ObjectSafeHandle hFont)
 		{
 			if (hdc != this.m_selectedHdc)
 			{
@@ -319,7 +319,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal static Font CreateGdiPlusFont(string fontFamilyName, float fontSize, ref bool bold, ref bool italic, bool lineThrough, bool underLine)
+		public static Font CreateGdiPlusFont(string fontFamilyName, float fontSize, ref bool bold, ref bool italic, bool lineThrough, bool underLine)
 		{
 			FontStyle fontStyle = FontStyle.Regular;
 			if (bold)

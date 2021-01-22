@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal abstract class NameValidator
+	public abstract class NameValidator
 	{
 		protected const int MAX_NAME_LENGTH = 256;
 
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal virtual bool Validate(string name)
+		public virtual bool Validate(string name)
 		{
 			if (NameValidator.IsCLSCompliant(name))
 			{

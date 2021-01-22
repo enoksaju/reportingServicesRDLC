@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IRIFScopeVisitor
+	public interface IRIFScopeVisitor
 	{
 		void PreVisit(DataRegion dataRegion);
 

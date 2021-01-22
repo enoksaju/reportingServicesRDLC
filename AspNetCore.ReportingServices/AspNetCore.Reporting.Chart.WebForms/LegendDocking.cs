@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum LegendDocking
+	public enum LegendDocking
 	{
 		Top,
 		Right,

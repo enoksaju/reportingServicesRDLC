@@ -1,6 +1,6 @@
 namespace Microsoft.Cloud.Platform.Utils
 {
-	internal interface IContainsPrivateInformation
+	public interface IContainsPrivateInformation
 	{
 		string ToPrivateString();
 

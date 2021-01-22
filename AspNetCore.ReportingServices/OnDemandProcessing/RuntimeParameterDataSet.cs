@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class RuntimeParameterDataSet : RuntimeAtomicDataSet, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner
+	public class RuntimeParameterDataSet : RuntimeAtomicDataSet, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner
 	{
 		private ReportParameterDataSetCache m_parameterDataSetObj;
 

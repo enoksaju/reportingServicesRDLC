@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal class OpenXmlTextRunModel : OpenXmlParagraphModel.IParagraphContent
+	public class OpenXmlTextRunModel : OpenXmlParagraphModel.IParagraphContent
 	{
 		private string _text;
 

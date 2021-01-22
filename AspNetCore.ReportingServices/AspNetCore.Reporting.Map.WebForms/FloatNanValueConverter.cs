@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FloatNanValueConverter : SingleConverter
+	public class FloatNanValueConverter : SingleConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartMemberList : HierarchyNodeList
+	public sealed class ChartMemberList : HierarchyNodeList
 	{
-		internal new ChartMember this[int index]
+		public new ChartMember this[int index]
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal ChartMemberList(int capacity)
+		public ChartMemberList(int capacity)
 			: base(capacity)
 		{
 		}

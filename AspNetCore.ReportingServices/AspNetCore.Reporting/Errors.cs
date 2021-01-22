@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.Reporting
 {
 	[CompilerGenerated]
-	internal class Errors
+	public class Errors
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string InvalidPageNav = "InvalidPageNav";
 

@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<LinearScaleExprHost> m_linearScalesHostsRemotable;
 
-		internal IList<LinearScaleExprHost> LinearScalesHostsRemotable
+		public IList<LinearScaleExprHost> LinearScalesHostsRemotable
 		{
 			get
 			{

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TextBox : ReportItem, IROMActionOwner
+	public sealed class TextBox : ReportItem, IROMActionOwner
 	{
 		private ActionInfo m_actionInfo;
 
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.TextBox TexBoxDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.TextBox TexBoxDef
 		{
 			get
 			{
@@ -238,19 +238,19 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TextBox(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.TextBox reportItemDef, RenderingContext renderingContext)
+		public TextBox(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.TextBox reportItemDef, RenderingContext renderingContext)
 			: base(reportScope, parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 			this.m_textBoxDef = reportItemDef;
 		}
 
-		internal TextBox(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.TextBox renderTextBox, RenderingContext renderingContext)
+		public TextBox(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.TextBox renderTextBox, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, inSubtotal, renderTextBox, renderingContext)
 		{
 			this.m_renderTextBox = renderTextBox;
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			base.UpdateRenderReportItem(renderReportItem);
 			this.m_renderTextBox = (AspNetCore.ReportingServices.ReportRendering.TextBox)base.m_renderReportItem;
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			base.SetNewContextChildren();
 			if (this.m_actionInfo != null)

@@ -3,9 +3,9 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ActiveXControl : ReportItem
+	public sealed class ActiveXControl : ReportItem
 	{
-		internal sealed class Parameter
+		public sealed class Parameter
 		{
 			private string m_name;
 
@@ -27,14 +27,14 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal Parameter(string name, object value)
+			public Parameter(string name, object value)
 			{
 				this.m_name = name;
 				this.m_value = value;
 			}
 		}
 
-		internal sealed class ParameterCollection : NameObjectCollectionBase
+		public sealed class ParameterCollection : NameObjectCollectionBase
 		{
 			public Parameter this[int index]
 			{
@@ -52,11 +52,11 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal ParameterCollection()
+			public ParameterCollection()
 			{
 			}
 
-			internal void Add(Parameter parameter)
+			public void Add(Parameter parameter)
 			{
 				base.BaseAdd(parameter.Name, parameter);
 			}
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ActiveXControl(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ActiveXControl reportItemDef, ActiveXControlInstance reportItemInstance, RenderingContext renderingContext)
+		public ActiveXControl(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ActiveXControl reportItemDef, ActiveXControlInstance reportItemInstance, RenderingContext renderingContext)
 			: base(uniqueName, intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 		}

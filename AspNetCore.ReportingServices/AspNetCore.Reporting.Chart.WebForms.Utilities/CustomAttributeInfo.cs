@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal class CustomAttributeInfo
+	public class CustomAttributeInfo
 	{
 		public string Name = string.Empty;
 

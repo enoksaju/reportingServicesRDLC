@@ -3,13 +3,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ImageData
+	public sealed class ImageData
 	{
 		private byte[] m_data;
 
 		private string m_MIMEType;
 
-		internal string MIMEType
+		public string MIMEType
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal byte[] Data
+		public byte[] Data
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageData(byte[] data, string mimeType)
+		public ImageData(byte[] data, string mimeType)
 		{
 			this.m_data = data;
 			this.m_MIMEType = mimeType;

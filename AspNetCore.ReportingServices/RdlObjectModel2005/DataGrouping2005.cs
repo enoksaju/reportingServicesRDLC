@@ -6,11 +6,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class DataGrouping2005 : DataMember, IUpgradeable
+	public class DataGrouping2005 : DataMember, IUpgradeable
 	{
 		public new class Definition : DefinitionStore<DataGrouping2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Static = 4,
 				PropertyCount

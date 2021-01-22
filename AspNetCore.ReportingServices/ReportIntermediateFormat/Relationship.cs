@@ -9,9 +9,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal abstract class Relationship : IPersistable
+	public abstract class Relationship : IPersistable
 	{
-		internal sealed class JoinCondition : IPersistable
+		public sealed class JoinCondition : IPersistable
 		{
 			private ExpressionInfo m_foreignKeyExpression;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			[NonSerialized]
 			private JoinConditionExprHost m_exprHost;
 
-			internal ExpressionInfo ForeignKeyExpression
+			public ExpressionInfo ForeignKeyExpression
 			{
 				get
 				{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal ExpressionInfo PrimaryKeyExpression
+			public ExpressionInfo PrimaryKeyExpression
 			{
 				get
 				{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal SortDirection SortDirection
+			public SortDirection SortDirection
 			{
 				get
 				{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal JoinConditionExprHost ExprHost
+			public JoinConditionExprHost ExprHost
 			{
 				get
 				{
@@ -59,18 +59,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal JoinCondition()
+			public JoinCondition()
 			{
 			}
 
-			internal JoinCondition(ExpressionInfo foreignKey, ExpressionInfo primaryKey, SortDirection direction)
+			public JoinCondition(ExpressionInfo foreignKey, ExpressionInfo primaryKey, SortDirection direction)
 			{
 				this.m_foreignKeyExpression = foreignKey;
 				this.m_primaryKeyExpression = primaryKey;
 				this.m_sortDirection = direction;
 			}
 
-			internal void Initialize(DataSet relatedDataSet, bool naturalJoin, InitializationContext context)
+			public void Initialize(DataSet relatedDataSet, bool naturalJoin, InitializationContext context)
 			{
 				context.ExprHostBuilder.JoinConditionStart();
 				if (this.m_foreignKeyExpression != null)
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				this.m_exprHostID = context.ExprHostBuilder.JoinConditionEnd();
 			}
 
-			internal void SetExprHost(IList<JoinConditionExprHost> joinConditionExprHost, ObjectModelImpl reportObjectModel)
+			public void SetExprHost(IList<JoinConditionExprHost> joinConditionExprHost, ObjectModelImpl reportObjectModel)
 			{
 				if (this.m_exprHostID >= 0)
 				{
@@ -98,17 +98,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateForeignKeyExpr(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
+			public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateForeignKeyExpr(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
 			{
 				return runtime.EvaluateJoinConditionForeignKeyExpression(this);
 			}
 
-			internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluatePrimaryKeyExpr(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
+			public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluatePrimaryKeyExpr(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
 			{
 				return runtime.EvaluateJoinConditionPrimaryKeyExpression(this);
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				List<MemberInfo> list = new List<MemberInfo>();
 				list.Add(new MemberInfo(MemberName.ForeignKeyExpression, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Relationship.GetDeclaration();
 
-		internal bool NaturalJoin
+		public bool NaturalJoin
 		{
 			get
 			{
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet RelatedDataSet
+		public DataSet RelatedDataSet
 		{
 			get
 			{
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsCrossJoin
+		public bool IsCrossJoin
 		{
 			get
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int JoinConditionCount
+		public int JoinConditionCount
 		{
 			get
 			{
@@ -229,12 +229,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void AddJoinCondition(ExpressionInfo foreignKey, ExpressionInfo primaryKey, SortDirection direction)
+		public void AddJoinCondition(ExpressionInfo foreignKey, ExpressionInfo primaryKey, SortDirection direction)
 		{
 			this.AddJoinCondition(new JoinCondition(foreignKey, primaryKey, direction));
 		}
 
-		internal void AddJoinCondition(JoinCondition joinCondition)
+		public void AddJoinCondition(JoinCondition joinCondition)
 		{
 			if (this.m_joinConditions == null)
 			{
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_joinConditions.Add(joinCondition);
 		}
 
-		internal void JoinConditionInitialize(DataSet relatedDataSet, InitializationContext context)
+		public void JoinConditionInitialize(DataSet relatedDataSet, InitializationContext context)
 		{
 			for (int i = 0; i < this.JoinConditionCount; i++)
 			{
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetExprHost(IList<JoinConditionExprHost> joinConditionExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<JoinConditionExprHost> joinConditionExprHost, ObjectModelImpl reportObjectModel)
 		{
 			for (int i = 0; i < this.JoinConditionCount; i++)
 			{
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult[] EvaluateJoinConditionKeys(bool evaluatePrimaryKeys, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRuntime)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult[] EvaluateJoinConditionKeys(bool evaluatePrimaryKeys, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRuntime)
 		{
 			int joinConditionCount = this.JoinConditionCount;
 			if (joinConditionCount == 0)
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return array;
 		}
 
-		internal ExpressionInfo[] GetForeignKeyExpressions()
+		public ExpressionInfo[] GetForeignKeyExpressions()
 		{
 			int joinConditionCount = this.JoinConditionCount;
 			if (joinConditionCount == 0)
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return array;
 		}
 
-		internal SortDirection[] GetSortDirections()
+		public SortDirection[] GetSortDirections()
 		{
 			if (this.JoinConditionCount == 0)
 			{
@@ -310,7 +310,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return array;
 		}
 
-		internal bool TryMapFieldIndex(int primaryKeyFieldIndex, out int foreignKeyFieldIndex)
+		public bool TryMapFieldIndex(int primaryKeyFieldIndex, out int foreignKeyFieldIndex)
 		{
 			if (this.JoinConditionCount > 0)
 			{
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.JoinConditions, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.JoinCondition));

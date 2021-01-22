@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FrameThin1Border : RaisedBorder
+	public class FrameThin1Border : RaisedBorder
 	{
 		protected float[] innerCorners = new float[8]
 		{

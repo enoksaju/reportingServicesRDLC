@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class RIFVariantContainer : IPersistable
+	public class RIFVariantContainer : IPersistable
 	{
 		private object m_value;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = RIFVariantContainer.GetDeclaration();
 
-		internal object Value
+		public object Value
 		{
 			get
 			{
@@ -19,16 +19,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RIFVariantContainer()
+		public RIFVariantContainer()
 		{
 		}
 
-		internal RIFVariantContainer(object value)
+		public RIFVariantContainer(object value)
 		{
 			this.m_value = value;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Value, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Variant));

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal enum SortOrder
+	public enum SortOrder
 	{
 		Ascending,
 		Descending

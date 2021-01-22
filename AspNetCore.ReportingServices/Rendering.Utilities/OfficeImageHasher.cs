@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.Utilities
 {
-	internal sealed class OfficeImageHasher
+	public sealed class OfficeImageHasher
 	{
 		private int m_a = 1732584193;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 
 		private int m_numwords;
 
-		internal byte[] Hash
+		public byte[] Hash
 		{
 			get
 			{
@@ -30,19 +30,19 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 			}
 		}
 
-		internal OfficeImageHasher(byte[] inputBuffer)
+		public OfficeImageHasher(byte[] inputBuffer)
 		{
 			this.Mdinit(inputBuffer);
 			this.Calc();
 		}
 
-		internal OfficeImageHasher(Stream inputStream)
+		public OfficeImageHasher(Stream inputStream)
 		{
 			this.Mdinit(inputStream);
 			this.Calc();
 		}
 
-		internal void Mdinit(byte[] inputBuffer)
+		public void Mdinit(byte[] inputBuffer)
 		{
 			long num = inputBuffer.Length * 8;
 			int num2 = inputBuffer.Length % 64;
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 			}
 		}
 
-		internal void Mdinit(Stream inputStream)
+		public void Mdinit(Stream inputStream)
 		{
 			long num = inputStream.Length * 8;
 			int num2 = (int)(inputStream.Length % 64);
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 			}
 		}
 
-		internal void Calc()
+		public void Calc()
 		{
 			for (int i = 0; i < this.m_numwords / 16; i++)
 			{
@@ -104,22 +104,22 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 			}
 		}
 
-		internal static int F(int x, int y, int z)
+		public static int F(int x, int y, int z)
 		{
 			return (x & y) | (~x & z);
 		}
 
-		internal static int G(int x, int y, int z)
+		public static int G(int x, int y, int z)
 		{
 			return (x & y) | (x & z) | (y & z);
 		}
 
-		internal static int H(int x, int y, int z)
+		public static int H(int x, int y, int z)
 		{
 			return x ^ y ^ z;
 		}
 
-		internal void Round1(int blk)
+		public void Round1(int blk)
 		{
 			int num = 16 * blk;
 			this.m_a = OfficeImageHasher.Rotintlft(this.m_a + OfficeImageHasher.F(this.m_b, this.m_c, this.m_d) + this.m_dd[num], 3);
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 			this.m_b = OfficeImageHasher.Rotintlft(this.m_b + OfficeImageHasher.F(this.m_c, this.m_d, this.m_a) + this.m_dd[15 + num], 19);
 		}
 
-		internal void Round2(int blk)
+		public void Round2(int blk)
 		{
 			int num = 16 * blk;
 			this.m_a = OfficeImageHasher.Rotintlft(this.m_a + OfficeImageHasher.G(this.m_b, this.m_c, this.m_d) + this.m_dd[num] + 1518500249, 3);
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 			this.m_b = OfficeImageHasher.Rotintlft(this.m_b + OfficeImageHasher.G(this.m_c, this.m_d, this.m_a) + this.m_dd[15 + num] + 1518500249, 13);
 		}
 
-		internal void Round3(int blk)
+		public void Round3(int blk)
 		{
 			int num = 16 * blk;
 			this.m_a = OfficeImageHasher.Rotintlft(this.m_a + OfficeImageHasher.H(this.m_b, this.m_c, this.m_d) + this.m_dd[num] + 1859775393, 3);
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 			this.m_b = OfficeImageHasher.Rotintlft(this.m_b + OfficeImageHasher.H(this.m_c, this.m_d, this.m_a) + this.m_dd[15 + num] + 1859775393, 15);
 		}
 
-		internal int[] Getregs()
+		public int[] Getregs()
 		{
 			return new int[4]
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 			};
 		}
 
-		internal static int Rotintlft(int val, int numbits)
+		public static int Rotintlft(int val, int numbits)
 		{
 			return val << numbits | (int)((uint)val >> 32 - numbits);
 		}
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.Rendering.Utilities
 			return OfficeImageHasher.Tohex(this.m_a) + OfficeImageHasher.Tohex(this.m_b) + OfficeImageHasher.Tohex(this.m_c) + OfficeImageHasher.Tohex(this.m_d);
 		}
 
-		internal static string Tohex(int i)
+		public static string Tohex(int i)
 		{
 			string text = "";
 			for (int j = 0; j < 4; j++)

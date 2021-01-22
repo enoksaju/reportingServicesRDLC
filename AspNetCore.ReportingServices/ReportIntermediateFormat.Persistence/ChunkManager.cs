@@ -10,9 +10,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal sealed class ChunkManager
+	public sealed class ChunkManager
 	{
-		internal sealed class DataChunkWriter : PersistenceHelper
+		public sealed class DataChunkWriter : PersistenceHelper
 		{
 			private static List<Declaration> m_DataChunkDeclarations = DataChunkWriter.GetDataChunkDeclarations();
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 
 			private OnDemandProcessingContext m_odpContext;
 
-			internal DataChunkWriter(RecordSetInfo recordSetInfo, DataSetInstance dataSetInstance, OnDemandProcessingContext odpContext)
+			public DataChunkWriter(RecordSetInfo recordSetInfo, DataSetInstance dataSetInstance, OnDemandProcessingContext odpContext)
 			{
 				Global.Tracer.Assert(null != odpContext.ChunkFactory, "(null != context.ChunkFactory)");
 				this.m_reportChunkFactory = odpContext.ChunkFactory;
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal DataChunkWriter(DataSetInstance dataSetInstance, OnDemandProcessingContext context)
+			public DataChunkWriter(DataSetInstance dataSetInstance, OnDemandProcessingContext context)
 			{
 				Global.Tracer.Assert(null != context.ChunkFactory, "(null != context.ChunkFactory)");
 				this.m_odpContext = context;
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				this.m_reportChunkFactory = context.ChunkFactory;
 			}
 
-			internal void Close()
+			public void Close()
 			{
 				this.m_chunkWriter = null;
 				if (this.m_chunkStream != null)
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal void CloseAndEraseChunk()
+			public void CloseAndEraseChunk()
 			{
 				this.Close();
 				if (this.m_reportChunkFactory != null)
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal void CreateDataChunkAndWriteHeader(RecordSetInfo recordSetInfo)
+			public void CreateDataChunkAndWriteHeader(RecordSetInfo recordSetInfo)
 			{
 				if (this.m_chunkStream == null)
 				{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal void WriteRecordRow(RecordRow recordRow)
+			public void WriteRecordRow(RecordRow recordRow)
 			{
 				try
 				{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal sealed class DataChunkReader : IRecordRowReader, IDisposable
+		public sealed class DataChunkReader : IRecordRowReader, IDisposable
 		{
 			private Stream m_chunkStream;
 
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 
 			private bool m_mappingIdentical;
 
-			internal bool ReaderExtensionsSupported
+			public bool ReaderExtensionsSupported
 			{
 				get
 				{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal bool ReaderFieldProperties
+			public bool ReaderFieldProperties
 			{
 				get
 				{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal bool ValidCompareOptions
+			public bool ValidCompareOptions
 			{
 				get
 				{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal CompareOptions CompareOptions
+			public CompareOptions CompareOptions
 			{
 				get
 				{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal RecordSetInfo RecordSetInfo
+			public RecordSetInfo RecordSetInfo
 			{
 				get
 				{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal bool IsAggregateRow
+			public bool IsAggregateRow
 			{
 				get
 				{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal int AggregationFieldCount
+			public int AggregationFieldCount
 			{
 				get
 				{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal RecordSetPropertyNamesList FieldPropertyNames
+			public RecordSetPropertyNamesList FieldPropertyNames
 			{
 				get
 				{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal DataChunkReader(DataSetInstance dataSetInstance, OnDemandProcessingContext context, string chunkName)
+			public DataChunkReader(DataSetInstance dataSetInstance, OnDemandProcessingContext context, string chunkName)
 			{
 				this.m_recordSetSize = dataSetInstance.RecordSetSize;
 				Global.Tracer.Assert(context.ChunkFactory != null && !string.IsNullOrEmpty(chunkName), "null != context.ChunkFactory && !String.IsNullOrEmpty(chunkName)");
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal static void OverrideWithDataReaderSettings(RecordSetInfo recordSetInfo, OnDemandProcessingContext odpContext, DataSetInstance dataSetInstance, DataSetCore dataSetCore)
+			public static void OverrideWithDataReaderSettings(RecordSetInfo recordSetInfo, OnDemandProcessingContext odpContext, DataSetInstance dataSetInstance, DataSetCore dataSetCore)
 			{
 				if (recordSetInfo != null)
 				{
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal static void CreateDataChunkFieldMapping(DataSetInstance currentDataSetInstance, RecordSetInfo recordSetInfo, bool isSharedDataSetExecutionReader, out bool mappingIdentical, out int[] mappingDataSetFieldIndexesToDataChunk)
+			public static void CreateDataChunkFieldMapping(DataSetInstance currentDataSetInstance, RecordSetInfo recordSetInfo, bool isSharedDataSetExecutionReader, out bool mappingIdentical, out int[] mappingDataSetFieldIndexesToDataChunk)
 			{
 				mappingDataSetFieldIndexesToDataChunk = null;
 				mappingIdentical = true;
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				return false;
 			}
 
-			internal void ResetCachedStreamOffset()
+			public void ResetCachedStreamOffset()
 			{
 				this.m_previousStreamOffset = -1L;
 			}
@@ -376,7 +376,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				return flag;
 			}
 
-			internal bool ReadOneRowAtPosition(long offset)
+			public bool ReadOneRowAtPosition(long offset)
 			{
 				if (this.m_chunkStream == null)
 				{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				return true;
 			}
 
-			internal object GetFieldValue(int aliasIndex)
+			public object GetFieldValue(int aliasIndex)
 			{
 				object obj = null;
 				if (this.m_recordRow.RecordFields[aliasIndex] == null)
@@ -402,12 +402,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				return this.m_recordRow.GetFieldValue(aliasIndex);
 			}
 
-			internal bool IsAggregationField(int aliasIndex)
+			public bool IsAggregationField(int aliasIndex)
 			{
 				return this.m_recordRow.IsAggregationField(aliasIndex);
 			}
 
-			internal object GetPropertyValue(int aliasIndex, int propertyIndex)
+			public object GetPropertyValue(int aliasIndex, int propertyIndex)
 			{
 				if (this.m_recordSetInfo.FieldPropertyNames != null && this.m_recordRow.RecordFields[aliasIndex] != null)
 				{
@@ -420,7 +420,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				return null;
 			}
 
-			internal int GetPropertyCount(int aliasIndex)
+			public int GetPropertyCount(int aliasIndex)
 			{
 				if (this.m_recordSetInfo.FieldPropertyNames != null && this.m_recordRow.RecordFields[aliasIndex] != null && this.m_recordRow.RecordFields[aliasIndex].FieldPropertyValues != null)
 				{
@@ -429,7 +429,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				return 0;
 			}
 
-			internal string GetPropertyName(int aliasIndex, int propertyIndex)
+			public string GetPropertyName(int aliasIndex, int propertyIndex)
 			{
 				if (this.m_recordSetInfo.FieldPropertyNames != null && this.m_recordSetInfo.FieldPropertyNames[aliasIndex] != null)
 				{
@@ -476,22 +476,22 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal sealed class OnDemandProcessingManager
+		public sealed class OnDemandProcessingManager
 		{
 			private static List<Declaration> m_ChunkDeclarations;
 
 			private OnDemandProcessingContext m_odpContext;
 
-			internal OnDemandProcessingManager()
+			public OnDemandProcessingManager()
 			{
 			}
 
-			internal void SetOdpContext(OnDemandProcessingContext odpContext)
+			public void SetOdpContext(OnDemandProcessingContext odpContext)
 			{
 				this.m_odpContext = odpContext;
 			}
 
-			internal static GlobalIDOwnerCollection DeserializeOdpReportSnapshot(ProcessingContext pc, IChunkFactory originalSnapshotChunks, ProcessingErrorContext errorContext, bool fetchSubreports, bool deserializeGroupTree, IConfiguration configuration, ref OnDemandMetadata odpMetadata, out Report report)
+			public static GlobalIDOwnerCollection DeserializeOdpReportSnapshot(ProcessingContext pc, IChunkFactory originalSnapshotChunks, ProcessingErrorContext errorContext, bool fetchSubreports, bool deserializeGroupTree, IConfiguration configuration, ref OnDemandMetadata odpMetadata, out Report report)
 			{
 				GlobalIDOwnerCollection globalIDOwnerCollection = new GlobalIDOwnerCollection();
 				report = AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.DeserializeKatmaiReport(pc.ChunkFactory, true, globalIDOwnerCollection);
@@ -516,7 +516,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				return globalIDOwnerCollection;
 			}
 
-			internal static void DeserializeGroupTree(Report report, IChunkFactory chunkFactory, GlobalIDOwnerCollection globalIDOwnerCollection, IConfiguration configuration, ref OnDemandMetadata odpMetadata)
+			public static void DeserializeGroupTree(Report report, IChunkFactory chunkFactory, GlobalIDOwnerCollection globalIDOwnerCollection, IConfiguration configuration, ref OnDemandMetadata odpMetadata)
 			{
 				bool prohibitSerializableValues = configuration != null && configuration.ProhibitSerializableValues;
 				OnDemandProcessingManager.EnsureGroupTreeStorageSetup(odpMetadata, chunkFactory, globalIDOwnerCollection, true, ReportProcessingCompatibilityVersion.GetCompatibilityVersion(configuration), prohibitSerializableValues);
@@ -528,7 +528,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				odpMetadata.ReportSnapshot.Report = report;
 			}
 
-			internal static void EnsureGroupTreeStorageSetup(OnDemandMetadata odpMetadata, IChunkFactory chunkFactory, GlobalIDOwnerCollection globalIDOwnerCollection, bool openExisting, int rifCompatVersion, bool prohibitSerializableValues)
+			public static void EnsureGroupTreeStorageSetup(OnDemandMetadata odpMetadata, IChunkFactory chunkFactory, GlobalIDOwnerCollection globalIDOwnerCollection, bool openExisting, int rifCompatVersion, bool prohibitSerializableValues)
 			{
 				if (odpMetadata.GroupTreeScalabilityCache == null)
 				{
@@ -538,7 +538,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal static void EnsureLookupStorageSetup(OnDemandMetadata odpMetadata, IChunkFactory chunkFactory, bool openExisting, int rifCompatVersion, bool prohibitSerializableValues)
+			public static void EnsureLookupStorageSetup(OnDemandMetadata odpMetadata, IChunkFactory chunkFactory, bool openExisting, int rifCompatVersion, bool prohibitSerializableValues)
 			{
 				if (odpMetadata.LookupScalabilityCache == null)
 				{
@@ -554,7 +554,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				return new ChunkFactoryStreamHandler(chunkName, chunkType, chunkFactory, openExisting);
 			}
 
-			internal static void PreparePartitionedTreesForAsyncSerialization(OnDemandProcessingContext odpContext)
+			public static void PreparePartitionedTreesForAsyncSerialization(OnDemandProcessingContext odpContext)
 			{
 				OnDemandProcessingManager.PreparePartitionedTreeForAsyncSerialization(odpContext.OdpMetadata.GroupTreeScalabilityCache, odpContext, "GroupTree", AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes.Main);
 				OnDemandProcessingManager.PreparePartitionedTreeForAsyncSerialization(odpContext.OdpMetadata.LookupScalabilityCache, odpContext, "LookupInfo", AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes.LookupInfo);
@@ -574,7 +574,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal static void PreparePartitionedTreesForSyncSerialization(OnDemandProcessingContext odpContext)
+			public static void PreparePartitionedTreesForSyncSerialization(OnDemandProcessingContext odpContext)
 			{
 				OnDemandMetadata odpMetadata = odpContext.OdpMetadata;
 				if (odpMetadata.GroupTreeScalabilityCache != null)
@@ -587,7 +587,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal static OnDemandMetadata DeserializeOnDemandMetadata(IChunkFactory chunkFactory, GlobalIDOwnerCollection globalIDOwnerCollection)
+			public static OnDemandMetadata DeserializeOnDemandMetadata(IChunkFactory chunkFactory, GlobalIDOwnerCollection globalIDOwnerCollection)
 			{
 				Stream stream = null;
 				try
@@ -611,7 +611,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal void SerializeSnapshot()
+			public void SerializeSnapshot()
 			{
 				Global.Tracer.Assert(null != this.m_odpContext, "OnDemandProcessingContext is unavailable");
 				OnDemandMetadata odpMetadata = this.m_odpContext.OdpMetadata;
@@ -656,7 +656,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal static void SerializeMetadata(IChunkFactory chunkFactory, OnDemandMetadata odpMetadata, int compatVersion, bool prohibitSerializableValues)
+			public static void SerializeMetadata(IChunkFactory chunkFactory, OnDemandMetadata odpMetadata, int compatVersion, bool prohibitSerializableValues)
 			{
 				odpMetadata.UpdateLastAssignedGlobalID();
 				using (Stream str = chunkFactory.CreateChunk("Metadata", AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes.Main, null))
@@ -689,7 +689,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal static SortFilterEventInfoMap DeserializeSortFilterEventInfo(IChunkFactory originalSnapshotChunks, GlobalIDOwnerCollection globalIDOwnerCollection)
+			public static SortFilterEventInfoMap DeserializeSortFilterEventInfo(IChunkFactory originalSnapshotChunks, GlobalIDOwnerCollection globalIDOwnerCollection)
 			{
 				Stream stream = null;
 				SortFilterEventInfoMap sortFilterEventInfoMap = null;
@@ -728,7 +728,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				}
 			}
 
-			internal static List<Declaration> GetChunkDeclarations()
+			public static List<Declaration> GetChunkDeclarations()
 			{
 				if (OnDemandProcessingManager.m_ChunkDeclarations == null)
 				{
@@ -759,7 +759,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 				return OnDemandProcessingManager.m_ChunkDeclarations;
 			}
 
-			internal static Stream OpenExistingDocumentMapStream(OnDemandMetadata odpMetadata, ICatalogItemContext reportContext, IChunkFactory chunkFactory)
+			public static Stream OpenExistingDocumentMapStream(OnDemandMetadata odpMetadata, ICatalogItemContext reportContext, IChunkFactory chunkFactory)
 			{
 				Stream stream = null;
 				if (!odpMetadata.ReportSnapshot.CanUseExistingDocumentMapChunk(reportContext))
@@ -771,33 +771,33 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal const string Definition = "CompiledDefinition";
+		public const string Definition = "CompiledDefinition";
 
-		internal const string DocumentMap = "DocumentMap";
+		public const string DocumentMap = "DocumentMap";
 
-		internal const string ShowHideInfo = "ShowHideInfo";
+		public const string ShowHideInfo = "ShowHideInfo";
 
-		internal const string Bookmarks = "Bookmarks";
+		public const string Bookmarks = "Bookmarks";
 
-		internal const string Drillthrough = "Drillthrough";
+		public const string Drillthrough = "Drillthrough";
 
-		internal const string QuickFind = "QuickFind";
+		public const string QuickFind = "QuickFind";
 
-		internal const string SortFilterEventInfo = "SortFilterEventInfo";
+		public const string SortFilterEventInfo = "SortFilterEventInfo";
 
-		internal const string DataChunkPrefix = "DataChunk";
+		public const string DataChunkPrefix = "DataChunk";
 
-		internal const string GroupTree = "GroupTree";
+		public const string GroupTree = "GroupTree";
 
-		internal const string LookupInfo = "LookupInfo";
+		public const string LookupInfo = "LookupInfo";
 
-		internal const string Metadata = "Metadata";
+		public const string Metadata = "Metadata";
 
-		internal const string SharedDataSet = "SharedDataSet";
+		public const string SharedDataSet = "SharedDataSet";
 
-		internal const char Delimiter = 'x';
+		public const char Delimiter = 'x';
 
-		internal static string GenerateDataChunkName(OnDemandProcessingContext context, int dataSetID, bool isInSubReport)
+		public static string GenerateDataChunkName(OnDemandProcessingContext context, int dataSetID, bool isInSubReport)
 		{
 			StringBuilder stringBuilder = new StringBuilder(64);
 			stringBuilder.Append("DataChunk");
@@ -813,7 +813,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return stringBuilder.ToString();
 		}
 
-		internal static string GenerateLegacySharedSubReportDataChunkName(OnDemandProcessingContext context, int dataSetID)
+		public static string GenerateLegacySharedSubReportDataChunkName(OnDemandProcessingContext context, int dataSetID)
 		{
 			StringBuilder stringBuilder = new StringBuilder(64);
 			stringBuilder.Append("DataChunk");
@@ -835,13 +835,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return ChunkManager.GenerateDataChunkName(null, dataSetDef.ID, false);
 		}
 
-		internal static void SerializeReport(Report report, Stream stream, IConfiguration configuration)
+		public static void SerializeReport(Report report, Stream stream, IConfiguration configuration)
 		{
 			int compatibilityVersion = ReportProcessingCompatibilityVersion.GetCompatibilityVersion(configuration);
 			new IntermediateFormatWriter(stream, compatibilityVersion).Write(report);
 		}
 
-		internal static Report DeserializeReport(bool keepReferences, GlobalIDOwnerCollection globalIDOwnerCollection, IDOwner parentIDOwner, ReportItem parentReportItem, Stream stream)
+		public static Report DeserializeReport(bool keepReferences, GlobalIDOwnerCollection globalIDOwnerCollection, IDOwner parentIDOwner, ReportItem parentReportItem, Stream stream)
 		{
 			IntermediateFormatReader intermediateFormatReader = new IntermediateFormatReader(stream, new ProcessingRIFObjectCreator(parentIDOwner, parentReportItem), globalIDOwnerCollection);
 			Report report = (Report)intermediateFormatReader.ReadRIFObject();

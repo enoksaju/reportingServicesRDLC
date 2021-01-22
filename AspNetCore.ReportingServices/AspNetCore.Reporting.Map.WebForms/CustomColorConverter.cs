@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class CustomColorConverter : CollectionItemTypeConverter
+	public class CustomColorConverter : CollectionItemTypeConverter
 	{
 		public CustomColorConverter()
 		{

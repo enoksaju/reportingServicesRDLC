@@ -6,7 +6,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal sealed class ProcessDataShape : ProcessReportOdpStreaming
+	public sealed class ProcessDataShape : ProcessReportOdpStreaming
 	{
 		private readonly bool m_useParallelQueryExecution;
 

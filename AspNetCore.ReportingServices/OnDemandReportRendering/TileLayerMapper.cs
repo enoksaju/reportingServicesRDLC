@@ -9,7 +9,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class TileLayerMapper
+	public class TileLayerMapper
 	{
 		private bool m_success;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private Dictionary<string, MapTileLayer> m_mapTileLayers;
 
-		internal TileLayerMapper(Map map, MapControl coreMap)
+		public TileLayerMapper(Map map, MapControl coreMap)
 		{
 			this.m_map = map;
 			this.m_coreMap = coreMap;
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_coreMap.mapCore.SaveTilesHandler = this.SaveTilesHandler;
 		}
 
-		internal void AddLayer(MapTileLayer mapTileLayer)
+		public void AddLayer(MapTileLayer mapTileLayer)
 		{
 			this.m_mapTileLayers.Add(mapTileLayer.Name, mapTileLayer);
 			this.m_coreMap.Layers[mapTileLayer.Name].TileSystem = this.GetTileSystem(mapTileLayer);

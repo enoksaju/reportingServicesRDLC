@@ -4,11 +4,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class RichTextParser
+	public abstract class RichTextParser
 	{
-		internal const int ParagraphListLevelMin = 0;
+		public const int ParagraphListLevelMin = 0;
 
-		internal const int ParagraphListLevelMax = 9;
+		public const int ParagraphListLevelMax = 9;
 
 		private const string m_propertyListLevel = "ListLevel";
 
@@ -34,14 +34,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private bool m_loggedListLevelWarning;
 
-		internal RichTextParser(bool allowMultipleParagraphs, IRichTextInstanceCreator iRichTextInstanceCreator, IRichTextLogger richTextLogger)
+		public RichTextParser(bool allowMultipleParagraphs, IRichTextInstanceCreator iRichTextInstanceCreator, IRichTextLogger richTextLogger)
 		{
 			this.m_allowMultipleParagraphs = allowMultipleParagraphs;
 			this.m_IRichTextInstanceCreator = iRichTextInstanceCreator;
 			this.m_richTextLogger = richTextLogger;
 		}
 
-		internal virtual IList<ICompiledParagraphInstance> Parse(string richText)
+		public virtual IList<ICompiledParagraphInstance> Parse(string richText)
 		{
 			this.m_currentStyle = new CompiledStyleInfo();
 			this.m_currentParagraph = new CompiledParagraphInfo();

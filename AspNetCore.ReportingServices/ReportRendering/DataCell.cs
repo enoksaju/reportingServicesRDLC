@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class DataCell
+	public sealed class DataCell
 	{
 		private CustomReportItem m_owner;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal int ColumnIndex
+		public int ColumnIndex
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal int RowIndex
+		public int RowIndex
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataCell(CustomReportItem owner, int rowIndex, int columnIndex)
+		public DataCell(CustomReportItem owner, int rowIndex, int columnIndex)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;

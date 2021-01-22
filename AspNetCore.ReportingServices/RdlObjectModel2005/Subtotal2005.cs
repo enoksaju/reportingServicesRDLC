@@ -5,11 +5,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Subtotal2005 : ReportObject
+	public class Subtotal2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<Subtotal2005, Definition.Properties>
+		public class Definition : DefinitionStore<Subtotal2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ReportItems,
 				Style,

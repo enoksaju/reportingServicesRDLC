@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum ErrorBarMarkerStyles
+	public enum ErrorBarMarkerStyles
 	{
 		None,
 		Square,

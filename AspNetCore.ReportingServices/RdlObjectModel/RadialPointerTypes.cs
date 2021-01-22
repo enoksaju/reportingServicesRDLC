@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum RadialPointerTypes
+	public enum RadialPointerTypes
 	{
 		Needle,
 		Marker,

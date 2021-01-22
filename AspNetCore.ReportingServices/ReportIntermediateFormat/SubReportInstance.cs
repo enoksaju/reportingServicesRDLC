@@ -9,7 +9,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class SubReportInstance : ScopeInstance, IReportInstanceContainer
+	public class SubReportInstance : ScopeInstance, IReportInstanceContainer
 	{
 		private ParametersImpl m_parameters;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = SubReportInstance.GetDeclaration();
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SubReport SubReportDef
+		public SubReport SubReportDef
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool Initialized
+		public bool Initialized
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParametersImpl Parameters
+		public ParametersImpl Parameters
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string InstanceUniqueName
+		public string InstanceUniqueName
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CultureInfo ThreadCulture
+		public CultureInfo ThreadCulture
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SubReport.Status RetrievalStatus
+		public SubReport.Status RetrievalStatus
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ProcessedWithError
+		public bool ProcessedWithError
 		{
 			get
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SubReportInstance()
+		public SubReportInstance()
 		{
 		}
 
@@ -167,12 +167,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_reportInstance;
 		}
 
-		internal override void AddChildScope(IReference<ScopeInstance> child, int indexInCollection)
+		public override void AddChildScope(IReference<ScopeInstance> child, int indexInCollection)
 		{
 			Global.Tracer.Assert(false);
 		}
 
-		internal string GetChunkNameModifier(SubReportInfo subReportInfo, bool useCachedValue, bool addEntry, out bool isShared)
+		public string GetChunkNameModifier(SubReportInfo subReportInfo, bool useCachedValue, bool addEntry, out bool isShared)
 		{
 			if (!useCachedValue || !this.m_dataChunkNameModifier.HasValue)
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_dataChunkNameModifier.Value.ToString(CultureInfo.InvariantCulture);
 		}
 
-		internal override void InstanceComplete()
+		public override void InstanceComplete()
 		{
 			if (this.m_reportInstance != null)
 			{
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			reference.PinValue();
 		}
 
-		internal static IReference<SubReportInstance> CreateInstance(ScopeInstance parentInstance, SubReport subReport, OnDemandMetadata odpMetadata)
+		public static IReference<SubReportInstance> CreateInstance(ScopeInstance parentInstance, SubReport subReport, OnDemandMetadata odpMetadata)
 		{
 			SubReportInstance subReportInstance = new SubReportInstance(subReport, odpMetadata);
 			IReference<SubReportInstance> reference = odpMetadata.GroupTreeScalabilityCache.AllocateAndPin(subReportInstance, 0);
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return reference;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.SubReport, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.SubReport, Token.GlobalReference));

@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum AntiAliasingTypes
+	public enum AntiAliasingTypes
 	{
 		None = 0,
 		Text = 1,

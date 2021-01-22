@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartDataPointValues : IPersistable
+	public sealed class ChartDataPointValues : IPersistable
 	{
 		private ExpressionInfo m_x;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ChartDataPointValues.GetDeclaration();
 
-		internal ExpressionInfo X
+		public ExpressionInfo X
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Y
+		public ExpressionInfo Y
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Size
+		public ExpressionInfo Size
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo High
+		public ExpressionInfo High
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Low
+		public ExpressionInfo Low
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Start
+		public ExpressionInfo Start
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo End
+		public ExpressionInfo End
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Mean
+		public ExpressionInfo Mean
 		{
 			get
 			{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Median
+		public ExpressionInfo Median
 		{
 			get
 			{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataPoint DataPoint
+		public ChartDataPoint DataPoint
 		{
 			set
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HighlightX
+		public ExpressionInfo HighlightX
 		{
 			get
 			{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HighlightY
+		public ExpressionInfo HighlightY
 		{
 			get
 			{
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HighlightSize
+		public ExpressionInfo HighlightSize
 		{
 			get
 			{
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo FormatX
+		public ExpressionInfo FormatX
 		{
 			get
 			{
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo FormatY
+		public ExpressionInfo FormatY
 		{
 			get
 			{
@@ -233,7 +233,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo FormatSize
+		public ExpressionInfo FormatSize
 		{
 			get
 			{
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CurrencyLanguageX
+		public ExpressionInfo CurrencyLanguageX
 		{
 			get
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CurrencyLanguageY
+		public ExpressionInfo CurrencyLanguageY
 		{
 			get
 			{
@@ -269,7 +269,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CurrencyLanguageSize
+		public ExpressionInfo CurrencyLanguageSize
 		{
 			get
 			{
@@ -281,17 +281,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataPointValues()
+		public ChartDataPointValues()
 		{
 		}
 
-		internal ChartDataPointValues(Chart chart, ChartDataPoint dataPoint)
+		public ChartDataPointValues(Chart chart, ChartDataPoint dataPoint)
 		{
 			this.m_dataPoint = dataPoint;
 			this.m_chart = chart;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_x != null)
 			{
@@ -385,7 +385,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.X, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -589,7 +589,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartDataPointValues;
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartDataPointValues chartDataPointValues = (ChartDataPointValues)base.MemberwiseClone();
 			chartDataPointValues.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -632,109 +632,109 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartDataPointValues;
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesXExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesYExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValueSizesExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateHigh(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateHigh(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesHighExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateLow(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateLow(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesLowExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateStart(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateStart(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesStartExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateEnd(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateEnd(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesEndExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateMean(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateMean(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesMeanExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateMedian(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateMedian(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesMedianExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateHighlightX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateHighlightX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesHighlightXExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateHighlightY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateHighlightY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesHighlightYExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateHighlightSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateHighlightSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesHighlightSizeExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal string EvaluateFormatX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateFormatX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesFormatXExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal string EvaluateFormatY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateFormatY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesFormatYExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal string EvaluateFormatSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateFormatSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesFormatSizeExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal string EvaluateCurrencyLanguageX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateCurrencyLanguageX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesCurrencyLanguageXExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal string EvaluateCurrencyLanguageY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateCurrencyLanguageY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesCurrencyLanguageYExpression(this.m_dataPoint, this.m_chart.Name);
 		}
 
-		internal string EvaluateCurrencyLanguageSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateCurrencyLanguageSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_dataPoint, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointValuesCurrencyLanguageSizeExpression(this.m_dataPoint, this.m_chart.Name);

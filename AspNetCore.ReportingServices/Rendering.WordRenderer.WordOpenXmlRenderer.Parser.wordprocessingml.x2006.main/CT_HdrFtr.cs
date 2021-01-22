@@ -3,9 +3,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_HdrFtr : OoxmlComplexType, IOoxmlComplexType
+	public class CT_HdrFtr : OoxmlComplexType, IOoxmlComplexType
 	{
-		internal enum ChoiceBucket_0
+		public enum ChoiceBucket_0
 		{
 			customXml,
 			sdt,

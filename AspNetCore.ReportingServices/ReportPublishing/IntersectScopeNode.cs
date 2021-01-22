@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal class IntersectScopeNode : ScopeTreeNode
+	public class IntersectScopeNode : ScopeTreeNode
 	{
 		private readonly ScopeTreeNode m_parentRowScope;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private readonly List<IRIFDataScope> m_peerDataCells;
 
-		internal ScopeTreeNode ParentRowScope
+		public ScopeTreeNode ParentRowScope
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal ScopeTreeNode ParentColumnScope
+		public ScopeTreeNode ParentColumnScope
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal override string ScopeName
+		public override string ScopeName
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal IntersectScopeNode(IRIFDataScope scope, ScopeTreeNode parentRowScope, ScopeTreeNode parentColScope)
+		public IntersectScopeNode(IRIFDataScope scope, ScopeTreeNode parentRowScope, ScopeTreeNode parentColScope)
 			: base(scope)
 		{
 			this.m_parentRowScope = parentRowScope;
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_peerDataCells = new List<IRIFDataScope>();
 		}
 
-		internal override bool IsSameOrParentScope(IRIFDataScope parentScope, bool isProperParent)
+		public override bool IsSameOrParentScope(IRIFDataScope parentScope, bool isProperParent)
 		{
 			if (this.HasCell(parentScope))
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal override void Traverse(ScopeTree.ScopeTreeVisitor visitor, IRIFDataScope outerScope, bool visitOuterScope)
+		public override void Traverse(ScopeTree.ScopeTreeVisitor visitor, IRIFDataScope outerScope, bool visitOuterScope)
 		{
 			bool flag = this.HasCell(outerScope);
 			if (visitOuterScope || !flag)
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal override bool Traverse(ScopeTree.DirectedScopeTreeVisitor visitor)
+		public override bool Traverse(ScopeTree.DirectedScopeTreeVisitor visitor)
 		{
 			if (this.TraverseDefinitionCells(visitor) && ScopeTreeNode.TraverseNode(visitor, this.m_parentRowScope))
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return true;
 		}
 
-		internal void AddCell(IRIFDataScope cell)
+		public void AddCell(IRIFDataScope cell)
 		{
 			if (!this.HasCell(cell))
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool HasCell(IRIFDataScope cell)
+		public bool HasCell(IRIFDataScope cell)
 		{
 			if (cell == null)
 			{

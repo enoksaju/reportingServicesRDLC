@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal class Style : IStyle, IFont
+	public class Style : IStyle, IFont
 	{
 		private IStyleModel mModel;
 
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal IStyleModel Model
+		public IStyleModel Model
 		{
 			get
 			{
@@ -319,7 +319,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal Style(IStyleModel model)
+		public Style(IStyleModel model)
 		{
 			this.mModel = model;
 		}

@@ -7,9 +7,9 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[Description("Map areas collection.")]
-	internal class MapAreaCollection : IList, ICollection, IEnumerable
+	public class MapAreaCollection : IList, ICollection, IEnumerable
 	{
-		internal ArrayList array = new ArrayList();
+		public ArrayList array = new ArrayList();
 
 		public MapArea this[int index]
 		{
@@ -217,7 +217,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void Insert(int index, string toolTip, string href, string attr, GraphicsPath path, bool absCoordinates, MapGraphics graph)
+		public void Insert(int index, string toolTip, string href, string attr, GraphicsPath path, bool absCoordinates, MapGraphics graph)
 		{
 			GraphicsPathIterator graphicsPathIterator = new GraphicsPathIterator(path);
 			if (graphicsPathIterator.SubpathCount > 1)
@@ -296,7 +296,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.Insert(index, mapArea);
 		}
 
-		internal void RemoveNonCustom()
+		public void RemoveNonCustom()
 		{
 			for (int i = 0; i < this.Count; i++)
 			{

@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class XmlFormatSerializer : SerializerBase
+	public class XmlFormatSerializer : SerializerBase
 	{
 		public override void Serialize(object objectToSerialize, object writer)
 		{

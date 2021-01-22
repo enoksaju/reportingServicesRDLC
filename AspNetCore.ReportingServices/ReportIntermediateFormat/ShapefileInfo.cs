@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ShapefileInfo : IPersistable
+	public sealed class ShapefileInfo : IPersistable
 	{
 		private string m_streamName;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ShapefileInfo.GetDeclaration();
 
-		internal string StreamName
+		public string StreamName
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ErrorOccurred
+		public bool ErrorOccurred
 		{
 			get
 			{
@@ -39,16 +39,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ShapefileInfo()
+		public ShapefileInfo()
 		{
 		}
 
-		internal ShapefileInfo(string streamName)
+		public ShapefileInfo(string streamName)
 		{
 			this.m_streamName = streamName;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.StreamName, Token.String));

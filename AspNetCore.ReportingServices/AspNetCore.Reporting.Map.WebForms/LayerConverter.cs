@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LayerConverter : CollectionItemTypeConverter
+	public class LayerConverter : CollectionItemTypeConverter
 	{
 		public LayerConverter()
 		{

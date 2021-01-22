@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class SubReport : ReportItem
+	public sealed class SubReport : ReportItem
 	{
 		private Report m_report;
 
@@ -61,14 +61,14 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal SubReport(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.SubReport reportItemDef, SubReportInstance reportItemInstance, RenderingContext renderingContext, Report innerReport, bool processedWithError)
+		public SubReport(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.SubReport reportItemDef, SubReportInstance reportItemInstance, RenderingContext renderingContext, Report innerReport, bool processedWithError)
 			: base(null, intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 			this.m_report = innerReport;
 			this.m_processedWithError = processedWithError;
 		}
 
-		internal override bool Search(SearchContext searchContext)
+		public override bool Search(SearchContext searchContext)
 		{
 			if (!base.SkipSearch && !this.NoRows && !this.ProcessedWithError)
 			{

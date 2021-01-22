@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum TextAlignments
+	public enum TextAlignments
 	{
 		Default,
 		General,

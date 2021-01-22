@@ -1,4 +1,4 @@
 namespace AspNetCore.ReportingServices.Common
 {
-	internal delegate T CreatorGetter<T>();
+	public delegate T CreatorGetter<T>();
 }

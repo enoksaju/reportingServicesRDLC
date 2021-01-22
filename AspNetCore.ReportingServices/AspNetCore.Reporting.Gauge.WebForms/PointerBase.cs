@@ -5,13 +5,13 @@ using System.Drawing.Design;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class PointerBase : NamedElement, IToolTipProvider, IPointerProvider, IImageMapProvider
+	public class PointerBase : NamedElement, IToolTipProvider, IPointerProvider, IImageMapProvider
 	{
 		private double position;
 
 		private DataAttributes data;
 
-		internal bool dragging;
+		public bool dragging;
 
 		private string scaleName = "Default";
 
@@ -424,7 +424,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[DefaultValue(BarStyle.Style1)]
 		[SRDescription("DescriptionAttributeBarStyle")]
 		[SRCategory("CategoryTypeSpecific")]
-		internal BarStyle BarStyle
+		public BarStyle BarStyle
 		{
 			get
 			{
@@ -653,7 +653,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal double Position
+		public double Position
 		{
 			get
 			{
@@ -682,7 +682,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -695,7 +695,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal DataAttributes Data
+		public DataAttributes Data
 		{
 			get
 			{
@@ -749,7 +749,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.interactive = interactive;
 		}
 
-		internal virtual void DragTo(int x, int y, PointF refPoint)
+		public virtual void DragTo(int x, int y, PointF refPoint)
 		{
 			ScaleBase scaleBase = this.GetScaleBase();
 			double value = scaleBase.GetValue(refPoint, new PointF((float)x, (float)y));
@@ -766,15 +766,15 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void Render(GaugeGraphics g)
+		public virtual void Render(GaugeGraphics g)
 		{
 		}
 
-		internal virtual void RenderShadow(GaugeGraphics g)
+		public virtual void RenderShadow(GaugeGraphics g)
 		{
 		}
 
-		internal GaugeBase GetGaugeBase()
+		public GaugeBase GetGaugeBase()
 		{
 			if (this.Common == null)
 			{
@@ -783,7 +783,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (GaugeBase)this.Collection.ParentElement;
 		}
 
-		internal ScaleBase GetScaleBase()
+		public ScaleBase GetScaleBase()
 		{
 			if (this.Common == null)
 			{
@@ -810,26 +810,26 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (ScaleBase)namedCollection.GetByName(this.scaleName);
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 			this.data.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.data.EndInit();
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.data.ReconnectData(true);
 			this.scaleName = this.GetGaugeBase().GetDefaultScaleName(this.scaleName);
 		}
 
-		internal override void ReconnectData(bool exact)
+		public override void ReconnectData(bool exact)
 		{
 			this.data.ReconnectData(exact);
 		}
@@ -840,7 +840,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			base.OnDispose();
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			base.Notify(msg, element, param);
 			switch (msg)

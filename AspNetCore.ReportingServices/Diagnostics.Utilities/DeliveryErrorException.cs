@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class DeliveryErrorException : ReportCatalogException
+	public sealed class DeliveryErrorException : ReportCatalogException
 	{
 		public DeliveryErrorException(Exception innerException)
 			: base(ErrorCode.rsDeliveryError, ErrorStrings.rsDeliverError, innerException, null)

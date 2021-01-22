@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum FontUnit
+	public enum FontUnit
 	{
 		Percent,
 		Default

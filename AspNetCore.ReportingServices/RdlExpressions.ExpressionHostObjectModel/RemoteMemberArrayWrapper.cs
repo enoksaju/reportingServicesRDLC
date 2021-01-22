@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 {
 	[CLSCompliant(false)]
-	internal sealed class RemoteMemberArrayWrapper<TMemberType> : MarshalByRefObject, IList<IMemberNode>, ICollection<IMemberNode>, IEnumerable<IMemberNode>, IEnumerable where TMemberType : IMemberNode
+	public sealed class RemoteMemberArrayWrapper<TMemberType> : MarshalByRefObject, IList<IMemberNode>, ICollection<IMemberNode>, IEnumerable<IMemberNode>, IEnumerable where TMemberType : IMemberNode
 	{
 		private readonly TMemberType[] m_array;
 

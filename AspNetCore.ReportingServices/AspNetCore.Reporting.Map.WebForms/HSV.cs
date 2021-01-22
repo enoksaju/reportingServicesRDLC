@@ -1,14 +1,14 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal struct HSV
+	public struct HSV
 	{
-		internal int Hue;
+		public int Hue;
 
-		internal int Saturation;
+		public int Saturation;
 
-		internal int value;
+		public int value;
 
-		internal HSV(int H, int S, int V)
+		public HSV(int H, int S, int V)
 		{
 			this.Hue = H;
 			this.Saturation = S;

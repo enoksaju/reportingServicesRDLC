@@ -8,7 +8,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class PageItemContainer : PageItem, IComparer
+	public class PageItemContainer : PageItem, IComparer
 	{
 		protected PageItem[] m_children;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private PageItem m_rightEdgeItem;
 
-		internal PageItemContainer(ReportItem source, bool createForRepeat)
+		public PageItemContainer(ReportItem source, bool createForRepeat)
 			: base(source)
 		{
 		}
@@ -187,12 +187,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal bool CreateChildren(ReportItemCollection childrenDef, PageContext pageContext, double parentWidth, double parentHeight)
+		public bool CreateChildren(ReportItemCollection childrenDef, PageContext pageContext, double parentWidth, double parentHeight)
 		{
 			return this.CreateChildren(childrenDef, pageContext, parentWidth, parentHeight, false);
 		}
 
-		internal bool CreateChildren(ReportItemCollection childrenDef, PageContext pageContext, double parentWidth, double parentHeight, bool isSimple)
+		public bool CreateChildren(ReportItemCollection childrenDef, PageContext pageContext, double parentWidth, double parentHeight, bool isSimple)
 		{
 			if (childrenDef != null && childrenDef.Count != 0)
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return isSimple;
 		}
 
-		internal bool CreateChildrenFromPaginationState(ReportItemCollection childrenDef, PageContext pageContext, PageItemContainerHelper itemHelper, bool isSimple)
+		public bool CreateChildrenFromPaginationState(ReportItemCollection childrenDef, PageContext pageContext, PageItemContainerHelper itemHelper, bool isSimple)
 		{
 			if (itemHelper != null && itemHelper.Children != null && itemHelper.Children.Length != 0)
 			{
@@ -315,7 +315,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return isSimple;
 		}
 
-		internal void ResolveRepeatWithFromPaginationState(PageItemContainerHelper itemHelper, RPLWriter rplWriter, PageContext pageContext)
+		public void ResolveRepeatWithFromPaginationState(PageItemContainerHelper itemHelper, RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (itemHelper != null && this.m_repeatWithItems != null && this.m_repeatWithItems.Length != 0)
 			{
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void ResolveRepeatWith(ReportItemCollection childrenDef, PageContext pageContext)
+		public void ResolveRepeatWith(ReportItemCollection childrenDef, PageContext pageContext)
 		{
             if (childrenDef == null || this.m_repeatWithItems == null)
             {
@@ -631,12 +631,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
+		public override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
 		{
 			return true;
 		}
 
-		internal override void CreateItemRenderSizes(ItemSizes contentSize, PageContext pageContext, bool createForRepeat)
+		public override void CreateItemRenderSizes(ItemSizes contentSize, PageContext pageContext, bool createForRepeat)
 		{
 			if (contentSize == null)
 			{
@@ -662,7 +662,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItem[] BringRepeatedWithOnPage(RPLWriter rplWriter, List<int> repeatedSiblings, PageContext pageContext)
+		public PageItem[] BringRepeatedWithOnPage(RPLWriter rplWriter, List<int> repeatedSiblings, PageContext pageContext)
 		{
             if (this.m_children == null)
             {
@@ -790,7 +790,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void CalculateRepeatWithRenderSizes(PageContext pageContext)
+		public void CalculateRepeatWithRenderSizes(PageContext pageContext)
 		{
 			if (this.m_children != null)
 			{
@@ -836,7 +836,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int CalculateRenderSizes(RPLWriter rplWriter, PageContext pageContext, Interactivity interactivity, List<int> repeatedSiblings, out PageItem[] childrenOnPage)
+		public int CalculateRenderSizes(RPLWriter rplWriter, PageContext pageContext, Interactivity interactivity, List<int> repeatedSiblings, out PageItem[] childrenOnPage)
 		{
             childrenOnPage = this.BringRepeatedWithOnPage(rplWriter, repeatedSiblings, pageContext);
             if (childrenOnPage == null)
@@ -890,7 +890,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
             return num2;
         }
 
-		internal void UpdateItemPageState(PageContext pageContext, bool omitBorderOnPageBreak)
+		public void UpdateItemPageState(PageContext pageContext, bool omitBorderOnPageBreak)
 		{
 			if (base.m_itemState == State.SpanPages)
 			{
@@ -936,7 +936,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void UpdateItem(PageItemHelper itemHelper)
+		public override void UpdateItem(PageItemHelper itemHelper)
 		{
 			if (itemHelper != null)
 			{
@@ -961,7 +961,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void ResolveVerticalDependencyList(List<int> pageItemsAbove, int index)
+		public void ResolveVerticalDependencyList(List<int> pageItemsAbove, int index)
 		{
 			if (pageItemsAbove != null && this.m_repeatWithItems != null)
 			{
@@ -1053,7 +1053,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void ReleaseChildrenOnPage()
+		public void ReleaseChildrenOnPage()
 		{
 			if (this.m_children != null)
 			{
@@ -1102,7 +1102,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual void WriteEndItemToStream(RPLWriter rplWriter, int itemsOnPage, PageItem[] childrenOnPage)
+		public virtual void WriteEndItemToStream(RPLWriter rplWriter, int itemsOnPage, PageItem[] childrenOnPage)
 		{
 			if (rplWriter != null)
 			{
@@ -1175,7 +1175,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteRepeatWithEndItemToStream(RPLWriter rplWriter, int itemsOnPage)
+		public void WriteRepeatWithEndItemToStream(RPLWriter rplWriter, int itemsOnPage)
 		{
 			if (rplWriter != null)
 			{
@@ -1223,19 +1223,19 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BackgroundColor, 34);
 			this.WriteBackgroundImage(spbifWriter, style, true, pageContext);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BackgroundColor, 34);
 			this.WriteBackgroundImage(rplStyleProps, style, true, pageContext);
 		}
 
-		internal override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -1248,7 +1248,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -1261,7 +1261,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public override void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -1271,14 +1271,14 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override PageItemHelper WritePaginationInfo()
+		public override PageItemHelper WritePaginationInfo()
 		{
 			PageItemHelper pageItemHelper = new PageItemContainerHelper(5);
 			this.WritePaginationInfoProperties(pageItemHelper);
 			return pageItemHelper;
 		}
 
-		internal override void WritePaginationInfoProperties(PageItemHelper itemHelper)
+		public override void WritePaginationInfoProperties(PageItemHelper itemHelper)
 		{
 			if (itemHelper != null)
 			{
@@ -1318,7 +1318,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WritePaginationInfoProperties(BinaryWriter reportPageInfo)
+		public override void WritePaginationInfoProperties(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{

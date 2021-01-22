@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_ComparisonError : Exception, IDataComparisonError
+	public sealed class ReportProcessingException_ComparisonError : Exception, IDataComparisonError
 	{
 		private const string TypeXSerializationID = "typex";
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessingException_ComparisonError(string typeX, string typeY)
+		public ReportProcessingException_ComparisonError(string typeX, string typeY)
 		{
 			this.m_typeX = typeX;
 			this.m_typeY = typeY;

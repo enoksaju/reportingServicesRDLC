@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class CommonSubReportInfo : IPersistable
+	public class CommonSubReportInfo : IPersistable
 	{
 		private string m_description;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = CommonSubReportInfo.GetDeclaration();
 
-		internal string ReportPath
+		public string ReportPath
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OriginalCatalogPath
+		public string OriginalCatalogPath
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Description
+		public string Description
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParameterInfoCollection ParametersFromCatalog
+		public ParameterInfoCollection ParametersFromCatalog
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool RetrievalFailed
+		public bool RetrievalFailed
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DefinitionUniqueName
+		public string DefinitionUniqueName
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IChunkFactory DefinitionChunkFactory
+		public IChunkFactory DefinitionChunkFactory
 		{
 			get
 			{
@@ -110,11 +110,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CommonSubReportInfo()
+		public CommonSubReportInfo()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ReportPath, Token.String));

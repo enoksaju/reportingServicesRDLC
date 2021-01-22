@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class RTSelectionHighlight
+	public class RTSelectionHighlight
 	{
 		private TextBoxContext m_selectionStart;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private Color m_color = SystemColors.Highlight;
 
-		internal TextBoxContext SelectionStart
+		public TextBoxContext SelectionStart
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal TextBoxContext SelectionEnd
+		public TextBoxContext SelectionEnd
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal Color Color
+		public Color Color
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool AllowColorInversion
+		public bool AllowColorInversion
 		{
 			get
 			{
@@ -60,14 +60,14 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal RTSelectionHighlight(TextBoxContext Start, TextBoxContext End, Color Color)
+		public RTSelectionHighlight(TextBoxContext Start, TextBoxContext End, Color Color)
 		{
 			this.m_selectionStart = Start;
 			this.m_selectionEnd = End;
 			this.m_color = Color;
 		}
 
-		internal RTSelectionHighlight(TextBoxContext Start, TextBoxContext End)
+		public RTSelectionHighlight(TextBoxContext Start, TextBoxContext End)
 		{
 			this.m_selectionStart = Start;
 			this.m_selectionEnd = End;

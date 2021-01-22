@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum LabelMark
+	public enum LabelMark
 	{
 		None,
 		SideMark,

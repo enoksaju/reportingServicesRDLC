@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalTablixCell : TablixCell
+	public sealed class InternalTablixCell : TablixCell
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.TablixCell m_cellDef;
 
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalTablixCell(Tablix owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.TablixCell cellDef)
+		public InternalTablixCell(Tablix owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.TablixCell cellDef)
 			: base(cellDef, owner, rowIndex, colIndex)
 		{
 			this.m_cellDef = cellDef;

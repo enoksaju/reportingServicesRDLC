@@ -4,11 +4,11 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class HashtableInstanceInfo : InstanceInfo
+	public abstract class HashtableInstanceInfo : InstanceInfo
 	{
 		protected Hashtable m_hashtable;
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -26,12 +26,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_hashtable = new Hashtable(capacity);
 		}
 
-		internal bool ContainsKey(int key)
+		public bool ContainsKey(int key)
 		{
 			return this.m_hashtable.ContainsKey(key);
 		}
 
-		internal IDictionaryEnumerator GetEnumerator()
+		public IDictionaryEnumerator GetEnumerator()
 		{
 			return this.m_hashtable.GetEnumerator();
 		}

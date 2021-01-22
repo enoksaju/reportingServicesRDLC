@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartTickMarks : ReportObject
+	public class ChartTickMarks : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartTickMarks, Definition.Properties>
+		public class Definition : DefinitionStore<ChartTickMarks, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Enabled,
 				Type,
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartTickMarks(IPropertyStore propertyStore)
+		public ChartTickMarks(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

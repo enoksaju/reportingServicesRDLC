@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TickMarkImage : BaseGaugeImage
+	public class TickMarkImage : BaseGaugeImage
 	{
-		internal new class Definition : DefinitionStore<TickMarkImage, Definition.Properties>
+		public new class Definition : DefinitionStore<TickMarkImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Source,
 				Value,
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TickMarkImage(IPropertyStore propertyStore)
+		public TickMarkImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

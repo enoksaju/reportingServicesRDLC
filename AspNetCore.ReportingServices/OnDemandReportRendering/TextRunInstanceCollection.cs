@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TextRunInstanceCollection : IEnumerable<TextRunInstance>, IEnumerable
+	public sealed class TextRunInstanceCollection : IEnumerable<TextRunInstance>, IEnumerable
 	{
 		private ParagraphInstance m_paragraphInstance;
 
-		internal TextRunInstanceCollection(ParagraphInstance paragraphInstance)
+		public TextRunInstanceCollection(ParagraphInstance paragraphInstance)
 		{
 			this.m_paragraphInstance = paragraphInstance;
 		}

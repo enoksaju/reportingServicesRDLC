@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class StorageObjectCreator : IScalabilityObjectCreator
+	public class StorageObjectCreator : IScalabilityObjectCreator
 	{
 		private static StorageObjectCreator m_instance = null;
 
 		private static List<Declaration> m_declarations = StorageObjectCreator.BuildDeclarations();
 
-		internal static StorageObjectCreator Instance
+		public static StorageObjectCreator Instance
 		{
 			get
 			{

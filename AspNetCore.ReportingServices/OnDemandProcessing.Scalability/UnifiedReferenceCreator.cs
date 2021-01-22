@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class UnifiedReferenceCreator : IReferenceCreator
+	public sealed class UnifiedReferenceCreator : IReferenceCreator
 	{
 		private IReferenceCreator[] m_referenceCreators;
 
-		internal UnifiedReferenceCreator(IReferenceCreator appReferenceCreator)
+		public UnifiedReferenceCreator(IReferenceCreator appReferenceCreator)
 		{
 			this.m_referenceCreators = new IReferenceCreator[2];
 			this.m_referenceCreators[0] = CommonReferenceCreator.Instance;

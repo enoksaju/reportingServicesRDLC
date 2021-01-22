@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser
 {
-	internal struct OoxmlBool
+	public struct OoxmlBool
 	{
 		public static readonly OoxmlBool OoxmlTrue = new OoxmlBool(true);
 

@@ -2,7 +2,7 @@ using AspNetCore.Reporting.Map.WebForms;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class PointTemplateMapper : SpatialElementTemplateMapper
+	public abstract class PointTemplateMapper : SpatialElementTemplateMapper
 	{
 		private VectorLayerMapper m_vectorLayerMapper;
 
@@ -30,20 +30,20 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PointTemplateMapper(MapMapper mapMapper, VectorLayerMapper vectorLayerMapper, MapVectorLayer mapVectorLayer)
+		public PointTemplateMapper(MapMapper mapMapper, VectorLayerMapper vectorLayerMapper, MapVectorLayer mapVectorLayer)
 			: base(mapMapper, mapVectorLayer)
 		{
 			this.m_vectorLayerMapper = vectorLayerMapper;
 		}
 
-		internal void Render(MapPoint mapPoint, Symbol coreSymbol, bool hasScope)
+		public void Render(MapPoint mapPoint, Symbol coreSymbol, bool hasScope)
 		{
 			bool flag = PointTemplateMapper.UseCustomTemplate(mapPoint, hasScope);
 			MapPointTemplate mapPointTemplate = (!flag) ? this.MapPointLayer.MapPointTemplate : mapPoint.MapPointTemplate;
 			this.RenderPointTemplate(mapPointTemplate, coreSymbol, flag, !flag && this.m_vectorLayerMapper.HasPointColorRule(coreSymbol) && hasScope, !flag && this.m_vectorLayerMapper.HasPointSizeRule(coreSymbol) && hasScope, !flag && this.m_vectorLayerMapper.HasMarkerRule(coreSymbol) && hasScope, hasScope);
 		}
 
-		internal void RenderPolygonCenterPoint(MapPolygon mapPolygon, Symbol coreSymbol, bool hasScope)
+		public void RenderPolygonCenterPoint(MapPolygon mapPolygon, Symbol coreSymbol, bool hasScope)
 		{
 			bool flag = PointTemplateMapper.PolygonUseCustomTemplate(mapPolygon, hasScope);
 			MapPointTemplate mapPointTemplate = (!flag) ? this.m_vectorLayerMapper.GetMapPointTemplate() : mapPolygon.MapCenterPointTemplate;
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int GetSize(MapPointTemplate mapPointTemplate, bool hasScope)
+		public int GetSize(MapPointTemplate mapPointTemplate, bool hasScope)
 		{
 			ReportSizeProperty size = mapPointTemplate.Size;
 			if (size != null)
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return PointTemplateMapper.GetDefaultSymbolSize(base.m_mapMapper.DpiX);
 		}
 
-		internal static int GetDefaultSymbolSize(float dpi)
+		public static int GetDefaultSymbolSize(float dpi)
 		{
 			return MappingHelper.ToIntPixels(PointTemplateMapper.m_defaultSymbolSize, dpi);
 		}
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal static bool PolygonUseCustomTemplate(MapPolygon mapPolygon, bool hasScope)
+		public static bool PolygonUseCustomTemplate(MapPolygon mapPolygon, bool hasScope)
 		{
 			if (mapPolygon == null)
 			{

@@ -5,13 +5,13 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class BaseGaugeImage : IBaseImage
+	public abstract class BaseGaugeImage : IBaseImage
 	{
-		internal GaugePanel m_gaugePanel;
+		public GaugePanel m_gaugePanel;
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.BaseGaugeImage m_defObject;
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.BaseGaugeImage m_defObject;
 
-		internal BaseGaugeImageInstance m_instance;
+		public BaseGaugeImageInstance m_instance;
 
 		private ReportEnumProperty<Image.SourceType> m_source;
 
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.BaseGaugeImage BaseGaugeImageDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.BaseGaugeImage BaseGaugeImageDef
 		{
 			get
 			{
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal BaseGaugeImageInstance Instance
+		public BaseGaugeImageInstance Instance
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal BaseGaugeImage(AspNetCore.ReportingServices.ReportIntermediateFormat.BaseGaugeImage defObject, GaugePanel gaugePanel)
+		public BaseGaugeImage(AspNetCore.ReportingServices.ReportIntermediateFormat.BaseGaugeImage defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
@@ -224,9 +224,9 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal abstract BaseGaugeImageInstance GetInstance();
+		public abstract BaseGaugeImageInstance GetInstance();
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

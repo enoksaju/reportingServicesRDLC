@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapSpatialElementTemplate : MapStyleContainer, IPersistable, IActionOwner
+	public class MapSpatialElementTemplate : MapStyleContainer, IPersistable, IActionOwner
 	{
 		[NonSerialized]
 		protected MapSpatialElementTemplateExprHost m_exprHost;
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private DataElementOutputTypes m_dataElementOutput;
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ID
+		public int ID
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo OffsetX
+		public ExpressionInfo OffsetX
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo OffsetY
+		public ExpressionInfo OffsetY
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Label
+		public ExpressionInfo Label
 		{
 			get
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DataElementLabel
+		public ExpressionInfo DataElementLabel
 		{
 			get
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSpatialElementTemplateExprHost ExprHost
+		public MapSpatialElementTemplateExprHost ExprHost
 		{
 			get
 			{
@@ -206,18 +206,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSpatialElementTemplate()
+		public MapSpatialElementTemplate()
 		{
 		}
 
-		internal MapSpatialElementTemplate(MapVectorLayer mapVectorLayer, Map map, int id)
+		public MapSpatialElementTemplate(MapVectorLayer mapVectorLayer, Map map, int id)
 			: base(map)
 		{
 			this.m_id = id;
 			this.m_mapVectorLayer = mapVectorLayer;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_action != null)
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapSpatialElementTemplate mapSpatialElementTemplate = (MapSpatialElementTemplate)base.PublishClone(context);
 			mapSpatialElementTemplate.m_mapVectorLayer = context.CurrentMapVectorLayerClone;
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapSpatialElementTemplate;
 		}
 
-		internal void SetExprHost(MapSpatialElementTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapSpatialElementTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -302,7 +302,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Action, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Action));
@@ -442,39 +442,39 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapSpatialElementTemplate;
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSpatialElementTemplateHiddenExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateOffsetX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateOffsetX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSpatialElementTemplateOffsetXExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateOffsetY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateOffsetY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSpatialElementTemplateOffsetYExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateMapSpatialElementTemplateLabelExpression(this, base.m_map.Name);
 			return base.m_map.GetFormattedStringFromValue(ref variantResult, context);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateMapSpatialElementTemplateToolTipExpression(this, base.m_map.Name);
 			return base.m_map.GetFormattedStringFromValue(ref variantResult, context);
 		}
 
-		internal string EvaluateDataElementLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateDataElementLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateMapSpatialElementTemplateDataElementLabelExpression(this, base.m_map.Name);

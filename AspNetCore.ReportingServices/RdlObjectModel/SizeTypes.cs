@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum SizeTypes
+	public enum SizeTypes
 	{
 		Invalid,
 		Inch,

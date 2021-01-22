@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class StringProperty : PropertyDefinition, IPropertyDefinition
+	public class StringProperty : PropertyDefinition, IPropertyDefinition
 	{
 		private string m_default;
 

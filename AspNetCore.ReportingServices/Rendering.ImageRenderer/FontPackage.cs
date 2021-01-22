@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class FontPackage
+	public sealed class FontPackage
 	{
 		private class CompareDirectoryEntryOffsets : IComparer
 		{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return false;
 		}
 
-		internal static void CheckSimulatedFontStyles(Win32DCSafeHandle hdc, AspNetCore.ReportingServices.Rendering.RichText.Win32.TEXTMETRIC textMetric, ref bool simulateItalic, ref bool simulateBold)
+		public static void CheckSimulatedFontStyles(Win32DCSafeHandle hdc, AspNetCore.ReportingServices.Rendering.RichText.Win32.TEXTMETRIC textMetric, ref bool simulateItalic, ref bool simulateBold)
 		{
 			simulateItalic = false;
 			simulateBold = false;
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal static bool CheckEmbeddingRights(Win32DCSafeHandle hdc)
+		public static bool CheckEmbeddingRights(Win32DCSafeHandle hdc)
 		{
 			uint num = 0u;
 			if (FontPackage.TTGetEmbeddingType(hdc, ref num) == 0)
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return false;
 		}
 
-		internal static byte[] Generate(Win32DCSafeHandle hdc, string fontFamily, ushort[] glyphIdArray)
+		public static byte[] Generate(Win32DCSafeHandle hdc, string fontFamily, ushort[] glyphIdArray)
 		{
 			IntPtr intPtr = IntPtr.Zero;
 			uint num = 0u;

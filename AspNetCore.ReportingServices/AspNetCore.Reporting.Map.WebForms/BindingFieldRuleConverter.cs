@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class BindingFieldRuleConverter : StringConverter
+	public class BindingFieldRuleConverter : StringConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

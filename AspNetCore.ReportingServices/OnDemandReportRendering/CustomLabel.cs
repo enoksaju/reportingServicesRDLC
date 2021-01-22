@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CustomLabel : GaugePanelObjectCollectionItem, IROMStyleDefinitionContainer
+	public sealed class CustomLabel : GaugePanelObjectCollectionItem, IROMStyleDefinitionContainer
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -178,7 +178,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.CustomLabel CustomLabelDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.CustomLabel CustomLabelDef
 		{
 			get
 			{
@@ -202,13 +202,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.CustomLabel defObject, GaugePanel gaugePanel)
+		public CustomLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.CustomLabel defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

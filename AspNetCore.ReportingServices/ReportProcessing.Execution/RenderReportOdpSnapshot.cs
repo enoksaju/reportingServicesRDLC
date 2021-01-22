@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class RenderReportOdpSnapshot : RenderReportOdp
+	public class RenderReportOdpSnapshot : RenderReportOdp
 	{
 		protected virtual bool IsRenderStream
 		{

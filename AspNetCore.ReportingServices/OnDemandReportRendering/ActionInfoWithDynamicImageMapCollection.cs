@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ActionInfoWithDynamicImageMapCollection : ReportElementCollectionBase<ActionInfoWithDynamicImageMap>
+	public sealed class ActionInfoWithDynamicImageMapCollection : ReportElementCollectionBase<ActionInfoWithDynamicImageMap>
 	{
 		private List<ActionInfoWithDynamicImageMap> m_list;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal List<ActionInfoWithDynamicImageMap> InternalList
+		public List<ActionInfoWithDynamicImageMap> InternalList
 		{
 			get
 			{
@@ -36,12 +36,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionInfoWithDynamicImageMapCollection()
+		public ActionInfoWithDynamicImageMapCollection()
 		{
 			this.m_list = new List<ActionInfoWithDynamicImageMap>();
 		}
 
-		internal ActionInfoWithDynamicImageMapCollection(RenderingContext renderingContext, ImageMapAreasCollection imageMaps)
+		public ActionInfoWithDynamicImageMapCollection(RenderingContext renderingContext, ImageMapAreasCollection imageMaps)
 		{
 			int count = imageMaps.Count;
 			this.m_list = new List<ActionInfoWithDynamicImageMap>(count);
@@ -57,14 +57,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionInfoWithDynamicImageMap Add(RenderingContext renderingContext, ReportItem owner, IROMActionOwner romActionOwner)
+		public ActionInfoWithDynamicImageMap Add(RenderingContext renderingContext, ReportItem owner, IROMActionOwner romActionOwner)
 		{
 			ActionInfoWithDynamicImageMap actionInfoWithDynamicImageMap = new ActionInfoWithDynamicImageMap(renderingContext, owner, romActionOwner);
 			this.m_list.Add(actionInfoWithDynamicImageMap);
 			return actionInfoWithDynamicImageMap;
 		}
 
-		internal void ConstructDefinitions()
+		public void ConstructDefinitions()
 		{
 			foreach (ActionInfoWithDynamicImageMap item in this.m_list)
 			{

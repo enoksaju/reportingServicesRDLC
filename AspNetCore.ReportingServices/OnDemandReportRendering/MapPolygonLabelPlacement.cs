@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapPolygonLabelPlacement
+	public enum MapPolygonLabelPlacement
 	{
 		MiddleCenter,
 		MiddleLeft,

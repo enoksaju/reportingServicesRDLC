@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal enum RadarDrawingStyle
+	public enum RadarDrawingStyle
 	{
 		Area,
 		Line,

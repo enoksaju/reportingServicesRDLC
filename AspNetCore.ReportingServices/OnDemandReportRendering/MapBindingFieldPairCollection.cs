@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapBindingFieldPairCollection : MapObjectCollectionBase<MapBindingFieldPair>
+	public sealed class MapBindingFieldPairCollection : MapObjectCollectionBase<MapBindingFieldPair>
 	{
 		private Map m_map;
 
@@ -19,14 +19,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapBindingFieldPairCollection(MapVectorLayer mapVectorLayer, Map map)
+		public MapBindingFieldPairCollection(MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_mapBindingFieldCollectionDef = mapVectorLayer.MapVectorLayerDef.MapBindingFieldPairs;
 			this.m_mapVectorLayer = mapVectorLayer;
 			this.m_map = map;
 		}
 
-		internal MapBindingFieldPairCollection(List<AspNetCore.ReportingServices.ReportIntermediateFormat.MapBindingFieldPair> mapBindingFieldCollectionDef, Map map)
+		public MapBindingFieldPairCollection(List<AspNetCore.ReportingServices.ReportIntermediateFormat.MapBindingFieldPair> mapBindingFieldCollectionDef, Map map)
 		{
 			this.m_mapBindingFieldCollectionDef = mapBindingFieldCollectionDef;
 			this.m_mapVectorLayer = null;

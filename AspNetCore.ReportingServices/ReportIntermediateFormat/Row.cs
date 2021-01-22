@@ -5,30 +5,30 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class Row : IDOwner, IPersistable
+	public abstract class Row : IDOwner, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Row.GetDeclaration();
 
-		internal abstract CellList Cells
+		public abstract CellList Cells
 		{
 			get;
 		}
 
-		internal Row()
+		public Row()
 		{
 		}
 
-		internal Row(int id)
+		public Row(int id)
 			: base(id)
 		{
 		}
 
-		internal virtual void Initialize(InitializationContext context)
+		public virtual void Initialize(InitializationContext context)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Row, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.None, memberInfoList);

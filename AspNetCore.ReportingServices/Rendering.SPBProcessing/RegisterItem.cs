@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.OnDemandReportRendering;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal abstract class RegisterItem
+	public abstract class RegisterItem
 	{
-		internal static void RegisterPageItem(PageItem pageItem, PageContext pageContext, bool useForPageHFEval, Interactivity interactivity)
+		public static void RegisterPageItem(PageItem pageItem, PageContext pageContext, bool useForPageHFEval, Interactivity interactivity)
 		{
 			if (!useForPageHFEval && interactivity == null)
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			RegisterItem.RegisterHiddenItem(source, pageContext, flag, interactivity);
 		}
 
-		internal static void RegisterHiddenItem(ReportItem reportItem, PageContext pageContext, bool useForPageHFEval, Interactivity interactivity)
+		public static void RegisterHiddenItem(ReportItem reportItem, PageContext pageContext, bool useForPageHFEval, Interactivity interactivity)
 		{
 			if (reportItem != null)
 			{

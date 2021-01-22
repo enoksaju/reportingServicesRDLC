@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class TypeMapping
+	public class TypeMapping
 	{
 		public Type Type;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			this.Name = type.Name;
 		}
 
-		internal void AddChildAttribute(MemberMapping mapping)
+		public void AddChildAttribute(MemberMapping mapping)
 		{
 			if (this.ChildAttributes == null)
 			{

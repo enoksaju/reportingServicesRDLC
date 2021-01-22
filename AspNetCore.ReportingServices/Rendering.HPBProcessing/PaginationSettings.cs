@@ -6,9 +6,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class PaginationSettings
+	public sealed class PaginationSettings
 	{
-		internal enum DeviceInfoTags
+		public enum DeviceInfoTags
 		{
 			StartPage,
 			EndPage,
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			Unknown
 		}
 
-		internal enum FormatEncoding
+		public enum FormatEncoding
 		{
 			BMP,
 			EMF,
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal SectionPaginationSettings[] SectionPaginationSettings
+		public SectionPaginationSettings[] SectionPaginationSettings
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double MarginTop
+		public double MarginTop
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double MarginLeft
+		public double MarginLeft
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double MarginBottom
+		public double MarginBottom
 		{
 			get
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double MarginRight
+		public double MarginRight
 		{
 			get
 			{
@@ -379,7 +379,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool EMFOutputFormat
+		public bool EMFOutputFormat
 		{
 			get
 			{
@@ -573,7 +573,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal int ParseInt(string intValue, int defaultValue)
+		public int ParseInt(string intValue, int defaultValue)
 		{
 			int result = defaultValue;
 			if (!string.IsNullOrEmpty(intValue))

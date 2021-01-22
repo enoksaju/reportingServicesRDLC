@@ -5,13 +5,13 @@ using System.IO;
 namespace AspNetCore.ReportingServices.Library
 {
 	[Serializable]
-	internal abstract class SnapshotBase
+	public abstract class SnapshotBase
 	{
 		private Guid m_snapshotDataID;
 
 		private bool m_isPermanentSnapshot;
 
-		internal Guid SnapshotDataID
+		public Guid SnapshotDataID
 		{
 			get
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.Library
 			}
 		}
 
-		internal bool IsPermanentSnapshot
+		public bool IsPermanentSnapshot
 		{
 			get
 			{
@@ -60,11 +60,11 @@ namespace AspNetCore.ReportingServices.Library
 
 		public abstract void DeleteSnapshotAndChunks();
 
-		internal virtual void UpdatePerfData(Stream chunk)
+		public virtual void UpdatePerfData(Stream chunk)
 		{
 		}
 
-		internal virtual void WritePerfData()
+		public virtual void WritePerfData()
 		{
 		}
 	}

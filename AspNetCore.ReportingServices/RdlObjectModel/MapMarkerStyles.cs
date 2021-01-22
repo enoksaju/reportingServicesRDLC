@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapMarkerStyles
+	public enum MapMarkerStyles
 	{
 		None,
 		Rectangle,

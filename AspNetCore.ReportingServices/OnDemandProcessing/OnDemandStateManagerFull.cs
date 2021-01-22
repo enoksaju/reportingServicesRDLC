@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class OnDemandStateManagerFull : OnDemandStateManager
+	public sealed class OnDemandStateManagerFull : OnDemandStateManager
 	{
 		private IReportScopeInstance m_lastROMInstance;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private bool m_inRecursiveColumnHierarchy;
 
-		internal override IReportScopeInstance LastROMInstance
+		public override IReportScopeInstance LastROMInstance
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override IInstancePath LastRIFObject
+		public override IInstancePath LastRIFObject
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override IRIFReportScope LastTablixProcessingReportScope
+		public override IRIFReportScope LastTablixProcessingReportScope
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override QueryRestartInfo QueryRestartInfo
+		public override QueryRestartInfo QueryRestartInfo
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override ExecutedQueryCache ExecutedQueryCache
+		public override ExecutedQueryCache ExecutedQueryCache
 		{
 			get
 			{
@@ -85,12 +85,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 		{
 		}
 
-		internal override ExecutedQueryCache SetupExecutedQueryCache()
+		public override ExecutedQueryCache SetupExecutedQueryCache()
 		{
 			return this.ExecutedQueryCache;
 		}
 
-		internal override Dictionary<string, object> GetCurrentSpecialGroupingValues()
+		public override Dictionary<string, object> GetCurrentSpecialGroupingValues()
 		{
 			int num = (this.m_lastInstancePath != null) ? this.m_lastInstancePath.Count : 0;
 			Dictionary<string, object> dictionary = new Dictionary<string, object>(num, StringComparer.Ordinal);
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return dictionary;
 		}
 
-		internal override bool CalculateAggregate(string aggregateName)
+		public override bool CalculateAggregate(string aggregateName)
 		{
 			OnDemandProcessingContext odpWorkerContextForTablixProcessing = base.GetOdpWorkerContextForTablixProcessing();
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo dataAggregateInfo = default(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo);
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal override bool CalculateLookup(LookupInfo lookup)
+		public override bool CalculateLookup(LookupInfo lookup)
 		{
 			OnDemandProcessingContext odpWorkerContextForTablixProcessing = base.GetOdpWorkerContextForTablixProcessing();
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet = base.m_odpContext.ReportDefinition.MappingDataSetIndexToDataSet[lookup.DataSetIndexInCollection];
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal override bool PrepareFieldsCollectionForDirectFields()
+		public override bool PrepareFieldsCollectionForDirectFields()
 		{
 			if (base.m_odpContext.IsPageHeaderFooter && base.m_odpContext.ReportDefinition.DataSetsNotOnlyUsedInParameters == 1)
 			{
@@ -184,13 +184,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal override void EvaluateScopedFieldReference(string scopeName, int fieldIndex, ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
+		public override void EvaluateScopedFieldReference(string scopeName, int fieldIndex, ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
 		{
 			Global.Tracer.Assert(false, "Scoped field references are not supported in Full ODP mode.");
 			throw new NotImplementedException();
 		}
 
-		internal override int RecursiveLevel(string scopeName)
+		public override int RecursiveLevel(string scopeName)
 		{
 			if (base.m_odpContext.IsTablixProcessingMode)
 			{
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return 0;
 		}
 
-		internal override bool InScope(string scopeName)
+		public override bool InScope(string scopeName)
 		{
 			this.m_lastInScopeResult = false;
 			if (base.m_odpContext.IsTablixProcessingMode)
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return this.m_lastInScopeResult;
 		}
 
-		internal override void ResetOnDemandState()
+		public override void ResetOnDemandState()
 		{
 			this.m_lastInstancePath = null;
 			this.m_lastRecursiveLevel = 0;
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return this.m_lastInScopeResult;
 		}
 
-		internal override void RestoreContext(IInstancePath originalObject)
+		public override void RestoreContext(IInstancePath originalObject)
 		{
 			if (originalObject != null && base.m_odpContext.ReportRuntime.ContextUpdated && !InstancePathItem.IsSameScopePath(originalObject, this.m_lastRIFObject))
 			{
@@ -253,12 +253,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance)
+		public override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance)
 		{
 			this.SetupContext(rifObject, romInstance, -1);
 		}
 
-		internal override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
+		public override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
 		{
 			bool flag = false;
 			bool needDeepCopyPath = false;
@@ -654,7 +654,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.RestoreContext(lastRIFObject);
 		}
 
-		internal override IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance)
+		public override IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance currentReportInstance = base.m_odpContext.CurrentReportInstance;
 			dataSetInstance = currentReportInstance.GetDataSetInstance(dataSet, base.m_odpContext);
@@ -667,28 +667,28 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return dataChunkReader;
 		}
 
-		internal override void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
+		public override void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
 		{
 			Global.Tracer.Assert(false, "This method is not valid for this StateManager type.");
 			throw new InvalidOperationException("This method is not valid for this StateManager type.");
 		}
 
-		internal override bool ShouldStopPipelineAdvance(bool rowAccepted)
+		public override bool ShouldStopPipelineAdvance(bool rowAccepted)
 		{
 			return true;
 		}
 
-		internal override void CreatedScopeInstance(IRIFReportDataScope scope)
+		public override void CreatedScopeInstance(IRIFReportDataScope scope)
 		{
 		}
 
-		internal override bool ProcessOneRow(IRIFReportDataScope scope)
+		public override bool ProcessOneRow(IRIFReportDataScope scope)
 		{
 			Global.Tracer.Assert(false, "This method is not valid for this StateManager type.");
 			throw new InvalidOperationException("This method is not valid for this StateManager type.");
 		}
 
-		internal override bool CheckForPrematureServerAggregate(string aggregateName)
+		public override bool CheckForPrematureServerAggregate(string aggregateName)
 		{
 			return false;
 		}

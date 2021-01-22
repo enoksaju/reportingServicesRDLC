@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal interface IPropertyStore
+	public interface IPropertyStore
 	{
 		ReportObject Owner
 		{

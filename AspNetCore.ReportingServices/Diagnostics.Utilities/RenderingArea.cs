@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Flags]
-	internal enum RenderingArea
+	public enum RenderingArea
 	{
 		All = 0,
 		PageCreation = 1,

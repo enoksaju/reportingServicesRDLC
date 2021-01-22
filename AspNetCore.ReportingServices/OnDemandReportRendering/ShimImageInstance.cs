@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimImageInstance : ImageInstance
+	public sealed class ShimImageInstance : ImageInstance
 	{
 		private ActionInfoWithDynamicImageMapCollection m_actionInfoImageMapAreas;
 
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override string ImageDataId
+		public override string ImageDataId
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool IsNullImage
+		public override bool IsNullImage
 		{
 			get
 			{
@@ -89,12 +89,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimImageInstance(Image reportItemDef)
+		public ShimImageInstance(Image reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal override List<string> GetFieldsUsedInValueExpression()
+		public override List<string> GetFieldsUsedInValueExpression()
 		{
 			return null;
 		}

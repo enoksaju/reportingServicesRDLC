@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class SubReportRenderer : IReportItemRenderer
+	public class SubReportRenderer : IReportItemRenderer
 	{
 		private HTML5Renderer html5Renderer;
 

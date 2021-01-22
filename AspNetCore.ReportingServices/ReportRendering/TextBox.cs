@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TextBox : ReportItem
+	public sealed class TextBox : ReportItem
 	{
 		private SimpleTextBoxInstanceInfo m_simpleInstanceInfo;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 		private object m_originalValue;
 
-		internal SimpleTextBoxInstanceInfo SimpleInstanceInfo
+		public SimpleTextBoxInstanceInfo SimpleInstanceInfo
 		{
 			get
 			{
@@ -353,12 +353,12 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TextBox(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.TextBox reportItemDef, AspNetCore.ReportingServices.ReportProcessing.TextBoxInstance reportItemInstance, RenderingContext renderingContext)
+		public TextBox(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.TextBox reportItemDef, AspNetCore.ReportingServices.ReportProcessing.TextBoxInstance reportItemInstance, RenderingContext renderingContext)
 			: base(uniqueName, intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 		}
 
-		internal override bool Search(SearchContext searchContext)
+		public override bool Search(SearchContext searchContext)
 		{
 			if (base.SkipSearch)
 			{

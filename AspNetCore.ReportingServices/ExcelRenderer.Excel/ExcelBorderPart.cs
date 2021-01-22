@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum ExcelBorderPart
+	public enum ExcelBorderPart
 	{
 		Left,
 		Top,

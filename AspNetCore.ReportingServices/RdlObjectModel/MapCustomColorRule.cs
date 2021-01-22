@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapCustomColorRule : MapColorRule
+	public class MapCustomColorRule : MapColorRule
 	{
-		internal new class Definition : DefinitionStore<MapCustomColorRule, Definition.Properties>
+		public new class Definition : DefinitionStore<MapCustomColorRule, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataValue,
 				DistributionType,
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapCustomColorRule(IPropertyStore propertyStore)
+		public MapCustomColorRule(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

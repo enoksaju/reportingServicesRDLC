@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMarkerRule : MapAppearanceRule
+	public sealed class MapMarkerRule : MapAppearanceRule
 	{
 		private MapMarkerCollection m_mapMarkers;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerRule MapMarkerRuleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerRule MapMarkerRuleDef
 		{
 			get
 			{
@@ -34,12 +34,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMarkerRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerRule defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapMarkerRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerRule defObject, MapVectorLayer mapVectorLayer, Map map)
 			: base(defObject, mapVectorLayer, map)
 		{
 		}
 
-		internal override MapAppearanceRuleInstance GetInstance()
+		public override MapAppearanceRuleInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

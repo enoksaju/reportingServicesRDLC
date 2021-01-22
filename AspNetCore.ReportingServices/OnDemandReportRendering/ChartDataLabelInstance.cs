@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartDataLabelInstance : BaseInstance
+	public sealed class ChartDataLabelInstance : BaseInstance
 	{
 		private ChartDataLabel m_chartDataLabelDef;
 
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartDataLabelInstance(ChartDataLabel chartDataLabelDef)
+		public ChartDataLabelInstance(ChartDataLabel chartDataLabelDef)
 			: base(chartDataLabelDef.ReportScope)
 		{
 			this.m_chartDataLabelDef = chartDataLabelDef;

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapVectorLayerInstance : MapLayerInstance
+	public abstract class MapVectorLayerInstance : MapLayerInstance
 	{
 		private MapVectorLayer m_defObject;
 
-		internal MapVectorLayerInstance(MapVectorLayer defObject)
+		public MapVectorLayerInstance(MapVectorLayer defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

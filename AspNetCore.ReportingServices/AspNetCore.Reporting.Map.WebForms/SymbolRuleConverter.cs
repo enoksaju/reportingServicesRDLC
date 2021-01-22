@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SymbolRuleConverter : CollectionItemTypeConverter
+	public class SymbolRuleConverter : CollectionItemTypeConverter
 	{
 		public SymbolRuleConverter()
 		{

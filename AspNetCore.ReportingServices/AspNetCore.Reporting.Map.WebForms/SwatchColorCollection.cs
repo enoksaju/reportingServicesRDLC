@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SwatchColorCollection : NamedCollection
+	public class SwatchColorCollection : NamedCollection
 	{
 		private SwatchColor this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal SwatchColorCollection(NamedElement parent, CommonElements common)
+		public SwatchColorCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(SwatchColor);
@@ -82,17 +82,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Remove(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Color1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Color{0}";
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			NamedElement parentElement = base.ParentElement;
 			ColorSwatchPanel colorSwatchPanel = null;

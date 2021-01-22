@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class DataAggregateObj : IErrorContext, IStorable, IPersistable
+	public sealed class DataAggregateObj : IErrorContext, IStorable, IPersistable
 	{
 		private bool m_nonAggregateMode;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static Declaration m_declaration = DataAggregateObj.GetDeclaration();
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<string> DuplicateNames
+		public List<string> DuplicateNames
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NonAggregateMode
+		public bool NonAggregateMode
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataAggregateInfo AggregateDef
+		public DataAggregateInfo AggregateDef
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UsedInExpression
+		public bool UsedInExpression
 		{
 			get
 			{
@@ -79,11 +79,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataAggregateObj()
+		public DataAggregateObj()
 		{
 		}
 
-		internal DataAggregateObj(DataAggregateInfo aggInfo, OnDemandProcessingContext odpContext)
+		public DataAggregateObj(DataAggregateInfo aggInfo, OnDemandProcessingContext odpContext)
 		{
 			this.m_nonAggregateMode = false;
 			this.m_aggregator = AggregatorFactory.Instance.CreateAggregator(odpContext, aggInfo);
@@ -96,14 +96,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.Init();
 		}
 
-		internal DataAggregateObj(DataAggregateInfo aggrDef, DataAggregateObjResult aggrResult)
+		public DataAggregateObj(DataAggregateInfo aggrDef, DataAggregateObjResult aggrResult)
 		{
 			this.m_nonAggregateMode = true;
 			this.m_aggregateDef = aggrDef;
 			this.m_aggregateResult = aggrResult;
 		}
 
-		internal void Init()
+		public void Init()
 		{
 			if (!this.m_nonAggregateMode)
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ResetForNoRows()
+		public void ResetForNoRows()
 		{
 			if (this.m_nonAggregateMode)
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Update()
+		public void Update()
 		{
 			if (!this.m_aggregateResult.ErrorOccurred && !this.m_nonAggregateMode)
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataAggregateObjResult AggregateResult()
+		public DataAggregateObjResult AggregateResult()
 		{
 			if (!this.m_nonAggregateMode && !this.m_aggregateResult.ErrorOccurred)
 			{
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_aggregateResult;
 		}
 
-		internal bool EvaluateParameters(out object[] values, out DataFieldStatus fieldStatus)
+		public bool EvaluateParameters(out object[] values, out DataFieldStatus fieldStatus)
 		{
 			bool flag = false;
 			fieldStatus = DataFieldStatus.None;
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return flag;
 		}
 
-		internal void Set(DataAggregateObjResult aggregateResult)
+		public void Set(DataAggregateObjResult aggregateResult)
 		{
 			this.m_nonAggregateMode = true;
 			this.m_aggregateResult = aggregateResult;
@@ -326,7 +326,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataAggregateObj;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (DataAggregateObj.m_declaration == null)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal enum ProtectionMode
+	public enum ProtectionMode
 	{
 		CurrentUserEncryption,
 		LocalSystemEncryption

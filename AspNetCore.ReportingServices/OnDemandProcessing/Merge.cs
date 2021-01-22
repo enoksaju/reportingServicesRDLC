@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class Merge
+	public sealed class Merge
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.Report m_report;
 
@@ -26,14 +26,14 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private ParameterInfoCollection m_parameters;
 
-		internal Merge(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext odpContext)
+		public Merge(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext odpContext)
 		{
 			this.m_report = report;
 			this.m_odpContext = odpContext;
 			this.m_retrievalManager = new RetrievalManager(report, odpContext);
 		}
 
-		internal void Init(bool includeParameters, bool parametersOnly)
+		public void Init(bool includeParameters, bool parametersOnly)
 		{
 			if (this.m_odpContext.ReportRuntime == null)
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void Init(ParameterInfoCollection parameters)
+		public void Init(ParameterInfoCollection parameters)
 		{
 			if (this.m_odpContext.ReportRuntime == null)
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_odpContext.ReportRuntime.CustomCodeOnInit(this.m_odpContext.ReportDefinition);
 		}
 
-		internal void EvaluateReportLanguage(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, string snapshotLanguage)
+		public void EvaluateReportLanguage(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, string snapshotLanguage)
 		{
 			CultureInfo cultureInfo = null;
 			if (snapshotLanguage != null)
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void FetchData(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, bool mergeTransaction)
+		public void FetchData(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, bool mergeTransaction)
 		{
 			if (this.m_odpContext.ProcessWithCachedData)
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance PrepareReportInstance(IReportInstanceContainer reportInstanceContainer)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance PrepareReportInstance(IReportInstanceContainer reportInstanceContainer)
 		{
 			IReference<AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance> reference;
 			if (reportInstanceContainer.ReportInstance == null || reportInstanceContainer.ReportInstance.Value() == null)
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return reference.Value();
 		}
 
-		internal void SetupReport(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
+		public void SetupReport(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
 		{
 			this.m_odpContext.CurrentReportInstance = reportInstance;
 			if (!this.m_odpContext.InitializedRuntime)
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool InitAndSetupSubReport(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
+		public bool InitAndSetupSubReport(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
 		{
 			IReference<AspNetCore.ReportingServices.ReportIntermediateFormat.SubReportInstance> currentSubReportInstance = subReport.CurrentSubReportInstance;
 			bool flag = this.InitSubReport(subReport, currentSubReportInstance);
@@ -319,7 +319,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool FetchSubReportData(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReportInstance subReportInstance)
+		public bool FetchSubReportData(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReportInstance subReportInstance)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance = subReportInstance.ReportInstance.Value();
 			reportInstance.ResetReportVariables(subReport.OdpContext);
@@ -351,7 +351,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return flag;
 		}
 
-		internal static void TablixDataProcessing(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet specificDataSetOnly)
+		public static void TablixDataProcessing(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet specificDataSetOnly)
 		{
 			bool flag = false;
 			while (!flag)
@@ -368,7 +368,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal static bool PreProcessTablixes(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext odpContext, bool onlyWithSubReports)
+		public static bool PreProcessTablixes(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext odpContext, bool onlyWithSubReports)
 		{
 			bool result = false;
 			foreach (AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource in report.DataSources)

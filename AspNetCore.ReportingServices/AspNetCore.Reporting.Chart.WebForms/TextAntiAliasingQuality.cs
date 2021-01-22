@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum TextAntiAliasingQuality
+	public enum TextAntiAliasingQuality
 	{
 		Normal,
 		High,

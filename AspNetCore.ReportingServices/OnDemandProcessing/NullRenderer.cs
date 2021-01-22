@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class NullRenderer
+	public sealed class NullRenderer
 	{
 		private OnDemandProcessingContext m_odpContext;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private AspNetCore.ReportingServices.OnDemandReportRendering.Report m_report;
 
-		internal Stream DocumentMapStream
+		public Stream DocumentMapStream
 		{
 			get
 			{
@@ -28,11 +28,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal NullRenderer()
+		public NullRenderer()
 		{
 		}
 
-		internal void Process(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, OnDemandProcessingContext odpContext, bool generateDocumentMap, bool createSnapshot)
+		public void Process(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, OnDemandProcessingContext odpContext, bool generateDocumentMap, bool createSnapshot)
 		{
 			this.m_odpContext = odpContext;
 			this.m_report = report;

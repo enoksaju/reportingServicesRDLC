@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IShowHideReceiver
+	public interface IShowHideReceiver
 	{
 		void ProcessReceiver(ReportProcessing.ProcessingContext context, int uniqueName);
 	}

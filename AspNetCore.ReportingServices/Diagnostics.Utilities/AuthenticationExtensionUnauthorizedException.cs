@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class AuthenticationExtensionUnauthorizedException : RSException
+	public sealed class AuthenticationExtensionUnauthorizedException : RSException
 	{
 		public KeyValuePair<string, string> HttpResponseHeader
 		{

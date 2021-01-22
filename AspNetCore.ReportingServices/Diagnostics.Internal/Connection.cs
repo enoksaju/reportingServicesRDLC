@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
-    internal sealed class Connection
+    public sealed class Connection
 	{
 		public long? ConnectionOpenTime
 		{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Internal
 			set;
 		}
 
-		internal Connection()
+		public Connection()
 		{
 		}
 	}

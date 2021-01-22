@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal sealed class SecureStoreCannotRetrieveCredentialsException : ReportCatalogException
+	public sealed class SecureStoreCannotRetrieveCredentialsException : ReportCatalogException
 	{
 		public SecureStoreCannotRetrieveCredentialsException(Exception innerException)
 			: base(ErrorCode.rsSecureStoreCannotRetrieveCredentials, ErrorStrings.rsSecureStoreCannotRetrieveCredentials(innerException.Message), innerException, null)

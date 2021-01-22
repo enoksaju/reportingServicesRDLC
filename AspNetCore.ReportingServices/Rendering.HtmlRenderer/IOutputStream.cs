@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal interface IOutputStream
+	public interface IOutputStream
 	{
 		void Write(string text);
 

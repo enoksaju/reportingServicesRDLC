@@ -5,7 +5,7 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class GdiGraphics : IMapRenderingEngine
+	public class GdiGraphics : IMapRenderingEngine
 	{
 		private Graphics graphics;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum PageBreakStates
+	public enum PageBreakStates
 	{
 		Unknown,
 		CanIgnore,

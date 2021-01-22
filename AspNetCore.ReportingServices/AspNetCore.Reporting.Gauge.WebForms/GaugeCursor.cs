@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum GaugeCursor
+	public enum GaugeCursor
 	{
 		AppStarting,
 		Arrow,

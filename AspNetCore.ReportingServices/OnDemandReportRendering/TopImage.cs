@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TopImage : BaseGaugeImage
+	public sealed class TopImage : BaseGaugeImage
 	{
 		private ReportColorProperty m_hueColor;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.TopImage TopImageDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.TopImage TopImageDef
 		{
 			get
 			{
@@ -39,14 +39,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TopImage(AspNetCore.ReportingServices.ReportIntermediateFormat.TopImage defObject, GaugePanel gaugePanel)
+		public TopImage(AspNetCore.ReportingServices.ReportIntermediateFormat.TopImage defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override BaseGaugeImageInstance GetInstance()
+		public override BaseGaugeImageInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

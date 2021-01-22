@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapMarkerImage : IPersistable
+	public sealed class MapMarkerImage : IPersistable
 	{
 		[NonSerialized]
 		private MapMarkerImageExprHost m_exprHost;
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_resizeMode;
 
-		internal ExpressionInfo Source
+		public ExpressionInfo Source
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MIMEType
+		public ExpressionInfo MIMEType
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TransparentColor
+		public ExpressionInfo TransparentColor
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ResizeMode
+		public ExpressionInfo ResizeMode
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMarkerImageExprHost ExprHost
+		public MapMarkerImageExprHost ExprHost
 		{
 			get
 			{
@@ -108,16 +108,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMarkerImage()
+		public MapMarkerImage()
 		{
 		}
 
-		internal MapMarkerImage(Map map)
+		public MapMarkerImage(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapMarkerImageStart();
 			if (this.m_source != null)
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapMarkerImageEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapMarkerImage mapMarkerImage = (MapMarkerImage)base.MemberwiseClone();
 			mapMarkerImage.m_map = context.CurrentMapClone;
@@ -175,14 +175,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapMarkerImage;
 		}
 
-		internal void SetExprHost(MapMarkerImageExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapMarkerImageExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Source, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -284,37 +284,37 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapMarkerImage;
 		}
 
-		internal AspNetCore.ReportingServices.OnDemandReportRendering.Image.SourceType EvaluateSource(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.OnDemandReportRendering.Image.SourceType EvaluateSource(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateImageSourceType(context.ReportRuntime.EvaluateMapMarkerImageSourceExpression(this, this.m_map.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateStringValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context, out bool errorOccurred)
+		public string EvaluateStringValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context, out bool errorOccurred)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapMarkerImageStringValueExpression(this, this.m_map.Name, out errorOccurred);
 		}
 
-		internal byte[] EvaluateBinaryValue(IReportScopeInstance romInstance, OnDemandProcessingContext context, out bool errOccurred)
+		public byte[] EvaluateBinaryValue(IReportScopeInstance romInstance, OnDemandProcessingContext context, out bool errOccurred)
 		{
 			context.SetupContext(this.m_map, romInstance);
 			return context.ReportRuntime.EvaluateMapMarkerImageBinaryValueExpression(this, this.m_map.Name, out errOccurred);
 		}
 
-		internal string EvaluateMIMEType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMIMEType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapMarkerImageMIMETypeExpression(this, this.m_map.Name);
 		}
 
-		internal string EvaluateTransparentColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateTransparentColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapMarkerImageTransparentColorExpression(this, this.m_map.Name);
 		}
 
-		internal MapResizeMode EvaluateResizeMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapResizeMode EvaluateResizeMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapResizeMode(context.ReportRuntime.EvaluateMapMarkerImageResizeModeExpression(this, this.m_map.Name), context.ReportRuntime);

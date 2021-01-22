@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool SpecialMode
+		public bool SpecialMode
 		{
 			set
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal ReportItemsImpl(bool lockAdd)
+		public ReportItemsImpl(bool lockAdd)
 		{
 			this.m_lockAdd = lockAdd;
 			this.m_collection = new Hashtable();
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_specialModeIndex = null;
 		}
 
-		internal void ResetAll()
+		public void ResetAll()
 		{
 			foreach (ReportItemImpl value in this.m_collection.Values)
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void ResetAll(AspNetCore.ReportingServices.RdlExpressions.VariantResult aResult)
+		public void ResetAll(AspNetCore.ReportingServices.RdlExpressions.VariantResult aResult)
 		{
 			foreach (ReportItemImpl value in this.m_collection.Values)
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Add(ReportItemImpl reportItem)
+		public void Add(ReportItemImpl reportItem)
 		{
 			try
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void AddAll(ReportItemsImpl reportItems)
+		public void AddAll(ReportItemsImpl reportItems)
 		{
 			foreach (ReportItemImpl value in reportItems.m_collection.Values)
 			{
@@ -95,12 +95,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.ReportItem GetReportItem(string aName)
+		public AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.ReportItem GetReportItem(string aName)
 		{
 			return this.m_collection[aName] as AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.ReportItem;
 		}
 
-		internal string GetSpecialModeIndex()
+		public string GetSpecialModeIndex()
 		{
 			string specialModeIndex = this.m_specialModeIndex;
 			this.m_specialModeIndex = null;

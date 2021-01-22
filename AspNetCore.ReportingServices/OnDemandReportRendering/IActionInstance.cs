@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IActionInstance
+	public interface IActionInstance
 	{
 		string HyperlinkText
 		{

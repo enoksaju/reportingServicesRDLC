@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ImageInfo : IPersistable
+	public sealed class ImageInfo : IPersistable
 	{
 		private string m_streamName;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ImageInfo.GetDeclaration();
 
-		internal string StreamName
+		public string StreamName
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string MimeType
+		public string MimeType
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ErrorOccurred
+		public bool ErrorOccurred
 		{
 			get
 			{
@@ -56,17 +56,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ImageInfo()
+		public ImageInfo()
 		{
 		}
 
-		internal ImageInfo(string streamName, string mimeType)
+		public ImageInfo(string streamName, string mimeType)
 		{
 			this.m_streamName = streamName;
 			this.m_mimeType = mimeType;
 		}
 
-		internal byte[] GetCachedImageData()
+		public byte[] GetCachedImageData()
 		{
 			if (this.m_imageDataRef != null && this.m_imageDataRef.IsAlive)
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal void SetCachedImageData(byte[] imageData)
+		public void SetCachedImageData(byte[] imageData)
 		{
 			if (this.m_imageDataRef == null)
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.StreamName, Token.String));

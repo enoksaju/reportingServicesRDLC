@@ -16,16 +16,16 @@ using System.Web;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal abstract class HTML5Renderer : IHtmlReportWriter, IHtmlWriter, IHtmlRenderer
+	public abstract class HTML5Renderer : IHtmlReportWriter, IHtmlWriter, IHtmlRenderer
 	{
-		internal enum RequestType
+		public enum RequestType
 		{
 			Render,
 			Search,
 			Bookmark
 		}
 
-		internal enum Border
+		public enum Border
 		{
 			All,
 			Left,
@@ -34,66 +34,66 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			Bottom
 		}
 
-		internal enum BorderAttribute
+		public enum BorderAttribute
 		{
 			BorderWidth,
 			BorderStyle,
 			BorderColor
 		}
 
-		internal enum Direction
+		public enum Direction
 		{
 			Row,
 			Column
 		}
 
-		internal enum FontAttributes
+		public enum FontAttributes
 		{
 			None,
 			Partial,
 			All
 		}
 
-		internal enum PageSection
+		public enum PageSection
 		{
 			Body,
 			PageHeader,
 			PageFooter
 		}
 
-		internal const string DrillthroughAction = "Drillthrough";
+		public const string DrillthroughAction = "Drillthrough";
 
-		internal const string BookmarkAction = "Bookmark";
+		public const string BookmarkAction = "Bookmark";
 
-		internal const string GetImageKey = "GetImage";
+		public const string GetImageKey = "GetImage";
 
-		internal const int IgnoreLeft = 1;
+		public const int IgnoreLeft = 1;
 
-		internal const int IgnoreRight = 2;
+		public const int IgnoreRight = 2;
 
-		internal const int IgnoreTop = 4;
+		public const int IgnoreTop = 4;
 
-		internal const int IgnoreBottom = 8;
+		public const int IgnoreBottom = 8;
 
-		internal const int IgnoreAll = 15;
+		public const int IgnoreAll = 15;
 
-		internal const float MaxWordSize = 558.8f;
+		public const float MaxWordSize = 558.8f;
 
-		internal const string FixedRowGroupHeaderPrefix = "frgh";
+		public const string FixedRowGroupHeaderPrefix = "frgh";
 
-		internal const string FixedCornerHeaderPrefix = "fch";
+		public const string FixedCornerHeaderPrefix = "fch";
 
-		internal const string FixedColGroupHeaderPrefix = "fcgh";
+		public const string FixedColGroupHeaderPrefix = "fcgh";
 
-		internal const string FixedRGHArrayPrefix = "frhArr";
+		public const string FixedRGHArrayPrefix = "frhArr";
 
-		internal const string FixedCGHArrayPrefix = "fcghArr";
+		public const string FixedCGHArrayPrefix = "fcghArr";
 
-		internal const string FixedCHArrayPrefix = "fchArr";
+		public const string FixedCHArrayPrefix = "fchArr";
 
-		internal const string ReportDiv = "oReportDiv";
+		public const string ReportDiv = "oReportDiv";
 
-		internal const string ReportCell = "oReportCell";
+		public const string ReportCell = "oReportCell";
 
 		private const char PathSeparator = '/';
 
@@ -107,17 +107,17 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected const int SecondaryStreamBufferSize = 4096;
 
-		internal const string SortAction = "Sort";
+		public const string SortAction = "Sort";
 
-		internal const string ToggleAction = "Toggle";
+		public const string ToggleAction = "Toggle";
 
-		internal const char StreamNameSeparator = '_';
+		public const char StreamNameSeparator = '_';
 
-		internal const string PageStyleName = "p";
+		public const string PageStyleName = "p";
 
-		internal const string MHTMLPrefix = "cid:";
+		public const string MHTMLPrefix = "cid:";
 
-		internal const string CSSSuffix = "style";
+		public const string CSSSuffix = "style";
 
 		protected const string m_resourceNamespace = "AspNetCore.ReportingServices.Rendering.HtmlRenderer.RendererResources";
 
@@ -137,11 +137,11 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected int m_tabIndexNum;
 
-		internal int m_currentHitCount;
+		public int m_currentHitCount;
 
-		internal Encoding m_encoding;
+		public Encoding m_encoding;
 
-		internal static char[] m_cssDelimiters = new char[13]
+		public static char[] m_cssDelimiters = new char[13]
 		{
 			'[',
 			']',
@@ -226,9 +226,9 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected internal bool m_needsFitVertTextScript;
 
-		internal static string m_searchHitIdPrefix = "oHit";
+		public static string m_searchHitIdPrefix = "oHit";
 
-		internal static string m_standardLineBreak = "\n";
+		public static string m_standardLineBreak = "\n";
 
 		protected bool m_pageHasStyle;
 
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected internal bool m_usePercentWidth;
 
-		internal bool m_expandItem;
+		public bool m_expandItem;
 
 		protected internal ReportContext m_reportContext;
 
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal string SearchText
+		public string SearchText
 		{
 			set
 			{
@@ -268,7 +268,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool NeedResizeImages
+		public bool NeedResizeImages
 		{
 			get
 			{
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void InitializeReport()
+		public void InitializeReport()
 		{
 			this.m_rplReport = this.GetNextPage();
 			if (this.m_rplReport == null)
@@ -407,7 +407,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.m_mainStream.Write(theBytes, 0, theBytes.Length);
 		}
 
-		internal void WriteAccesibilityTags(string nameToUseIfNoTooltip, RPLElementProps itemProperties, bool reportItemIsTopLevel)
+		public void WriteAccesibilityTags(string nameToUseIfNoTooltip, RPLElementProps itemProperties, bool reportItemIsTopLevel)
 		{
 			if (reportItemIsTopLevel)
 			{
@@ -417,7 +417,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void WriteAriaPresentationRole()
+		public void WriteAriaPresentationRole()
 		{
 			this.WriteStream(HTMLElements.m_space);
 			this.WriteStream(HTMLElements.m_role);
@@ -427,7 +427,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteStream(HTMLElements.m_quote);
 		}
 
-		internal void WriteAriaAccessibleTags(string accessibleAriaName)
+		public void WriteAriaAccessibleTags(string accessibleAriaName)
 		{
 			this.WriteStream(HTMLElements.m_space);
 			this.WriteStream(HTMLElements.m_role);
@@ -453,7 +453,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteStream(HTMLElements.m_quote);
 		}
 
-		internal string GetTooltip(RPLElementProps props)
+		public string GetTooltip(RPLElementProps props)
 		{
 			RPLItemProps rPLItemProps = props as RPLItemProps;
 			RPLItemPropsDef rPLItemPropsDef = rPLItemProps.Definition as RPLItemPropsDef;
@@ -480,7 +480,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteAttrEncoded(HTMLElements.m_title, tooltip);
 		}
 
-		internal void OpenStyle()
+		public void OpenStyle()
 		{
 			if (!this.m_isStyleOpen)
 			{
@@ -489,7 +489,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void CloseStyle(bool renderQuote)
+		public void CloseStyle(bool renderQuote)
 		{
 			if (this.m_isStyleOpen && renderQuote)
 			{
@@ -512,7 +512,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteStream(HTMLElements.m_semiColon);
 		}
 
-		internal void RenderMeasurementMinHeight(float height)
+		public void RenderMeasurementMinHeight(float height)
 		{
 			this.WriteStream(HTMLElements.m_styleMinHeight);
 			this.WriteRSStream(height);
@@ -568,24 +568,24 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.RenderMeasurementWidth(width, false);
 		}
 
-		internal void WriteReportItemId(string repItemId)
+		public void WriteReportItemId(string repItemId)
 		{
 			this.WriteAttrEncoded(this.m_deviceInfo.HtmlPrefixId);
 			this.WriteStream(repItemId);
 		}
 
-		internal void WriteAttrEncoded(byte[] attributeName, string theString)
+		public void WriteAttrEncoded(byte[] attributeName, string theString)
 		{
 			this.WriteAttribute(attributeName, this.m_encoding.GetBytes(HttpUtility.HtmlAttributeEncode(theString)));
 		}
 
-		internal void WriteRSStream(float size)
+		public void WriteRSStream(float size)
 		{
 			this.WriteStream(size.ToString("f2", CultureInfo.InvariantCulture));
 			this.WriteStream(HTMLElements.m_mm);
 		}
 
-		internal void WriteAttrEncoded(string theString)
+		public void WriteAttrEncoded(string theString)
 		{
 			this.WriteStream(HttpUtility.HtmlAttributeEncode(theString));
 		}
@@ -597,7 +597,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteStream(HTMLElements.m_quote);
 		}
 
-		internal void RenderNavigationId(string navigationId)
+		public void RenderNavigationId(string navigationId)
 		{
 			if (!this.IsFragment)
 			{
@@ -649,7 +649,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return HTML5Renderer.GetInnerContainerMeasurementSubtractingHalfBorders(measurement, containerStyle, 6, 11, 7, 12, HTML5Renderer.GetInnerContainerWidth(measurement, containerStyle));
 		}
 
-		internal static float GetInnerContainerHeightSubtractHalfBorders(RPLItemMeasurement measurement, IRPLStyle containerStyle)
+		public static float GetInnerContainerHeightSubtractHalfBorders(RPLItemMeasurement measurement, IRPLStyle containerStyle)
 		{
 			return HTML5Renderer.GetInnerContainerMeasurementSubtractingHalfBorders(measurement, containerStyle, 8, 13, 9, 14, HTML5Renderer.GetInnerContainerHeight(measurement, containerStyle));
 		}
@@ -673,7 +673,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return Math.Max(length, 1f);
 		}
 
-		internal float GetInnerContainerHeightSubtractBorders(RPLItemMeasurement measurement, IRPLStyle containerStyle)
+		public float GetInnerContainerHeightSubtractBorders(RPLItemMeasurement measurement, IRPLStyle containerStyle)
 		{
 			if (measurement == null)
 			{
@@ -805,7 +805,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return defaultClass;
 		}
 
-		internal static bool IsWritingModeVertical(IRPLStyle style)
+		public static bool IsWritingModeVertical(IRPLStyle style)
 		{
 			if (style == null)
 			{
@@ -819,7 +819,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return false;
 		}
 
-		internal static bool IsWritingModeVertical(RPLFormat.WritingModes writingMode)
+		public static bool IsWritingModeVertical(RPLFormat.WritingModes writingMode)
 		{
 			if (writingMode != RPLFormat.WritingModes.Vertical)
 			{
@@ -828,7 +828,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return true;
 		}
 
-		internal bool HasAction(RPLActionInfo actionInfo)
+		public bool HasAction(RPLActionInfo actionInfo)
 		{
 			if (actionInfo != null && actionInfo.Actions != null)
 			{
@@ -837,7 +837,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return false;
 		}
 
-		internal static float GetInnerContainerHeight(RPLItemMeasurement measurement, IRPLStyle containerStyle)
+		public static float GetInnerContainerHeight(RPLItemMeasurement measurement, IRPLStyle containerStyle)
 		{
 			if (measurement == null)
 			{
@@ -871,14 +871,14 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return width;
 		}
 
-		internal void RenderTabIndex()
+		public void RenderTabIndex()
 		{
 			this.WriteStream(HTMLElements.m_tabIndex);
 			this.WriteStream(++this.m_tabIndexNum);
 			this.WriteStream(HTMLElements.m_quote);
 		}
 
-		internal static void QuoteString(StringBuilder output, string input)
+		public static void QuoteString(StringBuilder output, string input)
 		{
 			if (output != null && input != null && input.Length != 0)
 			{
@@ -895,7 +895,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void RenderOnClickActionScript(string actionType, string actionArg, string actionUrl = null)
+		public void RenderOnClickActionScript(string actionType, string actionArg, string actionUrl = null)
 		{
 			this.WriteStream(" onclick=\"");
 			this.WriteStream(this.m_deviceInfo.ActionScript);
@@ -925,7 +925,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return HTML5Renderer.GetStreamName(aReportName, aPageNumber, "style");
 		}
 
-		internal static string GetStreamName(string aReportName, int aPageNumber, string suffix)
+		public static string GetStreamName(string aReportName, int aPageNumber, string suffix)
 		{
 			if (aPageNumber > 0)
 			{
@@ -934,7 +934,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return string.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", aReportName, '_', suffix);
 		}
 
-		internal string GetReportItemPath(string reportItemName)
+		public string GetReportItemPath(string reportItemName)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			foreach (string item in this.m_reportContext.GetPath())
@@ -945,7 +945,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return stringBuilder.ToString();
 		}
 
-		internal static string HandleSpecialFontCharacters(string fontName)
+		public static string HandleSpecialFontCharacters(string fontName)
 		{
 			if (fontName.IndexOfAny(HTML5Renderer.m_cssDelimiters) != -1)
 			{
@@ -979,7 +979,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected internal abstract void WriteFitProportionalScript(double pv, double ph);
 
-		internal void RenderStylesOnly(string streamName)
+		public void RenderStylesOnly(string streamName)
 		{
 			Stream stream = this.CreateStream(streamName, "css", Encoding.UTF8, "text/css", false, AspNetCore.ReportingServices.Interfaces.StreamOper.CreateAndRegister);
 			StyleContext styleContext = new StyleContext();
@@ -1050,7 +1050,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.m_styleStream.Flush();
 		}
 
-		internal void RenderStylesOnlyRecursive(RPLItemMeasurement measurement, StyleContext styleContext)
+		public void RenderStylesOnlyRecursive(RPLItemMeasurement measurement, StyleContext styleContext)
 		{
 			int num = 0;
 			RPLElement element = measurement.Element;
@@ -1710,7 +1710,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteStream(HTMLElements.m_closeDiv);
 		}
 
-		internal void WriteStream(object theString)
+		public void WriteStream(object theString)
 		{
 			if (theString != null)
 			{
@@ -1930,7 +1930,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool IsLineSlanted(RPLItemMeasurement measurement)
+		public bool IsLineSlanted(RPLItemMeasurement measurement)
 		{
 			if (measurement == null)
 			{
@@ -2020,7 +2020,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteStream(HTMLElements.m_closeTag);
 		}
 
-		internal virtual string GetImageUrl(bool useSessionId, RPLImageData image)
+		public virtual string GetImageUrl(bool useSessionId, RPLImageData image)
 		{
 			string text = this.CreateImageStream(image);
 			string result = null;
@@ -2031,7 +2031,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return result;
 		}
 
-		internal void RenderImageUrl(bool useSessionId, RPLImageData image)
+		public void RenderImageUrl(bool useSessionId, RPLImageData image)
 		{
 			string imageUrl = this.GetImageUrl(useSessionId, image);
 			if (imageUrl != null)
@@ -2040,7 +2040,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void WriteOuterConsolidation(System.Drawing.Rectangle consolidationOffsets, RPLFormat.Sizings sizing, string propsUniqueName)
+		public void WriteOuterConsolidation(System.Drawing.Rectangle consolidationOffsets, RPLFormat.Sizings sizing, string propsUniqueName)
 		{
 			bool flag = false;
 			switch (sizing)
@@ -2751,12 +2751,12 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			HTML5Renderer.PredefinedStyles(this.m_deviceInfo, this, this.m_styleClassPrefix);
 		}
 
-		internal static void PredefinedStyles(DeviceInfo m_deviceInfo, IHtmlRenderer writer)
+		public static void PredefinedStyles(DeviceInfo m_deviceInfo, IHtmlRenderer writer)
 		{
 			HTML5Renderer.PredefinedStyles(m_deviceInfo, writer, null);
 		}
 
-		internal static void PredefinedStyles(DeviceInfo deviceInfo, IHtmlRenderer writer, byte[] classStylePrefix)
+		public static void PredefinedStyles(DeviceInfo deviceInfo, IHtmlRenderer writer, byte[] classStylePrefix)
 		{
 			HTML5Renderer.StartPredefinedStyleClass(deviceInfo, writer, classStylePrefix, HTMLElements.m_percentSizes);
 			writer.WriteStream(HTMLElements.m_styleHeight);
@@ -3201,7 +3201,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return result;
 		}
 
-		internal string CreateImageStream(RPLImageData image)
+		public string CreateImageStream(RPLImageData image)
 		{
 			if (image.ImageName == null)
 			{
@@ -3240,7 +3240,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return true;
 		}
 
-		internal bool RenderActionHref(RPLAction action, RPLFormat.TextDecorations textDec, string color)
+		public bool RenderActionHref(RPLAction action, RPLFormat.TextDecorations textDec, string color)
 		{
 			bool result = false;
 			if (action.Hyperlink != null)
@@ -3275,7 +3275,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return result;
 		}
 
-		internal static bool IsDirectionRTL(IRPLStyle style)
+		public static bool IsDirectionRTL(IRPLStyle style)
 		{
 			object obj = style[29];
 			if (obj != null)
@@ -3285,7 +3285,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return false;
 		}
 
-		internal static bool HasHorizontalPaddingStyles(IRPLStyle style)
+		public static bool HasHorizontalPaddingStyles(IRPLStyle style)
 		{
 			if (style != null)
 			{
@@ -3298,7 +3298,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return false;
 		}
 
-		internal void PercentSizes()
+		public void PercentSizes()
 		{
 			this.WriteStream(HTMLElements.m_openStyle);
 			this.WriteStream(HTMLElements.m_styleHeight);
@@ -3319,7 +3319,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteClassName(HTMLElements.m_percentHeight, HTMLElements.m_classPercentHeight);
 		}
 
-		internal void RenderLanguage(string language)
+		public void RenderLanguage(string language)
 		{
 			if (!string.IsNullOrEmpty(language))
 			{
@@ -3329,7 +3329,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void RenderReportLanguage()
+		public void RenderReportLanguage()
 		{
 			this.RenderLanguage(this.m_contextLanguage);
 		}
@@ -3988,7 +3988,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void RenderReportItemStyle(RPLElement reportItem, RPLItemMeasurement measurement, ref int borderContext)
+		public void RenderReportItemStyle(RPLElement reportItem, RPLItemMeasurement measurement, ref int borderContext)
 		{
 			RPLElementProps elementProps = reportItem.ElementProps;
 			RPLElementPropsDef definition = elementProps.Definition;
@@ -4002,7 +4002,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.RenderReportItemStyle(reportItem, elementProps, definition, measurement, styleContext, ref borderContext, definition.ID);
 		}
 
-		internal void RenderReportItemStyle(RPLElement reportItem, RPLElementProps elementProps, RPLElementPropsDef definition, RPLStyleProps nonSharedStyle, RPLStyleProps sharedStyle, RPLItemMeasurement measurement, StyleContext styleContext, ref int borderContext, string styleID, bool renderDirectionStyles = false)
+		public void RenderReportItemStyle(RPLElement reportItem, RPLElementProps elementProps, RPLElementPropsDef definition, RPLStyleProps nonSharedStyle, RPLStyleProps sharedStyle, RPLItemMeasurement measurement, StyleContext styleContext, ref int borderContext, string styleID, bool renderDirectionStyles = false)
 		{
 			if (this.m_useInlineStyle)
 			{
@@ -4155,7 +4155,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void RenderReportItemStyle(RPLElement reportItem, RPLElementProps elementProps, RPLElementPropsDef definition, RPLItemMeasurement measurement, StyleContext styleContext, ref int borderContext, string styleID)
+		public void RenderReportItemStyle(RPLElement reportItem, RPLElementProps elementProps, RPLElementPropsDef definition, RPLItemMeasurement measurement, StyleContext styleContext, ref int borderContext, string styleID)
 		{
 			this.RenderReportItemStyle(reportItem, elementProps, definition, elementProps.NonSharedStyle, definition.SharedStyle, measurement, styleContext, ref borderContext, styleID, false);
 		}
@@ -4192,13 +4192,13 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal static bool GetTextAlignForType(RPLTextBoxProps textBoxProps)
+		public static bool GetTextAlignForType(RPLTextBoxProps textBoxProps)
 		{
 			TypeCode typeCode = textBoxProps.TypeCode;
 			return HTML5Renderer.GetTextAlignForType(typeCode);
 		}
 
-		internal static bool GetTextAlignForType(TypeCode typeCode)
+		public static bool GetTextAlignForType(TypeCode typeCode)
 		{
 			bool result = false;
 			switch (typeCode)
@@ -4589,7 +4589,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.m_imgConImageIdsStream = new BufferedStream(stream);
 		}
 
-		internal void CreateImgFitDivImageIdsStream()
+		public void CreateImgFitDivImageIdsStream()
 		{
 			string streamName = HTML5Renderer.GetStreamName(this.m_rplReport.ReportName, this.m_pageNum, "_ifd");
 			Stream stream = this.CreateStream(streamName, "txt", Encoding.UTF8, "text/plain", true, AspNetCore.ReportingServices.Interfaces.StreamOper.CreateOnly);

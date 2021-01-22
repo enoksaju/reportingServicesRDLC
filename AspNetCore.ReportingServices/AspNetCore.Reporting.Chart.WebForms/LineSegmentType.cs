@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum LineSegmentType
+	public enum LineSegmentType
 	{
 		Single,
 		First,

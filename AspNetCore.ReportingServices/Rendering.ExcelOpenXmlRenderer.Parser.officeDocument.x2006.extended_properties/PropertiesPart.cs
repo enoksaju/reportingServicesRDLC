@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.officeDocument.x2006.extended_properties
 {
-	internal class PropertiesPart : OoxmlPart
+	public class PropertiesPart : OoxmlPart
 	{
 		private CT_Properties _root;
 

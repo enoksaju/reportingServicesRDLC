@@ -11,15 +11,15 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class ChartAxis : ChartStyleContainer, IPersistable, ICustomPropertiesHolder
+	public class ChartAxis : ChartStyleContainer, IPersistable, ICustomPropertiesHolder
 	{
-		internal enum Mode
+		public enum Mode
 		{
 			CategoryAxis,
 			ValueAxis
 		}
 
-		internal enum ExpressionType
+		public enum ExpressionType
 		{
 			Min,
 			Max,
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ChartAxis.GetDeclaration();
 
-		internal string AxisName
+		public string AxisName
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAxisTitle Title
+		public ChartAxisTitle Title
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartGridLines MajorGridLines
+		public ChartGridLines MajorGridLines
 		{
 			get
 			{
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartGridLines MinorGridLines
+		public ChartGridLines MinorGridLines
 		{
 			get
 			{
@@ -178,7 +178,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartStripLine> StripLines
+		public List<ChartStripLine> StripLines
 		{
 			get
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool Scalar
+		public bool Scalar
 		{
 			get
 			{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Minimum
+		public ExpressionInfo Minimum
 		{
 			get
 			{
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Maximum
+		public ExpressionInfo Maximum
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CrossAt
+		public ExpressionInfo CrossAt
 		{
 			get
 			{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool AutoCrossAt
+		public bool AutoCrossAt
 		{
 			get
 			{
@@ -262,7 +262,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool AutoScaleMin
+		public bool AutoScaleMin
 		{
 			get
 			{
@@ -274,7 +274,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool AutoScaleMax
+		public bool AutoScaleMax
 		{
 			get
 			{
@@ -286,7 +286,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Visible
+		public ExpressionInfo Visible
 		{
 			get
 			{
@@ -298,7 +298,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Margin
+		public ExpressionInfo Margin
 		{
 			get
 			{
@@ -310,7 +310,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Interval
+		public ExpressionInfo Interval
 		{
 			get
 			{
@@ -322,7 +322,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalType
+		public ExpressionInfo IntervalType
 		{
 			get
 			{
@@ -334,7 +334,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffset
+		public ExpressionInfo IntervalOffset
 		{
 			get
 			{
@@ -346,7 +346,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffsetType
+		public ExpressionInfo IntervalOffsetType
 		{
 			get
 			{
@@ -358,7 +358,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartTickMarks MajorTickMarks
+		public ChartTickMarks MajorTickMarks
 		{
 			get
 			{
@@ -370,7 +370,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartTickMarks MinorTickMarks
+		public ChartTickMarks MinorTickMarks
 		{
 			get
 			{
@@ -382,7 +382,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MarksAlwaysAtPlotEdge
+		public ExpressionInfo MarksAlwaysAtPlotEdge
 		{
 			get
 			{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Reverse
+		public ExpressionInfo Reverse
 		{
 			get
 			{
@@ -406,7 +406,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Location
+		public ExpressionInfo Location
 		{
 			get
 			{
@@ -418,7 +418,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Interlaced
+		public ExpressionInfo Interlaced
 		{
 			get
 			{
@@ -430,7 +430,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo InterlacedColor
+		public ExpressionInfo InterlacedColor
 		{
 			get
 			{
@@ -442,7 +442,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LogScale
+		public ExpressionInfo LogScale
 		{
 			get
 			{
@@ -454,7 +454,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LogBase
+		public ExpressionInfo LogBase
 		{
 			get
 			{
@@ -466,7 +466,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HideLabels
+		public ExpressionInfo HideLabels
 		{
 			get
 			{
@@ -478,7 +478,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Angle
+		public ExpressionInfo Angle
 		{
 			get
 			{
@@ -490,7 +490,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Arrows
+		public ExpressionInfo Arrows
 		{
 			get
 			{
@@ -502,7 +502,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo PreventFontShrink
+		public ExpressionInfo PreventFontShrink
 		{
 			get
 			{
@@ -514,7 +514,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo PreventFontGrow
+		public ExpressionInfo PreventFontGrow
 		{
 			get
 			{
@@ -526,7 +526,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo PreventLabelOffset
+		public ExpressionInfo PreventLabelOffset
 		{
 			get
 			{
@@ -538,7 +538,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo PreventWordWrap
+		public ExpressionInfo PreventWordWrap
 		{
 			get
 			{
@@ -550,7 +550,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AllowLabelRotation
+		public ExpressionInfo AllowLabelRotation
 		{
 			get
 			{
@@ -562,7 +562,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IncludeZero
+		public ExpressionInfo IncludeZero
 		{
 			get
 			{
@@ -574,7 +574,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelsAutoFitDisabled
+		public ExpressionInfo LabelsAutoFitDisabled
 		{
 			get
 			{
@@ -586,7 +586,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MinFontSize
+		public ExpressionInfo MinFontSize
 		{
 			get
 			{
@@ -598,7 +598,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaxFontSize
+		public ExpressionInfo MaxFontSize
 		{
 			get
 			{
@@ -610,7 +610,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo OffsetLabels
+		public ExpressionInfo OffsetLabels
 		{
 			get
 			{
@@ -622,7 +622,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HideEndLabels
+		public ExpressionInfo HideEndLabels
 		{
 			get
 			{
@@ -634,7 +634,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAxisScaleBreak AxisScaleBreak
+		public ChartAxisScaleBreak AxisScaleBreak
 		{
 			get
 			{
@@ -646,7 +646,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo VariableAutoInterval
+		public ExpressionInfo VariableAutoInterval
 		{
 			get
 			{
@@ -658,7 +658,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelInterval
+		public ExpressionInfo LabelInterval
 		{
 			get
 			{
@@ -670,7 +670,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelIntervalType
+		public ExpressionInfo LabelIntervalType
 		{
 			get
 			{
@@ -682,7 +682,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelIntervalOffset
+		public ExpressionInfo LabelIntervalOffset
 		{
 			get
 			{
@@ -694,7 +694,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelIntervalOffsetType
+		public ExpressionInfo LabelIntervalOffsetType
 		{
 			get
 			{
@@ -706,7 +706,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAxisExprHost ExprHost
+		public ChartAxisExprHost ExprHost
 		{
 			get
 			{
@@ -714,7 +714,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -722,16 +722,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAxis()
+		public ChartAxis()
 		{
 		}
 
-		internal ChartAxis(Chart chart)
+		public ChartAxis(Chart chart)
 			: base(chart)
 		{
 		}
 
-		internal void SetExprHost(ChartAxisExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartAxisExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -779,7 +779,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual void Initialize(InitializationContext context, bool isValueAxis)
+		public virtual void Initialize(InitializationContext context, bool isValueAxis)
 		{
 			string propertyName = this.GetPropertyName(isValueAxis);
 			context.ExprHostBuilder.ChartAxisStart(this.m_name, isValueAxis);
@@ -1037,7 +1037,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return "ValueAxis_" + this.m_name;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartAxis chartAxis = (ChartAxis)base.PublishClone(context);
 			if (this.m_title != null)
@@ -1223,7 +1223,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartAxis;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -1612,7 +1612,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartAxis;
 		}
 
-		internal object EvaluateCrossAt(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public object EvaluateCrossAt(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			if (this.m_crossAt == null)
 			{
@@ -1622,7 +1622,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return context.ReportRuntime.EvaluateChartAxisValueExpression(this.m_exprHost, this.m_crossAt, base.Name, "CrossAt", ExpressionType.CrossAt);
 		}
 
-		internal object EvaluateMin(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public object EvaluateMin(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			if (this.m_min == null)
 			{
@@ -1632,7 +1632,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return context.ReportRuntime.EvaluateChartAxisValueExpression(this.m_exprHost, this.m_min, base.Name, "Minimum", ExpressionType.Min);
 		}
 
-		internal object EvaluateMax(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public object EvaluateMax(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			if (this.m_max == null)
 			{
@@ -1642,193 +1642,193 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return context.ReportRuntime.EvaluateChartAxisValueExpression(this.m_exprHost, this.m_max, base.Name, "Maximum", ExpressionType.Max);
 		}
 
-		internal ChartAxisArrow EvaluateArrows(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartAxisArrow EvaluateArrows(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartAxisArrow(context.ReportRuntime.EvaluateChartAxisArrowsExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateVisible(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateVisible(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisVisibleExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisMarginExpression(this, base.m_chart.Name);
 		}
 
-		internal double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisIntervalExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartIntervalType EvaluateIntervalType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateIntervalType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartAxisIntervalTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisIntervalOffsetExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartIntervalType EvaluateIntervalOffsetType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateIntervalOffsetType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartAxisIntervalOffsetTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateMarksAlwaysAtPlotEdge(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateMarksAlwaysAtPlotEdge(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisMarksAlwaysAtPlotEdgeExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluateReverse(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateReverse(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisReverseExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartAxisLocation EvaluateLocation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartAxisLocation EvaluateLocation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartAxisLocation(context.ReportRuntime.EvaluateChartAxisLocationExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateInterlaced(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateInterlaced(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisInterlacedExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateInterlacedColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateInterlacedColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisInterlacedColorExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluateLogScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateLogScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisLogScaleExpression(this, base.m_chart.Name);
 		}
 
-		internal double EvaluateLogBase(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateLogBase(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisLogBaseExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluateHideLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHideLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisHideLabelsExpression(this, base.m_chart.Name);
 		}
 
-		internal double EvaluateAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisAngleExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluatePreventFontShrink(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluatePreventFontShrink(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisPreventFontShrinkExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluatePreventFontGrow(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluatePreventFontGrow(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisPreventFontGrowExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluatePreventLabelOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluatePreventLabelOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisPreventLabelOffsetExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluatePreventWordWrap(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluatePreventWordWrap(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisPreventWordWrapExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartAxisLabelRotation EvaluateAllowLabelRotation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartAxisLabelRotation EvaluateAllowLabelRotation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartAxisLabelRotation(context.ReportRuntime.EvaluateChartAxisAllowLabelRotationExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateIncludeZero(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateIncludeZero(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisIncludeZeroExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluateLabelsAutoFitDisabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateLabelsAutoFitDisabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisLabelsAutoFitDisabledExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateMinFontSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMinFontSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisMinFontSizeExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateMaxFontSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMaxFontSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisMaxFontSizeExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluateOffsetLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateOffsetLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisOffsetLabelsExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluateHideEndLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHideEndLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisHideEndLabelsExpression(this, base.m_chart.Name);
 		}
 
-		internal bool EvaluateVariableAutoInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateVariableAutoInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisVariableAutoIntervalExpression(this, base.m_chart.Name);
 		}
 
-		internal double EvaluateLabelInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateLabelInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisLabelIntervalExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartIntervalType EvaluateLabelIntervalType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateLabelIntervalType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartAxisLabelIntervalTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateLabelIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateLabelIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisLabelIntervalOffsetsExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartIntervalType EvaluateLabelIntervalOffsetType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateLabelIntervalOffsetType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartAxisLabelIntervalOffsetTypeExpression(this, base.m_chart.Name), context.ReportRuntime);

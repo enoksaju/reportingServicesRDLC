@@ -5,17 +5,17 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class PageBufferedStream : Stream
+	public sealed class PageBufferedStream : Stream
 	{
 		private sealed class CachePage
 		{
-			internal byte[] Buffer;
+			public byte[] Buffer;
 
-			internal bool Dirty;
+			public bool Dirty;
 
-			internal CachePage NextPage;
+			public CachePage NextPage;
 
-			internal long PageNumber;
+			public long PageNumber;
 
 			public CachePage(int size, long pageNum)
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				this.Dirty = false;
 			}
 
-			internal void InitBuffer()
+			public void InitBuffer()
 			{
 				this.Dirty = false;
 			}
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal int PageCount
+		public int PageCount
 		{
 			get
 			{

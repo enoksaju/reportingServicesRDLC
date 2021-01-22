@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal class XMLCharacterRunManager
+	public class XMLCharacterRunManager
 	{
 		private readonly CT_Rst _inlineString;
 

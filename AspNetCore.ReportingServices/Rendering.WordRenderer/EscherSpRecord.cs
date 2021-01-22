@@ -2,41 +2,41 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherSpRecord : EscherRecord
+	public class EscherSpRecord : EscherRecord
 	{
-		internal const string RECORD_DESCRIPTION = "MsofbtSp";
+		public const string RECORD_DESCRIPTION = "MsofbtSp";
 
-		internal const int FLAG_GROUP = 1;
+		public const int FLAG_GROUP = 1;
 
-		internal const int FLAG_CHILD = 2;
+		public const int FLAG_CHILD = 2;
 
-		internal const int FLAG_PATRIARCH = 4;
+		public const int FLAG_PATRIARCH = 4;
 
-		internal const int FLAG_DELETED = 8;
+		public const int FLAG_DELETED = 8;
 
-		internal const int FLAG_OLESHAPE = 16;
+		public const int FLAG_OLESHAPE = 16;
 
-		internal const int FLAG_HAVEMASTER = 32;
+		public const int FLAG_HAVEMASTER = 32;
 
-		internal const int FLAG_FLIPHORIZ = 64;
+		public const int FLAG_FLIPHORIZ = 64;
 
-		internal const int FLAG_FLIPVERT = 128;
+		public const int FLAG_FLIPVERT = 128;
 
-		internal const int FLAG_CONNECTOR = 256;
+		public const int FLAG_CONNECTOR = 256;
 
-		internal const int FLAG_HAVEANCHOR = 512;
+		public const int FLAG_HAVEANCHOR = 512;
 
-		internal const int FLAG_BACKGROUND = 1024;
+		public const int FLAG_BACKGROUND = 1024;
 
-		internal const int FLAG_HASSHAPETYPE = 2048;
+		public const int FLAG_HASSHAPETYPE = 2048;
 
-		internal static ushort RECORD_ID = 61450;
+		public static ushort RECORD_ID = 61450;
 
 		private int field_1_shapeId;
 
 		private int field_2_flags;
 
-		internal override int RecordSize
+		public override int RecordSize
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override string RecordName
+		public override string RecordName
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual int ShapeId
+		public virtual int ShapeId
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual int Flags
+		public virtual int Flags
 		{
 			get
 			{
@@ -76,11 +76,11 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherSpRecord()
+		public EscherSpRecord()
 		{
 		}
 
-		internal override int Serialize(BinaryWriter dataWriter)
+		public override int Serialize(BinaryWriter dataWriter)
 		{
 			dataWriter.Write(this.getOptions());
 			dataWriter.Write(this.GetRecordId());
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return 16;
 		}
 
-		internal override ushort GetRecordId()
+		public override ushort GetRecordId()
 		{
 			return EscherSpRecord.RECORD_ID;
 		}

@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal sealed class ReportColorConverter : TypeConverter
+	public sealed class ReportColorConverter : TypeConverter
 	{
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
 		{

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class FileBlock
+	public sealed class FileBlock
 	{
 		private DynamicBucketedHeapSpaceManager m_spaceManager;
 
-		internal FileBlock()
+		public FileBlock()
 		{
 			this.m_spaceManager = new DynamicBucketedHeapSpaceManager();
 			this.m_spaceManager.AllowEndAllocation = false;

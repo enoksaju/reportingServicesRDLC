@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class ScopeReference
+	public sealed class ScopeReference
 	{
 		private readonly string m_scopeName;
 

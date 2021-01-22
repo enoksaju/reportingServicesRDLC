@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportItemVisibilityInstance : VisibilityInstance
+	public sealed class ReportItemVisibilityInstance : VisibilityInstance
 	{
 		private ReportItem m_reportItem;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportItemVisibilityInstance(ReportItem reportitem)
+		public ReportItemVisibilityInstance(ReportItem reportitem)
 			: base(reportitem.ReportScope)
 		{
 			this.m_reportItem = reportitem;

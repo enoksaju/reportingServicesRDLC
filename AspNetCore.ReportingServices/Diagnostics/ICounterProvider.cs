@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface ICounterProvider
+	public interface ICounterProvider
 	{
 		ICounter GetCounterNumberOfItems(string categoryName, string counterName, bool resetCounter);
 

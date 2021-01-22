@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class RuntimeSortFilterEventInfo
+	public sealed class RuntimeSortFilterEventInfo
 	{
 		private class SortFilterExpressionScopeObj : ReportProcessing.IHierarchyObj
 		{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private int m_currentScopeInstanceIndex = -1;
 
-			internal int CurrentScopeInstanceIndex
+			public int CurrentScopeInstanceIndex
 			{
 				get
 				{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool SortDirection
+			public bool SortDirection
 			{
 				get
 				{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal SortFilterExpressionScopeObj(RuntimeSortFilterEventInfo owner)
+			public SortFilterExpressionScopeObj(RuntimeSortFilterEventInfo owner)
 			{
 				this.m_owner = owner;
 				this.m_scopeInstances = new ReportProcessing.RuntimeDataRegionObjList();
@@ -136,13 +136,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				Global.Tracer.Assert(false);
 			}
 
-			internal void RegisterScopeInstance(ReportProcessing.RuntimeDataRegionObj scopeObj, VariantList[] scopeValues)
+			public void RegisterScopeInstance(ReportProcessing.RuntimeDataRegionObj scopeObj, VariantList[] scopeValues)
 			{
 				this.m_scopeInstances.Add(scopeObj);
 				this.m_scopeValuesList.Add(scopeValues);
 			}
 
-			internal void SortSEScopes(ReportProcessing.ProcessingContext processingContext, TextBox eventSource)
+			public void SortSEScopes(ReportProcessing.ProcessingContext processingContext, TextBox eventSource)
 			{
 				this.m_sortTree = new ReportProcessing.BTreeNode(this);
 				for (int i = 0; i < this.m_scopeInstances.Count; i++)
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void AddSortOrder(int scopeInstanceIndex, bool incrementCounter)
+			public void AddSortOrder(int scopeInstanceIndex, bool incrementCounter)
 			{
 				this.m_owner.AddSortOrder((VariantList[])this.m_scopeValuesList[scopeInstanceIndex], incrementCounter);
 			}
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal SortExpressionScopeInstanceHolder(SortFilterExpressionScopeObj owner)
+			public SortExpressionScopeInstanceHolder(SortFilterExpressionScopeObj owner)
 			{
 				this.m_owner = owner;
 				this.m_scopeInstanceIndices = new IntList();
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private Hashtable m_peerSortFilters;
 
-		internal TextBox EventSource
+		public TextBox EventSource
 		{
 			get
 			{
@@ -328,7 +328,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.IScope EventSourceScope
+		public ReportProcessing.IScope EventSourceScope
 		{
 			get
 			{
@@ -340,7 +340,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int EventSourceDetailIndex
+		public int EventSourceDetailIndex
 		{
 			get
 			{
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.RuntimeDataRegionObjList DetailScopes
+		public ReportProcessing.RuntimeDataRegionObjList DetailScopes
 		{
 			get
 			{
@@ -364,7 +364,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList DetailScopeIndices
+		public IntList DetailScopeIndices
 		{
 			get
 			{
@@ -376,7 +376,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SortDirection
+		public bool SortDirection
 		{
 			get
 			{
@@ -388,7 +388,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal VariantList[] SortSourceScopeInfo
+		public VariantList[] SortSourceScopeInfo
 		{
 			get
 			{
@@ -396,7 +396,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.IHierarchyObj EventTarget
+		public ReportProcessing.IHierarchyObj EventTarget
 		{
 			get
 			{
@@ -408,7 +408,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool TargetSortFilterInfoAdded
+		public bool TargetSortFilterInfoAdded
 		{
 			get
 			{
@@ -420,7 +420,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Processed
+		public bool Processed
 		{
 			get
 			{
@@ -432,7 +432,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int OldUniqueName
+		public int OldUniqueName
 		{
 			get
 			{
@@ -444,7 +444,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NewUniqueName
+		public int NewUniqueName
 		{
 			get
 			{
@@ -456,7 +456,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Page
+		public int Page
 		{
 			get
 			{
@@ -468,7 +468,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Hashtable PeerSortFilters
+		public Hashtable PeerSortFilters
 		{
 			get
 			{
@@ -480,7 +480,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RuntimeSortFilterEventInfo(TextBox eventSource, int oldUniqueName, bool sortDirection, VariantList[] sortSourceScopeInfo)
+		public RuntimeSortFilterEventInfo(TextBox eventSource, int oldUniqueName, bool sortDirection, VariantList[] sortSourceScopeInfo)
 		{
 			Global.Tracer.Assert(eventSource != null && null != eventSource.UserSort, "(null != eventSource && null != eventSource.UserSort)");
 			this.m_eventSource = eventSource;
@@ -489,7 +489,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_sortSourceScopeInfo = sortSourceScopeInfo;
 		}
 
-		internal void RegisterSortFilterExpressionScope(ref int containerSortFilterExprScopeIndex, ReportProcessing.RuntimeDataRegionObj scopeObj, VariantList[] scopeValues, int sortFilterInfoIndex)
+		public void RegisterSortFilterExpressionScope(ref int containerSortFilterExprScopeIndex, ReportProcessing.RuntimeDataRegionObj scopeObj, VariantList[] scopeValues, int sortFilterInfoIndex)
 		{
 			if (this.m_eventTarget != null && !this.m_targetSortFilterInfoAdded)
 			{
@@ -513,7 +513,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			sortFilterExpressionScopeObj.RegisterScopeInstance(scopeObj, scopeValues);
 		}
 
-		internal void PrepareForSorting(ReportProcessing.ProcessingContext processingContext)
+		public void PrepareForSorting(ReportProcessing.ProcessingContext processingContext)
 		{
 			Global.Tracer.Assert(!this.m_processed, "(!m_processed)");
 			if (this.m_eventTarget != null && this.m_sortFilterExpressionScopeObjects != null)
@@ -551,7 +551,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_sortFilterExpressionScopeObjects = null;
 		}
 
-		internal bool ProcessSorting(ReportProcessing.ProcessingContext processingContext)
+		public bool ProcessSorting(ReportProcessing.ProcessingContext processingContext)
 		{
 			Global.Tracer.Assert(!this.m_processed, "(!m_processed)");
 			if (this.m_eventTarget == null)
@@ -599,7 +599,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object GetSortOrder(ReportRuntime runtime)
+		public object GetSortOrder(ReportRuntime runtime)
 		{
 			object obj = null;
 			if (this.m_eventSource.UserSort.SortExpressionScope == null)
@@ -688,7 +688,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return obj;
 		}
 
-		internal void MatchEventSource(TextBox textBox, TextBoxInstance textBoxInstance, ReportProcessing.IScope containingScope, ReportProcessing.ProcessingContext processingContext)
+		public void MatchEventSource(TextBox textBox, TextBoxInstance textBoxInstance, ReportProcessing.IScope containingScope, ReportProcessing.ProcessingContext processingContext)
 		{
 			bool flag = false;
 			if (!(containingScope is ReportProcessing.RuntimePivotCell))

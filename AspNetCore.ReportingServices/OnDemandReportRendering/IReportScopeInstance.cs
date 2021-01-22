@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IReportScopeInstance
+	public interface IReportScopeInstance
 	{
 		IReportScope ReportScope
 		{

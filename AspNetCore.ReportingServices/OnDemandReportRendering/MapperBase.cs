@@ -5,11 +5,11 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class MapperBase : IDisposable
+	public class MapperBase : IDisposable
 	{
-		internal class FontCache : IDisposable
+		public class FontCache : IDisposable
 		{
-			internal class TestAgent
+			public class TestAgent
 			{
 				private FontCache _host;
 
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 			private class KeyInfo
 			{
-				internal class EqualityComparer : IEqualityComparer<KeyInfo>
+				public class EqualityComparer : IEqualityComparer<KeyInfo>
 				{
 					public bool Equals(KeyInfo x, KeyInfo y)
 					{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 			private Dictionary<string, FontFamily> m_fontFamilies = new Dictionary<string, FontFamily>();
 
-			internal FontCache(string defaultFontFamily)
+			public FontCache(string defaultFontFamily)
 			{
 				this.m_defaultFontFamily = defaultFontFamily;
 			}
@@ -307,27 +307,27 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapperBase(string defaultFontFamily)
+		public MapperBase(string defaultFontFamily)
 		{
 			this.m_fontCache = new FontCache(string.IsNullOrEmpty(defaultFontFamily) ? MappingHelper.DefaultFontFamily : defaultFontFamily);
 		}
 
-		internal Font GetDefaultFont()
+		public Font GetDefaultFont()
 		{
 			return this.m_fontCache.GetDefaultFont();
 		}
 
-		internal Font GetDefaultFontFromCache(int id)
+		public Font GetDefaultFontFromCache(int id)
 		{
 			return this.m_fontCache.GetDefaultFontFromCache(id);
 		}
 
-		internal Font GetFontFromCache(int id, string fontFamily, float fontSize, FontStyles fontStyle, FontWeights fontWeight, TextDecorations textDecoration)
+		public Font GetFontFromCache(int id, string fontFamily, float fontSize, FontStyles fontStyle, FontWeights fontWeight, TextDecorations textDecoration)
 		{
 			return this.m_fontCache.GetFontFromCache(id, fontFamily, fontSize, MappingHelper.GetStyleFontStyle(fontStyle, fontWeight, textDecoration));
 		}
 
-		internal Font GetFontFromCache(int id, Style style, StyleInstance styleInstance)
+		public Font GetFontFromCache(int id, Style style, StyleInstance styleInstance)
 		{
 			return this.GetFontFromCache(id, MappingHelper.GetStyleFontFamily(style, styleInstance, this.GetDefaultFont().Name), MappingHelper.GetStyleFontSize(style, styleInstance), MappingHelper.GetStyleFontStyle(style, styleInstance), MappingHelper.GetStyleFontWeight(style, styleInstance), MappingHelper.GetStyleFontTextDecoration(style, styleInstance));
 		}

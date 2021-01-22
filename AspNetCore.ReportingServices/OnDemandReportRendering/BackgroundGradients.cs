@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum BackgroundGradients
+	public enum BackgroundGradients
 	{
 		Default,
 		None,

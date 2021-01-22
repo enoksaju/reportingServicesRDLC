@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal abstract class XMLShapeModel : IShapeModel
+	public abstract class XMLShapeModel : IShapeModel
 	{
 		protected readonly PartManager Manager;
 

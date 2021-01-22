@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartTitlePositions
+	public enum ChartTitlePositions
 	{
 		TopCenter,
 		TopLeft,

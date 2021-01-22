@@ -5,9 +5,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public sealed class DataSetsImpl : DataSets
 	{
-		internal const string Name = "DataSets";
+		public const string Name = "DataSets";
 
-		internal const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.DataSets";
+		public const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.DataSets";
 
 		private bool m_lockAdd;
 
@@ -37,17 +37,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal DataSetsImpl()
+		public DataSetsImpl()
 		{
 		}
 
-		internal DataSetsImpl(bool lockAdd, int size)
+		public DataSetsImpl(bool lockAdd, int size)
 		{
 			this.m_lockAdd = lockAdd;
 			this.m_collection = new Hashtable(size);
 		}
 
-		internal void Add(AspNetCore.ReportingServices.ReportProcessing.DataSet dataSetDef)
+		public void Add(AspNetCore.ReportingServices.ReportProcessing.DataSet dataSetDef)
 		{
 			try
 			{

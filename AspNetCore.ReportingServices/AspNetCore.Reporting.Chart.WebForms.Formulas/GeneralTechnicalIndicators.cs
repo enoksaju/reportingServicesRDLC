@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 {
-	internal class GeneralTechnicalIndicators : PriceIndicators
+	public class GeneralTechnicalIndicators : PriceIndicators
 	{
 		public override string Name
 		{

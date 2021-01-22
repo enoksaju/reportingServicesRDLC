@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal enum SkuType
+	public enum SkuType
 	{
 		None,
 		Express,

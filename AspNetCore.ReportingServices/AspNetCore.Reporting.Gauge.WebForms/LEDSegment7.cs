@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[Flags]
-	internal enum LEDSegment7 : ulong
+	public enum LEDSegment7 : ulong
 	{
 		Empty = 0uL,
 		SA = 1uL,

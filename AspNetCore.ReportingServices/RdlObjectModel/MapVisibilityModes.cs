@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapVisibilityModes
+	public enum MapVisibilityModes
 	{
 		Visible,
 		Hidden,

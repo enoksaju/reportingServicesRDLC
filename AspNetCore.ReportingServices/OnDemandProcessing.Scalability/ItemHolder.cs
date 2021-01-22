@@ -2,30 +2,30 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class ItemHolder
+	public class ItemHolder
 	{
-		internal ItemHolder Previous;
+		public ItemHolder Previous;
 
-		internal ItemHolder Next;
+		public ItemHolder Next;
 
-		internal IStorable Item;
-
-		[NonSerialized]
-		internal BaseReference Reference;
+		public IStorable Item;
 
 		[NonSerialized]
-		internal InQueueState InQueue;
+		public BaseReference Reference;
 
-		internal ItemHolder()
+		[NonSerialized]
+		public InQueueState InQueue;
+
+		public ItemHolder()
 		{
 		}
 
-		internal virtual int ComputeSizeForReference()
+		public virtual int ComputeSizeForReference()
 		{
 			return this.BaseSize() + ItemSizes.ReferenceSize;
 		}
 
-		internal int BaseSize()
+		public int BaseSize()
 		{
 			return ItemSizes.ReferenceSize + ItemSizes.ReferenceSize + 1 + ItemSizes.ReferenceSize;
 		}

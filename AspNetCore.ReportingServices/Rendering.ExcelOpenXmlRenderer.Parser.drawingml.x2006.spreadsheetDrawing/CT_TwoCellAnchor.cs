@@ -3,9 +3,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.spreadsheetDrawing
 {
-	internal class CT_TwoCellAnchor : OoxmlComplexType
+	public class CT_TwoCellAnchor : OoxmlComplexType
 	{
-		internal enum ChoiceBucket_0
+		public enum ChoiceBucket_0
 		{
 			sp,
 			grpSp,

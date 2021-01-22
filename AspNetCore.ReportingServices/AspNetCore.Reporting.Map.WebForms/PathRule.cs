@@ -7,7 +7,7 @@ using System.Drawing.Design;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(PathRuleConverter))]
-	internal class PathRule : PathRuleBase
+	public class PathRule : PathRuleBase
 	{
 		private CustomColorCollection customColors;
 
@@ -187,7 +187,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[SRDescription("DescriptionAttributePathRule_ColoringMode")]
 		[RefreshProperties(RefreshProperties.All)]
 		[DefaultValue(ColoringMode.DistinctColors)]
-		internal override ColoringMode ColoringMode
+		public override ColoringMode ColoringMode
 		{
 			get
 			{
@@ -303,7 +303,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -324,13 +324,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal PathRule(CommonElements common)
+		public PathRule(CommonElements common)
 			: base(common)
 		{
 			this.customColors = new CustomColorCollection(this, common);
 		}
 
-		internal override void RegenerateRanges()
+		public override void RegenerateRanges()
 		{
 			if (this.UseCustomColors)
 			{
@@ -550,7 +550,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void UpdateColorSwatchAndLegend()
+		public void UpdateColorSwatchAndLegend()
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore != null)
@@ -608,7 +608,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void Apply(Path path)
+		public override void Apply(Path path)
 		{
 			if (!(this.Category != path.Category))
 			{

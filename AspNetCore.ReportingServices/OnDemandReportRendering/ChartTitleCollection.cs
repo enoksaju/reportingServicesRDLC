@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartTitleCollection : ChartObjectCollectionBase<ChartTitle, ChartTitleInstance>
+	public sealed class ChartTitleCollection : ChartObjectCollectionBase<ChartTitle, ChartTitleInstance>
 	{
 		private Chart m_chart;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartTitleCollection(Chart chart)
+		public ChartTitleCollection(Chart chart)
 		{
 			this.m_chart = chart;
 		}

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DataMember : DataRegionMember
+	public abstract class DataMember : DataRegionMember
 	{
 		protected DataMemberCollection m_children;
 
@@ -39,12 +39,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract AspNetCore.ReportingServices.ReportIntermediateFormat.DataMember MemberDefinition
+		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.DataMember MemberDefinition
 		{
 			get;
 		}
 
-		internal override ReportHierarchyNode DataRegionMemberDefinition
+		public override ReportHierarchyNode DataRegionMemberDefinition
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomReportItem OwnerCri
+		public CustomReportItem OwnerCri
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal override IDataRegionMemberCollection SubMembers
+		public override IDataRegionMemberCollection SubMembers
 		{
 			get
 			{
@@ -73,17 +73,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataMember(IDefinitionPath parentDefinitionPath, CustomReportItem owner, DataMember parent, int parentCollectionIndex)
+		public DataMember(IDefinitionPath parentDefinitionPath, CustomReportItem owner, DataMember parent, int parentCollectionIndex)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex)
 		{
 		}
 
-		internal override bool GetIsColumn()
+		public override bool GetIsColumn()
 		{
 			return this.IsColumn;
 		}
 
-		internal override void SetNewContext(bool fromMoveNext)
+		public override void SetNewContext(bool fromMoveNext)
 		{
 			base.SetNewContext(fromMoveNext);
 			if (this.m_instance != null)

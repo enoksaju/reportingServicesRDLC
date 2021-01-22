@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartAxisLabelRotation
+	public enum ChartAxisLabelRotation
 	{
 		None,
 		Rotate30,

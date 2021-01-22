@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeStateIndicatorStyles
+	public enum GaugeStateIndicatorStyles
 	{
 		Circle,
 		Flag,

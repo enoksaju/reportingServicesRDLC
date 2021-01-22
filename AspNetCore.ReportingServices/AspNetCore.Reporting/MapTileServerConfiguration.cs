@@ -5,7 +5,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting
 {
     //[TypeConverter(typeof(TypeNameHidingExpandableObjectConverter))]
-    internal sealed class MapTileServerConfiguration
+    public sealed class MapTileServerConfiguration
 	{
 		private LocalProcessingHostMapTileServerConfiguration m_underlyingConfiguration;
 
@@ -54,7 +54,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal MapTileServerConfiguration(LocalProcessingHostMapTileServerConfiguration underlyingConfiguration)
+		public MapTileServerConfiguration(LocalProcessingHostMapTileServerConfiguration underlyingConfiguration)
 		{
 			if (underlyingConfiguration == null)
 			{

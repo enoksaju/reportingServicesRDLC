@@ -10,7 +10,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLRendering
 {
-	internal sealed class RPLRenderer : IRenderingExtension, IExtension, ITotalPages
+	public sealed class RPLRenderer : IRenderingExtension, IExtension, ITotalPages
 	{
 		private const string PARAM_START_PAGE = "StartPage";
 
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLRendering
 		{
 		}
 
-		internal static SecondaryStreams ParseSecondaryStreamsParam(string secondaryStreamStr, SecondaryStreams defaultValue)
+		public static SecondaryStreams ParseSecondaryStreamsParam(string secondaryStreamStr, SecondaryStreams defaultValue)
 		{
 			if (SecondaryStreams.Embedded.ToString().Equals(secondaryStreamStr, StringComparison.OrdinalIgnoreCase))
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLRendering
 			return defaultValue;
 		}
 
-		internal static bool ParseBool(string boolValue, bool defaultValue)
+		public static bool ParseBool(string boolValue, bool defaultValue)
 		{
 			bool result = default(bool);
 			if (bool.TryParse(boolValue, out result))
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLRendering
 			return defaultValue;
 		}
 
-		internal static int ParseInt(string intValue, int defaultValue)
+		public static int ParseInt(string intValue, int defaultValue)
 		{
 			int result = default(int);
 			if (int.TryParse(intValue, out result))
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLRendering
 			return defaultValue;
 		}
 
-		internal static double ParseDouble(string doubleValue, double defaultValue)
+		public static double ParseDouble(string doubleValue, double defaultValue)
 		{
 			double result = default(double);
 			if (double.TryParse(doubleValue, out result))

@@ -2,9 +2,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class ArrayHelper
+	public class ArrayHelper
 	{
-		internal static bool Equals(Array o1, Array o2)
+		public static bool Equals(Array o1, Array o2)
 		{
 			if (o1.Length == o2.Length)
 			{

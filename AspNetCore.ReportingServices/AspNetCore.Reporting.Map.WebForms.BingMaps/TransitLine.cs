@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class TransitLine
+	public class TransitLine
 	{
 		[DataMember(Name = "verboseName", EmitDefaultValue = false)]
 		public string VerboseName

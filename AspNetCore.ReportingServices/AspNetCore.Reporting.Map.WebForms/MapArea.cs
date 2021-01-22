@@ -7,7 +7,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 {
 	[Description("Represent a custom map area element, that has a user-defined shape and dimensions.")]
 	[DefaultProperty("ToolTip")]
-	internal class MapArea : IMapAreaAttributes
+	public class MapArea : IMapAreaAttributes
 	{
 		private string toolTip = "";
 
@@ -30,7 +30,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[Description("Indicates that the map area is custom.")]
 		[DefaultValue("")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		internal bool Custom
+		public bool Custom
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string GetTag()
+		public string GetTag()
 		{
 			StringBuilder stringBuilder = new StringBuilder("\r\n<AREA SHAPE=\"", 120);
 			if (this.shape == MapAreaShape.Circle)

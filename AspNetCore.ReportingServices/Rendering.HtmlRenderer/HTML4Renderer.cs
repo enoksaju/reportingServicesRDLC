@@ -14,16 +14,16 @@ using System.Web;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal abstract class HTML4Renderer : IHtmlReportWriter, IHtmlWriter, IHtmlRenderer
+	public abstract class HTML4Renderer : IHtmlReportWriter, IHtmlWriter, IHtmlRenderer
 	{
-		internal enum RequestType
+		public enum RequestType
 		{
 			Render,
 			Search,
 			Bookmark
 		}
 
-		internal enum Border
+		public enum Border
 		{
 			All,
 			Left,
@@ -32,27 +32,27 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			Bottom
 		}
 
-		internal enum BorderAttribute
+		public enum BorderAttribute
 		{
 			BorderWidth,
 			BorderStyle,
 			BorderColor
 		}
 
-		internal enum Direction
+		public enum Direction
 		{
 			Row,
 			Column
 		}
 
-		internal enum PageSection
+		public enum PageSection
 		{
 			Body,
 			PageHeader,
 			PageFooter
 		}
 
-		internal enum FontAttributes
+		public enum FontAttributes
 		{
 			None,
 			Partial,
@@ -69,19 +69,19 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		private const string EmptyHeightColMarker = "h";
 
-		internal const string FixedRowGroupHeaderPrefix = "frgh";
+		public const string FixedRowGroupHeaderPrefix = "frgh";
 
-		internal const string FixedCornerHeaderPrefix = "fch";
+		public const string FixedCornerHeaderPrefix = "fch";
 
-		internal const string FixedColGroupHeaderPrefix = "fcgh";
+		public const string FixedColGroupHeaderPrefix = "fcgh";
 
-		internal const string FixedRGHArrayPrefix = "frhArr";
+		public const string FixedRGHArrayPrefix = "frhArr";
 
-		internal const string FixedCGHArrayPrefix = "fcghArr";
+		public const string FixedCGHArrayPrefix = "fcghArr";
 
-		internal const string FixedCHArrayPrefix = "fchArr";
+		public const string FixedCHArrayPrefix = "fchArr";
 
-		internal const string ReportDiv = "oReportDiv";
+		public const string ReportDiv = "oReportDiv";
 
 		private const char Space = ' ';
 
@@ -107,253 +107,253 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected const int SecondaryStreamBufferSize = 4096;
 
-		internal const string SortAction = "Sort";
+		public const string SortAction = "Sort";
 
-		internal const string ToggleAction = "Toggle";
+		public const string ToggleAction = "Toggle";
 
-		internal const string DrillthroughAction = "Drillthrough";
+		public const string DrillthroughAction = "Drillthrough";
 
-		internal const string BookmarkAction = "Bookmark";
+		public const string BookmarkAction = "Bookmark";
 
-		internal const string GetImageKey = "GetImage";
+		public const string GetImageKey = "GetImage";
 
-		internal const string SectionKey = "Section";
+		public const string SectionKey = "Section";
 
-		internal const string PrefixIdKey = "PrefixId";
+		public const string PrefixIdKey = "PrefixId";
 
-		internal const int IgnoreLeft = 1;
+		public const int IgnoreLeft = 1;
 
-		internal const int IgnoreRight = 2;
+		public const int IgnoreRight = 2;
 
-		internal const int IgnoreTop = 4;
+		public const int IgnoreTop = 4;
 
-		internal const int IgnoreBottom = 8;
+		public const int IgnoreBottom = 8;
 
-		internal const int IgnoreAll = 15;
+		public const int IgnoreAll = 15;
 
-		internal const char StreamNameSeparator = '_';
+		public const char StreamNameSeparator = '_';
 
-		internal const string PageStyleName = "p";
+		public const string PageStyleName = "p";
 
-		internal const string MHTMLPrefix = "cid:";
+		public const string MHTMLPrefix = "cid:";
 
-		internal const string CSSSuffix = "style";
+		public const string CSSSuffix = "style";
 
 		protected const string m_resourceNamespace = "AspNetCore.ReportingServices.Rendering.HtmlRenderer.RendererResources";
 
-		internal static byte[] m_overflowXHidden;
+		public static byte[] m_overflowXHidden;
 
-		internal static byte[] m_percentWidthOverflow;
+		public static byte[] m_percentWidthOverflow;
 
-		internal static byte[] m_layoutFixed;
+		public static byte[] m_layoutFixed;
 
-		internal static byte[] m_layoutBorder;
+		public static byte[] m_layoutBorder;
 
-		internal static byte[] m_ignoreBorder;
+		public static byte[] m_ignoreBorder;
 
-		internal static byte[] m_ignoreBorderL;
+		public static byte[] m_ignoreBorderL;
 
-		internal static byte[] m_ignoreBorderR;
+		public static byte[] m_ignoreBorderR;
 
-		internal static byte[] m_ignoreBorderT;
+		public static byte[] m_ignoreBorderT;
 
-		internal static byte[] m_ignoreBorderB;
+		public static byte[] m_ignoreBorderB;
 
-		internal static byte[] m_percentHeight;
+		public static byte[] m_percentHeight;
 
-		internal static byte[] m_percentSizesOverflow;
+		public static byte[] m_percentSizesOverflow;
 
-		internal static byte[] m_percentSizes;
+		public static byte[] m_percentSizes;
 
-		internal static byte[] m_space;
+		public static byte[] m_space;
 
-		internal static byte[] m_closeBracket;
+		public static byte[] m_closeBracket;
 
-		internal static byte[] m_semiColon;
+		public static byte[] m_semiColon;
 
-		internal static byte[] m_border;
+		public static byte[] m_border;
 
-		internal static byte[] m_borderBottom;
+		public static byte[] m_borderBottom;
 
-		internal static byte[] m_borderLeft;
+		public static byte[] m_borderLeft;
 
-		internal static byte[] m_borderRight;
+		public static byte[] m_borderRight;
 
-		internal static byte[] m_borderTop;
+		public static byte[] m_borderTop;
 
-		internal static byte[] m_marginBottom;
+		public static byte[] m_marginBottom;
 
-		internal static byte[] m_marginLeft;
+		public static byte[] m_marginLeft;
 
-		internal static byte[] m_marginRight;
+		public static byte[] m_marginRight;
 
-		internal static byte[] m_marginTop;
+		public static byte[] m_marginTop;
 
-		internal static byte[] m_textIndent;
+		public static byte[] m_textIndent;
 
-		internal static byte[] m_mm;
+		public static byte[] m_mm;
 
-		internal static byte[] m_styleWidth;
+		public static byte[] m_styleWidth;
 
-		internal static byte[] m_styleHeight;
+		public static byte[] m_styleHeight;
 
-		internal static byte[] m_percent;
+		public static byte[] m_percent;
 
-		internal static byte[] m_ninetyninepercent;
+		public static byte[] m_ninetyninepercent;
 
-		internal static byte[] m_degree90;
+		public static byte[] m_degree90;
 
-		internal static byte[] m_newLine;
+		public static byte[] m_newLine;
 
-		internal static byte[] m_closeAccol;
+		public static byte[] m_closeAccol;
 
-		internal static byte[] m_backgroundRepeat;
+		public static byte[] m_backgroundRepeat;
 
-		internal static byte[] m_closeBrace;
+		public static byte[] m_closeBrace;
 
-		internal static byte[] m_backgroundColor;
+		public static byte[] m_backgroundColor;
 
-		internal static byte[] m_backgroundImage;
+		public static byte[] m_backgroundImage;
 
-		internal static byte[] m_overflowHidden;
+		public static byte[] m_overflowHidden;
 
-		internal static byte[] m_wordWrap;
+		public static byte[] m_wordWrap;
 
-		internal static byte[] m_whiteSpacePreWrap;
+		public static byte[] m_whiteSpacePreWrap;
 
-		internal static byte[] m_leftValue;
+		public static byte[] m_leftValue;
 
-		internal static byte[] m_rightValue;
+		public static byte[] m_rightValue;
 
-		internal static byte[] m_centerValue;
+		public static byte[] m_centerValue;
 
-		internal static byte[] m_textAlign;
+		public static byte[] m_textAlign;
 
-		internal static byte[] m_verticalAlign;
+		public static byte[] m_verticalAlign;
 
-		internal static byte[] m_lineHeight;
+		public static byte[] m_lineHeight;
 
-		internal static byte[] m_color;
+		public static byte[] m_color;
 
-		internal static byte[] m_writingMode;
+		public static byte[] m_writingMode;
 
-		internal static byte[] m_tbrl;
+		public static byte[] m_tbrl;
 
-		internal static byte[] m_btrl;
+		public static byte[] m_btrl;
 
-		internal static byte[] m_lrtb;
+		public static byte[] m_lrtb;
 
-		internal static byte[] m_rltb;
+		public static byte[] m_rltb;
 
-		internal static byte[] m_layoutFlow;
+		public static byte[] m_layoutFlow;
 
-		internal static byte[] m_verticalIdeographic;
+		public static byte[] m_verticalIdeographic;
 
-		internal static byte[] m_horizontal;
+		public static byte[] m_horizontal;
 
-		internal static byte[] m_unicodeBiDi;
+		public static byte[] m_unicodeBiDi;
 
-		internal static byte[] m_direction;
+		public static byte[] m_direction;
 
-		internal static byte[] m_textDecoration;
+		public static byte[] m_textDecoration;
 
-		internal static byte[] m_fontWeight;
+		public static byte[] m_fontWeight;
 
-		internal static byte[] m_fontSize;
+		public static byte[] m_fontSize;
 
-		internal static byte[] m_fontFamily;
+		public static byte[] m_fontFamily;
 
-		internal static byte[] m_fontStyle;
+		public static byte[] m_fontStyle;
 
-		internal static byte[] m_openAccol;
+		public static byte[] m_openAccol;
 
-		internal static byte[] m_borderColor;
+		public static byte[] m_borderColor;
 
-		internal static byte[] m_borderStyle;
+		public static byte[] m_borderStyle;
 
-		internal static byte[] m_borderWidth;
+		public static byte[] m_borderWidth;
 
-		internal static byte[] m_borderBottomColor;
+		public static byte[] m_borderBottomColor;
 
-		internal static byte[] m_borderBottomStyle;
+		public static byte[] m_borderBottomStyle;
 
-		internal static byte[] m_borderBottomWidth;
+		public static byte[] m_borderBottomWidth;
 
-		internal static byte[] m_borderLeftColor;
+		public static byte[] m_borderLeftColor;
 
-		internal static byte[] m_borderLeftStyle;
+		public static byte[] m_borderLeftStyle;
 
-		internal static byte[] m_borderLeftWidth;
+		public static byte[] m_borderLeftWidth;
 
-		internal static byte[] m_borderRightColor;
+		public static byte[] m_borderRightColor;
 
-		internal static byte[] m_borderRightStyle;
+		public static byte[] m_borderRightStyle;
 
-		internal static byte[] m_borderRightWidth;
+		public static byte[] m_borderRightWidth;
 
-		internal static byte[] m_borderTopColor;
+		public static byte[] m_borderTopColor;
 
-		internal static byte[] m_borderTopStyle;
+		public static byte[] m_borderTopStyle;
 
-		internal static byte[] m_borderTopWidth;
+		public static byte[] m_borderTopWidth;
 
-		internal static byte[] m_paddingBottom;
+		public static byte[] m_paddingBottom;
 
-		internal static byte[] m_paddingLeft;
+		public static byte[] m_paddingLeft;
 
-		internal static byte[] m_paddingRight;
+		public static byte[] m_paddingRight;
 
-		internal static byte[] m_paddingTop;
+		public static byte[] m_paddingTop;
 
 		protected static byte[] m_classAction;
 
-		internal static byte[] m_styleAction;
+		public static byte[] m_styleAction;
 
-		internal static byte[] m_emptyTextBox;
+		public static byte[] m_emptyTextBox;
 
-		internal static byte[] m_percentSizeInlineTable;
+		public static byte[] m_percentSizeInlineTable;
 
-		internal static byte[] m_classPercentSizeInlineTable;
+		public static byte[] m_classPercentSizeInlineTable;
 
-		internal static byte[] m_percentHeightInlineTable;
+		public static byte[] m_percentHeightInlineTable;
 
-		internal static byte[] m_classPercentHeightInlineTable;
+		public static byte[] m_classPercentHeightInlineTable;
 
-		internal static byte[] m_dot;
+		public static byte[] m_dot;
 
-		internal static byte[] m_popupAction;
+		public static byte[] m_popupAction;
 
-		internal static byte[] m_tableLayoutFixed;
+		public static byte[] m_tableLayoutFixed;
 
-		internal static byte[] m_borderCollapse;
+		public static byte[] m_borderCollapse;
 
-		internal static byte[] m_none;
+		public static byte[] m_none;
 
-		internal static byte[] m_displayNone;
+		public static byte[] m_displayNone;
 
-		internal static byte[] m_rtlEmbed;
+		public static byte[] m_rtlEmbed;
 
-		internal static byte[] m_classRtlEmbed;
+		public static byte[] m_classRtlEmbed;
 
-		internal static byte[] m_noVerticalMarginClassName;
+		public static byte[] m_noVerticalMarginClassName;
 
-		internal static byte[] m_zeroPoint;
+		public static byte[] m_zeroPoint;
 
-		internal static byte[] m_smallPoint;
+		public static byte[] m_smallPoint;
 
-		internal static byte[] m_filter;
+		public static byte[] m_filter;
 
-		internal static byte[] m_basicImageRotation180;
+		public static byte[] m_basicImageRotation180;
 
-		internal static byte[] m_msoRotation;
+		public static byte[] m_msoRotation;
 
-		internal static byte[] m_styleMinWidth;
+		public static byte[] m_styleMinWidth;
 
-		internal static byte[] m_styleMinHeight;
+		public static byte[] m_styleMinHeight;
 
 		private static byte[] m_styleDisplayInlineBlock;
 
-		internal static byte[] m_reportItemCustomAttr;
+		public static byte[] m_reportItemCustomAttr;
 
 		protected static byte[] m_br;
 
@@ -393,7 +393,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected static byte[] m_closeQuote;
 
-		internal static string m_closeQuoteString;
+		public static string m_closeQuoteString;
 
 		protected static byte[] m_closeSpan;
 
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected static byte[] m_quote;
 
-		internal static string m_quoteString;
+		public static string m_quoteString;
 
 		protected static byte[] m_closeTag;
 
@@ -553,11 +553,11 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected static byte[] m_fixedTableCornerPostfix;
 
-		internal static byte[] m_language;
+		public static byte[] m_language;
 
 		private static byte[] m_zeroBorderWidth;
 
-		internal static byte[] m_onLoadFitProportionalPv;
+		public static byte[] m_onLoadFitProportionalPv;
 
 		private static byte[] m_normalWordWrap;
 
@@ -607,13 +607,13 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		private static byte[] m_pxSpace;
 
-		internal static char[] m_cssDelimiters;
+		public static char[] m_cssDelimiters;
 
 		protected bool m_hasOnePage = true;
 
 		protected Stream m_mainStream;
 
-		internal Encoding m_encoding;
+		public Encoding m_encoding;
 
 		protected RPLReport m_rplReport;
 
@@ -689,9 +689,9 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected bool m_needsFitVertTextScript;
 
-		internal static string m_searchHitIdPrefix;
+		public static string m_searchHitIdPrefix;
 
-		internal static string m_standardLineBreak;
+		public static string m_standardLineBreak;
 
 		protected Stack m_linkToChildStack;
 
@@ -705,7 +705,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected bool m_hasSlantedLines;
 
-		internal bool m_expandItem;
+		public bool m_expandItem;
 
 		protected ArrayList m_fixedHeaders;
 
@@ -719,7 +719,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		protected byte[] m_styleClassPrefix;
 
-		internal string SearchText
+		public string SearchText
 		{
 			set
 			{
@@ -727,7 +727,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool NeedResizeImages
+		public bool NeedResizeImages
 		{
 			get
 			{
@@ -1280,7 +1280,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void InitializeReport()
+		public void InitializeReport()
 		{
 			this.m_rplReport = this.GetNextPage();
 			if (this.m_rplReport == null)
@@ -1299,7 +1299,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return HTML4Renderer.GetStreamName(aReportName, aPageNumber, "style");
 		}
 
-		internal static string GetStreamName(string aReportName, int aPageNumber, string suffix)
+		public static string GetStreamName(string aReportName, int aPageNumber, string suffix)
 		{
 			if (aPageNumber > 0)
 			{
@@ -1308,7 +1308,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return string.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", aReportName, '_', suffix);
 		}
 
-		internal static string HandleSpecialFontCharacters(string fontName)
+		public static string HandleSpecialFontCharacters(string fontName)
 		{
 			if (fontName.IndexOfAny(HTML4Renderer.m_cssDelimiters) != -1)
 			{
@@ -1334,7 +1334,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		public abstract void Render(TextWriter outputWriter);
 
-		internal void RenderStylesOnly(string streamName)
+		public void RenderStylesOnly(string streamName)
 		{
 			this.m_encoding = Encoding.UTF8;
 			Stream stream = this.CreateStream(streamName, "css", Encoding.UTF8, "text/css", false, AspNetCore.ReportingServices.Interfaces.StreamOper.CreateAndRegister);
@@ -1406,7 +1406,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.m_styleStream.Flush();
 		}
 
-		internal void RenderStylesOnlyRecursive(RPLItemMeasurement measurement, StyleContext styleContext)
+		public void RenderStylesOnlyRecursive(RPLItemMeasurement measurement, StyleContext styleContext)
 		{
 			int num = 0;
 			RPLElement element = measurement.Element;
@@ -1601,7 +1601,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void RenderEmptyTopTablixRow(RPLTablix tablix, List<RPLTablixOmittedRow> omittedRows, string tablixID, bool emptyCol, TablixFixedHeaderStorage headerStorage)
+		public void RenderEmptyTopTablixRow(RPLTablix tablix, List<RPLTablixOmittedRow> omittedRows, string tablixID, bool emptyCol, TablixFixedHeaderStorage headerStorage)
 		{
 			bool flag = headerStorage.RowHeaders != null || headerStorage.ColumnHeaders != null;
 			this.WriteStream(HTML4Renderer.m_openTR);
@@ -1686,7 +1686,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteStream(HTML4Renderer.m_closeTR);
 		}
 
-		internal void RenderEmptyHeightCell(float height, string tablixID, bool fixedRow, int row, TablixFixedHeaderStorage headerStorage)
+		public void RenderEmptyHeightCell(float height, string tablixID, bool fixedRow, int row, TablixFixedHeaderStorage headerStorage)
 		{
 			this.WriteStream(HTML4Renderer.m_openTD);
 			if (headerStorage.RowHeaders != null)
@@ -1890,7 +1890,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void RenderOnClickActionScript(string actionType, string actionArg)
+		public void RenderOnClickActionScript(string actionType, string actionArg)
 		{
 			this.WriteStream(" onclick=\"");
 			this.WriteStream(this.m_deviceInfo.ActionScript);
@@ -2353,7 +2353,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void WriteStream(object theString)
+		public void WriteStream(object theString)
 		{
 			if (theString != null)
 			{
@@ -2433,7 +2433,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.m_mainStream = mainStream;
 		}
 
-		internal static void QuoteString(StringBuilder output, string input)
+		public static void QuoteString(StringBuilder output, string input)
 		{
 			if (output != null && input != null && input.Length != 0)
 			{
@@ -5470,12 +5470,12 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			HTML4Renderer.PredefinedStyles(this.m_deviceInfo, this, this.m_styleClassPrefix);
 		}
 
-		internal static void PredefinedStyles(DeviceInfo m_deviceInfo, IHtmlRenderer writer)
+		public static void PredefinedStyles(DeviceInfo m_deviceInfo, IHtmlRenderer writer)
 		{
 			HTML4Renderer.PredefinedStyles(m_deviceInfo, writer, null);
 		}
 
-		internal static void PredefinedStyles(DeviceInfo deviceInfo, IHtmlRenderer writer, byte[] classStylePrefix)
+		public static void PredefinedStyles(DeviceInfo deviceInfo, IHtmlRenderer writer, byte[] classStylePrefix)
 		{
 			HTML4Renderer.StartPredefinedStyleClass(deviceInfo, writer, classStylePrefix, HTML4Renderer.m_percentSizes);
 			writer.WriteStream(HTML4Renderer.m_styleHeight);
@@ -6135,7 +6135,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.RenderOnClickActionScript(text, stringBuilder.ToString());
 		}
 
-		internal static bool IsDirectionRTL(IRPLStyle style)
+		public static bool IsDirectionRTL(IRPLStyle style)
 		{
 			object obj = style[29];
 			if (obj != null)
@@ -6145,7 +6145,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return false;
 		}
 
-		internal static bool IsWritingModeVertical(IRPLStyle style)
+		public static bool IsWritingModeVertical(IRPLStyle style)
 		{
 			if (style == null)
 			{
@@ -6159,7 +6159,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return false;
 		}
 
-		internal static bool IsWritingModeVertical(RPLFormat.WritingModes writingMode)
+		public static bool IsWritingModeVertical(RPLFormat.WritingModes writingMode)
 		{
 			if (writingMode != RPLFormat.WritingModes.Vertical)
 			{
@@ -6168,7 +6168,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return true;
 		}
 
-		internal static bool HasHorizontalPaddingStyles(IRPLStyle style)
+		public static bool HasHorizontalPaddingStyles(IRPLStyle style)
 		{
 			if (style != null)
 			{
@@ -6879,7 +6879,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.WriteStream(HTML4Renderer.m_semiColon);
 		}
 
-		internal static void WriteRotate270(DeviceInfo deviceInfo, StyleContext styleContext, Action<byte[]> WriteStream)
+		public static void WriteRotate270(DeviceInfo deviceInfo, StyleContext styleContext, Action<byte[]> WriteStream)
 		{
 			if (deviceInfo.IsBrowserIE && styleContext != null && !styleContext.StyleOnCell)
 			{
@@ -7199,13 +7199,13 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal static bool GetTextAlignForType(RPLTextBoxProps textBoxProps)
+		public static bool GetTextAlignForType(RPLTextBoxProps textBoxProps)
 		{
 			TypeCode typeCode = textBoxProps.TypeCode;
 			return HTML4Renderer.GetTextAlignForType(typeCode);
 		}
 
-		internal static bool GetTextAlignForType(TypeCode typeCode)
+		public static bool GetTextAlignForType(TypeCode typeCode)
 		{
 			bool result = false;
 			switch (typeCode)

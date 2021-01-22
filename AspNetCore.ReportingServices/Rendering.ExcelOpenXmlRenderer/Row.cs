@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Row
+	public sealed class Row
 	{
 		private readonly IRowModel _model;
 
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal Row(IRowModel model)
+		public Row(IRowModel model)
 		{
 			this._model = model;
 		}

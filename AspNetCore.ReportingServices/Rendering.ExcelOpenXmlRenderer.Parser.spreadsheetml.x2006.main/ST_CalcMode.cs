@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_CalcMode
+	public class ST_CalcMode
 	{
 		private string _ooxmlEnumerationValue;
 

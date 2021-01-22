@@ -3,9 +3,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ChartMember : Group
+	public sealed class ChartMember : Group
 	{
-		internal enum SortOrders
+		public enum SortOrders
 		{
 			None,
 			Ascending,
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override TextBox ToggleParent
+		public override TextBox ToggleParent
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal int CachedMemberDataPointIndex
+		public int CachedMemberDataPointIndex
 		{
 			get
 			{
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ExpressionInfo LabelDefinition
+		public ExpressionInfo LabelDefinition
 		{
 			get
 			{
@@ -307,7 +307,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal object LabelValue
+		public object LabelValue
 		{
 			get
 			{
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ChartHeadingInstanceInfo InstanceInfo
+		public ChartHeadingInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ChartMember(Chart owner, ChartMember parent, ChartHeading headingDef, ChartHeadingInstance headingInstance, int index)
+		public ChartMember(Chart owner, ChartMember parent, ChartHeading headingDef, ChartHeadingInstance headingInstance, int index)
 			: base(owner, headingDef.Grouping, headingDef.Visibility)
 		{
 			this.m_parent = parent;
@@ -391,7 +391,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return this.GetDataElementOutputTypeFromDataPoint(0, this.m_index);
 		}
 
-		internal bool IsPlotTypeLine()
+		public bool IsPlotTypeLine()
 		{
 			if (this.m_headingInstance == null)
 			{

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class GDIFont : IDisposable
+	public sealed class GDIFont : IDisposable
 	{
 		private Font m_font;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 
 		private string m_key;
 
-		internal Font Font
+		public Font Font
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal float Height
+		public float Height
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal string Family
+		public string Family
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal float Size
+		public float Size
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal string Key
+		public string Key
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal GDIFont(string key, Font font, float height)
+		public GDIFont(string key, Font font, float height)
 		{
 			this.m_key = key;
 			this.m_font = font;
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.Dispose(false);
 		}
 
-		internal static GDIFont GetOrCreateFont(Dictionary<string, GDIFont> gdiFonts, string fontFamily, float fontSize, RPLFormat.FontWeights fontWeight, RPLFormat.FontStyles fontStyle, RPLFormat.TextDecorations textDecoration)
+		public static GDIFont GetOrCreateFont(Dictionary<string, GDIFont> gdiFonts, string fontFamily, float fontSize, RPLFormat.FontWeights fontWeight, RPLFormat.FontStyles fontStyle, RPLFormat.TextDecorations textDecoration)
 		{
 			string key = GDIFont.GetKey(fontFamily, fontSize, fontWeight, fontStyle, textDecoration);
 			GDIFont gDIFont = default(GDIFont);

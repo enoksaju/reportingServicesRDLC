@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class LineLayerMapper : VectorLayerMapper
+	public class LineLayerMapper : VectorLayerMapper
 	{
 		private CorePathManager m_pathManager;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal LineLayerMapper(MapLineLayer mapLineLayer, MapControl coreMap, MapMapper mapMapper)
+		public LineLayerMapper(MapLineLayer mapLineLayer, MapControl coreMap, MapMapper mapMapper)
 			: base(mapLineLayer, coreMap, mapMapper)
 		{
 			if (mapLineLayer.MapLineTemplate != null)
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_pathManager;
 		}
 
-		internal bool HasColorRule(Path path)
+		public bool HasColorRule(Path path)
 		{
 			if (!this.HasColorRule())
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return mapColorRule != null;
 		}
 
-		internal bool HasSizeRule(Path path)
+		public bool HasSizeRule(Path path)
 		{
 			if (!this.HasSizeRule())
 			{
@@ -154,12 +154,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_lineTemplateMapper.Render(mapLine, path, hasScope);
 		}
 
-		internal override bool IsValidSpatialElement(ISpatialElement spatialElement)
+		public override bool IsValidSpatialElement(ISpatialElement spatialElement)
 		{
 			return spatialElement is Path;
 		}
 
-		internal override void OnSpatialElementAdded(ISpatialElement spatialElement)
+		public override void OnSpatialElementAdded(ISpatialElement spatialElement)
 		{
 			base.m_mapMapper.Simplify((Path)spatialElement);
 		}

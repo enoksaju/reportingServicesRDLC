@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapCustomColorInstance : BaseInstance
+	public sealed class MapCustomColorInstance : BaseInstance
 	{
 		private MapCustomColor m_defObject;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapCustomColorInstance(MapCustomColor defObject)
+		public MapCustomColorInstance(MapCustomColor defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

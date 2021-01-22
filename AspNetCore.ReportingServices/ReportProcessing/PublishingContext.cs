@@ -6,11 +6,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class PublishingContext : PublishingContextBase
+	public sealed class PublishingContext : PublishingContextBase
 	{
 		private byte[] m_definition;
 
-		internal byte[] Definition
+		public byte[] Definition
 		{
 			get
 			{

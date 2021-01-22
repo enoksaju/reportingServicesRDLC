@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class CharacterFormat : Format
+	public class CharacterFormat : Format
 	{
 		private const int MaxChpSprmSize = 503;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private int m_fcStart;
 
-		internal Stream Stream
+		public Stream Stream
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal List<int> Offsets
+		public List<int> Offsets
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal CharacterFormat(Stream chpTable, int fcStart)
+		public CharacterFormat(Stream chpTable, int fcStart)
 			: base(503, 0)
 		{
 			this.m_chpTable = chpTable;
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			LittleEndian.PutInt(this.m_chpFkp, this.m_fcStart);
 		}
 
-		internal void CommitLastCharacterRun(int cpStart, int cpEnd)
+		public void CommitLastCharacterRun(int cpStart, int cpEnd)
 		{
 			byte[] buf = base.m_grpprl.Buf;
 			int offset = base.m_grpprl.Offset;
@@ -101,25 +101,25 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return true;
 		}
 
-		internal void Finish(int lastCp)
+		public void Finish(int lastCp)
 		{
 			this.m_chpOffsets.Add(lastCp * 2 + this.m_fcStart);
 			this.m_chpTable.Write(this.m_chpFkp, 0, this.m_chpFkp.Length);
 		}
 
-		internal void Push(int bufSize)
+		public void Push(int bufSize)
 		{
 			this.m_formatStack.Push(base.m_grpprl);
 			base.m_grpprl = new SprmBuffer(bufSize, 0);
 		}
 
-		internal void CopyAndPush()
+		public void CopyAndPush()
 		{
 			this.m_formatStack.Push(base.m_grpprl);
 			base.m_grpprl = (SprmBuffer)base.m_grpprl.Clone();
 		}
 
-		internal void Pop()
+		public void Pop()
 		{
 			if (this.m_formatStack.Peek() != null)
 			{
@@ -127,13 +127,13 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void SetIsInlineImage(int position)
+		public void SetIsInlineImage(int position)
 		{
 			base.m_grpprl.AddSprm(2133, 1, null);
 			base.m_grpprl.AddSprm(27139, position, null);
 		}
 
-		internal void WriteBinTableTo(BinaryWriter tableWriter, ref int pageStart)
+		public void WriteBinTableTo(BinaryWriter tableWriter, ref int pageStart)
 		{
 			foreach (int chpOffset in this.m_chpOffsets)
 			{

@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixColumn
+	public sealed class MatrixColumn
 	{
 		private string m_width;
 
 		private double m_widthValue;
 
-		internal string Width
+		public string Width
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double WidthValue
+		public double WidthValue
 		{
 			get
 			{
@@ -34,12 +34,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			this.m_widthValue = context.ValidateSize(ref this.m_width, "Width");
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Width, Token.String));

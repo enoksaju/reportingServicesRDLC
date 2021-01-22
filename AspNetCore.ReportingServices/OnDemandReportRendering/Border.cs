@@ -3,9 +3,9 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Border
+	public sealed class Border
 	{
-		internal enum Position
+		public enum Position
 		{
 			Default,
 			Top,
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Style Owner
+		public Style Owner
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Position BorderPosition
+		public Position BorderPosition
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StyleAttributeNames ColorAttrName
+		public StyleAttributeNames ColorAttrName
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StyleAttributeNames StyleAttrName
+		public StyleAttributeNames StyleAttrName
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StyleAttributeNames WidthAttrName
+		public StyleAttributeNames WidthAttrName
 		{
 			get
 			{
@@ -145,14 +145,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Border(Style owner, Position position, bool defaultSolidBorderStyle)
+		public Border(Style owner, Position position, bool defaultSolidBorderStyle)
 		{
 			this.m_owner = owner;
 			this.m_position = position;
 			this.m_defaultSolidBorderStyle = defaultSolidBorderStyle;
 		}
 
-		internal BorderInstance GetInstance()
+		public BorderInstance GetInstance()
 		{
 			if (this.m_owner.m_renderingContext.InstanceAccessDisallowed)
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_instance;
 		}
 
-		internal void ConstructBorderDefinition()
+		public void ConstructBorderDefinition()
 		{
 			Global.Tracer.Assert(this.m_owner.ReportElement != null, "(m_owner.ReportElement != null)");
 			Global.Tracer.Assert(this.m_owner.ReportElement.CriGenerationPhase == ReportElement.CriGenerationPhases.Definition, "(m_owner.ReportElement.CriGenerationPhase == ReportElement.CriGenerationPhases.Definition)");

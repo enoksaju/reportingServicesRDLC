@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class ErrorBarChart : IChartType
+	public class ErrorBarChart : IChartType
 	{
 		protected Axis vAxis;
 
@@ -936,7 +936,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return point.YValues[yValueIndex];
 		}
 
-		internal static void CalculateErrorAmount(Series errorBarSeries)
+		public static void CalculateErrorAmount(Series errorBarSeries)
 		{
 			double num;
 			ErrorBarType errorBarType;
@@ -1072,7 +1072,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			goto IL_013b;
 		}
 
-		internal static double DefaultErrorBarTypeValue(ErrorBarType errorBarType)
+		public static double DefaultErrorBarTypeValue(ErrorBarType errorBarType)
 		{
 			switch (errorBarType)
 			{
@@ -1087,7 +1087,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal static void GetDataFromLinkedSeries(Series errorBarSeries, IServiceContainer serviceContainer)
+		public static void GetDataFromLinkedSeries(Series errorBarSeries, IServiceContainer serviceContainer)
 		{
 			if (string.Compare(errorBarSeries.ChartTypeName, "ErrorBar", StringComparison.OrdinalIgnoreCase) == 0 && serviceContainer != null && errorBarSeries.IsAttributeSet("ErrorBarSeries"))
 			{

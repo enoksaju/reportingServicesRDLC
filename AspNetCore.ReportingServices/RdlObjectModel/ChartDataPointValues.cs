@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartDataPointValues : ReportObject
+	public class ChartDataPointValues : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartDataPointValues, Definition.Properties>
+		public class Definition : DefinitionStore<ChartDataPointValues, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				X,
 				Y,
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartDataPointValues(IPropertyStore propertyStore)
+		public ChartDataPointValues(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

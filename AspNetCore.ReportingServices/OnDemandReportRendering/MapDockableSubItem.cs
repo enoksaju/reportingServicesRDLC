@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapDockableSubItem : MapSubItem, IROMActionOwner
+	public abstract class MapDockableSubItem : MapSubItem, IROMActionOwner
 	{
 		private ActionInfo m_actionInfo;
 
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapDockableSubItem MapDockableSubItemDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapDockableSubItem MapDockableSubItemDef
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal new MapDockableSubItemInstance Instance
+		public new MapDockableSubItemInstance Instance
 		{
 			get
 			{
@@ -108,12 +108,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapDockableSubItem(AspNetCore.ReportingServices.ReportIntermediateFormat.MapDockableSubItem defObject, Map map)
+		public MapDockableSubItem(AspNetCore.ReportingServices.ReportIntermediateFormat.MapDockableSubItem defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

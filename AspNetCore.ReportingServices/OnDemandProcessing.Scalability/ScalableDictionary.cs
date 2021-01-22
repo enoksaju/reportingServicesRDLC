@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class ScalableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable, IStorable, IPersistable
+	public sealed class ScalableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable, IStorable, IPersistable
 	{
-		internal struct ScalableDictionaryEnumerator : IEnumerator<KeyValuePair<TKey, TValue>>, IDisposable, IEnumerator
+		public struct ScalableDictionaryEnumerator : IEnumerator<KeyValuePair<TKey, TValue>>, IDisposable, IEnumerator
 		{
 			private class ContextItem<KeyType, ValueType>
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal ScalableDictionaryEnumerator(ScalableDictionary<TKey, TValue> dictionary)
+			public ScalableDictionaryEnumerator(ScalableDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 				this.m_version = dictionary.m_version;
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal struct ScalableDictionaryKeysEnumerator : IEnumerator<TKey>, IDisposable, IEnumerator
+		public struct ScalableDictionaryKeysEnumerator : IEnumerator<TKey>, IDisposable, IEnumerator
 		{
 			private ScalableDictionary<TKey, TValue> m_dictionary;
 
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal ScalableDictionaryKeysEnumerator(ScalableDictionary<TKey, TValue> dictionary)
+			public ScalableDictionaryKeysEnumerator(ScalableDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 				this.m_enumerator = dictionary.GetEnumerator();
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal struct ScalableDictionaryValuesEnumerator : IEnumerator<TValue>, IDisposable, IEnumerator
+		public struct ScalableDictionaryValuesEnumerator : IEnumerator<TValue>, IDisposable, IEnumerator
 		{
 			private ScalableDictionary<TKey, TValue> m_dictionary;
 
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal ScalableDictionaryValuesEnumerator(ScalableDictionary<TKey, TValue> dictionary)
+			public ScalableDictionaryValuesEnumerator(ScalableDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 				this.m_enumerator = dictionary.GetEnumerator();
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal sealed class ScalableDictionaryKeysCollection : ICollection<TKey>, IEnumerable<TKey>, IEnumerable
+		public sealed class ScalableDictionaryKeysCollection : ICollection<TKey>, IEnumerable<TKey>, IEnumerable
 		{
 			private ScalableDictionary<TKey, TValue> m_dictionary;
 
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal ScalableDictionaryKeysCollection(ScalableDictionary<TKey, TValue> dictionary)
+			public ScalableDictionaryKeysCollection(ScalableDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 			}
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal sealed class ScalableDictionaryValuesCollection : ICollection<TValue>, IEnumerable<TValue>, IEnumerable
+		public sealed class ScalableDictionaryValuesCollection : ICollection<TValue>, IEnumerable<TValue>, IEnumerable
 		{
 			private ScalableDictionary<TKey, TValue> m_dictionary;
 
@@ -347,7 +347,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal ScalableDictionaryValuesCollection(ScalableDictionary<TKey, TValue> dictionary)
+			public ScalableDictionaryValuesCollection(ScalableDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 			}
@@ -521,22 +521,22 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 		{
 		}
 
-		internal ScalableDictionary(int priority, IScalabilityCache cache)
+		public ScalableDictionary(int priority, IScalabilityCache cache)
 			: this(priority, cache, 23, 5, (IEqualityComparer<TKey>)null)
 		{
 		}
 
-		internal ScalableDictionary(int priority, IScalabilityCache cache, int nodeCapacity, int entryCapacity)
+		public ScalableDictionary(int priority, IScalabilityCache cache, int nodeCapacity, int entryCapacity)
 			: this(priority, cache, nodeCapacity, entryCapacity, (IEqualityComparer<TKey>)null)
 		{
 		}
 
-		internal ScalableDictionary(int priority, IScalabilityCache cache, int nodeCapacity, int entryCapacity, IEqualityComparer<TKey> comparer)
+		public ScalableDictionary(int priority, IScalabilityCache cache, int nodeCapacity, int entryCapacity, IEqualityComparer<TKey> comparer)
 			: this(priority, cache, nodeCapacity, entryCapacity, comparer, false)
 		{
 		}
 
-		internal ScalableDictionary(int priority, IScalabilityCache cache, int nodeCapacity, int entryCapacity, IEqualityComparer<TKey> comparer, bool useFixedReferences)
+		public ScalableDictionary(int priority, IScalabilityCache cache, int nodeCapacity, int entryCapacity, IEqualityComparer<TKey> comparer, bool useFixedReferences)
 		{
 			this.m_priority = priority;
 			this.m_scalabilityCache = cache;

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class InScopeSortFilterHashtable : Hashtable
+	public sealed class InScopeSortFilterHashtable : Hashtable
 	{
-		internal List<int> this[int index]
+		public List<int> this[int index]
 		{
 			get
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal InScopeSortFilterHashtable(int capacity)
+		public InScopeSortFilterHashtable(int capacity)
 			: base(capacity)
 		{
 		}

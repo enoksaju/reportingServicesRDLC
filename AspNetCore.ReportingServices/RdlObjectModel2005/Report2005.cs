@@ -6,11 +6,11 @@ using AspNetCore.ReportingServices.RdlObjectModel2008;
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
 	[XmlElementClass("Report", Namespace = "http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition")]
-	internal class Report2005 : Report2008, IUpgradeable
+	public class Report2005 : Report2008, IUpgradeable
 	{
-		internal new class Definition : DefinitionStore<Report2005, Definition.Properties>
+		public new class Definition : DefinitionStore<Report2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				PropertyCount = 28
 			}

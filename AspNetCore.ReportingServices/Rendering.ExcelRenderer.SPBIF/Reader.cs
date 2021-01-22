@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF
 {
-	internal class Reader
+	public class Reader
 	{
 		private class RelativeStaticLocation
 		{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF
 
 			private int m_staticAfterIndex = -1;
 
-			internal bool? IsSummaryAfter()
+			public bool? IsSummaryAfter()
 			{
 				if (this.m_toggleIndex > 0)
 				{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF
 				return null;
 			}
 
-			internal void SetIndexes(RPLTablixMemberCell member, bool isColumn)
+			public void SetIndexes(RPLTablixMemberCell member, bool isColumn)
 			{
 				if (member.TablixMemberDef.IsStatic)
 				{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF
 			}
 		}
 
-		internal static void ReadReportMeasurements(RPLReport report, ALayout layout, bool suppressOutlines, RPLReportSection firstReportSection)
+		public static void ReadReportMeasurements(RPLReport report, ALayout layout, bool suppressOutlines, RPLReportSection firstReportSection)
 		{
 			int num = 0;
 			int left = 0;

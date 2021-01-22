@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixCellInstanceInfo : InstanceInfo
+	public sealed class MatrixCellInstanceInfo : InstanceInfo
 	{
 		private NonComputedUniqueNames m_contentUniqueNames;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private int m_columnIndex;
 
-		internal NonComputedUniqueNames ContentUniqueNames
+		public NonComputedUniqueNames ContentUniqueNames
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int RowIndex
+		public int RowIndex
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ColumnIndex
+		public int ColumnIndex
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixCellInstanceInfo(int rowIndex, int colIndex, Matrix matrixDef, int cellDefIndex, ReportProcessing.ProcessingContext pc, MatrixCellInstance owner, out NonComputedUniqueNames nonComputedUniqueNames)
+		public MatrixCellInstanceInfo(int rowIndex, int colIndex, Matrix matrixDef, int cellDefIndex, ReportProcessing.ProcessingContext pc, MatrixCellInstance owner, out NonComputedUniqueNames nonComputedUniqueNames)
 		{
 			this.m_rowIndex = rowIndex;
 			this.m_columnIndex = colIndex;
@@ -69,11 +69,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixCellInstanceInfo()
+		public MatrixCellInstanceInfo()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ContentUniqueNames, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.NonComputedUniqueNames));

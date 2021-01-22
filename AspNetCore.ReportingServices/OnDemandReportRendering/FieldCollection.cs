@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class FieldCollection : ReportElementCollectionBase<Field>
+	public sealed class FieldCollection : ReportElementCollectionBase<Field>
 	{
 		private Field[] m_collection;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal FieldCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetDef)
+		public FieldCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetDef)
 		{
 			this.m_dataSetdef = dataSetDef;
 		}

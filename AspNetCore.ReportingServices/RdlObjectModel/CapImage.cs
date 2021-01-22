@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class CapImage : BaseGaugeImage
+	public class CapImage : BaseGaugeImage
 	{
-		internal new class Definition : DefinitionStore<CapImage, Definition.Properties>
+		public new class Definition : DefinitionStore<CapImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Source,
 				Value,
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal CapImage(IPropertyStore propertyStore)
+		public CapImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

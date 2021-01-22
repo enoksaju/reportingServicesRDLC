@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class FileExtensionViolationException : ReportCatalogException
+	public sealed class FileExtensionViolationException : ReportCatalogException
 	{
 		public FileExtensionViolationException(string targetFileExtension, string sourceFileExtension)
 			: base(ErrorCode.rsFileExtensionViolation, ErrorStrings.rsFileExtensionViolation(targetFileExtension, sourceFileExtension), null, null)

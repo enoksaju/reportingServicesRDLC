@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimMatrixMemberCollection : ShimMemberCollection
+	public sealed class ShimMatrixMemberCollection : ShimMemberCollection
 	{
 		private int m_definitionStartIndex = -1;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override double SizeDelta
+		public override double SizeDelta
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PageBreakLocation PropagatedGroupBreakLocation
+		public PageBreakLocation PropagatedGroupBreakLocation
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimMatrixMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, bool isColumnGroup, ShimMatrixMember parent, MatrixMemberCollection renderMemberCollection, MatrixMemberInfoCache matrixMemberCellIndexes)
+		public ShimMatrixMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, bool isColumnGroup, ShimMatrixMember parent, MatrixMemberCollection renderMemberCollection, MatrixMemberInfoCache matrixMemberCellIndexes)
 			: base(parentDefinitionPath, owner, isColumnGroup)
 		{
 			this.m_definitionStartIndex = owner.GetCurrentMemberCellDefinitionIndex();
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_definitionEndIndex = owner.GetCurrentMemberCellDefinitionIndex();
 		}
 
-		internal void UpdateContext(MatrixMemberInfoCache matrixMemberCellIndexes)
+		public void UpdateContext(MatrixMemberInfoCache matrixMemberCellIndexes)
 		{
 			if (base.m_children != null)
 			{
@@ -132,12 +132,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ResetContext(MatrixMemberCollection newRenderMemberCollection)
+		public void ResetContext(MatrixMemberCollection newRenderMemberCollection)
 		{
 			this.ResetContext(newRenderMemberCollection, null);
 		}
 
-		internal void ResetContext(MatrixMemberCollection newRenderMemberCollection, MatrixMemberInfoCache matrixMemberCellIndexes)
+		public void ResetContext(MatrixMemberCollection newRenderMemberCollection, MatrixMemberInfoCache matrixMemberCellIndexes)
 		{
 			if (base.m_children != null)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 {
-	internal interface IFormula
+	public interface IFormula
 	{
 		string Name
 		{

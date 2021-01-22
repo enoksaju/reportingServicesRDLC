@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class ProcessReportOdpUserSort : ProcessReportOdpSnapshotReprocessing
+	public class ProcessReportOdpUserSort : ProcessReportOdpSnapshotReprocessing
 	{
 		private readonly SortFilterEventInfoMap m_oldUserSortInformation;
 

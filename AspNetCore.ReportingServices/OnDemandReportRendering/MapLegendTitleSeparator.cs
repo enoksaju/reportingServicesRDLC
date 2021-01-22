@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapLegendTitleSeparator
+	public enum MapLegendTitleSeparator
 	{
 		None,
 		Line,

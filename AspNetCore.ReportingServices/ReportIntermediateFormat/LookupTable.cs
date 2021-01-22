@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class LookupTable : IStorable, IPersistable
+	public class LookupTable : IStorable, IPersistable
 	{
 		private ScalableDictionary<object, LookupMatches> m_table;
 
@@ -21,36 +21,36 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupTable()
+		public LookupTable()
 		{
 		}
 
-		internal LookupTable(IScalabilityCache scalabilityCache, IEqualityComparer<object> comparer, bool mustStoreDataRows)
+		public LookupTable(IScalabilityCache scalabilityCache, IEqualityComparer<object> comparer, bool mustStoreDataRows)
 		{
 			this.m_table = new ScalableDictionary<object, LookupMatches>(0, scalabilityCache, 100, 10, comparer);
 		}
 
-		internal bool TryGetValue(object key, out LookupMatches matches)
+		public bool TryGetValue(object key, out LookupMatches matches)
 		{
 			return this.m_table.TryGetValue(key, out matches);
 		}
 
-		internal bool TryGetAndPinValue(object key, out LookupMatches matches, out IDisposable cleanupRef)
+		public bool TryGetAndPinValue(object key, out LookupMatches matches, out IDisposable cleanupRef)
 		{
 			return this.m_table.TryGetAndPin(key, out matches, out cleanupRef);
 		}
 
-		internal IDisposable AddAndPin(object key, LookupMatches matches)
+		public IDisposable AddAndPin(object key, LookupMatches matches)
 		{
 			return this.m_table.AddAndPin(key, matches);
 		}
 
-		internal void TransferTo(IScalabilityCache scaleCache)
+		public void TransferTo(IScalabilityCache scaleCache)
 		{
 			this.m_table.TransferTo(scaleCache);
 		}
 
-		internal void SetEqualityComparer(IEqualityComparer<object> comparer)
+		public void SetEqualityComparer(IEqualityComparer<object> comparer)
 		{
 			this.m_table.UpdateComparer(comparer);
 		}

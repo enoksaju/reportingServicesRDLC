@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PageBreak
+	public sealed class PageBreak
 	{
 		private ReportBoolProperty m_resetPageNumber;
 
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IPageBreakOwner PageBreakOwner
+		public IPageBreakOwner PageBreakOwner
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.PageBreak PageBreakDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.PageBreak PageBreakDef
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool HasEnabledInstance
+		public bool HasEnabledInstance
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PageBreak(RenderingContext renderingContext, IReportScope reportScope, IPageBreakOwner pageBreakOwner)
+		public PageBreak(RenderingContext renderingContext, IReportScope reportScope, IPageBreakOwner pageBreakOwner)
 		{
 			this.m_renderingContext = renderingContext;
 			this.m_reportScope = reportScope;
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_isOldSnapshotOrStaticMember = false;
 		}
 
-		internal PageBreak(RenderingContext renderingContext, IReportScope reportScope, PageBreakLocation pageBreaklocation)
+		public PageBreak(RenderingContext renderingContext, IReportScope reportScope, PageBreakLocation pageBreaklocation)
 		{
 			this.m_renderingContext = renderingContext;
 			this.m_reportScope = reportScope;
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_isOldSnapshotOrStaticMember = true;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_pageBreakInstance != null)
 			{

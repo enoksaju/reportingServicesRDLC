@@ -6,11 +6,11 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[TypeConverter(typeof(CustomAttributeTypeConverter))]
-	internal class CustomAttributes
+	public class CustomAttributes
 	{
-		internal DataPointAttributes m_DataPointAttributes;
+		public DataPointAttributes m_DataPointAttributes;
 
-		internal virtual DataPointAttributes DataPointAttributes
+		public virtual DataPointAttributes DataPointAttributes
 		{
 			get
 			{
@@ -27,12 +27,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.DataPointAttributes = attributes;
 		}
 
-		internal virtual string GetUserDefinedAttributes()
+		public virtual string GetUserDefinedAttributes()
 		{
 			return this.GetUserDefinedAttributes(true);
 		}
 
-		internal virtual string GetUserDefinedAttributes(bool userDefined)
+		public virtual string GetUserDefinedAttributes(bool userDefined)
 		{
 			string customAttributes = this.DataPointAttributes.CustomAttributes;
 			string text = string.Empty;
@@ -80,7 +80,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return text;
 		}
 
-		internal virtual void SetUserDefinedAttributes(string val)
+		public virtual void SetUserDefinedAttributes(string val)
 		{
 			string text = this.GetUserDefinedAttributes(false);
 			if (val.Length > 0)

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GaugeImageConverter : CollectionItemTypeConverter
+	public class GaugeImageConverter : CollectionItemTypeConverter
 	{
 		public GaugeImageConverter()
 		{

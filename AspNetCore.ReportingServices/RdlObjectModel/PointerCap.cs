@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class PointerCap : ReportObject
+	public class PointerCap : ReportObject
 	{
-		internal class Definition : DefinitionStore<PointerCap, Definition.Properties>
+		public class Definition : DefinitionStore<PointerCap, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				CapImage,
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal PointerCap(IPropertyStore propertyStore)
+		public PointerCap(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

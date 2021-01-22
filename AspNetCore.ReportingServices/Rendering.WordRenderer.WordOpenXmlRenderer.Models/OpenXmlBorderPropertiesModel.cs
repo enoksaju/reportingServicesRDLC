@@ -6,9 +6,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal class OpenXmlBorderPropertiesModel : IStorable, IPersistable
+	public class OpenXmlBorderPropertiesModel : IStorable, IPersistable
 	{
-		internal enum BorderStyle : byte
+		public enum BorderStyle : byte
 		{
 			Dashed,
 			Dotted,
@@ -21,19 +21,19 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 
 		private static Declaration _declaration;
 
-		internal string Color
+		public string Color
 		{
 			get;
 			set;
 		}
 
-		internal BorderStyle Style
+		public BorderStyle Style
 		{
 			get;
 			set;
 		}
 
-		internal int WidthInEighthPoints
+		public int WidthInEighthPoints
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return (ulong)this.WidthInEighthPoints;
 		}
 
-		internal void Write(TextWriter writer, string tagName)
+		public void Write(TextWriter writer, string tagName)
 		{
 			writer.Write("<w:");
 			writer.Write(tagName);
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return ObjectType.WordOpenXmlBorderProperties;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			return OpenXmlBorderPropertiesModel._declaration;
 		}

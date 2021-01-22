@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeCapStyles
+	public enum GaugeCapStyles
 	{
 		RoundedDark,
 		Rounded,

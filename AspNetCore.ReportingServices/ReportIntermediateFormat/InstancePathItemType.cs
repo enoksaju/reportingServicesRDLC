@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum InstancePathItemType
+	public enum InstancePathItemType
 	{
 		None,
 		DataRegion,

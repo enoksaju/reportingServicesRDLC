@@ -3,9 +3,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Chart : DataRegion
+	public sealed class Chart : DataRegion
 	{
-		internal enum ImageType
+		public enum ImageType
 		{
 			PNG,
 			EMF
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ChartDataPointInstancesList DataPoints
+		public ChartDataPointInstancesList DataPoints
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal int CategoryGroupingLevels
+		public int CategoryGroupingLevels
 		{
 			get
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override string InstanceInfoNoRowMessage
+		public override string InstanceInfoNoRowMessage
 		{
 			get
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ImageMapAreasCollection[] DataPointMapAreas
+		public ImageMapAreasCollection[] DataPointMapAreas
 		{
 			get
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal float ScaleX
+		public float ScaleX
 		{
 			get
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal float ScaleY
+		public float ScaleY
 		{
 			get
 			{
@@ -215,7 +215,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Chart(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Chart reportItemDef, ChartInstance reportItemInstance, RenderingContext renderingContext)
+		public Chart(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Chart reportItemDef, ChartInstance reportItemInstance, RenderingContext renderingContext)
 			: base(intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 		}

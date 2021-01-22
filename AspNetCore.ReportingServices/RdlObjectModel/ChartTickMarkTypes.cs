@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartTickMarkTypes
+	public enum ChartTickMarkTypes
 	{
 		Outside,
 		Inside,

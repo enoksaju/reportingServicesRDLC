@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal GlobalsImpl(OnDemandProcessingContext odpContext)
+		public GlobalsImpl(OnDemandProcessingContext odpContext)
 		{
 			this.m_reportName = odpContext.ReportContext.ItemName;
 			this.m_executionTime = odpContext.ExecutionTime;
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_renderFormat = new RenderFormat(new RenderFormatImpl(odpContext));
 		}
 
-		internal GlobalsImpl(string reportName, int pageNumber, int totalPages, int overallPageNumber, int overallTotalPages, DateTime executionTime, string reportServerUrl, string reportFolder, string pageName, OnDemandProcessingContext odpContext)
+		public GlobalsImpl(string reportName, int pageNumber, int totalPages, int overallPageNumber, int overallTotalPages, DateTime executionTime, string reportServerUrl, string reportFolder, string pageName, OnDemandProcessingContext odpContext)
 		{
 			this.m_reportName = reportName;
 			this.m_pageNumber = pageNumber;
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_renderFormat = new RenderFormat(new RenderFormatImpl(odpContext));
 		}
 
-		internal void SetPageNumbers(int pageNumber, int totalPages, int overallPageNumber, int overallTotalPages)
+		public void SetPageNumbers(int pageNumber, int totalPages, int overallPageNumber, int overallTotalPages)
 		{
 			this.m_pageNumber = pageNumber;
 			this.m_totalPages = totalPages;
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_overallTotalPages = overallTotalPages;
 		}
 
-		internal void SetPageName(string pageName)
+		public void SetPageName(string pageName)
 		{
 			this.m_pageName = pageName;
 		}

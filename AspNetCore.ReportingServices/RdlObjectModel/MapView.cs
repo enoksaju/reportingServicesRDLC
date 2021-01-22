@@ -5,11 +5,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 	[XmlElementClass("MapCustomView", typeof(MapCustomView))]
 	[XmlElementClass("MapDataBoundView", typeof(MapDataBoundView))]
 	[XmlElementClass("MapElementView", typeof(MapElementView))]
-	internal abstract class MapView : ReportObject
+	public abstract class MapView : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapView, Definition.Properties>
+		public class Definition : DefinitionStore<MapView, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Zoom
 			}
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapView(IPropertyStore propertyStore)
+		public MapView(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

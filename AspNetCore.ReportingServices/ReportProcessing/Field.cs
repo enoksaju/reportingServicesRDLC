@@ -6,7 +6,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Field
+	public sealed class Field
 	{
 		private string m_name;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private CalcFieldExprHost m_exprHost;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DataField
+		public string DataField
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsCalculatedField
+		public bool IsCalculatedField
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool DynamicPropertyReferences
+		public bool DynamicPropertyReferences
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal FieldPropertyHashtable ReferencedProperties
+		public FieldPropertyHashtable ReferencedProperties
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CalcFieldExprHost ExprHost
+		public CalcFieldExprHost ExprHost
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.Value != null)
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(DataSetExprHost dataSetExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(DataSetExprHost dataSetExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (this.ExprHostID >= 0)
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Name, Token.String));

@@ -2,16 +2,16 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class EnumStrings
+	public class EnumStrings
 	{
-		internal class FontStyles
+		public class FontStyles
 		{
 			public const string Normal = "normal";
 
 			public const string Italic = "italic";
 		}
 
-		internal class FontWeights
+		public class FontWeights
 		{
 			public const string Normal = "400";
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			public const string Heavy = "900";
 		}
 
-		internal class TextDecorations
+		public class TextDecorations
 		{
 			public const string None = "none";
 
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			public const string LineThrough = "line-through";
 		}
 
-		internal class TextAlignments
+		public class TextAlignments
 		{
 			public const string General = "General";
 
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			public const string Right = "right";
 		}
 
-		internal class VerticalAlignments
+		public class VerticalAlignments
 		{
 			public const string Top = "top";
 
@@ -63,21 +63,21 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			public const string Bottom = "bottom";
 		}
 
-		internal class Directions
+		public class Directions
 		{
 			public const string LTR = "ltr";
 
 			public const string RTL = "rtl";
 		}
 
-		internal class WritingModes
+		public class WritingModes
 		{
 			public const string Horizontal = "lr-tb";
 
 			public const string Vertical = "tb-rl";
 		}
 
-		internal class UnicodeBiDiTypes
+		public class UnicodeBiDiTypes
 		{
 			public const string Normal = "normal";
 
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			public const string BiDiOverride = "bidi-override";
 		}
 
-		internal class BorderStyles
+		public class BorderStyles
 		{
 			public const string None = "none";
 
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			public const string Double = "double";
 		}
 
-		internal class BackgroundRepeatTypes
+		public class BackgroundRepeatTypes
 		{
 			public const string Repeat = "repeat";
 

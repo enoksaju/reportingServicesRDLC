@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal abstract class RenderReportYukon : RenderReport
+	public abstract class RenderReportYukon : RenderReport
 	{
 		protected ChunkManager.RenderingChunkManager m_chunkManager;
 

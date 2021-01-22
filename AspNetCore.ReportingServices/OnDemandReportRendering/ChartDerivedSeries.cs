@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartDerivedSeries : ChartObjectCollectionItem<BaseInstance>
+	public sealed class ChartDerivedSeries : ChartObjectCollectionItem<BaseInstance>
 	{
 		private Chart m_chart;
 
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalChartSeries SourceSeries
+		public InternalChartSeries SourceSeries
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDerivedSeries ChartDerivedSeriesDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDerivedSeries ChartDerivedSeriesDef
 		{
 			get
 			{
@@ -94,13 +94,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartDerivedSeries(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDerivedSeries chartDerivedSeriesDef, Chart chart)
+		public ChartDerivedSeries(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDerivedSeries chartDerivedSeriesDef, Chart chart)
 		{
 			this.m_chartDerivedSeriesDef = chartDerivedSeriesDef;
 			this.m_chart = chart;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_series != null)

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.spreadsheetDrawing
 {
-	internal class CT_Drawing : OoxmlComplexType
+	public class CT_Drawing : OoxmlComplexType
 	{
 		private List<CT_TwoCellAnchor> _twoCellAnchor;
 

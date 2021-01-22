@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartArrowsTypes
+	public enum ChartArrowsTypes
 	{
 		None,
 		Triangle,

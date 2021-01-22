@@ -6,7 +6,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CheckBox : ReportItem
+	public sealed class CheckBox : ReportItem
 	{
 		private ExpressionInfo m_value;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_hasOldValue;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string HideDuplicates
+		public string HideDuplicates
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool OldValue
+		public bool OldValue
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasOldValue
+		public bool HasOldValue
 		{
 			get
 			{
@@ -75,19 +75,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CheckBox(ReportItem parent)
+		public CheckBox(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal CheckBox(int id, ReportItem parent)
+		public CheckBox(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			base.m_height = "3.175mm";
 			base.m_width = "3.175mm";
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -107,12 +107,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(false, string.Empty);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Value, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ExpressionInfo));

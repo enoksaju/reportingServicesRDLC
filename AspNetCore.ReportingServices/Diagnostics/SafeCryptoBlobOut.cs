@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class SafeCryptoBlobOut : SafeHandleZeroOrMinusOneIsInvalid
+	public sealed class SafeCryptoBlobOut : SafeHandleZeroOrMinusOneIsInvalid
 	{
 		private SafeLocalFree m_pBlob;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 
 		private NativeMethods.DATA_BLOB m_blob;
 
-		internal NativeMethods.DATA_BLOB Blob
+		public NativeMethods.DATA_BLOB Blob
 		{
 			get
 			{
@@ -24,14 +24,14 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			}
 		}
 
-		internal SafeCryptoBlobOut()
+		public SafeCryptoBlobOut()
 			: base(true)
 		{
 			this.m_pBlob = SafeLocalFree.LocalAlloc(Marshal.SizeOf(typeof(NativeMethods.DATA_BLOB)));
 			base.handle = this.m_pBlob.DangerousGetHandle();
 		}
 
-		internal void ZeroBuffer()
+		public void ZeroBuffer()
 		{
 			NativeMethods.DATA_BLOB blob = this.Blob;
 			byte[] destination = new byte[blob.cbData];

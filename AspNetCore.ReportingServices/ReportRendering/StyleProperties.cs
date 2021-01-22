@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class StyleProperties : ICloneable
+	public sealed class StyleProperties : ICloneable
 	{
 		private Hashtable m_nameMap;
 
@@ -47,13 +47,13 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal StyleProperties()
+		public StyleProperties()
 		{
 			this.m_nameMap = new Hashtable();
 			this.m_valueCollection = new ArrayList();
 		}
 
-		internal StyleProperties(int capacity)
+		public StyleProperties(int capacity)
 		{
 			this.m_nameMap = new Hashtable(capacity);
 			this.m_valueCollection = new ArrayList(capacity);
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return false;
 		}
 
-		internal void Add(string name, object value)
+		public void Add(string name, object value)
 		{
 			if (!this.m_nameMap.Contains(name))
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal void Set(string name, object value)
+		public void Set(string name, object value)
 		{
 			object obj = this.m_nameMap[name];
 			if (obj != null)
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataValueInstanceList ExtractRenderStyles()
+		public DataValueInstanceList ExtractRenderStyles()
 		{
 			DataValueInstanceList dataValueInstanceList = null;
 			if (this.m_nameMap != null)

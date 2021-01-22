@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class IntProperty : ComparablePropertyDefinition<int>
+	public class IntProperty : ComparablePropertyDefinition<int>
 	{
 		public IntProperty(string name, int? defaultValue)
 			: base(name, defaultValue)

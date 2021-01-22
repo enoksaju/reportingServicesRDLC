@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Util
 {
-	internal sealed class HashSet<T> : ICollection<T>, IEnumerable<T>, IEnumerable
+	public sealed class HashSet<T> : ICollection<T>, IEnumerable<T>, IEnumerable
 	{
 		private Dictionary<T, T> mHashTable = new Dictionary<T, T>();
 

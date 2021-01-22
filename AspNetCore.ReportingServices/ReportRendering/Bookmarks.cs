@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Bookmarks
+	public sealed class Bookmarks
 	{
 		private BookmarksHashtable m_reportBookmarks;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Bookmarks(BookmarksHashtable reportBookmarks)
+		public Bookmarks(BookmarksHashtable reportBookmarks)
 		{
 			Global.Tracer.Assert(reportBookmarks != null, "The bookmark hashtable being wrapped cannot be null.");
 			this.m_reportBookmarks = reportBookmarks;

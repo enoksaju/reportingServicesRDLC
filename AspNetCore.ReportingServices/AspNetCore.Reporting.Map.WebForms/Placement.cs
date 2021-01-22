@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum Placement
+	public enum Placement
 	{
 		Inside,
 		Outside,

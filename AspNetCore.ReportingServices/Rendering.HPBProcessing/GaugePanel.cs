@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class GaugePanel : DynamicImage, IStorable, IPersistable
+	public sealed class GaugePanel : DynamicImage, IStorable, IPersistable
 	{
 		private static Declaration m_declaration = GaugePanel.GetDeclaration();
 
@@ -27,11 +27,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal GaugePanel()
+		public GaugePanel()
 		{
 		}
 
-		internal GaugePanel(AspNetCore.ReportingServices.OnDemandReportRendering.GaugePanel source, PageContext pageContext)
+		public GaugePanel(AspNetCore.ReportingServices.OnDemandReportRendering.GaugePanel source, PageContext pageContext)
 			: base(source)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.GaugePanel gaugePanel = (AspNetCore.ReportingServices.OnDemandReportRendering.GaugePanel)base.m_source;
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.GaugePanel;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (GaugePanel.m_declaration == null)
 			{

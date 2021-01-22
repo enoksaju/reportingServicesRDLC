@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapDataRegion : DataRegion, IMapObjectCollectionItem
+	public sealed class MapDataRegion : DataRegion, IMapObjectCollectionItem
 	{
 		private MapMember m_innerMostMampMember;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMember InnerMostMapMember
+		public MapMember InnerMostMapMember
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataRegion MapDataRegionDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataRegion MapDataRegionDef
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool HasDataCells
+		public override bool HasDataCells
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IDataRegionRowCollection RowCollection
+		public override IDataRegionRowCollection RowCollection
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapDataRegion(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataRegion reportItemDef, RenderingContext renderingContext)
+		public MapDataRegion(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataRegion reportItemDef, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 		}
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.SetNewContext();
 		}
 
-		internal List<MapVectorLayer> GetChildLayers()
+		public List<MapVectorLayer> GetChildLayers()
 		{
 			MapLayerCollection mapLayers = ((Map)base.m_parentDefinitionPath).MapLayers;
 			List<MapVectorLayer> list = new List<MapVectorLayer>();
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return list;
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_mapMember != null)
 			{

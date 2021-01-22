@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class Matrix3x3
+	public class Matrix3x3
 	{
 		public double[,] Elements = new double[3, 3];
 

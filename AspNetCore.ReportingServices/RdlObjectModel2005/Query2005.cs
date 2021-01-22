@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Query2005 : Query, IUpgradeable
+	public class Query2005 : Query, IUpgradeable
 	{
 		public Query2005()
 		{

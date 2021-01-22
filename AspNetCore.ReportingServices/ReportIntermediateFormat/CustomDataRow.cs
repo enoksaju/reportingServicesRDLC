@@ -6,14 +6,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class CustomDataRow : Row
+	public sealed class CustomDataRow : Row
 	{
 		private DataCellList m_cells;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = CustomDataRow.GetDeclaration();
 
-		internal override CellList Cells
+		public override CellList Cells
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataCellList DataCells
+		public DataCellList DataCells
 		{
 			get
 			{
@@ -33,16 +33,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CustomDataRow()
+		public CustomDataRow()
 		{
 		}
 
-		internal CustomDataRow(int id)
+		public CustomDataRow(int id)
 			: base(id)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Cells, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataCell));

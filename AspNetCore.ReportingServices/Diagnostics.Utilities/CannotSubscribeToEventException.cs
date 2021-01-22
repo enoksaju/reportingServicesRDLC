@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class CannotSubscribeToEventException : ReportCatalogException
+	public sealed class CannotSubscribeToEventException : ReportCatalogException
 	{
 		public CannotSubscribeToEventException(string eventType)
 			: base(ErrorCode.rsCannotSubscribeToEvent, ErrorStrings.rsCannotSubscribeToEvent(eventType), null, null)

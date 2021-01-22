@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class ParameterValue
+	public class ParameterValue
 	{
 		private string m_name;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ParamExprHost m_exprHost;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Omit
+		public ExpressionInfo Omit
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParamExprHost ExprHost
+		public ParamExprHost ExprHost
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context, bool queryParam)
+		public void Initialize(InitializationContext context, bool queryParam)
 		{
 			if (this.m_value != null)
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(IList<ParamExprHost> paramExprHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<ParamExprHost> paramExprHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Name, Token.String));

@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DrillthroughInformation
+	public sealed class DrillthroughInformation
 	{
 		private string m_reportName;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private IntList m_dataSetTokenIDs;
 
-		internal string ReportName
+		public string ReportName
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DrillthroughParameters ReportParameters
+		public DrillthroughParameters ReportParameters
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList DataSetTokenIDs
+		public IntList DataSetTokenIDs
 		{
 			get
 			{
@@ -48,18 +48,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DrillthroughInformation()
+		public DrillthroughInformation()
 		{
 		}
 
-		internal DrillthroughInformation(string reportName, DrillthroughParameters reportParameters, IntList dataSetTokenIDs)
+		public DrillthroughInformation(string reportName, DrillthroughParameters reportParameters, IntList dataSetTokenIDs)
 		{
 			this.m_reportName = reportName;
 			this.m_reportParameters = reportParameters;
 			this.m_dataSetTokenIDs = dataSetTokenIDs;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.DrillthroughReportName, Token.String));
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.None, memberInfoList);
 		}
 
-		internal void ResolveDataSetTokenIDs(TokensHashtable dataSetTokenIDs)
+		public void ResolveDataSetTokenIDs(TokensHashtable dataSetTokenIDs)
 		{
 			if (dataSetTokenIDs != null && this.m_dataSetTokenIDs != null)
 			{

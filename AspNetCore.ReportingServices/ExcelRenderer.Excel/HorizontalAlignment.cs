@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum HorizontalAlignment
+	public enum HorizontalAlignment
 	{
 		General,
 		Left,

@@ -6,7 +6,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLStreambookModel : XMLWorkbookModel, IStreambookModel, IWorkbookModel
+	public class XMLStreambookModel : XMLWorkbookModel, IStreambookModel, IWorkbookModel
 	{
 		private Stream _outputStream;
 

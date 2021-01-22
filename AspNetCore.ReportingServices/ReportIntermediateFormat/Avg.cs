@@ -6,13 +6,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class Avg : Sum
+	public sealed class Avg : Sum
 	{
 		private uint m_currentCount;
 
 		private static Declaration m_declaration = Avg.GetDeclaration();
 
-		internal override DataAggregateInfo.AggregateTypes AggregateType
+		public override DataAggregateInfo.AggregateTypes AggregateType
 		{
 			get
 			{
@@ -28,13 +28,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void Init()
+		public override void Init()
 		{
 			base.Init();
 			this.m_currentCount = 0u;
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			object o = expressions[0];
 			AspNetCore.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode typeCode = DataAggregate.GetTypeCode(o);
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			switch (base.m_currentTotalType)
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef)
+		public override DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef)
 		{
 			return new Avg();
 		}

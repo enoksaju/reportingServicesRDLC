@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InheritedPolicyException : ReportCatalogException
+	public sealed class InheritedPolicyException : ReportCatalogException
 	{
 		public InheritedPolicyException(string itemPath)
 			: base(ErrorCode.rsInheritedPolicy, ErrorStrings.rsInheritedPolicy(itemPath), null, null)

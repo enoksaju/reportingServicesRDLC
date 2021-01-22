@@ -6,7 +6,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[DefaultProperty("ToolTip")]
 	[SRDescription("DescriptionAttributeMapArea_MapArea")]
-	internal class MapArea : IMapAreaAttributes
+	public class MapArea : IMapAreaAttributes
 	{
 		private string toolTip = "";
 
@@ -29,7 +29,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[SRDescription("DescriptionAttributeMapArea_Custom")]
 		[DefaultValue("")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		internal bool Custom
+		public bool Custom
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal object Tag
+		public object Tag
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal string GetTag()
+		public string GetTag()
 		{
 			StringBuilder stringBuilder = new StringBuilder("\r\n<AREA SHAPE=\"", 120);
 			if (this.shape == MapAreaShape.Circle)

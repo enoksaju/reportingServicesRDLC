@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ParagraphInstanceEnumerator : IEnumerator<ParagraphInstance>, IDisposable, IEnumerator
+	public sealed class ParagraphInstanceEnumerator : IEnumerator<ParagraphInstance>, IDisposable, IEnumerator
 	{
 		private TextBox m_textbox;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ParagraphInstanceEnumerator(TextBox textbox)
+		public ParagraphInstanceEnumerator(TextBox textbox)
 		{
 			this.m_textbox = textbox;
 		}

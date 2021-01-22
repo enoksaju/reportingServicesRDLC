@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal interface ISize
+	public interface ISize
 	{
 		void Render(IOutputStream outputStream);
 	}

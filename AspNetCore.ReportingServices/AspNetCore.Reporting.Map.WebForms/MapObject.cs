@@ -3,9 +3,9 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapObject : IDisposable
+	public class MapObject : IDisposable
 	{
-		internal bool initialized = true;
+		public bool initialized = true;
 
 		private object parent;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		protected bool disposed;
 
-		internal virtual object Parent
+		public virtual object Parent
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual CommonElements Common
+		public virtual CommonElements Common
 		{
 			get
 			{
@@ -57,12 +57,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapObject(object parent)
+		public MapObject(object parent)
 		{
 			this.parent = parent;
 		}
 
-		internal virtual void Invalidate()
+		public virtual void Invalidate()
 		{
 			if (this.Common != null)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void Invalidate(RectangleF rect)
+		public virtual void Invalidate(RectangleF rect)
 		{
 			if (this.Common != null)
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void InvalidateViewport(bool invalidateGridSections)
+		public virtual void InvalidateViewport(bool invalidateGridSections)
 		{
 			if (this.Common != null)
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void InvalidateDistanceScalePanel()
+		public virtual void InvalidateDistanceScalePanel()
 		{
 			if (this.Common != null)
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void InvalidateViewport()
+		public virtual void InvalidateViewport()
 		{
 			if (this.Common != null)
 			{
@@ -102,21 +102,21 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void BeginInit()
+		public virtual void BeginInit()
 		{
 			this.initialized = false;
 		}
 
-		internal virtual void EndInit()
+		public virtual void EndInit()
 		{
 			this.initialized = true;
 		}
 
-		internal virtual void ReconnectData(bool exact)
+		public virtual void ReconnectData(bool exact)
 		{
 		}
 
-		internal virtual void Notify(MessageType msg, NamedElement element, object param)
+		public virtual void Notify(MessageType msg, NamedElement element, object param)
 		{
 		}
 

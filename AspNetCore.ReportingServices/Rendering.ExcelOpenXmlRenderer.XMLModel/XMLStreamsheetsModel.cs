@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLStreamsheetsModel : XMLWorksheetsModel
+	public class XMLStreamsheetsModel : XMLWorksheetsModel
 	{
 		private XMLStreamsheetModel _currentSheet;
 

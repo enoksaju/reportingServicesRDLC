@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class SharedDataSetQuery : IPersistable
+	public sealed class SharedDataSetQuery : IPersistable
 	{
 		private List<ParameterValue> m_queryParameters;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = SharedDataSetQuery.GetDeclaration();
 
-		internal List<ParameterValue> Parameters
+		public List<ParameterValue> Parameters
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string SharedDataSetReference
+		public string SharedDataSetReference
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_queryParameters != null)
 			{
@@ -64,14 +64,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetExprHost(IndexedExprHost queryParamsExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IndexedExprHost queryParamsExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(queryParamsExprHost != null && reportObjectModel != null, "(queryParamsExprHost != null && reportObjectModel != null)");
 			this.m_queryParamsExprHost = queryParamsExprHost;
 			this.m_queryParamsExprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.QueryParameters, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ParameterValue));

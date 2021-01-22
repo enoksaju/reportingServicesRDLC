@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IIndexedInCollection
+	public interface IIndexedInCollection
 	{
 		int IndexInCollection
 		{

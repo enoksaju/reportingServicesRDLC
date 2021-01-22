@@ -1,25 +1,25 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class DataPoint3D
+	public class DataPoint3D
 	{
-		internal DataPoint dataPoint;
+		public DataPoint dataPoint;
 
-		internal int index;
+		public int index;
 
-		internal double xPosition;
+		public double xPosition;
 
-		internal double yPosition;
+		public double yPosition;
 
-		internal double xCenterVal;
+		public double xCenterVal;
 
-		internal float zPosition;
+		public float zPosition;
 
-		internal double width;
+		public double width;
 
-		internal double height;
+		public double height;
 
-		internal float depth;
+		public float depth;
 
-		internal bool indexedSeries;
+		public bool indexedSeries;
 	}
 }

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class BaseInstance
+	public abstract class BaseInstance
 	{
-		internal IReportScope m_reportScope;
+		public IReportScope m_reportScope;
 
-		internal virtual IReportScopeInstance ReportScopeInstance
+		public virtual IReportScopeInstance ReportScopeInstance
 		{
 			get
 			{
@@ -12,12 +12,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal BaseInstance(IReportScope reportScope)
+		public BaseInstance(IReportScope reportScope)
 		{
 			this.m_reportScope = reportScope;
 		}
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			this.ResetInstanceCache();
 		}

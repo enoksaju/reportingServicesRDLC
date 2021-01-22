@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLTextBox : RPLItem
+	public sealed class RPLTextBox : RPLItem
 	{
 		private int m_paragraphCount;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 
 		private long m_paragraphOffsets = -1L;
 
-		internal long ParagraphOffsets
+		public long ParagraphOffsets
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal int ParagraphCount
+		public int ParagraphCount
 		{
 			set
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal Queue<RPLParagraph> Paragraphs
+		public Queue<RPLParagraph> Paragraphs
 		{
 			set
 			{
@@ -43,18 +43,18 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTextBox()
+		public RPLTextBox()
 		{
 			base.m_rplElementProps = new RPLTextBoxProps();
 			base.m_rplElementProps.Definition = new RPLTextBoxPropsDef();
 		}
 
-		internal RPLTextBox(long startOffset, RPLContext context)
+		public RPLTextBox(long startOffset, RPLContext context)
 			: base(startOffset, context)
 		{
 		}
 
-		internal RPLTextBox(RPLItemProps rplElementProps)
+		public RPLTextBox(RPLItemProps rplElementProps)
 			: base(rplElementProps)
 		{
 			RPLTextBoxProps rPLTextBoxProps = rplElementProps as RPLTextBoxProps;
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return null;
 		}
 
-		internal void AddParagraph(RPLParagraph paragraph)
+		public void AddParagraph(RPLParagraph paragraph)
 		{
 			if (this.m_paragraphs == null)
 			{

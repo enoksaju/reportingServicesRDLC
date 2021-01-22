@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ReportNotReadyException : ReportCatalogException
+	public sealed class ReportNotReadyException : ReportCatalogException
 	{
 		public ReportNotReadyException()
 			: base(ErrorCode.rsReportNotReady, ErrorStrings.rsReportNotReady, null, null)

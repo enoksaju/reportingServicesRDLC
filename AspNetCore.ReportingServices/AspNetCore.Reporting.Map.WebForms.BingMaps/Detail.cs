@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class Detail
+	public class Detail
 	{
 		[DataMember(Name = "compassDegrees", EmitDefaultValue = false)]
 		public int CompassDegrees

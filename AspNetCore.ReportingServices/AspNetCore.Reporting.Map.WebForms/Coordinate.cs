@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[DataContract]
-	internal class Coordinate
+	public class Coordinate
 	{
 		private double _latitude;
 

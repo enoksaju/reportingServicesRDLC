@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportItemVisibility : Visibility
+	public sealed class ReportItemVisibility : Visibility
 	{
 		private ReportItem m_owner;
 

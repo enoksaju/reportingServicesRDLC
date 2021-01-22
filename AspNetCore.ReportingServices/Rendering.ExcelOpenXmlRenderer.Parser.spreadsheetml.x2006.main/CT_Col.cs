@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_Col : OoxmlComplexType
+	public class CT_Col : OoxmlComplexType
 	{
 		private uint _min_attr;
 

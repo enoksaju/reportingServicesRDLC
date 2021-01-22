@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal static class SupportClass
+	public static class SupportClass
 	{
 		public static long CopyStream(Stream from, Stream to)
 		{

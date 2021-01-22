@@ -5,11 +5,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Header2005 : ReportObject
+	public class Header2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<Header2005, Definition.Properties>
+		public class Definition : DefinitionStore<Header2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				TableRows,
 				RepeatOnNewPage,

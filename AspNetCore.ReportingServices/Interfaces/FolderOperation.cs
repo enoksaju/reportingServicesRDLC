@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal enum FolderOperation
+	public enum FolderOperation
 	{
 		CreateFolder,
 		Delete,

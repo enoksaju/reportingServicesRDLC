@@ -7,13 +7,13 @@ using System.Text;
 namespace AspNetCore.Reporting
 {
 
-	internal abstract class Report
+	public abstract class Report
 	{
 		private string m_displayName = "";
 
 		private int m_drillthroughDepth = 1;
 
-		internal object m_syncObject = new object();
+		public object m_syncObject = new object();
 
 		[NotifyParentProperty(true)]		
 		[DefaultValue("")]		
@@ -28,8 +28,8 @@ namespace AspNetCore.Reporting
 				this.m_displayName = value;
 			}
 		}
-        internal event EventHandler<ReportChangedEventArgs> Change;
-        internal abstract string DisplayNameForUse
+        public event EventHandler<ReportChangedEventArgs> Change;
+        public abstract string DisplayNameForUse
 		{
 			get;
 		}
@@ -43,7 +43,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal int DrillthroughDepth
+		public int DrillthroughDepth
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal abstract bool IsReadyForConnection
+		public abstract bool IsReadyForConnection
 		{
 			get;
 		}
@@ -76,34 +76,34 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal abstract bool IsPreparedReportReadyForRendering
+		public abstract bool IsPreparedReportReadyForRendering
 		{
 			get;
 		}
 
-		internal abstract bool HasDocMap
+		public abstract bool HasDocMap
 		{
 			get;
 		}
 
-		internal abstract int AutoRefreshInterval
+		public abstract int AutoRefreshInterval
 		{
 			get;
 		}
 
-		internal abstract bool CanSelfCancel
+		public abstract bool CanSelfCancel
 		{
 			get;
 		}
 
 
-		internal Report()
+		public Report()
 		{
 		}
 
 		public abstract ReportParameterInfoCollection GetParameters();
 
-		internal abstract ParametersPaneLayout GetParametersPaneLayout();
+		public abstract ParametersPaneLayout GetParametersPaneLayout();
 
 		public abstract void SetParameters(IEnumerable<ReportParameter> parameters);
 
@@ -117,17 +117,17 @@ namespace AspNetCore.Reporting
 
 		public abstract byte[] Render(string format, string deviceInfo, PageCountMode pageCountMode, out string mimeType, out Encoding encoding, out string fileNameExtension, out string[] streams, out Warning[] warnings);
 
-		internal abstract byte[] InternalRenderStream(string format, string streamID, string deviceInfo, out string mimeType, out Encoding encoding);
+		public abstract byte[] InternalRenderStream(string format, string streamID, string deviceInfo, out string mimeType, out Encoding encoding);
 
-		internal abstract void InternalDeliverReportItem(string format, string deviceInfo, ExtensionSettings settings, string description, string eventType, string matchData);
+		public abstract void InternalDeliverReportItem(string format, string deviceInfo, ExtensionSettings settings, string description, string eventType, string matchData);
 
-		internal abstract int PerformSearch(string searchText, int startPage, int endPage);
+		public abstract int PerformSearch(string searchText, int startPage, int endPage);
 
-		internal abstract void PerformToggle(string toggleId);
+		public abstract void PerformToggle(string toggleId);
 
-		internal abstract int PerformBookmarkNavigation(string bookmarkId, out string uniqueName);
+		public abstract int PerformBookmarkNavigation(string bookmarkId, out string uniqueName);
 
-		internal abstract int PerformDocumentMapNavigation(string documentMapId);
+		public abstract int PerformDocumentMapNavigation(string documentMapId);
 
 		public abstract ReportPageSettings GetDefaultPageSettings();
 
@@ -157,11 +157,11 @@ namespace AspNetCore.Reporting
 		}
  
 
-		internal abstract Report PerformDrillthrough(string drillthroughId, out string reportPath);
+		public abstract Report PerformDrillthrough(string drillthroughId, out string reportPath);
 
-		internal abstract int PerformSort(string sortId, SortOrder sortDirection, bool clearSort, PageCountMode pageCountMode, out string uniqueName);
+		public abstract int PerformSort(string sortId, SortOrder sortDirection, bool clearSort, PageCountMode pageCountMode, out string uniqueName);
 
-		internal bool PrepareForRender()
+		public bool PrepareForRender()
 		{
 			lock (this.m_syncObject)
 			{
@@ -174,11 +174,11 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal abstract void EnsureExecutionSession();
+		public abstract void EnsureExecutionSession();
 
-		internal abstract DocumentMapNode GetDocumentMap(string rootLabel);
+		public abstract DocumentMapNode GetDocumentMap(string rootLabel);
 
-		internal abstract void SetCancelState(bool shouldCancel);
+		public abstract void SetCancelState(bool shouldCancel);
 
 		public void LoadReportDefinition(Stream report)
 		{
@@ -189,7 +189,7 @@ namespace AspNetCore.Reporting
 			this.LoadReportDefinition(new StreamReader(report));
 		}
 
-		internal void OnChange(bool isRefreshOnly)
+		public void OnChange(bool isRefreshOnly)
 		{
 			if (this.Change != null)
 			{
@@ -197,12 +197,12 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal void OnChange(object sender, EventArgs e)
+		public void OnChange(object sender, EventArgs e)
 		{
 			this.OnChange(false);
 		}
 
-		internal virtual string CreatePrintRequestQuery(string InstanceID)
+		public virtual string CreatePrintRequestQuery(string InstanceID)
 		{
 			return PrintRequestOperation.CreateQuery(this, InstanceID);
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal interface IDataSource
+	public interface IDataSource
 	{
 		string Name
 		{

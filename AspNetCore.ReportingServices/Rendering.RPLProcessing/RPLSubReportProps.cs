@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLSubReportProps : RPLItemProps
+	public sealed class RPLSubReportProps : RPLItemProps
 	{
 		private string m_language;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLSubReportProps()
+		public RPLSubReportProps()
 		{
 		}
 	}

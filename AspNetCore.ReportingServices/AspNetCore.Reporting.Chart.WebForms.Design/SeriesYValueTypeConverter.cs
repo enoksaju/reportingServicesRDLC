@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class SeriesYValueTypeConverter : EnumConverter
+	public class SeriesYValueTypeConverter : EnumConverter
 	{
 		public SeriesYValueTypeConverter(Type type)
 			: base(type)

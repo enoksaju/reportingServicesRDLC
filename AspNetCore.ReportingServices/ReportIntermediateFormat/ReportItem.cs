@@ -14,9 +14,9 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal abstract class ReportItem : IDOwner, IStyleContainer, IComparable, IPersistable, ICustomPropertiesHolder, IVisibilityOwner, IReferenceable, IStaticReferenceable
+	public abstract class ReportItem : IDOwner, IStyleContainer, IComparable, IPersistable, ICustomPropertiesHolder, IVisibilityOwner, IReferenceable, IStaticReferenceable
 	{
-		internal enum DataElementStyles
+		public enum DataElementStyles
 		{
 			Attribute,
 			Element,
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		protected ReportSize m_leftForRendering;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Top
+		public string Top
 		{
 			get
 			{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double TopValue
+		public double TopValue
 		{
 			get
 			{
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Left
+		public string Left
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double LeftValue
+		public double LeftValue
 		{
 			get
 			{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Height
+		public string Height
 		{
 			get
 			{
@@ -262,7 +262,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double HeightValue
+		public double HeightValue
 		{
 			get
 			{
@@ -274,7 +274,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Width
+		public string Width
 		{
 			get
 			{
@@ -286,7 +286,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double WidthValue
+		public double WidthValue
 		{
 			get
 			{
@@ -298,7 +298,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double AbsoluteTopValue
+		public double AbsoluteTopValue
 		{
 			get
 			{
@@ -310,7 +310,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double AbsoluteLeftValue
+		public double AbsoluteLeftValue
 		{
 			get
 			{
@@ -322,7 +322,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double AbsoluteBottomValue
+		public double AbsoluteBottomValue
 		{
 			get
 			{
@@ -334,7 +334,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double AbsoluteRightValue
+		public double AbsoluteRightValue
 		{
 			get
 			{
@@ -346,7 +346,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ZIndex
+		public int ZIndex
 		{
 			get
 			{
@@ -358,7 +358,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -382,7 +382,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DocumentMapLabel
+		public ExpressionInfo DocumentMapLabel
 		{
 			get
 			{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Bookmark
+		public ExpressionInfo Bookmark
 		{
 			get
 			{
@@ -406,7 +406,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool RepeatedSibling
+		public bool RepeatedSibling
 		{
 			get
 			{
@@ -418,7 +418,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -430,7 +430,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -442,7 +442,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual string DataElementNameDefault
+		public virtual string DataElementNameDefault
 		{
 			get
 			{
@@ -450,7 +450,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -462,7 +462,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItem Parent
+		public ReportItem Parent
 		{
 			get
 			{
@@ -474,7 +474,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool Computed
+		public bool Computed
 		{
 			get
 			{
@@ -486,7 +486,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual bool IsDataRegion
+		public virtual bool IsDataRegion
 		{
 			get
 			{
@@ -494,7 +494,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string RepeatWith
+		public string RepeatWith
 		{
 			get
 			{
@@ -506,7 +506,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItemExprHost ExprHost
+		public ReportItemExprHost ExprHost
 		{
 			get
 			{
@@ -514,7 +514,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual bool SoftPageBreak
+		public virtual bool SoftPageBreak
 		{
 			get
 			{
@@ -526,7 +526,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual bool ShareMyLastPage
+		public virtual bool ShareMyLastPage
 		{
 			get
 			{
@@ -538,7 +538,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -550,7 +550,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal StyleProperties SharedStyleProperties
+		public StyleProperties SharedStyleProperties
 		{
 			get
 			{
@@ -562,7 +562,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NoNonSharedStyleProps
+		public bool NoNonSharedStyleProps
 		{
 			get
 			{
@@ -574,7 +574,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize HeightForRendering
+		public ReportSize HeightForRendering
 		{
 			get
 			{
@@ -586,7 +586,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize WidthForRendering
+		public ReportSize WidthForRendering
 		{
 			get
 			{
@@ -598,7 +598,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize TopForRendering
+		public ReportSize TopForRendering
 		{
 			get
 			{
@@ -610,7 +610,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize LeftForRendering
+		public ReportSize LeftForRendering
 		{
 			get
 			{
@@ -622,7 +622,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual DataElementOutputTypes DataElementOutputDefault
+		public virtual DataElementOutputTypes DataElementOutputDefault
 		{
 			get
 			{
@@ -630,7 +630,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double TopInStartPage
+		public double TopInStartPage
 		{
 			get
 			{
@@ -642,7 +642,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double BottomInEndPage
+		public double BottomInEndPage
 		{
 			get
 			{
@@ -670,7 +670,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataValueList CustomProperties
+		public DataValueList CustomProperties
 		{
 			get
 			{
@@ -682,7 +682,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.PageTextboxes RepeatedSiblingTextboxes
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.PageTextboxes RepeatedSiblingTextboxes
 		{
 			get
 			{
@@ -694,7 +694,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal abstract AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public abstract AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get;
 		}
@@ -786,7 +786,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_parent = parent;
 		}
 
-		internal bool IsOrContainsDataRegionOrSubReport()
+		public bool IsOrContainsDataRegionOrSubReport()
 		{
 			if (this.IsDataRegion)
 			{
@@ -895,14 +895,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			InstancePathItem.DeepCopyPath(this.InstancePath, ref this.m_visibilityCacheLastInstancePath);
 		}
 
-		internal void ResetVisibilityComputationCache()
+		public void ResetVisibilityComputationCache()
 		{
 			this.m_hasCachedHiddenValue = false;
 			this.m_hasCachedDeepHiddenValue = false;
 			this.m_hasCachedStartHiddenValue = false;
 		}
 
-		internal virtual bool Initialize(InitializationContext context)
+		public virtual bool Initialize(InitializationContext context)
 		{
 			if (this.m_top == null)
 			{
@@ -950,7 +950,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal virtual void TraverseScopes(IRIFScopeVisitor visitor)
+		public virtual void TraverseScopes(IRIFScopeVisitor visitor)
 		{
 		}
 
@@ -1082,7 +1082,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_dataElementOutput = DataElementOutputTypes.NoOutput;
 		}
 
-		internal virtual void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
+		public virtual void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
 		{
 			if (overwrite)
 			{
@@ -1104,7 +1104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.ValidateParentBoundaries(context, this.ObjectType, this.Name);
 		}
 
-		internal void CalculateSizes(InitializationContext context, bool overwrite)
+		public void CalculateSizes(InitializationContext context, bool overwrite)
 		{
 			double width = this.m_widthValue;
 			double height = this.m_heightValue;
@@ -1119,11 +1119,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.CalculateSizes(width, height, context, overwrite);
 		}
 
-		internal virtual void InitializeRVDirectionDependentItems(InitializationContext context)
+		public virtual void InitializeRVDirectionDependentItems(InitializationContext context)
 		{
 		}
 
-		internal virtual void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
+		public virtual void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
 		{
 		}
 
@@ -1153,7 +1153,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return 0;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ReportItem reportItem = (ReportItem)base.PublishClone(context);
 			reportItem.m_name = context.CreateUniqueReportItemName(this.m_name, base.m_isClone);
@@ -1210,7 +1210,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return reportItem;
 		}
 
-		internal override void SetupCriRenderItemDef(ReportItem reportItem)
+		public override void SetupCriRenderItemDef(ReportItem reportItem)
 		{
 			base.SetupCriRenderItemDef(reportItem);
 			reportItem.Name = this.Name + "." + reportItem.Name;
@@ -1231,7 +1231,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			reportItem.Computed = true;
 		}
 
-		internal void UpdateRepeatWithReference(AutomaticSubtotalContext context)
+		public void UpdateRepeatWithReference(AutomaticSubtotalContext context)
 		{
 			if (this.m_repeatWith != null)
 			{
@@ -1239,7 +1239,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -1506,7 +1506,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ReportItem;
 		}
 
-		internal abstract void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel);
+		public abstract void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel);
 
 		protected void ReportItemSetExprHost(ReportItemExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
@@ -1524,25 +1524,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool EvaluateStartHidden(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public bool EvaluateStartHidden(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateStartHiddenExpression(this.Visibility, this.m_exprHost, this.ObjectType, this.m_name);
 		}
 
-		internal string EvaluateBookmark(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public string EvaluateBookmark(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateReportItemBookmarkExpression(this);
 		}
 
-		internal string EvaluateDocumentMapLabel(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public string EvaluateDocumentMapLabel(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateReportItemDocumentMapLabelExpression(this);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateReportItemToolTipExpression(this);

@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class HotRegion : IDisposable
+	public class HotRegion : IDisposable
 	{
 		private GraphicsPath[] paths;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		protected bool disposed;
 
-		internal GraphicsPath[] Paths
+		public GraphicsPath[] Paths
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal RectangleF BoundingRectangle
+		public RectangleF BoundingRectangle
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal object SelectedObject
+		public object SelectedObject
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal PointF PinPoint
+		public PointF PinPoint
 		{
 			get
 			{
@@ -80,11 +80,11 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal HotRegion()
+		public HotRegion()
 		{
 		}
 
-		internal void BuildMatrices(GaugeGraphics g)
+		public void BuildMatrices(GaugeGraphics g)
 		{
 			this.absMatrix.Reset();
 			RectangleF rectangleF = new RectangleF(0f, 0f, 1f, 1f);
@@ -97,24 +97,24 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.relMatrix.Translate((float)(0.0 - g.Transform.OffsetX), (float)(0.0 - g.Transform.OffsetY));
 		}
 
-		internal RectangleF GetAbsoluteRectangle(RectangleF relativeRect)
+		public RectangleF GetAbsoluteRectangle(RectangleF relativeRect)
 		{
 			return new RectangleF(this.GetAbsolutePoint(relativeRect.Location), this.GetAbsoluteSize(relativeRect.Size));
 		}
 
-		internal RectangleF GetRelativeRectangle(RectangleF absoluteRect)
+		public RectangleF GetRelativeRectangle(RectangleF absoluteRect)
 		{
 			return new RectangleF(this.GetRelativePoint(absoluteRect.Location), this.GetRelativeSize(absoluteRect.Size));
 		}
 
-		internal PointF GetAbsolutePoint(PointF relativePoint)
+		public PointF GetAbsolutePoint(PointF relativePoint)
 		{
 			this.pointsPoint[0] = relativePoint;
 			this.absMatrix.TransformPoints(this.pointsPoint);
 			return this.pointsPoint[0];
 		}
 
-		internal PointF GetRelativePoint(PointF absolutePoint)
+		public PointF GetRelativePoint(PointF absolutePoint)
 		{
 			this.pointsPoint[0] = absolutePoint;
 			this.relMatrix.TransformPoints(this.pointsPoint);
@@ -126,7 +126,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return new SizeF(this.GetAbsolutePoint(relativeSize.ToPointF()));
 		}
 
-		internal SizeF GetRelativeSize(SizeF absoluteSize)
+		public SizeF GetRelativeSize(SizeF absoluteSize)
 		{
 			return new SizeF(this.GetRelativePoint(absoluteSize.ToPointF()));
 		}

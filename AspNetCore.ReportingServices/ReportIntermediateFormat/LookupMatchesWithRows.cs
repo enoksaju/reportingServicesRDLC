@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class LookupMatchesWithRows : LookupMatches
+	public sealed class LookupMatchesWithRows : LookupMatches
 	{
 		private int m_firstRow = -1;
 
@@ -28,11 +28,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupMatchesWithRows()
+		public LookupMatchesWithRows()
 		{
 		}
 
-		internal override void AddRow(long rowOffset, int rowIndex, IScalabilityCache scaleCache)
+		public override void AddRow(long rowOffset, int rowIndex, IScalabilityCache scaleCache)
 		{
 			if (base.HasRow)
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.AddRow(rowOffset, rowIndex, scaleCache);
 		}
 
-		internal override void SetupRow(int matchIndex, OnDemandProcessingContext odpContext)
+		public override void SetupRow(int matchIndex, OnDemandProcessingContext odpContext)
 		{
 			if (this.m_hasBeenTransferred)
 			{

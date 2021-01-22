@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class RdceInvalidRdlException : RSException
+	public sealed class RdceInvalidRdlException : RSException
 	{
 		public RdceInvalidRdlException(Exception innerException)
 			: base(ErrorCode.rsRdceInvalidRdlError, ErrorStrings.rsRdceInvalidRdlError, innerException, RSTrace.IsTraceInitialized ? RSTrace.CatalogTrace : null, null)

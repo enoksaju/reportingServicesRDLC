@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ReadOnlyDataSetParameterException : ReportCatalogException
+	public sealed class ReadOnlyDataSetParameterException : ReportCatalogException
 	{
 		public ReadOnlyDataSetParameterException(string parameterName)
 			: base(ErrorCode.rsReadOnlyDataSetParameter, ErrorStrings.rsReadOnlyDataSetParameter(parameterName), null, null)

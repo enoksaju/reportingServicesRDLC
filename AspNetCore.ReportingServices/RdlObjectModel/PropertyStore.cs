@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class PropertyStore : IPropertyStore
+	public class PropertyStore : IPropertyStore
 	{
 		private ReportObject m_owner;
 
@@ -41,11 +41,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			this.m_owner = owner;
 		}
 
-		internal PropertyStore()
+		public PropertyStore()
 		{
 		}
 
-		internal void SetOwner(ReportObject owner)
+		public void SetOwner(ReportObject owner)
 		{
 			this.m_owner = owner;
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartGridLinesEnabledTypes
+	public enum ChartGridLinesEnabledTypes
 	{
 		Auto,
 		True,

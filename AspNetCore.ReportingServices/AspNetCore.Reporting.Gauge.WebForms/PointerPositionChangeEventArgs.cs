@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class PointerPositionChangeEventArgs : ValueChangedEventArgs
+	public class PointerPositionChangeEventArgs : ValueChangedEventArgs
 	{
 		private bool accept = true;
 

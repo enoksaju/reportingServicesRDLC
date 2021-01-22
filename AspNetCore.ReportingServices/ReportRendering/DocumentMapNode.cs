@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class DocumentMapNode
+	public sealed class DocumentMapNode
 	{
 		private AspNetCore.ReportingServices.ReportProcessing.DocumentMapNode m_underlyingNode;
 
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DocumentMapNode(AspNetCore.ReportingServices.ReportProcessing.DocumentMapNode underlyingNode)
+		public DocumentMapNode(AspNetCore.ReportingServices.ReportProcessing.DocumentMapNode underlyingNode)
 		{
 			Global.Tracer.Assert(underlyingNode != null, "The document map node being wrapped cannot be null.");
 			this.m_underlyingNode = underlyingNode;

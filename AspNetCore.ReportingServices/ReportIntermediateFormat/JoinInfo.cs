@@ -8,14 +8,14 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class JoinInfo : IPersistable
+	public abstract class JoinInfo : IPersistable
 	{
 		protected List<IdcRelationship> m_relationships;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = JoinInfo.GetDeclaration();
 
-		internal List<IdcRelationship> Relationships
+		public List<IdcRelationship> Relationships
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_relationships = relationships;
 		}
 
-		internal void SetJoinConditionExprHost(IList<JoinConditionExprHost> joinConditionExprHost, ObjectModelImpl reportObjectModel)
+		public void SetJoinConditionExprHost(IList<JoinConditionExprHost> joinConditionExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_relationships != null)
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return relationship;
 		}
 
-		internal static T FindActiveRelationship<T>(List<T> relationships, DataSet parentDataSet) where T : Relationship
+		public static T FindActiveRelationship<T>(List<T> relationships, DataSet parentDataSet) where T : Relationship
 		{
 			if (relationships != null)
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_relationships != null && 0 < this.m_relationships.Count)
 			{
@@ -90,15 +90,15 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal JoinInfo PublishClone(AutomaticSubtotalContext context)
+		public JoinInfo PublishClone(AutomaticSubtotalContext context)
 		{
 			Global.Tracer.Assert(false, "IDC does not support automatic subtotals");
 			throw new InvalidOperationException();
 		}
 
-		internal abstract bool ValidateRelationships(ScopeTree scopeTree, ErrorContext errorContext, DataSet ourDataSet, ParentDataSetContainer parentDataSets, IRIFReportDataScope currentScope);
+		public abstract bool ValidateRelationships(ScopeTree scopeTree, ErrorContext errorContext, DataSet ourDataSet, ParentDataSetContainer parentDataSets, IRIFReportDataScope currentScope);
 
-		internal abstract void CheckContainerJoinForNaturalJoin(IRIFDataScope startScope, ErrorContext errorContext, IRIFDataScope scope);
+		public abstract void CheckContainerJoinForNaturalJoin(IRIFDataScope startScope, ErrorContext errorContext, IRIFDataScope scope);
 
 		protected void CheckContainerRelationshipForNaturalJoin(IRIFDataScope startScope, ErrorContext errorContext, IRIFDataScope scope, Relationship outerRelationship)
 		{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal abstract void ValidateScopeRulesForIdcNaturalJoin(InitializationContext context, IRIFDataScope scope);
+		public abstract void ValidateScopeRulesForIdcNaturalJoin(InitializationContext context, IRIFDataScope scope);
 
 		protected void ValidateScopeRulesForIdcNaturalJoin(InitializationContext context, IRIFDataScope startScopeForValidation, Relationship relationship)
 		{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal abstract void AddMappedFieldIndices(List<int> parentFieldIndices, DataSet parentDataSet, DataSet ourDataSet, List<int> ourFieldIndices);
+		public abstract void AddMappedFieldIndices(List<int> parentFieldIndices, DataSet parentDataSet, DataSet ourDataSet, List<int> ourFieldIndices);
 
 		protected static void AddMappedFieldIndices(Relationship relationship, List<int> parentFieldIndices, List<int> ourFieldIndices)
 		{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Relationships, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.IdcRelationship));

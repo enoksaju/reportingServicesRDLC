@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class BackgroundImage2005 : BackgroundImage
+	public class BackgroundImage2005 : BackgroundImage
 	{
-		internal new class Definition : DefinitionStore<BackgroundImage, Definition.Properties>
+		public new class Definition : DefinitionStore<BackgroundImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				BackgroundRepeat = 6,
 				PropertyCount

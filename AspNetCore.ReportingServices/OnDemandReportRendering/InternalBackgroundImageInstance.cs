@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalBackgroundImageInstance : BackgroundImageInstance
+	public sealed class InternalBackgroundImageInstance : BackgroundImageInstance
 	{
 		private bool m_backgroundRepeatEvaluated;
 
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalBackgroundImageInstance(BackgroundImage backgroundImageDef)
+		public InternalBackgroundImageInstance(BackgroundImage backgroundImageDef)
 			: base(backgroundImageDef.StyleDef.ReportScope)
 		{
 			this.m_backgroundImageDef = backgroundImageDef;

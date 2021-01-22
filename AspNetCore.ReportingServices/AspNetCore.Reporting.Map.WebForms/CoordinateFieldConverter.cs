@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class CoordinateFieldConverter : StringConverter
+	public class CoordinateFieldConverter : StringConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

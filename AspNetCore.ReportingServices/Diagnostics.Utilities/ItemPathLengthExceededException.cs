@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ItemPathLengthExceededException : ReportCatalogException
+	public sealed class ItemPathLengthExceededException : ReportCatalogException
 	{
 		public ItemPathLengthExceededException(string itemPath)
 			: base(ErrorCode.rsItemPathLengthExceeded, ErrorStrings.rsItemPathLengthExceeded(itemPath, CatalogItemNameUtility.MaxItemPathLength), null, null)

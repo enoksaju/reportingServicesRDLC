@@ -10,53 +10,53 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.RdlExpressions
 {
-	internal sealed class VBExpressionParser : ExpressionParser
+	public sealed class VBExpressionParser : ExpressionParser
 	{
 		private sealed class ParserState
 		{
-			internal bool BodyRefersToReportItems
+			public bool BodyRefersToReportItems
 			{
 				get;
 				set;
 			}
 
-			internal bool PageSectionRefersToReportItems
+			public bool PageSectionRefersToReportItems
 			{
 				get;
 				set;
 			}
 
-			internal bool PageSectionRefersToOverallTotalPages
+			public bool PageSectionRefersToOverallTotalPages
 			{
 				get;
 				set;
 			}
 
-			internal bool PageSectionRefersToTotalPages
+			public bool PageSectionRefersToTotalPages
 			{
 				get;
 				set;
 			}
 
-			internal int NumberOfAggregates
+			public int NumberOfAggregates
 			{
 				get;
 				set;
 			}
 
-			internal int NumberOfRunningValues
+			public int NumberOfRunningValues
 			{
 				get;
 				set;
 			}
 
-			internal int NumberOfLookups
+			public int NumberOfLookups
 			{
 				get;
 				set;
 			}
 
-			internal int LastID
+			public int LastID
 			{
 				get
 				{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal int LastLookupID
+			public int LastLookupID
 			{
 				get
 				{
@@ -72,25 +72,25 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal bool PreviousAggregateUsed
+			public bool PreviousAggregateUsed
 			{
 				get;
 				set;
 			}
 
-			internal bool AggregateOfAggregatesUsed
+			public bool AggregateOfAggregatesUsed
 			{
 				get;
 				set;
 			}
 
-			internal bool AggregateOfAggregatesUsedInUserSort
+			public bool AggregateOfAggregatesUsedInUserSort
 			{
 				get;
 				set;
 			}
 
-			internal ParserState Save()
+			public ParserState Save()
 			{
 				return (ParserState)base.MemberwiseClone();
 			}
@@ -98,109 +98,109 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private sealed class ReportRegularExpressions
 		{
-			internal Regex NonConstant;
+			public Regex NonConstant;
 
-			internal Regex FieldDetection;
+			public Regex FieldDetection;
 
-			internal Regex ReportItemsDetection;
+			public Regex ReportItemsDetection;
 
-			internal Regex ParametersDetection;
+			public Regex ParametersDetection;
 
-			internal Regex RenderFormatAnyDetection;
+			public Regex RenderFormatAnyDetection;
 
-			internal Regex OverallPageGlobalsDetection;
+			public Regex OverallPageGlobalsDetection;
 
-			internal Regex PageGlobalsDetection;
+			public Regex PageGlobalsDetection;
 
-			internal Regex OverallTotalPagesDetection;
+			public Regex OverallTotalPagesDetection;
 
-			internal Regex TotalPagesDetection;
+			public Regex TotalPagesDetection;
 
-			internal Regex AggregatesDetection;
+			public Regex AggregatesDetection;
 
-			internal Regex UserDetection;
+			public Regex UserDetection;
 
-			internal Regex DataSetsDetection;
+			public Regex DataSetsDetection;
 
-			internal Regex DataSourcesDetection;
+			public Regex DataSourcesDetection;
 
-			internal Regex VariablesDetection;
+			public Regex VariablesDetection;
 
-			internal Regex MeDotValueExpression;
+			public Regex MeDotValueExpression;
 
-			internal Regex MeDotValueDetection;
+			public Regex MeDotValueDetection;
 
-			internal Regex IllegalCharacterDetection;
+			public Regex IllegalCharacterDetection;
 
-			internal Regex LineTerminatorDetection;
+			public Regex LineTerminatorDetection;
 
-			internal Regex FieldOnly;
+			public Regex FieldOnly;
 
-			internal Regex ParameterOnly;
+			public Regex ParameterOnly;
 
-			internal Regex StringLiteralOnly;
+			public Regex StringLiteralOnly;
 
-			internal Regex NothingOnly;
+			public Regex NothingOnly;
 
-			internal Regex InScopeOrLevel;
+			public Regex InScopeOrLevel;
 
-			internal Regex InScope;
+			public Regex InScope;
 
-			internal Regex Level;
+			public Regex Level;
 
-			internal Regex CreateDrillthroughContext;
+			public Regex CreateDrillthroughContext;
 
-			internal Regex ReportItemName;
+			public Regex ReportItemName;
 
-			internal Regex FieldName;
+			public Regex FieldName;
 
-			internal Regex ParameterName;
+			public Regex ParameterName;
 
-			internal Regex DynamicParameterReference;
+			public Regex DynamicParameterReference;
 
-			internal Regex DataSetName;
+			public Regex DataSetName;
 
-			internal Regex DataSourceName;
+			public Regex DataSourceName;
 
-			internal Regex SpecialFunction;
+			public Regex SpecialFunction;
 
-			internal Regex Arguments;
+			public Regex Arguments;
 
-			internal Regex DynamicFieldReference;
+			public Regex DynamicFieldReference;
 
-			internal Regex DynamicFieldPropertyReference;
+			public Regex DynamicFieldPropertyReference;
 
-			internal Regex StaticFieldPropertyReference;
+			public Regex StaticFieldPropertyReference;
 
-			internal Regex RewrittenCommandText;
+			public Regex RewrittenCommandText;
 
-			internal Regex SimpleDynamicFieldReference;
+			public Regex SimpleDynamicFieldReference;
 
-			internal Regex SimpleDynamicReportItemReference;
+			public Regex SimpleDynamicReportItemReference;
 
-			internal Regex SimpleDynamicVariableReference;
+			public Regex SimpleDynamicVariableReference;
 
-			internal Regex VariableName;
+			public Regex VariableName;
 
-			internal Regex RenderFormatPropertyName;
+			public Regex RenderFormatPropertyName;
 
-			internal Regex HasLevelWithNoScope;
+			public Regex HasLevelWithNoScope;
 
-			internal Regex RdlFunction;
+			public Regex RdlFunction;
 
-			internal Regex ScopedFieldReferenceOnly;
+			public Regex ScopedFieldReferenceOnly;
 
-			internal Regex ScopesDetection;
+			public Regex ScopesDetection;
 
-			internal Regex SimpleDynamicScopeReference;
+			public Regex SimpleDynamicScopeReference;
 
-			internal Regex ScopeName;
+			public Regex ScopeName;
 
-			internal Regex DictionaryOpWithIdentifier;
+			public Regex DictionaryOpWithIdentifier;
 
-			internal Regex IndexerWithIdentifier;
+			public Regex IndexerWithIdentifier;
 
-			internal static readonly ReportRegularExpressions Value = new ReportRegularExpressions();
+			public static readonly ReportRegularExpressions Value = new ReportRegularExpressions();
 
 			private ReportRegularExpressions()
 			{
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private ParserState m_state = new ParserState();
 
-		internal override bool BodyRefersToReportItems
+		public override bool BodyRefersToReportItems
 		{
 			get
 			{
@@ -370,7 +370,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal override bool PageSectionRefersToReportItems
+		public override bool PageSectionRefersToReportItems
 		{
 			get
 			{
@@ -378,7 +378,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal override bool PageSectionRefersToOverallTotalPages
+		public override bool PageSectionRefersToOverallTotalPages
 		{
 			get
 			{
@@ -386,7 +386,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal override bool PageSectionRefersToTotalPages
+		public override bool PageSectionRefersToTotalPages
 		{
 			get
 			{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal override int NumberOfAggregates
+		public override int NumberOfAggregates
 		{
 			get
 			{
@@ -402,7 +402,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal override int LastID
+		public override int LastID
 		{
 			get
 			{
@@ -410,7 +410,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal override int LastLookupID
+		public override int LastLookupID
 		{
 			get
 			{
@@ -418,7 +418,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal override bool PreviousAggregateUsed
+		public override bool PreviousAggregateUsed
 		{
 			get
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal override bool AggregateOfAggregatesUsed
+		public override bool AggregateOfAggregatesUsed
 		{
 			get
 			{
@@ -434,7 +434,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal override bool AggregateOfAggregatesUsedInUserSort
+		public override bool AggregateOfAggregatesUsedInUserSort
 		{
 			get
 			{
@@ -442,30 +442,30 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal VBExpressionParser(ErrorContext errorContext)
+		public VBExpressionParser(ErrorContext errorContext)
 			: base(errorContext)
 		{
 			this.m_regexes = ReportRegularExpressions.Value;
 		}
 
-		internal override CodeDomProvider GetCodeCompiler()
+		public override CodeDomProvider GetCodeCompiler()
 		{
 			return new VBExpressionCodeProvider();
 		}
 
-		internal override string GetCompilerArguments()
+		public override string GetCompilerArguments()
 		{
 			return "/optimize+";
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionContext context, EvaluationMode evaluationMode)
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionContext context, EvaluationMode evaluationMode)
 		{
 			Global.Tracer.Assert(null != expression, "(null != expression)");
 			string text = default(string);
 			return this.Lex(expression, context, evaluationMode, out text);
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionContext context, EvaluationMode evaluationMode, out bool userCollectionReferenced)
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionContext context, EvaluationMode evaluationMode, out bool userCollectionReferenced)
 		{
 			string expression2 = default(string);
 			AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expressionInfo = this.Lex(expression, context, evaluationMode, out expression2);
@@ -478,14 +478,14 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			return expressionInfo;
 		}
 
-		internal override void ConvertField2ComplexExpr(ref AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo info)
+		public override void ConvertField2ComplexExpr(ref AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo info)
 		{
 			Global.Tracer.Assert(info.Type == AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo.Types.Field, "(info.Type == ExpressionInfo.Types.Field)");
 			info.Type = AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo.Types.Expression;
 			info.TransformedExpression = "Fields!" + info.StringValue + ".Value";
 		}
 
-		internal override void ResetPageSectionRefersFlags()
+		public override void ResetPageSectionRefersFlags()
 		{
 			this.m_state.PageSectionRefersToReportItems = false;
 			this.m_state.PageSectionRefersToOverallTotalPages = false;
@@ -771,7 +771,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			return true;
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo CreateScopedFirstAggregate(string fieldName, string scopeName)
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo CreateScopedFirstAggregate(string fieldName, string scopeName)
 		{
 			string text = this.CreateAggregateID();
 			this.m_state.NumberOfAggregates++;

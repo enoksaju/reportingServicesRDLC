@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FieldChooser : Form
+	public class FieldChooser : Form
 	{
 		private Label label1;
 

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class RequestThroughHttpRedirectorNotSupportedException : RSException
+	public sealed class RequestThroughHttpRedirectorNotSupportedException : RSException
 	{
 		public RequestThroughHttpRedirectorNotSupportedException(string message)
 			: base(ErrorCode.rsRequestThroughHttpRedirectorNotSupportedError, ErrorStrings.rsRequestThroughHttpRedirectorNotSupportedError, null, RSTrace.IsTraceInitialized ? RSTrace.WebServerTracer : null, message)

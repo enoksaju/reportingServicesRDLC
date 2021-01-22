@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class SubtotalStyle2005 : Style2005
+	public class SubtotalStyle2005 : Style2005
 	{
 		private bool m_initialize;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005
 			this.m_initialize = false;
 		}
 
-		internal override void OnSetObject(int propertyIndex)
+		public override void OnSetObject(int propertyIndex)
 		{
 			base.OnSetObject(propertyIndex);
 			string key = ((Style.Definition.Properties)propertyIndex).ToString();
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005
 			}
 		}
 
-		internal bool IsPropertyDefinedOnInitialize(string propertyName)
+		public bool IsPropertyDefinedOnInitialize(string propertyName)
 		{
 			return this.m_definedPropertiesOnInitialize.ContainsKey(propertyName);
 		}

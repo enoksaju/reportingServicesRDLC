@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class XmlFormatSerializer : SerializerBase
+	public class XmlFormatSerializer : SerializerBase
 	{
 		public void Serialize(object objectToSerialize, Stream stream)
 		{

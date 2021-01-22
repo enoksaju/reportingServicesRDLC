@@ -3,102 +3,102 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class HtmlLexer
+	public sealed class HtmlLexer
 	{
-		internal sealed class Constants
+		public sealed class Constants
 		{
-			internal class AttributeNames
+			public class AttributeNames
 			{
-				internal const string Align = "align";
+				public const string Align = "align";
 
-				internal const string Padding = "padding";
+				public const string Padding = "padding";
 
-				internal const string PaddingTop = "padding-top";
+				public const string PaddingTop = "padding-top";
 
-				internal const string PaddingBottom = "padding-bottom";
+				public const string PaddingBottom = "padding-bottom";
 
-				internal const string PaddingLeft = "padding-left";
+				public const string PaddingLeft = "padding-left";
 
-				internal const string PaddingRight = "padding-right";
+				public const string PaddingRight = "padding-right";
 
-				internal const string Href = "href";
+				public const string Href = "href";
 
-				internal const string Size = "size";
+				public const string Size = "size";
 
-				internal const string Face = "face";
+				public const string Face = "face";
 
-				internal const string Color = "color";
+				public const string Color = "color";
 
-				internal const string Style = "style";
+				public const string Style = "style";
 
-				internal const string FontFamily = "font-family";
+				public const string FontFamily = "font-family";
 
-				internal const string FontSize = "font-size";
+				public const string FontSize = "font-size";
 
-				internal const string FontWeight = "font-weight";
+				public const string FontWeight = "font-weight";
 
-				internal const string TextAlign = "text-align";
+				public const string TextAlign = "text-align";
 
-				internal const string TextIndent = "text-indent";
+				public const string TextIndent = "text-indent";
 			}
 
-			internal class ElementNames
+			public class ElementNames
 			{
-				internal const string SCRIPT = "SCRIPT";
+				public const string SCRIPT = "SCRIPT";
 
-				internal const string STYLE = "STYLE";
+				public const string STYLE = "STYLE";
 
-				internal const string P = "P";
+				public const string P = "P";
 
-				internal const string DIV = "DIV";
+				public const string DIV = "DIV";
 
-				internal const string BR = "BR";
+				public const string BR = "BR";
 
-				internal const string UL = "UL";
+				public const string UL = "UL";
 
-				internal const string OL = "OL";
+				public const string OL = "OL";
 
-				internal const string LI = "LI";
+				public const string LI = "LI";
 
-				internal const string SPAN = "SPAN";
+				public const string SPAN = "SPAN";
 
-				internal const string FONT = "FONT";
+				public const string FONT = "FONT";
 
-				internal const string A = "A";
+				public const string A = "A";
 
-				internal const string STRONG = "STRONG";
+				public const string STRONG = "STRONG";
 
-				internal const string STRIKE = "STRIKE";
+				public const string STRIKE = "STRIKE";
 
-				internal const string B = "B";
+				public const string B = "B";
 
-				internal const string I = "I";
+				public const string I = "I";
 
-				internal const string U = "U";
+				public const string U = "U";
 
-				internal const string S = "S";
+				public const string S = "S";
 
-				internal const string EM = "EM";
+				public const string EM = "EM";
 
-				internal const string H1 = "H1";
+				public const string H1 = "H1";
 
-				internal const string H2 = "H2";
+				public const string H2 = "H2";
 
-				internal const string H3 = "H3";
+				public const string H3 = "H3";
 
-				internal const string H4 = "H4";
+				public const string H4 = "H4";
 
-				internal const string H5 = "H5";
+				public const string H5 = "H5";
 
-				internal const string H6 = "H6";
+				public const string H6 = "H6";
 
-				internal const string DD = "DD";
+				public const string DD = "DD";
 
-				internal const string DT = "DT";
+				public const string DT = "DT";
 
-				internal const string BLOCKQUOTE = "BLOCKQUOTE";
+				public const string BLOCKQUOTE = "BLOCKQUOTE";
 
-				internal const string TITLE = "TITLE";
+				public const string TITLE = "TITLE";
 			}
 		}
 
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 			private string m_html;
 
-			internal int Position
+			public int Position
 			{
 				get
 				{
@@ -127,12 +127,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal HtmlStringReader(string html)
+			public HtmlStringReader(string html)
 			{
 				this.m_html = html;
 			}
 
-			internal bool Read(out char c)
+			public bool Read(out char c)
 			{
 				if (this.Peek(out c))
 				{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				return false;
 			}
 
-			internal bool Peek(out char c)
+			public bool Peek(out char c)
 			{
 				if (this.m_currentIndex < this.m_html.Length)
 				{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				return false;
 			}
 
-			internal bool Peek(int lookAhead, out char c)
+			public bool Peek(int lookAhead, out char c)
 			{
 				int currentIndex = this.m_currentIndex;
 				this.m_currentIndex += lookAhead;
@@ -174,22 +174,22 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				return result;
 			}
 
-			internal void Advance()
+			public void Advance()
 			{
 				this.m_currentIndex++;
 			}
 
-			internal void Advance(int amount)
+			public void Advance(int amount)
 			{
 				this.m_currentIndex += amount;
 			}
 
-			internal void Mark()
+			public void Mark()
 			{
 				this.m_markedIndex = this.m_currentIndex;
 			}
 
-			internal void Reset()
+			public void Reset()
 			{
 				this.m_currentIndex = this.m_markedIndex;
 			}
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private Stack<HtmlElement> m_elementStack;
 
-		internal HtmlElement CurrentElement
+		public HtmlElement CurrentElement
 		{
 			get
 			{
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal HtmlLexer(string html)
+		public HtmlLexer(string html)
 		{
 			this.m_htmlReader = new HtmlStringReader(html);
 			this.m_elementStack = new Stack<HtmlElement>();
@@ -284,7 +284,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool Read()
+		public bool Read()
 		{
 			char c = default(char);
 			if (this.m_htmlReader.Peek(out c))

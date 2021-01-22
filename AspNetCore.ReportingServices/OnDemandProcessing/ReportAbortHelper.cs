@@ -5,11 +5,11 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class ReportAbortHelper : AbortHelper, IDisposable
+	public class ReportAbortHelper : AbortHelper, IDisposable
 	{
 		private Hashtable m_reportStatus;
 
-		internal ReportAbortHelper(IJobContext jobContext, bool enforceSingleAbortException)
+		public ReportAbortHelper(IJobContext jobContext, bool enforceSingleAbortException)
 			: base(jobContext, enforceSingleAbortException, true)
 		{
 			this.m_reportStatus = new Hashtable();
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void AddSubreportInstanceOrSharedDataSet(string uniqueName)
+		public override void AddSubreportInstanceOrSharedDataSet(string uniqueName)
 		{
 			Hashtable hashtable = Hashtable.Synchronized(this.m_reportStatus);
 			if (!hashtable.ContainsKey(uniqueName))

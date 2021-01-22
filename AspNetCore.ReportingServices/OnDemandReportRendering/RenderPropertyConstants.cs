@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal static class RenderPropertyConstants
+	public static class RenderPropertyConstants
 	{
 		public const string PreviousTotalPages = "PreviousTotalPages";
 

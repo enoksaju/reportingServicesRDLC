@@ -5,7 +5,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartDataPointInstanceInfo : InstanceInfo
+	public sealed class ChartDataPointInstanceInfo : InstanceInfo
 	{
 		private int m_dataPointIndex = -1;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private DataValueInstanceList m_customPropertyInstances;
 
-		internal int DataPointIndex
+		public int DataPointIndex
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] DataValues
+		public object[] DataValues
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DataLabelValue
+		public string DataLabelValue
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] DataLabelStyleAttributeValues
+		public object[] DataLabelStyleAttributeValues
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActionInstance Action
+		public ActionInstance Action
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] StyleAttributeValues
+		public object[] StyleAttributeValues
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] MarkerStyleAttributeValues
+		public object[] MarkerStyleAttributeValues
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstanceList CustomPropertyInstances
+		public DataValueInstanceList CustomPropertyInstances
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartDataPointInstanceInfo(ReportProcessing.ProcessingContext pc, Chart chart, ChartDataPoint dataPointDef, int dataPointIndex, ChartDataPointInstance owner)
+		public ChartDataPointInstanceInfo(ReportProcessing.ProcessingContext pc, Chart chart, ChartDataPoint dataPointDef, int dataPointIndex, ChartDataPointInstance owner)
 		{
 			this.m_dataPointIndex = dataPointIndex;
 			int count = dataPointDef.DataValues.Count;
@@ -158,11 +158,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			pc.ChunkManager.AddInstance(this, owner, pc.InPageSection);
 		}
 
-		internal ChartDataPointInstanceInfo()
+		public ChartDataPointInstanceInfo()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.DataPointIndex, Token.Int32));

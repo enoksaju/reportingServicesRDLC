@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RadialPointer : GaugePointer
+	public sealed class RadialPointer : GaugePointer
 	{
 		private ReportEnumProperty<RadialPointerTypes> m_type;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.RadialPointer RadialPointerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.RadialPointer RadialPointerDef
 		{
 			get
 			{
@@ -62,14 +62,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RadialPointer(AspNetCore.ReportingServices.ReportIntermediateFormat.RadialPointer defObject, GaugePanel gaugePanel)
+		public RadialPointer(AspNetCore.ReportingServices.ReportIntermediateFormat.RadialPointer defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override GaugePointerInstance GetInstance()
+		public override GaugePointerInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (GaugePointerInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

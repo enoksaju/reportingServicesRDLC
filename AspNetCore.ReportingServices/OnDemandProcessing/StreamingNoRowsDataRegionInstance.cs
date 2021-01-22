@@ -6,7 +6,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
 	[SkipStaticValidation]
 	[PersistedWithinRequestOnly]
-	internal class StreamingNoRowsDataRegionInstance : StreamingNoRowsScopeInstanceBase, IOnDemandMemberOwnerInstance, IOnDemandScopeInstance, IStorable, IPersistable
+	public class StreamingNoRowsDataRegionInstance : StreamingNoRowsScopeInstanceBase, IOnDemandMemberOwnerInstance, IOnDemandScopeInstance, IStorable, IPersistable
 	{
 		public StreamingNoRowsDataRegionInstance(OnDemandProcessingContext odpContext, IRIFReportDataScope dataRegion)
 			: base(odpContext, dataRegion)

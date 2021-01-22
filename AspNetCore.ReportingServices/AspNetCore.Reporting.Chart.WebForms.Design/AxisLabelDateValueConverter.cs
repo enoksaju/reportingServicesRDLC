@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class AxisLabelDateValueConverter : DoubleConverter
+	public class AxisLabelDateValueConverter : DoubleConverter
 	{
 		public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
 		{

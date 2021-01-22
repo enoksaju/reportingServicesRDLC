@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class ReferenceIDEqualityComparer : IEqualityComparer<ReferenceID>, IComparer<ReferenceID>
+	public class ReferenceIDEqualityComparer : IEqualityComparer<ReferenceID>, IComparer<ReferenceID>
 	{
-		internal static readonly ReferenceIDEqualityComparer Instance = new ReferenceIDEqualityComparer();
+		public static readonly ReferenceIDEqualityComparer Instance = new ReferenceIDEqualityComparer();
 
 		private ReferenceIDEqualityComparer()
 		{

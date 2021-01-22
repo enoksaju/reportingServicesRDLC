@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class MatrixCell
+	public sealed class MatrixCell
 	{
 		private Matrix m_owner;
 
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal int ColumnIndex
+		public int ColumnIndex
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal int RowIndex
+		public int RowIndex
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MatrixCell(Matrix owner, int rowIndex, int columnIndex)
+		public MatrixCell(Matrix owner, int rowIndex, int columnIndex)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;

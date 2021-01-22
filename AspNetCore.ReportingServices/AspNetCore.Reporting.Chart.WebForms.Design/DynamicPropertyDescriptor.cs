@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class DynamicPropertyDescriptor : PropertyDescriptor
+	public class DynamicPropertyDescriptor : PropertyDescriptor
 	{
 		private PropertyDescriptor basePropertyDescriptor;
 

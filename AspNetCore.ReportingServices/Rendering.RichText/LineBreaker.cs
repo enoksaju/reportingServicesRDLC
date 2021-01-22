@@ -6,9 +6,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class LineBreaker
+	public sealed class LineBreaker
 	{
-		internal static readonly char[] BulletChars = new char[3]
+		public static readonly char[] BulletChars = new char[3]
 		{
 			'•',
 			'◦',
@@ -38,13 +38,13 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 		{
 		}
 
-		internal static List<Paragraph> Flow(TextBox textBox, Graphics g, FontCache fontCache, FlowContext flowContext, bool keepLines)
+		public static List<Paragraph> Flow(TextBox textBox, Graphics g, FontCache fontCache, FlowContext flowContext, bool keepLines)
 		{
 			float num = default(float);
 			return LineBreaker.Flow(textBox, g, fontCache, flowContext, keepLines, out num);
 		}
 
-		internal static List<Paragraph> Flow(TextBox textBox, Graphics g, FontCache fontCache, FlowContext flowContext, bool keepLines, out float height)
+		public static List<Paragraph> Flow(TextBox textBox, Graphics g, FontCache fontCache, FlowContext flowContext, bool keepLines, out float height)
 		{
 			List<Paragraph> list = null;
 			float dpiX = g.DpiX;
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal static List<Paragraph> Flow(TextBox textBox, Win32DCSafeHandle hdc, float dpiX, FontCache fontCache, FlowContext flowContext, bool keepLines, out float height)
+		public static List<Paragraph> Flow(TextBox textBox, Win32DCSafeHandle hdc, float dpiX, FontCache fontCache, FlowContext flowContext, bool keepLines, out float height)
 		{
 			if (!(flowContext.Height <= 0.0) && !(flowContext.Width <= 0.0))
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return null;
 		}
 
-		internal static float FlowVertical(TextBox textBox, Graphics g, FontCache fontCache, FlowContext flowContext, out float width, out float nextWidth)
+		public static float FlowVertical(TextBox textBox, Graphics g, FontCache fontCache, FlowContext flowContext, out float width, out float nextWidth)
 		{
 			width = (nextWidth = 0f);
 			List<Paragraph> list = null;
@@ -661,7 +661,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return null;
 		}
 
-		internal static string GetAsDecimalString(int value)
+		public static string GetAsDecimalString(int value)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			while (value > 0)
@@ -679,13 +679,13 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return stringBuilder.ToString();
 		}
 
-		internal static string GetAsLatinAlphaString(int value)
+		public static string GetAsLatinAlphaString(int value)
 		{
 			value--;
 			return new string((char)(ushort)(97 + value % 26), value / 26 + 1);
 		}
 
-		internal static string GetAsRomanNumeralString(int value)
+		public static string GetAsRomanNumeralString(int value)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			if (value >= 1000)

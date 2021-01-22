@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class DataCell : Cell, IPersistable
+	public sealed class DataCell : Cell, IPersistable
 	{
 		private DataValueList m_dataValues;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataValueList DataValues
+		public DataValueList DataValues
 		{
 			get
 			{
@@ -51,21 +51,21 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataCell()
+		public DataCell()
 		{
 		}
 
-		internal DataCell(int id, DataRegion dataRegion)
+		public DataCell(int id, DataRegion dataRegion)
 			: base(id, dataRegion)
 		{
 		}
 
-		internal override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
+		public override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
 		{
 			this.m_dataValues.Initialize(null, rowindex, colIndex, false, context);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			DataCell dataCell = (DataCell)base.PublishClone(context);
 			if (this.m_dataValues != null)
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return dataCell;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataValues, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataValue));

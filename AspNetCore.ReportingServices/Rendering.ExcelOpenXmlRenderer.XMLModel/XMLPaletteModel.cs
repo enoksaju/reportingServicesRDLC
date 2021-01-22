@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLPaletteModel : IPaletteModel
+	public class XMLPaletteModel : IPaletteModel
 	{
 		private const int NUM_RESERVED_COLORS_IN_PALETTE = 8;
 

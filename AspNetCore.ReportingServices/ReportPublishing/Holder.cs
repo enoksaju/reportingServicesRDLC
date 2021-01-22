@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal class Holder<T> where T : struct
+	public class Holder<T> where T : struct
 	{
 		private T m_t = default(T);
 
-		internal T Value
+		public T Value
 		{
 			get
 			{

@@ -1,14 +1,14 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class RangeDataState
+	public class RangeDataState
 	{
-		internal bool IsInRange;
+		public bool IsInRange;
 
-		internal bool IsTimerExceed;
+		public bool IsTimerExceed;
 
-		internal DataAttributes data;
+		public DataAttributes data;
 
-		internal bool IsRangeActive
+		public bool IsRangeActive
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal RangeDataState(Range range, DataAttributes data)
+		public RangeDataState(Range range, DataAttributes data)
 		{
 			this.data = data;
 		}

@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class SenderInformationHashtable : HashtableInstanceInfo
+	public sealed class SenderInformationHashtable : HashtableInstanceInfo
 	{
-		internal SenderInformation this[int key]
+		public SenderInformation this[int key]
 		{
 			get
 			{
@@ -17,16 +17,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SenderInformationHashtable()
+		public SenderInformationHashtable()
 		{
 		}
 
-		internal SenderInformationHashtable(int capacity)
+		public SenderInformationHashtable(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(int key, SenderInformation sender)
+		public void Add(int key, SenderInformation sender)
 		{
 			base.m_hashtable.Add(key, sender);
 		}

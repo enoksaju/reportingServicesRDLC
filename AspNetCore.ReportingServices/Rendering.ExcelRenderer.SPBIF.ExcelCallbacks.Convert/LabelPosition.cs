@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert
 {
-	internal sealed class LabelPosition
+	public sealed class LabelPosition
 	{
 		private string m_label;
 
@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 
 		private long m_startPosition;
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal long Position
+		public long Position
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal long StartPosition
+		public long StartPosition
 		{
 			get
 			{
@@ -32,13 +32,13 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal LabelPosition(string label, long position)
+		public LabelPosition(string label, long position)
 		{
 			this.m_label = label;
 			this.m_position = position;
 		}
 
-		internal LabelPosition(string label, long position, long startPosition)
+		public LabelPosition(string label, long position, long startPosition)
 		{
 			this.m_label = label;
 			this.m_position = position;

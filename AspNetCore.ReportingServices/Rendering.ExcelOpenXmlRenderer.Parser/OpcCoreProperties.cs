@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser
 {
-	internal class OpcCoreProperties : OoxmlComplexType
+	public class OpcCoreProperties : OoxmlComplexType
 	{
 		public override void WriteAsRoot(TextWriter s, string tagName, int depth, Dictionary<string, string> namespaces)
 		{

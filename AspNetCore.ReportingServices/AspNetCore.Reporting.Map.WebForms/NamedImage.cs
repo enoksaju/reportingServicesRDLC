@@ -6,7 +6,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 	[Description("Image with a unique name, saved as a resource.")]
 	[DefaultProperty("Name")]
 	[TypeConverter(typeof(NamedImageConverter))]
-	internal class NamedImage : NamedElement
+	public class NamedImage : NamedElement
 	{
 		private Image image;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Name;
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (this.Common != null)
 			{

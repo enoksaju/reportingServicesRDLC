@@ -6,7 +6,7 @@ using AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class CellIdcDataManager : BaseIdcDataManager
+	public sealed class CellIdcDataManager : BaseIdcDataManager
 	{
 		private readonly IntersectJoinInfo m_joinInfo;
 

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartThreeDProperties : IPersistable
+	public sealed class ChartThreeDProperties : IPersistable
 	{
 		private ExpressionInfo m_enabled;
 
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ChartThreeDProperties.GetDeclaration();
 
-		internal ExpressionInfo Enabled
+		public ExpressionInfo Enabled
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ProjectionMode
+		public ExpressionInfo ProjectionMode
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Rotation
+		public ExpressionInfo Rotation
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Inclination
+		public ExpressionInfo Inclination
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Perspective
+		public ExpressionInfo Perspective
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DepthRatio
+		public ExpressionInfo DepthRatio
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Shading
+		public ExpressionInfo Shading
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo GapDepth
+		public ExpressionInfo GapDepth
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo WallThickness
+		public ExpressionInfo WallThickness
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Clustered
+		public ExpressionInfo Clustered
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Chart3DPropertiesExprHost ExprHost
+		public Chart3DPropertiesExprHost ExprHost
 		{
 			get
 			{
@@ -170,16 +170,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartThreeDProperties()
+		public ChartThreeDProperties()
 		{
 		}
 
-		internal ChartThreeDProperties(Chart chart)
+		public ChartThreeDProperties(Chart chart)
 		{
 			this.m_chart = chart;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.Chart3DPropertiesStart();
 			if (this.m_enabled != null)
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.Chart3DPropertiesEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartThreeDProperties chartThreeDProperties = (ChartThreeDProperties)base.MemberwiseClone();
 			chartThreeDProperties.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -282,7 +282,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartThreeDProperties;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Enabled, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -419,67 +419,67 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ThreeDProperties;
 		}
 
-		internal void SetExprHost(Chart3DPropertiesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(Chart3DPropertiesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal bool EvaluateEnabled(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluateEnabled(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartThreeDPropertiesEnabledExpression(this, this.m_chart.Name, "Enabled");
 		}
 
-		internal ChartThreeDProjectionModes EvaluateProjectionMode(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public ChartThreeDProjectionModes EvaluateProjectionMode(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return EnumTranslator.TranslateChartThreeDProjectionMode(context.ReportRuntime.EvaluateChartThreeDPropertiesProjectionModeExpression(this, this.m_chart.Name, "ProjectionMode"), context.ReportRuntime);
 		}
 
-		internal int EvaluateRotation(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public int EvaluateRotation(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartThreeDPropertiesRotationExpression(this, this.m_chart.Name, "Rotation");
 		}
 
-		internal int EvaluateInclination(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public int EvaluateInclination(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartThreeDPropertiesInclinationExpression(this, this.m_chart.Name, "Inclination");
 		}
 
-		internal int EvaluatePerspective(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public int EvaluatePerspective(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartThreeDPropertiesPerspectiveExpression(this, this.m_chart.Name, "Perspective");
 		}
 
-		internal int EvaluateDepthRatio(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public int EvaluateDepthRatio(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartThreeDPropertiesDepthRatioExpression(this, this.m_chart.Name, "DepthRatio");
 		}
 
-		internal ChartThreeDShadingTypes EvaluateShading(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public ChartThreeDShadingTypes EvaluateShading(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return EnumTranslator.TranslateChartThreeDShading(context.ReportRuntime.EvaluateChartThreeDPropertiesShadingExpression(this, this.m_chart.Name, "Shading"), context.ReportRuntime);
 		}
 
-		internal int EvaluateGapDepth(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public int EvaluateGapDepth(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartThreeDPropertiesGapDepthExpression(this, this.m_chart.Name, "GapDepth");
 		}
 
-		internal int EvaluateWallThickness(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public int EvaluateWallThickness(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartThreeDPropertiesWallThicknessExpression(this, this.m_chart.Name, "WallThickness");
 		}
 
-		internal bool EvaluateClustered(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluateClustered(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartThreeDPropertiesClusteredExpression(this, this.m_chart.Name, "Clustered");

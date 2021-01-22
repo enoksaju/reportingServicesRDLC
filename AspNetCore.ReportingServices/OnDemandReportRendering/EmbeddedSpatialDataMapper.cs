@@ -8,20 +8,20 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class EmbeddedSpatialDataMapper : SpatialDataMapper
+	public class EmbeddedSpatialDataMapper : SpatialDataMapper
 	{
 		private ISpatialElementCollection m_embeddedCollection;
 
 		private CoreSpatialElementManager m_spatialElementManager;
 
-		internal EmbeddedSpatialDataMapper(VectorLayerMapper vectorLayerMapper, Dictionary<SpatialElementKey, SpatialElementInfoGroup> spatialElementsDictionary, ISpatialElementCollection embeddedCollection, CoreSpatialElementManager spatialElementManager, MapControl coreMap, MapMapper mapMapper)
+		public EmbeddedSpatialDataMapper(VectorLayerMapper vectorLayerMapper, Dictionary<SpatialElementKey, SpatialElementInfoGroup> spatialElementsDictionary, ISpatialElementCollection embeddedCollection, CoreSpatialElementManager spatialElementManager, MapControl coreMap, MapMapper mapMapper)
 			: base(vectorLayerMapper, spatialElementsDictionary, coreMap, mapMapper)
 		{
 			this.m_spatialElementManager = spatialElementManager;
 			this.m_embeddedCollection = embeddedCollection;
 		}
 
-		internal override void Populate()
+		public override void Populate()
 		{
 			this.AddFieldDefinitions();
 			this.AddSpatialElements();

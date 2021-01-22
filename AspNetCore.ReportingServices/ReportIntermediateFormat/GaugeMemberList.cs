@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class GaugeMemberList : HierarchyNodeList
+	public sealed class GaugeMemberList : HierarchyNodeList
 	{
-		internal new GaugeMember this[int index]
+		public new GaugeMember this[int index]
 		{
 			get
 			{

@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ListContentInstanceInfo : InstanceInfo
+	public sealed class ListContentInstanceInfo : InstanceInfo
 	{
 		private bool m_startHidden;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private DataValueInstanceList m_customPropertyInstances;
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstanceList CustomPropertyInstances
+		public DataValueInstanceList CustomPropertyInstances
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ListContentInstanceInfo(ReportProcessing.ProcessingContext pc, ListContentInstance owner, List listDef)
+		public ListContentInstanceInfo(ReportProcessing.ProcessingContext pc, ListContentInstance owner, List listDef)
 		{
 			if (pc.ShowHideType != 0)
 			{
@@ -69,11 +69,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			pc.ChunkManager.AddInstance(this, owner, pc.InPageSection);
 		}
 
-		internal ListContentInstanceInfo()
+		public ListContentInstanceInfo()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.StartHidden, Token.Boolean));

@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal static class RegionExtensions
+	public static class RegionExtensions
 	{
 		public static bool IsSuperSetOf(this Region region1, Region region2, Graphics graphics)
 		{

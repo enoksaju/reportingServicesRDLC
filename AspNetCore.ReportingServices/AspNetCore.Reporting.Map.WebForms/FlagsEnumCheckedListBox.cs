@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FlagsEnumCheckedListBox : CheckedListBox
+	public class FlagsEnumCheckedListBox : CheckedListBox
 	{
 		private object editValue;
 

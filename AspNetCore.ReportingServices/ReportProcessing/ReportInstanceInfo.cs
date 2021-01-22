@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportInstanceInfo : ReportItemInstanceInfo
+	public sealed class ReportInstanceInfo : ReportItemInstanceInfo
 	{
 		private ParameterInfoCollection m_parameters;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private int m_bodyUniqueName;
 
-		internal ParameterInfoCollection Parameters
+		public ParameterInfoCollection Parameters
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ReportName
+		public string ReportName
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int BodyUniqueName
+		public int BodyUniqueName
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportInstanceInfo(ReportProcessing.ProcessingContext pc, Report reportItemDef, ReportInstance owner, ParameterInfoCollection parameters, bool noRows)
+		public ReportInstanceInfo(ReportProcessing.ProcessingContext pc, Report reportItemDef, ReportInstance owner, ParameterInfoCollection parameters, bool noRows)
 			: base(pc, reportItemDef, owner, true)
 		{
 			this.m_bodyUniqueName = pc.CreateUniqueName();
@@ -75,12 +75,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_noRows = noRows;
 		}
 
-		internal ReportInstanceInfo(Report reportItemDef)
+		public ReportInstanceInfo(Report reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Parameters, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ParameterInfoCollection));

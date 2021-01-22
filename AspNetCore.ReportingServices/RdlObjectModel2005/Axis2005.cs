@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Axis2005 : ChartAxis
+	public class Axis2005 : ChartAxis
 	{
-		internal new class Definition : DefinitionStore<Axis2005, Definition.Properties>
+		public new class Definition : DefinitionStore<Axis2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Visible = 46,
 				Style,

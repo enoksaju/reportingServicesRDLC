@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CalculatedValueCollection : NamedCollection
+	public class CalculatedValueCollection : NamedCollection
 	{
 		public CalculatedValue this[object obj]
 		{
@@ -59,7 +59,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal CalculatedValueCollection(NamedElement parent, CommonElements common)
+		public CalculatedValueCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(CalculatedValue);
@@ -98,22 +98,22 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return base.List.IndexOf(value);
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return base.GetElementNameFormat(el).Replace("CalculatedValue", "");
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return string.Format(CultureInfo.InvariantCulture, this.GetElementNameFormat(el), 1);
 		}
 
-		internal override bool IsCorrectType(object value)
+		public override bool IsCorrectType(object value)
 		{
 			return value is CalculatedValue;
 		}
 
-		internal override void IsValidNameCheck(string name, NamedElement element)
+		public override void IsValidNameCheck(string name, NamedElement element)
 		{
 			base.IsValidNameCheck(name, element);
 			if (!(base.parent is ValueBase))
@@ -127,7 +127,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			throw new NotSupportedException(Utils.SRGetStr("ExceptionListUniqueName", base.GetType().Name));
 		}
 
-		internal override bool IsUniqueName(string name)
+		public override bool IsUniqueName(string name)
 		{
 			bool flag = true;
 			if (base.parent is ValueBase)

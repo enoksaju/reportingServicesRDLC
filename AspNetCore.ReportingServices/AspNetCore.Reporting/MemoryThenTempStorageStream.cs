@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class MemoryThenTempStorageStream : Stream
+	public sealed class MemoryThenTempStorageStream : Stream
 	{
 		private const int m_threshold = 65536;
 

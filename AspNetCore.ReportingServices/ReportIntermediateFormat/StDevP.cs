@@ -7,11 +7,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class StDevP : VarP
+	public sealed class StDevP : VarP
 	{
 		private static Declaration m_declaration = StDevP.GetDeclaration();
 
-		internal override DataAggregateInfo.AggregateTypes AggregateType
+		public override DataAggregateInfo.AggregateTypes AggregateType
 		{
 			get
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			switch (base.m_sumOfXType)
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef)
+		public override DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef)
 		{
 			return new StDevP();
 		}

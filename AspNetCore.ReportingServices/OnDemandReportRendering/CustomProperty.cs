@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CustomProperty
+	public sealed class CustomProperty
 	{
 		private ReportStringProperty m_name;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportElement ReportElementOwner
+		public ReportElement ReportElementOwner
 		{
 			get
 			{
@@ -52,14 +52,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomProperty(ReportElement reportElementOwner, RenderingContext renderingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo nameExpr, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo valueExpr, string name, object value, TypeCode typeCode)
+		public CustomProperty(ReportElement reportElementOwner, RenderingContext renderingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo nameExpr, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo valueExpr, string name, object value, TypeCode typeCode)
 		{
 			this.m_reportElementOwner = reportElementOwner;
 			this.Init(nameExpr, valueExpr, name, value, typeCode);
 			this.m_renderingContext = renderingContext;
 		}
 
-		internal CustomProperty(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo nameExpr, AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo valueExpr, string name, object value, TypeCode typeCode)
+		public CustomProperty(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo nameExpr, AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo valueExpr, string name, object value, TypeCode typeCode)
 		{
 			this.m_name = new ReportStringProperty(nameExpr);
 			this.m_value = new ReportVariantProperty(valueExpr);
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void Update(string name, object value, TypeCode typeCode)
+		public void Update(string name, object value, TypeCode typeCode)
 		{
 			if (this.m_instance != null)
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ConstructCustomPropertyDefinition(AspNetCore.ReportingServices.ReportIntermediateFormat.DataValue dataValueDef)
+		public void ConstructCustomPropertyDefinition(AspNetCore.ReportingServices.ReportIntermediateFormat.DataValue dataValueDef)
 		{
 			Global.Tracer.Assert(this.m_reportElementOwner != null && this.m_instance != null, "m_reportElementOwner != null && m_instance != null");
 			if (this.m_instance.Name != null)

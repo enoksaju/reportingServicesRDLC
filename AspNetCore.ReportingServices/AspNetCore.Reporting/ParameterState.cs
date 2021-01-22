@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal enum ParameterState
+	public enum ParameterState
 	{
 		HasValidValue,
 		MissingValidValue,

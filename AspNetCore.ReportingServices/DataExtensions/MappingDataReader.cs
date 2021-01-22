@@ -10,7 +10,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal sealed class MappingDataReader : IDisposable
+	public sealed class MappingDataReader : IDisposable
 	{
 		private string m_dataSetName;
 

@@ -4,7 +4,7 @@ using System.Drawing.Printing;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class ReportInfo : IDisposable
+	public sealed class ReportInfo : IDisposable
 	{
 		[NonSerialized]
 		public int CurrentPage;

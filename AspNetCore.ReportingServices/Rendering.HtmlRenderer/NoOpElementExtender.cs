@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class NoOpElementExtender : IElementExtender
+	public sealed class NoOpElementExtender : IElementExtender
 	{
 		public bool HasSetupRequirements()
 		{

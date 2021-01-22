@@ -4,14 +4,14 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class SizeRuleMapper : RuleMapper
+	public class SizeRuleMapper : RuleMapper
 	{
-		internal SizeRuleMapper(MapSizeRule mapColorRule, VectorLayerMapper vectorLayerMapper, CoreSpatialElementManager coreSpatialElementManager)
+		public SizeRuleMapper(MapSizeRule mapColorRule, VectorLayerMapper vectorLayerMapper, CoreSpatialElementManager coreSpatialElementManager)
 			: base(mapColorRule, vectorLayerMapper, coreSpatialElementManager)
 		{
 		}
 
-		internal void RenderSymbolRule(PointTemplateMapper symbolTemplateMapper, Color? color, MarkerStyle? markerStyle)
+		public void RenderSymbolRule(PointTemplateMapper symbolTemplateMapper, Color? color, MarkerStyle? markerStyle)
 		{
 			SymbolRule symbolRule = (SymbolRule)base.m_coreRule;
 			base.SetRuleLegendProperties(symbolRule);
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MappingHelper.ToPixels(size, base.m_mapMapper.DpiX);
 		}
 
-		internal virtual PathWidthRule CreatePathRule()
+		public virtual PathWidthRule CreatePathRule()
 		{
 			PathWidthRule pathWidthRule = (PathWidthRule)(base.m_coreRule = new PathWidthRule());
 			pathWidthRule.Text = "";
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return pathWidthRule;
 		}
 
-		internal void RenderLineRule(SpatialElementTemplateMapper spatialElementTemplateMapper, Color? color)
+		public void RenderLineRule(SpatialElementTemplateMapper spatialElementTemplateMapper, Color? color)
 		{
 			PathWidthRule pathWidthRule = (PathWidthRule)base.m_coreRule;
 			pathWidthRule.UseCustomWidths = true;
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override SymbolRule CreateSymbolRule()
+		public override SymbolRule CreateSymbolRule()
 		{
 			SymbolRule symbolRule = base.CreateSymbolRule();
 			symbolRule.AffectedAttributes = AffectedSymbolAttributes.SizeOnly;

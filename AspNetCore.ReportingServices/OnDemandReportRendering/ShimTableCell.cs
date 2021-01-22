@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimTableCell : ShimCell
+	public sealed class ShimTableCell : ShimCell
 	{
 		private int m_colSpan;
 
@@ -22,14 +22,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimTableCell(Tablix owner, int rowIndex, int colIndex, int colSpan, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public ShimTableCell(Tablix owner, int rowIndex, int colIndex, int colSpan, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 			: base(owner, rowIndex, colIndex, owner.InSubtotal)
 		{
 			this.m_colSpan = colSpan;
 			this.m_renderReportItem = renderReportItem;
 		}
 
-		internal void SetCellContents(TableCell renderCellContents)
+		public void SetCellContents(TableCell renderCellContents)
 		{
 			if (renderCellContents != null)
 			{

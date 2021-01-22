@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal static class CellReference
+	public static class CellReference
 	{
-		internal static string CreateExcelReference(string sheetName, int row, int column)
+		public static string CreateExcelReference(string sheetName, int row, int column)
 		{
 			return "'" + sheetName + "'!" + CellReference.ConvertToLetter(column) + (row + 1);
 		}

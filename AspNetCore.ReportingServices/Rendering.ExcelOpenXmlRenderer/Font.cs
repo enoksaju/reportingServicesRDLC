@@ -6,7 +6,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Font : IFont
+	public sealed class Font : IFont
 	{
 		private readonly IFontModel mModel;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal IFontModel Model
+		public IFontModel Model
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal Font(IFontModel model)
+		public Font(IFontModel model)
 		{
 			this.mModel = model;
 		}

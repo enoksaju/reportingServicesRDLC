@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.RdlObjectModel.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class StaticMember2005 : ReportObject
+	public class StaticMember2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<StaticMember2005, Definition.Properties>
+		public class Definition : DefinitionStore<StaticMember2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Label,
 				LabelLocID

@@ -5,9 +5,9 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[Description("Legend items collection.")]
-	internal class LegendItemsCollection : NamedCollection
+	public class LegendItemsCollection : NamedCollection
 	{
-		internal Legend Legend;
+		public Legend Legend;
 
 		private LegendItem this[int index]
 		{
@@ -63,7 +63,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal LegendItemsCollection(NamedElement parent, CommonElements common)
+		public LegendItemsCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(LegendItem);
@@ -94,17 +94,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return base.List.Add(item);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "LegendItem1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "LegendItem{0}";
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (this.Legend != null)
 			{

@@ -10,7 +10,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CustomReportItem : ReportItem, IDataRegion, IReportScope
+	public sealed class CustomReportItem : ReportItem, IDataRegion, IReportScope
 	{
 		private const AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes ChunkType = AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes.GeneratedReportItems;
 
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool HasCustomData
+		public bool HasCustomData
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.CustomReportItem RenderCri
+		public AspNetCore.ReportingServices.ReportRendering.CustomReportItem RenderCri
 		{
 			get
 			{
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.CustomReportItem CriDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.CustomReportItem CriDef
 		{
 			get
 			{
@@ -197,18 +197,18 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomReportItem(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.CustomReportItem reportItemDef, RenderingContext renderingContext)
+		public CustomReportItem(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.CustomReportItem reportItemDef, RenderingContext renderingContext)
 			: base(reportScope, parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 			this.m_indexIntoParentCollectionDef = indexIntoParentCollectionDef;
 		}
 
-		internal CustomReportItem(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.CustomReportItem renderCri, RenderingContext renderingContext)
+		public CustomReportItem(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.CustomReportItem renderCri, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, inSubtotal, renderCri, renderingContext)
 		{
 		}
 
-		internal bool Initialize(RenderingContext renderingContext)
+		public bool Initialize(RenderingContext renderingContext)
 		{
 			this.m_exposeAs = null;
 			if (renderingContext.IsRenderAsNativeCri(this.CriDef))
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_exposeAs != null;
 		}
 
-		internal override ReportItem ExposeAs(RenderingContext renderingContext)
+		public override ReportItem ExposeAs(RenderingContext renderingContext)
 		{
 			Global.Tracer.Assert(this.m_exposeAs != null, "m_exposeAs != null");
 			return this.m_exposeAs;
@@ -321,7 +321,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void EvaluateGeneratedReportItemInstance()
+		public void EvaluateGeneratedReportItemInstance()
 		{
 			Global.Tracer.Assert(this.m_generatedReportItem.CriGenerationPhase == CriGenerationPhases.None);
 			this.m_generatedReportItem.CriGenerationPhase = CriGenerationPhases.Instance;
@@ -447,7 +447,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_generatedReportItem = image2;
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -456,7 +456,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_data != null)
 			{
@@ -472,7 +472,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			base.UpdateRenderReportItem(renderReportItem);
 			if (renderReportItem != null)
@@ -493,17 +493,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int GetCurrentMemberCellDefinitionIndex()
+		public int GetCurrentMemberCellDefinitionIndex()
 		{
 			return this.m_memberCellDefinitionIndex;
 		}
 
-		internal int GetAndIncrementMemberCellDefinitionIndex()
+		public int GetAndIncrementMemberCellDefinitionIndex()
 		{
 			return this.m_memberCellDefinitionIndex++;
 		}
 
-		internal void ResetMemberCellDefinitionIndex(int startIndex)
+		public void ResetMemberCellDefinitionIndex(int startIndex)
 		{
 			this.m_memberCellDefinitionIndex = startIndex;
 		}

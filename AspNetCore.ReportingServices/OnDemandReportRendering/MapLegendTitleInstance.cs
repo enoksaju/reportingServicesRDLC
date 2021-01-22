@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLegendTitleInstance : BaseInstance
+	public sealed class MapLegendTitleInstance : BaseInstance
 	{
 		private MapLegendTitle m_defObject;
 
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLegendTitleInstance(MapLegendTitle defObject)
+		public MapLegendTitleInstance(MapLegendTitle defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

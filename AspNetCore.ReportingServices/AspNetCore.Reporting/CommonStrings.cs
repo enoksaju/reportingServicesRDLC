@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.Reporting
 {
 	[CompilerGenerated]
-	internal class CommonStrings
+	public class CommonStrings
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string Report = "Report";
 
@@ -34,7 +34,7 @@ namespace AspNetCore.Reporting
 
 			public const string PolicyFileLoadFailed = "PolicyFileLoadFailed";
 
-			public const string DeviceInfoInternal = "DeviceInfoInternal";
+			public const string DeviceInfopublic = "DeviceInfoInternal";
 
 			public const string ParameterNotFound = "ParameterNotFound";
 

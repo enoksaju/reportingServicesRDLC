@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.Reporting
 {
 	[CompilerGenerated]
-	internal class ProcessingStrings
+	public class ProcessingStrings
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string MissingDefinition = "MissingDefinition";
 

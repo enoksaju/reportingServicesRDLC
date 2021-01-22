@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ListInstanceInfo : ReportItemInstanceInfo
+	public sealed class ListInstanceInfo : ReportItemInstanceInfo
 	{
 		private string m_noRows;
 
-		internal string NoRows
+		public string NoRows
 		{
 			get
 			{
@@ -20,18 +20,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ListInstanceInfo(ReportProcessing.ProcessingContext pc, List reportItemDef, ListInstance owner)
+		public ListInstanceInfo(ReportProcessing.ProcessingContext pc, List reportItemDef, ListInstance owner)
 			: base(pc, reportItemDef, owner, true)
 		{
 			this.m_noRows = pc.ReportRuntime.EvaluateDataRegionNoRowsExpression(reportItemDef, reportItemDef.ObjectType, reportItemDef.Name, "NoRows");
 		}
 
-		internal ListInstanceInfo(List reportItemDef)
+		public ListInstanceInfo(List reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.NoRows, Token.String));

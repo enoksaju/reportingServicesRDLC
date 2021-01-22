@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class RunningValueInfo : DataAggregateInfo
+	public sealed class RunningValueInfo : DataAggregateInfo
 	{
 		private string m_scope;
 
-		internal string Scope
+		public string Scope
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new RunningValueInfo DeepClone(InitializationContext context)
+		public new RunningValueInfo DeepClone(InitializationContext context)
 		{
 			RunningValueInfo runningValueInfo = new RunningValueInfo();
 			base.DeepCloneInternal(runningValueInfo, context);
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return runningValueInfo;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Scope, Token.String));

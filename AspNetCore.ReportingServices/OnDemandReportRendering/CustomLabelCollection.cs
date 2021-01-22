@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CustomLabelCollection : GaugePanelObjectCollectionBase<CustomLabel>
+	public sealed class CustomLabelCollection : GaugePanelObjectCollectionBase<CustomLabel>
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomLabelCollection(GaugeScale gaugeScale, GaugePanel gaugePanel)
+		public CustomLabelCollection(GaugeScale gaugeScale, GaugePanel gaugePanel)
 		{
 			this.m_gaugeScale = gaugeScale;
 			this.m_gaugePanel = gaugePanel;

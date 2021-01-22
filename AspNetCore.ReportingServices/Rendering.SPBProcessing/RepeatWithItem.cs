@@ -5,9 +5,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class RepeatWithItem
+	public sealed class RepeatWithItem
 	{
-		internal const string RepeatSuffix = "_REPEAT";
+		public const string RepeatSuffix = "_REPEAT";
 
 		private double m_relativeTop;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private ItemSizes m_renderItemSize;
 
-		internal int DataRegionIndex
+		public int DataRegionIndex
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItem SourcePageItem
+		public PageItem SourcePageItem
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double RelativeTop
+		public double RelativeTop
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double RelativeBottom
+		public double RelativeBottom
 		{
 			get
 			{
@@ -53,13 +53,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RepeatWithItem(PageItem pageItem, PageContext pageContext)
+		public RepeatWithItem(PageItem pageItem, PageContext pageContext)
 		{
 			this.m_pageItem = pageItem;
 			this.m_pageItem.ItemState = PageItem.State.OnPage;
 		}
 
-		internal void UpdateCreateState(PageItem dataRegion, int dataRegionIndex, List<int> pageItemsAbove, PageContext pageContext)
+		public void UpdateCreateState(PageItem dataRegion, int dataRegionIndex, List<int> pageItemsAbove, PageContext pageContext)
 		{
 			this.m_dataRegionIndex = dataRegionIndex;
 			this.m_relativeTop = this.m_pageItem.ItemPageSizes.Top - dataRegion.ItemPageSizes.Top;
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void UpdateSizes(PageContext pageContext)
+		public void UpdateSizes(PageContext pageContext)
 		{
 			PaddItemSizes paddItemSizes = this.m_renderItemSize as PaddItemSizes;
 			if (paddItemSizes != null)
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool AddOnPage(ItemSizes dataRegionSizes, PageItem[] siblings, int itemIndex, ref List<int> parentOverlappedItems, ref double header)
+		public bool AddOnPage(ItemSizes dataRegionSizes, PageItem[] siblings, int itemIndex, ref List<int> parentOverlappedItems, ref double header)
 		{
 			if (siblings == null)
 			{
@@ -217,12 +217,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal void WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
+		public void WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
 		{
 			this.m_pageItem.WriteRepeatWithToPage(rplWriter, pageContext);
 		}
 
-		internal void UpdateItem(PageItemHelper itemHelper, RPLWriter rplWriter, PageContext pageContext)
+		public void UpdateItem(PageItemHelper itemHelper, RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (itemHelper != null)
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItemHelper WritePaginationInfo()
+		public PageItemHelper WritePaginationInfo()
 		{
 			PageItemRepeatWithHelper pageItemRepeatWithHelper = new PageItemRepeatWithHelper(13);
 			pageItemRepeatWithHelper.RelativeTop = this.m_relativeTop;

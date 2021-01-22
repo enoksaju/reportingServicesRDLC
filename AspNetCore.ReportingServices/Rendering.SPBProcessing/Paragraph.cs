@@ -8,7 +8,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class Paragraph : PageElement, IParagraphProps
+	public sealed class Paragraph : PageElement, IParagraphProps
 	{
 		private long m_offset;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override string SourceID
+		public override string SourceID
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override string SourceUniqueName
+		public override string SourceUniqueName
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override bool HasBackground
+		public override bool HasBackground
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal List<TextRun> TextRuns
+		public List<TextRun> TextRuns
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLParagraph RPLElement
+		public RPLParagraph RPLElement
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal CompiledParagraphInstance CompiledInstance
+		public CompiledParagraphInstance CompiledInstance
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal CompiledParagraphInstanceCollection CompiledParagraphsCollection
+		public CompiledParagraphInstanceCollection CompiledParagraphsCollection
 		{
 			get
 			{
@@ -285,29 +285,29 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 		{
 		}
 
-		internal Paragraph(AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph paragraph, PageContext pageContext)
+		public Paragraph(AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph paragraph, PageContext pageContext)
 			: this(paragraph, null, pageContext)
 		{
 		}
 
-		internal Paragraph(AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph paragraph, CompiledParagraphInstance compiledParagraph, PageContext pageContext)
+		public Paragraph(AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph paragraph, CompiledParagraphInstance compiledParagraph, PageContext pageContext)
 			: base(paragraph)
 		{
 			this.m_compiledSource = compiledParagraph;
 			this.BuildTextRunCollection(pageContext);
 		}
 
-		internal object GetRichTextStyleValue(StyleAttributeNames styleName, ref bool isShared)
+		public object GetRichTextStyleValue(StyleAttributeNames styleName, ref bool isShared)
 		{
 			return base.GetRichTextStyleValue(styleName, (ReportElementInstance)this.m_compiledSource, ref isShared);
 		}
 
-		internal object GetRichTextStyleValue(StyleAttributeNames styleName)
+		public object GetRichTextStyleValue(StyleAttributeNames styleName)
 		{
 			return base.GetRichTextStyleValue(styleName, this.m_compiledSource);
 		}
 
-		internal override void WriteSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
+		public override void WriteSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph paragraph = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph;
 			RSTrace.RenderingTracer.Assert(paragraph != null, "The paragraph definition cannot be null");
@@ -369,7 +369,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal override void WriteSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph paragraph = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph;
 			RSTrace.RenderingTracer.Assert(paragraph != null, "The paragraph definition cannot be null");
@@ -422,7 +422,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			rPLParagraphPropsDef.SharedStyle = this.WriteSharedStyle(null, pageContext);
 		}
 
-		internal override void WriteNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph paragraph = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph;
 			RSTrace.RenderingTracer.Assert(paragraph != null, "The paragraph definition cannot be null");
@@ -520,7 +520,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal override void WriteNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph paragraph = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph;
 			RSTrace.RenderingTracer.Assert(paragraph != null, "The paragraph definition cannot be null");
@@ -606,19 +606,19 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			rPLParagraphProps.NonSharedStyle = this.WriteNonSharedStyle(null, null, pageContext, this.m_compiledSource);
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.TextAlign, 25);
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.LineHeight, 28);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.TextAlign, 25);
 			base.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.LineHeight, 28);
 		}
 
-		internal override void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			switch (styleAttribute)
 			{
@@ -631,7 +631,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			switch (styleAttribute)
 			{
@@ -644,23 +644,23 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteBackgroundImage(BinaryWriter spbifWriter, Style style, bool writeShared, PageContext pageContext)
+		public override void WriteBackgroundImage(BinaryWriter spbifWriter, Style style, bool writeShared, PageContext pageContext)
 		{
 		}
 
-		internal override void WriteBackgroundImage(RPLStyleProps rplStyleProps, Style style, bool writeShared, PageContext pageContext)
+		public override void WriteBackgroundImage(RPLStyleProps rplStyleProps, Style style, bool writeShared, PageContext pageContext)
 		{
 		}
 
-		internal override void WriteBorderProps(BinaryWriter spbifWriter, Style style)
+		public override void WriteBorderProps(BinaryWriter spbifWriter, Style style)
 		{
 		}
 
-		internal override void WriteBorderProps(RPLStyleProps rplStyleProps, Style style)
+		public override void WriteBorderProps(RPLStyleProps rplStyleProps, Style style)
 		{
 		}
 
-		internal void WriteItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public void WriteItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			List<long> list = null;
 			BinaryWriter binaryWriter = rplWriter.BinaryWriter;
@@ -708,7 +708,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.Rendering.RichText.Paragraph GetRichTextParagraph()
+		public AspNetCore.ReportingServices.Rendering.RichText.Paragraph GetRichTextParagraph()
 		{
 			AspNetCore.ReportingServices.Rendering.RichText.Paragraph paragraph = new AspNetCore.ReportingServices.Rendering.RichText.Paragraph(this, this.m_textRuns.Count);
 			for (int i = 0; i < this.m_textRuns.Count; i++)

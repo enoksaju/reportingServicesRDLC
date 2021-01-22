@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[AttributeUsage(AttributeTargets.Property)]
-	internal class DoubleConverterHint : Attribute
+	public class DoubleConverterHint : Attribute
 	{
 		private double bound;
 

@@ -14,7 +14,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ReportRuntime : IErrorContext
+	public sealed class ReportRuntime : IErrorContext
 	{
 		private sealed class ExpressionHostLoader : MarshalByRefObject
 		{
@@ -26,14 +26,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private static readonly Assembly ProcessingObjectModelAssembly;
 
-			internal static ReportExprHost LoadExprHost(byte[] exprHostBytes, string exprHostAssemblyName, bool parametersOnly, ObjectModel objectModel, StringList codeModules, AppDomain targetAppDomain)
+			public static ReportExprHost LoadExprHost(byte[] exprHostBytes, string exprHostAssemblyName, bool parametersOnly, ObjectModel objectModel, StringList codeModules, AppDomain targetAppDomain)
 			{
 				//Type typeFromHandle = typeof(ExpressionHostLoader);
 				ExpressionHostLoader expressionHostLoader = Activator.CreateInstance<ExpressionHostLoader>();
 				return expressionHostLoader.LoadExprHostRemoteEntryPoint(exprHostBytes, exprHostAssemblyName, parametersOnly, objectModel, codeModules);
 			}
 
-			internal static ReportExprHost LoadExprHostIntoCurrentAppDomain(byte[] exprHostBytes, string exprHostAssemblyName, Evidence evidence, bool parametersOnly, ObjectModel objectModel, StringList codeModules)
+			public static ReportExprHost LoadExprHostIntoCurrentAppDomain(byte[] exprHostBytes, string exprHostAssemblyName, Evidence evidence, bool parametersOnly, ObjectModel objectModel, StringList codeModules)
 			{
 				if (codeModules != null && 0 < codeModules.Count)
 				{
@@ -307,7 +307,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private IActionOwner m_currentActionOwner;
 
-		internal ReportExprHost ReportExprHost
+		public ReportExprHost ReportExprHost
 		{
 			get
 			{
@@ -315,7 +315,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.IScope CurrentScope
+		public ReportProcessing.IScope CurrentScope
 		{
 			get
 			{
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ObjectType ObjectType
+		public ObjectType ObjectType
 		{
 			get
 			{
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ObjectName
+		public string ObjectName
 		{
 			get
 			{
@@ -351,7 +351,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string PropertyName
+		public string PropertyName
 		{
 			get
 			{
@@ -363,7 +363,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ObjectModelImpl ReportObjectModel
+		public ObjectModelImpl ReportObjectModel
 		{
 			get
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IActionOwner CurrentActionOwner
+		public IActionOwner CurrentActionOwner
 		{
 			get
 			{
@@ -383,14 +383,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportRuntime(ObjectModelImpl reportObjectModel, ErrorContext errorContext)
+		public ReportRuntime(ObjectModelImpl reportObjectModel, ErrorContext errorContext)
 		{
 			this.m_objectType = ObjectType.Report;
 			this.m_reportObjectModel = reportObjectModel;
 			this.m_errorContext = errorContext;
 		}
 
-		internal ReportRuntime(ObjectModelImpl reportObjectModel, ErrorContext errorContext, ReportExprHost copyReportExprHost, ReportRuntime topLevelReportRuntime)
+		public ReportRuntime(ObjectModelImpl reportObjectModel, ErrorContext errorContext, ReportExprHost copyReportExprHost, ReportRuntime topLevelReportRuntime)
 			: this(reportObjectModel, errorContext)
 		{
 			this.m_reportExprHost = copyReportExprHost;
@@ -407,7 +407,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_errorContext.Register(code, severity, objectType, objectName, propertyName, arguments);
 		}
 
-		internal static string GetErrorName(DataFieldStatus status, string exceptionMessage)
+		public static string GetErrorName(DataFieldStatus status, string exceptionMessage)
 		{
 			if (exceptionMessage != null)
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string EvaluateReportLanguageExpression(Report report, out CultureInfo language)
+		public string EvaluateReportLanguageExpression(Report report, out CultureInfo language)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(report.Language, report.ObjectType, report.Name, "Language", out result))
@@ -447,7 +447,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateSpecificLanguage(this.ProcessStringResult(result).Value, (IErrorContext)this, out language);
 		}
 
-		internal VariantResult EvaluateParamDefaultValue(ParameterDef paramDef, int index)
+		public VariantResult EvaluateParamDefaultValue(ParameterDef paramDef, int index)
 		{
 			Global.Tracer.Assert(paramDef.DefaultExpressions != null);
 			ExpressionInfo expressionInfo = paramDef.DefaultExpressions[index];
@@ -473,7 +473,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal VariantResult EvaluateParamValidValue(ParameterDef paramDef, int index)
+		public VariantResult EvaluateParamValidValue(ParameterDef paramDef, int index)
 		{
 			Global.Tracer.Assert(paramDef.ValidValuesValueExpressions != null);
 			ExpressionInfo expressionInfo = paramDef.ValidValuesValueExpressions[index];
@@ -499,7 +499,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal VariantResult EvaluateParamValidValueLabel(ParameterDef paramDef, int index)
+		public VariantResult EvaluateParamValidValueLabel(ParameterDef paramDef, int index)
 		{
 			Global.Tracer.Assert(paramDef.ValidValuesLabelExpressions != null);
 			ExpressionInfo expressionInfo = paramDef.ValidValuesLabelExpressions[index];
@@ -555,7 +555,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal object EvaluateDataValueValueExpression(DataValue value, ObjectType objectType, string objectName, string propertyName)
+		public object EvaluateDataValueValueExpression(DataValue value, ObjectType objectType, string objectName, string propertyName)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(value.Value, objectType, objectName, propertyName, out variantResult))
@@ -577,7 +577,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal string EvaluateDataValueNameExpression(DataValue value, ObjectType objectType, string objectName, string propertyName)
+		public string EvaluateDataValueNameExpression(DataValue value, ObjectType objectType, string objectName, string propertyName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(value.Name, objectType, objectName, propertyName, out result))
@@ -598,7 +598,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal VariantResult EvaluateFilterVariantExpression(Filter filter, ObjectType objectType, string objectName)
+		public VariantResult EvaluateFilterVariantExpression(Filter filter, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(filter.Expression, objectType, objectName, "FilterExpression", out result))
@@ -620,7 +620,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal StringResult EvaluateFilterStringExpression(Filter filter, ObjectType objectType, string objectName)
+		public StringResult EvaluateFilterStringExpression(Filter filter, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(filter.Expression, objectType, objectName, "FilterExpression", out result))
@@ -641,7 +641,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result);
 		}
 
-		internal VariantResult EvaluateFilterVariantValue(Filter filter, int index, ObjectType objectType, string objectName)
+		public VariantResult EvaluateFilterVariantValue(Filter filter, int index, ObjectType objectType, string objectName)
 		{
 			Global.Tracer.Assert(filter.Values != null);
 			ExpressionInfo expressionInfo = filter.Values[index];
@@ -665,7 +665,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal FloatResult EvaluateFilterIntegerOrFloatValue(Filter filter, int index, ObjectType objectType, string objectName)
+		public FloatResult EvaluateFilterIntegerOrFloatValue(Filter filter, int index, ObjectType objectType, string objectName)
 		{
 			Global.Tracer.Assert(filter.Values != null);
 			ExpressionInfo expressionInfo = filter.Values[index];
@@ -688,7 +688,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessIntegerOrFloatResult(result);
 		}
 
-		internal IntegerResult EvaluateFilterIntegerValue(Filter filter, int index, ObjectType objectType, string objectName)
+		public IntegerResult EvaluateFilterIntegerValue(Filter filter, int index, ObjectType objectType, string objectName)
 		{
 			Global.Tracer.Assert(filter.Values != null);
 			ExpressionInfo expressionInfo = filter.Values[index];
@@ -711,7 +711,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessIntegerResult(result);
 		}
 
-		internal StringResult EvaluateFilterStringValue(Filter filter, int index, ObjectType objectType, string objectName)
+		public StringResult EvaluateFilterStringValue(Filter filter, int index, ObjectType objectType, string objectName)
 		{
 			Global.Tracer.Assert(filter.Values != null);
 			ExpressionInfo expressionInfo = filter.Values[index];
@@ -734,7 +734,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result);
 		}
 
-		internal object EvaluateQueryParamValue(ExpressionInfo paramValue, IndexedExprHost queryParamsExprHost, ObjectType objectType, string objectName)
+		public object EvaluateQueryParamValue(ExpressionInfo paramValue, IndexedExprHost queryParamsExprHost, ObjectType objectType, string objectName)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(paramValue, objectType, objectName, "Value", out variantResult))
@@ -758,7 +758,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal StringResult EvaluateConnectString(DataSource dataSource)
+		public StringResult EvaluateConnectString(DataSource dataSource)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(dataSource.ConnectStringExpression, ObjectType.DataSource, dataSource.Name, "ConnectString", out result))
@@ -788,7 +788,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result);
 		}
 
-		internal StringResult EvaluateCommandText(DataSet dataSet)
+		public StringResult EvaluateCommandText(DataSet dataSet)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(dataSet.Query.CommandText, ObjectType.Query, dataSet.Name, "CommandText", out result))
@@ -811,7 +811,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result);
 		}
 
-		internal object EvaluateFieldValueExpression(Field field)
+		public object EvaluateFieldValueExpression(Field field)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(field.Value, ObjectType.Field, field.Name, "Value", out variantResult))
@@ -833,7 +833,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal VariantResult EvaluateAggregateVariantOrBinaryParamExpr(DataAggregateInfo aggregateInfo, int index, IErrorContext errorContext)
+		public VariantResult EvaluateAggregateVariantOrBinaryParamExpr(DataAggregateInfo aggregateInfo, int index, IErrorContext errorContext)
 		{
 			Global.Tracer.Assert(aggregateInfo.Expressions != null);
 			ExpressionInfo expressionInfo = aggregateInfo.Expressions[index];
@@ -857,7 +857,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal bool EvaluateParamValueOmitExpression(ParameterValue paramVal, ObjectType objectType, string objectName)
+		public bool EvaluateParamValueOmitExpression(ParameterValue paramVal, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateBooleanExpression(paramVal.Omit, true, objectType, objectName, "ParameterOmit", out result))
@@ -878,7 +878,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessBooleanResult(result).Value;
 		}
 
-		internal object EvaluateParamVariantValueExpression(ParameterValue paramVal, ObjectType objectType, string objectName, string propertyName)
+		public object EvaluateParamVariantValueExpression(ParameterValue paramVal, ObjectType objectType, string objectName, string propertyName)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(paramVal.Value, objectType, objectName, propertyName, out variantResult))
@@ -900,7 +900,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal ParameterValueResult EvaluateParameterValueExpression(ParameterValue paramVal, ObjectType objectType, string objectName, string propertyName)
+		public ParameterValueResult EvaluateParameterValueExpression(ParameterValue paramVal, ObjectType objectType, string objectName, string propertyName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(paramVal.Value, objectType, objectName, propertyName, out result))
@@ -921,7 +921,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessParameterValueResult(paramVal.Value, result);
 		}
 
-		internal bool EvaluateStartHiddenExpression(Visibility visibility, IVisibilityHiddenExprHost hiddenExprHostRI, ObjectType objectType, string objectName)
+		public bool EvaluateStartHiddenExpression(Visibility visibility, IVisibilityHiddenExprHost hiddenExprHostRI, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateBooleanExpression(visibility.Hidden, true, objectType, objectName, "Hidden", out result))
@@ -941,7 +941,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessBooleanResult(result, true, objectType, objectName).Value;
 		}
 
-		internal bool EvaluateStartHiddenExpression(Visibility visibility, IndexedExprHost hiddenExprHostIdx, ObjectType objectType, string objectName)
+		public bool EvaluateStartHiddenExpression(Visibility visibility, IndexedExprHost hiddenExprHostIdx, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateBooleanExpression(visibility.Hidden, true, objectType, objectName, "Hidden", out result))
@@ -962,7 +962,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessBooleanResult(result, true, objectType, objectName).Value;
 		}
 
-		internal VariantResult EvaluateReportItemLabelExpression(ReportItem reportItem)
+		public VariantResult EvaluateReportItemLabelExpression(ReportItem reportItem)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(reportItem.Label, reportItem.ObjectType, reportItem.Name, "Label", out result))
@@ -984,7 +984,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal string EvaluateReportItemBookmarkExpression(ReportItem reportItem)
+		public string EvaluateReportItemBookmarkExpression(ReportItem reportItem)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(reportItem.Bookmark, reportItem.ObjectType, reportItem.Name, "Bookmark", out result))
@@ -1005,7 +1005,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateReportItemToolTipExpression(ReportItem reportItem)
+		public string EvaluateReportItemToolTipExpression(ReportItem reportItem)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(reportItem.ToolTip, reportItem.ObjectType, reportItem.Name, "ToolTip", out result))
@@ -1026,7 +1026,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateActionLabelExpression(ActionItem actionItem, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateActionLabelExpression(ActionItem actionItem, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "Label", out result))
@@ -1047,7 +1047,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateReportItemHyperlinkURLExpression(ActionItem actionItem, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateReportItemHyperlinkURLExpression(ActionItem actionItem, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "Hyperlink", out result))
@@ -1068,7 +1068,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateReportItemDrillthroughReportName(ActionItem actionItem, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateReportItemDrillthroughReportName(ActionItem actionItem, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "DrillthroughReportName", out result))
@@ -1089,7 +1089,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateReportItemBookmarkLinkExpression(ActionItem actionItem, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateReportItemBookmarkLinkExpression(ActionItem actionItem, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BookmarkLink", out result))
@@ -1110,7 +1110,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateImageStringValueExpression(Image image, out bool errorOccurred)
+		public string EvaluateImageStringValueExpression(Image image, out bool errorOccurred)
 		{
 			errorOccurred = false;
 			VariantResult result = default(VariantResult);
@@ -1134,7 +1134,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return stringResult.Value;
 		}
 
-		internal byte[] EvaluateImageBinaryValueExpression(Image image, out bool errorOccurred)
+		public byte[] EvaluateImageBinaryValueExpression(Image image, out bool errorOccurred)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateBinaryExpression(image.Value, image.ObjectType, image.Name, "Value", out result))
@@ -1157,7 +1157,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return binaryResult.Value;
 		}
 
-		internal string EvaluateImageMIMETypeExpression(Image image)
+		public string EvaluateImageMIMETypeExpression(Image image)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(image.MIMEType, image.ObjectType, image.Name, "Value", out result))
@@ -1178,7 +1178,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal VariantResult EvaluateTextBoxValueExpression(TextBox textBox)
+		public VariantResult EvaluateTextBoxValueExpression(TextBox textBox)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(textBox.Value, textBox.ObjectType, textBox.Name, "Value", out result))
@@ -1200,7 +1200,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal bool EvaluateTextBoxInitialToggleStateExpression(TextBox textBox)
+		public bool EvaluateTextBoxInitialToggleStateExpression(TextBox textBox)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateBooleanExpression(textBox.InitialToggleState, true, textBox.ObjectType, textBox.Name, "InitialState", out result))
@@ -1221,7 +1221,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessBooleanResult(result).Value;
 		}
 
-		internal object EvaluateUserSortExpression(TextBox textBox)
+		public object EvaluateUserSortExpression(TextBox textBox)
 		{
 			int sortExpressionIndex = textBox.UserSort.SortExpressionIndex;
 			ISortFilterScope sortTarget = textBox.UserSort.SortTarget;
@@ -1251,7 +1251,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal VariantResult EvaluateGroupingLabelExpression(Grouping grouping, ObjectType objectType, string objectName)
+		public VariantResult EvaluateGroupingLabelExpression(Grouping grouping, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(grouping.GroupLabel, objectType, objectName, "Label", out result))
@@ -1273,7 +1273,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal object EvaluateRuntimeExpression(ReportProcessing.RuntimeExpressionInfo runtimeExpression, ObjectType objectType, string objectName, string propertyName)
+		public object EvaluateRuntimeExpression(ReportProcessing.RuntimeExpressionInfo runtimeExpression, ObjectType objectType, string objectName, string propertyName)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(runtimeExpression.Expression, objectType, objectName, propertyName, out variantResult))
@@ -1314,7 +1314,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal object EvaluateOWCChartData(OWCChart chart, ExpressionInfo chartDataExpression)
+		public object EvaluateOWCChartData(OWCChart chart, ExpressionInfo chartDataExpression)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(chartDataExpression, chart.ObjectType, chart.Name, "Value", out variantResult))
@@ -1336,7 +1336,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal string EvaluateSubReportNoRowsExpression(SubReport subReport, string objectName, string propertyName)
+		public string EvaluateSubReportNoRowsExpression(SubReport subReport, string objectName, string propertyName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(subReport.NoRows, ObjectType.Subreport, objectName, propertyName, out result))
@@ -1357,7 +1357,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateDataRegionNoRowsExpression(DataRegion region, ObjectType objectType, string objectName, string propertyName)
+		public string EvaluateDataRegionNoRowsExpression(DataRegion region, ObjectType objectType, string objectName, string propertyName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(region.NoRows, objectType, objectName, propertyName, out result))
@@ -1378,7 +1378,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal object EvaluateChartDataPointDataValueExpression(ChartDataPoint dataPoint, ExpressionInfo dataPointDataValueExpression, string objectName)
+		public object EvaluateChartDataPointDataValueExpression(ChartDataPoint dataPoint, ExpressionInfo dataPointDataValueExpression, string objectName)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(dataPointDataValueExpression, ObjectType.Chart, objectName, "DataPoint", out variantResult))
@@ -1400,7 +1400,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal object EvaluateChartStaticHeadingLabelExpression(ChartHeading chartHeading, ExpressionInfo expression, string objectName)
+		public object EvaluateChartStaticHeadingLabelExpression(ChartHeading chartHeading, ExpressionInfo expression, string objectName)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, ObjectType.Chart, objectName, "HeadingLabel", out variantResult))
@@ -1428,7 +1428,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal object EvaluateChartDynamicHeadingLabelExpression(ChartHeading chartHeading, ExpressionInfo expression, string objectName)
+		public object EvaluateChartDynamicHeadingLabelExpression(ChartHeading chartHeading, ExpressionInfo expression, string objectName)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, ObjectType.Chart, objectName, "HeadingLabel", out variantResult))
@@ -1450,7 +1450,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal string EvaluateChartTitleCaptionExpression(ChartTitle title, string objectName, string propertyName)
+		public string EvaluateChartTitleCaptionExpression(ChartTitle title, string objectName, string propertyName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(title.Caption, ObjectType.Chart, objectName, propertyName, out result))
@@ -1471,7 +1471,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateChartDataLabelValueExpression(ChartDataPoint dataPoint, string objectName, object[] dataLabelStyleAttributeValues)
+		public string EvaluateChartDataLabelValueExpression(ChartDataPoint dataPoint, string objectName, object[] dataLabelStyleAttributeValues)
 		{
 			Global.Tracer.Assert(null != dataPoint.DataLabel);
 			VariantResult variantResult = default(VariantResult);
@@ -1507,7 +1507,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return (string)variantResult.Value;
 		}
 
-		internal object EvaluateChartAxisValueExpression(AxisExprHost exprHost, ExpressionInfo expression, string objectName, string propertyName, Axis.ExpressionType type)
+		public object EvaluateChartAxisValueExpression(AxisExprHost exprHost, ExpressionInfo expression, string objectName, string propertyName, Axis.ExpressionType type)
 		{
 			VariantResult variantResult = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, ObjectType.Chart, objectName, propertyName, out variantResult))
@@ -1546,7 +1546,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return variantResult.Value;
 		}
 
-		internal string EvaluateStyleBorderColor(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderColor(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderColor", out result))
@@ -1567,7 +1567,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateColor(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBorderColorLeft(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderColorLeft(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderColor", out result))
@@ -1588,7 +1588,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateColor(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBorderColorRight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderColorRight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderColor", out result))
@@ -1609,7 +1609,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateColor(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBorderColorTop(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderColorTop(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderColor", out result))
@@ -1630,7 +1630,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateColor(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBorderColorBottom(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderColorBottom(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderColor", out result))
@@ -1651,7 +1651,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateColor(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBorderStyle(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderStyle(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderStyle", out result))
@@ -1672,7 +1672,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderStyle(this.ProcessStringResult(result).Value, objectType, this);
 		}
 
-		internal string EvaluateStyleBorderStyleLeft(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderStyleLeft(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderStyle", out result))
@@ -1693,7 +1693,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderStyle(this.ProcessStringResult(result).Value, objectType, this);
 		}
 
-		internal string EvaluateStyleBorderStyleRight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderStyleRight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderStyle", out result))
@@ -1714,7 +1714,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderStyle(this.ProcessStringResult(result).Value, objectType, this);
 		}
 
-		internal string EvaluateStyleBorderStyleTop(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderStyleTop(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderStyle", out result))
@@ -1735,7 +1735,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderStyle(this.ProcessStringResult(result).Value, objectType, this);
 		}
 
-		internal string EvaluateStyleBorderStyleBottom(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderStyleBottom(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderStyle", out result))
@@ -1756,7 +1756,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderStyle(this.ProcessStringResult(result).Value, objectType, this);
 		}
 
-		internal string EvaluateStyleBorderWidth(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderWidth(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderWidth", out result))
@@ -1777,7 +1777,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderWidth(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBorderWidthLeft(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderWidthLeft(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderWidth", out result))
@@ -1798,7 +1798,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderWidth(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBorderWidthRight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderWidthRight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderWidth", out result))
@@ -1819,7 +1819,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderWidth(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBorderWidthTop(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderWidthTop(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderWidth", out result))
@@ -1840,7 +1840,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderWidth(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBorderWidthBottom(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBorderWidthBottom(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BorderWidth", out result))
@@ -1861,7 +1861,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBorderWidth(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBackgroundColor(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBackgroundColor(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BackgroundColor", out result))
@@ -1882,7 +1882,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateColor(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBackgroundGradientEndColor(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBackgroundGradientEndColor(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BackgroundGradientEndColor", out result))
@@ -1903,7 +1903,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateColor(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBackgroundGradientType(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBackgroundGradientType(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BackgroundGradientType", out result))
@@ -1924,7 +1924,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBackgroundGradientType(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleBackgroundRepeat(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBackgroundRepeat(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "BackgroundRepeat", out result))
@@ -1945,7 +1945,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateBackgroundRepeat(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleFontStyle(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleFontStyle(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "FontStyle", out result))
@@ -1966,7 +1966,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateFontStyle(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleFontFamily(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleFontFamily(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "FontFamily", out result))
@@ -1987,7 +1987,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateStyleFontSize(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleFontSize(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "FontSize", out result))
@@ -2008,7 +2008,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateFontSize(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleFontWeight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleFontWeight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "FontWeight", out result))
@@ -2029,7 +2029,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateFontWeight(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleFormat(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleFormat(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "Format", out result))
@@ -2050,7 +2050,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateStyleTextDecoration(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleTextDecoration(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "TextDecoration", out result))
@@ -2071,7 +2071,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateTextDecoration(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleTextAlign(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleTextAlign(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "TextAlign", out result))
@@ -2092,7 +2092,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateTextAlign(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleVerticalAlign(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleVerticalAlign(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "VerticalAlign", out result))
@@ -2113,7 +2113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateVerticalAlign(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleColor(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleColor(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "Color", out result))
@@ -2134,7 +2134,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateColor(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStylePaddingLeft(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStylePaddingLeft(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "PaddingLeft", out result))
@@ -2155,7 +2155,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidatePadding(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStylePaddingRight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStylePaddingRight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "PaddingRight", out result))
@@ -2176,7 +2176,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidatePadding(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStylePaddingTop(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStylePaddingTop(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "PaddingTop", out result))
@@ -2197,7 +2197,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidatePadding(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStylePaddingBottom(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStylePaddingBottom(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "PaddingBottom", out result))
@@ -2218,7 +2218,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidatePadding(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleLineHeight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleLineHeight(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "LineHeight", out result))
@@ -2239,7 +2239,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateLineHeight(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleDirection(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleDirection(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "Direction", out result))
@@ -2260,7 +2260,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateDirection(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleWritingMode(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleWritingMode(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "WritingMode", out result))
@@ -2281,7 +2281,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateWritingMode(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleLanguage(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleLanguage(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "Language", out result))
@@ -2303,7 +2303,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateSpecificLanguage(this.ProcessStringResult(result).Value, (IErrorContext)this, out cultureInfo);
 		}
 
-		internal string EvaluateStyleUnicodeBiDi(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleUnicodeBiDi(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "UnicodeBiDi", out result))
@@ -2324,7 +2324,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateUnicodeBiDi(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleCalendar(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleCalendar(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "Calendar", out result))
@@ -2345,7 +2345,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateCalendar(this.ProcessStringResult(result).Value, this);
 		}
 
-		internal string EvaluateStyleNumeralLanguage(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleNumeralLanguage(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateSimpleExpression(expression, objectType, objectName, "NumeralLanguage", out result))
@@ -2367,7 +2367,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateLanguage(this.ProcessStringResult(result).Value, (IErrorContext)this, out cultureInfo);
 		}
 
-		internal object EvaluateStyleNumeralVariant(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public object EvaluateStyleNumeralVariant(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateIntegerExpression(expression, true, objectType, objectName, "NumeralVariant", out result))
@@ -2393,7 +2393,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateNumeralVariant(integerResult.Value, this);
 		}
 
-		internal string EvaluateStyleBackgroundUrlImageValue(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBackgroundUrlImageValue(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateIntegerExpression(expression, true, objectType, objectName, "BackgroundImageValue", out result))
@@ -2414,7 +2414,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessStringResult(result).Value;
 		}
 
-		internal string EvaluateStyleBackgroundEmbeddedImageValue(Style style, ExpressionInfo expression, EmbeddedImageHashtable embeddedImages, ObjectType objectType, string objectName)
+		public string EvaluateStyleBackgroundEmbeddedImageValue(Style style, ExpressionInfo expression, EmbeddedImageHashtable embeddedImages, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateIntegerExpression(expression, true, objectType, objectName, "BackgroundImageValue", out result))
@@ -2435,7 +2435,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ProcessingValidator.ValidateEmbeddedImageName(this.ProcessStringResult(result).Value, embeddedImages, this);
 		}
 
-		internal byte[] EvaluateStyleBackgroundDatabaseImageValue(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public byte[] EvaluateStyleBackgroundDatabaseImageValue(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateIntegerExpression(expression, true, objectType, objectName, "BackgroundImageValue", out result))
@@ -2456,7 +2456,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessBinaryResult(result).Value;
 		}
 
-		internal string EvaluateStyleBackgroundImageMIMEType(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
+		public string EvaluateStyleBackgroundImageMIMEType(Style style, ExpressionInfo expression, ObjectType objectType, string objectName)
 		{
 			VariantResult result = default(VariantResult);
 			if (!this.EvaluateIntegerExpression(expression, true, objectType, objectName, "BackgroundImageMIMEType", out result))
@@ -3215,7 +3215,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.EvaluateSimpleExpression(expression, objectType, objectName, propertyName, out result);
 		}
 
-		internal static bool IsVariant(object o)
+		public static bool IsVariant(object o)
 		{
 			if (!(o is string) && !(o is int) && !(o is decimal) && !(o is DateTime) && !(o is double) && !(o is float) && !(o is short) && !(o is bool) && !(o is byte) && !(o is TimeSpan) && !(o is sbyte) && !(o is long) && !(o is ushort) && !(o is uint) && !(o is ulong))
 			{
@@ -3229,7 +3229,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			((IErrorContext)this).Register(ProcessingErrorCode.rsInvalidExpressionDataType, Severity.Warning, new string[0]);
 		}
 
-		internal bool InScope(string scope)
+		public bool InScope(string scope)
 		{
 			if (this.m_currentScope == null)
 			{
@@ -3238,7 +3238,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.m_currentScope.InScope(scope);
 		}
 
-		internal int RecursiveLevel(string scope)
+		public int RecursiveLevel(string scope)
 		{
 			if (this.m_currentScope == null)
 			{
@@ -3252,7 +3252,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return num;
 		}
 
-		internal void LoadCompiledCode(Report report, bool parametersOnly, ObjectModelImpl reportObjectModel, ReportRuntimeSetup runtimeSetup)
+		public void LoadCompiledCode(Report report, bool parametersOnly, ObjectModelImpl reportObjectModel, ReportRuntimeSetup runtimeSetup)
 		{
 			Global.Tracer.Assert(report.CompiledCode != null && this.m_exprHostAssembly == null && this.m_reportExprHost == null);
 			if (report.CompiledCode.Length > 0)
@@ -3333,7 +3333,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			throw new ReportProcessingException(this.m_errorContext.Messages);
 		}
 
-		internal void Close()
+		public void Close()
 		{
 			this.m_reportExprHost = null;
 		}

@@ -10,7 +10,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Line : ReportItem, IPersistable
+	public sealed class Line : ReportItem, IPersistable
 	{
 		private const string ZeroSize = "0mm";
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Line.GetDeclaration();
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool LineSlant
+		public bool LineSlant
 		{
 			get
 			{
@@ -42,17 +42,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Line(ReportItem parent)
+		public Line(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Line(int id, ReportItem parent)
+		public Line(int id, ReportItem parent)
 			: base(id, parent)
 		{
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
+		public override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
 		{
 			if (overwrite)
 			{
@@ -142,12 +142,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_heightValue = context.ValidateSize(ref base.m_height, "Height");
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			return base.PublishClone(context);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Slanted, Token.Boolean));
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Line;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{

@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class BodyInstance : ReportElementInstance
+	public sealed class BodyInstance : ReportElementInstance
 	{
 		public string UniqueName
 		{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Body BodyDefinition
+		public Body BodyDefinition
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal BodyInstance(Body bodyDef)
+		public BodyInstance(Body bodyDef)
 			: base(bodyDef)
 		{
 		}

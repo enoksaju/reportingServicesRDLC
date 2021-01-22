@@ -6,7 +6,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 	[TypeConverter(typeof(NamedImageConverter))]
 	[SRDescription("DescriptionAttributeNamedImage_NamedImage")]
 	[DefaultProperty("Name")]
-	internal class NamedImage : NamedElement
+	public class NamedImage : NamedElement
 	{
 		private Image image;
 

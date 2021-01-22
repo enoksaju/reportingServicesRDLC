@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal static class ValueConverter
+	public static class ValueConverter
 	{
 		public static string FormatValue(Chart chart, object obj, double value, string format, ChartValueTypes valueType, ChartElementType elementType)
 		{

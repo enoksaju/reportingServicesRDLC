@@ -7,16 +7,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Image : ReportItem, IActionOwner
+	public sealed class Image : ReportItem, IActionOwner
 	{
-		internal enum SourceType
+		public enum SourceType
 		{
 			External,
 			Embedded,
 			Database
 		}
 
-		internal enum Sizings
+		public enum Sizings
 		{
 			AutoSize,
 			Fit,
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private List<string> m_fieldsUsedInValueExpression;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SourceType Source
+		public SourceType Source
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo MIMEType
+		public ExpressionInfo MIMEType
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Sizings Sizing
+		public Sizings Sizing
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageExprHost ImageExprHost
+		public ImageExprHost ImageExprHost
 		{
 			get
 			{
@@ -136,17 +136,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Image(ReportItem parent)
+		public Image(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Image(int id, ReportItem parent)
+		public Image(int id, ReportItem parent)
 			: base(id, parent)
 		{
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, NonComputedUniqueNames nonCompNames)
+		public override void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, NonComputedUniqueNames nonCompNames)
 		{
 			if (this.m_action != null && nonCompNames != null)
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Action, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.Action));

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartAxisScaleBreak : ChartStyleContainer, IPersistable
+	public sealed class ChartAxisScaleBreak : ChartStyleContainer, IPersistable
 	{
 		private ExpressionInfo m_enabled;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartAxisScaleBreakExprHost m_exprHost;
 
-		internal ChartAxisScaleBreakExprHost ExprHost
+		public ChartAxisScaleBreakExprHost ExprHost
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Enabled
+		public ExpressionInfo Enabled
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BreakLineType
+		public ExpressionInfo BreakLineType
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CollapsibleSpaceThreshold
+		public ExpressionInfo CollapsibleSpaceThreshold
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaxNumberOfBreaks
+		public ExpressionInfo MaxNumberOfBreaks
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Spacing
+		public ExpressionInfo Spacing
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IncludeZero
+		public ExpressionInfo IncludeZero
 		{
 			get
 			{
@@ -111,23 +111,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAxisScaleBreak()
+		public ChartAxisScaleBreak()
 		{
 		}
 
-		internal ChartAxisScaleBreak(Chart chart)
+		public ChartAxisScaleBreak(Chart chart)
 			: base(chart)
 		{
 		}
 
-		internal void SetExprHost(ChartAxisScaleBreakExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartAxisScaleBreakExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = exprHost;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartAxisScaleBreakStart();
 			base.Initialize(context);
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartAxisScaleBreakEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartAxisScaleBreak chartAxisScaleBreak = (ChartAxisScaleBreak)base.PublishClone(context);
 			if (this.m_enabled != null)
@@ -194,7 +194,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartAxisScaleBreak;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Enabled, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -206,37 +206,37 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartAxisScaleBreak, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartStyleContainer, list);
 		}
 
-		internal bool EvaluateEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisScaleBreakEnabledExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartBreakLineType EvaluateBreakLineType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartBreakLineType EvaluateBreakLineType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartBreakLineType(context.ReportRuntime.EvaluateChartAxisScaleBreakBreakLineTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal int EvaluateCollapsibleSpaceThreshold(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateCollapsibleSpaceThreshold(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisScaleBreakCollapsibleSpaceThresholdExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateMaxNumberOfBreaks(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateMaxNumberOfBreaks(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisScaleBreakMaxNumberOfBreaksExpression(this, base.m_chart.Name);
 		}
 
-		internal double EvaluateSpacing(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateSpacing(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisScaleBreakSpacingExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateIncludeZero(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateIncludeZero(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartAxisScaleBreakIncludeZeroExpression(this, base.m_chart.Name);

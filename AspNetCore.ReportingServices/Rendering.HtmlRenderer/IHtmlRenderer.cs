@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal interface IHtmlRenderer
+	public interface IHtmlRenderer
 	{
 		void WriteStream(byte[] bytes);
 

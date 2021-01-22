@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherBoolProperty : EscherSimpleProperty
+	public class EscherBoolProperty : EscherSimpleProperty
 	{
-		internal virtual bool True
+		public virtual bool True
 		{
 			get
 			{
@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual bool False
+		public virtual bool False
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherBoolProperty(ushort propertyNumber, int value_Renamed)
+		public EscherBoolProperty(ushort propertyNumber, int value_Renamed)
 			: base(propertyNumber, false, false, value_Renamed)
 		{
 		}

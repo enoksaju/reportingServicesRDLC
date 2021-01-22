@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 
 		public TopImageExprHost TopImageHost;
 
-		internal IList<LinearGaugeExprHost> LinearGaugesHostsRemotable
+		public IList<LinearGaugeExprHost> LinearGaugesHostsRemotable
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<RadialGaugeExprHost> RadialGaugesHostsRemotable
+		public IList<RadialGaugeExprHost> RadialGaugesHostsRemotable
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<NumericIndicatorExprHost> NumericIndicatorsHostsRemotable
+		public IList<NumericIndicatorExprHost> NumericIndicatorsHostsRemotable
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<StateIndicatorExprHost> StateIndicatorsHostsRemotable
+		public IList<StateIndicatorExprHost> StateIndicatorsHostsRemotable
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<GaugeImageExprHost> GaugeImagesHostsRemotable
+		public IList<GaugeImageExprHost> GaugeImagesHostsRemotable
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<GaugeLabelExprHost> GaugeLabelsHostsRemotable
+		public IList<GaugeLabelExprHost> GaugeLabelsHostsRemotable
 		{
 			get
 			{

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal abstract class PartitionedTreeScalabilityCache : BaseScalabilityCache
+	public abstract class PartitionedTreeScalabilityCache : BaseScalabilityCache
 	{
 		private long m_cacheFreeableBytes;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal long CacheSizeBytes
+		public long CacheSizeBytes
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal long CacheFreeableBytes
+		public long CacheFreeableBytes
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal long CacheCapacityBytes
+		public long CacheCapacityBytes
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return reference;
 		}
 
-		internal IReference<T> AllocateEmptyTreePartition<T>(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType referenceObjectType)
+		public IReference<T> AllocateEmptyTreePartition<T>(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType referenceObjectType)
 		{
 			BaseReference baseReference = default(BaseReference);
 			if (!base.m_referenceCreator.TryCreateReference(referenceObjectType, out baseReference))
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return (IReference<T>)baseReference;
 		}
 
-		internal void SetTreePartitionContentsAndPin<T>(IReference<T> emptyPartitionRef, T contents) where T : IStorable
+		public void SetTreePartitionContentsAndPin<T>(IReference<T> emptyPartitionRef, T contents) where T : IStorable
 		{
 			BaseReference baseReference = (BaseReference)emptyPartitionRef;
 			this.m_partitionManager.TreeHasChanged = true;
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			this.CacheSetValue(baseReference.Id, baseReference);
 		}
 
-		internal void Flush()
+		public void Flush()
 		{
 			foreach (BaseReference item in this.m_serializationQueue)
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			base.m_storage.Flush();
 		}
 
-		internal void PrepareForFlush()
+		public void PrepareForFlush()
 		{
 			this.m_cachePriority.Clear();
 			this.m_cacheLookup = null;
@@ -190,18 +190,18 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			base.Dispose();
 		}
 
-		internal override BaseReference TransferTo(BaseReference reference)
+		public override BaseReference TransferTo(BaseReference reference)
 		{
 			Global.Tracer.Assert(false, "PartitionedTreeScalabilityCache does not support the TransferTo operation");
 			return null;
 		}
 
-		internal sealed override void Free(BaseReference reference)
+		public sealed override void Free(BaseReference reference)
 		{
 			Global.Tracer.Assert(false, "PartitionedTreeScalabilityCache does not support Free");
 		}
 
-		internal sealed override IStorable Retrieve(BaseReference reference)
+		public sealed override IStorable Retrieve(BaseReference reference)
 		{
 			if (reference.Item == null)
 			{
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return result;
 		}
 
-		internal sealed override void ReferenceValueCallback(BaseReference reference)
+		public sealed override void ReferenceValueCallback(BaseReference reference)
 		{
 			if (reference.InQueue == InQueueState.Exempt)
 			{
@@ -234,12 +234,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			base.ReferenceValueCallback(reference);
 		}
 
-		internal sealed override void Pin(BaseReference reference)
+		public sealed override void Pin(BaseReference reference)
 		{
 			this.Retrieve(reference);
 		}
 
-		internal sealed override void UnPin(BaseReference reference)
+		public sealed override void UnPin(BaseReference reference)
 		{
 			if (reference.PinCount == 0 && (reference.Id.IsTemporary || reference.Id.HasMultiPart) && reference.InQueue == InQueueState.None)
 			{
@@ -262,11 +262,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal sealed override void ReferenceSerializeCallback(BaseReference reference)
+		public sealed override void ReferenceSerializeCallback(BaseReference reference)
 		{
 		}
 
-		internal sealed override void UpdateTargetSize(BaseReference reference, int sizeDeltaBytes)
+		public sealed override void UpdateTargetSize(BaseReference reference, int sizeDeltaBytes)
 		{
 			base.m_cacheSizeBytes += sizeDeltaBytes;
 			base.m_totalAuditedBytes += sizeDeltaBytes;
@@ -276,7 +276,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal bool CacheTryGetValue(ReferenceID id, out BaseReference item)
+		public bool CacheTryGetValue(ReferenceID id, out BaseReference item)
 		{
 			item = null;
 			bool result = false;
@@ -287,7 +287,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return result;
 		}
 
-		internal bool CacheRemoveValue(ReferenceID id)
+		public bool CacheRemoveValue(ReferenceID id)
 		{
 			bool result = false;
 			if (this.m_cacheLookup != null)
@@ -297,7 +297,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return result;
 		}
 
-		internal void CacheSetValue(ReferenceID id, BaseReference value)
+		public void CacheSetValue(ReferenceID id, BaseReference value)
 		{
 			if (this.m_cacheLookup == null)
 			{

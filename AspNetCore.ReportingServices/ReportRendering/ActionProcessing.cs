@@ -1,17 +1,17 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ActionProcessing : MemberBase
+	public sealed class ActionProcessing : MemberBase
 	{
-		internal string m_label;
+		public string m_label;
 
-		internal string m_action;
+		public string m_action;
 
-		internal ActionProcessing()
+		public ActionProcessing()
 			: base(true)
 		{
 		}
 
-		internal ActionProcessing DeepClone()
+		public ActionProcessing DeepClone()
 		{
 			ActionProcessing actionProcessing = new ActionProcessing();
 			if (this.m_label != null)

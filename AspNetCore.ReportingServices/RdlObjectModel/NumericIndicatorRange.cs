@@ -2,11 +2,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class NumericIndicatorRange : ReportObject, INamedObject
+	public class NumericIndicatorRange : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<NumericIndicatorRange, Definition.Properties>
+		public class Definition : DefinitionStore<NumericIndicatorRange, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				StartValue,
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal NumericIndicatorRange(IPropertyStore propertyStore)
+		public NumericIndicatorRange(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

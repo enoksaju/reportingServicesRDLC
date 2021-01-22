@@ -2,17 +2,17 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class PDFImage
+	public sealed class PDFImage
 	{
-		internal int ImageId = -1;
+		public int ImageId = -1;
 
-		internal byte[] ImageData;
+		public byte[] ImageData;
 
-		internal GDIImageProps GdiProperties;
+		public GDIImageProps GdiProperties;
 
 		private bool m_isMonochromeJpeg;
 
-		internal bool IsMonochromeJpeg
+		public bool IsMonochromeJpeg
 		{
 			get
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLItemPropsDef : RPLElementPropsDef
+	public class RPLItemPropsDef : RPLElementPropsDef
 	{
 		private string m_name;
 
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLItemPropsDef()
+		public RPLItemPropsDef()
 		{
 		}
 	}

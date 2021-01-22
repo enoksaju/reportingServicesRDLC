@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal interface INameObjectCollection
+	public interface INameObjectCollection
 	{
 		int Count
 		{

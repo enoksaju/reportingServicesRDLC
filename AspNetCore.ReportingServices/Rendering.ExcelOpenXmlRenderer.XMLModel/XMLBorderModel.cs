@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLBorderModel : IBorderModel, IDeepCloneable<XMLBorderModel>
+	public class XMLBorderModel : IBorderModel, IDeepCloneable<XMLBorderModel>
 	{
 		private readonly CT_Border _border;
 

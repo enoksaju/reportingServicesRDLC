@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartFormulaParameter : IPersistable
+	public sealed class ChartFormulaParameter : IPersistable
 	{
 		private string m_name;
 
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartFormulaParameterExprHost m_exprHost;
 
-		internal string FormulaParameterName
+		public string FormulaParameterName
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartFormulaParameterExprHost ExprHost
+		public ChartFormulaParameterExprHost ExprHost
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Source
+		public string Source
 		{
 			get
 			{
@@ -101,24 +101,24 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartFormulaParameter()
+		public ChartFormulaParameter()
 		{
 		}
 
-		internal ChartFormulaParameter(Chart chart, ChartDerivedSeries parentDerivedSeries)
+		public ChartFormulaParameter(Chart chart, ChartDerivedSeries parentDerivedSeries)
 		{
 			this.m_chart = chart;
 			this.m_parentDerivedSeries = parentDerivedSeries;
 		}
 
-		internal void SetExprHost(ChartFormulaParameterExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartFormulaParameterExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartFormulaParameterStart(this.m_name);
 			if (this.m_value != null)
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ChartFormulaParameterEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartFormulaParameter chartFormulaParameter = (ChartFormulaParameter)base.MemberwiseClone();
 			chartFormulaParameter.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartFormulaParameter;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartFormulaParameter, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.None, list);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.SourceSeries, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartFormulaParameterValueExpression(this, this.m_chart.Name);

@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting
 {
-	internal class DataEnumerableReader : IDataReader, IDisposable
+	public class DataEnumerableReader : IDataReader, IDisposable
 	{
 		private IEnumerator m_dataEnumerator;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal DataEnumerableReader(IEnumerable dataEnumerable)
+		public DataEnumerableReader(IEnumerable dataEnumerable)
 		{
 			this.m_dataEnumerator = dataEnumerable.GetEnumerator();
 			if (this.m_dataEnumerator != null && this.m_dataEnumerator.MoveNext())

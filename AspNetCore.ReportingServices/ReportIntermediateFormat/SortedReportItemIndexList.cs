@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class SortedReportItemIndexList : ArrayList
+	public sealed class SortedReportItemIndexList : ArrayList
 	{
-		internal new int this[int index]
+		public new int this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SortedReportItemIndexList()
+		public SortedReportItemIndexList()
 		{
 		}
 
-		internal SortedReportItemIndexList(int capacity)
+		public SortedReportItemIndexList(int capacity)
 			: base(capacity)
 		{
 		}

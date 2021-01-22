@@ -8,7 +8,7 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[Description("Represents a cell of a legend item.")]
-	internal class LegendCell : NamedElement, IToolTipProvider, IImageMapProvider
+	public class LegendCell : NamedElement, IToolTipProvider, IImageMapProvider
 	{
 		private Legend legend;
 
@@ -44,9 +44,9 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private int columnIndex = -1;
 
-		internal Rectangle cellPosition = Rectangle.Empty;
+		public Rectangle cellPosition = Rectangle.Empty;
 
-		internal Rectangle cellPositionWithMargins = Rectangle.Empty;
+		public Rectangle cellPositionWithMargins = Rectangle.Empty;
 
 		private Size cachedCellSize = Size.Empty;
 
@@ -360,7 +360,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override string DefaultName
+		public override string DefaultName
 		{
 			get
 			{
@@ -368,7 +368,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -432,13 +432,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return true;
 		}
 
-		internal void ResetCache()
+		public void ResetCache()
 		{
 			this.cachedCellSize = Size.Empty;
 			this.cachedCellSizeFontReducedBy = 0;
 		}
 
-		internal void SetCellPosition(MapGraphics g, int columnIndex, int rowIndex, Rectangle position, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
+		public void SetCellPosition(MapGraphics g, int columnIndex, int rowIndex, Rectangle position, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
 		{
 			this.cellPosition = position;
 			this.cellPositionWithMargins = position;
@@ -454,7 +454,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Size MeasureCell(MapGraphics g, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
+		public Size MeasureCell(MapGraphics g, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
 		{
 			if (this.cachedCellSizeFontReducedBy == fontSizeReducedBy && !this.cachedCellSize.IsEmpty)
 			{
@@ -615,7 +615,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return Color.Black;
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (this.legend != null)
 			{
@@ -623,7 +623,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void SetContainingLegend(Legend legend, LegendItem legendItem)
+		public void SetContainingLegend(Legend legend, LegendItem legendItem)
 		{
 			this.legend = legend;
 			this.legendItem = legendItem;
@@ -651,7 +651,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.legendItem;
 		}
 
-		internal void Paint(MapGraphics chartGraph, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
+		public void Paint(MapGraphics chartGraph, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
 		{
 			if (this.cellPosition.Width > 0 && this.cellPosition.Height > 0 && this.GetLegend().Common.ProcessModePaint)
 			{

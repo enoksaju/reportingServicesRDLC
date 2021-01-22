@@ -5,7 +5,7 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributePolygonAnnotation_PolygonAnnotation")]
-	internal class PolygonAnnotation : PolylineAnnotation
+	public class PolygonAnnotation : PolylineAnnotation
 	{
 		[SRCategory("CategoryAttributeAppearance")]
 		[Browsable(false)]
@@ -130,7 +130,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
 		[SRDescription("DescriptionAttributeSelectionPointsStyle3")]
-		internal override SelectionPointsStyle SelectionPointsStyle
+		public override SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{

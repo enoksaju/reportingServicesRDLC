@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class RoundedDouble
+	public sealed class RoundedDouble
 	{
-		internal double m_value;
+		public double m_value;
 
-		internal double Value
+		public double Value
 		{
 			get
 			{

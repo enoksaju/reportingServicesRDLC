@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PinMajorTickMark : CustomTickMark
+	public class PinMajorTickMark : CustomTickMark
 	{
 		[DefaultValue(MarkerStyle.Circle)]
 		[SRCategory("CategoryAttribute_Appearance")]

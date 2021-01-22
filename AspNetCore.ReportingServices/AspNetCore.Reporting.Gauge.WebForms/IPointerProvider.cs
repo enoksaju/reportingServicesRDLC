@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface IPointerProvider
+	public interface IPointerProvider
 	{
 		double Position
 		{

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalTablixRow : TablixRow
+	public sealed class InternalTablixRow : TablixRow
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.TablixRow m_rowDef;
 
@@ -48,14 +48,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalTablixRow(Tablix owner, int rowIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.TablixRow rowDef)
+		public InternalTablixRow(Tablix owner, int rowIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.TablixRow rowDef)
 			: base(owner, rowIndex)
 		{
 			this.m_rowDef = rowDef;
 			this.m_cellROMDefs = new TablixCell[rowDef.Cells.Count];
 		}
 
-		internal override IDataRegionCell GetIfExists(int index)
+		public override IDataRegionCell GetIfExists(int index)
 		{
 			if (this.m_cellROMDefs != null && index >= 0 && index < this.Count)
 			{

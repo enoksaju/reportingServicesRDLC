@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class RuntimeOnDemandDataSetObj : AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner, IHierarchyObj, IScope, ISelfReferential, IOnDemandScopeInstance, IStorable, IPersistable
+	public sealed class RuntimeOnDemandDataSetObj : AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner, IHierarchyObj, IScope, ISelfReferential, IOnDemandScopeInstance, IStorable, IPersistable
 	{
 		private readonly OnDemandProcessingContext m_odpContext;
 
@@ -287,7 +287,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void PostLookupNextRow()
+		public void PostLookupNextRow()
 		{
 			this.SendToInner();
 		}
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_runtimeDataRegions.FirstPassNextDataRow(this.m_odpContext);
 		}
 
-		internal void CompleteLookupProcessing()
+		public void CompleteLookupProcessing()
 		{
 			if (this.m_lookupProcessor != null)
 			{
@@ -436,7 +436,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return this.m_odpContext.RegisterComparisonErrorForSortFilterEvent(propertyName);
 		}
 
-		internal ProcessingMessageList RegisterSpatialElementComparisonError(string type)
+		public ProcessingMessageList RegisterSpatialElementComparisonError(string type)
 		{
 			this.m_odpContext.ErrorContext.Register(ProcessingErrorCode.rsCannotCompareSpatialType, Severity.Error, AspNetCore.ReportingServices.ReportProcessing.ObjectType.DataSet, this.m_dataSet.Name, type);
 			return this.m_odpContext.ErrorContext.Messages;

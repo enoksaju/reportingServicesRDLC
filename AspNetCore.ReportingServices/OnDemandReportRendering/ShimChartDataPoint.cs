@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimChartDataPoint : ChartDataPoint
+	public sealed class ShimChartDataPoint : ChartDataPoint
 	{
 		private AspNetCore.ReportingServices.ReportRendering.ChartDataPoint m_renderDataPoint;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataValueCollection DataValues
+		public DataValueCollection DataValues
 		{
 			get
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPoint DataPointDef
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPoint DataPointDef
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportRendering.ChartDataPoint RenderItem
+		public override AspNetCore.ReportingServices.ReportRendering.ChartDataPoint RenderItem
 		{
 			get
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ChartDataPoint RenderDataPointDef
+		public override AspNetCore.ReportingServices.ReportProcessing.ChartDataPoint RenderDataPointDef
 		{
 			get
 			{
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimChartDataPoint(Chart owner, int rowIndex, int colIndex, ShimChartMember seriesParentMember, ShimChartMember categoryParentMember)
+		public ShimChartDataPoint(Chart owner, int rowIndex, int colIndex, ShimChartMember seriesParentMember, ShimChartMember categoryParentMember)
 			: base(owner, rowIndex, colIndex)
 		{
 			this.m_dataValues = null;
@@ -219,7 +219,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_categoryParentMember = categoryParentMember;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_dataValues != null)

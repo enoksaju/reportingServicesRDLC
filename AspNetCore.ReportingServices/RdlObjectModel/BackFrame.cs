@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class BackFrame : ReportObject
+	public class BackFrame : ReportObject
 	{
-		internal class Definition : DefinitionStore<BackFrame, Definition.Properties>
+		public class Definition : DefinitionStore<BackFrame, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				FrameStyle,
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal BackFrame(IPropertyStore propertyStore)
+		public BackFrame(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

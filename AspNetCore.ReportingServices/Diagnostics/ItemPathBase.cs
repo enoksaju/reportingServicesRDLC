@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal abstract class ItemPathBase
+	public abstract class ItemPathBase
 	{
 		protected readonly string m_value;
 

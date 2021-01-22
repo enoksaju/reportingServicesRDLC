@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum AreaAlignOrientations
+	public enum AreaAlignOrientations
 	{
 		None = 0,
 		Vertical = 1,

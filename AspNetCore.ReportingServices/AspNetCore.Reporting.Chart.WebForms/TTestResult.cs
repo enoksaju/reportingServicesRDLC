@@ -1,26 +1,26 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class TTestResult
+	public class TTestResult
 	{
-		internal double firstSeriesMean;
+		public double firstSeriesMean;
 
-		internal double secondSeriesMean;
+		public double secondSeriesMean;
 
-		internal double firstSeriesVariance;
+		public double firstSeriesVariance;
 
-		internal double secondSeriesVariance;
+		public double secondSeriesVariance;
 
-		internal double tValue;
+		public double tValue;
 
-		internal double degreeOfFreedom;
+		public double degreeOfFreedom;
 
-		internal double probabilityTOneTail;
+		public double probabilityTOneTail;
 
-		internal double tCriticalValueOneTail;
+		public double tCriticalValueOneTail;
 
-		internal double probabilityTTwoTail;
+		public double probabilityTTwoTail;
 
-		internal double tCriticalValueTwoTail;
+		public double tCriticalValueTwoTail;
 
 		public double FirstSeriesMean
 		{

@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal static class TemplateHelper
+	public static class TemplateHelper
 	{
 		public const string TemplateResourcePrefix = "AspNetCore.ReportingServices.Rendering.HtmlRenderer.Templates.";
 

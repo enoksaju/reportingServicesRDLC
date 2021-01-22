@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal enum FunnelStyle
+	public enum FunnelStyle
 	{
 		YIsHeight,
 		YIsWidth

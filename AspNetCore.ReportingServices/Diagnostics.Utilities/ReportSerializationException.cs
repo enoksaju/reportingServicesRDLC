@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ReportSerializationException : ReportCatalogException
+	public sealed class ReportSerializationException : ReportCatalogException
 	{
 		public ReportSerializationException()
 			: this(null)

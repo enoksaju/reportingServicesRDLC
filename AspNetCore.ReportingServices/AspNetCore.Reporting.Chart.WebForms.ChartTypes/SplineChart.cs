@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class SplineChart : LineChart
+	public class SplineChart : LineChart
 	{
 		public override string Name
 		{

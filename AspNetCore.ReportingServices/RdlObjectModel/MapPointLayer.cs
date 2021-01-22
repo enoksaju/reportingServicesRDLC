@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapPointLayer : MapVectorLayer
+	public class MapPointLayer : MapVectorLayer
 	{
-		internal new class Definition : DefinitionStore<MapPointLayer, Definition.Properties>
+		public new class Definition : DefinitionStore<MapPointLayer, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				VisibilityMode,
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapPointLayer(IPropertyStore propertyStore)
+		public MapPointLayer(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

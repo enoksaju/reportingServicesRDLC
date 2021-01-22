@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPoint : MapSpatialElement
+	public sealed class MapPoint : MapSpatialElement
 	{
 		private ReportBoolProperty m_useCustomPointTemplate;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapPoint MapPointDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapPoint MapPointDef
 		{
 			get
 			{
@@ -52,12 +52,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapPoint(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPoint defObject, MapPointLayer mapPointLayer, Map map)
+		public MapPoint(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPoint defObject, MapPointLayer mapPointLayer, Map map)
 			: base(defObject, mapPointLayer, map)
 		{
 		}
 
-		internal override MapSpatialElementInstance GetInstance()
+		public override MapSpatialElementInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapSpatialElementInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

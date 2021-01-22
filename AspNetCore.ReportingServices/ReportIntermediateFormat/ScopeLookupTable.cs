@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ScopeLookupTable : IStorable, IPersistable
+	public sealed class ScopeLookupTable : IStorable, IPersistable
 	{
 		private int m_lookupInt;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ScopeLookupTable.GetDeclaration();
 
-		internal Hashtable LookupTable
+		public Hashtable LookupTable
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int LookupInt
+		public int LookupInt
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			Hashtable lookupTable = this.m_lookupTable;
 			if (lookupTable != null)
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Add(GroupingList scopeDefs, List<object>[] scopeValues, int value)
+		public void Add(GroupingList scopeDefs, List<object>[] scopeValues, int value)
 		{
 			if (scopeValues == null || scopeValues.Length == 0)
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			hashEntries = hashtable;
 		}
 
-		internal int Lookup(GroupingList scopeDefs, List<object>[] scopeValues)
+		public int Lookup(GroupingList scopeDefs, List<object>[] scopeValues)
 		{
 			object obj = null;
 			if (scopeValues == null || scopeValues.Length == 0)
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return (int)obj;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.LookupInt, Token.Int32));

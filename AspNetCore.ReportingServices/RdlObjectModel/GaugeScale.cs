@@ -6,11 +6,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[XmlElementClass("LinearScale", typeof(LinearScale))]
 	[XmlElementClass("RadialScale", typeof(RadialScale))]
-	internal class GaugeScale : ReportObject, INamedObject
+	public class GaugeScale : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<GaugeScale, Definition.Properties>
+		public class Definition : DefinitionStore<GaugeScale, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				GaugePointers,
@@ -337,7 +337,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal GaugeScale(IPropertyStore propertyStore)
+		public GaugeScale(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

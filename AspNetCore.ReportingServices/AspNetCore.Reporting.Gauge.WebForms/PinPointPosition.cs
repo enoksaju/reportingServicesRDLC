@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum PinPointPosition
+	public enum PinPointPosition
 	{
 		TopLeft,
 		TopCenter,

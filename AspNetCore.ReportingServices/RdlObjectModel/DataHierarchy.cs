@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class DataHierarchy : ReportObject, IHierarchy
+	public class DataHierarchy : ReportObject, IHierarchy
 	{
-		internal class Definition : DefinitionStore<DataHierarchy, Definition.Properties>
+		public class Definition : DefinitionStore<DataHierarchy, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataMembers
 			}
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal DataHierarchy(IPropertyStore propertyStore)
+		public DataHierarchy(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

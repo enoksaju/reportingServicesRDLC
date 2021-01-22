@@ -8,9 +8,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class Utility
+	public sealed class Utility
 	{
-		internal static bool IsBold(RPLFormat.FontWeights fontWeight)
+		public static bool IsBold(RPLFormat.FontWeights fontWeight)
 		{
 			switch (fontWeight)
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static bool IsNullOrEmpty<T>(List<T> list)
+		public static bool IsNullOrEmpty<T>(List<T> list)
 		{
 			if (list != null && list.Count != 0)
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return true;
 		}
 
-		internal static void AddInstanceStyles(StyleInstance styleInst, ref Dictionary<byte, object> styles)
+		public static void AddInstanceStyles(StyleInstance styleInst, ref Dictionary<byte, object> styles)
 		{
 			List<StyleAttributeNames> styleAttributes = styleInst.StyleAttributes;
 			if (styleAttributes.Count != 0)
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void WriteSharedStyles(StyleWriter writeTo, Style styleDef)
+		public static void WriteSharedStyles(StyleWriter writeTo, Style styleDef)
 		{
 			List<StyleAttributeNames> sharedStyleAttributes = styleDef.SharedStyleAttributes;
 			foreach (StyleAttributeNames item in sharedStyleAttributes)
@@ -67,12 +67,12 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void WriteStyleProperty(StyleWriter writeTo, Style style, StyleAttributeNames name)
+		public static void WriteStyleProperty(StyleWriter writeTo, Style style, StyleAttributeNames name)
 		{
 			Utility.WriteStyleProperty(writeTo, name, ((StyleBase)style)[name]);
 		}
 
-		internal static void WriteStyleProperty(StyleWriter writeTo, StyleAttributeNames styleAtt, ReportProperty prop)
+		public static void WriteStyleProperty(StyleWriter writeTo, StyleAttributeNames styleAtt, ReportProperty prop)
 		{
 			switch (styleAtt)
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static byte ConvertROMTORPL(StyleAttributeNames ROMType)
+		public static byte ConvertROMTORPL(StyleAttributeNames ROMType)
 		{
 			switch (ROMType)
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void SetStyle(byte rplId, object styleProp, StyleWriter writer)
+		public static void SetStyle(byte rplId, object styleProp, StyleWriter writer)
 		{
 			switch (rplId)
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static double GetSizePropertyValue(ReportSizeProperty sizeProp, ReportSize instanceValue)
+		public static double GetSizePropertyValue(ReportSizeProperty sizeProp, ReportSize instanceValue)
 		{
 			if (instanceValue != null)
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return 0.0;
 		}
 
-		internal static int GetIntPropertyValue(ReportIntProperty intProp, int? instanceValue)
+		public static int GetIntPropertyValue(ReportIntProperty intProp, int? instanceValue)
 		{
 			if (instanceValue.HasValue)
 			{
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return 0;
 		}
 
-		internal static void WriteReportSize(BinaryWriter spbifWriter, byte rplid, ReportSize value)
+		public static void WriteReportSize(BinaryWriter spbifWriter, byte rplid, ReportSize value)
 		{
 			if (value != null)
 			{
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void AddStyle(byte rplId, ReportIntProperty prop, StyleWriter writer)
+		public static void AddStyle(byte rplId, ReportIntProperty prop, StyleWriter writer)
 		{
 			if (prop != null)
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void AddStyle(byte rplId, ReportStringProperty prop, StyleWriter writer)
+		public static void AddStyle(byte rplId, ReportStringProperty prop, StyleWriter writer)
 		{
 			if (prop != null && prop.Value != null)
 			{
@@ -246,7 +246,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void AddStyle(byte rplId, ReportSizeProperty prop, StyleWriter writer)
+		public static void AddStyle(byte rplId, ReportSizeProperty prop, StyleWriter writer)
 		{
 			if (prop != null && prop.Value != null)
 			{
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void AddStyle(byte rplId, ReportProperty prop, StyleWriter writer)
+		public static void AddStyle(byte rplId, ReportProperty prop, StyleWriter writer)
 		{
 			byte? stylePropByte = PageItem.GetStylePropByte(rplId, prop);
 			int? nullable = stylePropByte;
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void AddStyle(byte rplId, ReportColorProperty prop, StyleWriter writer)
+		public static void AddStyle(byte rplId, ReportColorProperty prop, StyleWriter writer)
 		{
 			if (prop != null && prop.Value != null)
 			{
@@ -272,7 +272,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static string GetStringProp(byte rplId, StyleAttributeNames styleAttributeName, Style styleDef, Dictionary<byte, object> styles)
+		public static string GetStringProp(byte rplId, StyleAttributeNames styleAttributeName, Style styleDef, Dictionary<byte, object> styles)
 		{
 			object obj = null;
 			if (styles != null && styles.TryGetValue(rplId, out obj))
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return null;
 		}
 
-		internal static double GetSizeProp(byte rplId, StyleAttributeNames styleAttributeName, float defaultValue, Style styleDef, Dictionary<byte, object> styles)
+		public static double GetSizeProp(byte rplId, StyleAttributeNames styleAttributeName, float defaultValue, Style styleDef, Dictionary<byte, object> styles)
 		{
 			object obj = null;
 			if (styles != null && styles.TryGetValue(rplId, out obj))
@@ -311,7 +311,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return (double)defaultValue;
 		}
 
-		internal static Color GetColorProp(byte rplId, StyleAttributeNames styleAttributeName, Color defaultColor, Style styleDef, Dictionary<byte, object> styles)
+		public static Color GetColorProp(byte rplId, StyleAttributeNames styleAttributeName, Color defaultColor, Style styleDef, Dictionary<byte, object> styles)
 		{
 			object obj = null;
 			if (styles != null && styles.TryGetValue(rplId, out obj))
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return defaultColor;
 		}
 
-		internal static byte? GetEnumProp(byte rplId, StyleAttributeNames styleAttributeName, Style styleDef, Dictionary<byte, object> styles)
+		public static byte? GetEnumProp(byte rplId, StyleAttributeNames styleAttributeName, Style styleDef, Dictionary<byte, object> styles)
 		{
 			object obj = null;
 			if (styles != null && styles.TryGetValue(rplId, out obj))
@@ -355,7 +355,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return null;
 		}
 
-		internal static byte? GetNonCompiledEnumProp(byte styleAttributeRplId, StyleAttributeNames styleAttributeName, Style style, StyleInstance styleIntance)
+		public static byte? GetNonCompiledEnumProp(byte styleAttributeRplId, StyleAttributeNames styleAttributeName, Style style, StyleInstance styleIntance)
 		{
 			if (style == null)
 			{

@@ -7,7 +7,7 @@ namespace AspNetCore.Reporting
 {
 	[Serializable]
 	[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
-	internal class StoredReport : IDisposable
+	public class StoredReport : IDisposable
 	{
 		public ControlSnapshot Snapshot
 		{

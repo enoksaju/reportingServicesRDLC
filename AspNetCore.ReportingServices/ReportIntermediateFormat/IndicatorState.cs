@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class IndicatorState : IPersistable
+	public sealed class IndicatorState : IPersistable
 	{
 		private int m_exprHostID = -1;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private IndicatorImage m_indicatorImage;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue StartValue
+		public GaugeInputValue StartValue
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue EndValue
+		public GaugeInputValue EndValue
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Color
+		public ExpressionInfo Color
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ScaleFactor
+		public ExpressionInfo ScaleFactor
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IndicatorStyle
+		public ExpressionInfo IndicatorStyle
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IndicatorImage IndicatorImage
+		public IndicatorImage IndicatorImage
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IndicatorStateExprHost ExprHost
+		public IndicatorStateExprHost ExprHost
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -146,16 +146,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IndicatorState()
+		public IndicatorState()
 		{
 		}
 
-		internal IndicatorState(GaugePanel gaugePanel)
+		public IndicatorState(GaugePanel gaugePanel)
 		{
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.IndicatorStateStart(this.m_name);
 			if (this.m_color != null)
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.IndicatorStateEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			IndicatorState indicatorState = (IndicatorState)base.MemberwiseClone();
 			indicatorState.m_gaugePanel = (GaugePanel)context.CurrentDataRegionClone;
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return indicatorState;
 		}
 
-		internal void SetExprHost(IndicatorStateExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IndicatorStateExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -353,19 +353,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.IndicatorState;
 		}
 
-		internal string EvaluateColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateIndicatorStateColorExpression(this, this.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateScaleFactor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateScaleFactor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateIndicatorStateScaleFactorExpression(this, this.m_gaugePanel.Name);
 		}
 
-		internal GaugeStateIndicatorStyles EvaluateIndicatorStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeStateIndicatorStyles EvaluateIndicatorStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeStateIndicatorStyles(context.ReportRuntime.EvaluateIndicatorStateIndicatorStyleExpression(this, this.m_gaugePanel.Name), context.ReportRuntime);

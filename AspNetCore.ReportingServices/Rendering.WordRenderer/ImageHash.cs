@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class ImageHash
+	public class ImageHash
 	{
 		private byte[] m_md4;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private int m_height;
 
-		internal ImageHash(byte[] md4, RPLFormat.Sizings sizing, int width, int height)
+		public ImageHash(byte[] md4, RPLFormat.Sizings sizing, int width, int height)
 		{
 			this.m_md4 = md4;
 			this.m_sizing = sizing;

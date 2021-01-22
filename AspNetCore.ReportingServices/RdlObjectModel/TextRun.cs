@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TextRun : ReportElement
+	public class TextRun : ReportElement
 	{
-		internal new class Definition : DefinitionStore<TextRun, Definition.Properties>
+		public new class Definition : DefinitionStore<TextRun, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Label,
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TextRun(IPropertyStore propertyStore)
+		public TextRun(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

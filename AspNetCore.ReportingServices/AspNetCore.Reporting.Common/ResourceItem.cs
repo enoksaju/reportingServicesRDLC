@@ -2,7 +2,7 @@ using System.Web;
 
 namespace AspNetCore.Reporting.Common
 {
-	internal sealed class ResourceItem
+	public sealed class ResourceItem
 	{
 		private readonly string m_name;
 
@@ -10,7 +10,7 @@ namespace AspNetCore.Reporting.Common
 
 		private readonly string m_mimeType;
 
-		internal string EffectiveName
+		public string EffectiveName
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.Reporting.Common
 
 
 
-		internal string MimeType
+		public string MimeType
 		{
 			get
 			{
@@ -29,14 +29,14 @@ namespace AspNetCore.Reporting.Common
 			}
 		}
 
-		internal ResourceItem(string name, string debugName, string mimeType)
+		public ResourceItem(string name, string debugName, string mimeType)
 		{
 			this.m_name = name;
 			this.m_debugName = debugName;
 			this.m_mimeType = mimeType;
 		}
 
-		internal ResourceItem(string name, string mimeType)
+		public ResourceItem(string name, string mimeType)
 			: this(name, name, mimeType)
 		{
 		}

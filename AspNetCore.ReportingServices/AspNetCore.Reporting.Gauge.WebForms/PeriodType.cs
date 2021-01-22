@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[Serializable]
-	internal enum PeriodType
+	public enum PeriodType
 	{
 		Milliseconds,
 		Seconds,

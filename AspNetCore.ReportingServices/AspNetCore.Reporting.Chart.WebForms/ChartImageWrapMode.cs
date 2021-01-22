@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ChartImageWrapMode
+	public enum ChartImageWrapMode
 	{
 		Scaled = 4,
 		Tile = 0,

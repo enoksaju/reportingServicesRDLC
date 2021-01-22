@@ -3,219 +3,219 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer
 {
-	internal static class WordOpenXmlConstants
+	public static class WordOpenXmlConstants
 	{
-		internal static class Spacing
+		public static class Spacing
 		{
-			internal const int MaxTwipsBefore = 31680;
+			public const int MaxTwipsBefore = 31680;
 
-			internal const int MinTwipsBefore = 0;
+			public const int MinTwipsBefore = 0;
 
-			internal const int MaxTwipsAfter = 31680;
+			public const int MaxTwipsAfter = 31680;
 
-			internal const int MinTwipsAfter = 0;
+			public const int MinTwipsAfter = 0;
 
-			internal const int MaxLineSpacing = 31680;
+			public const int MaxLineSpacing = 31680;
 
-			internal const int MinLineSpacing = 0;
+			public const int MinLineSpacing = 0;
 		}
 
-		internal static class Images
+		public static class Images
 		{
-			internal const int MinHeight = 0;
+			public const int MinHeight = 0;
 
-			internal const int MaxHeight = 20116800;
+			public const int MaxHeight = 20116800;
 
-			internal const int MinWidth = 0;
+			public const int MinWidth = 0;
 
-			internal const int MaxWidth = 20116800;
+			public const int MaxWidth = 20116800;
 		}
 
-		internal static class PageSize
+		public static class PageSize
 		{
-			internal const int MinHeight = 144;
+			public const int MinHeight = 144;
 
-			internal const int MaxHeight = 31680;
+			public const int MaxHeight = 31680;
 
-			internal const int MinWidth = 144;
+			public const int MinWidth = 144;
 
-			internal const int MaxWidth = 31680;
+			public const int MaxWidth = 31680;
 		}
 
-		internal static class PageMargins
+		public static class PageMargins
 		{
-			internal const int Min = 0;
+			public const int Min = 0;
 
-			internal const int Max = 31680;
+			public const int Max = 31680;
 		}
 
-		internal static class Indentation
+		public static class Indentation
 		{
-			internal static class Left
+			public static class Left
 			{
-				internal const int MinTwips = -31680;
+				public const int MinTwips = -31680;
 
-				internal const int MaxTwips = 31680;
+				public const int MaxTwips = 31680;
 			}
 
-			internal static class Right
+			public static class Right
 			{
-				internal const int MinTwips = -31680;
+				public const int MinTwips = -31680;
 
-				internal const int MaxTwips = 31680;
+				public const int MaxTwips = 31680;
 			}
 
-			internal static class Hanging
+			public static class Hanging
 			{
-				internal const int MinTwips = 0;
+				public const int MinTwips = 0;
 
-				internal const int MaxTwips = 31680;
+				public const int MaxTwips = 31680;
 			}
 
-			internal static class FirstLine
+			public static class FirstLine
 			{
-				internal const int MinTwips = 0;
+				public const int MinTwips = 0;
 
-				internal const int MaxTwips = 31680;
+				public const int MaxTwips = 31680;
 			}
 
-			internal static class ListIndentations
+			public static class ListIndentations
 			{
-				internal const int HangingPoints = 18;
+				public const int HangingPoints = 18;
 
-				internal const int LeftPointsPerLevel = 36;
+				public const int LeftPointsPerLevel = 36;
 			}
 		}
 
-		internal static class Lists
+		public static class Lists
 		{
-			internal static class Bulleted
+			public static class Bulleted
 			{
-				internal const int StyleId = 1;
+				public const int StyleId = 1;
 
-				internal const string BulletSize = "20";
+				public const string BulletSize = "20";
 
-				internal static readonly ST_NumberFormat LevelStyle = ST_NumberFormat.bullet;
+				public static readonly ST_NumberFormat LevelStyle = ST_NumberFormat.bullet;
 
-				internal static readonly string[] BulletTexts = new string[3]
+				public static readonly string[] BulletTexts = new string[3]
 				{
 					"·",
 					"o",
 					"§"
 				};
 
-				internal static readonly string[] BulletFonts = new string[3]
+				public static readonly string[] BulletFonts = new string[3]
 				{
 					"Symbol",
 					"Courier New",
 					"Wingdings"
 				};
 
-				internal static readonly ST_Jc LevelJc = ST_Jc.left;
+				public static readonly ST_Jc LevelJc = ST_Jc.left;
 			}
 
-			internal static class Numbered
+			public static class Numbered
 			{
-				internal const int FirstStyleId = 2;
+				public const int FirstStyleId = 2;
 
-				internal const string LevelTextFormat = "%{0}.";
+				public const string LevelTextFormat = "%{0}.";
 
-				internal const string BulletSize = "20";
+				public const string BulletSize = "20";
 
-				internal const string BulletFont = "Arial";
+				public const string BulletFont = "Arial";
 
-				internal static readonly ST_NumberFormat[] LevelStyles = new ST_NumberFormat[3]
+				public static readonly ST_NumberFormat[] LevelStyles = new ST_NumberFormat[3]
 				{
 					ST_NumberFormat._decimal,
 					ST_NumberFormat.lowerRoman,
 					ST_NumberFormat.lowerLetter
 				};
 
-				internal static readonly ST_Jc LevelJc = ST_Jc.left;
+				public static readonly ST_Jc LevelJc = ST_Jc.left;
 			}
 
-			internal const int MaxLevelDefinition = 9;
+			public const int MaxLevelDefinition = 9;
 		}
 
-		internal static class ContentTypes
+		public static class ContentTypes
 		{
-			internal const string Document = "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml";
+			public const string Document = "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml";
 
-			internal const string Stylesheet = "application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml";
+			public const string Stylesheet = "application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml";
 
-			internal const string Numbering = "application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml";
+			public const string Numbering = "application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml";
 
-			internal const string Settings = "application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml";
+			public const string Settings = "application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml";
 
-			internal const string Header = "application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml";
+			public const string Header = "application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml";
 
-			internal const string Footer = "application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml";
+			public const string Footer = "application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml";
 
-			internal const string DocumentProperties = "application/vnd.openxmlformats-package.core-properties+xml";
+			public const string DocumentProperties = "application/vnd.openxmlformats-package.core-properties+xml";
 		}
 
-		internal static class RelationshipTypes
+		public static class RelationshipTypes
 		{
-			internal const string Document = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument";
+			public const string Document = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument";
 
-			internal const string Stylesheet = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles";
+			public const string Stylesheet = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles";
 
-			internal const string Numbering = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering";
+			public const string Numbering = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering";
 
-			internal const string Settings = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings";
+			public const string Settings = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings";
 
-			internal const string Header = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/header";
+			public const string Header = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/header";
 
-			internal const string Footer = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer";
+			public const string Footer = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer";
 
-			internal const string Image = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image";
+			public const string Image = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image";
 
-			internal const string DocumentProperties = "http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties";
+			public const string DocumentProperties = "http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties";
 		}
 
-		internal static class DefaultPaths
+		public static class DefaultPaths
 		{
-			internal const string Document = "word/document.xml";
+			public const string Document = "word/document.xml";
 
-			internal const string Stylesheet = "word/styles.xml";
+			public const string Stylesheet = "word/styles.xml";
 
-			internal const string Numbering = "word/numbering.xml";
+			public const string Numbering = "word/numbering.xml";
 
-			internal const string Settings = "word/settings.xml";
+			public const string Settings = "word/settings.xml";
 
-			internal const string Header = "word/header{0}.xml";
+			public const string Header = "word/header{0}.xml";
 
-			internal const string Footer = "word/footer{0}.xml";
+			public const string Footer = "word/footer{0}.xml";
 
-			internal const string Image = "word/media/img{0}.{{0}}";
+			public const string Image = "word/media/img{0}.{{0}}";
 
-			internal const string DocumentProperties = "docProps/core.xml";
+			public const string DocumentProperties = "docProps/core.xml";
 		}
 
-		internal static class FileExtensions
+		public static class FileExtensions
 		{
-			internal const string JPEG = "jpg";
+			public const string JPEG = "jpg";
 
-			internal const string PNG = "png";
+			public const string PNG = "png";
 
-			internal const string GIF = "gif";
+			public const string GIF = "gif";
 
-			internal const string BMP = "bmp";
+			public const string BMP = "bmp";
 		}
 
-		internal static class NamedStyles
+		public static class NamedStyles
 		{
-			internal const string EmptyCellStyle = "EmptyCellLayoutStyle";
+			public const string EmptyCellStyle = "EmptyCellLayoutStyle";
 
-			internal const string BaseStyle = "Normal";
+			public const string BaseStyle = "Normal";
 		}
 
-		internal static class Fonts
+		public static class Fonts
 		{
-			internal const int EmptyCellFontSize = 2;
+			public const int EmptyCellFontSize = 2;
 		}
 
-		internal static class TableXml
+		public static class TableXml
 		{
 			public const string TableOpenTag = "<w:tbl>";
 
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			public const string CellCloseTag = "</w:tc>";
 		}
 
-		internal static class TableGridXml
+		public static class TableGridXml
 		{
 			public const string OpenTag = "<w:tblGrid>";
 
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			public const string ColumnEnd = "\"/>";
 		}
 
-		internal static class TablePropertiesXml
+		public static class TablePropertiesXml
 		{
 			public static class TableCellMargins
 			{
@@ -271,9 +271,9 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			public const string FixedWidth = "<w:tblLayout w:type=\"fixed\"/>";
 		}
 
-		internal static class RowPropertiesXml
+		public static class RowPropertiesXml
 		{
-			internal static class TableEx
+			public static class TableEx
 			{
 				public const string OpenTag = "<w:tblPrEx>";
 
@@ -303,16 +303,16 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			public const string IndentEnd = "\" w:type=\"dxa\"/>";
 		}
 
-		internal static class CellPropertiesXml
+		public static class CellPropertiesXml
 		{
 			public const string BordersOpenTag = "<w:tcBorders>";
 
 			public const string BordersCloseTag = "</w:tcBorders>";
 		}
 
-		internal static class BordersXml
+		public static class BordersXml
 		{
-			internal static class BorderPropertiesXml
+			public static class BorderPropertiesXml
 			{
 				public const string Prefix = "<w:";
 
@@ -354,7 +354,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			public const string DiagonalUpName = "tr2bl";
 		}
 
-		internal static class ParagraphXml
+		public static class ParagraphXml
 		{
 			public const string CloseTag = "</w:p>";
 
@@ -369,7 +369,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			public const string PageBreakParagraph = "<w:p><w:pPr><w:spacing w:after=\"0\" w:line=\"240\" w:lineRule=\"auto\"/><w:rPr><w:sz w:val=\"0\"/></w:rPr></w:pPr><w:r><w:br w:type=\"page\"/></w:r></w:p>";
 		}
 
-		internal static class ParagraphPropertiesXml
+		public static class ParagraphPropertiesXml
 		{
 			public static class ListProperties
 			{
@@ -561,27 +561,27 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 
 		public const int STREAM_COPY_BUFFER_SIZE = 1024;
 
-		internal const CompressionOption CompressionLevel = CompressionOption.Normal;
+		public const CompressionOption CompressionLevel = CompressionOption.Normal;
 
-		internal const int TableRowMaxHeight = 31680;
+		public const int TableRowMaxHeight = 31680;
 
-		internal const int TableRowMinHeight = 0;
+		public const int TableRowMinHeight = 0;
 
-		internal const int TableCellMaxWidth = 31680;
+		public const int TableCellMaxWidth = 31680;
 
-		internal const int TableCellMinWidth = 0;
+		public const int TableCellMinWidth = 0;
 
-		internal const float TableMaxWidth = 31680f;
+		public const float TableMaxWidth = 31680f;
 
-		internal const float TableMinWidth = 0f;
+		public const float TableMinWidth = 0f;
 
-		internal const int TableCellMaxPadding = 31680;
+		public const int TableCellMaxPadding = 31680;
 
-		internal const int TableCellMinPadding = 0;
+		public const int TableCellMinPadding = 0;
 
-		internal const int BorderMinWidth = 0;
+		public const int BorderMinWidth = 0;
 
-		internal const int BorderMaxWidth = 255;
+		public const int BorderMaxWidth = 255;
 
 		public const string DefaultFont = "Times New Roman";
 	}

@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class DocumentMapWriter
+	public sealed class DocumentMapWriter
 	{
 		private DocumentMapNode m_node;
 

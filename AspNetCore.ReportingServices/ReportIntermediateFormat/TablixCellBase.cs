@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class TablixCellBase : Cell, IPersistable
+	public abstract class TablixCellBase : Cell, IPersistable
 	{
 		protected int m_rowSpan;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = TablixCellBase.GetDeclaration();
 
-		internal int ColSpan
+		public int ColSpan
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int RowSpan
+		public int RowSpan
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItem CellContents
+		public ReportItem CellContents
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItem AltCellContents
+		public ReportItem AltCellContents
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override List<ReportItem> CellContentCollection
+		public override List<ReportItem> CellContentCollection
 		{
 			get
 			{
@@ -107,11 +107,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixCellBase()
+		public TablixCellBase()
 		{
 		}
 
-		internal TablixCellBase(int id, DataRegion dataRegion)
+		public TablixCellBase(int id, DataRegion dataRegion)
 			: base(id, dataRegion)
 		{
 		}
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			TablixCellBase tablixCellBase = (TablixCellBase)base.PublishClone(context);
 			if (this.m_cellContents != null)
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return tablixCellBase;
 		}
 
-		internal override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
+		public override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
 		{
 			if (this.m_cellContents != null)
 			{
@@ -162,11 +162,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual void DataRendererInitialize(InitializationContext context)
+		public virtual void DataRendererInitialize(InitializationContext context)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.RowSpan, Token.Int32));

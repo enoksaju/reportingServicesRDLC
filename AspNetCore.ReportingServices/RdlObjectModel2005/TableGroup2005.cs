@@ -5,11 +5,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class TableGroup2005 : ReportObject
+	public class TableGroup2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<TableGroup2005, Definition.Properties>
+		public class Definition : DefinitionStore<TableGroup2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Grouping,
 				Sorting,

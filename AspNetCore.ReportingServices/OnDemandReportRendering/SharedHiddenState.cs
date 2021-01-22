@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum SharedHiddenState
+	public enum SharedHiddenState
 	{
 		Always,
 		Never,

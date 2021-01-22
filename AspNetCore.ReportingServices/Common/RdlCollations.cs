@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class RdlCollations
+	public static class RdlCollations
 	{
 		private static Dictionary<string, uint> m_sqlCollations2LCID;
 
-		internal static Dictionary<string, uint> Collations
+		public static Dictionary<string, uint> Collations
 		{
 			get
 			{

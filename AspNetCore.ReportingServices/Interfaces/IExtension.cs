@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IExtension
+	public interface IExtension
 	{
 		string LocalizedName
 		{

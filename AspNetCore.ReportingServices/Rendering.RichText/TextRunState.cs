@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
 	[Flags]
-	internal enum TextRunState : byte
+	public enum TextRunState : byte
 	{
 		Clear = 0,
 		HasEastAsianChars = 1,

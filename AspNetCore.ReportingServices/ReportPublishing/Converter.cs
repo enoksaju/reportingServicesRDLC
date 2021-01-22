@@ -5,34 +5,34 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class Converter
+	public sealed class Converter
 	{
-		internal const double Inches455 = 11557.0;
+		public const double Inches455 = 11557.0;
 
-		internal const double Pt1 = 0.35277777777777775;
+		public const double Pt1 = 0.35277777777777775;
 
-		internal const double Pc1 = 4.2333333333333325;
+		public const double Pc1 = 4.2333333333333325;
 
-		internal const double Pt200 = 70.555555555555543;
+		public const double Pt200 = 70.555555555555543;
 
-		internal const double PtPoint25 = 0.08814;
+		public const double PtPoint25 = 0.08814;
 
-		internal const double Pt20 = 7.0555555555555554;
+		public const double Pt20 = 7.0555555555555554;
 
-		internal const double Pt1000 = 352.77777777777777;
+		public const double Pt1000 = 352.77777777777777;
 
-		internal const string FullDoubleFormatCode = "0.###############";
+		public const string FullDoubleFormatCode = "0.###############";
 
 		private Converter()
 		{
 		}
 
-		internal static string ConvertSize(double size)
+		public static string ConvertSize(double size)
 		{
 			return size.ToString("0.###############", CultureInfo.InvariantCulture) + "mm";
 		}
 
-		internal static string ConvertSizeFromMM(double sizeValue, RVUnitType unitType)
+		public static string ConvertSizeFromMM(double sizeValue, RVUnitType unitType)
 		{
 			string str = "mm";
 			switch (unitType)
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return Math.Round(sizeValue, 5).ToString(CultureInfo.InvariantCulture) + str;
 		}
 
-		internal static double ConvertToMM(RVUnit unit)
+		public static double ConvertToMM(RVUnit unit)
 		{
 			if (!Validator.ValidateSizeUnitType(unit))
 			{

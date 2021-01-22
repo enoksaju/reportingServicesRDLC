@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum SerializationVisibility
+	public enum SerializationVisibility
 	{
 		Hidden,
 		Attribute,

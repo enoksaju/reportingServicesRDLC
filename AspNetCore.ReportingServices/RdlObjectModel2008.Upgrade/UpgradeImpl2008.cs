@@ -6,15 +6,15 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2008.Upgrade
 {
-	internal class UpgradeImpl2008 : UpgradeImpl2010
+	public class UpgradeImpl2008 : UpgradeImpl2010
 	{
 		private List<IUpgradeable2008> m_upgradeable;
 
-		internal UpgradeImpl2008()
+		public UpgradeImpl2008()
 		{
 		}
 
-		internal override Type GetReportType()
+		public override Type GetReportType()
 		{
 			return typeof(Report2008);
 		}
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2008.Upgrade
 			base.SetupReaderSettings(settings);
 		}
 
-		internal void UpgradeReport(Report2008 report)
+		public void UpgradeReport(Report2008 report)
 		{
 			ReportSection reportSection = new ReportSection();
 			reportSection.Body = report.Body;

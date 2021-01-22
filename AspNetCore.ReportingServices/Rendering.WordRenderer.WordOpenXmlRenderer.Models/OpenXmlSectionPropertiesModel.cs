@@ -3,9 +3,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlSectionPropertiesModel
+	public sealed class OpenXmlSectionPropertiesModel
 	{
-		internal interface IHeaderFooterReferences
+		public interface IHeaderFooterReferences
 		{
 			string Header
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 
 		private CT_SectPr _sectionPr;
 
-		internal float Height
+		public float Height
 		{
 			set
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal float Width
+		public float Width
 		{
 			set
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal bool IsLandscape
+		public bool IsLandscape
 		{
 			set
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal float BottomMargin
+		public float BottomMargin
 		{
 			set
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal float LeftMargin
+		public float LeftMargin
 		{
 			set
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal float RightMargin
+		public float RightMargin
 		{
 			set
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal float TopMargin
+		public float TopMargin
 		{
 			set
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal OpenXmlSectionPropertiesModel()
+		public OpenXmlSectionPropertiesModel()
 		{
 			this._sectionPr = new CT_SectPr();
 		}
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return this._sectionPr.PgMar;
 		}
 
-		internal void AddHeaderId(string value)
+		public void AddHeaderId(string value)
 		{
 			if (value != null)
 			{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal void AddFirstPageHeaderId(string value)
+		public void AddFirstPageHeaderId(string value)
 		{
 			if (value != null)
 			{
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal void AddFooterId(string value)
+		public void AddFooterId(string value)
 		{
 			if (value != null)
 			{
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal void AddFirstPageFooterId(string value)
+		public void AddFirstPageFooterId(string value)
 		{
 			if (value != null)
 			{

@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal abstract class PathRuleBase : RuleBase
+	public abstract class PathRuleBase : RuleBase
 	{
 		private string pathField = "(Name)";
 
@@ -62,7 +62,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override string Field
+		public override string Field
 		{
 			get
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[SRCategory("CategoryAttribute_Data")]
 		[SRDescription("DescriptionAttributePathRule_DataGrouping")]
 		[DefaultValue(DataGrouping.Optimal)]
-		internal override DataGrouping DataGrouping
+		public override DataGrouping DataGrouping
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[Browsable(false)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		internal virtual ColoringMode ColoringMode
+		public virtual ColoringMode ColoringMode
 		{
 			get
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal PathRuleBase(CommonElements common)
+		public PathRuleBase(CommonElements common)
 			: base(common)
 		{
 		}
@@ -267,17 +267,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Name;
 		}
 
-		internal abstract void Apply(Path path);
+		public abstract void Apply(Path path);
 
-		internal abstract void RegenerateRanges();
+		public abstract void RegenerateRanges();
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.InvalidateRules();
 		}
 
-		internal void InvalidateRules()
+		public void InvalidateRules()
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore != null)
@@ -287,13 +287,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void OnRemove()
+		public override void OnRemove()
 		{
 			base.OnRemove();
 			this.InvalidateRules();
 		}
 
-		internal void GetRangeFromPaths(Field field, int intervalCount, ref object fromValue, ref object toValue)
+		public void GetRangeFromPaths(Field field, int intervalCount, ref object fromValue, ref object toValue)
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore != null)
@@ -513,7 +513,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override ArrayList GetSortedValues(Field field, object fromValue, object toValue)
+		public override ArrayList GetSortedValues(Field field, object fromValue, object toValue)
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore == null)
@@ -536,7 +536,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return arrayList;
 		}
 
-		internal override Field GetField()
+		public override Field GetField()
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore == null)
@@ -546,7 +546,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (Field)mapCore.PathFields.GetByName(this.PathField);
 		}
 
-		internal string GetLegendText(Field field, string fromValue, string toValue)
+		public string GetLegendText(Field field, string fromValue, string toValue)
 		{
 			object obj = null;
 			object obj2 = null;

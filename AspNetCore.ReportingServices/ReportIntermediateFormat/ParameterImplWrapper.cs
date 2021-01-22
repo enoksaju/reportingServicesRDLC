@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[SkipStaticValidation]
-	internal class ParameterImplWrapper : IPersistable
+	public class ParameterImplWrapper : IPersistable
 	{
 		private ParameterImpl m_odpParameter;
 
 		private static readonly Declaration m_Declaration = ParameterImplWrapper.GetDeclaration();
 
-		internal ParameterImpl WrappedParameterImpl
+		public ParameterImpl WrappedParameterImpl
 		{
 			get
 			{
@@ -24,17 +24,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParameterImplWrapper()
+		public ParameterImplWrapper()
 		{
 			this.m_odpParameter = new ParameterImpl();
 		}
 
-		internal ParameterImplWrapper(ParameterImpl odpParameter)
+		public ParameterImplWrapper(ParameterImpl odpParameter)
 		{
 			this.m_odpParameter = odpParameter;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Value, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.PrimitiveArray, Token.Object));

@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapLocation : MapObject, ICloneable
+	public class MapLocation : MapObject, ICloneable
 	{
 		private PointF point = new PointF(0f, 0f);
 
@@ -77,7 +77,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool Docked
+		public bool Docked
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool DefaultValues
+		public bool DefaultValues
 		{
 			get
 			{
@@ -119,19 +119,19 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal MapLocation(object parent)
+		public MapLocation(object parent)
 			: base(parent)
 		{
 		}
 
-		internal MapLocation(object parent, float x, float y)
+		public MapLocation(object parent, float x, float y)
 			: this(parent)
 		{
 			this.point.X = x;
 			this.point.Y = y;
 		}
 
-		internal MapLocation(MapLocation location)
+		public MapLocation(MapLocation location)
 			: this(location.Parent, location.X, location.Y)
 		{
 		}
@@ -178,7 +178,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return mapLocation;
 		}
 
-		internal PointF GetPointF()
+		public PointF GetPointF()
 		{
 			return this.point;
 		}

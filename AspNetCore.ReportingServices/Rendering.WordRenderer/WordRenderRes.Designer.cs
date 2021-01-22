@@ -22,21 +22,21 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.Designer {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class WordRenderRes {
+    public class WordRenderRes {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal WordRenderRes() {
+        public WordRenderRes() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AspNetCore.ReportingServices.Rendering.WordRenderer.WordRenderRes", typeof(WordRenderRes).Assembly);
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.Designer {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The Body is too complex to export to Word.  Please group the ReportItems together into rectangles to simplify..
         /// </summary>
-        internal static string ColumnsErrorBody {
+        public static string ColumnsErrorBody {
             get {
                 return ResourceManager.GetString("ColumnsErrorBody", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The Header or Footer is too complex to export to Word.  Please group the ReportItems together into rectangles to simplify..
         /// </summary>
-        internal static string ColumnsErrorHeaderFooter {
+        public static string ColumnsErrorHeaderFooter {
             get {
                 return ResourceManager.GetString("ColumnsErrorHeaderFooter", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The Rectangle &apos;{0}&apos; is too complex to export to Word.  Please group the ReportItems together into rectangles to simplify..
         /// </summary>
-        internal static string ColumnsErrorRectangle {
+        public static string ColumnsErrorRectangle {
             get {
                 return ResourceManager.GetString("ColumnsErrorRectangle", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Invalid PNG file.
         /// </summary>
-        internal static string InvalidPNGError {
+        public static string InvalidPNGError {
             get {
                 return ResourceManager.GetString("InvalidPNGError", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Word 2003.
         /// </summary>
-        internal static string WordLocalizedName {
+        public static string WordLocalizedName {
             get {
                 return ResourceManager.GetString("WordLocalizedName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Word.
         /// </summary>
-        internal static string WordOpenXmlLocalizedName {
+        public static string WordOpenXmlLocalizedName {
             get {
                 return ResourceManager.GetString("WordOpenXmlLocalizedName", resourceCulture);
             }

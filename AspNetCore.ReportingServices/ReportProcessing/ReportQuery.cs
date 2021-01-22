@@ -7,7 +7,7 @@ using System.Data;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportQuery
+	public sealed class ReportQuery
 	{
 		private CommandType m_commandType = CommandType.Text;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private IndexedExprHost m_queryParamsExprHost;
 
-		internal CommandType CommandType
+		public CommandType CommandType
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo CommandText
+		public ExpressionInfo CommandText
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterValueList Parameters
+		public ParameterValueList Parameters
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int TimeOut
+		public int TimeOut
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string CommandTextValue
+		public string CommandTextValue
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string RewrittenCommandText
+		public string RewrittenCommandText
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DataSourceName
+		public string DataSourceName
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_commandText != null)
 			{
@@ -136,14 +136,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(IndexedExprHost queryParamsExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IndexedExprHost queryParamsExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(queryParamsExprHost != null && reportObjectModel != null);
 			this.m_queryParamsExprHost = queryParamsExprHost;
 			this.m_queryParamsExprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.CommandType, Token.Enum));

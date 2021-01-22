@@ -11,13 +11,13 @@ using System.Text;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class Utils
+	public class Utils
 	{
-		internal const float GoldenRatio = 1.618034f;
+		public const float GoldenRatio = 1.618034f;
 
 		private static ResourceManager resMng;
 
-		internal static ResourceManager ResourceStr
+		public static ResourceManager ResourceStr
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static IEnumerable<PointF> GetRectangePoints(RectangleF rectangle)
+		public static IEnumerable<PointF> GetRectangePoints(RectangleF rectangle)
 		{
 			PointF point = rectangle.Location;
 			yield return point;
@@ -76,7 +76,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			yield return point;
 		}
 
-		internal static IEnumerable<PointF> DensifyPoints(IEnumerable<PointF> points, double step)
+		public static IEnumerable<PointF> DensifyPoints(IEnumerable<PointF> points, double step)
 		{
 			PointF prevPoint = new PointF(3.40282347E+38f, 3.40282347E+38f);
 			foreach (PointF point in points)
@@ -107,21 +107,21 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static float GetDistanceSqr(PointF pointA, PointF pointB)
+		public static float GetDistanceSqr(PointF pointA, PointF pointB)
 		{
 			double num = (double)(pointA.X - pointB.X);
 			double num2 = (double)(pointA.Y - pointB.Y);
 			return (float)(num * num + num2 * num2);
 		}
 
-		internal static double GetDistanceSqr(MapPoint pointA, MapPoint pointB)
+		public static double GetDistanceSqr(MapPoint pointA, MapPoint pointB)
 		{
 			double num = pointA.X - pointB.X;
 			double num2 = pointA.Y - pointB.Y;
 			return num * num + num2 * num2;
 		}
 
-		internal static double Round(double value, int precision)
+		public static double Round(double value, int precision)
 		{
 			if (precision >= 0)
 			{
@@ -132,17 +132,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return Math.Round(value / num, 0) * num;
 		}
 
-		internal static float Deg2Rad(float angleInDegree)
+		public static float Deg2Rad(float angleInDegree)
 		{
 			return (float)((double)Math.Abs(angleInDegree) * 3.1415926535897931 / 180.0);
 		}
 
-		internal static float Rad2Deg(float angleInRadians)
+		public static float Rad2Deg(float angleInRadians)
 		{
 			return (float)((double)Math.Abs(angleInRadians) / 3.1415926535897931 * 180.0);
 		}
 
-		internal static float NormalizeAngle(float angle)
+		public static float NormalizeAngle(float angle)
 		{
 			if (angle < 0.0)
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return angle;
 		}
 
-		internal static float GetContactPointOffset(SizeF size, float angle)
+		public static float GetContactPointOffset(SizeF size, float angle)
 		{
 			angle = Utils.NormalizeAngle(Math.Abs(angle));
 			if (angle >= 180.0)
@@ -175,7 +175,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (float)(size.Height / 2.0 / Math.Cos((double)Utils.Deg2Rad(angle)));
 		}
 
-		internal static float ToGDIAngle(float angle)
+		public static float ToGDIAngle(float angle)
 		{
 			angle = (float)(angle + 90.0);
 			if (!(angle > 360.0))
@@ -185,7 +185,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (float)(angle - 360.0);
 		}
 
-		internal static RectangleF NormalizeRectangle(RectangleF boundRect, SizeF insetSize, bool resizeResult)
+		public static RectangleF NormalizeRectangle(RectangleF boundRect, SizeF insetSize, bool resizeResult)
 		{
 			RectangleF result = boundRect;
 			if (resizeResult)
@@ -215,7 +215,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal static string GetImageCustomProperty(Image image, CustomPropertyTag customPropertyTag)
+		public static string GetImageCustomProperty(Image image, CustomPropertyTag customPropertyTag)
 		{
 			try
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return string.Empty;
 		}
 
-		internal static void SetImageCustomProperty(Image image, CustomPropertyTag customPropertyTag, string text)
+		public static void SetImageCustomProperty(Image image, CustomPropertyTag customPropertyTag, string text)
 		{
 			Type typeFromHandle = typeof(PropertyItem);
 			ConstructorInfo constructorInfo = typeFromHandle.GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic)[0];

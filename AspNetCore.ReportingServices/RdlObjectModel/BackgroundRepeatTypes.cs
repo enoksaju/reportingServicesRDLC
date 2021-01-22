@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum BackgroundRepeatTypes
+	public enum BackgroundRepeatTypes
 	{
 		Default,
 		Repeat,

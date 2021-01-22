@@ -5,7 +5,7 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[Description("Legend column collection.")]
-	internal class LegendCellColumnCollection : NamedCollection
+	public class LegendCellColumnCollection : NamedCollection
 	{
 		private Legend legend;
 
@@ -64,7 +64,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal LegendCellColumnCollection(Legend legend, NamedElement parent, CommonElements common)
+		public LegendCellColumnCollection(Legend legend, NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(LegendCellColumn);
@@ -136,17 +136,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.OnSetComplete(index, oldValue, newValue);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Column1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Column{0}";
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (this.legend != null)
 			{

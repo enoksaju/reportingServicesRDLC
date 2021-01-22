@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ChartMember : DataRegionMember
+	public abstract class ChartMember : DataRegionMember
 	{
 		protected ChartMemberCollection m_children;
 
@@ -60,12 +60,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMember MemberDefinition
+		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMember MemberDefinition
 		{
 			get;
 		}
 
-		internal override ReportHierarchyNode DataRegionMemberDefinition
+		public override ReportHierarchyNode DataRegionMemberDefinition
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart OwnerChart
+		public Chart OwnerChart
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal override IDataRegionMemberCollection SubMembers
+		public override IDataRegionMemberCollection SubMembers
 		{
 			get
 			{
@@ -110,17 +110,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartMember(IDefinitionPath parentDefinitionPath, Chart owner, ChartMember parent, int parentCollectionIndex)
+		public ChartMember(IDefinitionPath parentDefinitionPath, Chart owner, ChartMember parent, int parentCollectionIndex)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex)
 		{
 		}
 
-		internal override bool GetIsColumn()
+		public override bool GetIsColumn()
 		{
 			return this.IsCategory;
 		}
 
-		internal override void SetNewContext(bool fromMoveNext)
+		public override void SetNewContext(bool fromMoveNext)
 		{
 			base.SetNewContext(fromMoveNext);
 			if (this.m_instance != null)

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class GaugeCell : Cell, IPersistable
+	public sealed class GaugeCell : Cell, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = GaugeCell.GetDeclaration();
@@ -52,16 +52,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeCell()
+		public GaugeCell()
 		{
 		}
 
-		internal GaugeCell(int id, GaugePanel gaugePanel)
+		public GaugeCell(int id, GaugePanel gaugePanel)
 			: base(id, gaugePanel)
 		{
 		}
 
-		internal override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
+		public override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
 		{
 			AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder exprHostBuilder = context.ExprHostBuilder;
 			List<GaugeInputValue> gaugeInputValues = this.GetGaugeInputValues();
@@ -74,13 +74,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugeCell, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Cell, memberInfoList);
 		}
 
-		internal void SetExprHost(GaugeCellExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(GaugeCellExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			this.m_exprHost = exprHost;

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDataReaderExtension : IDataReader, IDisposable
+	public interface IDataReaderExtension : IDataReader, IDisposable
 	{
 		bool IsAggregateRow
 		{

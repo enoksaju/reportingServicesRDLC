@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ResizeModes
+	public enum ResizeModes
 	{
 		AutoFit,
 		None

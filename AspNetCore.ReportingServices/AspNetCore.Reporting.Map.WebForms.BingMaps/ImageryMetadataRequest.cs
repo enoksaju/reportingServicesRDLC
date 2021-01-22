@@ -2,9 +2,9 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
-	internal class ImageryMetadataRequest
+	public class ImageryMetadataRequest
 	{
-		internal enum ImageryType
+		public enum ImageryType
 		{
 			Aerial,
 			AerialWithLabels,

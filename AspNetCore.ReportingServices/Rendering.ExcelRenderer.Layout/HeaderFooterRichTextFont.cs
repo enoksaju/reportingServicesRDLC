@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal sealed class HeaderFooterRichTextFont : IFont
+	public sealed class HeaderFooterRichTextFont : IFont
 	{
 		private StringBuilder m_builder;
 
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal string LastFontName
+		public string LastFontName
 		{
 			get
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal double LastFontSize
+		public double LastFontSize
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal HeaderFooterRichTextFont(StringBuilder builder)
+		public HeaderFooterRichTextFont(StringBuilder builder)
 		{
 			this.m_builder = builder;
 		}

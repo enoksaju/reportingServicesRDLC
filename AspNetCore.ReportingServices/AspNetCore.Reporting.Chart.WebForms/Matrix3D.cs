@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class Matrix3D
+	public class Matrix3D
 	{
 		private enum RotationAxis
 		{
@@ -27,7 +27,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private float shiftY;
 
-		internal float perspective;
+		public float perspective;
 
 		private bool rightAngleAxis;
 
@@ -35,9 +35,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private float perspectiveZ;
 
-		internal float angleX;
+		public float angleX;
 
-		internal float angleY;
+		public float angleY;
 
 		private Point3D[] lightVectors = new Point3D[7];
 
@@ -48,7 +48,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.mainMatrix != null;
 		}
 
-		internal void Initialize(RectangleF innerPlotRectangle, float depth, float angleX, float angleY, float perspective, bool rightAngleAxis)
+		public void Initialize(RectangleF innerPlotRectangle, float depth, float angleX, float angleY, float perspective, bool rightAngleAxis)
 		{
 			this.Reset();
 			this.translateX = (float)(innerPlotRectangle.X + innerPlotRectangle.Width / 2.0);
@@ -392,7 +392,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			};
 		}
 
-		internal void InitLight(LightStyle lightStyle)
+		public void InitLight(LightStyle lightStyle)
 		{
 			this.lightStyle = lightStyle;
 			this.lightVectors[0] = new Point3D(0f, 0f, 0f);
@@ -423,7 +423,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.lightVectors[6].Z -= this.lightVectors[0].Z;
 		}
 
-		internal void GetLight(Color surfaceColor, out Color front, out Color back, out Color left, out Color right, out Color top, out Color bottom)
+		public void GetLight(Color surfaceColor, out Color front, out Color back, out Color left, out Color right, out Color top, out Color bottom)
 		{
 			switch (this.lightStyle)
 			{
@@ -482,7 +482,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Color GetPolygonLight(Point3D[] points, Color surfaceColor, bool visiblePolygon, float yAngle, SurfaceNames surfaceName, bool switchSeriesOrder)
+		public Color GetPolygonLight(Point3D[] points, Color surfaceColor, bool visiblePolygon, float yAngle, SurfaceNames surfaceName, bool switchSeriesOrder)
 		{
 			Color result = surfaceColor;
 			Point3D point3D = new Point3D(0f, 0f, 1f);

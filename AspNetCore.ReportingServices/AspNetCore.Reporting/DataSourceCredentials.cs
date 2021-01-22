@@ -2,7 +2,7 @@
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class DataSourceCredentials
+	public sealed class DataSourceCredentials
 	{
 		private string m_name = "";
 

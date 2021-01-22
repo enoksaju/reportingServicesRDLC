@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum ImageType
+	public enum ImageType
 	{
 		Bmp,
 		Jpeg,

@@ -8,9 +8,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DynamicImageInstance : DataRegionInstance
+	public abstract class DynamicImageInstance : DataRegionInstance
 	{
-		internal enum ImageType
+		public enum ImageType
 		{
 			PNG,
 			EMF
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DynamicImageInstance(DataRegion reportItemDef)
+		public DynamicImageInstance(DataRegion reportItemDef)
 			: base(reportItemDef)
 		{
 		}
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return DynamicImageInstance.CreateExceptionImage(exception, this.WidthInPixels, this.HeightInPixels, this.m_dpiX, this.m_dpiY);
 		}
 
-		internal static MemoryStream CreateExceptionImage(Exception exception, int width, int height, float dpiX, float dpiY)
+		public static MemoryStream CreateExceptionImage(Exception exception, int width, int height, float dpiX, float dpiY)
 		{
 			Bitmap bitmap = null;
 			Graphics graphics = null;

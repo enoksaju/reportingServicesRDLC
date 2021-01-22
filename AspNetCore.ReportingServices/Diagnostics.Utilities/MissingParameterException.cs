@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class MissingParameterException : ReportCatalogException
+	public sealed class MissingParameterException : ReportCatalogException
 	{
 		public MissingParameterException(string parameterName)
 			: base(ErrorCode.rsMissingParameter, ErrorStrings.rsMissingParameter(parameterName), null, null)

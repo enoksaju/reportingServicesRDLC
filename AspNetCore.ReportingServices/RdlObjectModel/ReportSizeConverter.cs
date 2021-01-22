@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ReportSizeConverter : TypeConverter
+	public class ReportSizeConverter : TypeConverter
 	{
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
 		{

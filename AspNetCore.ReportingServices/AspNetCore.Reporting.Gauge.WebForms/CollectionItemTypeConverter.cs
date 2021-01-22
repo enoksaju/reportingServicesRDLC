@@ -6,9 +6,9 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CollectionItemTypeConverter : TypeConverter
+	public class CollectionItemTypeConverter : TypeConverter
 	{
-		internal Type simpleType = typeof(object);
+		public Type simpleType = typeof(object);
 
 		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
 		{

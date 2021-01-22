@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum CoordinateUnit
+	public enum CoordinateUnit
 	{
 		Pixel,
 		Percent

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SymbolRuleCollection : NamedCollection
+	public class SymbolRuleCollection : NamedCollection
 	{
 		private SymbolRule this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal SymbolRuleCollection(NamedElement parent, CommonElements common)
+		public SymbolRuleCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(SymbolRule);
@@ -82,12 +82,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Remove(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "SymbolRule1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "SymbolRule{0}";
 		}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimChartSeriesCollection : ChartSeriesCollection
+	public sealed class ShimChartSeriesCollection : ChartSeriesCollection
 	{
 		private List<ShimChartSeries> m_series;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimChartSeriesCollection(Chart owner)
+		public ShimChartSeriesCollection(Chart owner)
 			: base(owner)
 		{
 			this.m_series = new List<ShimChartSeries>();
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateCells(ShimChartMember innermostMember)
+		public void UpdateCells(ShimChartMember innermostMember)
 		{
 			if (innermostMember != null && innermostMember.Children == null)
 			{

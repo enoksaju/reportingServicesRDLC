@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum MapColorPalette
+	public enum MapColorPalette
 	{
 		Random,
 		SemiTransparent,

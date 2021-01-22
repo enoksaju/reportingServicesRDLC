@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Extensions
 {
-	internal enum InternalEvents
+	public enum InternalEvents
 	{
 		DataDrivenSubscription,
 		SharedSchedule,

@@ -5,9 +5,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class SupportabilityRIFVisualizer
+	public class SupportabilityRIFVisualizer
 	{
-		internal static void DumpTablixes(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
+		public static void DumpTablixes(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
 		{
 			StreamWriter streamWriter = new StreamWriter(new FileStream("TablixDump.html", FileMode.Create));
 			streamWriter.WriteLine("<html><body>");

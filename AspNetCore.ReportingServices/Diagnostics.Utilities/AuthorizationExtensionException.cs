@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class AuthorizationExtensionException : RSException
+	public sealed class AuthorizationExtensionException : RSException
 	{
 		public AuthorizationExtensionException(Exception innerException)
 			: this(innerException, null)

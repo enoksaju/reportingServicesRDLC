@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Streamsheet
+	public sealed class Streamsheet
 	{
 		private readonly IStreamsheetModel _model;
 

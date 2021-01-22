@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartPositions
+	public enum ChartPositions
 	{
 		TopLeft,
 		TopCenter,

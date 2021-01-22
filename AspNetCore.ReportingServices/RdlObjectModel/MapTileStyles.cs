@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapTileStyles
+	public enum MapTileStyles
 	{
 		Road,
 		Aerial,

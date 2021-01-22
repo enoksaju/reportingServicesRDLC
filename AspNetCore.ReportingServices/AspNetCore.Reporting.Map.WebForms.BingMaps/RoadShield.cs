@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class RoadShield
+	public class RoadShield
 	{
 		[DataMember(Name = "bucket", EmitDefaultValue = false)]
 		public int Bucket

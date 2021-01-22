@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class ParagraphNumberCalculator
+	public class ParagraphNumberCalculator
 	{
 		private List<int> m_paragraphLevelList = new List<int>();
 
-		internal void UpdateParagraph(IParagraphProps paragraphProps)
+		public void UpdateParagraph(IParagraphProps paragraphProps)
 		{
 			int listLevel = paragraphProps.ListLevel;
 			if (listLevel == 0)

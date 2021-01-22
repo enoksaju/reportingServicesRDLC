@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLTablixMemberCell : RPLTablixCell
+	public sealed class RPLTablixMemberCell : RPLTablixCell
 	{
 		private string m_uniqueName;
 
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal byte State
+		public byte State
 		{
 			get
 			{
@@ -118,11 +118,11 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTablixMemberCell()
+		public RPLTablixMemberCell()
 		{
 		}
 
-		internal RPLTablixMemberCell(RPLItem element, byte elementState, int rowSpan, int colSpan)
+		public RPLTablixMemberCell(RPLItem element, byte elementState, int rowSpan, int colSpan)
 			: base(element, elementState)
 		{
 			this.m_rowSpan = rowSpan;

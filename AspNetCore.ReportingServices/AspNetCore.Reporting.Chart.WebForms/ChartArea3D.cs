@@ -9,9 +9,9 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartArea3D : ChartAreaAxes
+	public class ChartArea3D : ChartAreaAxes
 	{
-		internal class PointsDrawingOrderComparer : IComparer
+		public class PointsDrawingOrderComparer : IComparer
 		{
 			private ChartArea area;
 
@@ -103,11 +103,11 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private ChartArea3DStyle area3DStyle = new ChartArea3DStyle();
 
-		internal Matrix3D matrix3D = new Matrix3D();
+		public Matrix3D matrix3D = new Matrix3D();
 
-		internal SizeF areaSceneWallWidth = SizeF.Empty;
+		public SizeF areaSceneWallWidth = SizeF.Empty;
 
-		internal float areaSceneDepth;
+		public float areaSceneDepth;
 
 		private SurfaceNames visibleSurfaces;
 
@@ -115,19 +115,19 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private double pointsGapDepth;
 
-		internal bool reverseSeriesOrder;
+		public bool reverseSeriesOrder;
 
-		internal bool oldReverseX;
+		public bool oldReverseX;
 
-		internal bool oldReverseY;
+		public bool oldReverseY;
 
-		internal int oldYAngle = 30;
+		public int oldYAngle = 30;
 
-		internal ArrayList seriesDrawingOrder;
+		public ArrayList seriesDrawingOrder;
 
-		internal ArrayList stackGroupNames;
+		public ArrayList stackGroupNames;
 
-		internal ArrayList seriesClusters;
+		public ArrayList seriesClusters;
 
 		[SRCategory("CategoryAttribute3D")]
 		[TypeConverter(typeof(NoNameExpandableObjectConverter))]
@@ -221,17 +221,17 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal bool IsBottomSceneWallVisible()
+		public bool IsBottomSceneWallVisible()
 		{
 			return this.Area3DStyle.XAngle >= 0;
 		}
 
-		internal bool IsMainSceneWallOnFront()
+		public bool IsMainSceneWallOnFront()
 		{
 			return false;
 		}
 
-		internal bool IsSideSceneWallOnLeft()
+		public bool IsSideSceneWallOnLeft()
 		{
 			return this.Area3DStyle.YAngle > 0;
 		}
@@ -360,14 +360,14 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return (float)((this.pointsGapDepth + this.pointsDepth) * (double)this.GetNumberOfClusters());
 		}
 
-		internal void GetSeriesZPositionAndDepth(Series series, out float depth, out float positionZ)
+		public void GetSeriesZPositionAndDepth(Series series, out float depth, out float positionZ)
 		{
 			int seriesClusterIndex = this.GetSeriesClusterIndex(series);
 			depth = (float)this.pointsDepth;
 			positionZ = (float)(this.pointsGapDepth / 2.0 + (this.pointsDepth + this.pointsGapDepth) * (double)seriesClusterIndex);
 		}
 
-		internal int GetNumberOfClusters()
+		public int GetNumberOfClusters()
 		{
 			if (this.seriesClusters == null)
 			{
@@ -445,7 +445,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.seriesClusters.Count;
 		}
 
-		internal int GetSeriesClusterIndex(Series series)
+		public int GetSeriesClusterIndex(Series series)
 		{
 			if (this.seriesClusters == null)
 			{
@@ -486,7 +486,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return area3DSceneDepth;
 		}
 
-		internal void Estimate3DInterval(ChartGraphics graph)
+		public void Estimate3DInterval(ChartGraphics graph)
 		{
 			ChartArea chartArea2 = (ChartArea)this;
 			this.areaSceneWallWidth = graph.GetRelativeSize(new SizeF((float)this.Area3DStyle.WallWidth, (float)this.Area3DStyle.WallWidth));
@@ -582,7 +582,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal int GetRealYAngle()
+		public int GetRealYAngle()
 		{
 			int result = this.Area3DStyle.YAngle;
 			if (this.reverseSeriesOrder && this.Area3DStyle.YAngle >= 0)
@@ -596,7 +596,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal bool ShouldDrawOnSurface(SurfaceNames surfaceName, bool backLayer, bool onEdge)
+		public bool ShouldDrawOnSurface(SurfaceNames surfaceName, bool backLayer, bool onEdge)
 		{
 			bool flag = (this.visibleSurfaces & surfaceName) == surfaceName;
 			if (onEdge)
@@ -606,12 +606,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return backLayer == !flag;
 		}
 
-		internal bool DrawPointsInReverseOrder()
+		public bool DrawPointsInReverseOrder()
 		{
 			return this.Area3DStyle.YAngle <= 0;
 		}
 
-		internal bool DrawPointsToCenter(ref COPCoordinates coord)
+		public bool DrawPointsToCenter(ref COPCoordinates coord)
 		{
 			bool result = false;
 			COPCoordinates cOPCoordinates = (COPCoordinates)0;
@@ -645,7 +645,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal bool DrawSeriesToCenter()
+		public bool DrawSeriesToCenter()
 		{
 			if (this.Area3DStyle.Perspective != 0 && (this.visibleSurfaces & SurfaceNames.Front) == (SurfaceNames)0 && (this.visibleSurfaces & SurfaceNames.Back) == (SurfaceNames)0)
 			{
@@ -666,7 +666,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ArrayList GetClusterSeriesNames(string seriesName)
+		public ArrayList GetClusterSeriesNames(string seriesName)
 		{
 			foreach (ArrayList seriesCluster in this.seriesClusters)
 			{
@@ -743,7 +743,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.stackGroupNames.Count;
 		}
 
-		internal int GetSeriesStackGroupIndex(Series series, ref string stackGroupName)
+		public int GetSeriesStackGroupIndex(Series series, ref string stackGroupName)
 		{
 			stackGroupName = string.Empty;
 			if (this.stackGroupNames != null)
@@ -757,7 +757,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return 0;
 		}
 
-		internal ArrayList GetDataPointDrawingOrder(ArrayList seriesNamesList, IChartType chartType, bool selection, COPCoordinates coord, IComparer comparer, int mainYValueIndex, bool sideBySide)
+		public ArrayList GetDataPointDrawingOrder(ArrayList seriesNamesList, IChartType chartType, bool selection, COPCoordinates coord, IComparer comparer, int mainYValueIndex, bool sideBySide)
 		{
 			ChartArea chartArea = (ChartArea)this;
 			ArrayList arrayList = new ArrayList();
@@ -856,7 +856,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return arrayList;
 		}
 
-		internal Point3D GetCenterOfProjection(COPCoordinates coord)
+		public Point3D GetCenterOfProjection(COPCoordinates coord)
 		{
 			Point3D[] array = new Point3D[2]
 			{

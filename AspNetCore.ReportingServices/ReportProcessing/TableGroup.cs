@@ -6,7 +6,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableGroup : ReportHierarchyNode, IRunningValueHolder, IPageBreakItem
+	public sealed class TableGroup : ReportHierarchyNode, IRunningValueHolder, IPageBreakItem
 	{
 		private TableRowList m_headerRows;
 
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal TableGroup SubGroup
+		public TableGroup SubGroup
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowList HeaderRows
+		public TableRowList HeaderRows
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HeaderRepeatOnNewPage
+		public bool HeaderRepeatOnNewPage
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowList FooterRows
+		public TableRowList FooterRows
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FooterRepeatOnNewPage
+		public bool FooterRepeatOnNewPage
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Visibility Visibility
+		public Visibility Visibility
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PropagatedPageBreakAtStart
+		public bool PropagatedPageBreakAtStart
 		{
 			get
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PropagatedPageBreakAtEnd
+		public bool PropagatedPageBreakAtEnd
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string RenderingModelID
+		public string RenderingModelID
 		{
 			get
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasExprHost
+		public bool HasExprHost
 		{
 			get
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroupExprHost ExprHost
+		public TableGroupExprHost ExprHost
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int StartPage
+		public int StartPage
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int EndPage
+		public int EndPage
 		{
 			get
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double HeaderHeightValue
+		public double HeaderHeightValue
 		{
 			get
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double FooterHeightValue
+		public double FooterHeightValue
 		{
 			get
 			{
@@ -241,17 +241,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroup()
+		public TableGroup()
 		{
 		}
 
-		internal TableGroup(int id, Table tableDef)
+		public TableGroup(int id, Table tableDef)
 			: base(id, tableDef)
 		{
 			this.m_runningValues = new RunningValueInfoList();
 		}
 
-		internal void Initialize(int numberOfColumns, TableDetail tableDetail, TableGroup detailGroup, InitializationContext context, ref double tableHeight, bool[] tableColumnVisibility)
+		public void Initialize(int numberOfColumns, TableDetail tableDetail, TableGroup detailGroup, InitializationContext context, ref double tableHeight, bool[] tableColumnVisibility)
 		{
 			Global.Tracer.Assert(null != base.m_grouping);
 			context.Location |= LocationFlags.InGrouping;
@@ -276,7 +276,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_hasExprHost = context.ExprHostBuilder.TableGroupEnd();
 		}
 
-		internal void RegisterReceiver(InitializationContext context, TableDetail tableDetail)
+		public void RegisterReceiver(InitializationContext context, TableDetail tableDetail)
 		{
 			this.RegisterHeaderAndFooter(context);
 			if (this.m_visibility != null)
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void CalculatePropagatedFlags(out bool groupPageBreakAtStart, out bool groupPageBreakAtEnd)
+		public void CalculatePropagatedFlags(out bool groupPageBreakAtStart, out bool groupPageBreakAtEnd)
 		{
 			if (this.SubGroup == null)
 			{
@@ -433,7 +433,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return base.IgnorePageBreaks(this.m_visibility);
 		}
 
-		internal void SetExprHost(TableGroupExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(TableGroupExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null && this.m_hasExprHost);
 			this.m_exprHost = exprHost;
@@ -445,7 +445,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.HeaderRows, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.TableRowList));

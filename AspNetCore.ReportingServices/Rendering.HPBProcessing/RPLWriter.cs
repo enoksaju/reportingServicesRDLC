@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class RPLWriter
+	public sealed class RPLWriter
 	{
 		private RPLReport m_rplReport;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private List<SectionItemizedData> m_glyphCache;
 
-		internal RPLReport Report
+		public RPLReport Report
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal RPLTablixRow TablixRow
+		public RPLTablixRow TablixRow
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal BinaryWriter BinaryWriter
+		public BinaryWriter BinaryWriter
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal int DelayedTBLevels
+		public int DelayedTBLevels
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal byte[] CopyBuffer
+		public byte[] CopyBuffer
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Dictionary<string, List<TextRunItemizedData>> PageParagraphsItemizedData
+		public Dictionary<string, List<TextRunItemizedData>> PageParagraphsItemizedData
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal List<SectionItemizedData> GlyphCache
+		public List<SectionItemizedData> GlyphCache
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void AddTextBoxes(Dictionary<string, List<object>> delayedTextBoxes)
+		public void AddTextBoxes(Dictionary<string, List<object>> delayedTextBoxes)
 		{
 			if (this.m_currentDelayedTB == null)
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_currentDelayedTB.Add(delayedTextBoxes);
 		}
 
-		internal void AddTextBox(string name, object value)
+		public void AddTextBox(string name, object value)
 		{
 			if (this.m_currentDelayedTB == null)
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_currentDelayedTB.Add(dictionary);
 		}
 
-		internal void EnterDelayedTBLevel(bool isLTR, ref RTLTextBoxes delayedTB)
+		public void EnterDelayedTBLevel(bool isLTR, ref RTLTextBoxes delayedTB)
 		{
 			if (!isLTR)
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void RegisterCellTextBoxes(bool isLTR, RTLTextBoxes delayedTB)
+		public void RegisterCellTextBoxes(bool isLTR, RTLTextBoxes delayedTB)
 		{
 			if (!isLTR)
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void LeaveDelayedTBLevel(bool isLTR, RTLTextBoxes delayedTB, PageContext pageContext)
+		public void LeaveDelayedTBLevel(bool isLTR, RTLTextBoxes delayedTB, PageContext pageContext)
 		{
 			if (!isLTR)
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void RegisterCacheRichData(bool cacheRichData)
+		public void RegisterCacheRichData(bool cacheRichData)
 		{
 			this.m_cacheRichData = cacheRichData;
 			if (this.m_cacheRichData && this.m_pageParagraphsData == null)
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void RegisterSectionItemizedData()
+		public void RegisterSectionItemizedData()
 		{
 			if (this.m_sectionItemizedData == null)
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_pageParagraphsData = null;
 		}
 
-		internal void RegisterSectionHeaderFooter()
+		public void RegisterSectionHeaderFooter()
 		{
 			if (this.m_sectionItemizedData == null)
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_pageParagraphsData = null;
 		}
 
-		internal void RegisterPageItemizedData()
+		public void RegisterPageItemizedData()
 		{
 			if (this.m_glyphCache == null)
 			{

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class BlipPart : OoxmlPart
+	public class BlipPart : OoxmlPart
 	{
 		private CT_Blip _root;
 

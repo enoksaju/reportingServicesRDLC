@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class ScalableList<T> : IList<T>, ICollection<T>, IEnumerable<T>, IList, ICollection, IEnumerable, IStorable, IPersistable, IDisposable
+	public sealed class ScalableList<T> : IList<T>, ICollection<T>, IEnumerable<T>, IList, ICollection, IEnumerable, IStorable, IPersistable, IDisposable
 	{
 		private enum BucketPinState
 		{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal ScalableListEnumerator(ScalableList<T> list)
+			public ScalableListEnumerator(ScalableList<T> list)
 			{
 				this.m_list = list;
 				this.m_version = list.m_version;
@@ -208,22 +208,22 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 		{
 		}
 
-		internal ScalableList(int priority, IScalabilityCache cache)
+		public ScalableList(int priority, IScalabilityCache cache)
 			: this(priority, cache, 10)
 		{
 		}
 
-		internal ScalableList(int priority, IScalabilityCache cache, int segmentSize)
+		public ScalableList(int priority, IScalabilityCache cache, int segmentSize)
 			: this(priority, cache, segmentSize, segmentSize)
 		{
 		}
 
-		internal ScalableList(int priority, IScalabilityCache cache, int segmentSize, int capacity)
+		public ScalableList(int priority, IScalabilityCache cache, int segmentSize, int capacity)
 			: this(priority, cache, segmentSize, capacity, false)
 		{
 		}
 
-		internal ScalableList(int priority, IScalabilityCache cache, int segmentSize, int capacity, bool keepAllBucketsPinned)
+		public ScalableList(int priority, IScalabilityCache cache, int segmentSize, int capacity, bool keepAllBucketsPinned)
 		{
 			this.m_priority = priority;
 			this.m_cache = cache;

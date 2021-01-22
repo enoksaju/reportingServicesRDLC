@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class ValueSourceConverter : StringConverter
+	public class ValueSourceConverter : StringConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

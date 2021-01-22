@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartStripLine : ChartObjectCollectionItem<ChartStripLineInstance>, IROMStyleDefinitionContainer, IROMActionOwner
+	public sealed class ChartStripLine : ChartObjectCollectionItem<ChartStripLineInstance>, IROMStyleDefinitionContainer, IROMActionOwner
 	{
 		private Chart m_chart;
 
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartStripLine ChartStripLineDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartStripLine ChartStripLineDef
 		{
 			get
 			{
@@ -228,13 +228,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartStripLine(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartStripLine chartStripLineDef, Chart chart)
+		public ChartStripLine(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartStripLine chartStripLineDef, Chart chart)
 		{
 			this.m_chartStripLineDef = chartStripLineDef;
 			this.m_chart = chart;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_style != null)

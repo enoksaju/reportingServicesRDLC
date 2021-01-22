@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class RectangleRenderer : IReportItemRenderer
+	public class RectangleRenderer : IReportItemRenderer
 	{
 		private const string GrowRectanglesSuffix = "_gr";
 

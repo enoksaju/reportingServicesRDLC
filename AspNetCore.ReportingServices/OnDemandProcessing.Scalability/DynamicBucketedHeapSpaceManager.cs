@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class DynamicBucketedHeapSpaceManager : ISpaceManager
+	public sealed class DynamicBucketedHeapSpaceManager : ISpaceManager
 	{
 		private const int DefaultSpacesPerBucket = 2500;
 
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal SortedBucket[] Buckets
+		public SortedBucket[] Buckets
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal int BucketCount
+		public int BucketCount
 		{
 			get
 			{
@@ -82,12 +82,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal DynamicBucketedHeapSpaceManager()
+		public DynamicBucketedHeapSpaceManager()
 			: this(50, 10, 2500, 35)
 		{
 		}
 
-		internal DynamicBucketedHeapSpaceManager(int splitThreshold, int maxBucketCount, int maxSpacesPerBucket, int minTrackedSizeBytes)
+		public DynamicBucketedHeapSpaceManager(int splitThreshold, int maxBucketCount, int maxSpacesPerBucket, int minTrackedSizeBytes)
 		{
 			this.m_bucketSplitThreshold = splitThreshold;
 			this.m_maxBucketCount = maxBucketCount;

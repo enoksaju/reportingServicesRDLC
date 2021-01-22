@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 
 		private ReportItem m_textBox;
 
-		internal IList<ParagraphExprHost> ParagraphHostsRemotable
+		public IList<ParagraphExprHost> ParagraphHostsRemotable
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal ReportItem ReportObjectModelTextBox
+		public ReportItem ReportObjectModelTextBox
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal void SetTextBox(ReportItem textBox)
+		public void SetTextBox(ReportItem textBox)
 		{
 			this.m_textBox = textBox;
 		}

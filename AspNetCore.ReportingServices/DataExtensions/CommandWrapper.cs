@@ -13,9 +13,9 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal class CommandWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDbCommand, IDisposable
+	public class CommandWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDbCommand, IDisposable
 	{
-		internal enum ServerType
+		public enum ServerType
 		{
 			AnalysisServices,
 			SQLServer,

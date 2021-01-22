@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class RecordRow : IPersistable
+	public sealed class RecordRow : IPersistable
 	{
 		private RecordField[] m_recordFields;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = RecordRow.GetDeclaration();
 
-		internal RecordField[] RecordFields
+		public RecordField[] RecordFields
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsAggregateRow
+		public bool IsAggregateRow
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int AggregationFieldCount
+		public int AggregationFieldCount
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal long StreamPosition
+		public long StreamPosition
 		{
 			get
 			{
@@ -70,11 +70,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RecordRow()
+		public RecordRow()
 		{
 		}
 
-		internal RecordRow(FieldsImpl fields, int fieldCount, FieldInfo[] fieldInfos)
+		public RecordRow(FieldsImpl fields, int fieldCount, FieldInfo[] fieldInfos)
 		{
 			this.m_recordFields = new RecordField[fieldCount];
 			for (int i = 0; i < fieldCount; i++)
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_aggregationFieldCount = fields.AggregationFieldCount;
 		}
 
-		internal RecordRow(RecordRow original, int[] mappingDataSetFieldIndexesToDataChunk)
+		public RecordRow(RecordRow original, int[] mappingDataSetFieldIndexesToDataChunk)
 		{
 			this.m_streamPosition = original.m_streamPosition;
 			this.m_isAggregateRow = original.m_isAggregateRow;
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.ApplyFieldMapping(mappingDataSetFieldIndexesToDataChunk);
 		}
 
-		internal void ApplyFieldMapping(int[] mappingDataSetFieldIndexesToDataChunk)
+		public void ApplyFieldMapping(int[] mappingDataSetFieldIndexesToDataChunk)
 		{
 			if (mappingDataSetFieldIndexesToDataChunk != null)
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object GetFieldValue(int aliasIndex)
+		public object GetFieldValue(int aliasIndex)
 		{
 			RecordField recordField = this.m_recordFields[aliasIndex];
 			if (recordField == null)
@@ -136,12 +136,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return recordField.FieldValue;
 		}
 
-		internal bool IsAggregationField(int aliasIndex)
+		public bool IsAggregationField(int aliasIndex)
 		{
 			return this.m_recordFields[aliasIndex].IsAggregationField;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.RecordFields, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectArray, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RecordField));

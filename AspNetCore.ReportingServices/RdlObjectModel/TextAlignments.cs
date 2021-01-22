@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum TextAlignments
+	public enum TextAlignments
 	{
 		Default,
 		General,

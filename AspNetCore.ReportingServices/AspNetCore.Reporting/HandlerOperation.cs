@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AspNetCore.Reporting
 {
-	internal abstract class HandlerOperation : IDisposable
+	public abstract class HandlerOperation : IDisposable
 	{
 		public virtual bool IsCacheable
 		{

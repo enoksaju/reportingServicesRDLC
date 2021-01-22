@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 {
-	internal sealed class VersionStamp
+	public sealed class VersionStamp
 	{
 		private static readonly byte[] Stamp = new byte[16]
 		{
@@ -22,12 +22,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			25
 		};
 
-		internal static byte[] GetBytes()
+		public static byte[] GetBytes()
 		{
 			return VersionStamp.Stamp;
 		}
 
-		internal static bool Validate(byte[] stamp)
+		public static bool Validate(byte[] stamp)
 		{
 			if (stamp == null)
 			{

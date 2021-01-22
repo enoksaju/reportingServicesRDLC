@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal sealed class RenderReportYukonDefinitionOnly : RenderReportYukonInitial
+	public sealed class RenderReportYukonDefinitionOnly : RenderReportYukonInitial
 	{
 		public RenderReportYukonDefinitionOnly(ProcessingContext pc, RenderingContext rc, DateTime executionTimeStamp, ReportProcessing processing, IChunkFactory yukonCompiledDefinition)
 			: base(pc, rc, executionTimeStamp, processing, yukonCompiledDefinition)

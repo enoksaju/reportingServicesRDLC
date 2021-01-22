@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class StyleContainer : IStyle, IFont
+	public sealed class StyleContainer : IStyle, IFont
 	{
 		private StyleState m_context;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private ushort m_cellIxfe = 15;
 
-		internal int CellIxfe
+		public int CellIxfe
 		{
 			get
 			{
@@ -296,12 +296,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal StyleContainer()
+		public StyleContainer()
 		{
 			this.AddBuiltInFormats();
 		}
 
-		internal void Finish()
+		public void Finish()
 		{
 			if (this.m_context != null)
 			{
@@ -314,18 +314,18 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			this.m_context = null;
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.m_context = null;
 			this.m_cellIxfe = 15;
 		}
 
-		internal void DefineSharedStyle(string id)
+		public void DefineSharedStyle(string id)
 		{
 			this.m_context = new DefineSharedStyle(this, id);
 		}
 
-		internal bool UseSharedStyle(string id)
+		public bool UseSharedStyle(string id)
 		{
 			if (this.m_cache.ContainsKey(id))
 			{
@@ -335,17 +335,17 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return false;
 		}
 
-		internal void SetContext(StyleState state)
+		public void SetContext(StyleState state)
 		{
 			this.m_context = state;
 		}
 
-		internal BIFF8Style GetStyle(int ixfe)
+		public BIFF8Style GetStyle(int ixfe)
 		{
 			return this.m_styles[ixfe - 21];
 		}
 
-		internal string GetFormat(int ifmt)
+		public string GetFormat(int ifmt)
 		{
 			int index = default(int);
 			if (this.m_formatIntMap.TryGetValue(ifmt, out index))
@@ -355,12 +355,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			throw new ReportRenderingException(ExcelRenderRes.InvalidIndexException(ifmt.ToString(CultureInfo.InvariantCulture)));
 		}
 
-		internal BIFF8Font GetFont(int ifnt)
+		public BIFF8Font GetFont(int ifnt)
 		{
 			return this.m_fonts[ifnt - 5];
 		}
 
-		internal int AddStyle(BIFF8Style style)
+		public int AddStyle(BIFF8Style style)
 		{
 			int num = default(int);
 			if (!this.m_styleMap.TryGetValue(style, out num))
@@ -372,7 +372,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return num;
 		}
 
-		internal int AddStyle(StyleProperties props)
+		public int AddStyle(StyleProperties props)
 		{
 			BIFF8Style bIFF8Style = new BIFF8Style(props);
 			BIFF8Font font = new BIFF8Font(props);
@@ -381,7 +381,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return this.AddStyle(bIFF8Style);
 		}
 
-		internal int AddFormat(string format)
+		public int AddFormat(string format)
 		{
 			if (format != null && format.Length != 0)
 			{
@@ -400,7 +400,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return 0;
 		}
 
-		internal int AddFont(BIFF8Font font)
+		public int AddFont(BIFF8Font font)
 		{
 			int num = default(int);
 			if (!this.m_fontMap.TryGetValue(font, out num))
@@ -412,17 +412,17 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return num;
 		}
 
-		internal void AddSharedStyle(string id, StyleProperties style)
+		public void AddSharedStyle(string id, StyleProperties style)
 		{
 			this.m_cache[id] = style;
 		}
 
-		internal StyleProperties GetSharedStyle(string id)
+		public StyleProperties GetSharedStyle(string id)
 		{
 			return this.m_cache[id];
 		}
 
-		internal void Write(BinaryWriter writer)
+		public void Write(BinaryWriter writer)
 		{
 			foreach (BIFF8Font font in this.m_fonts)
 			{

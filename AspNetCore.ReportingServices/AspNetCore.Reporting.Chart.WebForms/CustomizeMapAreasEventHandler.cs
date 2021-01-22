@@ -1,4 +1,4 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal delegate void CustomizeMapAreasEventHandler(object sender, CustomizeMapAreasEventArgs e);
+	public delegate void CustomizeMapAreasEventHandler(object sender, CustomizeMapAreasEventArgs e);
 }

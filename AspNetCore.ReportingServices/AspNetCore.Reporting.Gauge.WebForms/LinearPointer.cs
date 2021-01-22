@@ -10,7 +10,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(LinearPointerConverter))]
-	internal class LinearPointer : PointerBase, ISelectable
+	public class LinearPointer : PointerBase, ISelectable
 	{
 		private LinearPointerType type;
 
@@ -324,7 +324,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal override void Render(GaugeGraphics g)
+		public override void Render(GaugeGraphics g)
 		{
 			if (this.Common != null && this.Visible && this.GetScale() != null)
 			{
@@ -452,7 +452,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal BarStyleAttrib GetBarStyleAttrib(GaugeGraphics g)
+		public BarStyleAttrib GetBarStyleAttrib(GaugeGraphics g)
 		{
 			BarStyleAttrib barStyleAttrib = new BarStyleAttrib();
 			if (this.Image != "")
@@ -529,7 +529,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return barStyleAttrib;
 		}
 
-		internal BarStyleAttrib GetThermometerStyleAttrib(GaugeGraphics g)
+		public BarStyleAttrib GetThermometerStyleAttrib(GaugeGraphics g)
 		{
 			BarStyleAttrib barStyleAttrib = new BarStyleAttrib();
 			if (this.Image != "")
@@ -681,7 +681,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return 0.0;
 		}
 
-		internal void DrawImage(GaugeGraphics g, bool drawShadow)
+		public void DrawImage(GaugeGraphics g, bool drawShadow)
 		{
 			if (this.Visible)
 			{
@@ -753,7 +753,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal MarkerStyleAttrib GetMarkerStyleAttrib(GaugeGraphics g)
+		public MarkerStyleAttrib GetMarkerStyleAttrib(GaugeGraphics g)
 		{
 			MarkerStyleAttrib markerStyleAttrib = new MarkerStyleAttrib();
 			float absoluteDimension = g.GetAbsoluteDimension(this.MarkerLength);
@@ -790,7 +790,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal float CalculateMarkerDistance()
+		public float CalculateMarkerDistance()
 		{
 			if (this.Placement == Placement.Cross)
 			{
@@ -803,7 +803,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (float)(this.GetScale().Position + this.GetScale().Width / 2.0 + this.DistanceFromScale + this.MarkerLength / 2.0);
 		}
 
-		internal GraphicsPath GetPointerPath(GaugeGraphics g)
+		public GraphicsPath GetPointerPath(GaugeGraphics g)
 		{
 			if (!this.Visible)
 			{
@@ -849,7 +849,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal GraphicsPath GetShadowPath(GaugeGraphics g)
+		public GraphicsPath GetShadowPath(GaugeGraphics g)
 		{
 			if (base.ShadowOffset != 0.0 && this.GetScale() != null)
 			{
@@ -873,7 +873,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return null;
 		}
 
-		internal void AddHotRegion(GraphicsPath path, bool primary)
+		public void AddHotRegion(GraphicsPath path, bool primary)
 		{
 			if (primary)
 			{
@@ -885,7 +885,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void SetAllHotRegions(GaugeGraphics g)
+		public void SetAllHotRegions(GaugeGraphics g)
 		{
 			this.Common.GaugeCore.HotRegionList.SetHotRegion(this, PointF.Empty, this.hotRegions[0], this.hotRegions[1]);
 			this.hotRegions[0] = null;

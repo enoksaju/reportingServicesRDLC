@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class PageBreakProperties : IStorable, IPersistable
+	public sealed class PageBreakProperties : IStorable, IPersistable
 	{
 		private bool m_pageBreakAtStart;
 
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal PageBreakProperties()
+		public PageBreakProperties()
 		{
 		}
 
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_source = source;
 		}
 
-		internal static PageBreakProperties Create(PageBreak pageBreak, object source, PageContext pageContext)
+		public static PageBreakProperties Create(PageBreak pageBreak, object source, PageContext pageContext)
 		{
 			if (pageBreak.BreakLocation != 0)
 			{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.PageBreakProperties;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (PageBreakProperties.m_declaration == null)
 			{

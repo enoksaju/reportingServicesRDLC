@@ -2,19 +2,19 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ActionRendering : MemberBase
+	public sealed class ActionRendering : MemberBase
 	{
-		internal ActionItem m_actionDef;
+		public ActionItem m_actionDef;
 
-		internal ReportUrl m_actionURL;
+		public ReportUrl m_actionURL;
 
-		internal ActionItemInstance m_actionInstance;
+		public ActionItemInstance m_actionInstance;
 
-		internal RenderingContext m_renderingContext;
+		public RenderingContext m_renderingContext;
 
-		internal string m_drillthroughId;
+		public string m_drillthroughId;
 
-		internal ActionRendering()
+		public ActionRendering()
 			: base(false)
 		{
 		}

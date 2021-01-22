@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class ChildLeafInfo : List<RuntimeGroupLeafObjReference>, IStorable, IPersistable
+	public sealed class ChildLeafInfo : List<RuntimeGroupLeafObjReference>, IStorable, IPersistable
 	{
 		private static Declaration m_declaration = ChildLeafInfo.GetDeclaration();
 
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChildLeafInfo;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (ChildLeafInfo.m_declaration == null)
 			{

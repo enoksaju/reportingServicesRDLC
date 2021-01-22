@@ -6,7 +6,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class SubReport : ReportItem
+	public sealed class SubReport : ReportItem
 	{
 		private Report m_report;
 
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool ProcessedWithError
+		public bool ProcessedWithError
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal SubReportErrorCodes ErrorCode
+		public SubReportErrorCodes ErrorCode
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string ErrorMessage
+		public string ErrorMessage
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -130,17 +130,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal SubReport(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport reportItemDef, RenderingContext renderingContext)
+		public SubReport(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport reportItemDef, RenderingContext renderingContext)
 			: base(reportScope, parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 		}
 
-		internal SubReport(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.SubReport renderSubReport, RenderingContext renderingContext)
+		public SubReport(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.SubReport renderSubReport, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, inSubtotal, renderSubReport, renderingContext)
 		{
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal void RetrieveSubreport()
+		public void RetrieveSubreport()
 		{
 			if (this.m_isNewContext)
 			{
@@ -309,13 +309,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			throw new RenderingObjectModelException(errorMessage);
 		}
 
-		internal override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			base.UpdateRenderReportItem(renderReportItem);
 			this.SetNewContext();
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			this.m_isNewContext = true;
@@ -324,7 +324,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_errorCode = SubReportErrorCodes.Success;
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_report != null)
 			{

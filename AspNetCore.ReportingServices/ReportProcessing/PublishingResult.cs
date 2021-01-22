@@ -5,7 +5,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class PublishingResult
+	public sealed class PublishingResult
 	{
 		private string m_reportDescription;
 
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PublishingResult(string reportDescription, string reportLanguage, ParameterInfoCollection parameters, DataSourceInfoCollection dataSources, DataSetInfoCollection sharedDataSetReferences, ProcessingMessageList warnings, UserLocationFlags userReferenceLocation, double pageHeight, double pageWidth, double topMargin, double bottomMargin, double leftMargin, double rightMargin, ArrayList dataSetsName, bool hasExternalImages, bool hasHyperlinks, ReportProcessingFlags reportProcessingFlags, byte[] dataSetsHash)
+		public PublishingResult(string reportDescription, string reportLanguage, ParameterInfoCollection parameters, DataSourceInfoCollection dataSources, DataSetInfoCollection sharedDataSetReferences, ProcessingMessageList warnings, UserLocationFlags userReferenceLocation, double pageHeight, double pageWidth, double topMargin, double bottomMargin, double leftMargin, double rightMargin, ArrayList dataSetsName, bool hasExternalImages, bool hasHyperlinks, ReportProcessingFlags reportProcessingFlags, byte[] dataSetsHash)
 		{
 			this.m_reportDescription = reportDescription;
 			this.m_reportLanguage = reportLanguage;

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeGroupObj : RuntimeHierarchyObj
+	public abstract class RuntimeGroupObj : RuntimeHierarchyObj
 	{
 		protected RuntimeGroupLeafObjReference m_lastChild;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private static Declaration m_declaration = RuntimeGroupObj.GetDeclaration();
 
-		internal RuntimeGroupLeafObjReference LastChild
+		public RuntimeGroupLeafObjReference LastChild
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeGroupLeafObjReference FirstChild
+		public RuntimeGroupLeafObjReference FirstChild
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual int RecursiveLevel
+		public virtual int RecursiveLevel
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		{
 		}
 
-		internal void AddChild(RuntimeGroupLeafObjReference child)
+		public void AddChild(RuntimeGroupLeafObjReference child)
 		{
 			if ((BaseReference)null != (object)this.m_lastChild)
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_lastChild = child;
 		}
 
-		internal void InsertToSortTree(RuntimeGroupLeafObjReference groupLeaf)
+		public void InsertToSortTree(RuntimeGroupLeafObjReference groupLeaf)
 		{
 			using (base.m_hierarchyRoot.PinValue())
 			{

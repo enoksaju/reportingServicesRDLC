@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartDataLabel : IROMStyleDefinitionContainer, IROMActionOwner
+	public sealed class ChartDataLabel : IROMStyleDefinitionContainer, IROMActionOwner
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataLabel m_chartDataLabelDef;
 
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartDataPoint ChartDataPoint
+		public ChartDataPoint ChartDataPoint
 		{
 			get
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataLabel ChartDataLabelDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataLabel ChartDataLabelDef
 		{
 			get
 			{
@@ -282,27 +282,27 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartDataLabel(ChartDataPoint dataPoint, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataLabel chartDataLabelDef, Chart chart)
+		public ChartDataLabel(ChartDataPoint dataPoint, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataLabel chartDataLabelDef, Chart chart)
 		{
 			this.m_dataPoint = dataPoint;
 			this.m_chartDataLabelDef = chartDataLabelDef;
 			this.m_chart = chart;
 		}
 
-		internal ChartDataLabel(InternalChartSeries series, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataLabel chartDataLabelDef, Chart chart)
+		public ChartDataLabel(InternalChartSeries series, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataLabel chartDataLabelDef, Chart chart)
 		{
 			this.m_chartSeries = series;
 			this.m_chartDataLabelDef = chartDataLabelDef;
 			this.m_chart = chart;
 		}
 
-		internal ChartDataLabel(ChartDataPoint dataPoint, Chart chart)
+		public ChartDataLabel(ChartDataPoint dataPoint, Chart chart)
 		{
 			this.m_dataPoint = dataPoint;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

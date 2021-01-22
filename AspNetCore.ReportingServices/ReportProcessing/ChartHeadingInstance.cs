@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartHeadingInstance : InstanceInfoOwner
+	public sealed class ChartHeadingInstance : InstanceInfoOwner
 	{
 		private int m_uniqueName;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private ChartHeadingInstanceList m_subHeadingInstances;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeading ChartHeadingDef
+		public ChartHeading ChartHeadingDef
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceList SubHeadingInstances
+		public ChartHeadingInstanceList SubHeadingInstances
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceInfo InstanceInfo
+		public ChartHeadingInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstance(ReportProcessing.ProcessingContext pc, int headingCellIndex, ChartHeading chartHeadingDef, int labelIndex, VariantList groupExpressionValues)
+		public ChartHeadingInstance(ReportProcessing.ProcessingContext pc, int headingCellIndex, ChartHeading chartHeadingDef, int labelIndex, VariantList groupExpressionValues)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 			if (chartHeadingDef.SubHeading != null)
@@ -73,11 +73,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_chartHeadingDef = chartHeadingDef;
 		}
 
-		internal ChartHeadingInstance()
+		public ChartHeadingInstance()
 		{
 		}
 
-		internal ChartHeadingInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public ChartHeadingInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return (ChartHeadingInstanceInfo)base.m_instanceInfo;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));

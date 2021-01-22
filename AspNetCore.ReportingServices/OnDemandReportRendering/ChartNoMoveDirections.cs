@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartNoMoveDirections
+	public sealed class ChartNoMoveDirections
 	{
 		private Chart m_chart;
 
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartNoMoveDirections ChartNoMoveDirectionsDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartNoMoveDirections ChartNoMoveDirectionsDef
 		{
 			get
 			{
@@ -168,14 +168,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartNoMoveDirections(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartNoMoveDirections chartNoMoveDirectionsDef, Chart chart)
+		public ChartNoMoveDirections(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartNoMoveDirections chartNoMoveDirectionsDef, Chart chart)
 		{
 			this.m_chartSeries = chartSeries;
 			this.m_chartNoMoveDirectionsDef = chartNoMoveDirectionsDef;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

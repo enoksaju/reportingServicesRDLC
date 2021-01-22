@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal enum FontEmbedding
+	public enum FontEmbedding
 	{
 		None,
 		Subset

@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Rectangle : ReportItem
+	public class Rectangle : ReportItem
 	{
-		internal new class Definition : DefinitionStore<Rectangle, Definition.Properties>
+		public new class Definition : DefinitionStore<Rectangle, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Name,
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Rectangle(IPropertyStore propertyStore)
+		public Rectangle(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -19,23 +19,23 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.RdlExpressions
 {
-	internal sealed class ExprHostCompiler
+	public sealed class ExprHostCompiler
 	{
 		private sealed class ExprCompileTimeInfo
 		{
-			internal AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ExpressionInfo;
+			public AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ExpressionInfo;
 
-			internal AspNetCore.ReportingServices.ReportProcessing.ObjectType OwnerObjectType;
+			public AspNetCore.ReportingServices.ReportProcessing.ObjectType OwnerObjectType;
 
-			internal string OwnerObjectName;
+			public string OwnerObjectName;
 
-			internal string OwnerPropertyName;
+			public string OwnerPropertyName;
 
-			internal int NumErrors;
+			public int NumErrors;
 
-			internal int NumWarnings;
+			public int NumWarnings;
 
-			internal ExprCompileTimeInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression, ExpressionParser.ExpressionContext context)
+			public ExprCompileTimeInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression, ExpressionParser.ExpressionContext context)
 			{
 				this.ExpressionInfo = expression;
 				this.OwnerObjectType = context.ObjectType;
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private sealed class ExprCompileTimeInfoList : ArrayList
 		{
-			internal new ExprCompileTimeInfo this[int exprCTId]
+			public new ExprCompileTimeInfo this[int exprCTId]
 			{
 				get
 				{
@@ -59,14 +59,14 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private sealed class CodeModuleClassInstanceDeclCompileTimeInfo
 		{
-			internal int NumErrors;
+			public int NumErrors;
 
-			internal int NumWarnings;
+			public int NumWarnings;
 		}
 
 		private sealed class CodeModuleClassInstanceDeclCompileTimeInfoList : Hashtable
 		{
-			internal new CodeModuleClassInstanceDeclCompileTimeInfo this[object id]
+			public new CodeModuleClassInstanceDeclCompileTimeInfo this[object id]
 			{
 				get
 				{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private IExpressionHostAssemblyHolder m_expressionHostAssemblyHolder;
 
-		internal ExprHostBuilder Builder
+		public ExprHostBuilder Builder
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool BodyRefersToReportItems
+		public bool BodyRefersToReportItems
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool PageSectionRefersToReportItems
+		public bool PageSectionRefersToReportItems
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool PageSectionRefersToOverallTotalPages
+		public bool PageSectionRefersToOverallTotalPages
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool PageSectionRefersToTotalPages
+		public bool PageSectionRefersToTotalPages
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal int NumberOfAggregates
+		public int NumberOfAggregates
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal int LastAggregateID
+		public int LastAggregateID
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal int LastLookupID
+		public int LastLookupID
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool PreviousAggregateUsed
+		public bool PreviousAggregateUsed
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool AggregateOfAggregateUsed
+		public bool AggregateOfAggregateUsed
 		{
 			get
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool AggregateOfAggregateUsedInUserSort
+		public bool AggregateOfAggregateUsedInUserSort
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool ValueReferenced
+		public bool ValueReferenced
 		{
 			get
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool ValueReferencedGlobal
+		public bool ValueReferencedGlobal
 		{
 			get
 			{
@@ -203,33 +203,33 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal ExprHostCompiler(ExpressionParser langParser, ErrorContext errorContext)
+		public ExprHostCompiler(ExpressionParser langParser, ErrorContext errorContext)
 		{
 			this.m_langParser = langParser;
 			this.m_errorContext = errorContext;
 			this.m_builder = new ExprHostBuilder();
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionParser.EvaluationMode evaluationMode, ExpressionParser.ExpressionContext context)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionParser.EvaluationMode evaluationMode, ExpressionParser.ExpressionContext context)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expressionInfo = this.m_langParser.ParseExpression(expression, context, evaluationMode);
 			this.ProcessExpression(expressionInfo, context);
 			return expressionInfo;
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionParser.ExpressionContext context, ExpressionParser.EvaluationMode evaluationMode, out bool userCollectionReferenced)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionParser.ExpressionContext context, ExpressionParser.EvaluationMode evaluationMode, out bool userCollectionReferenced)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expressionInfo = this.m_langParser.ParseExpression(expression, context, evaluationMode, out userCollectionReferenced);
 			this.ProcessExpression(expressionInfo, context);
 			return expressionInfo;
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo CreateScopedFirstAggregate(string fieldName, string dataSetName)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo CreateScopedFirstAggregate(string fieldName, string dataSetName)
 		{
 			return this.m_langParser.CreateScopedFirstAggregate(fieldName, dataSetName);
 		}
 
-		internal void ConvertFields2ComplexExpr()
+		public void ConvertFields2ComplexExpr()
 		{
 			if (this.m_reportLevelFieldReferences != null)
 			{
@@ -242,17 +242,17 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal void ResetValueReferencedFlag()
+		public void ResetValueReferencedFlag()
 		{
 			this.m_langParser.ResetValueReferencedFlag();
 		}
 
-		internal void ResetPageSectionRefersFlags()
+		public void ResetPageSectionRefersFlags()
 		{
 			this.m_langParser.ResetPageSectionRefersFlags();
 		}
 
-		internal byte[] Compile(IExpressionHostAssemblyHolder expressionHostAssemblyHolder, AppDomain compilationTempAppDomain, bool refusePermissions, PublishingVersioning versioning)
+		public byte[] Compile(IExpressionHostAssemblyHolder expressionHostAssemblyHolder, AppDomain compilationTempAppDomain, bool refusePermissions, PublishingVersioning versioning)
 		{
             byte[] result = null;
             if (this.m_builder.HasExpressions && versioning.IsRdlFeatureRestricted(RdlFeatures.ComplexExpression))

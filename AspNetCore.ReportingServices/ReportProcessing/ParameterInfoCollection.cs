@@ -15,7 +15,7 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ParameterInfoCollection : ArrayList, IPersistable, ISerializable
+	public sealed class ParameterInfoCollection : ArrayList, IPersistable, ISerializable
 	{
 		private const string SerializationXmlPropName = "Xml";
 
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 		}
 
-		internal ParameterInfoCollection(int capacity)
+		public ParameterInfoCollection(int capacity)
 			: base(capacity)
 		{
 		}
@@ -1403,7 +1403,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal void StoreLabels()
+		public void StoreLabels()
 		{
 			for (int i = 0; i < this.Count; i++)
 			{
@@ -1411,7 +1411,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (ParameterInfoCollection.m_Declaration == null)
 			{

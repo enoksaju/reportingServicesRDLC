@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class PageItemContainerHelper : PageItemHelper
+	public class PageItemContainerHelper : PageItemHelper
 	{
 		private bool m_itemsCreated;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private PageItemHelper[] m_children;
 
-		internal bool ItemsCreated
+		public bool ItemsCreated
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int[] IndexesLeftToRight
+		public int[] IndexesLeftToRight
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int[] IndexesTopToBottom
+		public int[] IndexesTopToBottom
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItemHelper[] RepeatWithItems
+		public PageItemHelper[] RepeatWithItems
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItemHelper RightEdgeItem
+		public PageItemHelper RightEdgeItem
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItemHelper[] Children
+		public PageItemHelper[] Children
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItemContainerHelper(byte type)
+		public PageItemContainerHelper(byte type)
 			: base(type)
 		{
 		}

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RowInstance
+	public sealed class RowInstance
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow m_recordRow;
 
@@ -47,13 +47,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RowInstance(FieldInfo[] fieldInfos, AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow recordRow)
+		public RowInstance(FieldInfo[] fieldInfos, AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow recordRow)
 		{
 			this.m_recordRow = recordRow;
 			this.m_fieldInfos = fieldInfos;
 		}
 
-		internal void UpdateRecordRow(AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow recordRow)
+		public void UpdateRecordRow(AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow recordRow)
 		{
 			this.m_recordRow = recordRow;
 			if (this.m_fields != null)

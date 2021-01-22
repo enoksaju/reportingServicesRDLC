@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal ParameterImpl[] Collection
+		public ParameterImpl[] Collection
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal Hashtable NameMap
+		public Hashtable NameMap
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -72,18 +72,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal ParametersImpl()
+		public ParametersImpl()
 		{
 		}
 
-		internal ParametersImpl(int size)
+		public ParametersImpl(int size)
 		{
 			this.m_collection = new ParameterImpl[size];
 			this.m_nameMap = new Hashtable(size);
 			this.m_count = 0;
 		}
 
-		internal ParametersImpl(ParametersImpl copy)
+		public ParametersImpl(ParametersImpl copy)
 		{
 			this.m_count = copy.m_count;
 			if (copy.m_collection != null)
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Add(string name, ParameterImpl parameter)
+		public void Add(string name, ParameterImpl parameter)
 		{
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
 			Global.Tracer.Assert(null != this.m_nameMap, "(null != m_nameMap)");
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_count++;
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			if (this.m_nameMap != null)
 			{

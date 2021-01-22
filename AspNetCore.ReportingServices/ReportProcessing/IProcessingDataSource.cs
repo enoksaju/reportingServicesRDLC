@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IProcessingDataSource
+	public interface IProcessingDataSource
 	{
 		Guid ID
 		{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartAxisLocation
+	public enum ChartAxisLocation
 	{
 		Default,
 		Opposite

@@ -13,7 +13,7 @@ namespace System.Web.Services.Protocols
 {
     /// <summary>Represents the contents of the optional Subcode element of a SOAP fault when SOAP version 1.2 is used to communicate between a client and an XML Web service.</summary>
 	[Serializable]
-    internal class SoapFaultSubCode
+    public class SoapFaultSubCode
     {
         /// <summary>Initializes a new instance of the <see cref="T:System.Web.Services.Protocols.SoapFaultSubcode" /> class sets the application specific error code.</summary>
         /// <param name="code">An <see cref="T:System.Xml.XmlQualifiedName" /> specifying the application specific error code. Sets the <see cref="P:System.Web.Services.Protocols.SoapFaultSubcode.Code" /> property. </param>

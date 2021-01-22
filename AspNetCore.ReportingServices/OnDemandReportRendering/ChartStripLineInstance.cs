@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartStripLineInstance : BaseInstance
+	public sealed class ChartStripLineInstance : BaseInstance
 	{
 		private ChartStripLine m_chartStripLineDef;
 
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartStripLineInstance(ChartStripLine chartStripLineDef)
+		public ChartStripLineInstance(ChartStripLine chartStripLineDef)
 			: base(chartStripLineDef.ChartDef)
 		{
 			this.m_chartStripLineDef = chartStripLineDef;

@@ -5,9 +5,9 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeAnnotationPathPointCollection_AnnotationPathPointCollection")]
-	internal class AnnotationPathPointCollection : CollectionBase
+	public class AnnotationPathPointCollection : CollectionBase
 	{
-		internal PolylineAnnotation annotation;
+		public PolylineAnnotation annotation;
 
 		[SRDescription("DescriptionAttributeAnnotationPathPointCollection_Item")]
 		public AnnotationPathPoint this[int index]

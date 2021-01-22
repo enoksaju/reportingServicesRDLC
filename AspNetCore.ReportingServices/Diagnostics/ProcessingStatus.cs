@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal enum ProcessingStatus
+	public enum ProcessingStatus
 	{
 		Success,
 		CanceledByUser,

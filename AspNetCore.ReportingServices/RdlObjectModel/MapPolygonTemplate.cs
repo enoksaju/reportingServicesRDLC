@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapPolygonTemplate : MapSpatialElementTemplate
+	public class MapPolygonTemplate : MapSpatialElementTemplate
 	{
-		internal new class Definition : DefinitionStore<MapPolygonTemplate, Definition.Properties>
+		public new class Definition : DefinitionStore<MapPolygonTemplate, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				ActionInfo,
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapPolygonTemplate(IPropertyStore propertyStore)
+		public MapPolygonTemplate(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

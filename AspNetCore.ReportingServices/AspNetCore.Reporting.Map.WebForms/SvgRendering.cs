@@ -8,9 +8,9 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SvgRendering : MapParameters
+	public class SvgRendering : MapParameters
 	{
-		internal XmlTextWriter output;
+		public XmlTextWriter output;
 
 		private int gradientIDNum;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private bool antiAlias;
 
-		internal bool antiAliasText;
+		public bool antiAliasText;
 
 		private bool transformOpen;
 
@@ -95,7 +95,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			throw new ArgumentException("Svg Graphics Object - Invalid SVG Picture Size.", "pictureSize");
 		}
 
-		internal void Validate()
+		public void Validate()
 		{
 			if (this.output == null)
 			{
@@ -742,7 +742,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return false;
 		}
 
-		internal bool NoTransformMatrix()
+		public bool NoTransformMatrix()
 		{
 			if (this.Transform == null)
 			{
@@ -894,13 +894,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string GetAlpha(Color color)
+		public string GetAlpha(Color color)
 		{
 			double number = (double)(int)color.A / 255.0;
 			return base.ToUSString(number);
 		}
 
-		internal string ColorToString(Color color)
+		public string ColorToString(Color color)
 		{
 			string str = color.R.ToString("x2", CultureInfo.InvariantCulture);
 			string str2 = color.G.ToString("x2", CultureInfo.InvariantCulture);
@@ -908,7 +908,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return "#" + str + str2 + str3;
 		}
 
-		internal void SetStringAlignment(StringFormat stringFormat)
+		public void SetStringAlignment(StringFormat stringFormat)
 		{
 			bool flag = false;
 			if ((stringFormat.FormatFlags & StringFormatFlags.DirectionVertical) == StringFormatFlags.DirectionVertical)
@@ -933,7 +933,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void Transformations()
+		public void Transformations()
 		{
 			if (this.MatrixChanged())
 			{
@@ -1019,7 +1019,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.toolTipsText = string.Empty;
 		}
 
-		internal void SetToolTip()
+		public void SetToolTip()
 		{
 			if (!string.IsNullOrEmpty(this.toolTipsText))
 			{
@@ -1029,7 +1029,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void StartGraphicsParameters(bool fill, bool outline)
+		public void StartGraphicsParameters(bool fill, bool outline)
 		{
 			this.SVGDefine(fill, outline);
 			this.Transformations();
@@ -1086,7 +1086,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void EndGraphicsParameters()
+		public void EndGraphicsParameters()
 		{
 			this.output.WriteEndElement();
 		}

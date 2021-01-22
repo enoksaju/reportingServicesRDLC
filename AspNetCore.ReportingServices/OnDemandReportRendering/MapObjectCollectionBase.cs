@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapObjectCollectionBase<T> : ReportElementCollectionBase<T> where T : IMapObjectCollectionItem
+	public abstract class MapObjectCollectionBase<T> : ReportElementCollectionBase<T> where T : IMapObjectCollectionItem
 	{
 		private T[] m_collection;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		protected abstract T CreateMapObject(int index);
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_collection != null)
 			{

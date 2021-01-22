@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal class ExcelApplication
+	public class ExcelApplication
 	{
 		public virtual Workbook CreateStreaming(Stream outputStream)
 		{

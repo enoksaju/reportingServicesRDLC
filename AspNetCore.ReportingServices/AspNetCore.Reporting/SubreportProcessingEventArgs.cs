@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class SubreportProcessingEventArgs : EventArgs
+	public sealed class SubreportProcessingEventArgs : EventArgs
 	{
 		private string m_subReportName;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal SubreportProcessingEventArgs(string subreportName, ReportParameterInfoCollection paramMetaData, string[] dataSetNames)
+		public SubreportProcessingEventArgs(string subreportName, ReportParameterInfoCollection paramMetaData, string[] dataSetNames)
 		{
 			this.m_subReportName = subreportName;
 			this.m_paramMetaData = paramMetaData;

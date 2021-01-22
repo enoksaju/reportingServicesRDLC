@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class ServerDynamicImageRenderer : IReportItemRenderer
+	public class ServerDynamicImageRenderer : IReportItemRenderer
 	{
 		private HTML5Renderer html5Renderer;
 

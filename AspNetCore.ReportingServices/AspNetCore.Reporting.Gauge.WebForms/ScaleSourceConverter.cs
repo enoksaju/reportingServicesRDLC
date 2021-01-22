@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class ScaleSourceConverter : StringConverter
+	public class ScaleSourceConverter : StringConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

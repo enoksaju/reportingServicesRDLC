@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<ChartCustomPaletteColorExprHost> m_customPaletteColorHostsRemotable;
 
-		internal IList<ChartSeriesExprHost> SeriesCollectionHostsRemotable
+		public IList<ChartSeriesExprHost> SeriesCollectionHostsRemotable
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartDerivedSeriesExprHost> ChartDerivedSeriesCollectionHostsRemotable
+		public IList<ChartDerivedSeriesExprHost> ChartDerivedSeriesCollectionHostsRemotable
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartAreaExprHost> ChartAreasHostsRemotable
+		public IList<ChartAreaExprHost> ChartAreasHostsRemotable
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartTitleExprHost> TitlesHostsRemotable
+		public IList<ChartTitleExprHost> TitlesHostsRemotable
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartLegendExprHost> LegendsHostsRemotable
+		public IList<ChartLegendExprHost> LegendsHostsRemotable
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<DataValueExprHost> CodeParametersHostsRemotable
+		public IList<DataValueExprHost> CodeParametersHostsRemotable
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartCustomPaletteColorExprHost> CustomPaletteColorHostsRemotable
+		public IList<ChartCustomPaletteColorExprHost> CustomPaletteColorHostsRemotable
 		{
 			get
 			{

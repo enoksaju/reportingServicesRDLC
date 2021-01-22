@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Borders3D
 {
-	internal interface IBorderType
+	public interface IBorderType
 	{
 		string Name
 		{

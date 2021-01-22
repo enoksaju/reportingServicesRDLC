@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SqlBytesReader
+	public class SqlBytesReader
 	{
 		private SqlBytes _data;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private byte[] _shortBinData = new byte[8];
 
-		internal int Position
+		public int Position
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int Length
+		public int Length
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool EOF
+		public bool EOF
 		{
 			get
 			{
@@ -38,13 +38,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal SqlBytesReader(SqlBytes data)
+		public SqlBytesReader(SqlBytes data)
 		{
 			this._data = data;
 			this._length = (int)this._data.Length;
 		}
 
-		internal byte ReadByte()
+		public byte ReadByte()
 		{
 			if (this.EOF)
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this._data[this._position++];
 		}
 
-		internal int ReadInt32()
+		public int ReadInt32()
 		{
 			if (this._position + 4 > this._length)
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return BitConverter.ToInt32(this._shortBinData, 0);
 		}
 
-		internal double ReadDouble()
+		public double ReadDouble()
 		{
 			if (this._position + 8 > this._length)
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return BitConverter.ToDouble(this._shortBinData, 0);
 		}
 
-		internal ushort ReadUInt16()
+		public ushort ReadUInt16()
 		{
 			if (this._position + 2 > this._length)
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return BitConverter.ToUInt16(this._shortBinData, 0);
 		}
 
-		internal uint ReadUInt32()
+		public uint ReadUInt32()
 		{
 			if (this._position + 4 > this._length)
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return BitConverter.ToUInt32(this._shortBinData, 0);
 		}
 
-		internal char ReadChar()
+		public char ReadChar()
 		{
 			if (this.EOF)
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (char)this._data[this._position++];
 		}
 
-		internal char[] ReadChars(int count)
+		public char[] ReadChars(int count)
 		{
 			if (this.EOF)
 			{

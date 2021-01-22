@@ -4,9 +4,9 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CalculatedValueAverageConverter))]
-	internal class CalculatedValueAverage : CalculatedValue
+	public class CalculatedValueAverage : CalculatedValue
 	{
-		internal override void CalculateValue(double value, DateTime timestamp)
+		public override void CalculateValue(double value, DateTime timestamp)
 		{
 			GaugeDuration aggregateDuration = base.aggregateDuration;
 			if (aggregateDuration.IsEmpty)

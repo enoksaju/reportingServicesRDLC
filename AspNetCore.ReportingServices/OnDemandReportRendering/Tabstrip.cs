@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Tabstrip : Navigation
+	public sealed class Tabstrip : Navigation
 	{
 		private NavigationItem m_navigationItem;
 
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Tabstrip(AspNetCore.ReportingServices.ReportIntermediateFormat.BandLayoutOptions bandLayout)
+		public Tabstrip(AspNetCore.ReportingServices.ReportIntermediateFormat.BandLayoutOptions bandLayout)
 			: base(bandLayout)
 		{
 		}

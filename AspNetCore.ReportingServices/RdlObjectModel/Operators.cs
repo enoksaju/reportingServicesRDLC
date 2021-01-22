@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum Operators
+	public enum Operators
 	{
 		Equal,
 		Like,

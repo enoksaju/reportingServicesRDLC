@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class PixelSize : ISize
+	public sealed class PixelSize : ISize
 	{
 		private float m_sizeInPx;
 

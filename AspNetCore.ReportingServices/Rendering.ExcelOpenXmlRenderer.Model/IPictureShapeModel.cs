@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IPictureShapeModel : IShapeModel
+	public interface IPictureShapeModel : IShapeModel
 	{
 		Picture Interface
 		{

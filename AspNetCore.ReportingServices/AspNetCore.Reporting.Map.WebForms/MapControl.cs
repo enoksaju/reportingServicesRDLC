@@ -17,27 +17,27 @@ namespace AspNetCore.Reporting.Map.WebForms
 	[Description("Map for ASP.NET is a fully managed .NET control that lets you add fantastic looking maps to your applications with ease.")]
 	[ToolboxBitmap(typeof(MapControl), "Map.ico")]
 	[DisplayName("Map")]
-	internal class MapControl : IDisposable
+	public class MapControl : IDisposable
 	{
-		internal const string ResKeyFormat = "#MapControlResKey#{0}#";
+		public const string ResKeyFormat = "#MapControlResKey#{0}#";
 
 		private const string jsFilename = "DundasMap8.js";
 
 		private const string imagemapExt = ".imagemap.txt";
 
-		internal MapCore mapCore;
+		public MapCore mapCore;
 
-		internal string webFormDocumentURL = "";
+		public string webFormDocumentURL = "";
 
-		internal string applicationDocumentURL = "";
+		public string applicationDocumentURL = "";
 
-		internal static ITypeDescriptorContext controlCurrentContext = null;
+		public static ITypeDescriptorContext controlCurrentContext = null;
 
-		internal bool sessionExpired;
+		public bool sessionExpired;
 
-		internal bool generatingCachedContent;
+		public bool generatingCachedContent;
 
-		internal static string productID = "DG-WC";
+		public static string productID = "DG-WC";
 
 		private bool doNotDispose;
 
@@ -1010,7 +1010,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ISelectable SelectedDesignTimeElement
+		public ISelectable SelectedDesignTimeElement
 		{
 			get
 			{
@@ -1059,7 +1059,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[SRCategory("CategoryAttribute_Data")]
 		public event DataBindEventHandler AfterDataBind;
 
-		internal event EventHandler BeforeApplyingRules;
+		public event EventHandler BeforeApplyingRules;
 
 		[Category("Action")]
 		[Description("Fires when all defined rules for the control are applied.")]
@@ -1338,7 +1338,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void OnBeforeApplyingRules(EventArgs e)
+		public void OnBeforeApplyingRules(EventArgs e)
 		{
 			if (this.BeforeApplyingRules != null)
 			{
@@ -1346,7 +1346,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void OnAllRulesApplied(EventArgs e)
+		public void OnAllRulesApplied(EventArgs e)
 		{
 			if (this.AllRulesApplied != null)
 			{
@@ -1354,7 +1354,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string GetHtmlColor(Color color, bool allowTransparent)
+		public string GetHtmlColor(Color color, bool allowTransparent)
 		{
 			if (color.A == 0)
 			{
@@ -1371,7 +1371,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return string.Format(CultureInfo.InvariantCulture, "rgb({0}, {1}, {2})", color.R, color.G, color.B);
 		}
 
-		internal string GetHtmlBorderStyle(Panel panel)
+		public string GetHtmlBorderStyle(Panel panel)
 		{
 			string empty = string.Empty;
 			if (panel.BorderWidth == 0)
@@ -1383,7 +1383,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return empty + "border-color: " + this.GetHtmlColor(panel.BorderColor, true) + ";";
 		}
 
-		internal string GetPanelHref(Panel panel)
+		public string GetPanelHref(Panel panel)
 		{
 			if (panel.Href == "")
 			{
@@ -1392,7 +1392,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return "onclick=\"window.location='" + panel.Href + "';\" ";
 		}
 
-		internal string GetPanelHrefStyle(Panel panel)
+		public string GetPanelHrefStyle(Panel panel)
 		{
 			if (panel.Href == "")
 			{
@@ -1401,13 +1401,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return "cursor: pointer; ";
 		}
 
-		internal string GetPanelImageUrl(string imageUrl, string panelName)
+		public string GetPanelImageUrl(string imageUrl, string panelName)
 		{
 			int startIndex = imageUrl.LastIndexOf('.');
 			return imageUrl.Insert(startIndex, panelName);
 		}
 
-		internal string GetUrl(string imageUrl, string filename)
+		public string GetUrl(string imageUrl, string filename)
 		{
 			int num = imageUrl.LastIndexOf('/');
 			if (num == -1)
@@ -1417,7 +1417,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return imageUrl.Substring(0, num + 1) + filename;
 		}
 
-		internal void SaveFiles(string fullImagePath)
+		public void SaveFiles(string fullImagePath)
 		{
 			string directoryName = System.IO.Path.GetDirectoryName(fullImagePath);
 			DirectoryInfo directoryInfo = new DirectoryInfo(directoryName);
@@ -1661,11 +1661,11 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return array4;
 		}
 
-		internal void Invalidate()
+		public void Invalidate()
 		{
 		}
 
-		internal void Refresh()
+		public void Refresh()
 		{
 		}
 
@@ -1702,12 +1702,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			throw new ArgumentException("Invalid image URL format. #SEQ formatter must be followed by (300,3), where 300 is a max sequence number and 3 is an image file time to live.", "ImageURL");
 		}
 
-		internal bool IsDesignMode()
+		public bool IsDesignMode()
 		{
 			return false;
 		}
 
-		internal void OnPrePaint(object sender, MapPaintEventArgs e)
+		public void OnPrePaint(object sender, MapPaintEventArgs e)
 		{
 			if (this.PrePaint != null)
 			{
@@ -1715,7 +1715,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void OnPostPaint(object sender, MapPaintEventArgs e)
+		public void OnPostPaint(object sender, MapPaintEventArgs e)
 		{
 			if (this.PostPaint != null)
 			{
@@ -1723,7 +1723,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void OnElementAdded(object sender, ElementEventArgs e)
+		public void OnElementAdded(object sender, ElementEventArgs e)
 		{
 			if (this.ElementAdded != null)
 			{
@@ -1731,7 +1731,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void OnElementRemoved(object sender, ElementEventArgs e)
+		public void OnElementRemoved(object sender, ElementEventArgs e)
 		{
 			if (this.ElementRemoved != null)
 			{
@@ -1739,7 +1739,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void OnClick(object sender, ClickEventArgs e)
+		public void OnClick(object sender, ClickEventArgs e)
 		{
 			MapControl mapControl = this;
 			if (sender is MapControl && sender != this)
@@ -1752,7 +1752,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void OnCallback(object sender, CallbackEventArgs e)
+		public void OnCallback(object sender, CallbackEventArgs e)
 		{
 			MapControl mapControl = this;
 			if (sender is MapControl && sender != this)

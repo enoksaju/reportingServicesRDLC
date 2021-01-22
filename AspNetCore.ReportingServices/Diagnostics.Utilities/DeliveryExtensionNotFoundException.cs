@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class DeliveryExtensionNotFoundException : ReportCatalogException
+	public sealed class DeliveryExtensionNotFoundException : ReportCatalogException
 	{
 		public DeliveryExtensionNotFoundException()
 			: base(ErrorCode.rsDeliveryExtensionNotFound, ErrorStrings.rsDeliveryExtensionNotFound, null, null)

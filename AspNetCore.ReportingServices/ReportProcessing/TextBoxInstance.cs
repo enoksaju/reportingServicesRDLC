@@ -4,9 +4,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TextBoxInstance : ReportItemInstance
+	public sealed class TextBoxInstance : ReportItemInstance
 	{
-		internal InstanceInfo InstanceInfo
+		public InstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TextBoxInstance(ReportProcessing.ProcessingContext pc, TextBox reportItemDef, int index)
+		public TextBoxInstance(ReportProcessing.ProcessingContext pc, TextBox reportItemDef, int index)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			if (reportItemDef.IsSimpleTextBox())
@@ -36,11 +36,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TextBoxInstance()
+		public TextBoxInstance()
 		{
 		}
 
-		internal SimpleTextBoxInstanceInfo UpgradeToSimpleTextbox(TextBoxInstanceInfo instanceInfo, out bool isSimple)
+		public SimpleTextBoxInstanceInfo UpgradeToSimpleTextbox(TextBoxInstanceInfo instanceInfo, out bool isSimple)
 		{
 			isSimple = false;
 			TextBox textBox = base.ReportItemDef as TextBox;
@@ -52,13 +52,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList members = new MemberInfoList();
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance, members);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			if (((TextBox)base.m_reportItemDef).IsSimpleTextBox(reader.IntermediateFormatVersion))
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return reader.ReadTextBoxInstanceInfo((TextBox)base.m_reportItemDef);
 		}
 
-		internal SimpleTextBoxInstanceInfo GetSimpleInstanceInfo(ChunkManager.RenderingChunkManager chunkManager, bool inPageSection)
+		public SimpleTextBoxInstanceInfo GetSimpleInstanceInfo(ChunkManager.RenderingChunkManager chunkManager, bool inPageSection)
 		{
 			Global.Tracer.Assert(((TextBox)base.m_reportItemDef).IsSimpleTextBox());
 			if (base.m_instanceInfo is OffsetInfo)

@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
 	[StructLayout(LayoutKind.Sequential, CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-	internal class LOGFONT
+	public class LOGFONT
 	{
 		public int lfHeight;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum TextAntiAliasingQualityTypes
+	public enum TextAntiAliasingQualityTypes
 	{
 		High,
 		Normal,

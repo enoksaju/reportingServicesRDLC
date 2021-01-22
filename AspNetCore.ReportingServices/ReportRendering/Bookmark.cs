@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Bookmark
+	public sealed class Bookmark
 	{
 		private BookmarkInformation m_underlyingNode;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Bookmark(string bookmarkId, BookmarkInformation underlyingNode)
+		public Bookmark(string bookmarkId, BookmarkInformation underlyingNode)
 		{
 			Global.Tracer.Assert(underlyingNode != null, "The bookmark node being wrapped cannot be null.");
 			this.m_bookmarkId = bookmarkId;

@@ -10,7 +10,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CircularPointerConverter))]
-	internal class CircularPointer : PointerBase, ISelectable
+	public class CircularPointer : PointerBase, ISelectable
 	{
 		private XamlRenderer xamlRenderer;
 
@@ -612,7 +612,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal Brush GetNeedleFillBrush(GaugeGraphics g, bool primary, GraphicsPath path, PointF pointOrigin, float angle)
+		public Brush GetNeedleFillBrush(GaugeGraphics g, bool primary, GraphicsPath path, PointF pointOrigin, float angle)
 		{
 			Brush brush = null;
 			if (primary)
@@ -703,7 +703,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return brush;
 		}
 
-		internal NeedleStyleAttrib GetNeedleStyleAttrib(GaugeGraphics g, PointF pointOrigin, float angle)
+		public NeedleStyleAttrib GetNeedleStyleAttrib(GaugeGraphics g, PointF pointOrigin, float angle)
 		{
 			NeedleStyleAttrib needleStyleAttrib = new NeedleStyleAttrib();
 			needleStyleAttrib.primaryPath = new GraphicsPath();
@@ -925,7 +925,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal MarkerStyleAttrib GetMarkerStyleAttrib(GaugeGraphics g)
+		public MarkerStyleAttrib GetMarkerStyleAttrib(GaugeGraphics g)
 		{
 			MarkerStyleAttrib markerStyleAttrib = new MarkerStyleAttrib();
 			if (this.Image != "")
@@ -954,7 +954,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal float CalculateMarkerDistance()
+		public float CalculateMarkerDistance()
 		{
 			if (this.Placement == Placement.Cross)
 			{
@@ -967,7 +967,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (float)(this.GetScale().GetRadius() + this.GetScale().Width / 2.0 + this.DistanceFromScale + this.MarkerLength / 2.0);
 		}
 
-		internal BarStyleAttrib GetBarStyleAttrib(GaugeGraphics g)
+		public BarStyleAttrib GetBarStyleAttrib(GaugeGraphics g)
 		{
 			BarStyleAttrib barStyleAttrib = new BarStyleAttrib();
 			if (this.Image != "")
@@ -1115,7 +1115,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return 0.0;
 		}
 
-		internal RectangleF CalculateBarRectangle()
+		public RectangleF CalculateBarRectangle()
 		{
 			CircularScale scale = this.GetScale();
 			PointF pivotPoint = this.GetScale().GetPivotPoint();
@@ -1138,7 +1138,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return result;
 		}
 
-		internal RectangleF GetNeedleCapBounds(GaugeGraphics g, PointF pointOrigin)
+		public RectangleF GetNeedleCapBounds(GaugeGraphics g, PointF pointOrigin)
 		{
 			float absoluteDimension = g.GetAbsoluteDimension(this.CapWidth);
 			RectangleF result = new RectangleF((float)((0.0 - absoluteDimension) / 2.0), (float)((0.0 - absoluteDimension) / 2.0), absoluteDimension, absoluteDimension);
@@ -1146,7 +1146,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return result;
 		}
 
-		internal override void Render(GaugeGraphics g)
+		public override void Render(GaugeGraphics g)
 		{
 			if (this.Common != null && this.Visible && this.GetScale() != null)
 			{
@@ -1361,7 +1361,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void DrawImage(GaugeGraphics g, bool primary, bool drawShadow)
+		public void DrawImage(GaugeGraphics g, bool primary, bool drawShadow)
 		{
 			if (this.Visible)
 			{
@@ -1470,7 +1470,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GraphicsPath GetPointerPath(GaugeGraphics g, bool shadowPath)
+		public GraphicsPath GetPointerPath(GaugeGraphics g, bool shadowPath)
 		{
 			if (!this.Visible)
 			{
@@ -1515,7 +1515,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal GraphicsPath GetShadowPath(GaugeGraphics g)
+		public GraphicsPath GetShadowPath(GaugeGraphics g)
 		{
 			if (base.ShadowOffset != 0.0 && this.GetScale() != null)
 			{
@@ -1566,7 +1566,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return null;
 		}
 
-		internal void AddHotRegion(GraphicsPath path, bool primary)
+		public void AddHotRegion(GraphicsPath path, bool primary)
 		{
 			if (primary)
 			{
@@ -1578,7 +1578,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void SetAllHotRegions(GaugeGraphics g)
+		public void SetAllHotRegions(GaugeGraphics g)
 		{
 			this.Common.GaugeCore.HotRegionList.SetHotRegion(this, g.GetAbsolutePoint(this.GetScale().GetPivotPoint()), this.hotRegions[0], this.hotRegions[1]);
 			this.hotRegions[0] = null;
@@ -1616,7 +1616,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.GetGauge().Scales[this.ScaleName];
 		}
 
-		internal float GetNeedleTailLength()
+		public float GetNeedleTailLength()
 		{
 			float num = (float)((this.Placement != Placement.Cross) ? ((this.Placement != 0) ? (this.GetScale().GetRadius() + this.GetScale().Width / 2.0 + this.DistanceFromScale) : (this.GetScale().GetRadius() - this.GetScale().Width / 2.0 - this.DistanceFromScale)) : (this.GetScale().GetRadius() - this.DistanceFromScale));
 			if (this.NeedleStyle != NeedleStyle.Style2 && this.NeedleStyle != NeedleStyle.Style3 && this.NeedleStyle != NeedleStyle.Style5 && this.NeedleStyle != NeedleStyle.Style7 && this.NeedleStyle != NeedleStyle.Style9 && this.NeedleStyle != NeedleStyle.Style10)
@@ -1627,7 +1627,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (float)(num2 * 1.6180340051651 - num2);
 		}
 
-		internal XamlRenderer GetCachedXamlRenderer(RectangleF bounds)
+		public XamlRenderer GetCachedXamlRenderer(RectangleF bounds)
 		{
 			if (this.xamlRenderer != null)
 			{
@@ -1643,7 +1643,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.xamlRenderer;
 		}
 
-		internal void ResetCachedXamlRenderer()
+		public void ResetCachedXamlRenderer()
 		{
 			if (this.xamlRenderer != null)
 			{

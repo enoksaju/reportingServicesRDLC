@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool IsUserSupplied
+		public bool IsUserSupplied
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal string Prompt
+		public string Prompt
 		{
 			get
 			{
@@ -86,11 +86,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal ParameterImpl()
+		public ParameterImpl()
 		{
 		}
 
-		internal ParameterImpl(ParameterInfo parameterInfo)
+		public ParameterImpl(ParameterInfo parameterInfo)
 		{
 			this.m_value = parameterInfo.Values;
 			this.m_labels = parameterInfo.Labels;
@@ -103,42 +103,42 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void SetIsMultiValue(bool isMultiValue)
+		public void SetIsMultiValue(bool isMultiValue)
 		{
 			this.m_isMultiValue = isMultiValue;
 		}
 
-		internal void SetIsUserSupplied(bool isUserSupplied)
+		public void SetIsUserSupplied(bool isUserSupplied)
 		{
 			this.m_isUserSupplied = isUserSupplied;
 		}
 
-		internal void SetValues(object[] values)
+		public void SetValues(object[] values)
 		{
 			this.m_value = values;
 		}
 
-		internal object[] GetValues()
+		public object[] GetValues()
 		{
 			return this.m_value;
 		}
 
-		internal void SetLabels(string[] labels)
+		public void SetLabels(string[] labels)
 		{
 			this.m_labels = labels;
 		}
 
-		internal string[] GetLabels()
+		public string[] GetLabels()
 		{
 			return this.m_labels;
 		}
 
-		internal void SetPrompt(string prompt)
+		public void SetPrompt(string prompt)
 		{
 			this.m_prompt = prompt;
 		}
 
-		internal bool ValuesAreEqual(ParameterImpl obj)
+		public bool ValuesAreEqual(ParameterImpl obj)
 		{
 			if (!this.m_isUserSupplied)
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return false;
 		}
 
-		internal int GetValuesHashCode()
+		public int GetValuesHashCode()
 		{
 			if (!this.m_isUserSupplied)
 			{

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class StateIndicator : GaugePanelItem, IPersistable
+	public sealed class StateIndicator : GaugePanelItem, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = StateIndicator.GetDeclaration();
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private DataElementOutputTypes m_stateDataElementOutput;
 
-		internal GaugeInputValue GaugeInputValue
+		public GaugeInputValue GaugeInputValue
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TransformationType
+		public ExpressionInfo TransformationType
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string TransformationScope
+		public string TransformationScope
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue MaximumValue
+		public GaugeInputValue MaximumValue
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue MinimumValue
+		public GaugeInputValue MinimumValue
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IndicatorStyle
+		public ExpressionInfo IndicatorStyle
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IndicatorImage IndicatorImage
+		public IndicatorImage IndicatorImage
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ScaleFactor
+		public ExpressionInfo ScaleFactor
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<IndicatorState> IndicatorStates
+		public List<IndicatorState> IndicatorStates
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ResizeMode
+		public ExpressionInfo ResizeMode
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Angle
+		public ExpressionInfo Angle
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string StateDataElementName
+		public string StateDataElementName
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes StateDataElementOutput
+		public DataElementOutputTypes StateDataElementOutput
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new StateIndicatorExprHost ExprHost
+		public new StateIndicatorExprHost ExprHost
 		{
 			get
 			{
@@ -206,16 +206,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal StateIndicator()
+		public StateIndicator()
 		{
 		}
 
-		internal StateIndicator(GaugePanel gaugePanel, int id)
+		public StateIndicator(GaugePanel gaugePanel, int id)
 			: base(gaugePanel, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.StateIndicatorStart(base.m_name);
 			base.Initialize(context);
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.StateIndicatorEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			StateIndicator stateIndicator = (StateIndicator)base.PublishClone(context);
 			if (this.m_gaugeInputValue != null)
@@ -308,7 +308,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return stateIndicator;
 		}
 
-		internal void SetExprHost(StateIndicatorExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(StateIndicatorExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -342,7 +342,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.GaugeInputValue, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugeInputValue));
@@ -491,31 +491,31 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.StateIndicator;
 		}
 
-		internal GaugeTransformationType EvaluateTransformationType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeTransformationType EvaluateTransformationType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeTransformationType(context.ReportRuntime.EvaluateStateIndicatorTransformationTypeExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal GaugeStateIndicatorStyles EvaluateIndicatorStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeStateIndicatorStyles EvaluateIndicatorStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeStateIndicatorStyles(context.ReportRuntime.EvaluateStateIndicatorIndicatorStyleExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateScaleFactor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateScaleFactor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateStateIndicatorScaleFactorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal GaugeResizeModes EvaluateResizeMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeResizeModes EvaluateResizeMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeResizeModes(context.ReportRuntime.EvaluateStateIndicatorResizeModeExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateStateIndicatorAngleExpression(this, base.m_gaugePanel.Name);

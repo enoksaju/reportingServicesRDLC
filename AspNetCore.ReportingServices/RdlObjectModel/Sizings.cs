@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum Sizings
+	public enum Sizings
 	{
 		AutoSize,
 		Fit,

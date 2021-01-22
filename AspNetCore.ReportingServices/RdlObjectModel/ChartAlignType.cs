@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartAlignType : ReportObject
+	public class ChartAlignType : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartAlignType, Definition.Properties>
+		public class Definition : DefinitionStore<ChartAlignType, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				AxesView,
 				Cursor,
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartAlignType(IPropertyStore propertyStore)
+		public ChartAlignType(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

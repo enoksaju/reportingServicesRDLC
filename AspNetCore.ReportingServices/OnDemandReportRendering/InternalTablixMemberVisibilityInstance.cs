@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalTablixMemberVisibilityInstance : VisibilityInstance
+	public sealed class InternalTablixMemberVisibilityInstance : VisibilityInstance
 	{
 		private InternalTablixMember m_owner;
 
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalTablixMemberVisibilityInstance(InternalTablixMember owner)
+		public InternalTablixMemberVisibilityInstance(InternalTablixMember owner)
 			: base(owner.ReportScope)
 		{
 			this.m_owner = owner;

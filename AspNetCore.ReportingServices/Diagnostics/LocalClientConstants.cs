@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class LocalClientConstants
+	public static class LocalClientConstants
 	{
 		private static readonly string m_clientNotLocalHeaderName = "RSClientNotLocalHeader";
 

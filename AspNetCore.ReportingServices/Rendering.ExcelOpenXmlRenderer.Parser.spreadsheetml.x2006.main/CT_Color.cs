@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_Color : OoxmlComplexType
+	public class CT_Color : OoxmlComplexType
 	{
 		private OoxmlBool _auto_attr;
 

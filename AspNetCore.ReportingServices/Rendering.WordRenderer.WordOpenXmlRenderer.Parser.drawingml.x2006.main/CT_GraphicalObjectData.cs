@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class CT_GraphicalObjectData : OoxmlComplexType, IOoxmlComplexType
+	public class CT_GraphicalObjectData : OoxmlComplexType, IOoxmlComplexType
 	{
 		private string _uri_attr;
 

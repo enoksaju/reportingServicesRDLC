@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class OnDemandStateManager
+	public abstract class OnDemandStateManager
 	{
 		protected readonly OnDemandProcessingContext m_odpContext;
 
@@ -18,29 +18,29 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private BaseIdcDataManager[] m_idcDataManagers;
 
-		internal abstract IReportScopeInstance LastROMInstance
+		public abstract IReportScopeInstance LastROMInstance
 		{
 			get;
 		}
 
-		internal abstract IRIFReportScope LastTablixProcessingReportScope
-		{
-			get;
-			set;
-		}
-
-		internal abstract IInstancePath LastRIFObject
+		public abstract IRIFReportScope LastTablixProcessingReportScope
 		{
 			get;
 			set;
 		}
 
-		internal abstract QueryRestartInfo QueryRestartInfo
+		public abstract IInstancePath LastRIFObject
+		{
+			get;
+			set;
+		}
+
+		public abstract QueryRestartInfo QueryRestartInfo
 		{
 			get;
 		}
 
-		internal abstract ExecutedQueryCache ExecutedQueryCache
+		public abstract ExecutedQueryCache ExecutedQueryCache
 		{
 			get;
 		}
@@ -50,39 +50,39 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_odpContext = odpContext;
 		}
 
-		internal abstract ExecutedQueryCache SetupExecutedQueryCache();
+		public abstract ExecutedQueryCache SetupExecutedQueryCache();
 
-		internal abstract void ResetOnDemandState();
+		public abstract void ResetOnDemandState();
 
-		internal abstract int RecursiveLevel(string scopeName);
+		public abstract int RecursiveLevel(string scopeName);
 
-		internal abstract bool InScope(string scopeName);
+		public abstract bool InScope(string scopeName);
 
-		internal abstract Dictionary<string, object> GetCurrentSpecialGroupingValues();
+		public abstract Dictionary<string, object> GetCurrentSpecialGroupingValues();
 
-		internal abstract void RestoreContext(IInstancePath originalObject);
+		public abstract void RestoreContext(IInstancePath originalObject);
 
-		internal abstract void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance);
+		public abstract void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance);
 
-		internal abstract void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex);
+		public abstract void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex);
 
-		internal abstract void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex);
+		public abstract void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex);
 
-		internal abstract bool CalculateAggregate(string aggregateName);
+		public abstract bool CalculateAggregate(string aggregateName);
 
-		internal abstract bool CalculateLookup(LookupInfo lookup);
+		public abstract bool CalculateLookup(LookupInfo lookup);
 
-		internal abstract bool PrepareFieldsCollectionForDirectFields();
+		public abstract bool PrepareFieldsCollectionForDirectFields();
 
-		internal abstract void EvaluateScopedFieldReference(string scopeName, int fieldIndex, ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result);
+		public abstract void EvaluateScopedFieldReference(string scopeName, int fieldIndex, ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result);
 
-		internal abstract IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance);
+		public abstract IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance);
 
-		internal abstract bool ShouldStopPipelineAdvance(bool rowAccepted);
+		public abstract bool ShouldStopPipelineAdvance(bool rowAccepted);
 
-		internal abstract void CreatedScopeInstance(IRIFReportDataScope scope);
+		public abstract void CreatedScopeInstance(IRIFReportDataScope scope);
 
-		internal virtual void FreeResources()
+		public virtual void FreeResources()
 		{
 			this.ShutdownSequentialReadersAndIdcDataManagers();
 		}
@@ -129,9 +129,9 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_sequentialDataReadersAndIdcDataManagers.Add(dataReaderOrIdcDataManager);
 		}
 
-		internal abstract bool CheckForPrematureServerAggregate(string aggregateName);
+		public abstract bool CheckForPrematureServerAggregate(string aggregateName);
 
-		internal abstract bool ProcessOneRow(IRIFReportDataScope scope);
+		public abstract bool ProcessOneRow(IRIFReportDataScope scope);
 
 		protected BaseIdcDataManager GetOrCreateIdcDataManager(IRIFReportDataScope scope)
 		{
@@ -192,7 +192,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_idcDataManagers[dataPipelineId] = idcDataManager;
 		}
 
-		internal BaseIdcDataManager GetIdcDataManager(IRIFReportDataScope scope)
+		public BaseIdcDataManager GetIdcDataManager(IRIFReportDataScope scope)
 		{
 			BaseIdcDataManager result = default(BaseIdcDataManager);
 			if (!this.TryGetIdcDataManager(scope, out result))

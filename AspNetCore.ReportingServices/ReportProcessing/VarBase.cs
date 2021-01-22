@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal abstract class VarBase : DataAggregate
+	public abstract class VarBase : DataAggregate
 	{
 		private DataTypeCode m_expressionType;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		protected object m_sumOfXSquared;
 
-		internal override void Init()
+		public override void Init()
 		{
 			this.m_currentCount = 0u;
 			this.m_sumOfXType = DataTypeCode.Null;
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_sumOfXSquared = null;
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			Global.Tracer.Assert(null != expressions);
 			Global.Tracer.Assert(1 == expressions.Length);

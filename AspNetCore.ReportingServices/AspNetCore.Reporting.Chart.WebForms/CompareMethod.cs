@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum CompareMethod
+	public enum CompareMethod
 	{
 		More,
 		Less,

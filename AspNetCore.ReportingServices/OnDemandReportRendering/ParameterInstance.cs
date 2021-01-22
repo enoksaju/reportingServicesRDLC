@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ParameterInstance : BaseInstance, IPersistable
+	public sealed class ParameterInstance : BaseInstance, IPersistable
 	{
 		private bool m_omit;
 
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOmitAssined
+		public bool IsOmitAssined
 		{
 			get
 			{
@@ -138,14 +138,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ParameterInstance(ActionItemInstance actionInstance, int index)
+		public ParameterInstance(ActionItemInstance actionInstance, int index)
 			: base(null)
 		{
 			this.m_isOldSnapshot = true;
 			this.SetMembers(actionInstance, index);
 		}
 
-		internal ParameterInstance(Parameter parameterDef)
+		public ParameterInstance(Parameter parameterDef)
 			: base(parameterDef.ActionDef.Owner.ReportScope)
 		{
 			this.m_isOldSnapshot = false;
@@ -169,12 +169,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void Update(ActionItemInstance actionInstance, int index)
+		public void Update(ActionItemInstance actionInstance, int index)
 		{
 			this.SetMembers(actionInstance, index);
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 		}

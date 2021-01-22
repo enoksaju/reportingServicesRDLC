@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IRowConsumer
+	public interface IRowConsumer
 	{
 		string ReportDataSetName
 		{

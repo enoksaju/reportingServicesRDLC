@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RadialGauge : Gauge
+	public sealed class RadialGauge : Gauge
 	{
 		private RadialScaleCollection m_gaugeScales;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.RadialGauge RadialGaugeDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.RadialGauge RadialGaugeDef
 		{
 			get
 			{
@@ -62,14 +62,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RadialGauge(AspNetCore.ReportingServices.ReportIntermediateFormat.RadialGauge defObject, GaugePanel gaugePanel)
+		public RadialGauge(AspNetCore.ReportingServices.ReportIntermediateFormat.RadialGauge defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override BaseInstance GetInstance()
+		public override BaseInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CalculatedValueMaxConverter : CollectionItemTypeConverter
+	public class CalculatedValueMaxConverter : CollectionItemTypeConverter
 	{
 		public CalculatedValueMaxConverter()
 		{

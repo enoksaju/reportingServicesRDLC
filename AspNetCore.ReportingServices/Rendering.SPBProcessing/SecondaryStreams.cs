@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal enum SecondaryStreams : byte
+	public enum SecondaryStreams : byte
 	{
 		Embedded,
 		Server,

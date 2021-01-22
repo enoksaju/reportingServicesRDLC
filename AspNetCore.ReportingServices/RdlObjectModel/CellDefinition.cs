@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class CellDefinition : ReportObject
+	public class CellDefinition : ReportObject
 	{
-		internal class Definition : DefinitionStore<GridLayoutDefinition, Definition.Properties>
+		public class Definition : DefinitionStore<GridLayoutDefinition, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ColumnIndex,
 				RowIndex,
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			this.RowIndex = 0;
 		}
 
-		internal CellDefinition(IPropertyStore propertyStore)
+		public CellDefinition(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

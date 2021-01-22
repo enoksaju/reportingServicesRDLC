@@ -16,7 +16,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class RuntimeDataSet : RuntimeLiveQueryExecutor
+	public abstract class RuntimeDataSet : RuntimeLiveQueryExecutor
 	{
 		protected DataSetInstance m_dataSetInstance;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private readonly DataSetQueryRestartPosition m_restartPosition;
 
-		internal virtual bool ProcessFromLiveDataReader
+		public virtual bool ProcessFromLiveDataReader
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal int NumRowsRead
+		public int NumRowsRead
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool UsedOnlyInParameters
+		public bool UsedOnlyInParameters
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, DataSetInstance dataSetInstance, OnDemandProcessingContext odpContext, bool processRetrievedData)
+		public RuntimeDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, DataSetInstance dataSetInstance, OnDemandProcessingContext odpContext, bool processRetrievedData)
 			: base(dataSource, dataSet, odpContext)
 		{
 			this.m_dataSetInstance = dataSetInstance;
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void InitProcessingParams(IDbConnection conn, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.TransactionInfo transInfo)
+		public void InitProcessingParams(IDbConnection conn, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.TransactionInfo transInfo)
 		{
 			base.m_dataSourceConnection = conn;
 			base.m_transInfo = transInfo;
@@ -825,7 +825,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal virtual void EraseDataChunk()
+		public virtual void EraseDataChunk()
 		{
 		}
 

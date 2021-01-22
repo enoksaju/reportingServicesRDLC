@@ -7,7 +7,7 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(AutoSizePanelConverter))]
-	internal class ColorSwatchPanel : AutoSizePanel
+	public class ColorSwatchPanel : AutoSizePanel
 	{
 		private const int DummyItemsCount = 5;
 
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[NotifyParentProperty(true)]
 		[DefaultValue(false)]
 		[Browsable(false)]
-		internal bool ShowSelectedTitle
+		public bool ShowSelectedTitle
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[Browsable(false)]
 		[NotifyParentProperty(true)]
 		[DefaultValue(false)]
-		internal RectangleF TitleSelectionRectangle
+		public RectangleF TitleSelectionRectangle
 		{
 			get
 			{
@@ -355,7 +355,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override bool IsEmpty
+		public override bool IsEmpty
 		{
 			get
 			{
@@ -382,7 +382,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal ColorSwatchPanel(CommonElements common)
+		public ColorSwatchPanel(CommonElements common)
 			: base(common)
 		{
 			this.Name = "ColorSwatchPanel";
@@ -406,7 +406,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal override void Render(MapGraphics g)
+		public override void Render(MapGraphics g)
 		{
 			base.Render(g);
 			if (!this.IsEmpty)
@@ -611,7 +611,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override object GetDefaultPropertyValue(string prop, object currentValue)
+		public override object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object obj = null;
 			switch (prop)
@@ -1010,7 +1010,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override SizeF GetOptimalSize(MapGraphics g, SizeF maxSizeAbs)
+		public override SizeF GetOptimalSize(MapGraphics g, SizeF maxSizeAbs)
 		{
 			if (!this.IsVisible())
 			{

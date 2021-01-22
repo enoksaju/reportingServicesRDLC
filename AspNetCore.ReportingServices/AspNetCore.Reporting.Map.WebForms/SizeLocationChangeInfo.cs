@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum SizeLocationChangeInfo
+	public enum SizeLocationChangeInfo
 	{
 		Location,
 		LocationUnit,

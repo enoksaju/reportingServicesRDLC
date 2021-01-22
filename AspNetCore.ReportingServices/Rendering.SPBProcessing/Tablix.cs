@@ -12,9 +12,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class Tablix : PageItem
+	public sealed class Tablix : PageItem
 	{
-		internal enum TablixRegion : byte
+		public enum TablixRegion : byte
 		{
 			Unknown,
 			Corner,
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			Data
 		}
 
-		internal class RowMemberInfo : IStorable, IPersistable
+		public class RowMemberInfo : IStorable, IPersistable
 		{
 			private byte m_rowState;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private static Declaration m_declaration = RowMemberInfo.GetDeclaration();
 
-			internal byte RowState
+			public byte RowState
 			{
 				get
 				{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool Fixed
+			public bool Fixed
 			{
 				set
 				{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal double Height
+			public double Height
 			{
 				get
 				{
@@ -74,11 +74,11 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal RowMemberInfo()
+			public RowMemberInfo()
 			{
 			}
 
-			internal RowMemberInfo(double height)
+			public RowMemberInfo(double height)
 			{
 				this.m_height = height;
 			}
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return ObjectType.RowMemberInfo;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (RowMemberInfo.m_declaration == null)
 				{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class SizeInfo : IStorable, IPersistable
+		public class SizeInfo : IStorable, IPersistable
 		{
 			private double m_size = double.NaN;
 
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private static Declaration m_declaration = SizeInfo.GetDeclaration();
 
-			internal Hashtable SpanSize
+			public Hashtable SpanSize
 			{
 				get
 				{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal double Value
+			public double Value
 			{
 				get
 				{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool Fixed
+			public bool Fixed
 			{
 				get
 				{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool ZeroSized
+			public bool ZeroSized
 			{
 				get
 				{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool Empty
+			public bool Empty
 			{
 				get
 				{
@@ -219,16 +219,16 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal SizeInfo()
+			public SizeInfo()
 			{
 			}
 
-			internal SizeInfo(bool fixedData)
+			public SizeInfo(bool fixedData)
 			{
 				this.m_fixed = fixedData;
 			}
 
-			internal SizeInfo(double size)
+			public SizeInfo(double size)
 			{
 				this.m_size = size;
 			}
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return ObjectType.SizeInfo;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (SizeInfo.m_declaration == null)
 				{
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return SizeInfo.m_declaration;
 			}
 
-			internal void AddSpanSize(int span, double spanSize)
+			public void AddSpanSize(int span, double spanSize)
 			{
 				if (this.m_spanSize == null)
 				{
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class ColumnSpanInfo
+		public class ColumnSpanInfo
 		{
 			private int m_start;
 
@@ -331,7 +331,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private double m_spanSize;
 
-			internal int Start
+			public int Start
 			{
 				get
 				{
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int Span
+			public int Span
 			{
 				get
 				{
@@ -347,7 +347,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal double SpanSize
+			public double SpanSize
 			{
 				get
 				{
@@ -355,14 +355,14 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal ColumnSpanInfo(int start, int span, double spanSize)
+			public ColumnSpanInfo(int start, int span, double spanSize)
 			{
 				this.m_start = start;
 				this.m_span = span;
 				this.m_spanSize = spanSize;
 			}
 
-			internal int CalculateEmptyColumnns(ScalableList<SizeInfo> sizeInfoList)
+			public int CalculateEmptyColumnns(ScalableList<SizeInfo> sizeInfoList)
 			{
 				int num = 0;
 				for (int i = this.Start; i < this.Start + this.Span; i++)
@@ -377,13 +377,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class InnerToggleState
+		public class InnerToggleState
 		{
 			private bool m_toggle;
 
 			private List<InnerToggleState> m_children;
 
-			internal bool Toggle
+			public bool Toggle
 			{
 				get
 				{
@@ -391,7 +391,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal List<InnerToggleState> Children
+			public List<InnerToggleState> Children
 			{
 				get
 				{
@@ -399,7 +399,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool HasChildren
+			public bool HasChildren
 			{
 				get
 				{
@@ -411,14 +411,14 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal InnerToggleState(bool toggle, List<InnerToggleState> children)
+			public InnerToggleState(bool toggle, List<InnerToggleState> children)
 			{
 				this.m_toggle = toggle;
 				this.m_children = children;
 			}
 		}
 
-		internal abstract class TablixContext
+		public abstract class TablixContext
 		{
 			private bool m_noRows;
 
@@ -492,9 +492,9 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private bool m_pageBreakNeedsOverride;
 
-			internal bool m_detailsOnPage;
+			public bool m_detailsOnPage;
 
-			internal bool m_pageBreakAtEnd;
+			public bool m_pageBreakAtEnd;
 
 			protected bool m_propagatedPageBreak;
 
@@ -504,7 +504,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private string m_currentToggleMemberPath;
 
-			internal RPLWriter Writer
+			public RPLWriter Writer
 			{
 				get
 				{
@@ -512,7 +512,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal IScalabilityCache Cache
+			public IScalabilityCache Cache
 			{
 				get
 				{
@@ -520,7 +520,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal PageItemHelper PartialItemHelper
+			public PageItemHelper PartialItemHelper
 			{
 				get
 				{
@@ -532,7 +532,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal PageContext PageContext
+			public PageContext PageContext
 			{
 				get
 				{
@@ -540,7 +540,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal Interactivity Interactivity
+			public Interactivity Interactivity
 			{
 				get
 				{
@@ -548,7 +548,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool NoRows
+			public bool NoRows
 			{
 				get
 				{
@@ -556,7 +556,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool PageBreakAtEnd
+			public bool PageBreakAtEnd
 			{
 				get
 				{
@@ -568,7 +568,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool PageBreakNeedsOverride
+			public bool PageBreakNeedsOverride
 			{
 				get
 				{
@@ -580,7 +580,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool PropagatedPageBreak
+			public bool PropagatedPageBreak
 			{
 				get
 				{
@@ -592,7 +592,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool ColumnHeadersCreated
+			public bool ColumnHeadersCreated
 			{
 				get
 				{
@@ -604,7 +604,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool OmittedOuterColumnHeaders
+			public bool OmittedOuterColumnHeaders
 			{
 				get
 				{
@@ -616,7 +616,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal ScalableList<PageMemberCell> OuterColumnHeaders
+			public ScalableList<PageMemberCell> OuterColumnHeaders
 			{
 				get
 				{
@@ -628,7 +628,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal ScalableList<PageMemberCell> OuterRowHeaders
+			public ScalableList<PageMemberCell> OuterRowHeaders
 			{
 				get
 				{
@@ -640,7 +640,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int RowMemberIndexCell
+			public int RowMemberIndexCell
 			{
 				get
 				{
@@ -652,7 +652,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int ColMemberIndexCell
+			public int ColMemberIndexCell
 			{
 				get
 				{
@@ -664,7 +664,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int HeaderColumnRows
+			public int HeaderColumnRows
 			{
 				get
 				{
@@ -672,7 +672,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int HeaderRowColumns
+			public int HeaderRowColumns
 			{
 				get
 				{
@@ -680,7 +680,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int ColsBeforeRowHeaders
+			public int ColsBeforeRowHeaders
 			{
 				get
 				{
@@ -692,7 +692,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal double TablixBottom
+			public double TablixBottom
 			{
 				get
 				{
@@ -700,7 +700,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool CheckPageBreaks
+			public bool CheckPageBreaks
 			{
 				get
 				{
@@ -716,7 +716,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool IgnoreRow
+			public bool IgnoreRow
 			{
 				get
 				{
@@ -724,7 +724,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool IgnoreColumn
+			public bool IgnoreColumn
 			{
 				get
 				{
@@ -732,7 +732,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool IsTotal
+			public bool IsTotal
 			{
 				get
 				{
@@ -740,7 +740,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool AddToggledItems
+			public bool AddToggledItems
 			{
 				get
 				{
@@ -748,7 +748,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool KeepWith
+			public bool KeepWith
 			{
 				get
 				{
@@ -756,7 +756,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool RepeatWith
+			public bool RepeatWith
 			{
 				set
 				{
@@ -764,7 +764,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool IgnoreHeight
+			public bool IgnoreHeight
 			{
 				set
 				{
@@ -779,7 +779,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal byte SharedLayoutRow
+			public byte SharedLayoutRow
 			{
 				get
 				{
@@ -791,7 +791,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool StaticDetailRow
+			public bool StaticDetailRow
 			{
 				set
 				{
@@ -799,7 +799,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal TablixContext(RPLWriter rplWriter, PageItemHelper partialItemHelper, bool noRows, bool isLTR, PageContext pageContext, double cellsTopInPage, int headerRowCols, int headerColumnRows, int[] defDetailRowsCapacity, Interactivity interactivity)
+			public TablixContext(RPLWriter rplWriter, PageItemHelper partialItemHelper, bool noRows, bool isLTR, PageContext pageContext, double cellsTopInPage, int headerRowCols, int headerColumnRows, int[] defDetailRowsCapacity, Interactivity interactivity)
 			{
 				this.m_rplWriter = rplWriter;
 				this.m_partialItemHelper = partialItemHelper;
@@ -814,7 +814,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				this.m_pageContext.InitCache();
 			}
 
-			internal bool AlwaysHiddenMember(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, TablixMember member, Visibility visibility, TablixRegion region, bool createDetail, ref LevelInfo levelInfo)
+			public bool AlwaysHiddenMember(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, TablixMember member, Visibility visibility, TablixRegion region, bool createDetail, ref LevelInfo levelInfo)
 			{
 				int num = 0;
 				bool result = this.AlwaysHiddenMember(tablix, member, visibility, region, createDetail, ref num);
@@ -822,7 +822,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return result;
 			}
 
-			internal bool AlwaysHiddenMember(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, TablixMember member, Visibility visibility, TablixRegion region, bool createDetail, ref int ignored)
+			public bool AlwaysHiddenMember(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, TablixMember member, Visibility visibility, TablixRegion region, bool createDetail, ref int ignored)
 			{
 				if (visibility == null)
 				{
@@ -836,7 +836,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return false;
 			}
 
-			internal void AddTotalsToCurrentPage(ref List<int> totalsIndex, TablixMemberCollection members, TablixRegion region, bool createDetail)
+			public void AddTotalsToCurrentPage(ref List<int> totalsIndex, TablixMemberCollection members, TablixRegion region, bool createDetail)
 			{
 				if (totalsIndex != null && totalsIndex.Count != 0)
 				{
@@ -850,7 +850,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void AddMemberToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, TablixMember member, TablixRegion region, bool createDetail)
+			public void AddMemberToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, TablixMember member, TablixRegion region, bool createDetail)
 			{
 				int num = 0;
 				this.AddMemberToCurrentPage(tablix, member, region, createDetail, false, ref num);
@@ -907,7 +907,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void AddMemberHeaderToCurrentPage(TablixMember member, TablixRegion region, bool headerFooterEval)
+			public void AddMemberHeaderToCurrentPage(TablixMember member, TablixRegion region, bool headerFooterEval)
 			{
 				if (member != null && !this.m_pageContext.CancelPage && (!this.m_columnHeadersCreated || region != TablixRegion.ColumnHeader))
 				{
@@ -942,7 +942,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void AddDetailRowToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix)
+			public void AddDetailRowToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix)
 			{
 				if (!this.m_pageContext.CancelPage)
 				{
@@ -966,7 +966,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void AddDetailCellToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int colMemberIndex)
+			public void AddDetailCellToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int colMemberIndex)
 			{
 				if (!this.m_pageContext.CancelPage)
 				{
@@ -990,7 +990,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool EnterColMemberInstance(TablixMember colMember, Visibility visibility, bool hasRecursivePeer, bool hasVisibleStaticPeer, out byte memberState)
+			public bool EnterColMemberInstance(TablixMember colMember, Visibility visibility, bool hasRecursivePeer, bool hasVisibleStaticPeer, out byte memberState)
 			{
 				memberState = 0;
 				if (colMember.IsTotal)
@@ -1031,7 +1031,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return !colMember.Instance.Visibility.CurrentlyHidden;
 			}
 
-			internal void LeaveColMemberInstance(TablixMember colMember, Visibility visibility)
+			public void LeaveColMemberInstance(TablixMember colMember, Visibility visibility)
 			{
 				if (!colMember.IsTotal && visibility != null && visibility.HiddenState != SharedHiddenState.Never && visibility.ToggleItem != null)
 				{
@@ -1047,14 +1047,14 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool EnterRowMemberInstance(TablixMember rowMember, Visibility visibility, bool hasRecursivePeer)
+			public bool EnterRowMemberInstance(TablixMember rowMember, Visibility visibility, bool hasRecursivePeer)
 			{
 				byte b = 0;
 				bool flag = true;
 				return this.EnterRowMemberInstance((Tablix)null, rowMember, (double[])null, visibility, hasRecursivePeer, (InnerToggleState)null, out b, ref flag);
 			}
 
-			internal bool EnterRowMemberInstance(Tablix tablix, TablixMember rowMember, double[] tablixCellHeights, Visibility visibility, bool hasRecursivePeer, InnerToggleState toggleState, out byte memberState, ref bool advanceRow)
+			public bool EnterRowMemberInstance(Tablix tablix, TablixMember rowMember, double[] tablixCellHeights, Visibility visibility, bool hasRecursivePeer, InnerToggleState toggleState, out byte memberState, ref bool advanceRow)
 			{
 				memberState = 0;
 				if (rowMember.IsTotal)
@@ -1095,13 +1095,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return true;
 			}
 
-			internal bool EnterRowMember(Tablix tablix, TablixMember rowMember, Visibility visibility, bool hasRecursivePeer, bool hasVisibleStaticPeer)
+			public bool EnterRowMember(Tablix tablix, TablixMember rowMember, Visibility visibility, bool hasRecursivePeer, bool hasVisibleStaticPeer)
 			{
 				byte b = 0;
 				return this.EnterRowMember(tablix, rowMember, visibility, (InnerToggleState)null, hasRecursivePeer, hasVisibleStaticPeer, out b);
 			}
 
-			internal bool EnterRowMember(Tablix tablix, TablixMember rowMember, Visibility visibility, InnerToggleState toggleState, bool hasRecursivePeer, bool hasVisibleStaticPeer, out byte memberState)
+			public bool EnterRowMember(Tablix tablix, TablixMember rowMember, Visibility visibility, InnerToggleState toggleState, bool hasRecursivePeer, bool hasVisibleStaticPeer, out byte memberState)
 			{
 				memberState = 0;
 				if (rowMember.IsTotal)
@@ -1197,20 +1197,20 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				goto IL_00ab;
 			}
 
-			internal void EnterTotalRowMember()
+			public void EnterTotalRowMember()
 			{
 				this.m_ignoreGroupPageBreaks++;
 				this.m_ignoreHeight++;
 			}
 
-			internal void LeaveTotalRowMember(double[] tablixCellHeights, ref bool advanceRow)
+			public void LeaveTotalRowMember(double[] tablixCellHeights, ref bool advanceRow)
 			{
 				this.m_ignoreGroupPageBreaks--;
 				this.m_ignoreHeight--;
 				this.LeaveToggleMember(tablixCellHeights, ref advanceRow);
 			}
 
-			internal void LeaveRowMemberInstance(TablixMember rowMember, InnerToggleState toggleState, Visibility visibility, bool hasRecursivePeer)
+			public void LeaveRowMemberInstance(TablixMember rowMember, InnerToggleState toggleState, Visibility visibility, bool hasRecursivePeer)
 			{
 				if (!rowMember.IsTotal)
 				{
@@ -1240,7 +1240,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void LeaveRowMember(TablixMember rowMember, double[] tablixCellHeights, Visibility visibility, bool hasRecursivePeer, InnerToggleState toggleState, ref bool advanceRow)
+			public void LeaveRowMember(TablixMember rowMember, double[] tablixCellHeights, Visibility visibility, bool hasRecursivePeer, InnerToggleState toggleState, ref bool advanceRow)
 			{
 				if (this.m_pageContext.CancelPage)
 				{
@@ -1293,7 +1293,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void LeaveRowMember(TablixMember rowMember, double[] tablixCellHeights, double sizeForRepeatWithBefore, Visibility visibility, bool hasRecursivePeer, InnerToggleState toggleState, ref bool advanceRow)
+			public void LeaveRowMember(TablixMember rowMember, double[] tablixCellHeights, double sizeForRepeatWithBefore, Visibility visibility, bool hasRecursivePeer, InnerToggleState toggleState, ref bool advanceRow)
 			{
 				this.m_cellsTopInPage -= sizeForRepeatWithBefore;
 				this.LeaveRowMember(rowMember, tablixCellHeights, visibility, hasRecursivePeer, toggleState, ref advanceRow);
@@ -1370,12 +1370,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void RegisterKeepWith()
+			public void RegisterKeepWith()
 			{
 				this.m_keepWith = true;
 			}
 
-			internal void UnRegisterKeepWith(KeepWithGroup keepWith, double[] tablixCellHeights, ref bool advanceRow)
+			public void UnRegisterKeepWith(KeepWithGroup keepWith, double[] tablixCellHeights, ref bool advanceRow)
 			{
 				this.m_keepWith = false;
 				if (keepWith == KeepWithGroup.After)
@@ -1395,7 +1395,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void CreateCorner(TablixCorner corner)
+			public void CreateCorner(TablixCorner corner)
 			{
 				if (this.m_rplWriter == null && this.m_interactivity == null)
 				{
@@ -1449,11 +1449,11 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal abstract bool HasCornerCells();
+			public abstract bool HasCornerCells();
 
-			internal abstract void CreateCornerCell(PageItem topItem, int rowSpan, int colSpan, int rowIndex, int colIndex);
+			public abstract void CreateCornerCell(PageItem topItem, int rowSpan, int colSpan, int rowIndex, int colIndex);
 
-			internal PageMemberCell AddRowMember(TablixMember rowMember, int rowIndex, int colIndex, int rowSpan, int colSpan, byte memberState, int defTreeLevel, LevelInfo childLevelInfo)
+			public PageMemberCell AddRowMember(TablixMember rowMember, int rowIndex, int colIndex, int rowSpan, int colSpan, byte memberState, int defTreeLevel, LevelInfo childLevelInfo)
 			{
 				if (this.m_rplWriter == null && this.m_interactivity == null)
 				{
@@ -1547,7 +1547,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return null;
 			}
 
-			internal PageMemberCell AddTotalRowMember(TablixMember rowMember, int rowIndex, int colIndex, int rowSpan, int colSpan, byte memberState, int defTreeLevel, LevelInfo parentLevelInfo, LevelInfo childLevelInfo)
+			public PageMemberCell AddTotalRowMember(TablixMember rowMember, int rowIndex, int colIndex, int rowSpan, int colSpan, byte memberState, int defTreeLevel, LevelInfo parentLevelInfo, LevelInfo childLevelInfo)
 			{
 				RSTrace.RenderingTracer.Assert(parentLevelInfo != null, "The parent LevelInfo is null.");
 				if (this.m_rplWriter == null && this.m_interactivity == null)
@@ -1576,9 +1576,9 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return this.AddRowMemberContent(rowMember, rowIndex, colIndex, rowSpan, colSpan, memberState, defTreeLevel, childLevelInfo, updateWidth);
 			}
 
-			internal abstract PageMemberCell CreateMemberCell(PageItem topItem, int rowSpan, int colSpan, TablixMember tablixMember, byte state, int defTreeLevel, TablixRegion region);
+			public abstract PageMemberCell CreateMemberCell(PageItem topItem, int rowSpan, int colSpan, TablixMember tablixMember, byte state, int defTreeLevel, TablixRegion region);
 
-			internal PageMemberCell AddColMember(TablixMember colMember, int rowIndex, int colIndex, int rowSpan, int colSpan, byte state, int defTreeLevel, LevelInfo childLevelInfo)
+			public PageMemberCell AddColMember(TablixMember colMember, int rowIndex, int colIndex, int rowSpan, int colSpan, byte state, int defTreeLevel, LevelInfo childLevelInfo)
 			{
 				RSTrace.RenderingTracer.Assert(childLevelInfo != null, "The child LevelInfo is null.");
 				if (this.m_rplWriter == null && this.m_interactivity == null)
@@ -1664,7 +1664,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return null;
 			}
 
-			internal PageMemberCell AddTotalColMember(TablixMember colMember, int rowIndex, int colIndex, int rowSpan, int colSpan, byte state, int defTreeLevel, LevelInfo parentLevelInfo, LevelInfo childLevelInfo)
+			public PageMemberCell AddTotalColMember(TablixMember colMember, int rowIndex, int colIndex, int rowSpan, int colSpan, byte state, int defTreeLevel, LevelInfo parentLevelInfo, LevelInfo childLevelInfo)
 			{
 				RSTrace.RenderingTracer.Assert(parentLevelInfo != null, "The parent LevelInfo is null.");
 				RSTrace.RenderingTracer.Assert(childLevelInfo != null, "The child LevelInfo is null.");
@@ -1700,7 +1700,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return null;
 			}
 
-			internal void AddDetailEmptyCell(int colIndex, double cellColDefWidth, double cellCellDefHeight)
+			public void AddDetailEmptyCell(int colIndex, double cellColDefWidth, double cellCellDefHeight)
 			{
 				if (cellCellDefHeight > this.m_maxDetailRowHeight)
 				{
@@ -1720,7 +1720,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				this.m_lastDetailDefCellWidth = cellColDefWidth;
 			}
 
-			internal PageItem AddDetailCellFromState(TablixCell cellDef, bool ignoreCellPageBreaks)
+			public PageItem AddDetailCellFromState(TablixCell cellDef, bool ignoreCellPageBreaks)
 			{
 				ReportItem source = null;
 				if (cellDef.CellContents != null)
@@ -1734,7 +1734,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return pageItem;
 			}
 
-			internal ItemOffset AddDetailCell(TablixCell cellDef, int colIndex, double cellColDefWidth, double cellCellDefHeight, bool ignoreCellPageBreaks, bool collect, out bool partialItem)
+			public ItemOffset AddDetailCell(TablixCell cellDef, int colIndex, double cellColDefWidth, double cellCellDefHeight, bool ignoreCellPageBreaks, bool collect, out bool partialItem)
 			{
 				ReportItem reportItem = null;
 				if (cellDef.CellContents != null)
@@ -1802,7 +1802,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return new EmptyCell();
 			}
 
-			internal bool CalculateDetailCell(PageItem topItem, int colIndex, bool collect)
+			public bool CalculateDetailCell(PageItem topItem, int colIndex, bool collect)
 			{
 				return this.CalculateDetailCell(topItem, colIndex, collect, this.m_pageContext);
 			}
@@ -1859,13 +1859,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return false;
 			}
 
-			internal abstract void CreateDetailCell(PageItem topItem);
+			public abstract void CreateDetailCell(PageItem topItem);
 
-			internal abstract void UpdateDetailCell(double cellColDefWidth);
+			public abstract void UpdateDetailCell(double cellColDefWidth);
 
-			internal abstract void UpdateLastDetailCellWidth();
+			public abstract void UpdateLastDetailCellWidth();
 
-			internal bool AdvanceRow(double[] tablixCellHeights, List<int> tablixCreateState, int level)
+			public bool AdvanceRow(double[] tablixCellHeights, List<int> tablixCreateState, int level)
 			{
 				this.NextRow(tablixCellHeights);
 				if (this.m_partialRow)
@@ -1914,7 +1914,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return true;
 			}
 
-			internal double NextRow(double[] tablixCellHeights)
+			public double NextRow(double[] tablixCellHeights)
 			{
 				double num = 0.0;
 				if (this.m_ignoreHeight == 0)
@@ -2340,7 +2340,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void DelayedCalculation()
+			public void DelayedCalculation()
 			{
 				if (this.m_textBoxDelayCalc != null)
 				{
@@ -2361,9 +2361,9 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal abstract void WriteDetailRow(int rowIndex, double[] bodyRowHeights, bool ignoreCellPageBreaks);
+			public abstract void WriteDetailRow(int rowIndex, double[] bodyRowHeights, bool ignoreCellPageBreaks);
 
-			internal abstract void WriteTablixMeasurements(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int rowMembersDepth, int colMembersDepth, ref double tablixWidth, ref double tablixHeight);
+			public abstract void WriteTablixMeasurements(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int rowMembersDepth, int colMembersDepth, ref double tablixWidth, ref double tablixHeight);
 
 			protected abstract void OpenHeaderRow(bool omittedRow, int headerStart);
 
@@ -2796,7 +2796,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal sealed class StreamContext : TablixContext
+		public sealed class StreamContext : TablixContext
 		{
 			private ScalableList<DetailCell> m_cellDetailRow;
 
@@ -2812,12 +2812,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private Hashtable m_colMemberDefIndexes;
 
-			internal StreamContext(RPLWriter rplWriter, PageItemHelper partialItemHelper, bool noRows, bool isLTR, PageContext pageContext, double cellsTopInPage, int headerRowCols, int headerColumnRows, int[] defDetailRowsCapacity, Interactivity interactivity)
+			public StreamContext(RPLWriter rplWriter, PageItemHelper partialItemHelper, bool noRows, bool isLTR, PageContext pageContext, double cellsTopInPage, int headerRowCols, int headerColumnRows, int[] defDetailRowsCapacity, Interactivity interactivity)
 				: base(rplWriter, partialItemHelper, noRows, isLTR, pageContext, cellsTopInPage, headerRowCols, headerColumnRows, defDetailRowsCapacity, interactivity)
 			{
 			}
 
-			internal override void CreateDetailCell(PageItem topItem)
+			public override void CreateDetailCell(PageItem topItem)
 			{
 				DetailCell detailCell = null;
 				detailCell = ((topItem != null) ? new DetailCell(topItem.Offset, topItem.RplItemState) : new DetailCell(0L, 0));
@@ -2828,7 +2828,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				this.m_cellDetailRow.Add(detailCell);
 			}
 
-			internal override void UpdateDetailCell(double cellColDefWidth)
+			public override void UpdateDetailCell(double cellColDefWidth)
 			{
 				if (this.m_cellDetailRow != null)
 				{
@@ -2841,7 +2841,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override void UpdateLastDetailCellWidth()
+			public override void UpdateLastDetailCellWidth()
 			{
 				if (this.m_cellDetailRow != null)
 				{
@@ -2854,12 +2854,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override bool HasCornerCells()
+			public override bool HasCornerCells()
 			{
 				return null != this.m_cornerCells;
 			}
 
-			internal override void CreateCornerCell(PageItem topItem, int rowSpan, int colSpan, int rowIndex, int colIndex)
+			public override void CreateCornerCell(PageItem topItem, int rowSpan, int colSpan, int rowIndex, int colIndex)
 			{
 				CornerCell cornerCell = new CornerCell(topItem.Offset, topItem.RplItemState, rowSpan, colSpan);
 				if (this.m_cornerCells == null)
@@ -2869,7 +2869,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				this.m_cornerCells[rowIndex, colIndex] = cornerCell;
 			}
 
-			internal override PageMemberCell CreateMemberCell(PageItem topItem, int rowSpan, int colSpan, TablixMember tablixMember, byte state, int defTreeLevel, TablixRegion region)
+			public override PageMemberCell CreateMemberCell(PageItem topItem, int rowSpan, int colSpan, TablixMember tablixMember, byte state, int defTreeLevel, TablixRegion region)
 			{
 				MemberCell memberCell = null;
 				memberCell = ((topItem != null) ? new MemberCell(topItem.Offset, topItem.RplItemState, rowSpan, colSpan, tablixMember) : new MemberCell(0L, 0, rowSpan, colSpan, tablixMember));
@@ -2919,7 +2919,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return (int)obj;
 			}
 
-			internal override void WriteDetailRow(int rowIndex, double[] tablixCellHeights, bool ignoreCellPageBreaks)
+			public override void WriteDetailRow(int rowIndex, double[] tablixCellHeights, bool ignoreCellPageBreaks)
 			{
 				base.m_detailsOnPage = true;
 				base.m_pageBreakAtEnd = false;
@@ -2995,7 +2995,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override void WriteTablixMeasurements(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int rowMembersDepth, int colMembersDepth, ref double tablixWidth, ref double tablixHeight)
+			public override void WriteTablixMeasurements(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int rowMembersDepth, int colMembersDepth, ref double tablixWidth, ref double tablixHeight)
 			{
 				if (base.m_rplWriter != null)
 				{
@@ -3254,7 +3254,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class RPLContext : TablixContext
+		public class RPLContext : TablixContext
 		{
 			private RPLTablix m_rplTablix;
 
@@ -3266,13 +3266,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private Hashtable m_rplTablixMembersDef;
 
-			internal RPLContext(RPLWriter rplWriter, PageItemHelper partialItemHelper, bool noRows, bool isLTR, PageContext pageContext, double cellsTopInPage, int headerRowCols, int headerColumnRows, int[] defDetailRowsCapacity, Interactivity interactivity, RPLTablix rplTablix)
+			public RPLContext(RPLWriter rplWriter, PageItemHelper partialItemHelper, bool noRows, bool isLTR, PageContext pageContext, double cellsTopInPage, int headerRowCols, int headerColumnRows, int[] defDetailRowsCapacity, Interactivity interactivity, RPLTablix rplTablix)
 				: base(rplWriter, partialItemHelper, noRows, isLTR, pageContext, cellsTopInPage, headerRowCols, headerColumnRows, defDetailRowsCapacity, interactivity)
 			{
 				this.m_rplTablix = rplTablix;
 			}
 
-			internal override void CreateDetailCell(PageItem topItem)
+			public override void CreateDetailCell(PageItem topItem)
 			{
 				if (!base.PageContext.CancelPage)
 				{
@@ -3286,7 +3286,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override void UpdateDetailCell(double cellColDefWidth)
+			public override void UpdateDetailCell(double cellColDefWidth)
 			{
 				if (this.m_cellDetailRow != null)
 				{
@@ -3296,7 +3296,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override void UpdateLastDetailCellWidth()
+			public override void UpdateLastDetailCellWidth()
 			{
 				if (this.m_cellDetailRow != null)
 				{
@@ -3309,12 +3309,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override bool HasCornerCells()
+			public override bool HasCornerCells()
 			{
 				return null != this.m_cornerCells;
 			}
 
-			internal override void CreateCornerCell(PageItem topItem, int rowSpan, int colSpan, int rowIndex, int colIndex)
+			public override void CreateCornerCell(PageItem topItem, int rowSpan, int colSpan, int rowIndex, int colIndex)
 			{
 				if (!base.PageContext.CancelPage)
 				{
@@ -3327,7 +3327,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override PageMemberCell CreateMemberCell(PageItem topItem, int rowSpan, int colSpan, TablixMember tablixMember, byte state, int defTreeLevel, TablixRegion region)
+			public override PageMemberCell CreateMemberCell(PageItem topItem, int rowSpan, int colSpan, TablixMember tablixMember, byte state, int defTreeLevel, TablixRegion region)
 			{
 				if (base.PageContext.CancelPage)
 				{
@@ -3388,7 +3388,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return new RPLMemberCell(rPLTablixMemberCell, state);
 			}
 
-			internal override void WriteDetailRow(int rowIndex, double[] tablixCellHeights, bool ignoreCellPageBreaks)
+			public override void WriteDetailRow(int rowIndex, double[] tablixCellHeights, bool ignoreCellPageBreaks)
 			{
 				base.m_detailsOnPage = true;
 				base.m_pageBreakAtEnd = false;
@@ -3471,7 +3471,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override void WriteTablixMeasurements(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int rowMembersDepth, int colMembersDepth, ref double tablixWidth, ref double tablixHeight)
+			public override void WriteTablixMeasurements(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int rowMembersDepth, int colMembersDepth, ref double tablixWidth, ref double tablixHeight)
 			{
 				if (base.m_rplWriter != null)
 				{
@@ -3697,7 +3697,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class LevelInfo
+		public class LevelInfo
 		{
 			private int m_spanForParent;
 
@@ -3717,7 +3717,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private bool m_hasVisibleStaticPeer;
 
-			internal int SpanForParent
+			public int SpanForParent
 			{
 				get
 				{
@@ -3729,7 +3729,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal double SizeForParent
+			public double SizeForParent
 			{
 				get
 				{
@@ -3741,7 +3741,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal ScalableList<PageMemberCell> MemberCells
+			public ScalableList<PageMemberCell> MemberCells
 			{
 				get
 				{
@@ -3753,7 +3753,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool OmittedMembersCells
+			public bool OmittedMembersCells
 			{
 				get
 				{
@@ -3765,7 +3765,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int IgnoredRowsCols
+			public int IgnoredRowsCols
 			{
 				get
 				{
@@ -3777,7 +3777,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool OmittedList
+			public bool OmittedList
 			{
 				get
 				{
@@ -3785,7 +3785,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal double SourceSize
+			public double SourceSize
 			{
 				get
 				{
@@ -3793,7 +3793,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool HasVisibleStaticPeer
+			public bool HasVisibleStaticPeer
 			{
 				get
 				{
@@ -3805,7 +3805,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void AddMemberCell(PageMemberCell memberCell, int span, int priority, int sourceIndex, double sourceSize, IScalabilityCache cache)
+			public void AddMemberCell(PageMemberCell memberCell, int span, int priority, int sourceIndex, double sourceSize, IScalabilityCache cache)
 			{
 				if (this.m_memberCells == null)
 				{
@@ -3823,7 +3823,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void SetDefaults()
+			public void SetDefaults()
 			{
 				this.m_spanForParent = 0;
 				this.m_sizeForParent = 0.0;
@@ -3837,7 +3837,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class EmptyCell : ItemOffset
+		public class EmptyCell : ItemOffset
 		{
 			public long Offset
 			{
@@ -3851,7 +3851,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class DetailCell : IStorable, IPersistable
+		public class DetailCell : IStorable, IPersistable
 		{
 			protected int m_colSpan = 1;
 
@@ -3861,7 +3861,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private static Declaration m_declaration = DetailCell.GetDeclaration();
 
-			internal virtual int RowSpan
+			public virtual int RowSpan
 			{
 				get
 				{
@@ -3872,7 +3872,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal virtual int ColSpan
+			public virtual int ColSpan
 			{
 				get
 				{
@@ -3892,17 +3892,17 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal DetailCell()
+			public DetailCell()
 			{
 			}
 
-			internal DetailCell(long offset, byte itemState)
+			public DetailCell(long offset, byte itemState)
 			{
 				this.m_offset = offset;
 				this.m_cellItemState = itemState;
 			}
 
-			internal DetailCell(long offset, byte itemState, int colSpan)
+			public DetailCell(long offset, byte itemState, int colSpan)
 			{
 				this.m_offset = offset;
 				this.m_colSpan = colSpan;
@@ -3964,7 +3964,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return ObjectType.DetailCell;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (DetailCell.m_declaration == null)
 				{
@@ -3977,7 +3977,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return DetailCell.m_declaration;
 			}
 
-			internal void WriteItemToStream(RPLWriter rplWriter, int colIndex)
+			public void WriteItemToStream(RPLWriter rplWriter, int colIndex)
 			{
 				BinaryWriter binaryWriter = rplWriter.BinaryWriter;
 				binaryWriter.Write((byte)13);
@@ -4002,13 +4002,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class CornerCell : DetailCell
+		public class CornerCell : DetailCell
 		{
 			protected int m_rowSpan = 1;
 
 			private static Declaration m_declaration = CornerCell.GetDeclaration();
 
-			internal override int RowSpan
+			public override int RowSpan
 			{
 				get
 				{
@@ -4028,17 +4028,17 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal CornerCell()
+			public CornerCell()
 			{
 			}
 
-			internal CornerCell(long offset, byte itemState, int rowSpan, int colSpan)
+			public CornerCell(long offset, byte itemState, int rowSpan, int colSpan)
 				: base(offset, itemState, colSpan)
 			{
 				this.m_rowSpan = rowSpan;
 			}
 
-			internal void WriteItemToStream(RPLWriter rplWriter, int rowIndex, int colIndex)
+			public void WriteItemToStream(RPLWriter rplWriter, int rowIndex, int colIndex)
 			{
 				BinaryWriter binaryWriter = rplWriter.BinaryWriter;
 				binaryWriter.Write((byte)10);
@@ -4110,7 +4110,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return ObjectType.CornerCell;
 			}
 
-			internal new static Declaration GetDeclaration()
+			public new static Declaration GetDeclaration()
 			{
 				if (CornerCell.m_declaration == null)
 				{
@@ -4122,7 +4122,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class MemberCell : CornerCell
+		public class MemberCell : CornerCell
 		{
 			private string m_uniqueName;
 
@@ -4134,7 +4134,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private static Declaration m_declaration = MemberCell.GetDeclaration();
 
-			internal string GroupLabel
+			public string GroupLabel
 			{
 				get
 				{
@@ -4142,7 +4142,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int RecursiveToggleLevel
+			public int RecursiveToggleLevel
 			{
 				get
 				{
@@ -4150,7 +4150,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int TablixMemberDefIndex
+			public int TablixMemberDefIndex
 			{
 				set
 				{
@@ -4166,11 +4166,11 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal MemberCell()
+			public MemberCell()
 			{
 			}
 
-			internal MemberCell(long offset, byte itemState, int rowSpan, int colSpan, TablixMember tablixMember)
+			public MemberCell(long offset, byte itemState, int rowSpan, int colSpan, TablixMember tablixMember)
 				: base(offset, itemState, rowSpan, colSpan)
 			{
 				Group group = tablixMember.Group;
@@ -4197,7 +4197,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void WriteItemToStream(TablixRegion region, RPLWriter rplWriter, int rowIndex, int colIndex, byte state)
+			public void WriteItemToStream(TablixRegion region, RPLWriter rplWriter, int rowIndex, int colIndex, byte state)
 			{
 				BinaryWriter binaryWriter = rplWriter.BinaryWriter;
 				if (region == TablixRegion.ColumnHeader)
@@ -4316,7 +4316,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return ObjectType.MemberCell;
 			}
 
-			internal new static Declaration GetDeclaration()
+			public new static Declaration GetDeclaration()
 			{
 				if (MemberCell.m_declaration == null)
 				{
@@ -4331,7 +4331,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal abstract class PageMemberCell : IStorable, IPersistable
+		public abstract class PageMemberCell : IStorable, IPersistable
 		{
 			protected byte m_state;
 
@@ -4339,7 +4339,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private static Declaration m_declaration = PageMemberCell.GetDeclaration();
 
-			internal bool HasOmittedChildren
+			public bool HasOmittedChildren
 			{
 				get
 				{
@@ -4358,7 +4358,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal ScalableList<PageMemberCell> Children
+			public ScalableList<PageMemberCell> Children
 			{
 				get
 				{
@@ -4370,17 +4370,17 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal abstract bool NeedWrite
+			public abstract bool NeedWrite
 			{
 				get;
 			}
 
-			internal abstract int ColSpan
+			public abstract int ColSpan
 			{
 				get;
 			}
 
-			internal abstract int RowSpan
+			public abstract int RowSpan
 			{
 				get;
 			}
@@ -4393,16 +4393,16 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal PageMemberCell()
+			public PageMemberCell()
 			{
 			}
 
-			internal PageMemberCell(byte state)
+			public PageMemberCell(byte state)
 			{
 				this.m_state = state;
 			}
 
-			internal byte ResolveState()
+			public byte ResolveState()
 			{
 				byte b = 0;
 				if (this.m_state > 1)
@@ -4423,7 +4423,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return b;
 			}
 
-			internal abstract void WriteItemToStream(TablixRegion region, RPLWriter rplWriter, int rowIndex, int colIndex);
+			public abstract void WriteItemToStream(TablixRegion region, RPLWriter rplWriter, int rowIndex, int colIndex);
 
 			public virtual void Serialize(IntermediateFormatWriter writer)
 			{
@@ -4474,7 +4474,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return ObjectType.PageMemberCell;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (PageMemberCell.m_declaration == null)
 				{
@@ -4487,13 +4487,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class StreamMemberCell : PageMemberCell
+		public class StreamMemberCell : PageMemberCell
 		{
 			private MemberCell m_memberCell;
 
 			private static Declaration m_declaration = StreamMemberCell.GetDeclaration();
 
-			internal override int ColSpan
+			public override int ColSpan
 			{
 				get
 				{
@@ -4501,7 +4501,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override int RowSpan
+			public override int RowSpan
 			{
 				get
 				{
@@ -4509,7 +4509,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override bool NeedWrite
+			public override bool NeedWrite
 			{
 				get
 				{
@@ -4533,17 +4533,17 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal StreamMemberCell()
+			public StreamMemberCell()
 			{
 			}
 
-			internal StreamMemberCell(MemberCell cell, byte state)
+			public StreamMemberCell(MemberCell cell, byte state)
 				: base(state)
 			{
 				this.m_memberCell = cell;
 			}
 
-			internal override void WriteItemToStream(TablixRegion region, RPLWriter rplWriter, int rowIndex, int colIndex)
+			public override void WriteItemToStream(TablixRegion region, RPLWriter rplWriter, int rowIndex, int colIndex)
 			{
 				byte state = base.ResolveState();
 				this.m_memberCell.WriteItemToStream(region, rplWriter, rowIndex, colIndex, state);
@@ -4590,7 +4590,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return ObjectType.StreamMemberCell;
 			}
 
-			internal new static Declaration GetDeclaration()
+			public new static Declaration GetDeclaration()
 			{
 				if (StreamMemberCell.m_declaration == null)
 				{
@@ -4602,14 +4602,14 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class RPLMemberCell : PageMemberCell
+		public class RPLMemberCell : PageMemberCell
 		{
 			[StaticReference]
 			private RPLTablixMemberCell m_memberCell;
 
 			private static Declaration m_declaration = RPLMemberCell.GetDeclaration();
 
-			internal override int ColSpan
+			public override int ColSpan
 			{
 				get
 				{
@@ -4617,7 +4617,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override int RowSpan
+			public override int RowSpan
 			{
 				get
 				{
@@ -4625,7 +4625,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal override bool NeedWrite
+			public override bool NeedWrite
 			{
 				get
 				{
@@ -4649,17 +4649,17 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal RPLMemberCell()
+			public RPLMemberCell()
 			{
 			}
 
-			internal RPLMemberCell(RPLTablixMemberCell cell, byte state)
+			public RPLMemberCell(RPLTablixMemberCell cell, byte state)
 				: base(state)
 			{
 				this.m_memberCell = cell;
 			}
 
-			internal override void WriteItemToStream(TablixRegion region, RPLWriter rplWriter, int rowIndex, int colIndex)
+			public override void WriteItemToStream(TablixRegion region, RPLWriter rplWriter, int rowIndex, int colIndex)
 			{
 				this.m_memberCell.RowIndex = rowIndex;
 				this.m_memberCell.ColIndex = colIndex;
@@ -4720,7 +4720,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return ObjectType.RPLMemberCell;
 			}
 
-			internal new static Declaration GetDeclaration()
+			public new static Declaration GetDeclaration()
 			{
 				if (RPLMemberCell.m_declaration == null)
 				{
@@ -4732,13 +4732,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal const byte BorderHeader = 1;
+		public const byte BorderHeader = 1;
 
-		internal const byte HasToggle = 2;
+		public const byte HasToggle = 2;
 
-		internal const byte CollapsedHeader = 4;
+		public const byte CollapsedHeader = 4;
 
-		internal const byte HasOmittedChildren = 8;
+		public const byte HasOmittedChildren = 8;
 
 		private PageItem m_partialPageItem;
 
@@ -4788,7 +4788,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Tablix(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix source, PageContext pageContext, bool createForRepeat)
+		public Tablix(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix source, PageContext pageContext, bool createForRepeat)
 			: base(source)
 		{
 			if (pageContext != null)
@@ -4839,7 +4839,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void UpdateItem(PageItemHelper itemHelper)
+		public override void UpdateItem(PageItemHelper itemHelper)
 		{
 			if (itemHelper != null)
 			{
@@ -6975,7 +6975,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return array;
 		}
 
-		internal override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
+		public override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix = (AspNetCore.ReportingServices.OnDemandReportRendering.Tablix)base.m_source;
 			double num = parentTopInPage + base.m_itemPageSizes.Top;
@@ -7128,7 +7128,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (rplWriter != null)
 			{
@@ -7148,7 +7148,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteEndItemToStream(RPLWriter rplWriter, TablixContext context, AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, ItemSizes contentSize)
+		public void WriteEndItemToStream(RPLWriter rplWriter, TablixContext context, AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, ItemSizes contentSize)
 		{
 			if (rplWriter != null)
 			{
@@ -7179,19 +7179,19 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BackgroundColor, 34);
 			this.WriteBackgroundImage(spbifWriter, style, true, pageContext);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BackgroundColor, 34);
 			this.WriteBackgroundImage(rplStyleProps, style, true, pageContext);
 		}
 
-		internal override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -7204,7 +7204,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -7217,7 +7217,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public override void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -7255,7 +7255,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override PageItemHelper WritePaginationInfo()
+		public override PageItemHelper WritePaginationInfo()
 		{
 			PageTablixHelper pageTablixHelper = new PageTablixHelper(11);
 			base.WritePaginationInfoProperties(pageTablixHelper);
@@ -7281,7 +7281,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal string BuildTablixMemberPath(TablixMember rowMember)
+		public string BuildTablixMemberPath(TablixMember rowMember)
 		{
 			return DiagnosticsUtilities.BuildTablixMemberPath(base.ItemName, rowMember, this.m_memberIndexByLevel);
 		}

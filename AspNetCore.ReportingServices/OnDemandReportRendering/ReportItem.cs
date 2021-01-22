@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ReportItem : ReportElement
+	public abstract class ReportItem : ReportElement
 	{
 		protected bool m_isListContentsRectangle;
 
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool InSubtotal
+		public bool InSubtotal
 		{
 			get
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportElementInstance ReportElementInstance
+		public override ReportElementInstance ReportElementInstance
 		{
 			get
 			{
@@ -357,7 +357,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override string InstanceUniqueName
+		public override string InstanceUniqueName
 		{
 			get
 			{
@@ -369,21 +369,21 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportItem(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
+		public ReportItem(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
 			: base(reportScope, parentDefinitionPath, reportItemDef, renderingContext)
 		{
 			this.m_definitionPath = DefinitionPathConstants.GetCollectionDefinitionPath(parentDefinitionPath, indexIntoParentCollectionDef);
 			base.m_reportItemDef.ROMScopeInstance = this.ReportScope.ReportScopeInstance;
 		}
 
-		internal ReportItem(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext)
+		public ReportItem(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext)
 			: base(parentDefinitionPath, renderReportItem, renderingContext)
 		{
 			this.m_definitionPath = DefinitionPathConstants.GetCollectionDefinitionPath(parentDefinitionPath, indexIntoParentCollectionDef);
 			this.m_inSubtotal = inSubtotal;
 		}
 
-		internal ReportItem(IDefinitionPath parentDefinitionPath, bool inSubtotal, RenderingContext renderingContext)
+		public ReportItem(IDefinitionPath parentDefinitionPath, bool inSubtotal, RenderingContext renderingContext)
 			: base(parentDefinitionPath, renderingContext)
 		{
 			this.m_definitionPath = DefinitionPathConstants.GetCollectionDefinitionPath(parentDefinitionPath, 0);
@@ -391,9 +391,9 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_isListContentsRectangle = true;
 		}
 
-		internal abstract ReportItemInstance GetOrCreateInstance();
+		public abstract ReportItemInstance GetOrCreateInstance();
 
-		internal void SetCachedWidth(double sizeDelta)
+		public void SetCachedWidth(double sizeDelta)
 		{
 			if (base.m_isOldSnapshot)
 			{
@@ -403,7 +403,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetCachedHeight(double sizeDelta)
+		public void SetCachedHeight(double sizeDelta)
 		{
 			if (base.m_isOldSnapshot)
 			{
@@ -413,7 +413,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{
@@ -428,11 +428,11 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_customPropertiesReady = false;
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 		}
 
-		internal void CriEvaluateInstance()
+		public void CriEvaluateInstance()
 		{
 			if (base.CriOwner != null && base.CriGenerationPhase == CriGenerationPhases.None && !this.m_criGeneratedInstanceEvaluated)
 			{
@@ -441,7 +441,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public virtual void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			if (!base.m_isOldSnapshot)
 			{
@@ -480,22 +480,22 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.CustomProperties.Add(base.RenderingContext, dataValue.Name, dataValue.Value);
 		}
 
-		internal virtual ReportItem ExposeAs(RenderingContext renderingContext)
+		public virtual ReportItem ExposeAs(RenderingContext renderingContext)
 		{
 			return this;
 		}
 
-		internal virtual void ConstructReportItemDefinition()
+		public virtual void ConstructReportItemDefinition()
 		{
 			Global.Tracer.Assert(false, "ConstructReportElementDefinition is not implemented on this type of report item: " + base.m_reportItemDef.ObjectType.ToString());
 		}
 
-		internal virtual void CompleteCriGeneratedInstanceEvaluation()
+		public virtual void CompleteCriGeneratedInstanceEvaluation()
 		{
 			Global.Tracer.Assert(false, "CompleteCriGeneratedInstanceEvaluation is not implemented on this type of report item: " + base.m_reportItemDef.ObjectType.ToString());
 		}
 
-		internal void ConstructReportItemDefinitionImpl()
+		public void ConstructReportItemDefinitionImpl()
 		{
 			base.ConstructReportElementDefinitionImpl();
 			ReportItemInstance instance = this.Instance;
@@ -565,7 +565,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static int StringToInt(string intAsString)
+		public static int StringToInt(string intAsString)
 		{
 			int result = -1;
 			if (int.TryParse(intAsString, NumberStyles.None, (IFormatProvider)CultureInfo.InvariantCulture, out result))
@@ -575,7 +575,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return -1;
 		}
 
-		internal static ReportItem CreateItem(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
+		public static ReportItem CreateItem(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
 		{
 			ReportItem reportItem = null;
 			switch (reportItemDef.ObjectType)
@@ -624,7 +624,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return reportItem;
 		}
 
-		internal static ReportItem CreateShim(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext)
+		public static ReportItem CreateShim(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext)
 		{
 			ReportItem result = null;
 			if (renderReportItem is AspNetCore.ReportingServices.ReportRendering.TextBox)

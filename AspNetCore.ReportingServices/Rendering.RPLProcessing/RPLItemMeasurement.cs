@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLItemMeasurement : RPLMeasurement
+	public class RPLItemMeasurement : RPLMeasurement
 	{
 		private IRPLItemFactory m_rplElement;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal override OffsetInfo OffsetInfo
+		public override OffsetInfo OffsetInfo
 		{
 			get
 			{
@@ -42,12 +42,12 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			base.m_zindex = measurement.ZIndex;
 		}
 
-		internal RPLItemMeasurement(RPLItem rplElement)
+		public RPLItemMeasurement(RPLItem rplElement)
 		{
 			this.m_rplElement = rplElement;
 		}
 
-		internal override void SetOffset(long offset, RPLContext context)
+		public override void SetOffset(long offset, RPLContext context)
 		{
 			if (offset >= 0)
 			{

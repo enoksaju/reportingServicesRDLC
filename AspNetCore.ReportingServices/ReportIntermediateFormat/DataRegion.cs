@@ -15,9 +15,9 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal abstract class DataRegion : ReportItem, IPageBreakOwner, IAggregateHolder, IRunningValueHolder, ISortFilterScope, IReferenceable, IPersistable, IIndexedInCollection, IGloballyReferenceable, IGlobalIDOwner, IDomainScopeMemberCreator, IRIFReportDataScope, IRIFReportScope, IInstancePath, IRIFDataScope
+	public abstract class DataRegion : ReportItem, IPageBreakOwner, IAggregateHolder, IRunningValueHolder, ISortFilterScope, IReferenceable, IPersistable, IIndexedInCollection, IGloballyReferenceable, IGlobalIDOwner, IDomainScopeMemberCreator, IRIFReportDataScope, IRIFReportScope, IInstancePath, IRIFDataScope
 	{
-		internal enum ProcessingInnerGroupings
+		public enum ProcessingInnerGroupings
 		{
 			Column,
 			Row
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsMatrixIDC
+		public bool IsMatrixIDC
 		{
 			get
 			{
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override bool IsDataRegion
+		public override bool IsDataRegion
 		{
 			get
 			{
@@ -233,17 +233,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal abstract HierarchyNodeList ColumnMembers
+		public abstract HierarchyNodeList ColumnMembers
 		{
 			get;
 		}
 
-		internal abstract HierarchyNodeList RowMembers
+		public abstract HierarchyNodeList RowMembers
 		{
 			get;
 		}
 
-		internal HierarchyNodeList OuterMembers
+		public HierarchyNodeList OuterMembers
 		{
 			get
 			{
@@ -255,7 +255,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal HierarchyNodeList InnerMembers
+		public HierarchyNodeList InnerMembers
 		{
 			get
 			{
@@ -267,12 +267,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal abstract RowList Rows
+		public abstract RowList Rows
 		{
 			get;
 		}
 
-		internal string DataSetName
+		public string DataSetName
 		{
 			get
 			{
@@ -284,7 +284,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo NoRowsMessage
+		public ExpressionInfo NoRowsMessage
 		{
 			get
 			{
@@ -308,7 +308,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ColumnCount
+		public int ColumnCount
 		{
 			get
 			{
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int RowCount
+		public int RowCount
 		{
 			get
 			{
@@ -332,7 +332,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ProcessingInnerGroupings ProcessingInnerGrouping
+		public ProcessingInnerGroupings ProcessingInnerGrouping
 		{
 			get
 			{
@@ -344,7 +344,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> RepeatSiblings
+		public List<int> RepeatSiblings
 		{
 			get
 			{
@@ -356,7 +356,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Sorting Sorting
+		public Sorting Sorting
 		{
 			get
 			{
@@ -368,7 +368,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<Filter> Filters
+		public List<Filter> Filters
 		{
 			get
 			{
@@ -380,7 +380,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasFilters
+		public bool HasFilters
 		{
 			get
 			{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> Aggregates
+		public List<DataAggregateInfo> Aggregates
 		{
 			get
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> PostSortAggregates
+		public List<DataAggregateInfo> PostSortAggregates
 		{
 			get
 			{
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<RunningValueInfo> RunningValues
+		public List<RunningValueInfo> RunningValues
 		{
 			get
 			{
@@ -428,7 +428,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> CellAggregates
+		public List<DataAggregateInfo> CellAggregates
 		{
 			get
 			{
@@ -440,7 +440,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> CellPostSortAggregates
+		public List<DataAggregateInfo> CellPostSortAggregates
 		{
 			get
 			{
@@ -452,7 +452,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<RunningValueInfo> CellRunningValues
+		public List<RunningValueInfo> CellRunningValues
 		{
 			get
 			{
@@ -464,7 +464,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> UserSortExpressions
+		public List<ExpressionInfo> UserSortExpressions
 		{
 			get
 			{
@@ -476,7 +476,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal InScopeSortFilterHashtable DetailSortFiltersInScope
+		public InScopeSortFilterHashtable DetailSortFiltersInScope
 		{
 			get
 			{
@@ -488,7 +488,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Hashtable ScopeNames
+		public Hashtable ScopeNames
 		{
 			get
 			{
@@ -561,7 +561,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RuntimeDataRegionObjReference RuntimeDataRegionObj
+		public RuntimeDataRegionObjReference RuntimeDataRegionObj
 		{
 			get
 			{
@@ -573,7 +573,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> OutermostStaticColumnIndexes
+		public List<int> OutermostStaticColumnIndexes
 		{
 			get
 			{
@@ -585,7 +585,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> OutermostStaticRowIndexes
+		public List<int> OutermostStaticRowIndexes
 		{
 			get
 			{
@@ -597,7 +597,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int CurrentCellInnerIndex
+		public int CurrentCellInnerIndex
 		{
 			get
 			{
@@ -605,7 +605,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IReference<RuntimeDataTablixGroupRootObj> CurrentOuterGroupRoot
+		public IReference<RuntimeDataTablixGroupRootObj> CurrentOuterGroupRoot
 		{
 			get
 			{
@@ -617,7 +617,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IReference<RuntimeDataTablixGroupRootObj>[] CurrentOuterGroupRootObjs
+		public IReference<RuntimeDataTablixGroupRootObj>[] CurrentOuterGroupRootObjs
 		{
 			get
 			{
@@ -629,7 +629,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int[] OuterGroupingIndexes
+		public int[] OuterGroupingIndexes
 		{
 			get
 			{
@@ -637,7 +637,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InTablixCell
+		public bool InTablixCell
 		{
 			get
 			{
@@ -649,7 +649,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool[] IsSortFilterTarget
+		public bool[] IsSortFilterTarget
 		{
 			get
 			{
@@ -661,7 +661,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool[] IsSortFilterExpressionScope
+		public bool[] IsSortFilterExpressionScope
 		{
 			get
 			{
@@ -673,7 +673,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int[] SortFilterSourceDetailScopeInfo
+		public int[] SortFilterSourceDetailScopeInfo
 		{
 			get
 			{
@@ -685,7 +685,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int CurrentColDetailIndex
+		public int CurrentColDetailIndex
 		{
 			get
 			{
@@ -697,7 +697,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int CurrentRowDetailIndex
+		public int CurrentRowDetailIndex
 		{
 			get
 			{
@@ -709,7 +709,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ProcessCellRunningValues
+		public bool ProcessCellRunningValues
 		{
 			get
 			{
@@ -721,7 +721,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ProcessOutermostStaticCellRunningValues
+		public bool ProcessOutermostStaticCellRunningValues
 		{
 			get
 			{
@@ -733,7 +733,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InOutermostStaticCells
+		public bool InOutermostStaticCells
 		{
 			get
 			{
@@ -810,7 +810,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			get;
 		}
 
-		internal bool ColumnScopeFound
+		public bool ColumnScopeFound
 		{
 			get
 			{
@@ -822,7 +822,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool RowScopeFound
+		public bool RowScopeFound
 		{
 			get
 			{
@@ -854,7 +854,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataRegionInstance CurrentDataRegionInstance
+		public DataRegionInstance CurrentDataRegionInstance
 		{
 			get
 			{
@@ -866,7 +866,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<IInScopeEventSource> InScopeEventSources
+		public List<IInScopeEventSource> InScopeEventSources
 		{
 			get
 			{
@@ -874,7 +874,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int OuterGroupingMaximumDynamicLevel
+		public int OuterGroupingMaximumDynamicLevel
 		{
 			get
 			{
@@ -882,7 +882,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int OuterGroupingDynamicMemberCount
+		public int OuterGroupingDynamicMemberCount
 		{
 			get
 			{
@@ -890,7 +890,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int OuterGroupingDynamicPathCount
+		public int OuterGroupingDynamicPathCount
 		{
 			get
 			{
@@ -898,7 +898,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal InitializationContext.ScopeChainInfo ScopeChainInfo
+		public InitializationContext.ScopeChainInfo ScopeChainInfo
 		{
 			get
 			{
@@ -910,7 +910,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int InnerGroupingMaximumDynamicLevel
+		public int InnerGroupingMaximumDynamicLevel
 		{
 			get
 			{
@@ -918,7 +918,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int InnerGroupingDynamicMemberCount
+		public int InnerGroupingDynamicMemberCount
 		{
 			get
 			{
@@ -926,7 +926,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int InnerGroupingDynamicPathCount
+		public int InnerGroupingDynamicPathCount
 		{
 			get
 			{
@@ -934,7 +934,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int RowDomainScopeCount
+		public int RowDomainScopeCount
 		{
 			get
 			{
@@ -950,7 +950,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ColumnDomainScopeCount
+		public int ColumnDomainScopeCount
 		{
 			get
 			{
@@ -966,7 +966,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ReportItem> DataRegionScopedItemsForDataProcessing
+		public List<ReportItem> DataRegionScopedItemsForDataProcessing
 		{
 			get
 			{
@@ -1001,7 +1001,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo PageName
+		public ExpressionInfo PageName
 		{
 			get
 			{
@@ -1013,7 +1013,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PageBreak PageBreak
+		public PageBreak PageBreak
 		{
 			get
 			{
@@ -1190,7 +1190,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.ResetTextBoxImpls(context);
 		}
 
-		internal virtual void ResetTextBoxImpls(OnDemandProcessingContext context)
+		public virtual void ResetTextBoxImpls(OnDemandProcessingContext context)
 		{
 		}
 
@@ -1255,7 +1255,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.IsDataRegionScopedCell = true;
 			base.Initialize(context);
@@ -1697,7 +1697,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ErrorContext.SuspendErrors = suspendErrors;
 		}
 
-		internal override void InitializeRVDirectionDependentItems(InitializationContext context)
+		public override void InitializeRVDirectionDependentItems(InitializationContext context)
 		{
 			if (this.IsDataRegion && context.RegisterDataRegion(this))
 			{
@@ -1811,7 +1811,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal override void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
+		public override void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
 		{
 			this.DetermineGroupingExprValueCountInCorner(context, groupingExprCount);
 			int num = 0;
@@ -1891,7 +1891,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet GetDataSet(Report reportDefinition)
+		public DataSet GetDataSet(Report reportDefinition)
 		{
 			if (this.m_cachedDataSet == null)
 			{
@@ -1954,7 +1954,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ConvertCellAggregatesToIndexes()
+		public void ConvertCellAggregatesToIndexes()
 		{
 			Dictionary<string, int> dictionary = new Dictionary<string, int>();
 			Dictionary<string, int> dictionary2 = new Dictionary<string, int>();
@@ -2021,7 +2021,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new InstancePathItem();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			DataRegion dataRegion = (DataRegion)base.PublishClone(context);
 			dataRegion.m_dataScopeInfo = this.m_dataScopeInfo.PublishClone(context, dataRegion.ID);
@@ -2098,7 +2098,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return dataRegion;
 		}
 
-		internal override void TraverseScopes(IRIFScopeVisitor visitor)
+		public override void TraverseScopes(IRIFScopeVisitor visitor)
 		{
 			if (this.IsDataRegion)
 			{
@@ -2344,7 +2344,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataSetName, Token.String));
@@ -2649,15 +2649,15 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataRegion;
 		}
 
-		internal abstract object EvaluateNoRowsMessageExpression();
+		public abstract object EvaluateNoRowsMessageExpression();
 
-		internal string EvaluateNoRowsMessage(AspNetCore.ReportingServices.OnDemandReportRendering.DataRegionInstance romInstance, OnDemandProcessingContext odpContext)
+		public string EvaluateNoRowsMessage(AspNetCore.ReportingServices.OnDemandReportRendering.DataRegionInstance romInstance, OnDemandProcessingContext odpContext)
 		{
 			odpContext.SetupContext(this, romInstance);
 			return odpContext.ReportRuntime.EvaluateDataRegionNoRowsExpression(this, this.ObjectType, base.m_name, "NoRowsMessage");
 		}
 
-		internal string EvaluatePageName(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public string EvaluatePageName(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateDataRegionPageNameExpression(this, this.m_pageName, this.ObjectType, base.Name);
@@ -2695,9 +2695,9 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal abstract void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions);
+		public abstract void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions);
 
-		internal void SaveOuterGroupingAggregateRowInfo(int dynamicIndex, OnDemandProcessingContext odpContext)
+		public void SaveOuterGroupingAggregateRowInfo(int dynamicIndex, OnDemandProcessingContext odpContext)
 		{
 			Global.Tracer.Assert(null != this.m_outerGroupingAggregateRowInfo, "(null != m_outerGroupingAggregateRowInfo)");
 			if (this.m_outerGroupingAggregateRowInfo[dynamicIndex] == null)
@@ -2707,18 +2707,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_outerGroupingAggregateRowInfo[dynamicIndex].SaveAggregateInfo(odpContext);
 		}
 
-		internal void SetDataTablixAggregateRowInfo(AggregateRowInfo aggregateRowInfo)
+		public void SetDataTablixAggregateRowInfo(AggregateRowInfo aggregateRowInfo)
 		{
 			this.m_dataTablixAggregateRowInfo = aggregateRowInfo;
 		}
 
-		internal void SetCellAggregateRowInfo(int dynamicIndex, OnDemandProcessingContext odpContext)
+		public void SetCellAggregateRowInfo(int dynamicIndex, OnDemandProcessingContext odpContext)
 		{
 			Global.Tracer.Assert(this.m_outerGroupingAggregateRowInfo != null && null != this.m_dataTablixAggregateRowInfo, "(null != m_outerGroupingAggregateRowInfo && null != m_dataTablixAggregateRowInfo)");
 			this.m_dataTablixAggregateRowInfo.CombineAggregateInfo(odpContext, this.m_outerGroupingAggregateRowInfo[dynamicIndex]);
 		}
 
-		internal void ResetInstancePathCascade()
+		public void ResetInstancePathCascade()
 		{
 			int num = (this.RowMembers != null) ? this.RowMembers.Count : 0;
 			for (int i = 0; i < num; i++)
@@ -2732,7 +2732,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ResetInstanceIndexes()
+		public void ResetInstanceIndexes()
 		{
 			this.m_currentCellInnerIndex = 0;
 			this.m_sequentialColMemberInstanceIndex = 0;
@@ -2743,14 +2743,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_currentOuterGroupRoot = null;
 		}
 
-		internal void UpdateOuterGroupingIndexes(IReference<RuntimeDataTablixGroupRootObj> groupRoot, int groupLeafIndex)
+		public void UpdateOuterGroupingIndexes(IReference<RuntimeDataTablixGroupRootObj> groupRoot, int groupLeafIndex)
 		{
 			int hierarchyDynamicIndex = groupRoot.Value().HierarchyDef.HierarchyDynamicIndex;
 			this.m_currentOuterGroupRootObjs[hierarchyDynamicIndex] = groupRoot;
 			this.m_outerGroupingIndexes[hierarchyDynamicIndex] = groupLeafIndex;
 		}
 
-		internal void ResetOuterGroupingIndexesForOuterPeerGroup(int index)
+		public void ResetOuterGroupingIndexesForOuterPeerGroup(int index)
 		{
 			for (int i = index; i < this.OuterGroupingDynamicMemberCount; i++)
 			{
@@ -2759,7 +2759,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ResetOuterGroupingAggregateRowInfo()
+		public void ResetOuterGroupingAggregateRowInfo()
 		{
 			Global.Tracer.Assert(null != this.m_outerGroupingAggregateRowInfo, "(null != m_outerGroupingAggregateRowInfo)");
 			for (int i = 0; i < this.m_outerGroupingAggregateRowInfo.Length; i++)
@@ -2768,7 +2768,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int AddMemberInstance(bool isColumn)
+		public int AddMemberInstance(bool isColumn)
 		{
 			if (isColumn)
 			{
@@ -2777,12 +2777,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_sequentialRowMemberInstanceIndex;
 		}
 
-		internal void AddCell()
+		public void AddCell()
 		{
 			this.m_currentCellInnerIndex++;
 		}
 
-		internal void NewOuterCells()
+		public void NewOuterCells()
 		{
 			if (0 < this.m_currentCellInnerIndex)
 			{
@@ -2790,7 +2790,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ResetTopLevelDynamicMemberInstanceCount()
+		public void ResetTopLevelDynamicMemberInstanceCount()
 		{
 			this.ResetTopLevelDynamicMemberInstanceCount(this.RowMembers);
 			this.ResetTopLevelDynamicMemberInstanceCount(this.ColumnMembers);

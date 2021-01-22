@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RuntimeSharedDataSet : RuntimeParameterDataSet
+	public sealed class RuntimeSharedDataSet : RuntimeParameterDataSet
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkWriter m_dataChunkWriter;
 
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			base.AllRowsRead();
 		}
 
-		internal override void EraseDataChunk()
+		public override void EraseDataChunk()
 		{
 			if (this.WritesDataChunk)
 			{

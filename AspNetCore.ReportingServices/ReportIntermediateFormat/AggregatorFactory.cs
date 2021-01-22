@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class AggregatorFactory
+	public sealed class AggregatorFactory
 	{
 		private readonly DataAggregate[] m_prototypes;
 

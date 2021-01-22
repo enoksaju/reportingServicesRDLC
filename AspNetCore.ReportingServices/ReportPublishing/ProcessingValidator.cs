@@ -8,13 +8,13 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class ProcessingValidator
+	public sealed class ProcessingValidator
 	{
 		private ProcessingValidator()
 		{
 		}
 
-		internal static string ValidateColor(string color, IErrorContext errorContext, bool allowTransparency)
+		public static string ValidateColor(string color, IErrorContext errorContext, bool allowTransparency)
 		{
 			if (color == null)
 			{
@@ -29,32 +29,32 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateSize(string size, IErrorContext errorContext)
+		public static string ValidateSize(string size, IErrorContext errorContext)
 		{
 			return ProcessingValidator.ValidateSize(size, false, errorContext);
 		}
 
-		internal static string ValidateSize(string size, bool allowNegative, IErrorContext errorContext)
+		public static string ValidateSize(string size, bool allowNegative, IErrorContext errorContext)
 		{
 			return ProcessingValidator.ValidateSize(size, -1.7976931348623157E+308, 1.7976931348623157E+308, allowNegative, errorContext);
 		}
 
-		internal static string ValidateBorderWidth(string size, IErrorContext errorContext)
+		public static string ValidateBorderWidth(string size, IErrorContext errorContext)
 		{
 			return ProcessingValidator.ValidateSize(size, Validator.BorderWidthMin, Validator.BorderWidthMax, false, errorContext);
 		}
 
-		internal static string ValidateFontSize(string size, IErrorContext errorContext)
+		public static string ValidateFontSize(string size, IErrorContext errorContext)
 		{
 			return ProcessingValidator.ValidateSize(size, Validator.FontSizeMin, Validator.FontSizeMax, false, errorContext);
 		}
 
-		internal static string ValidatePadding(string size, IErrorContext errorContext)
+		public static string ValidatePadding(string size, IErrorContext errorContext)
 		{
 			return ProcessingValidator.ValidateSize(size, Validator.PaddingMin, Validator.PaddingMax, false, errorContext);
 		}
 
-		internal static string ValidateLineHeight(string size, IErrorContext errorContext)
+		public static string ValidateLineHeight(string size, IErrorContext errorContext)
 		{
 			return ProcessingValidator.ValidateSize(size, Validator.LineHeightMin, Validator.LineHeightMax, false, errorContext);
 		}
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return size;
 		}
 
-		internal static string ValidateEmbeddedImageName(string embeddedImageName, Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo> embeddedImages, IErrorContext errorContext)
+		public static string ValidateEmbeddedImageName(string embeddedImageName, Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo> embeddedImages, IErrorContext errorContext)
 		{
 			if (embeddedImageName == null)
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return embeddedImageName;
 		}
 
-		internal static string ValidateEmbeddedImageName(string embeddedImageName, Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo> embeddedImages, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static string ValidateEmbeddedImageName(string embeddedImageName, Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo> embeddedImages, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			if (embeddedImageName == null)
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return embeddedImageName;
 		}
 
-		internal static string ValidateLanguage(string language, IErrorContext errorContext, out CultureInfo culture)
+		public static string ValidateLanguage(string language, IErrorContext errorContext, out CultureInfo culture)
 		{
 			if (Validator.ValidateLanguage(language, out culture))
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateSpecificLanguage(string language, IErrorContext errorContext, out CultureInfo culture)
+		public static string ValidateSpecificLanguage(string language, IErrorContext errorContext, out CultureInfo culture)
 		{
 			if (Validator.ValidateSpecificLanguage(language, out culture))
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static object ValidateNumeralVariant(int numeralVariant, IErrorContext errorContext)
+		public static object ValidateNumeralVariant(int numeralVariant, IErrorContext errorContext)
 		{
 			if (Validator.ValidateNumeralVariant(numeralVariant))
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateMimeType(string mimeType, IErrorContext errorContext)
+		public static string ValidateMimeType(string mimeType, IErrorContext errorContext)
 		{
 			if (Validator.ValidateMimeType(mimeType))
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateMimeType(string mimeType, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static string ValidateMimeType(string mimeType, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			if (Validator.ValidateMimeType(mimeType))
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateBackgroundHatchType(string backgroundHatchType, IErrorContext errorContext)
+		public static string ValidateBackgroundHatchType(string backgroundHatchType, IErrorContext errorContext)
 		{
 			if (Validator.ValidateBackgroundHatchType(backgroundHatchType))
 			{
@@ -178,7 +178,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateTextEffect(string textEffect, IErrorContext errorContext)
+		public static string ValidateTextEffect(string textEffect, IErrorContext errorContext)
 		{
 			if (Validator.ValidateTextEffect(textEffect))
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateBorderStyle(string borderStyle, ObjectType objectType, bool isDynamicImageSubElement, IErrorContext errorContext, bool isDefaultBorder)
+		public static string ValidateBorderStyle(string borderStyle, ObjectType objectType, bool isDynamicImageSubElement, IErrorContext errorContext, bool isDefaultBorder)
 		{
 			string result = default(string);
 			if (!Validator.ValidateBorderStyle(borderStyle, isDefaultBorder, objectType, isDynamicImageSubElement, out result))
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return result;
 		}
 
-		internal static string ValidateBackgroundGradientType(string gradientType, IErrorContext errorContext)
+		public static string ValidateBackgroundGradientType(string gradientType, IErrorContext errorContext)
 		{
 			if (Validator.ValidateBackgroundGradientType(gradientType))
 			{
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateFontStyle(string fontStyle, IErrorContext errorContext)
+		public static string ValidateFontStyle(string fontStyle, IErrorContext errorContext)
 		{
 			if (Validator.ValidateFontStyle(fontStyle))
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateFontWeight(string fontWeight, IErrorContext errorContext)
+		public static string ValidateFontWeight(string fontWeight, IErrorContext errorContext)
 		{
 			if (Validator.ValidateFontWeight(fontWeight))
 			{
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateTextDecoration(string textDecoration, IErrorContext errorContext)
+		public static string ValidateTextDecoration(string textDecoration, IErrorContext errorContext)
 		{
 			if (Validator.ValidateTextDecoration(textDecoration))
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateTextAlign(string textAlign, IErrorContext errorContext)
+		public static string ValidateTextAlign(string textAlign, IErrorContext errorContext)
 		{
 			if (Validator.ValidateTextAlign(textAlign))
 			{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateVerticalAlign(string verticalAlign, IErrorContext errorContext)
+		public static string ValidateVerticalAlign(string verticalAlign, IErrorContext errorContext)
 		{
 			if (Validator.ValidateVerticalAlign(verticalAlign))
 			{
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateDirection(string direction, IErrorContext errorContext)
+		public static string ValidateDirection(string direction, IErrorContext errorContext)
 		{
 			if (Validator.ValidateDirection(direction))
 			{
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateWritingMode(string writingMode, IErrorContext errorContext)
+		public static string ValidateWritingMode(string writingMode, IErrorContext errorContext)
 		{
 			if (Validator.ValidateWritingMode(writingMode))
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateUnicodeBiDi(string unicodeBiDi, IErrorContext errorContext)
+		public static string ValidateUnicodeBiDi(string unicodeBiDi, IErrorContext errorContext)
 		{
 			if (Validator.ValidateUnicodeBiDi(unicodeBiDi))
 			{
@@ -290,7 +290,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateCalendar(string calendar, IErrorContext errorContext)
+		public static string ValidateCalendar(string calendar, IErrorContext errorContext)
 		{
 			if (Validator.ValidateCalendar(calendar))
 			{
@@ -300,12 +300,12 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static object ValidateCustomStyle(string styleName, object styleValue, IErrorContext errorContext)
+		public static object ValidateCustomStyle(string styleName, object styleValue, IErrorContext errorContext)
 		{
 			return ProcessingValidator.ValidateCustomStyle(styleName, styleValue, ObjectType.Image, errorContext);
 		}
 
-		internal static object ValidateCustomStyle(string styleName, object styleValue, ObjectType objectType, IErrorContext errorContext)
+		public static object ValidateCustomStyle(string styleName, object styleValue, ObjectType objectType, IErrorContext errorContext)
 		{
 			CultureInfo cultureInfo = default(CultureInfo);
 			switch (styleName)
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal static string ValidateTextRunMarkupType(string value, IErrorContext errorContext)
+		public static string ValidateTextRunMarkupType(string value, IErrorContext errorContext)
 		{
 			if (Validator.ValidateTextRunMarkupType(value))
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return "None";
 		}
 
-		internal static string ValidateParagraphListStyle(string value, IErrorContext errorContext)
+		public static string ValidateParagraphListStyle(string value, IErrorContext errorContext)
 		{
 			if (Validator.ValidateParagraphListStyle(value))
 			{
@@ -414,7 +414,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return "None";
 		}
 
-		internal static int? ValidateParagraphListLevel(int value, IErrorContext errorContext)
+		public static int? ValidateParagraphListLevel(int value, IErrorContext errorContext)
 		{
 			int? result = default(int?);
 			if (!Validator.ValidateParagraphListLevel(value, out result))

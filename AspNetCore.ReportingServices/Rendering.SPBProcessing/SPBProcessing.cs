@@ -19,9 +19,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class SPBProcessing : ISPBProcessing, IDisposable
+	public class SPBProcessing : ISPBProcessing, IDisposable
 	{
-		internal enum RPLState : byte
+		public enum RPLState : byte
 		{
 			RPLObjectModel,
 			RPLStream,
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private Version m_serverRPLVersion = new Version(10, 6, 0);
 
-		internal static ResourceManager SPBResourceManager
+		public static ResourceManager SPBResourceManager
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal FontCache SharedFontCache
+		public FontCache SharedFontCache
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool UseEmSquare
+		public bool UseEmSquare
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool CanTracePagination
+		public bool CanTracePagination
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_pageContext.CanTracePagination = true;
 		}
 
-		internal SPBProcessing(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, int totalPages, bool needTotalPages)
+		public SPBProcessing(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, int totalPages, bool needTotalPages)
 		{
 			double pageHeight = ((ReportElementCollectionBase<AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection>)report.ReportSections)[0].Page.InteractiveHeight.ToMillimeters();
 			this.m_pageContext = new PageContext(report.Instance.InitialPageName, pageHeight, true, report.ConsumeContainerWhitespace, null);
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static int ParseInt(string intValue, int defaultValue)
+		public static int ParseInt(string intValue, int defaultValue)
 		{
 			int result = default(int);
 			if (int.TryParse(intValue, out result))
@@ -305,7 +305,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return defaultValue;
 		}
 
-		internal static int CompareWithOrdinalComparison(string x, string y, bool ignoreCase)
+		public static int CompareWithOrdinalComparison(string x, string y, bool ignoreCase)
 		{
 			if (ignoreCase)
 			{
@@ -473,7 +473,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.PaginateReport(startPage, endPage);
 		}
 
-		internal void SetContext(SPBContext context, bool createStream)
+		public void SetContext(SPBContext context, bool createStream)
 		{
 			if (createStream)
 			{
@@ -898,7 +898,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int FindString(int startPage, int endPage, string findValue)
+		public int FindString(int startPage, int endPage, string findValue)
 		{
 			int result = 0;
 			Interactivity interactivity = null;
@@ -971,7 +971,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal int FindUserSort(string textbox, ref int numberOfPages, ref PaginationMode paginationMode)
+		public int FindUserSort(string textbox, ref int numberOfPages, ref PaginationMode paginationMode)
 		{
 			int result = 0;
 			Interactivity interactivity = new Interactivity(textbox, Interactivity.EventType.UserSortEvent);
@@ -1049,7 +1049,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_reportInfo.SavePaginationMetadata(this.m_report.Done, this.m_pageContext.PageTotalInfo);
 		}
 
-		internal void FindImageConsolidation(string reportName, int pageNumber, int offset, string streamName, CreateAndRegisterStream createAndRegisterStream)
+		public void FindImageConsolidation(string reportName, int pageNumber, int offset, string streamName, CreateAndRegisterStream createAndRegisterStream)
 		{
 			this.m_pageContext.ImageConsolidation = new ImageConsolidation(createAndRegisterStream, offset);
 			this.m_pageContext.ImageConsolidation.SetName(reportName, pageNumber);
@@ -1058,31 +1058,31 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_pageContext.ImageConsolidation.RenderToStream();
 		}
 
-		internal void FindChart(string uniqueName, int pageNumber, string streamName, CreateAndRegisterStream createAndRegisterStream)
+		public void FindChart(string uniqueName, int pageNumber, string streamName, CreateAndRegisterStream createAndRegisterStream)
 		{
 			Interactivity interactivityContext = new Interactivity(uniqueName, Interactivity.EventType.FindChart, streamName, createAndRegisterStream);
 			this.FindItem(interactivityContext, pageNumber);
 		}
 
-		internal void FindGaugePanel(string uniqueName, int pageNumber, string streamName, CreateAndRegisterStream createAndRegisterStream)
+		public void FindGaugePanel(string uniqueName, int pageNumber, string streamName, CreateAndRegisterStream createAndRegisterStream)
 		{
 			Interactivity interactivityContext = new Interactivity(uniqueName, Interactivity.EventType.FindGaugePanel, streamName, createAndRegisterStream);
 			this.FindItem(interactivityContext, pageNumber);
 		}
 
-		internal void FindMap(string uniqueName, int pageNumber, string streamName, CreateAndRegisterStream createAndRegisterStream)
+		public void FindMap(string uniqueName, int pageNumber, string streamName, CreateAndRegisterStream createAndRegisterStream)
 		{
 			Interactivity interactivityContext = new Interactivity(uniqueName, Interactivity.EventType.FindMap, streamName, createAndRegisterStream);
 			this.FindItem(interactivityContext, pageNumber);
 		}
 
-		internal void FindImage(string uniqueName, int pageNumber, string streamName, CreateAndRegisterStream createAndRegisterStream)
+		public void FindImage(string uniqueName, int pageNumber, string streamName, CreateAndRegisterStream createAndRegisterStream)
 		{
 			Interactivity interactivityContext = new Interactivity(uniqueName, Interactivity.EventType.FindImage, streamName, createAndRegisterStream);
 			this.FindItem(interactivityContext, pageNumber);
 		}
 
-		internal string FindDrillthrough(string drillthroughId, int lastPageCollected, out NameValueCollection parameters)
+		public string FindDrillthrough(string drillthroughId, int lastPageCollected, out NameValueCollection parameters)
 		{
 			string result = null;
 			parameters = null;
@@ -1127,7 +1127,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal int FindBookmark(string bookmarkId, int lastPageCollected, ref string uniqueName)
+		public int FindBookmark(string bookmarkId, int lastPageCollected, ref string uniqueName)
 		{
 			int result = 0;
 			Interactivity interactivity = new Interactivity(bookmarkId);
@@ -1167,7 +1167,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal Dictionary<string, string> CollectBookmarks()
+		public Dictionary<string, string> CollectBookmarks()
 		{
 			Interactivity interactivity = new Interactivity();
 			this.m_pageContext.PageBookmarks = new Dictionary<string, string>();
@@ -1186,7 +1186,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return this.m_pageContext.PageBookmarks;
 		}
 
-		internal int FindDocumentMap(string documentMapId, int lastPageCollected)
+		public int FindDocumentMap(string documentMapId, int lastPageCollected)
 		{
 			int result = 0;
 			Interactivity interactivity = new Interactivity(documentMapId, Interactivity.EventType.DocumentMapNavigationEvent);
@@ -1225,7 +1225,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal void GetDocumentMap()
+		public void GetDocumentMap()
 		{
 			bool hasPaginationChunk = this.m_useInteractiveHeight && this.m_reportInfo.HasPaginationInfoStream();
 			Interactivity interactivity = new Interactivity(Interactivity.EventType.GetDocumentMap);

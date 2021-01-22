@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum GradientType
+	public enum GradientType
 	{
 		None,
 		LeftRight,

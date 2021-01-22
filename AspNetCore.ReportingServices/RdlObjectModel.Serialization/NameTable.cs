@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class NameTable<T>
+	public class NameTable<T>
 	{
 		private Hashtable table = new Hashtable();
 

@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DataRegionInstance : ReportItemInstance, IReportScopeInstance
+	public abstract class DataRegionInstance : ReportItemInstance, IReportScopeInstance
 	{
 		private string m_noRowsMessage;
 
@@ -140,13 +140,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataRegionInstance(DataRegion reportItemDef)
+		public DataRegionInstance(DataRegion reportItemDef)
 			: base(reportItemDef)
 		{
 			this.m_dataRegionDef = reportItemDef;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			this.m_isNewContext = true;
 			this.m_noRowsMessage = null;
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			base.SetNewContext();
 		}
 
-		internal void DoneSettingScopeID()
+		public void DoneSettingScopeID()
 		{
 			if (base.m_reportElementDef.RenderingContext.OdpContext.QueryRestartInfo.QueryRestartPosition.Count > 0)
 			{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMember : DataRegionMember
+	public sealed class MapMember : DataRegionMember
 	{
 		private MapMemberCollection m_children;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override string UniqueName
+		public override string UniqueName
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapMember MemberDefinition
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapMember MemberDefinition
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportHierarchyNode DataRegionMemberDefinition
+		public override ReportHierarchyNode DataRegionMemberDefinition
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScopeInstance ReportScopeInstance
+		public override IReportScopeInstance ReportScopeInstance
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapDataRegion OwnerMapDataRegion
+		public MapDataRegion OwnerMapDataRegion
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IDataRegionMemberCollection SubMembers
+		public override IDataRegionMemberCollection SubMembers
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, MapDataRegion owner, MapMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.MapMember memberDef)
+		public MapMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, MapDataRegion owner, MapMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.MapMember memberDef)
 			: base(parentDefinitionPath, owner, parent, 0)
 		{
 			this.m_memberDef = memberDef;
@@ -185,12 +185,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMember(IDefinitionPath parentDefinitionPath, MapDataRegion owner, MapMember parent)
+		public MapMember(IDefinitionPath parentDefinitionPath, MapDataRegion owner, MapMember parent)
 			: base(parentDefinitionPath, owner, parent, 0)
 		{
 		}
 
-		internal override bool GetIsColumn()
+		public override bool GetIsColumn()
 		{
 			return this.m_memberDef.IsColumn;
 		}
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ((MapDataRegion)base.m_owner).GetChildLayers();
 		}
 
-		internal override void SetNewContext(bool fromMoveNext)
+		public override void SetNewContext(bool fromMoveNext)
 		{
 			if (!fromMoveNext && this.m_instance != null && !this.IsStatic)
 			{

@@ -9,7 +9,7 @@ using System.Web;
 
 namespace AspNetCore.Reporting
 {
-	internal abstract class ReportDataOperation : ViewerDataOperation
+	public abstract class ReportDataOperation : ViewerDataOperation
 	{
 		private const string ParamCulture = "Culture";
 
@@ -104,7 +104,7 @@ namespace AspNetCore.Reporting
 			return stringBuilder.ToString();
 		}
 
-		internal static void SetStreamingHeaders(string mimeType, HttpResponse response)
+		public static void SetStreamingHeaders(string mimeType, HttpResponse response)
 		{
 			//response.BufferOutput = false;
 			if (!string.IsNullOrEmpty(mimeType))
@@ -114,13 +114,13 @@ namespace AspNetCore.Reporting
 			//response.Expires = -1;
 		}
 
-		internal static void StreamToResponse(Stream data, string mimeType, HttpResponse response)
+		public static void StreamToResponse(Stream data, string mimeType, HttpResponse response)
 		{
 			ReportDataOperation.SetStreamingHeaders(mimeType, response);
 			ReportDataOperation.StreamToResponse(data, response);
 		}
 
-		internal static void StreamToResponse(Stream data, HttpResponse response)
+		public static void StreamToResponse(Stream data, HttpResponse response)
 		{
 			
 		}

@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartInstance : DynamicImageInstance, IDynamicImageInstance
+	public sealed class ChartInstance : DynamicImageInstance, IDynamicImageInstance
 	{
 		private ReportSize m_dynamicHeight;
 
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartInstance(Chart reportItemDef)
+		public ChartInstance(Chart reportItemDef)
 			: base(reportItemDef)
 		{
 		}

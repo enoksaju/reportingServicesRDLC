@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum TextAntiAliasingQuality
+	public enum TextAntiAliasingQuality
 	{
 		Normal,
 		High,

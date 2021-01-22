@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReceiverInformationHashtable : HashtableInstanceInfo
+	public sealed class ReceiverInformationHashtable : HashtableInstanceInfo
 	{
-		internal ReceiverInformation this[int key]
+		public ReceiverInformation this[int key]
 		{
 			get
 			{
@@ -17,16 +17,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReceiverInformationHashtable()
+		public ReceiverInformationHashtable()
 		{
 		}
 
-		internal ReceiverInformationHashtable(int capacity)
+		public ReceiverInformationHashtable(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(int key, ReceiverInformation receiver)
+		public void Add(int key, ReceiverInformation receiver)
 		{
 			base.m_hashtable.Add(key, receiver);
 		}

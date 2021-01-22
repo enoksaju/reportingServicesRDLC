@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class GaugeInputValue : ReportObject
+	public class GaugeInputValue : ReportObject
 	{
-		internal class Definition : DefinitionStore<GaugeInputValue, Definition.Properties>
+		public class Definition : DefinitionStore<GaugeInputValue, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Value,
 				Formula,
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal GaugeInputValue(IPropertyStore propertyStore)
+		public GaugeInputValue(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

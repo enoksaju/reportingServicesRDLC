@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class AutoSizePanelConverter : DockablePanelConverter
+	public class AutoSizePanelConverter : DockablePanelConverter
 	{
 		public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value, Attribute[] attributes)
 		{

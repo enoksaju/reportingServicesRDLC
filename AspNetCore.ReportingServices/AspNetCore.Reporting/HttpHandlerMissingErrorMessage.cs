@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AspNetCore.Reporting
 {
-	internal class HttpHandlerMissingErrorMessage
+	public class HttpHandlerMissingErrorMessage
 	{
 
 

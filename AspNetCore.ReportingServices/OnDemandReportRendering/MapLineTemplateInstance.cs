@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLineTemplateInstance : MapSpatialElementTemplateInstance
+	public sealed class MapLineTemplateInstance : MapSpatialElementTemplateInstance
 	{
 		private MapLineTemplate m_defObject;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLineTemplateInstance(MapLineTemplate defObject)
+		public MapLineTemplateInstance(MapLineTemplate defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

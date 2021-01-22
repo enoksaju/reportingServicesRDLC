@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ReportSnapshot : IPersistable
+	public sealed class ReportSnapshot : IPersistable
 	{
 		private DateTime m_executionTime;
 
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ReportSnapshot.GetDeclaration();
 
-		internal Report Report
+		public Report Report
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasDocumentMap
+		public bool HasDocumentMap
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool DefinitionTreeHasDocumentMap
+		public bool DefinitionTreeHasDocumentMap
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasBookmarks
+		public bool HasBookmarks
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasShowHide
+		public bool HasShowHide
 		{
 			get
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasUserSortFilter
+		public bool HasUserSortFilter
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string RequestUserName
+		public string RequestUserName
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DateTime ExecutionTime
+		public DateTime ExecutionTime
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string ReportServerUrl
+		public string ReportServerUrl
 		{
 			get
 			{
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string ReportFolder
+		public string ReportFolder
 		{
 			get
 			{
@@ -178,7 +178,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Language
+		public string Language
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ProcessingMessageList Warnings
+		public ProcessingMessageList Warnings
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportInstance ReportInstance
+		public ReportInstance ReportInstance
 		{
 			get
 			{
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool CachedDataChanged
+		public bool CachedDataChanged
 		{
 			get
 			{
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParameterInfoCollection Parameters
+		public ParameterInfoCollection Parameters
 		{
 			get
 			{
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Dictionary<string, List<string>> AggregateFieldReferences
+		public Dictionary<string, List<string>> AggregateFieldReferences
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SortFilterEventInfoMap SortFilterEventInfo
+		public SortFilterEventInfoMap SortFilterEventInfo
 		{
 			get
 			{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSnapshot(Report report, string reportName, ParameterInfoCollection parameters, string requestUserName, DateTime executionTime, string reportServerUrl, string reportFolder, string language)
+		public ReportSnapshot(Report report, string reportName, ParameterInfoCollection parameters, string requestUserName, DateTime executionTime, string reportServerUrl, string reportFolder, string language)
 		{
 			this.m_report = report;
 			this.m_reportName = reportName;
@@ -266,13 +266,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_cachedDataChanged = true;
 		}
 
-		internal ReportSnapshot()
+		public ReportSnapshot()
 		{
 			this.m_executionTime = DateTime.Now;
 			this.m_cachedDataChanged = false;
 		}
 
-		internal bool CanUseExistingDocumentMapChunk(ICatalogItemContext reportContext)
+		public bool CanUseExistingDocumentMapChunk(ICatalogItemContext reportContext)
 		{
 			if (!this.HasDocumentMap)
 			{
@@ -297,13 +297,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal void SetRenderFormatDependencyInDocumentMap(OnDemandProcessingContext odpContext)
+		public void SetRenderFormatDependencyInDocumentMap(OnDemandProcessingContext odpContext)
 		{
 			this.m_cachedDataChanged = true;
 			this.m_documentMapRenderFormat = ReportSnapshot.NormalizeRenderFormatForDocumentMap(odpContext.TopLevelContext.ReportContext);
 		}
 
-		internal void AddImageChunkName(string definitionKey, string name)
+		public void AddImageChunkName(string definitionKey, string name)
 		{
 			this.m_cachedDataChanged = true;
 			if (this.m_cachedDatabaseImages == null)
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_cachedDatabaseImages.Add(definitionKey, name);
 		}
 
-		internal bool TryGetImageChunkName(string definitionKey, out string name)
+		public bool TryGetImageChunkName(string definitionKey, out string name)
 		{
 			if (this.m_cachedDatabaseImages != null)
 			{
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void AddGeneratedReportItemChunkName(string definitionKey, string name)
+		public void AddGeneratedReportItemChunkName(string definitionKey, string name)
 		{
 			this.m_cachedDataChanged = true;
 			if (this.m_cachedGeneratedReportItems == null)
@@ -333,7 +333,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_cachedGeneratedReportItems.Add(definitionKey, name);
 		}
 
-		internal bool TryGetGeneratedReportItemChunkName(string definitionKey, out string name)
+		public bool TryGetGeneratedReportItemChunkName(string definitionKey, out string name)
 		{
 			if (this.m_cachedGeneratedReportItems != null)
 			{
@@ -525,7 +525,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		}
 
 		[SkipMemberStaticValidation(MemberName.Parameters)]
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ExecutionTime, Token.DateTime));

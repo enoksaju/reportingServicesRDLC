@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal class MemberInfo
+	public class MemberInfo
 	{
 		private MemberName m_name;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 
 		private Lifetime m_lifetime = Lifetime.Unspecified;
 
-		internal MemberName MemberName
+		public MemberName MemberName
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal Token Token
+		public Token Token
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal ObjectType ObjectType
+		public ObjectType ObjectType
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal ObjectType ContainedType
+		public ObjectType ContainedType
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal Lifetime Lifetime
+		public Lifetime Lifetime
 		{
 			get
 			{
@@ -52,40 +52,40 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal MemberInfo(MemberName name, Token token)
+		public MemberInfo(MemberName name, Token token)
 		{
 			this.m_name = name;
 			this.m_token = token;
 		}
 
-		internal MemberInfo(MemberName name, Token token, Lifetime lifetime)
+		public MemberInfo(MemberName name, Token token, Lifetime lifetime)
 		{
 			this.m_name = name;
 			this.m_token = token;
 			this.m_lifetime = lifetime;
 		}
 
-		internal MemberInfo(MemberName name, ObjectType type)
+		public MemberInfo(MemberName name, ObjectType type)
 		{
 			this.m_name = name;
 			this.m_type = type;
 		}
 
-		internal MemberInfo(MemberName name, ObjectType type, Lifetime lifetime)
+		public MemberInfo(MemberName name, ObjectType type, Lifetime lifetime)
 		{
 			this.m_name = name;
 			this.m_type = type;
 			this.m_lifetime = lifetime;
 		}
 
-		internal MemberInfo(MemberName name, ObjectType type, ObjectType containedType)
+		public MemberInfo(MemberName name, ObjectType type, ObjectType containedType)
 		{
 			this.m_name = name;
 			this.m_type = type;
 			this.m_containedType = containedType;
 		}
 
-		internal MemberInfo(MemberName name, ObjectType type, ObjectType containedType, Lifetime lifetime)
+		public MemberInfo(MemberName name, ObjectType type, ObjectType containedType, Lifetime lifetime)
 		{
 			this.m_name = name;
 			this.m_type = type;
@@ -93,14 +93,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.m_lifetime = lifetime;
 		}
 
-		internal MemberInfo(MemberName name, ObjectType type, Token token)
+		public MemberInfo(MemberName name, ObjectType type, Token token)
 		{
 			this.m_name = name;
 			this.m_token = token;
 			this.m_type = type;
 		}
 
-		internal MemberInfo(MemberName name, ObjectType type, Token token, Lifetime lifetime)
+		public MemberInfo(MemberName name, ObjectType type, Token token, Lifetime lifetime)
 		{
 			this.m_name = name;
 			this.m_token = token;
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.m_lifetime = lifetime;
 		}
 
-		internal MemberInfo(MemberName name, ObjectType type, Token token, ObjectType containedType)
+		public MemberInfo(MemberName name, ObjectType type, Token token, ObjectType containedType)
 		{
 			this.m_name = name;
 			this.m_token = token;
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.m_containedType = containedType;
 		}
 
-		internal MemberInfo(MemberName name, ObjectType type, Token token, ObjectType containedType, Lifetime lifetime)
+		public MemberInfo(MemberName name, ObjectType type, Token token, ObjectType containedType, Lifetime lifetime)
 		{
 			this.m_name = name;
 			this.m_token = token;
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.m_lifetime = lifetime;
 		}
 
-		internal virtual bool IsWrittenForCompatVersion(int compatVersion)
+		public virtual bool IsWrittenForCompatVersion(int compatVersion)
 		{
 			return this.m_lifetime.IncludesVersion(compatVersion);
 		}
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return false;
 		}
 
-		internal bool Equals(MemberInfo otherMember)
+		public bool Equals(MemberInfo otherMember)
 		{
 			if (otherMember != null && this.m_name == otherMember.m_name && this.m_token == otherMember.m_token && this.m_type == otherMember.m_type && this.m_containedType == otherMember.m_containedType)
 			{

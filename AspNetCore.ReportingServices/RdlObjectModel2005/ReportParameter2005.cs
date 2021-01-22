@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class ReportParameter2005 : ReportParameter
+	public class ReportParameter2005 : ReportParameter
 	{
 		public new ReportExpression? Prompt
 		{

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbCommand : IDisposable
+	public interface IDbCommand : IDisposable
 	{
 		string CommandText
 		{

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class TextBoxSharedInfo : IDisposable
+	public sealed class TextBoxSharedInfo : IDisposable
 	{
 		private CanvasFont m_sharedFont;
 
@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private int m_pageNumber;
 
-		internal CanvasFont SharedFont
+		public CanvasFont SharedFont
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int SharedState
+		public int SharedState
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int PageNumber
+		public int PageNumber
 		{
 			get
 			{
@@ -46,13 +46,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal TextBoxSharedInfo(CanvasFont font, int sharedState)
+		public TextBoxSharedInfo(CanvasFont font, int sharedState)
 		{
 			this.m_sharedFont = font;
 			this.m_sharedState = sharedState;
 		}
 
-		internal TextBoxSharedInfo(int pageNumber)
+		public TextBoxSharedInfo(int pageNumber)
 		{
 			this.m_pageNumber = pageNumber;
 		}

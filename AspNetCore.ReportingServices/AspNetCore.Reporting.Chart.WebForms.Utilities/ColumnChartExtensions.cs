@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum ColumnChartExtensions
+	public enum ColumnChartExtensions
 	{
 		Pareto,
 		Histogram,

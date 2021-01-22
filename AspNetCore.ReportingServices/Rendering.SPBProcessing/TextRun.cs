@@ -9,7 +9,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class TextRun : PageElement, ITextRunProps
+	public sealed class TextRun : PageElement, ITextRunProps
 	{
 		private long m_offset;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override string SourceID
+		public override string SourceID
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override string SourceUniqueName
+		public override string SourceUniqueName
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override bool HasBackground
+		public override bool HasBackground
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLTextRun RPLElement
+		public RPLTextRun RPLElement
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal CompiledTextRunInstance CompiledInstance
+		public CompiledTextRunInstance CompiledInstance
 		{
 			get
 			{
@@ -164,12 +164,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 		{
 		}
 
-		internal TextRun(AspNetCore.ReportingServices.OnDemandReportRendering.TextRun textRun, PageContext pageContext)
+		public TextRun(AspNetCore.ReportingServices.OnDemandReportRendering.TextRun textRun, PageContext pageContext)
 			: this(textRun, null, pageContext)
 		{
 		}
 
-		internal TextRun(AspNetCore.ReportingServices.OnDemandReportRendering.TextRun textRun, CompiledTextRunInstance compiledTextRun, PageContext pageContext)
+		public TextRun(AspNetCore.ReportingServices.OnDemandReportRendering.TextRun textRun, CompiledTextRunInstance compiledTextRun, PageContext pageContext)
 			: base(textRun)
 		{
 			this.m_compiledSource = compiledTextRun;
@@ -179,17 +179,17 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 		{
 		}
 
-		internal object GetRichTextStyleValue(StyleAttributeNames styleName, ref bool isShared)
+		public object GetRichTextStyleValue(StyleAttributeNames styleName, ref bool isShared)
 		{
 			return base.GetRichTextStyleValue(styleName, (ReportElementInstance)this.m_compiledSource, ref isShared);
 		}
 
-		internal object GetRichTextStyleValue(StyleAttributeNames styleName)
+		public object GetRichTextStyleValue(StyleAttributeNames styleName)
 		{
 			return base.GetRichTextStyleValue(styleName, this.m_compiledSource);
 		}
 
-		internal string ComputeValue()
+		public string ComputeValue()
 		{
 			if (this.m_compiledSource == null)
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return this.m_compiledSource.Value;
 		}
 
-		internal override void WriteSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
+		public override void WriteSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.TextRun textRun = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.TextRun;
 			RSTrace.RenderingTracer.Assert(textRun != null, "The text run definition cannot be null");
@@ -262,7 +262,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal override void WriteSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.TextRun textRun = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.TextRun;
 			RSTrace.RenderingTracer.Assert(textRun != null, "The text run definition cannot be null");
@@ -314,7 +314,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			rPLTextRunPropsDef.SharedStyle = this.WriteSharedStyle(null, pageContext);
 		}
 
-		internal override void WriteNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.TextRun textRun = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.TextRun;
 			RSTrace.RenderingTracer.Assert(textRun != null, "The text run definition cannot be null");
@@ -377,7 +377,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal override void WriteNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.TextRun textRun = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.TextRun;
 			RSTrace.RenderingTracer.Assert(textRun != null, "The text run definition cannot be null");
@@ -429,7 +429,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			rPLTextRunProps.NonSharedStyle = this.WriteNonSharedStyle(null, null, pageContext, this.m_compiledSource);
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.FontStyle, 19);
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.FontFamily, 20);
@@ -444,7 +444,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.NumeralVariant, 37);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.FontStyle, 19);
 			base.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.FontFamily, 20);
@@ -459,7 +459,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			base.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.NumeralVariant, 37);
 		}
 
-		internal override void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			switch (styleAttribute)
 			{
@@ -510,7 +510,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			switch (styleAttribute)
 			{
@@ -561,23 +561,23 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteBackgroundImage(BinaryWriter spbifWriter, Style style, bool writeShared, PageContext pageContext)
+		public override void WriteBackgroundImage(BinaryWriter spbifWriter, Style style, bool writeShared, PageContext pageContext)
 		{
 		}
 
-		internal override void WriteBackgroundImage(RPLStyleProps rplStyleProps, Style style, bool writeShared, PageContext pageContext)
+		public override void WriteBackgroundImage(RPLStyleProps rplStyleProps, Style style, bool writeShared, PageContext pageContext)
 		{
 		}
 
-		internal override void WriteBorderProps(BinaryWriter spbifWriter, Style style)
+		public override void WriteBorderProps(BinaryWriter spbifWriter, Style style)
 		{
 		}
 
-		internal override void WriteBorderProps(RPLStyleProps rplStyleProps, Style style)
+		public override void WriteBorderProps(RPLStyleProps rplStyleProps, Style style)
 		{
 		}
 
-		internal void WriteItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public void WriteItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			BinaryWriter binaryWriter = rplWriter.BinaryWriter;
 			if (binaryWriter != null)
@@ -595,7 +595,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.Rendering.RichText.TextRun GetRichTextRun()
+		public AspNetCore.ReportingServices.Rendering.RichText.TextRun GetRichTextRun()
 		{
 			string text = null;
 			AspNetCore.ReportingServices.OnDemandReportRendering.TextRun textRun = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.TextRun;

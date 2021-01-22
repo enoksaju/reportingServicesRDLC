@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapBorderSkin : MapStyleContainer, IPersistable
+	public sealed class MapBorderSkin : MapStyleContainer, IPersistable
 	{
 		[NonSerialized]
 		private MapBorderSkinExprHost m_exprHost;
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_mapBorderSkinType;
 
-		internal ExpressionInfo MapBorderSkinType
+		public ExpressionInfo MapBorderSkinType
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapBorderSkinExprHost ExprHost
+		public MapBorderSkinExprHost ExprHost
 		{
 			get
 			{
@@ -49,16 +49,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapBorderSkin()
+		public MapBorderSkin()
 		{
 		}
 
-		internal MapBorderSkin(Map map)
+		public MapBorderSkin(Map map)
 			: base(map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapBorderSkinStart();
 			base.Initialize(context);
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapBorderSkinEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapBorderSkin mapBorderSkin = (MapBorderSkin)base.PublishClone(context);
 			if (this.m_mapBorderSkinType != null)
@@ -80,14 +80,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapBorderSkin;
 		}
 
-		internal void SetExprHost(MapBorderSkinExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapBorderSkinExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapBorderSkinType, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapBorderSkin;
 		}
 
-		internal MapBorderSkinType EvaluateMapBorderSkinType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapBorderSkinType EvaluateMapBorderSkinType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapBorderSkinType(context.ReportRuntime.EvaluateMapBorderSkinMapBorderSkinTypeExpression(this, base.m_map.Name), context.ReportRuntime);

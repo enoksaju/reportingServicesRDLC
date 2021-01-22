@@ -1,11 +1,11 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal struct StringResult
+	public struct StringResult
 	{
-		internal bool ErrorOccurred;
+		public bool ErrorOccurred;
 
-		internal DataFieldStatus FieldStatus;
+		public DataFieldStatus FieldStatus;
 
-		internal string Value;
+		public string Value;
 	}
 }

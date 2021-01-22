@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class DataSetQueryRestartPosition
+	public sealed class DataSetQueryRestartPosition
 	{
 		private List<RestartContext> m_restartPosition;
 

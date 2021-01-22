@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class ScopeIDContext : RestartContext
+	public sealed class ScopeIDContext : RestartContext
 	{
 		private readonly ScopeID m_scopeID;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private readonly InternalStreamingOdpDynamicMemberLogic m_memberLogic;
 
-		internal ScopeID ScopeID
+		public ScopeID ScopeID
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode MemberDefinition
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode MemberDefinition
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal InternalStreamingOdpDynamicMemberLogic MemberLogic
+		public InternalStreamingOdpDynamicMemberLogic MemberLogic
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo> Expressions
+		public List<AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo> Expressions
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<bool> SortDirections
+		public List<bool> SortDirections
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ScopeIDContext(ScopeID scopeID, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode memberDef, InternalStreamingOdpDynamicMemberLogic memberLogic, RestartMode restartMode)
+		public ScopeIDContext(ScopeID scopeID, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode memberDef, InternalStreamingOdpDynamicMemberLogic memberLogic, RestartMode restartMode)
 			: base(restartMode)
 		{
 			this.m_scopeID = scopeID;

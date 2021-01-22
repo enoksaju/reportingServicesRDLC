@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal sealed class BorderProperties
+	public sealed class BorderProperties
 	{
 		private IColor m_color;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 
 		private double m_width = -1.0;
 
-		internal ExcelBorderPart ExcelBorderPart
+		public ExcelBorderPart ExcelBorderPart
 		{
 			set
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal IColor Color
+		public IColor Color
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal ExcelBorderStyle Style
+		public ExcelBorderStyle Style
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal double Width
+		public double Width
 		{
 			get
 			{
@@ -67,19 +67,19 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal BorderProperties(IColor color, ExcelBorderStyle style, ExcelBorderPart part)
+		public BorderProperties(IColor color, ExcelBorderStyle style, ExcelBorderPart part)
 		{
 			this.m_color = color;
 			this.m_style = style;
 			this.m_part = part;
 		}
 
-		internal BorderProperties(ExcelBorderPart part)
+		public BorderProperties(ExcelBorderPart part)
 		{
 			this.m_part = part;
 		}
 
-		internal BorderProperties(BorderProperties borderProps, ExcelBorderPart part)
+		public BorderProperties(BorderProperties borderProps, ExcelBorderPart part)
 		{
 			if (borderProps != null)
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			this.m_part = part;
 		}
 
-		internal void Render(IStyle style)
+		public void Render(IStyle style)
 		{
 			if (this.m_style != 0)
 			{

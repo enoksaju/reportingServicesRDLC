@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLWorksheetsModel : IWorksheetsModel, IEnumerable<IWorksheetModel>, IEnumerable
+	public class XMLWorksheetsModel : IWorksheetsModel, IEnumerable<IWorksheetModel>, IEnumerable
 	{
 		private readonly Worksheets _interface;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 
 		private uint _nextId;
 
-		internal uint NextId
+		public uint NextId
 		{
 			get
 			{

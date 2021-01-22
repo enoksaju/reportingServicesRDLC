@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal enum Template
+	public enum Template
 	{
 		FeedbackPopup,
 		HiddenReportUrl,

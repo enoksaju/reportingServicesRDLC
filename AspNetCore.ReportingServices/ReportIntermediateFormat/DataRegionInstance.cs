@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class DataRegionInstance : ScopeInstance, IMemberHierarchy
+	public sealed class DataRegionInstance : ScopeInstance, IMemberHierarchy
 	{
 		private int m_dataSetIndexInCollection = -1;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DataRegionInstance.GetDeclaration();
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataRegion DataRegionDef
+		public DataRegion DataRegionDef
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int DataSetIndexInCollection
+		public int DataSetIndexInCollection
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ScalableList<DataRegionMemberInstance>> TopLevelRowMembers
+		public List<ScalableList<DataRegionMemberInstance>> TopLevelRowMembers
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ScalableList<DataRegionMemberInstance>> TopLevelColumnMembers
+		public List<ScalableList<DataRegionMemberInstance>> TopLevelColumnMembers
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ScalableList<DataCellInstanceList> Cells
+		public ScalableList<DataCellInstanceList> Cells
 		{
 			get
 			{
@@ -104,11 +104,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_dataSetIndexInCollection = dataSetIndex;
 		}
 
-		internal DataRegionInstance()
+		public DataRegionInstance()
 		{
 		}
 
-		internal static IReference<DataRegionInstance> CreateInstance(ScopeInstance parentInstance, OnDemandMetadata odpMetadata, DataRegion dataRegionDef, int dataSetIndex)
+		public static IReference<DataRegionInstance> CreateInstance(ScopeInstance parentInstance, OnDemandMetadata odpMetadata, DataRegion dataRegionDef, int dataSetIndex)
 		{
 			DataRegionInstance dataRegionInstance = new DataRegionInstance(dataRegionDef, dataSetIndex);
 			GroupTreeScalabilityCache groupTreeScalabilityCache = odpMetadata.GroupTreeScalabilityCache;
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return reference;
 		}
 
-		internal override void InstanceComplete()
+		public override void InstanceComplete()
 		{
 			if (this.m_cells != null)
 			{
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return DataRegionInstance.AddCellInstance(this.m_cells, columnMemberSequenceId, cellIndexInCollection, cellInstance, cache);
 		}
 
-		internal static IDisposable AddCellInstance(ScalableList<DataCellInstanceList> cells, int columnMemberSequenceId, int cellIndexInCollection, DataCellInstance cellInstance, IScalabilityCache cache)
+		public static IDisposable AddCellInstance(ScalableList<DataCellInstanceList> cells, int columnMemberSequenceId, int cellIndexInCollection, DataCellInstance cellInstance, IScalabilityCache cache)
 		{
 			ScopeInstance.AdjustLength(cells, columnMemberSequenceId);
 			DataCellInstanceList dataCellInstanceList = default(DataCellInstanceList);
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return andPin;
 		}
 
-		internal void SetupEnvironment(OnDemandProcessingContext odpContext)
+		public void SetupEnvironment(OnDemandProcessingContext odpContext)
 		{
 			base.SetupFields(odpContext, this.m_dataSetIndexInCollection);
 			int num = 0;
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ID, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataRegion, Token.GlobalReference));

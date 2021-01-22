@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal interface IReportViewerMessages2 : IReportViewerMessages
+	public interface IReportViewerMessages2 : IReportViewerMessages
 	{
 		string ClientNoScript
 		{

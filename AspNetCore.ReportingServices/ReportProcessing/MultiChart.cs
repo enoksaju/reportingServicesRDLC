@@ -6,9 +6,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MultiChart : ReportHierarchyNode
+	public sealed class MultiChart : ReportHierarchyNode
 	{
-		internal enum Layouts
+		public enum Layouts
 		{
 			Automatic,
 			Horizontal,
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private bool m_syncScale;
 
-		internal Layouts Layout
+		public Layouts Layout
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int MaxCount
+		public int MaxCount
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SyncScale
+		public bool SyncScale
 		{
 			get
 			{
@@ -57,30 +57,30 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MultiChart()
+		public MultiChart()
 		{
 		}
 
-		internal MultiChart(int id, Chart chartDef)
+		public MultiChart(int id, Chart chartDef)
 			: base(id, chartDef)
 		{
 		}
 
-		internal void SetExprHost(MultiChartExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MultiChartExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			exprHost.SetReportObjectModel(reportObjectModel);
 			base.ReportHierarchyNodeSetExprHost(exprHost.GroupingHost, null, reportObjectModel);
 		}
 
-		internal new void Initialize(InitializationContext context)
+		public new void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MultiChartStart();
 			base.Initialize(context);
 			context.ExprHostBuilder.MultiChartEnd();
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Layout, Token.Enum));

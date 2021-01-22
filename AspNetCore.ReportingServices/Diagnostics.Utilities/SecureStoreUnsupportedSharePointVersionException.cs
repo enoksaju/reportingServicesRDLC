@@ -2,7 +2,7 @@ using System.Runtime.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal sealed class SecureStoreUnsupportedSharePointVersionException : ReportCatalogException
+	public sealed class SecureStoreUnsupportedSharePointVersionException : ReportCatalogException
 	{
 		public SecureStoreUnsupportedSharePointVersionException()
 			: base(ErrorCode.rsSecureStoreUnsupportedSharePointVersion, ErrorStrings.rsSecureStoreUnsupportedSharePointVersion, null, null)

@@ -3,13 +3,13 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class ScriptProperties
+	public class ScriptProperties
 	{
 		private long m_value;
 
 		private static ScriptProperties[] ScriptsProps;
 
-		internal bool IsComplex
+		public bool IsComplex
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal byte CharSet
+		public byte CharSet
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool IsAmbiguousCharSet
+		public bool IsAmbiguousCharSet
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal static int Length
+		public static int Length
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal ScriptProperties(long value)
+		public ScriptProperties(long value)
 		{
 			this.m_value = value;
 		}
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal static ScriptProperties GetProperties(int script)
+		public static ScriptProperties GetProperties(int script)
 		{
 			return ScriptProperties.ScriptsProps[script];
 		}

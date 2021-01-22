@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ScaleLabels : GaugePanelStyleContainer, IPersistable
+	public sealed class ScaleLabels : GaugePanelStyleContainer, IPersistable
 	{
 		[NonSerialized]
 		private ScaleLabelsExprHost m_exprHost;
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_useFontPercent;
 
-		internal ExpressionInfo Interval
+		public ExpressionInfo Interval
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffset
+		public ExpressionInfo IntervalOffset
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AllowUpsideDown
+		public ExpressionInfo AllowUpsideDown
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DistanceFromScale
+		public ExpressionInfo DistanceFromScale
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo FontAngle
+		public ExpressionInfo FontAngle
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Placement
+		public ExpressionInfo Placement
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo RotateLabels
+		public ExpressionInfo RotateLabels
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ShowEndLabels
+		public ExpressionInfo ShowEndLabels
 		{
 			get
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo UseFontPercent
+		public ExpressionInfo UseFontPercent
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ScaleLabelsExprHost ExprHost
+		public ScaleLabelsExprHost ExprHost
 		{
 			get
 			{
@@ -175,16 +175,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ScaleLabels()
+		public ScaleLabels()
 		{
 		}
 
-		internal ScaleLabels(GaugePanel gaugePanel)
+		public ScaleLabels(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ScaleLabelsStart();
 			base.Initialize(context);
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ScaleLabelsEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ScaleLabels scaleLabels = (ScaleLabels)base.PublishClone(context);
 			if (this.m_interval != null)
@@ -287,14 +287,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return scaleLabels;
 		}
 
-		internal void SetExprHost(ScaleLabelsExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ScaleLabelsExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = exprHost;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Interval, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -405,61 +405,61 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ScaleLabels;
 		}
 
-		internal double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleLabelsIntervalExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleLabelsIntervalOffsetExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateAllowUpsideDown(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateAllowUpsideDown(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleLabelsAllowUpsideDownExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateDistanceFromScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateDistanceFromScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleLabelsDistanceFromScaleExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateFontAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateFontAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleLabelsFontAngleExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal GaugeLabelPlacements EvaluatePlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeLabelPlacements EvaluatePlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeLabelPlacements(context.ReportRuntime.EvaluateScaleLabelsPlacementExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateRotateLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateRotateLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleLabelsRotateLabelsExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateShowEndLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateShowEndLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleLabelsShowEndLabelsExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleLabelsHiddenExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateUseFontPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUseFontPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScaleLabelsUseFontPercentExpression(this, base.m_gaugePanel.Name);

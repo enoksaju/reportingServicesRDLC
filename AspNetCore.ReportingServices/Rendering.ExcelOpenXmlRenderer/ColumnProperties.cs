@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class ColumnProperties
+	public sealed class ColumnProperties
 	{
 		private readonly IColumnModel mModel;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal ColumnProperties(IColumnModel model)
+		public ColumnProperties(IColumnModel model)
 		{
 			this.mModel = model;
 		}

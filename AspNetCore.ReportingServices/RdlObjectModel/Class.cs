@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Class : ReportObject
+	public class Class : ReportObject
 	{
-		internal class Definition : DefinitionStore<Class, Definition.Properties>
+		public class Definition : DefinitionStore<Class, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ClassName,
 				InstanceName
@@ -39,11 +39,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			}
 		}
 
-		internal Class()
+		public Class()
 		{
 		}
 
-		internal Class(IPropertyStore propertyStore)
+		public Class(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

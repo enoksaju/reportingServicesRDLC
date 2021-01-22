@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class AttributeInfo : IPersistable
+	public sealed class AttributeInfo : IPersistable
 	{
 		private bool m_isExpression;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = AttributeInfo.GetDeclaration();
 
-		internal bool IsExpression
+		public bool IsExpression
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Value
+		public string Value
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool BoolValue
+		public bool BoolValue
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int IntValue
+		public int IntValue
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double FloatValue
+		public double FloatValue
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ValueType ValueType
+		public ValueType ValueType
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AttributeInfo PublishClone(AutomaticSubtotalContext context)
+		public AttributeInfo PublishClone(AutomaticSubtotalContext context)
 		{
 			AttributeInfo attributeInfo = (AttributeInfo)base.MemberwiseClone();
 			if (this.m_stringValue != null)
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return attributeInfo;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.IsExpression, Token.Boolean));

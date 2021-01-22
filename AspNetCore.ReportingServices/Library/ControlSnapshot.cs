@@ -8,7 +8,7 @@ using System.IO;
 namespace AspNetCore.ReportingServices.Library
 {
 	[Serializable]
-	internal sealed class ControlSnapshot : SnapshotBase, IChunkFactory, IDisposable
+	public sealed class ControlSnapshot : SnapshotBase, IChunkFactory, IDisposable
 	{
 		[Serializable]
 		private class Chunk : IDisposable

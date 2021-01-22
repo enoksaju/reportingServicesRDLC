@@ -7,7 +7,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class Report
+	public sealed class Report
 	{
 		private AspNetCore.ReportingServices.OnDemandReportRendering.Report m_report;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private Version m_rplVersion = new Version(10, 6, 0);
 
-		internal bool Done
+		public bool Done
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal IJobContext JobContext
+		public IJobContext JobContext
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal string InitialPageName
+		public string InitialPageName
 		{
 			get
 			{
@@ -51,14 +51,14 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Report(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, PageContext pageContext, PaginationSettings aPagination)
+		public Report(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, PageContext pageContext, PaginationSettings aPagination)
 		{
 			this.m_report = report;
 			this.m_pageContext = pageContext;
 			this.m_pageSettings = aPagination;
 		}
 
-		internal static string GetReportLanguage(AspNetCore.ReportingServices.OnDemandReportRendering.Report report)
+		public static string GetReportLanguage(AspNetCore.ReportingServices.OnDemandReportRendering.Report report)
 		{
 			string result = null;
 			ReportStringProperty language = report.Language;
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return result;
 		}
 
-		internal void SetContext()
+		public void SetContext()
 		{
 			ReportSectionCollection reportSections = this.m_report.ReportSections;
 			for (int i = 0; i < reportSections.Count; i++)
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void NextPage(RPLWriter rplWriter, int totalPages)
+		public void NextPage(RPLWriter rplWriter, int totalPages)
 		{
 			this.WriteStartItemToStream(rplWriter);
 			double num = 0.0;
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteStartItemToStream(RPLWriter rplWriter)
+		public void WriteStartItemToStream(RPLWriter rplWriter)
 		{
 			if (rplWriter != null)
 			{
@@ -227,7 +227,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteEndItemToStream(RPLWriter rplWriter, List<ReportSection> sectionsOnPage)
+		public void WriteEndItemToStream(RPLWriter rplWriter, List<ReportSection> sectionsOnPage)
 		{
 			BinaryWriter binaryWriter = rplWriter.BinaryWriter;
 			if (binaryWriter != null)

@@ -12,7 +12,7 @@ using System.Xml;
 namespace System.Web.Services.Protocols
 {
     /// <summary>Defines the SOAP fault codes that appear in a SOAP message when an error occurs while communicating with XML Web services using the SOAP version 1.2 protocol.</summary>
-    internal sealed class Soap12FaultCodes
+    public sealed class Soap12FaultCodes
     {
         private Soap12FaultCodes()
         {
@@ -45,8 +45,8 @@ namespace System.Web.Services.Protocols
         /// <summary>Represents the SOAP version 1.2 enc:UntypedValue fault subcode indicating that the SOAP message was RPC-encoded and the type name property of an encoded graph node was not specified.</summary>
         public static readonly XmlQualifiedName EncodingUntypedValueFaultCode = new XmlQualifiedName("UntypedValue", "http://www.w3.org/2003/05/soap-encoding");
 
-        internal static readonly XmlQualifiedName UnsupportedMediaTypeFaultCode = new XmlQualifiedName("UnsupportedMediaType", "http://microsoft.com/soap/");
+        public static readonly XmlQualifiedName UnsupportedMediaTypeFaultCode = new XmlQualifiedName("UnsupportedMediaType", "http://microsoft.com/soap/");
 
-        internal static readonly XmlQualifiedName MethodNotAllowed = new XmlQualifiedName("MethodNotAllowed", "http://microsoft.com/soap/");
+        public static readonly XmlQualifiedName MethodNotAllowed = new XmlQualifiedName("MethodNotAllowed", "http://microsoft.com/soap/");
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class RSPathUtil : IPathManager
+	public sealed class RSPathUtil : IPathManager
 	{
 		public static readonly RSPathUtil Instance = new RSPathUtil();
 

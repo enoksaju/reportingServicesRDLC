@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class BufferBitmap : IDisposable
+	public class BufferBitmap : IDisposable
 	{
 		private Bitmap bitmap;
 

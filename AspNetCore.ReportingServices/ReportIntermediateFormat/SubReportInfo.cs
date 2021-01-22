@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class SubReportInfo : IPersistable
+	public class SubReportInfo : IPersistable
 	{
-		internal class ParametersImplValuesComparer : IEqualityComparer<ParametersImplWrapper>
+		public class ParametersImplValuesComparer : IEqualityComparer<ParametersImplWrapper>
 		{
-			internal static readonly ParametersImplValuesComparer Instance = new ParametersImplValuesComparer();
+			public static readonly ParametersImplValuesComparer Instance = new ParametersImplValuesComparer();
 
 			private ParametersImplValuesComparer()
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = SubReportInfo.GetDeclaration();
 
-		internal CommonSubReportInfo CommonSubReportInfo
+		public CommonSubReportInfo CommonSubReportInfo
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string UniqueName
+		public string UniqueName
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int LastID
+		public int LastID
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int UserSortDataSetGlobalId
+		public int UserSortDataSetGlobalId
 		{
 			get
 			{
@@ -96,16 +96,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SubReportInfo()
+		public SubReportInfo()
 		{
 		}
 
-		internal SubReportInfo(Guid uniqueName)
+		public SubReportInfo(Guid uniqueName)
 		{
 			this.m_uniqueName = uniqueName.ToString("N");
 		}
 
-		internal int GetChunkNameModifierForParamValues(ParametersImpl parameterValues, bool addEntry, ref bool? isShared, out ParametersImpl fullParameterValues)
+		public int GetChunkNameModifierForParamValues(ParametersImpl parameterValues, bool addEntry, ref bool? isShared, out ParametersImpl fullParameterValues)
 		{
 			if (parameterValues == null)
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return count;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.LastID, Token.Int32));

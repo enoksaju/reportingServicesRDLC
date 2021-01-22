@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.drawingml.x2006.wordprocessingDrawing
 {
-	internal class CT_NonVisualDrawingProps : OoxmlComplexType, IOoxmlComplexType
+	public class CT_NonVisualDrawingProps : OoxmlComplexType, IOoxmlComplexType
 	{
 		private uint _id_attr;
 

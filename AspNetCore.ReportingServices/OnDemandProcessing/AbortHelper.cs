@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class AbortHelper : IAbortHelper, IDisposable
+	public abstract class AbortHelper : IAbortHelper, IDisposable
 	{
 		private ProcessingStatus m_overallStatus;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool EnforceSingleAbortException
+		public bool EnforceSingleAbortException
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		public event EventHandler ProcessingAbortEvent;
 
-		internal AbortHelper(IJobContext jobContext, bool enforceSingleAbortException, bool requireEventHandler)
+		public AbortHelper(IJobContext jobContext, bool enforceSingleAbortException, bool requireEventHandler)
 		{
 			this.m_enforceSingleAbortException = enforceSingleAbortException;
 			this.m_requireEventHandler = requireEventHandler;
@@ -82,9 +82,9 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		protected abstract void SetStatus(ProcessingStatus newStatus, string uniqueName);
 
-		internal abstract void AddSubreportInstanceOrSharedDataSet(string uniqueName);
+		public abstract void AddSubreportInstanceOrSharedDataSet(string uniqueName);
 
-		internal bool SetError(Exception e, string uniqueName)
+		public bool SetError(Exception e, string uniqueName)
 		{
 			Global.Tracer.Trace(TraceLevel.Verbose, "An exception has occurred. Trying to abort processing. Details: {0}", (e == null) ? "" : e.ToString());
 			if (this.m_exception == null)
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal virtual void ThrowIfAborted(CancelationTrigger cancelationTrigger, string uniqueName)
+		public virtual void ThrowIfAborted(CancelationTrigger cancelationTrigger, string uniqueName)
 		{
 			ProcessingStatus status = default(ProcessingStatus);
 			lock (this.m_syncRoot)

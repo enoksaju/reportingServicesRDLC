@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal enum SerializationMethod
+	public enum SerializationMethod
 	{
 		Auto,
 		Never,

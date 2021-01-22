@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ScrollType
+	public enum ScrollType
 	{
 		SmallDecrement,
 		SmallIncrement,

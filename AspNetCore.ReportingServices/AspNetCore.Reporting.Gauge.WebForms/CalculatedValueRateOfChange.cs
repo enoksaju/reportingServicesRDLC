@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CalculatedValueRateOfChangeConverter))]
-	internal class CalculatedValueRateOfChange : CalculatedValue
+	public class CalculatedValueRateOfChange : CalculatedValue
 	{
 		private DataSampleRC[] oldValues = new DataSampleRC[2]
 		{
@@ -72,7 +72,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void CalculateValue(double value, DateTime timestamp)
+		public override void CalculateValue(double value, DateTime timestamp)
 		{
 			TimeSpan period = this.rateOfChange.ToTimeSpan();
 			double num = double.NaN;
@@ -136,7 +136,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return result;
 		}
 
-		internal override object CloneInternals(object copy)
+		public override object CloneInternals(object copy)
 		{
 			CalculatedValueRateOfChange calculatedValueRateOfChange = (CalculatedValueRateOfChange)base.CloneInternals(copy);
 			calculatedValueRateOfChange.rateOfChange = this.rateOfChange.Clone();

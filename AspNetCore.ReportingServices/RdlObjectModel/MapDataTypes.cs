@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapDataTypes
+	public enum MapDataTypes
 	{
 		String,
 		Boolean,

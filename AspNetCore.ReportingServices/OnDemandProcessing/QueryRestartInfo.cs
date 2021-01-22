@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class QueryRestartInfo
+	public class QueryRestartInfo
 	{
 		private bool m_queryRestartEnabled;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private Dictionary<AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet, List<RelationshipRestartContext>> m_relationshipRestartPositions = new Dictionary<AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet, List<RelationshipRestartContext>>();
 
-		internal bool QueryRestartEnabled
+		public bool QueryRestartEnabled
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<ScopeIDContext> QueryRestartPosition
+		public List<ScopeIDContext> QueryRestartPosition
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal QueryRestartInfo()
+		public QueryRestartInfo()
 		{
 			this.m_queryRestartPosition = new List<ScopeIDContext>();
 		}
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal void EnableQueryRestart()
+		public void EnableQueryRestart()
 		{
 			if (this.IsRestartable())
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool TryAddScopeID(ScopeID scopeID, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode memberDef, InternalStreamingOdpDynamicMemberLogic memberLogic)
+		public bool TryAddScopeID(ScopeID scopeID, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode memberDef, InternalStreamingOdpDynamicMemberLogic memberLogic)
 		{
 			if (this.IsParentScopeIDAlreadySet(memberDef))
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal void RomBasedRestart()
+		public void RomBasedRestart()
 		{
 			for (int i = 0; i < this.m_queryRestartPosition.Count; i++)
 			{

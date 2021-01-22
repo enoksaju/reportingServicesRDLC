@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract(Namespace = "http://schemas.microsoft.com/search/local/ws/rest/v1")]
-	internal class BirdseyeMetadata : ImageryMetadata
+	public class BirdseyeMetadata : ImageryMetadata
 	{
 		[DataMember(Name = "orientation", EmitDefaultValue = false)]
 		public double Orientation

@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class BackgroundImage : ReportProperty, IImage, IBaseImage
+	public sealed class BackgroundImage : ReportProperty, IImage, IBaseImage
 	{
 		private bool m_isOldSnapshot;
 
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Style StyleDef
+		public Style StyleDef
 		{
 			get
 			{
@@ -308,14 +308,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal BackgroundImage(bool isExpression, string expressionString, Style styleDef)
+		public BackgroundImage(bool isExpression, string expressionString, Style styleDef)
 			: base(isExpression, expressionString)
 		{
 			this.m_styleDef = styleDef;
 			this.m_isOldSnapshot = false;
 		}
 
-		internal BackgroundImage(bool isExpression, string expressionString, AspNetCore.ReportingServices.ReportRendering.Style renderStyle, Style styleDef)
+		public BackgroundImage(bool isExpression, string expressionString, AspNetCore.ReportingServices.ReportRendering.Style renderStyle, Style styleDef)
 			: base(isExpression, expressionString)
 		{
 			this.m_styleDef = styleDef;

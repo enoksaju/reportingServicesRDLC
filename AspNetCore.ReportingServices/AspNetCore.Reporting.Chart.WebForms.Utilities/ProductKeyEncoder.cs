@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal class ProductKeyEncoder
+	public class ProductKeyEncoder
 	{
 		private byte[] rijnKey = new byte[32]
 		{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimDataValueInstance : DataValueInstance
+	public sealed class ShimDataValueInstance : DataValueInstance
 	{
 		private string m_name;
 
@@ -22,14 +22,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimDataValueInstance(string name, object value)
+		public ShimDataValueInstance(string name, object value)
 			: base(null)
 		{
 			this.m_name = name;
 			this.m_value = value;
 		}
 
-		internal void Update(string name, object value)
+		public void Update(string name, object value)
 		{
 			this.m_name = name;
 			this.m_value = value;

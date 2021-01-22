@@ -3,9 +3,9 @@ using AspNetCore.ReportingServices.Rendering.SPBProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class WordDocumentRenderer : WordDocumentRendererBase
+	public class WordDocumentRenderer : WordDocumentRendererBase
 	{
-		internal override IWordWriter NewWordWriter()
+		public override IWordWriter NewWordWriter()
 		{
 			return new Word97Writer();
 		}

@@ -8,9 +8,9 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Chart : Pivot, IRunningValueHolder
+	public sealed class Chart : Pivot, IRunningValueHolder
 	{
-		internal enum ChartTypes
+		public enum ChartTypes
 		{
 			Column,
 			Bar,
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			Stock
 		}
 
-		internal enum ChartSubTypes
+		public enum ChartSubTypes
 		{
 			Default,
 			Stacked,
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			Candlestick
 		}
 
-		internal enum ChartPalette
+		public enum ChartPalette
 		{
 			Default,
 			EarthTones,
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_hasDataValueAggregates;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override PivotHeading PivotColumns
+		public override PivotHeading PivotColumns
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override PivotHeading PivotRows
+		public override PivotHeading PivotRows
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeading Columns
+		public ChartHeading Columns
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeading Rows
+		public ChartHeading Rows
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MultiChart MultiChart
+		public MultiChart MultiChart
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartDataPointList ChartDataPoints
+		public ChartDataPointList ChartDataPoints
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override RunningValueInfoList PivotCellRunningValues
+		public override RunningValueInfoList PivotCellRunningValues
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList CellRunningValues
+		public RunningValueInfoList CellRunningValues
 		{
 			get
 			{
@@ -192,7 +192,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Legend Legend
+		public Legend Legend
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Axis CategoryAxis
+		public Axis CategoryAxis
 		{
 			get
 			{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Axis ValueAxis
+		public Axis ValueAxis
 		{
 			get
 			{
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override PivotHeading PivotStaticColumns
+		public override PivotHeading PivotStaticColumns
 		{
 			get
 			{
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override PivotHeading PivotStaticRows
+		public override PivotHeading PivotStaticRows
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeading StaticColumns
+		public ChartHeading StaticColumns
 		{
 			get
 			{
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeading StaticRows
+		public ChartHeading StaticRows
 		{
 			get
 			{
@@ -268,7 +268,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartTypes Type
+		public ChartTypes Type
 		{
 			get
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartSubTypes SubType
+		public ChartSubTypes SubType
 		{
 			get
 			{
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartTitle Title
+		public ChartTitle Title
 		{
 			get
 			{
@@ -304,7 +304,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int PointWidth
+		public int PointWidth
 		{
 			get
 			{
@@ -316,7 +316,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ThreeDProperties ThreeDProperties
+		public ThreeDProperties ThreeDProperties
 		{
 			get
 			{
@@ -328,7 +328,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartPalette Palette
+		public ChartPalette Palette
 		{
 			get
 			{
@@ -340,7 +340,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PlotArea PlotArea
+		public PlotArea PlotArea
 		{
 			get
 			{
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartExprHost ChartExprHost
+		public ChartExprHost ChartExprHost
 		{
 			get
 			{
@@ -368,7 +368,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList NumberOfSeriesDataPoints
+		public IntList NumberOfSeriesDataPoints
 		{
 			get
 			{
@@ -380,7 +380,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BoolList SeriesPlotType
+		public BoolList SeriesPlotType
 		{
 			get
 			{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasSeriesPlotTypeLine
+		public bool HasSeriesPlotTypeLine
 		{
 			get
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasDataValueAggregates
+		public bool HasDataValueAggregates
 		{
 			get
 			{
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int StaticSeriesCount
+		public int StaticSeriesCount
 		{
 			get
 			{
@@ -429,7 +429,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int StaticCategoryCount
+		public int StaticCategoryCount
 		{
 			get
 			{
@@ -442,12 +442,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Chart(ReportItem parent)
+		public Chart(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Chart(int id, ReportItem parent)
+		public Chart(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_cellDataPoints = new ChartDataPointList();
@@ -473,7 +473,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static object[] CreateStyle(ReportProcessing.ProcessingContext pc, Style styleDef, string objectName, int uniqueName)
+		public static object[] CreateStyle(ReportProcessing.ProcessingContext pc, Style styleDef, string objectName, int uniqueName)
 		{
 			object[] array = null;
 			if (styleDef != null && styleDef.ExpressionList != null && 0 < styleDef.ExpressionList.Count)
@@ -484,7 +484,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return array;
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -798,7 +798,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsValidChartSubType()
+		public bool IsValidChartSubType()
 		{
 			if (this.m_subType == ChartSubTypes.Default)
 			{
@@ -928,7 +928,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -979,13 +979,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartDataPoint GetDataPoint(int seriesIndex, int categoryIndex)
+		public ChartDataPoint GetDataPoint(int seriesIndex, int categoryIndex)
 		{
 			int index = seriesIndex * this.StaticCategoryCount + categoryIndex;
 			return this.m_cellDataPoints[index];
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Columns, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ChartHeading));

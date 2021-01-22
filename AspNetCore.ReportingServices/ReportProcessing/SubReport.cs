@@ -8,9 +8,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class SubReport : ReportItem, IPageBreakItem
+	public sealed class SubReport : ReportItem, IPageBreakItem
 	{
-		internal enum Status
+		public enum Status
 		{
 			NotRetrieved,
 			Retrieved,
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			PreFetched
 		}
 
-		internal const uint MaxSubReportLevel = 20u;
+		public const uint MaxSubReportLevel = 20u;
 
 		private string m_reportPath;
 
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ICatalogItemContext m_reportContext;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ReportPath
+		public string ReportPath
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterValueList Parameters
+		public ParameterValueList Parameters
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo NoRows
+		public ExpressionInfo NoRows
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool MergeTransactions
+		public bool MergeTransactions
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal GroupingList ContainingScopes
+		public GroupingList ContainingScopes
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Status RetrievalStatus
+		public Status RetrievalStatus
 		{
 			get
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ReportName
+		public string ReportName
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Description
+		public string Description
 		{
 			get
 			{
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Report Report
+		public Report Report
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string StringUri
+		public string StringUri
 		{
 			get
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ICatalogItemContext ReportContext
+		public ICatalogItemContext ReportContext
 		{
 			get
 			{
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterInfoCollection ParametersFromCatalog
+		public ParameterInfoCollection ParametersFromCatalog
 		{
 			get
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Uri Uri
+		public Uri Uri
 		{
 			get
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SubreportExprHost SubReportExprHost
+		public SubreportExprHost SubReportExprHost
 		{
 			get
 			{
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string SubReportScope
+		public string SubReportScope
 		{
 			get
 			{
@@ -255,7 +255,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsMatrixCellScope
+		public bool IsMatrixCellScope
 		{
 			get
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsDetailScope
+		public bool IsDetailScope
 		{
 			get
 			{
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SubReportList DetailScopeSubReports
+		public SubReportList DetailScopeSubReports
 		{
 			get
 			{
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ScopeLookupTable DataSetUniqueNameMap
+		public ScopeLookupTable DataSetUniqueNameMap
 		{
 			get
 			{
@@ -303,7 +303,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SaveDataSetUniqueName
+		public bool SaveDataSetUniqueName
 		{
 			get
 			{
@@ -311,18 +311,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SubReport(ReportItem parent)
+		public SubReport(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal SubReport(int id, ReportItem parent)
+		public SubReport(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_parameters = new ParameterValueList();
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -361,7 +361,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal void UpdateSubReportScopes(UserSortFilterContext context)
+		public void UpdateSubReportScopes(UserSortFilterContext context)
 		{
 			if (this.m_containingScopes != null && 0 < this.m_containingScopes.Count && this.m_containingScopes.LastEntry == null)
 			{
@@ -435,7 +435,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void AddDataSetUniqueName(VariantList[] scopeValues, int subReportUniqueName)
+		public void AddDataSetUniqueName(VariantList[] scopeValues, int subReportUniqueName)
 		{
 			if (this.m_dataSetUniqueNameMap == null)
 			{
@@ -445,13 +445,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_dataSetUniqueNameMap.Add(this.m_containingScopes, scopeValues, subReportUniqueName);
 		}
 
-		internal int GetDataSetUniqueName(VariantList[] scopeValues)
+		public int GetDataSetUniqueName(VariantList[] scopeValues)
 		{
 			Global.Tracer.Assert(null != this.m_dataSetUniqueNameMap);
 			return this.m_dataSetUniqueNameMap.Lookup(this.m_containingScopes, scopeValues);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ReportPath, Token.String));

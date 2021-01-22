@@ -1,14 +1,14 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal struct ABC
+	public struct ABC
 	{
-		internal int abcA;
+		public int abcA;
 
-		internal uint abcB;
+		public uint abcB;
 
-		internal int abcC;
+		public int abcC;
 
-		internal int Width
+		public int Width
 		{
 			get
 			{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal void SetToZeroWidth()
+		public void SetToZeroWidth()
 		{
 			this.abcA = 0;
 			this.abcB = 0u;

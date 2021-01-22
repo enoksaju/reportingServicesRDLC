@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal interface IHierarchy
+	public interface IHierarchy
 	{
 		IEnumerable<IHierarchyMember> Members
 		{

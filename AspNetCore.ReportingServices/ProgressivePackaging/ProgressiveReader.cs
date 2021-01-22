@@ -5,13 +5,13 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal class ProgressiveReader : IMessageReader, IEnumerable<MessageElement>, IEnumerable, IDisposable
+	public class ProgressiveReader : IMessageReader, IEnumerable<MessageElement>, IEnumerable, IDisposable
 	{
-		internal const string Format = "Progressive";
+		public const string Format = "Progressive";
 
-		internal const int MajorVersion = 1;
+		public const int MajorVersion = 1;
 
-		internal const int MinorVersion = 0;
+		public const int MinorVersion = 0;
 
 		private BinaryReader m_reader;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 
 		private bool m_enumeratorCreated;
 
-		internal ProgressiveReader(BinaryReader reader)
+		public ProgressiveReader(BinaryReader reader)
 		{
 			this.m_reader = reader;
 		}

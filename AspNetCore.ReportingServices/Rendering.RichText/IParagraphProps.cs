@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal interface IParagraphProps
+	public interface IParagraphProps
 	{
 		float SpaceBefore
 		{

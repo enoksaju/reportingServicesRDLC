@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class RealTimeDataEventArgs : EventArgs
+	public class RealTimeDataEventArgs : EventArgs
 	{
 		private RealTimeValueCollection realTimeValues;
 

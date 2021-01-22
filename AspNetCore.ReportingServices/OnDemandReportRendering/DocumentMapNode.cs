@@ -4,9 +4,9 @@ using System;
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
 	[Serializable]
-	internal sealed class DocumentMapNode : OnDemandDocumentMapNode
+	public sealed class DocumentMapNode : OnDemandDocumentMapNode
 	{
-		internal DocumentMapNode(string aLabel, string aId, int aLevel)
+		public DocumentMapNode(string aLabel, string aId, int aLevel)
 			: base(aLabel, aId, aLevel)
 		{
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IDeliveryExtension : IExtension
+	public interface IDeliveryExtension : IExtension
 	{
 		Setting[] ExtensionSettings
 		{

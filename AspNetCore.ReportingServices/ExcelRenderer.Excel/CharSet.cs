@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum CharSet : byte
+	public enum CharSet : byte
 	{
 		ANSI_CHARSET,
 		DEFAULT_CHARSET,

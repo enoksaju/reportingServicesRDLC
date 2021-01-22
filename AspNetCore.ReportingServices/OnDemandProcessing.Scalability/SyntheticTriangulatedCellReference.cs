@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
 	[SkipStaticValidation]
-	internal sealed class SyntheticTriangulatedCellReference : SyntheticReferenceBase<IOnDemandScopeInstance>, IReference<RuntimeCell>, IReference, IStorable, IPersistable
+	public sealed class SyntheticTriangulatedCellReference : SyntheticReferenceBase<IOnDemandScopeInstance>, IReference<RuntimeCell>, IReference, IStorable, IPersistable
 	{
 		private IReference<IOnDemandMemberInstance> m_outerGroupLeafRef;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return SyntheticTriangulatedCellReference.GetCellInstance(this.m_outerGroupLeafRef, this.m_innerGroupLeafRef, out reference);
 		}
 
-		internal static IOnDemandScopeInstance GetCellInstance(IReference<IOnDemandMemberInstance> outerGroupLeafRef, IReference<IOnDemandMemberInstance> innerGroupLeafRef, out IReference<IOnDemandScopeInstance> cellRef)
+		public static IOnDemandScopeInstance GetCellInstance(IReference<IOnDemandMemberInstance> outerGroupLeafRef, IReference<IOnDemandMemberInstance> innerGroupLeafRef, out IReference<IOnDemandScopeInstance> cellRef)
 		{
 			using (innerGroupLeafRef.PinValue())
 			{

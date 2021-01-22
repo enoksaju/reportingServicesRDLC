@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LocationConverter : ExpandableObjectConverter
+	public class LocationConverter : ExpandableObjectConverter
 	{
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
 		{

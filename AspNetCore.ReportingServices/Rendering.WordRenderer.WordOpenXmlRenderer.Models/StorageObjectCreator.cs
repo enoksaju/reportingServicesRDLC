@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class StorageObjectCreator : IScalabilityObjectCreator
+	public sealed class StorageObjectCreator : IScalabilityObjectCreator
 	{
 		private static StorageObjectCreator _instance = null;
 
 		private static List<Declaration> _declarations = StorageObjectCreator.BuildDeclarations();
 
-		internal static StorageObjectCreator Instance
+		public static StorageObjectCreator Instance
 		{
 			get
 			{

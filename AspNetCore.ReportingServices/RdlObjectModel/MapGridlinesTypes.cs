@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapGridlinesTypes
+	public enum MapGridlinesTypes
 	{
 		Parallel,
 		Meridian

@@ -5,7 +5,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableGroupInstance : InstanceInfoOwner, IShowHideContainer, ISearchByUniqueName
+	public sealed class TableGroupInstance : InstanceInfoOwner, IShowHideContainer, ISearchByUniqueName
 	{
 		private int m_uniqueName;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_numberOfChildrenOnThisPage;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroup TableGroupDef
+		public TableGroup TableGroupDef
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowInstance[] HeaderRowInstances
+		public TableRowInstance[] HeaderRowInstances
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowInstance[] FooterRowInstances
+		public TableRowInstance[] FooterRowInstances
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroupInstanceList SubGroupInstances
+		public TableGroupInstanceList SubGroupInstances
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableDetailInstanceList TableDetailInstances
+		public TableDetailInstanceList TableDetailInstances
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RenderingPagesRangesList ChildrenStartAndEndPages
+		public RenderingPagesRangesList ChildrenStartAndEndPages
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NumberOfChildrenOnThisPage
+		public int NumberOfChildrenOnThisPage
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroupInstance(ReportProcessing.ProcessingContext pc, TableGroup tableGroupDef)
+		public TableGroupInstance(ReportProcessing.ProcessingContext pc, TableGroup tableGroupDef)
 		{
 			Table table = (Table)tableGroupDef.DataRegionDef;
 			this.m_uniqueName = pc.CreateUniqueName();
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroupInstance()
+		public TableGroupInstance()
 		{
 		}
 
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.EndProcessContainer(this.m_uniqueName, this.m_tableGroupDef.Visibility);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.InstanceInfoOwner, memberInfoList);
 		}
 
-		internal TableGroupInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public TableGroupInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{

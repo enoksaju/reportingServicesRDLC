@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal enum ComponentType
+	public enum ComponentType
 	{
 		Processing,
 		Pagination,

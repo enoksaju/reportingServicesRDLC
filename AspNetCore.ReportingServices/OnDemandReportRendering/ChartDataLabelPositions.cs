@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartDataLabelPositions
+	public enum ChartDataLabelPositions
 	{
 		Auto,
 		Top,

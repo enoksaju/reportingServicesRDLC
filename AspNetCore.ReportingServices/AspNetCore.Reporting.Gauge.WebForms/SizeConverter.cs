@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class SizeConverter : ExpandableObjectConverter
+	public class SizeConverter : ExpandableObjectConverter
 	{
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
 		{

@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportItemCollection : ReportElementCollectionBase<ReportItem>
+	public sealed class ReportItemCollection : ReportElementCollectionBase<ReportItem>
 	{
 		private IDefinitionPath m_parentDefinitionPath;
 
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.ReportItemCollection RenderReportItemCollection
+		public AspNetCore.ReportingServices.ReportRendering.ReportItemCollection RenderReportItemCollection
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportItemCollection(IReportScope reportScope, IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection reportItemColDef, RenderingContext renderingContext)
+		public ReportItemCollection(IReportScope reportScope, IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection reportItemColDef, RenderingContext renderingContext)
 		{
 			this.m_reportScope = reportScope;
 			this.m_parentDefinitionPath = parentDefinitionPath;
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_renderingContext = renderingContext;
 		}
 
-		internal ReportItemCollection(IDefinitionPath parentDefinitionPath, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItemCollection renderReportItemCollection, RenderingContext renderingContext)
+		public ReportItemCollection(IDefinitionPath parentDefinitionPath, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItemCollection renderReportItemCollection, RenderingContext renderingContext)
 		{
 			this.m_parentDefinitionPath = parentDefinitionPath;
 			this.m_isOldSnapshot = true;
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_renderingContext = renderingContext;
 		}
 
-		internal void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItemCollection renderReportItemCollection)
+		public void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItemCollection renderReportItemCollection)
 		{
 			if (!this.m_isOldSnapshot)
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			for (int i = 0; i < this.Count; i++)
 			{

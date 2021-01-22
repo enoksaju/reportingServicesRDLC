@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.DataProcessing;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IDbConnectionPool
+	public interface IDbConnectionPool
 	{
 		int ConnectionCount
 		{

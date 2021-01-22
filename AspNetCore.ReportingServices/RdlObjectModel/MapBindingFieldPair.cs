@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapBindingFieldPair : ReportObject
+	public class MapBindingFieldPair : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapBindingFieldPair, Definition.Properties>
+		public class Definition : DefinitionStore<MapBindingFieldPair, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				FieldName,
 				BindingExpression,
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapBindingFieldPair(IPropertyStore propertyStore)
+		public MapBindingFieldPair(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

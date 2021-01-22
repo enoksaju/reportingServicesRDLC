@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal abstract class ImageMessageReader<T> : IImageMessageReader, IDisposable, IEnumerable<T>, IEnumerable where T : ImageMessageElement
+	public abstract class ImageMessageReader<T> : IImageMessageReader, IDisposable, IEnumerable<T>, IEnumerable where T : ImageMessageElement
 	{
 		private bool m_disposed;
 

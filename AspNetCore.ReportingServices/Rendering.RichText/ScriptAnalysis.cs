@@ -1,24 +1,24 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class ScriptAnalysis
+	public sealed class ScriptAnalysis
 	{
-		internal int eScript;
+		public int eScript;
 
-		internal int fRTL;
+		public int fRTL;
 
-		internal int fLayoutRTL;
+		public int fLayoutRTL;
 
-		internal int fLinkBefore;
+		public int fLinkBefore;
 
-		internal int fLinkAfter;
+		public int fLinkAfter;
 
-		internal int fLogicalOrder;
+		public int fLogicalOrder;
 
-		internal int fNoGlyphIndex;
+		public int fNoGlyphIndex;
 
-		internal ScriptState s;
+		public ScriptState s;
 
-		internal ScriptAnalysis(ushort word1)
+		public ScriptAnalysis(ushort word1)
 		{
 			this.eScript = (word1 & 0x3FF);
 			this.fRTL = (word1 >> 10 & 1);
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.fNoGlyphIndex = (word1 >> 15 & 1);
 		}
 
-		internal SCRIPT_ANALYSIS GetAs_SCRIPT_ANALYSIS()
+		public SCRIPT_ANALYSIS GetAs_SCRIPT_ANALYSIS()
 		{
 			SCRIPT_ANALYSIS result = default(SCRIPT_ANALYSIS);
 			result.word1 = (ushort)((this.eScript & 0x3FF) | (this.fRTL & 1) << 10 | (this.fLayoutRTL & 1) << 11 | (this.fLinkBefore & 1) << 12 | (this.fLinkAfter & 1) << 13 | (this.fLogicalOrder & 1) << 14 | (this.fNoGlyphIndex & 1) << 15);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal interface ICustomComparable
+	public interface ICustomComparable
 	{
 		int GetHashCode(IEqualityComparer comparer);
 

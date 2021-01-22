@@ -5,7 +5,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableDetailInstance : InstanceInfoOwner, IShowHideContainer, ISearchByUniqueName
+	public sealed class TableDetailInstance : InstanceInfoOwner, IShowHideContainer, ISearchByUniqueName
 	{
 		private int m_uniqueName;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[Reference]
 		private TableDetail m_tableDetailDef;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableDetail TableDetailDef
+		public TableDetail TableDetailDef
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowInstance[] DetailRowInstances
+		public TableRowInstance[] DetailRowInstances
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableDetailInstance(ReportProcessing.ProcessingContext pc, TableDetail tableDetailDef, Table tableDef)
+		public TableDetailInstance(ReportProcessing.ProcessingContext pc, TableDetail tableDetailDef, Table tableDef)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 			base.m_instanceInfo = new TableDetailInstanceInfo(pc, tableDetailDef, this, tableDef);
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableDetailInstance()
+		public TableDetailInstance()
 		{
 		}
 
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.EndProcessContainer(this.m_uniqueName, this.m_tableDetailDef.Visibility);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.InstanceInfoOwner, memberInfoList);
 		}
 
-		internal TableDetailInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public TableDetailInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{

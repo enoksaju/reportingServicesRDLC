@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class LinearScale : GaugeScale
+	public sealed class LinearScale : GaugeScale
 	{
 		private LinearPointerCollection m_gaugePointers;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.LinearScale LinearScaleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.LinearScale LinearScaleDef
 		{
 			get
 			{
@@ -76,14 +76,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal LinearScale(AspNetCore.ReportingServices.ReportIntermediateFormat.LinearScale defObject, GaugePanel gaugePanel)
+		public LinearScale(AspNetCore.ReportingServices.ReportIntermediateFormat.LinearScale defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override GaugeScaleInstance GetInstance()
+		public override GaugeScaleInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (GaugeScaleInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

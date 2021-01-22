@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal class ImageResponseMessageWriter
+	public class ImageResponseMessageWriter
 	{
 		private IMessageWriter m_writer;
 

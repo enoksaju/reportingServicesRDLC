@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimMemberVisibilityInstance : VisibilityInstance
+	public sealed class ShimMemberVisibilityInstance : VisibilityInstance
 	{
 		private ShimMemberVisibility m_owner;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimMemberVisibilityInstance(ShimMemberVisibility owner)
+		public ShimMemberVisibilityInstance(ShimMemberVisibility owner)
 			: base(null)
 		{
 			this.m_owner = owner;

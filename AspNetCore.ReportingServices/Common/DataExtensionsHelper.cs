@@ -3,9 +3,9 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal sealed class DataExtensionsHelper
+	public sealed class DataExtensionsHelper
 	{
-		internal static Type GetDataExtensionConnectionType(string extensionProvider, string getProviderConnectionTypeMethod)
+		public static Type GetDataExtensionConnectionType(string extensionProvider, string getProviderConnectionTypeMethod)
 		{
 			try
 			{

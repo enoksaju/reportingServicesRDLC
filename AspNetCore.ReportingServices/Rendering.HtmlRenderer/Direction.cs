@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal enum Direction
+	public enum Direction
 	{
 		Row,
 		Column

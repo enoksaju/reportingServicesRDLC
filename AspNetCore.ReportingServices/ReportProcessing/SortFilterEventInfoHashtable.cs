@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class SortFilterEventInfoHashtable : HashtableInstanceInfo
+	public sealed class SortFilterEventInfoHashtable : HashtableInstanceInfo
 	{
-		internal SortFilterEventInfo this[int key]
+		public SortFilterEventInfo this[int key]
 		{
 			get
 			{
@@ -13,16 +13,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SortFilterEventInfoHashtable()
+		public SortFilterEventInfoHashtable()
 		{
 		}
 
-		internal SortFilterEventInfoHashtable(int capacity)
+		public SortFilterEventInfoHashtable(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(int key, SortFilterEventInfo val)
+		public void Add(int key, SortFilterEventInfo val)
 		{
 			base.m_hashtable.Add(key, val);
 		}

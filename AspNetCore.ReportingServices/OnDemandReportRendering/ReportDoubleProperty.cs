@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportDoubleProperty : ReportProperty
+	public sealed class ReportDoubleProperty : ReportProperty
 	{
 		private double m_value;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportDoubleProperty(AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo expressionInfo)
+		public ReportDoubleProperty(AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo expressionInfo)
 			: base(expressionInfo != null && expressionInfo.IsExpression, (expressionInfo == null) ? null : expressionInfo.OriginalText)
 		{
 			if (expressionInfo != null && !expressionInfo.IsExpression && !double.TryParse(expressionInfo.Value, out this.m_value))
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportDoubleProperty(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expressionInfo)
+		public ReportDoubleProperty(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expressionInfo)
 			: base(expressionInfo != null && expressionInfo.IsExpression, (expressionInfo == null) ? null : expressionInfo.OriginalText)
 		{
 			if (expressionInfo != null && !expressionInfo.IsExpression)

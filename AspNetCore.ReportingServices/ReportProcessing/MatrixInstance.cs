@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixInstance : ReportItemInstance, IShowHideContainer, IPageItem
+	public sealed class MatrixInstance : ReportItemInstance, IShowHideContainer, IPageItem
 	{
 		private ReportItemInstance m_cornerContent;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal ReportItemInstance CornerContent
+		public ReportItemInstance CornerContent
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeadingInstanceList ColumnInstances
+		public MatrixHeadingInstanceList ColumnInstances
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeadingInstanceList RowInstances
+		public MatrixHeadingInstanceList RowInstances
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixCellInstancesList Cells
+		public MatrixCellInstancesList Cells
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CellColumnCount
+		public int CellColumnCount
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CellRowCount
+		public int CellRowCount
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int InstanceCountOfInnerRowWithPageBreak
+		public int InstanceCountOfInnerRowWithPageBreak
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RenderingPagesRangesList ChildrenStartAndEndPages
+		public RenderingPagesRangesList ChildrenStartAndEndPages
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentCellOuterIndex
+		public int CurrentCellOuterIndex
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentCellInnerIndex
+		public int CurrentCellInnerIndex
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentOuterStaticIndex
+		public int CurrentOuterStaticIndex
 		{
 			set
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentInnerStaticIndex
+		public int CurrentInnerStaticIndex
 		{
 			set
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeadingInstanceList InnerHeadingInstanceList
+		public MatrixHeadingInstanceList InnerHeadingInstanceList
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InFirstPage
+		public bool InFirstPage
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExtraPagesFilled
+		public int ExtraPagesFilled
 		{
 			get
 			{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NumberOfChildrenOnThisPage
+		public int NumberOfChildrenOnThisPage
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixInstanceInfo InstanceInfo
+		public MatrixInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Matrix MatrixDef
+		public Matrix MatrixDef
 		{
 			get
 			{
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixInstance(ReportProcessing.ProcessingContext pc, Matrix reportItemDef)
+		public MatrixInstance(ReportProcessing.ProcessingContext pc, Matrix reportItemDef)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new MatrixInstanceInfo(pc, reportItemDef, this);
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_inFirstPage = pc.ChunkManager.InFirstPage;
 		}
 
-		internal MatrixInstance()
+		public MatrixInstance()
 		{
 		}
 
@@ -381,7 +381,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.EndProcessContainer(base.m_uniqueName, base.m_reportItemDef.Visibility);
 		}
 
-		internal ReportItem GetCellReportItemDef(int cellRIIndex, out bool computed)
+		public ReportItem GetCellReportItemDef(int cellRIIndex, out bool computed)
 		{
 			if (-1 == cellRIIndex)
 			{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal MatrixCellInstance AddCell(ReportProcessing.ProcessingContext pc, out NonComputedUniqueNames cellNonComputedUniqueNames)
+		public MatrixCellInstance AddCell(ReportProcessing.ProcessingContext pc, out NonComputedUniqueNames cellNonComputedUniqueNames)
 		{
 			Matrix matrix = (Matrix)base.m_reportItemDef;
 			int currentCellRIIndex = this.GetCurrentCellRIIndex();
@@ -458,7 +458,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			goto IL_0146;
 		}
 
-		internal void NewOuterCells()
+		public void NewOuterCells()
 		{
 			if (0 >= this.m_currentCellInnerIndex && this.m_cells.Count != 0)
 			{
@@ -477,7 +477,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int GetCurrentCellRIIndex()
+		public int GetCurrentCellRIIndex()
 		{
 			Matrix matrix = (Matrix)base.m_reportItemDef;
 			int count = matrix.MatrixColumns.Count;
@@ -488,7 +488,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.m_currentInnerStaticIndex * count + this.m_currentOuterStaticIndex;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.CornerContent, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance));
@@ -500,7 +500,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance, memberInfoList);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadMatrixInstanceInfo((Matrix)base.m_reportItemDef);

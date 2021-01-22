@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class MapSubItem : ReportObject
+	public abstract class MapSubItem : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapSubItem, Definition.Properties>
+		public class Definition : DefinitionStore<MapSubItem, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				MapLocation,
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapSubItem(IPropertyStore propertyStore)
+		public MapSubItem(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

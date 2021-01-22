@@ -3,9 +3,9 @@ using System.ComponentModel.Design;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class EventsManager : IServiceProvider
+	public class EventsManager : IServiceProvider
 	{
-		internal IServiceContainer serviceContainer;
+		public IServiceContainer serviceContainer;
 
 		private Chart control;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			throw new ArgumentException(SR.ExceptionEventManagerUnsupportedType(serviceType.ToString()));
 		}
 
-		internal void OnBackPaint(object caller, ChartPaintEventArgs e)
+		public void OnBackPaint(object caller, ChartPaintEventArgs e)
 		{
 			if (this.control == null)
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void OnPaint(object caller, ChartPaintEventArgs e)
+		public void OnPaint(object caller, ChartPaintEventArgs e)
 		{
 			if (this.control == null)
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void OnCustomize()
+		public void OnCustomize()
 		{
 			if (this.control == null)
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void OnCustomizeLegend(LegendItemsCollection legendItems, string legendName)
+		public void OnCustomizeLegend(LegendItemsCollection legendItems, string legendName)
 		{
 			if (this.control == null)
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void OnCustomizeMapAreas(MapAreasCollection areaItems)
+		public void OnCustomizeMapAreas(MapAreasCollection areaItems)
 		{
 			if (this.control == null)
 			{

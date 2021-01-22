@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IParameter
+	public interface IParameter
 	{
 		string Name
 		{

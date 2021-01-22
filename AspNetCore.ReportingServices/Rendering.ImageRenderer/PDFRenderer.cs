@@ -11,7 +11,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class PDFRenderer : RendererBase
+	public sealed class PDFRenderer : RendererBase
 	{
 		private const string FONT_EMBEDDING_NONE = "None";
 

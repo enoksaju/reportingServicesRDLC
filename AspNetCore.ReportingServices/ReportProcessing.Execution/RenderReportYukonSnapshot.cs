@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class RenderReportYukonSnapshot : RenderReportYukon
+	public class RenderReportYukonSnapshot : RenderReportYukon
 	{
 		protected virtual bool IsRenderStream
 		{

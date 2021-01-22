@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartMarker : IROMStyleDefinitionContainer
+	public sealed class ChartMarker : IROMStyleDefinitionContainer
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMarker m_markerDef;
 
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMarker MarkerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMarker MarkerDef
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -152,31 +152,31 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartMarker(ChartDataPoint dataPoint, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMarker markerDef, Chart chart)
+		public ChartMarker(ChartDataPoint dataPoint, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMarker markerDef, Chart chart)
 			: this(markerDef, chart)
 		{
 			this.m_dataPoint = dataPoint;
 		}
 
-		internal ChartMarker(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMarker markerDef, Chart chart)
+		public ChartMarker(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMarker markerDef, Chart chart)
 			: this(markerDef, chart)
 		{
 			this.m_chartSeries = chartSeries;
 		}
 
-		internal ChartMarker(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMarker markerDef, Chart chart)
+		public ChartMarker(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMarker markerDef, Chart chart)
 		{
 			this.m_markerDef = markerDef;
 			this.m_chart = chart;
 		}
 
-		internal ChartMarker(ChartDataPoint dataPoint, Chart chart)
+		public ChartMarker(ChartDataPoint dataPoint, Chart chart)
 		{
 			this.m_dataPoint = dataPoint;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

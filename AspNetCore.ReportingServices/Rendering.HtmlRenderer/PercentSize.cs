@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class PercentSize : ISize
+	public sealed class PercentSize : ISize
 	{
 		private readonly int m_sizeInPercent;
 

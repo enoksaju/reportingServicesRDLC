@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface IScalabilityObjectCreator
+	public interface IScalabilityObjectCreator
 	{
 		bool TryCreateObject(ObjectType objectType, out IPersistable newObject);
 

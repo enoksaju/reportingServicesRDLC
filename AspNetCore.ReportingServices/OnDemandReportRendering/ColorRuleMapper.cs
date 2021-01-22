@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class ColorRuleMapper : RuleMapper
+	public class ColorRuleMapper : RuleMapper
 	{
 		private static Color m_defaultFromColor = Color.Green;
 
@@ -11,12 +11,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private static Color m_defaultToColor = Color.Red;
 
-		internal ColorRuleMapper(MapColorRule mapColorRule, VectorLayerMapper vectorLayerMapper, CoreSpatialElementManager coreSpatialElementManager)
+		public ColorRuleMapper(MapColorRule mapColorRule, VectorLayerMapper vectorLayerMapper, CoreSpatialElementManager coreSpatialElementManager)
 			: base(mapColorRule, vectorLayerMapper, coreSpatialElementManager)
 		{
 		}
 
-		internal PathRule CreatePathRule()
+		public PathRule CreatePathRule()
 		{
 			PathRule pathRule = (PathRule)(base.m_coreRule = new PathRule());
 			pathRule.BorderColor = Color.Empty;
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return pathRule;
 		}
 
-		internal void RenderPolygonRule(PolygonTemplateMapper shapeTemplateMapper)
+		public void RenderPolygonRule(PolygonTemplateMapper shapeTemplateMapper)
 		{
 			ShapeRule shapeRule = (ShapeRule)base.m_coreRule;
 			base.SetRuleLegendProperties(shapeRule);
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.InitializeCustomColors(shapeRule.CustomColors, shapeTemplateMapper);
 		}
 
-		internal void RenderSymbolRule(PointTemplateMapper symbolTemplateMapper, int? size, MarkerStyle? markerStyle)
+		public void RenderSymbolRule(PointTemplateMapper symbolTemplateMapper, int? size, MarkerStyle? markerStyle)
 		{
 			SymbolRule symbolRule = (SymbolRule)base.m_coreRule;
 			base.SetRuleLegendProperties(symbolRule);
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void RenderLineRule(LineTemplateMapper pathTemplateMapper, int? size)
+		public void RenderLineRule(LineTemplateMapper pathTemplateMapper, int? size)
 		{
 			PathRule pathRule = (PathRule)base.m_coreRule;
 			base.SetRuleLegendProperties(pathRule);
@@ -365,7 +365,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return empty;
 		}
 
-		internal override SymbolRule CreateSymbolRule()
+		public override SymbolRule CreateSymbolRule()
 		{
 			SymbolRule symbolRule = base.CreateSymbolRule();
 			symbolRule.AffectedAttributes = AffectedSymbolAttributes.ColorOnly;

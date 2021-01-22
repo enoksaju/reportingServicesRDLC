@@ -18,13 +18,13 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartImage : ChartPicture
+	public class ChartImage : ChartPicture
 	{
 		private int compression;
 
 		private object dataSource;
 
-		internal bool boundToDataSource;
+		public bool boundToDataSource;
 
 		private ChartImageType imageType = ChartImageType.Png;
 
@@ -182,7 +182,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.SoftShadows = softShadows;
 		}
 
-		internal static bool IsValidDataSource(object dataSource)
+		public static bool IsValidDataSource(object dataSource)
 		{
 			if (!(dataSource is IEnumerable) && !(dataSource is DataSet) && !(dataSource is DataView) && !(dataSource is DataTable)  && !(dataSource is SqlCommand)  && !(dataSource is SqlDataAdapter) && dataSource.GetType().GetInterface("IDataSource") == null)
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return true;
 		}
 
-		internal static ArrayList GetDataSourceMemberNames(object dataSource, bool usedForYValue)
+		public static ArrayList GetDataSourceMemberNames(object dataSource, bool usedForYValue)
 		{
 			ArrayList arrayList = new ArrayList();
 			if (dataSource != null)
@@ -356,7 +356,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return arrayList;
 		}
 
-		internal void DataBind()
+		public void DataBind()
 		{
 			this.boundToDataSource = true;
 			object selectCommand = this.DataSource;
@@ -407,7 +407,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DataBind(IEnumerable dataSource, ArrayList seriesList)
+		public void DataBind(IEnumerable dataSource, ArrayList seriesList)
 		{
 			if (dataSource != null && base.common != null)
 			{
@@ -573,7 +573,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AlignDataPointsByAxisLabel(bool sortAxisLabels, PointsSortOrder sortingOrder)
+		public void AlignDataPointsByAxisLabel(bool sortAxisLabels, PointsSortOrder sortingOrder)
 		{
 			string text = string.Empty;
 			foreach (ChartArea chartArea3 in base.ChartAreas)
@@ -614,7 +614,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AlignDataPointsByAxisLabel(ArrayList seriesList, bool sortAxisLabels, PointsSortOrder sortingOrder)
+		public void AlignDataPointsByAxisLabel(ArrayList seriesList, bool sortAxisLabels, PointsSortOrder sortingOrder)
 		{
 			if (seriesList.Count != 0)
 			{
@@ -694,7 +694,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DataBindCrossTab(IEnumerable dataSource, string seriesGroupByField, string xField, string yFields, string otherFields, bool sort, PointsSortOrder sortingOrder)
+		public void DataBindCrossTab(IEnumerable dataSource, string seriesGroupByField, string xField, string yFields, string otherFields, bool sort, PointsSortOrder sortingOrder)
 		{
 			ArrayList arrayList = new ArrayList();
 			ArrayList arrayList2 = new ArrayList();
@@ -879,7 +879,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			throw new ArgumentOutOfRangeException("yFields", SR.ExceptionChartDataPointsInsertionFailedYValuesEmpty);
 		}
 
-		internal void DataBindTable(IEnumerable dataSource, string xField)
+		public void DataBindTable(IEnumerable dataSource, string xField)
 		{
 			if (dataSource != null)
 			{
@@ -930,7 +930,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal static bool CheckLicense()
+		public static bool CheckLicense()
 		{
 			bool result = false;
 			try

@@ -8,13 +8,13 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal class SelectionManager : IServiceProvider
+	public class SelectionManager : IServiceProvider
 	{
-		internal class ChartAreaRectangle
+		public class ChartAreaRectangle
 		{
-			internal ChartArea ChartArea;
+			public ChartArea ChartArea;
 
-			internal RectangleF Rectangle = RectangleF.Empty;
+			public RectangleF Rectangle = RectangleF.Empty;
 		}
 
 		private IServiceContainer service;
@@ -23,13 +23,13 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 
 		private bool enabled;
 
-		internal Point selectionPoint = Point.Empty;
+		public Point selectionPoint = Point.Empty;
 
-		internal bool invalidated = true;
+		public bool invalidated = true;
 
 		private ContextElementTypes selectableTypes = ContextElementTypes.Any;
 
-		internal ObjectInfo selectedObjectInfo = new ObjectInfo();
+		public ObjectInfo selectedObjectInfo = new ObjectInfo();
 
 		private HotRegion hotRegion = new HotRegion();
 
@@ -39,7 +39,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 
 		private DataManager dataManager;
 
-		internal Chart ChartControl
+		public Chart ChartControl
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal ChartPicture Chart
+		public ChartPicture Chart
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal DataManager DataManager
+		public DataManager DataManager
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal ChartGraphics Graph
+		public ChartGraphics Graph
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal ContextElementTypes SelectableTypes
+		public ContextElementTypes SelectableTypes
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal ObjectInfo Result
+		public ObjectInfo Result
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal HitTestResult HitTestResult
+		public HitTestResult HitTestResult
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal HotRegion HotRegion
+		public HotRegion HotRegion
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal bool Enabled
+		public bool Enabled
 		{
 			get
 			{
@@ -167,12 +167,12 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal SelectionManager(IServiceContainer service, bool assignService)
+		public SelectionManager(IServiceContainer service, bool assignService)
 		{
 			this.service = service;
 		}
 
-		internal SelectionManager(IServiceContainer service)
+		public SelectionManager(IServiceContainer service)
 		{
 			if (service == null)
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			this.service.AddService(typeof(SelectionManager), this);
 		}
 
-		internal bool SelectChartElement(ChartElementType elementType, object chartObject, object chartSubObject)
+		public bool SelectChartElement(ChartElementType elementType, object chartObject, object chartSubObject)
 		{
 			if (this.ChartControl != null)
 			{
@@ -227,7 +227,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return false;
 		}
 
-		internal bool IsChartElementSelected(ChartElementType elementType, object chartObject, object chartSubObject)
+		public bool IsChartElementSelected(ChartElementType elementType, object chartObject, object chartSubObject)
 		{
 			if (this.HitTestResult != null && this.HitTestResult.ChartElementType == elementType && this.HitTestResult.Object == chartObject && this.HitTestResult.SubObject == chartSubObject)
 			{
@@ -236,12 +236,12 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return false;
 		}
 
-		internal void Invalidate()
+		public void Invalidate()
 		{
 			this.invalidated = true;
 		}
 
-		internal virtual void CheckInvalidated()
+		public virtual void CheckInvalidated()
 		{
 			if (this.invalidated)
 			{
@@ -443,12 +443,12 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.SelectionPoint = Point.Empty;
 		}
 
-		internal virtual void HitTest()
+		public virtual void HitTest()
 		{
 			this.invalidated = false;
 			this.selectedObjectInfo = new ObjectInfo();
@@ -485,7 +485,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal virtual void DrawSelection()
+		public virtual void DrawSelection()
 		{
 			if (this.enabled)
 			{
@@ -591,7 +591,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return point.positionRel;
 		}
 
-		internal bool IsElementClickable(object element, ChartElementType chartElementType)
+		public bool IsElementClickable(object element, ChartElementType chartElementType)
 		{
 			if (element != null)
 			{
@@ -706,7 +706,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return arrayList;
 		}
 
-		internal virtual void DrawSelection(Graphics g)
+		public virtual void DrawSelection(Graphics g)
 		{
 			if (!this.Chart.isSelectionMode)
 			{

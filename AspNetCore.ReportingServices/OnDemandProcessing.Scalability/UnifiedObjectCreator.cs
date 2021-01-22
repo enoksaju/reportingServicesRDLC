@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class UnifiedObjectCreator : IRIFObjectCreator
+	public sealed class UnifiedObjectCreator : IRIFObjectCreator
 	{
 		private IScalabilityObjectCreator[] m_objectCreators;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 
 		private IScalabilityCache m_scalabilityCache;
 
-		internal IScalabilityCache ScalabilityCache
+		public IScalabilityCache ScalabilityCache
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal UnifiedObjectCreator(IScalabilityObjectCreator appObjectCreator, IReferenceCreator appReferenceCreator)
+		public UnifiedObjectCreator(IScalabilityObjectCreator appObjectCreator, IReferenceCreator appReferenceCreator)
 		{
 			this.m_objectCreators = new IScalabilityObjectCreator[2];
 			this.m_objectCreators[0] = CommonObjectCreator.Instance;
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return persistable;
 		}
 
-		internal List<Declaration> GetDeclarations()
+		public List<Declaration> GetDeclarations()
 		{
 			List<Declaration> list = new List<Declaration>();
 			for (int i = 0; i < this.m_objectCreators.Length; i++)

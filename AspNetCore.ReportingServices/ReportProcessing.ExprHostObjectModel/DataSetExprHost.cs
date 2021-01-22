@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 
 		public IndexedExprHost UserSortExpressionsHost;
 
-		internal IList<CalcFieldExprHost> FieldHostsRemotable
+		public IList<CalcFieldExprHost> FieldHostsRemotable
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<FilterExprHost> FilterHostsRemotable
+		public IList<FilterExprHost> FilterHostsRemotable
 		{
 			get
 			{

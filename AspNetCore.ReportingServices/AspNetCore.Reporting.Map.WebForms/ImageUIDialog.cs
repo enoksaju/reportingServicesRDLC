@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ImageUIDialog : Form
+	public class ImageUIDialog : Form
 	{
 		private ListView listView1;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private string selectedValue;
 
-		internal string SelectedImage
+		public string SelectedImage
 		{
 			get
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal DialogResult Execute(MapCore map, string selectedValue)
+		public DialogResult Execute(MapCore map, string selectedValue)
 		{
 			this.map = map;
 			this.selectedValue = selectedValue;

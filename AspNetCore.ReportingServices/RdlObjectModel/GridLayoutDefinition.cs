@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class GridLayoutDefinition : ReportObject
+	public class GridLayoutDefinition : ReportObject
 	{
-		internal class Definition : DefinitionStore<GridLayoutDefinition, Definition.Properties>
+		public class Definition : DefinitionStore<GridLayoutDefinition, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				NumberOfColumns,
 				NumberOfRows,
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			this.NumberOfRows = 2;
 		}
 
-		internal GridLayoutDefinition(IPropertyStore propertyStore)
+		public GridLayoutDefinition(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

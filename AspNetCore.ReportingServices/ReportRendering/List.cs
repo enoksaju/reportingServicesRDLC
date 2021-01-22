@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class List : DataRegion
+	public sealed class List : DataRegion
 	{
 		private ListContentCollection m_contents;
 
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override string InstanceInfoNoRowMessage
+		public override string InstanceInfoNoRowMessage
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal List(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.List reportItemDef, ListInstance reportItemInstance, RenderingContext renderingContext)
+		public List(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.List reportItemDef, ListInstance reportItemInstance, RenderingContext renderingContext)
 			: base(intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 		}
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override bool Search(SearchContext searchContext)
+		public override bool Search(SearchContext searchContext)
 		{
 			if (!base.SkipSearch && !this.NoRows)
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return false;
 		}
 
-		internal static bool SearchPartialList(ListContentCollection contents, SearchContext searchContext, int startChild, int endChild)
+		public static bool SearchPartialList(ListContentCollection contents, SearchContext searchContext, int startChild, int endChild)
 		{
 			if (contents == null)
 			{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return flag;
 		}
 
-		internal static bool SearchFullList(ListContentCollection contents, SearchContext searchContext)
+		public static bool SearchFullList(ListContentCollection contents, SearchContext searchContext)
 		{
 			if (contents == null)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface ICompiledTextRunInstance
+	public interface ICompiledTextRunInstance
 	{
 		ICompiledStyleInstance Style
 		{

@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ExpressionInfoList : ArrayList
+	public sealed class ExpressionInfoList : ArrayList
 	{
-		internal new ExpressionInfo this[int index]
+		public new ExpressionInfo this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList()
+		public ExpressionInfoList()
 		{
 		}
 
-		internal ExpressionInfoList(int capacity)
+		public ExpressionInfoList(int capacity)
 			: base(capacity)
 		{
 		}

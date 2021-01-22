@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_DefinedNames : OoxmlComplexType
+	public class CT_DefinedNames : OoxmlComplexType
 	{
 		private List<CT_DefinedName> _definedName;
 

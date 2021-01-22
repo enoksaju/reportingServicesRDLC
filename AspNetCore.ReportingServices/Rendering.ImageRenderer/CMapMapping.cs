@@ -2,13 +2,13 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class CMapMapping : IComparable<CMapMapping>
+	public sealed class CMapMapping : IComparable<CMapMapping>
 	{
-		internal readonly ushort Source;
+		public readonly ushort Source;
 
-		internal readonly ushort Destination;
+		public readonly ushort Destination;
 
-		internal CMapMapping(ushort source, ushort destination)
+		public CMapMapping(ushort source, ushort destination)
 		{
 			this.Source = source;
 			this.Destination = destination;
@@ -23,17 +23,17 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return this.Source.CompareTo(other.Source);
 		}
 
-		internal int GetSourceLeftByte()
+		public int GetSourceLeftByte()
 		{
 			return this.Source >> 8;
 		}
 
-		internal int GetSourceDelta(CMapMapping other)
+		public int GetSourceDelta(CMapMapping other)
 		{
 			return this.Source - other.Source;
 		}
 
-		internal int GetDestinationDelta(CMapMapping other)
+		public int GetDestinationDelta(CMapMapping other)
 		{
 			return this.Destination - other.Destination;
 		}

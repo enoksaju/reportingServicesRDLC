@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal interface IHaveABorderAndShading
+	public interface IHaveABorderAndShading
 	{
 		string BackgroundColor
 		{

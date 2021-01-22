@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class FilterList : ArrayList
+	public sealed class FilterList : ArrayList
 	{
-		internal new Filter this[int index]
+		public new Filter this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal FilterList()
+		public FilterList()
 		{
 		}
 
-		internal FilterList(int capacity)
+		public FilterList(int capacity)
 			: base(capacity)
 		{
 		}

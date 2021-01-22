@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IDynamicImageInstance
+	public interface IDynamicImageInstance
 	{
 		void SetDpi(int xDpi, int yDpi);
 

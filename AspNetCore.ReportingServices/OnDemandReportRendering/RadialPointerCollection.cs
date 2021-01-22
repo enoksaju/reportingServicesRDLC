@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RadialPointerCollection : GaugePanelObjectCollectionBase<RadialPointer>
+	public sealed class RadialPointerCollection : GaugePanelObjectCollectionBase<RadialPointer>
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RadialPointerCollection(RadialScale radialScale, GaugePanel gaugePanel)
+		public RadialPointerCollection(RadialScale radialScale, GaugePanel gaugePanel)
 		{
 			this.m_radialScale = radialScale;
 			this.m_gaugePanel = gaugePanel;

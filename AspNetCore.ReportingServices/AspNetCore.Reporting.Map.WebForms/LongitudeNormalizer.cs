@@ -3,7 +3,7 @@
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LongitudeNormalizer //: IGeographySink
+	public class LongitudeNormalizer //: IGeographySink
 	{
 		private const double MaxLongitude = 179.99999999;
         /*

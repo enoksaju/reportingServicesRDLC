@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IColumnModel
+	public interface IColumnModel
 	{
 		ColumnProperties Interface
 		{

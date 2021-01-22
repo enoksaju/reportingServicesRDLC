@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal interface IColor
+	public interface IColor
 	{
 		byte Red
 		{

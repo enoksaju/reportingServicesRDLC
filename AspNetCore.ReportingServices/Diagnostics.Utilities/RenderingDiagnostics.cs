@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal sealed class RenderingDiagnostics
+	public sealed class RenderingDiagnostics
 	{
 		public static bool Enabled
 		{

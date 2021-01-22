@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal CalculatedFieldWrapperImpl(AspNetCore.ReportingServices.ReportProcessing.Field fieldDef, ReportRuntime reportRT)
+		public CalculatedFieldWrapperImpl(AspNetCore.ReportingServices.ReportProcessing.Field fieldDef, ReportRuntime reportRT)
 		{
 			this.m_fieldDef = fieldDef;
 			this.m_reportRT = reportRT;

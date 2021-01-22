@@ -6,9 +6,9 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[SRDescription("DescriptionAttributeMapAreaCollection_MapAreaCollection")]
-	internal class MapAreaCollection : IList, ICollection, IEnumerable
+	public class MapAreaCollection : IList, ICollection, IEnumerable
 	{
-		internal ArrayList array = new ArrayList();
+		public ArrayList array = new ArrayList();
 
 		public MapArea this[int index]
 		{
@@ -274,7 +274,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.array.IndexOf(value);
 		}
 
-		internal void RemoveNonCustom()
+		public void RemoveNonCustom()
 		{
 			for (int i = 0; i < this.Count; i++)
 			{

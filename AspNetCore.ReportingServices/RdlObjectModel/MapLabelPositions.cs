@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapLabelPositions
+	public enum MapLabelPositions
 	{
 		Near,
 		OneQuarter,

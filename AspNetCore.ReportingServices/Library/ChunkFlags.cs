@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.Library
 {
 	[Flags]
-	internal enum ChunkFlags
+	public enum ChunkFlags
 	{
 		None = 0,
 		Compressed = 1,

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface IDefaultValueProvider
+	public interface IDefaultValueProvider
 	{
 		object GetDefaultValue(string prop, object currentValue);
 	}

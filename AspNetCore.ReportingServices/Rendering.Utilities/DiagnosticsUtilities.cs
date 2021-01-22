@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.Utilities
 {
-	internal sealed class DiagnosticsUtilities
+	public sealed class DiagnosticsUtilities
 	{
 		public const string MSG_PAGE_CREATED = "PR-DIAG [Page {0}] Page created by {1} page break";
 

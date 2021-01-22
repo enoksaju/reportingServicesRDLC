@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class TablixRowCollection : ReportElementCollectionBase<TablixRow>, IDataRegionRowCollection
+	public abstract class TablixRowCollection : ReportElementCollectionBase<TablixRow>, IDataRegionRowCollection
 	{
 		protected Tablix m_owner;
 
-		internal TablixRowCollection(Tablix owner)
+		public TablixRowCollection(Tablix owner)
 		{
 			this.m_owner = owner;
 		}

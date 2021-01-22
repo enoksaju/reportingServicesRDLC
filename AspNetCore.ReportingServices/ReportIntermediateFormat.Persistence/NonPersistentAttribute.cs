@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
 	[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-	internal sealed class NonPersistentAttribute : Attribute
+	public sealed class NonPersistentAttribute : Attribute
 	{
 	}
 }

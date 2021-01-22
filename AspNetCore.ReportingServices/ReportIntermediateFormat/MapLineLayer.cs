@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapLineLayer : MapVectorLayer, IPersistable
+	public sealed class MapLineLayer : MapVectorLayer, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapLineLayer.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private List<MapLine> m_mapLines;
 
-		internal MapLineTemplate MapLineTemplate
+		public MapLineTemplate MapLineTemplate
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLineRules MapLineRules
+		public MapLineRules MapLineRules
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapLine> MapLines
+		public List<MapLine> MapLines
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapLineLayerExprHost ExprHost
+		public new MapLineLayerExprHost ExprHost
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapLineLayerExprHost ExprHostMapMember
+		public new MapLineLayerExprHost ExprHostMapMember
 		{
 			get
 			{
@@ -80,16 +80,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLineLayer()
+		public MapLineLayer()
 		{
 		}
 
-		internal MapLineLayer(int ID, Map map)
+		public MapLineLayer(int ID, Map map)
 			: base(ID, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapLineLayerStart(base.Name);
 			base.Initialize(context);
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.MapLineLayerEnd();
 		}
 
-		internal override void InitializeMapMember(InitializationContext context)
+		public override void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapLineLayerStart(base.Name);
 			base.InitializeMapMember(context);
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostMapMemberID = context.ExprHostBuilder.MapLineLayerEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapLineLayer mapLineLayer = (MapLineLayer)(context.CurrentMapVectorLayerClone = (MapLineLayer)base.PublishClone(context));
 			if (this.m_mapLineTemplate != null)
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapLineLayer;
 		}
 
-		internal override void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void SetExprHostMapMember(MapVectorLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHostMapMember(MapVectorLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHostMapMember(exprHost, reportObjectModel);
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapLineTemplate, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapLineTemplate));

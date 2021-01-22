@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 
 		private bool m_hasSkippedMembers;
 
-		internal List<MemberInfo> MemberInfoList
+		public List<MemberInfo> MemberInfoList
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal ObjectType ObjectType
+		public ObjectType ObjectType
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal ObjectType BaseObjectType
+		public ObjectType BaseObjectType
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal bool RegisteredCurrentDeclaration
+		public bool RegisteredCurrentDeclaration
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal bool HasSkippedMembers
+		public bool HasSkippedMembers
 		{
 			get
 			{
@@ -54,14 +54,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal Declaration(ObjectType type, ObjectType baseType, List<MemberInfo> memberInfoList)
+		public Declaration(ObjectType type, ObjectType baseType, List<MemberInfo> memberInfoList)
 		{
 			this.m_type = type;
 			this.m_baseType = baseType;
 			this.m_memberInfoList = memberInfoList;
 		}
 
-		internal bool IsMemberSkipped(int index)
+		public bool IsMemberSkipped(int index)
 		{
 			if (this.m_hasSkippedMembers)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return false;
 		}
 
-		internal int MembersToSkip(int index)
+		public int MembersToSkip(int index)
 		{
 			if (this.m_hasSkippedMembers)
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return 0;
 		}
 
-		internal void RegisterCurrentDeclaration(Declaration currentDeclaration)
+		public void RegisterCurrentDeclaration(Declaration currentDeclaration)
 		{
 			this.m_hasSkippedMembers = false;
 			this.m_usableMembers = new Pair<bool, int>[this.m_memberInfoList.Count];
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return this.m_memberInfoList.Contains(otherMember);
 		}
 
-		internal Declaration CreateFilteredDeclarationForWriteVersion(int compatVersion)
+		public Declaration CreateFilteredDeclarationForWriteVersion(int compatVersion)
 		{
 			List<MemberInfo> list = new List<MemberInfo>(this.m_memberInfoList.Count);
 			for (int i = 0; i < this.m_memberInfoList.Count; i++)

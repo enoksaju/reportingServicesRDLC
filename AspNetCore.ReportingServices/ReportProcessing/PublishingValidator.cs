@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class PublishingValidator
+	public sealed class PublishingValidator
 	{
 		private static readonly string m_invalidCharacters = ";?:@&=+$,\\*<>|\"";
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateSize(string size, ObjectType objectType, string objectName, string propertyName, bool restrictMaxValue, ErrorContext errorContext, out double sizeInMM, out string roundSize)
+		public static bool ValidateSize(string size, ObjectType objectType, string objectName, string propertyName, bool restrictMaxValue, ErrorContext errorContext, out double sizeInMM, out string roundSize)
 		{
 			bool flag = ObjectType.Line == objectType;
 			double minValue = flag ? Validator.NegativeMin : Validator.NormalMin;
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateEmbeddedImageName(ExpressionInfo embeddedImageName, EmbeddedImageHashtable embeddedImages, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static bool ValidateEmbeddedImageName(ExpressionInfo embeddedImageName, EmbeddedImageHashtable embeddedImages, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			Global.Tracer.Assert(null != embeddedImageName);
 			if (ExpressionInfo.Types.Constant == embeddedImageName.Type)
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateEmbeddedImageName(AttributeInfo embeddedImageName, EmbeddedImageHashtable embeddedImages, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static bool ValidateEmbeddedImageName(AttributeInfo embeddedImageName, EmbeddedImageHashtable embeddedImages, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			Global.Tracer.Assert(null != embeddedImageName);
 			if (!embeddedImageName.IsExpression)
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateLanguage(string languageValue, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext, out CultureInfo culture)
+		public static bool ValidateLanguage(string languageValue, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext, out CultureInfo culture)
 		{
 			culture = null;
 			Global.Tracer.Assert(null != languageValue);
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateLanguage(ExpressionInfo language, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static bool ValidateLanguage(ExpressionInfo language, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			Global.Tracer.Assert(null != language);
 			if (ExpressionInfo.Types.Constant == language.Type)
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateSpecificLanguage(ExpressionInfo language, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext, out CultureInfo culture)
+		public static bool ValidateSpecificLanguage(ExpressionInfo language, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext, out CultureInfo culture)
 		{
 			culture = null;
 			Global.Tracer.Assert(null != language);
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateColumns(int columns, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static bool ValidateColumns(int columns, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			if (!Validator.ValidateColumns(columns))
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateMimeType(ExpressionInfo mimeType, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static bool ValidateMimeType(ExpressionInfo mimeType, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			if (mimeType == null)
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateMimeType(string mimeType, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static bool ValidateMimeType(string mimeType, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			if (!Validator.ValidateMimeType(mimeType))
 			{
@@ -366,7 +366,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Style ValidateAndCreateStyle(StringList names, ExpressionInfoList values, ObjectType objectType, string objectName, ErrorContext errorContext)
+		public static Style ValidateAndCreateStyle(StringList names, ExpressionInfoList values, ObjectType objectType, string objectName, ErrorContext errorContext)
 		{
 			Style style = new Style(ConstructionPhase.Publishing);
 			Global.Tracer.Assert(null != names);
@@ -558,7 +558,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal static void ValidateCalendar(CultureInfo language, string calendar, ObjectType objectType, string ObjectName, string propertyName, ErrorContext errorContext)
+		public static void ValidateCalendar(CultureInfo language, string calendar, ObjectType objectType, string ObjectName, string propertyName, ErrorContext errorContext)
 		{
 			if (!Validator.ValidateCalendar(language, calendar))
 			{
@@ -566,7 +566,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static void ValidateNumeralVariant(CultureInfo language, int numVariant, ObjectType objectType, string ObjectName, string propertyName, ErrorContext errorContext)
+		public static void ValidateNumeralVariant(CultureInfo language, int numVariant, ObjectType objectType, string ObjectName, string propertyName, ErrorContext errorContext)
 		{
 			if (!Validator.ValidateNumeralVariant(language, numVariant))
 			{
@@ -574,7 +574,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static string ValidateReportName(ICatalogItemContext reportContext, string reportName, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static string ValidateReportName(ICatalogItemContext reportContext, string reportName, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			Global.Tracer.Assert(null != reportName);
 			if (reportName.StartsWith(Uri.UriSchemeHttp + Uri.SchemeDelimiter, StringComparison.OrdinalIgnoreCase) || reportName.StartsWith(Uri.UriSchemeHttps + Uri.SchemeDelimiter, StringComparison.OrdinalIgnoreCase))

@@ -9,7 +9,7 @@ using System.Drawing.Imaging;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeLegendCell_LegendCell")]
-	internal class LegendCell : IMapAreaAttributes
+	public class LegendCell : IMapAreaAttributes
 	{
 		private Legend legend;
 
@@ -51,9 +51,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private string mapAreaAttribute = string.Empty;
 
-		internal Rectangle cellPosition = Rectangle.Empty;
+		public Rectangle cellPosition = Rectangle.Empty;
 
-		internal Rectangle cellPositionWithMargins = Rectangle.Empty;
+		public Rectangle cellPositionWithMargins = Rectangle.Empty;
 
 		private Size cachedCellSize = Size.Empty;
 
@@ -445,13 +445,13 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return true;
 		}
 
-		internal void ResetCache()
+		public void ResetCache()
 		{
 			this.cachedCellSize = Size.Empty;
 			this.cachedCellSizeFontReducedBy = 0;
 		}
 
-		internal void SetCellPosition(ChartGraphics graph, int columnIndex, int rowIndex, Rectangle position, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
+		public void SetCellPosition(ChartGraphics graph, int columnIndex, int rowIndex, Rectangle position, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
 		{
 			this.cellPosition = position;
 			this.cellPositionWithMargins = position;
@@ -467,7 +467,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Size MeasureCell(ChartGraphics graph, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
+		public Size MeasureCell(ChartGraphics graph, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize)
 		{
 			if (this.cachedCellSizeFontReducedBy == fontSizeReducedBy && !this.cachedCellSize.IsEmpty)
 			{
@@ -676,7 +676,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetContainingLegend(Legend legend, LegendItem legendItem)
+		public void SetContainingLegend(Legend legend, LegendItem legendItem)
 		{
 			this.legend = legend;
 			this.legendItem = legendItem;
@@ -704,7 +704,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.legendItem;
 		}
 
-		internal void Paint(ChartGraphics chartGraph, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize, PointF animationLocationAdjustment)
+		public void Paint(ChartGraphics chartGraph, int fontSizeReducedBy, Font legendAutoFont, Size singleWCharacterSize, PointF animationLocationAdjustment)
 		{
 			if (this.cellPosition.Width > 0 && this.cellPosition.Height > 0)
 			{

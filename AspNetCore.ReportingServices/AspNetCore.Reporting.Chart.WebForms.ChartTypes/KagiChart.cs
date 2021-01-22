@@ -7,13 +7,13 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class KagiChart : StepLineChart
+	public class KagiChart : StepLineChart
 	{
-		internal bool kagiChart;
+		public bool kagiChart;
 
-		internal Color kagiUpColor = Color.Empty;
+		public Color kagiUpColor = Color.Empty;
 
-		internal int currentKagiDirection;
+		public int currentKagiDirection;
 
 		public override string Name
 		{
@@ -23,7 +23,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal static void PrepareData(Series series, IServiceContainer serviceContainer)
+		public static void PrepareData(Series series, IServiceContainer serviceContainer)
 		{
 			if (string.Compare(series.ChartTypeName, "Kagi", StringComparison.OrdinalIgnoreCase) == 0 && series.IsVisible())
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal static bool UnPrepareData(Series series, IServiceContainer serviceContainer)
+		public static bool UnPrepareData(Series series, IServiceContainer serviceContainer)
 		{
 			if (series.Name.StartsWith("KAGI_ORIGINAL_DATA_", StringComparison.Ordinal))
 			{

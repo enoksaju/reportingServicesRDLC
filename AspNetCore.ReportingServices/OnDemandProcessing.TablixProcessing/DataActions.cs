@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[Flags]
-	internal enum DataActions
+	public enum DataActions
 	{
 		None = 0,
 		RecursiveAggregates = 1,

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IWindowsAuthenticationExtension : IAuthenticationExtension, IExtension
+	public interface IWindowsAuthenticationExtension : IAuthenticationExtension, IExtension
 	{
 		byte[] PrincipalNameToSid(string name);
 

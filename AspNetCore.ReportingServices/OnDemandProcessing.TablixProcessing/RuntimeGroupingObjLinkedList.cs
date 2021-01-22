@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal class RuntimeGroupingObjLinkedList : RuntimeGroupingObj
+	public class RuntimeGroupingObjLinkedList : RuntimeGroupingObj
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeGroupingObjLinkedList.GetDeclaration();
@@ -20,32 +20,32 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeGroupingObjLinkedList()
+		public RuntimeGroupingObjLinkedList()
 		{
 		}
 
-		internal RuntimeGroupingObjLinkedList(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeGroupingObjLinkedList(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(owner, objectType)
 		{
 		}
 
-		internal override void Cleanup()
+		public override void Cleanup()
 		{
 		}
 
-		internal override void NextRow(object keyValue, bool hasParent, object parentKey)
+		public override void NextRow(object keyValue, bool hasParent, object parentKey)
 		{
 			Global.Tracer.Assert(false, "This implementation of RuntimeGroupingObj does not support NextRow");
 		}
 
-		internal override void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
+		public override void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
 		{
 			RuntimeGroupRootObj runtimeGroupRootObj = base.m_owner as RuntimeGroupRootObj;
 			Global.Tracer.Assert(null != runtimeGroupRootObj, "(null != groupRootOwner)");
 			runtimeGroupRootObj.TraverseLinkedGroupLeaves(operation, ascending, traversalContext);
 		}
 
-		internal override void CopyDomainScopeGroupInstances(RuntimeGroupRootObj destination)
+		public override void CopyDomainScopeGroupInstances(RuntimeGroupRootObj destination)
 		{
 			Global.Tracer.Assert(false, "Domain Scope should only be applied to Hash groups");
 		}

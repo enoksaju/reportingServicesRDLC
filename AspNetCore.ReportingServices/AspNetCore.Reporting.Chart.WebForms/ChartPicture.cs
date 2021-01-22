@@ -14,31 +14,31 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartPicture : IServiceProvider
+	public class ChartPicture : IServiceProvider
 	{
-		internal const float elementSpacing = 3f;
+		public const float elementSpacing = 3f;
 
-		internal const float maxTitleSize = 15f;
+		public const float maxTitleSize = 15f;
 
 		private bool suppressExceptions;
 
-		internal ChartGraphics chartGraph;
+		public ChartGraphics chartGraph;
 
-		internal bool backgroundRestored;
+		public bool backgroundRestored;
 
 		private IServiceContainer serviceContainer;
 
 		private ChartAreaCollection chartAreas;
 
-		internal Legend legend = new Legend();
+		public Legend legend = new Legend();
 
 		private Color titleFontColor = Color.Black;
 
-		internal static FontCache fontCache = new FontCache();
+		public static FontCache fontCache = new FontCache();
 
 		private Font titleFont = new Font(ChartPicture.GetDefaultFontFamilyName(), 8f);
 
-		internal CommonElements common;
+		public CommonElements common;
 
 		private GradientType backGradientType;
 
@@ -76,7 +76,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private DataManipulator dataManipulator = new DataManipulator();
 
-		internal HotRegionsList hotRegionsList;
+		public HotRegionsList hotRegionsList;
 
 		private BorderSkinAttributes borderSkin;
 
@@ -90,19 +90,19 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private AnnotationCollection annotations;
 
-		internal AnnotationSmartLabels annotationSmartLabels = new AnnotationSmartLabels();
+		public AnnotationSmartLabels annotationSmartLabels = new AnnotationSmartLabels();
 
-		internal bool showWaterMark;
+		public bool showWaterMark;
 
 		private RectangleF titlePosition = RectangleF.Empty;
 
-		internal float legendMaxAutoSize = 50f;
+		public float legendMaxAutoSize = 50f;
 
-		internal bool isPrinting;
+		public bool isPrinting;
 
-		internal bool isSavingAsImage;
+		public bool isSavingAsImage;
 
-		internal bool isSelectionMode;
+		public bool isSelectionMode;
 
 		private static string defaultFontFamilyName = string.Empty;
 
@@ -128,7 +128,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SRDescription("DescriptionAttributeSuppressExceptions")]
 		[SRCategory("CategoryAttributeMisc")]
 		[DefaultValue(false)]
-		internal bool SuppressExceptions
+		public bool SuppressExceptions
 		{
 			get
 			{
@@ -653,7 +653,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal SelectionManager SelectorManager
+		public SelectionManager SelectorManager
 		{
 			get
 			{
@@ -661,7 +661,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal bool IsSelectorManagerEnabled
+		public bool IsSelectorManagerEnabled
 		{
 			get
 			{
@@ -673,9 +673,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal event PaintEventHandler BeforePaint;
+		public event PaintEventHandler BeforePaint;
 
-		internal event PaintEventHandler AfterPaint;
+		public event PaintEventHandler AfterPaint;
 
 		private ChartPicture()
 		{
@@ -706,7 +706,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.selectorManager = new SelectionManager(this.serviceContainer);
 		}
 
-		internal void Initialize(Chart chart)
+		public void Initialize(Chart chart)
 		{
 		}
 
@@ -720,7 +720,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			throw new ArgumentException(SR.ExceptionChartPictureUnsupportedType(serviceType.ToString()));
 		}
 
-		internal void Dispose()
+		public void Dispose()
 		{
 			if (this.chartGraph != null)
 			{
@@ -789,7 +789,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Paint(graph, paintTopLevelElementOnly, RenderingType.Gdi, null, null, string.Empty, false, false);
 		}
 
-		internal TextRenderingHint GetTextRenderingHint()
+		public TextRenderingHint GetTextRenderingHint()
 		{
 			TextRenderingHint textRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
 			if ((this.AntiAliasing & AntiAliasingTypes.Text) == AntiAliasingTypes.Text)
@@ -1127,7 +1127,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void ResetMinMaxFromData()
+		public void ResetMinMaxFromData()
 		{
 			foreach (ChartArea chartArea in this.chartAreas)
 			{
@@ -1187,7 +1187,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return arrayList;
 		}
 
-		internal void AlignChartAreas(AreaAlignTypes type)
+		public void AlignChartAreas(AreaAlignTypes type)
 		{
 			if (this.IsAreasAlignmentRequired())
 			{
@@ -1300,7 +1300,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AlignChartAreasCursor(ChartArea changedArea, AreaAlignOrientations orientation, bool selectionChanged)
+		public void AlignChartAreasCursor(ChartArea changedArea, AreaAlignOrientations orientation, bool selectionChanged)
 		{
 			if (this.IsAreasAlignmentRequired())
 			{
@@ -1346,7 +1346,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AlignChartAreasZoomed(ChartArea changedArea, AreaAlignOrientations orientation, bool disposeBufferBitmap)
+		public void AlignChartAreasZoomed(ChartArea changedArea, AreaAlignOrientations orientation, bool disposeBufferBitmap)
 		{
 			if (this.IsAreasAlignmentRequired())
 			{
@@ -1376,7 +1376,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AlignChartAreasAxesView(ChartArea changedArea, AreaAlignOrientations orientation)
+		public void AlignChartAreasAxesView(ChartArea changedArea, AreaAlignOrientations orientation)
 		{
 			if (this.IsAreasAlignmentRequired())
 			{
@@ -1416,12 +1416,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal bool IsRightToLeft()
+		public bool IsRightToLeft()
 		{
 			return this.RightToLeft == RightToLeft.Yes;
 		}
 
-		internal static string GetDefaultFontFamilyName()
+		public static string GetDefaultFontFamilyName()
 		{
 			if (ChartPicture.defaultFontFamilyName.Length == 0)
 			{
@@ -1504,7 +1504,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return stream;
 		}
 
-		internal void WriteChartMapTag(TextWriter output, string mapName)
+		public void WriteChartMapTag(TextWriter output, string mapName)
 		{
 			output.Write("\r\n<map name=\"" + mapName + "\" id=\"" + mapName + "\">");
 			MapAreasCollection mapAreasCollection = new MapAreasCollection();
@@ -1534,7 +1534,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			output.Write("\r\n</map>\r\n");
 		}
 
-		internal Title GetDefaultTitle(bool create)
+		public Title GetDefaultTitle(bool create)
 		{
 			Title title = null;
 			foreach (Title title2 in this.Titles)

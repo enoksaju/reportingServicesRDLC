@@ -13,7 +13,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class PartManager
+	public class PartManager
 	{
 		private WorkbookPart _workbook;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 
 		private OPCRelationshipTree _relationshipTree;
 
-		internal WorkbookPart Workbook
+		public WorkbookPart Workbook
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 			}
 		}
 
-		internal StyleManager StyleSheet
+		public StyleManager StyleSheet
 		{
 			get
 			{

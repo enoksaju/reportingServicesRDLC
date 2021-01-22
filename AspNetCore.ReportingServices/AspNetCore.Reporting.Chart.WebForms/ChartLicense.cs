@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartLicense : License
+	public class ChartLicense : License
 	{
 		private ChartLicenseProvider owner;
 

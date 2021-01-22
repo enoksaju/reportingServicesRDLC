@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLTextBoxPropsDef : RPLItemPropsDef
+	public sealed class RPLTextBoxPropsDef : RPLItemPropsDef
 	{
 		private bool m_isSimple = true;
 
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTextBoxPropsDef()
+		public RPLTextBoxPropsDef()
 		{
 		}
 	}

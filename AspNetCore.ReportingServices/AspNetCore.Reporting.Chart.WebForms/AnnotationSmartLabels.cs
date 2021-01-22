@@ -3,9 +3,9 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeAnnotationSmartLabels_AnnotationSmartLabels")]
-	internal class AnnotationSmartLabels : SmartLabels
+	public class AnnotationSmartLabels : SmartLabels
 	{
-		internal override bool IsSmartLabelCollide(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF position, SizeF size, PointF markerPosition, StringFormat format, LabelAlignmentTypes labelAlignment, bool checkCalloutLineOverlapping)
+		public override bool IsSmartLabelCollide(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF position, SizeF size, PointF markerPosition, StringFormat format, LabelAlignmentTypes labelAlignment, bool checkCalloutLineOverlapping)
 		{
 			bool result = false;
 			if (common.Chart != null)
@@ -44,7 +44,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal override void AddMarkersPosition(CommonElements common, ChartArea area)
+		public override void AddMarkersPosition(CommonElements common, ChartArea area)
 		{
 			if (base.smartLabelsPositions.Count == 0 && common != null && common.Chart != null)
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override void DrawCallout(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF labelPosition, SizeF labelSize, StringFormat format, PointF markerPosition, SizeF markerSize, LabelAlignmentTypes labelAlignment)
+		public override void DrawCallout(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF labelPosition, SizeF labelSize, StringFormat format, PointF markerPosition, SizeF markerSize, LabelAlignmentTypes labelAlignment)
 		{
 		}
 	}

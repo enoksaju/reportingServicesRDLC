@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class ReportItemInstanceInfo : InstanceInfo, IShowHideReceiver
+	public abstract class ReportItemInstanceInfo : InstanceInfo, IShowHideReceiver
 	{
 		protected object[] m_styleAttributeValues;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		protected ReportItem m_reportItemDef;
 
-		internal object[] StyleAttributeValues
+		public object[] StyleAttributeValues
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItem ReportItemDef
+		public ReportItem ReportItemDef
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Bookmark
+		public string Bookmark
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ToolTip
+		public string ToolTip
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstanceList CustomPropertyInstances
+		public DataValueInstanceList CustomPropertyInstances
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object GetStyleAttributeValue(int index)
+		public object GetStyleAttributeValue(int index)
 		{
 			Global.Tracer.Assert(this.m_styleAttributeValues != null && 0 <= index && index < this.m_styleAttributeValues.Length);
 			return this.m_styleAttributeValues[index];
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_startHidden = context.ProcessReceiver(uniqueName, this.m_reportItemDef.Visibility, this.m_reportItemDef.ExprHost, this.m_reportItemDef.ObjectType, this.m_reportItemDef.Name);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.StyleAttributeValues, Token.Array, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.Variant));

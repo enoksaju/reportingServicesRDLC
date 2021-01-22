@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartBorderSkinInstance : BaseInstance
+	public sealed class ChartBorderSkinInstance : BaseInstance
 	{
 		private ChartBorderSkin m_chartBorderSkinDef;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartBorderSkinInstance(ChartBorderSkin chartBorderSkinDef)
+		public ChartBorderSkinInstance(ChartBorderSkin chartBorderSkinDef)
 			: base(chartBorderSkinDef.ChartDef)
 		{
 			this.m_chartBorderSkinDef = chartBorderSkinDef;

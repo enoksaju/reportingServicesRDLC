@@ -6,9 +6,9 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeMapAreasCollection_MapAreasCollection")]
-	internal class MapAreasCollection : IList, ICollection, IEnumerable
+	public class MapAreasCollection : IList, ICollection, IEnumerable
 	{
-		internal ArrayList array = new ArrayList();
+		public ArrayList array = new ArrayList();
 
 		public MapArea this[int index]
 		{
@@ -147,7 +147,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.array.GetEnumerator();
 		}
 
-		internal int Add(string toolTip, string href, string attr, GraphicsPath path, object tag)
+		public int Add(string toolTip, string href, string attr, GraphicsPath path, object tag)
 		{
 			if (path.PointCount > 0)
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return -1;
 		}
 
-		internal int Add(string toolTip, string href, string attr, RectangleF rect, object tag)
+		public int Add(string toolTip, string href, string attr, RectangleF rect, object tag)
 		{
 			return this.Add(MapAreaShape.Rectangle, toolTip, href, attr, new float[4]
 			{
@@ -178,7 +178,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}, tag);
 		}
 
-		internal int Add(MapAreaShape shape, string toolTip, string href, string attr, float[] coordinates, object tag)
+		public int Add(MapAreaShape shape, string toolTip, string href, string attr, float[] coordinates, object tag)
 		{
 			if (shape == MapAreaShape.Circle && coordinates.Length != 3)
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.Add(mapArea);
 		}
 
-		internal void Insert(int index, string toolTip, string href, string attr, GraphicsPath path, object tag)
+		public void Insert(int index, string toolTip, string href, string attr, GraphicsPath path, object tag)
 		{
 			if (path.PointCount > 0)
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Insert(int index, string toolTip, string href, string attr, GraphicsPath path, bool absCoordinates, ChartGraphics graph)
+		public void Insert(int index, string toolTip, string href, string attr, GraphicsPath path, bool absCoordinates, ChartGraphics graph)
 		{
 			GraphicsPathIterator graphicsPathIterator = new GraphicsPathIterator(path);
 			if (graphicsPathIterator.SubpathCount > 1)
@@ -267,7 +267,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Insert(int index, string toolTip, string href, string attr, RectangleF rect, object tag)
+		public void Insert(int index, string toolTip, string href, string attr, RectangleF rect, object tag)
 		{
 			this.Insert(index, MapAreaShape.Rectangle, toolTip, href, attr, new float[4]
 			{
@@ -278,7 +278,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}, tag);
 		}
 
-		internal void Insert(int index, MapAreaShape shape, string toolTip, string href, string attr, float[] coordinates, object tag)
+		public void Insert(int index, MapAreaShape shape, string toolTip, string href, string attr, float[] coordinates, object tag)
 		{
 			if (shape == MapAreaShape.Circle && coordinates.Length != 3)
 			{
@@ -334,7 +334,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Insert(index, shape, "", href, "", coordinates, null);
 		}
 
-		internal void RemoveNonCustom()
+		public void RemoveNonCustom()
 		{
 			for (int i = 0; i < this.Count; i++)
 			{

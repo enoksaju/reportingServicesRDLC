@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class PageTotalInfo
+	public class PageTotalInfo
 	{
 		private List<KeyValuePair<int, int>> m_regionPageTotals;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private bool m_isDone;
 
-		internal bool CalculationDone
+		public bool CalculationDone
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool IsCounting
+		public bool IsCounting
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageTotalInfo(string initialPageName)
+		public PageTotalInfo(string initialPageName)
 		{
 			this.m_regionPageTotals = new List<KeyValuePair<int, int>>();
 			this.m_pageNames = new List<KeyValuePair<int, string>>();
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void RegisterPageNumberForStart(int currentOverallPageNumber)
+		public void RegisterPageNumberForStart(int currentOverallPageNumber)
 		{
 			if (!this.m_isDone)
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void SetPageName(int currentOverallPageNumber, string pageName)
+		public void SetPageName(int currentOverallPageNumber, string pageName)
 		{
 			if (pageName != null)
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void FinalizePageNumberForTotal()
+		public void FinalizePageNumberForTotal()
 		{
 			if (!this.m_isDone)
 			{
@@ -76,17 +76,17 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal List<KeyValuePair<int, int>> GetPageNumberList()
+		public List<KeyValuePair<int, int>> GetPageNumberList()
 		{
 			return this.m_regionPageTotals;
 		}
 
-		internal List<KeyValuePair<int, string>> GetPageNameList()
+		public List<KeyValuePair<int, string>> GetPageNameList()
 		{
 			return this.m_pageNames;
 		}
 
-		internal void RetrievePageBreakData(int currentOverallPageNumber, out int pageNumber, out int totalPages)
+		public void RetrievePageBreakData(int currentOverallPageNumber, out int pageNumber, out int totalPages)
 		{
 			pageNumber = 1;
 			totalPages = 1;
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal string GetPageName(int currentOverallPageNumber)
+		public string GetPageName(int currentOverallPageNumber)
 		{
 			if (this.m_pageNames != null && this.m_pageNames.Count != 0)
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return collection[num4 - 1];
 		}
 
-		internal void SetupPageTotalInfo(bool isCalculationDone, bool isCounting, List<KeyValuePair<int, int>> pageNumberList, List<KeyValuePair<int, string>> pageNameList)
+		public void SetupPageTotalInfo(bool isCalculationDone, bool isCounting, List<KeyValuePair<int, int>> pageNumberList, List<KeyValuePair<int, string>> pageNameList)
 		{
 			this.m_regionPageTotals.Clear();
 			this.m_regionPageTotals = pageNumberList;

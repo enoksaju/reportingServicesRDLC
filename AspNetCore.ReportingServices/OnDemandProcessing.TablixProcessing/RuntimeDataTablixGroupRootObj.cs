@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal class RuntimeDataTablixGroupRootObj : RuntimeGroupRootObj
+	public class RuntimeDataTablixGroupRootObj : RuntimeGroupRootObj
 	{
 		private List<int> m_recursiveParentIndexes;
 
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeDataTablixGroupRootObj.GetDeclaration();
 
-		internal IReference<RuntimeMemberObj>[] InnerGroupings
+		public IReference<RuntimeMemberObj>[] InnerGroupings
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal int HeadingLevel
+		public int HeadingLevel
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool OutermostStatics
+		public bool OutermostStatics
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool ProcessOutermostStaticCells
+		public bool ProcessOutermostStaticCells
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool HasLeafCells
+		public bool HasLeafCells
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal object CurrentGroupExpressionValue
+		public object CurrentGroupExpressionValue
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal int CurrentMemberIndexWithinScopeLevel
+		public int CurrentMemberIndexWithinScopeLevel
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal DataRegionMemberInstance CurrentMemberInstance
+		public DataRegionMemberInstance CurrentMemberInstance
 		{
 			get
 			{
@@ -121,11 +121,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeDataTablixGroupRootObj()
+		public RuntimeDataTablixGroupRootObj()
 		{
 		}
 
-		internal RuntimeDataTablixGroupRootObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode dynamicMember, ref DataActions dataAction, OnDemandProcessingContext odpContext, IReference<RuntimeMemberObj>[] innerGroupings, bool outermostStatics, int headingLevel, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeDataTablixGroupRootObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode dynamicMember, ref DataActions dataAction, OnDemandProcessingContext odpContext, IReference<RuntimeMemberObj>[] innerGroupings, bool outermostStatics, int headingLevel, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(outerScope, dynamicMember, dataAction, odpContext, objectType)
 		{
 			this.m_innerGroupings = innerGroupings;
@@ -207,12 +207,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual void PrepareCalculateRunningValues()
+		public virtual void PrepareCalculateRunningValues()
 		{
 			base.TraverseGroupOrSortTree(ProcessingStages.PreparePeerGroupRunningValues, null);
 		}
 
-		internal override void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
+		public override void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
 		{
 			base.CalculateRunningValues(groupCol, lastGroup, aggContext);
 			if (this.m_processStaticCellsForRVs || this.m_processOutermostStaticCells)
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void CalculatePreviousAggregates()
+		public override void CalculatePreviousAggregates()
 		{
 			if (FlagUtils.HasFlag(base.m_dataAction, DataActions.PostSortAggregates))
 			{
@@ -338,7 +338,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void DoneReadingRows(ref AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] runningValueValues, ref AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] runningValueOfAggregateValues, ref AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] cellRunningValueValues)
+		public void DoneReadingRows(ref AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] runningValueValues, ref AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] runningValueOfAggregateValues, ref AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] cellRunningValueValues)
 		{
 			AggregatesImpl aggregatesImpl = base.m_odpContext.ReportObjectModel.AggregatesImpl;
 			RuntimeRICollection.StoreRunningValues(aggregatesImpl, base.m_hierarchyDef.RunningValues, ref runningValueValues);
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void SetupCellRunningValues(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] cellRunningValueValues)
+		public void SetupCellRunningValues(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] cellRunningValueValues)
 		{
 			if (cellRunningValueValues != null)
 			{
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool GetCellTargetForNonDetailSort()
+		public bool GetCellTargetForNonDetailSort()
 		{
 			using (base.m_outerScope.PinValue())
 			{
@@ -415,7 +415,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool GetCellTargetForSort(int index, bool detailSort)
+		public bool GetCellTargetForSort(int index, bool detailSort)
 		{
 			using (base.m_outerScope.PinValue())
 			{
@@ -429,12 +429,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal int GetRecursiveParentIndex(int recursiveLevel)
+		public int GetRecursiveParentIndex(int recursiveLevel)
 		{
 			return this.m_recursiveParentIndexes[recursiveLevel];
 		}
 
-		internal void SetRecursiveParentIndex(int instanceIndex, int recursiveLevel)
+		public void SetRecursiveParentIndex(int instanceIndex, int recursiveLevel)
 		{
 			if (this.m_recursiveParentIndexes == null)
 			{

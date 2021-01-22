@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ChartEdition
+	public enum ChartEdition
 	{
 		Professional,
 		Enterprise

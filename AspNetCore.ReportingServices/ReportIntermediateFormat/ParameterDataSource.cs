@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class ParameterDataSource : IPersistable, IParameterDataSource
+	public class ParameterDataSource : IPersistable, IParameterDataSource
 	{
 		private int m_dataSourceIndex = -1;
 
@@ -67,17 +67,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParameterDataSource()
+		public ParameterDataSource()
 		{
 		}
 
-		internal ParameterDataSource(int dataSourceIndex, int dataSetIndex)
+		public ParameterDataSource(int dataSourceIndex, int dataSetIndex)
 		{
 			this.m_dataSourceIndex = dataSourceIndex;
 			this.m_dataSetIndex = dataSetIndex;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataSourceIndex, Token.Int32));

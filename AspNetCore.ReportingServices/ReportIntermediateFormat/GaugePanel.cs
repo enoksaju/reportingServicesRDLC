@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class GaugePanel : DataRegion, IPersistable
+	public sealed class GaugePanel : DataRegion, IPersistable
 	{
 		private List<LinearGauge> m_linearGauges;
 
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private int m_actionOwnerCounter;
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList ColumnMembers
+		public override HierarchyNodeList ColumnMembers
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList RowMembers
+		public override HierarchyNodeList RowMembers
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override RowList Rows
+		public override RowList Rows
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeMember GaugeMember
+		public GaugeMember GaugeMember
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeMember GaugeRowMember
+		public GaugeMember GaugeRowMember
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeRow GaugeRow
+		public GaugeRow GaugeRow
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<LinearGauge> LinearGauges
+		public List<LinearGauge> LinearGauges
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<RadialGauge> RadialGauges
+		public List<RadialGauge> RadialGauges
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<NumericIndicator> NumericIndicators
+		public List<NumericIndicator> NumericIndicators
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<StateIndicator> StateIndicators
+		public List<StateIndicator> StateIndicators
 		{
 			get
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<GaugeImage> GaugeImages
+		public List<GaugeImage> GaugeImages
 		{
 			get
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<GaugeLabel> GaugeLabels
+		public List<GaugeLabel> GaugeLabels
 		{
 			get
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AntiAliasing
+		public ExpressionInfo AntiAliasing
 		{
 			get
 			{
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AutoLayout
+		public ExpressionInfo AutoLayout
 		{
 			get
 			{
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal BackFrame BackFrame
+		public BackFrame BackFrame
 		{
 			get
 			{
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ShadowIntensity
+		public ExpressionInfo ShadowIntensity
 		{
 			get
 			{
@@ -277,7 +277,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TextAntiAliasingQuality
+		public ExpressionInfo TextAntiAliasingQuality
 		{
 			get
 			{
@@ -289,7 +289,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TopImage TopImage
+		public TopImage TopImage
 		{
 			get
 			{
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugePanelExprHost GaugePanelExprHost
+		public GaugePanelExprHost GaugePanelExprHost
 		{
 			get
 			{
@@ -321,19 +321,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugePanel(ReportItem parent)
+		public GaugePanel(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal GaugePanel(int id, ReportItem parent)
+		public GaugePanel(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			base.RowCount = 1;
 			base.ColumnCount = 1;
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -439,7 +439,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			GaugePanel gaugePanel = (GaugePanel)(context.CurrentDataRegionClone = (GaugePanel)base.PublishClone(context));
 			gaugePanel.m_rows = new GaugeRowList();
@@ -532,31 +532,31 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return gaugePanel;
 		}
 
-		internal GaugeAntiAliasings EvaluateAntiAliasing(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeAntiAliasings EvaluateAntiAliasing(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeAntiAliasings(context.ReportRuntime.EvaluateGaugePanelAntiAliasingExpression(this, base.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateAutoLayout(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateAutoLayout(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugePanelAutoLayoutExpression(this, base.Name);
 		}
 
-		internal double EvaluateShadowIntensity(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateShadowIntensity(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugePanelShadowIntensityExpression(this, base.Name);
 		}
 
-		internal TextAntiAliasingQualities EvaluateTextAntiAliasingQuality(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public TextAntiAliasingQualities EvaluateTextAntiAliasingQuality(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return EnumTranslator.TranslateTextAntiAliasingQualities(context.ReportRuntime.EvaluateGaugePanelTextAntiAliasingQualityExpression(this, base.Name), context.ReportRuntime);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new ReadOnlyMemberInfo(MemberName.GaugeMember, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugeMember));
@@ -580,7 +580,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugePanel, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataRegion, list);
 		}
 
-		internal List<GaugeInputValue> GetGaugeInputValues()
+		public List<GaugeInputValue> GetGaugeInputValues()
 		{
 			List<GaugeInputValue> list = new List<GaugeInputValue>();
 			if (this.RadialGauges != null)
@@ -741,7 +741,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return list;
 		}
 
-		internal int GenerateActionOwnerID()
+		public int GenerateActionOwnerID()
 		{
 			return ++this.m_actionOwnerCounter;
 		}
@@ -899,7 +899,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugePanel;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -909,7 +909,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
+		public override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
 		{
 			if (this.m_exprHost != null)
 			{
@@ -1001,7 +1001,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object EvaluateNoRowsMessageExpression()
+		public override object EvaluateNoRowsMessageExpression()
 		{
 			return this.m_exprHost.NoRowsExpr;
 		}

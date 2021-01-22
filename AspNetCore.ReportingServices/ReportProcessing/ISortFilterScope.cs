@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface ISortFilterScope
+	public interface ISortFilterScope
 	{
 		int ID
 		{

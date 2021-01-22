@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DesignDataSetSource : DataSet, IDesignTimeDataSource, IDisposable
+	public class DesignDataSetSource : DataSet, IDesignTimeDataSource, IDisposable
 	{
 		public DesignDataSetSource(MapCore mapCore, object originalDataSource)
 		{

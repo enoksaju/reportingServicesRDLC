@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal class DataRowSortOwnerTraversalContext : ITraversalContext
+	public class DataRowSortOwnerTraversalContext : ITraversalContext
 	{
 		private IDataRowSortOwner m_sortOwner;
 
-		internal IDataRowSortOwner SortOwner
+		public IDataRowSortOwner SortOwner
 		{
 			get
 			{
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal DataRowSortOwnerTraversalContext(IDataRowSortOwner sortOwner)
+		public DataRowSortOwnerTraversalContext(IDataRowSortOwner sortOwner)
 		{
 			this.m_sortOwner = sortOwner;
 		}

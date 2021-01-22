@@ -2,11 +2,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapLineTemplate : MapSpatialElementTemplate
+	public class MapLineTemplate : MapSpatialElementTemplate
 	{
-		internal new class Definition : DefinitionStore<MapLineTemplate, Definition.Properties>
+		public new class Definition : DefinitionStore<MapLineTemplate, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				ActionInfo,
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapLineTemplate(IPropertyStore propertyStore)
+		public MapLineTemplate(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal sealed class RSExceptionCreatedEventArgs : EventArgs
+	public sealed class RSExceptionCreatedEventArgs : EventArgs
 	{
 		private readonly RSException m_e;
 

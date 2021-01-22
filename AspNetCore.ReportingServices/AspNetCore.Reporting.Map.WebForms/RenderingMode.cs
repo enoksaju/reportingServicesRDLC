@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum RenderingMode
+	public enum RenderingMode
 	{
 		All,
 		SinglePanel,

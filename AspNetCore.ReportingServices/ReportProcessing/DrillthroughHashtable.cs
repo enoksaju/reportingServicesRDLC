@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DrillthroughHashtable : HashtableInstanceInfo
+	public sealed class DrillthroughHashtable : HashtableInstanceInfo
 	{
-		internal DrillthroughInformation this[string key]
+		public DrillthroughInformation this[string key]
 		{
 			get
 			{
@@ -17,16 +17,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DrillthroughHashtable()
+		public DrillthroughHashtable()
 		{
 		}
 
-		internal DrillthroughHashtable(int capacity)
+		public DrillthroughHashtable(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(string drillthroughId, DrillthroughInformation drillthroughInfo)
+		public void Add(string drillthroughId, DrillthroughInformation drillthroughInfo)
 		{
 			base.m_hashtable.Add(drillthroughId, drillthroughInfo);
 		}

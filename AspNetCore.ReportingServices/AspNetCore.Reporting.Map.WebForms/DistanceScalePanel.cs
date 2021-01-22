@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DistanceScalePanel : DockablePanel, IToolTipProvider
+	public class DistanceScalePanel : DockablePanel, IToolTipProvider
 	{
 		private enum MeasurementUnit
 		{
@@ -109,14 +109,14 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal DistanceScalePanel(CommonElements common)
+		public DistanceScalePanel(CommonElements common)
 			: base(common)
 		{
 			this.Name = "DistanceScalePanel";
 			this.SizeUnit = CoordinateUnit.Pixel;
 		}
 
-		internal override void Render(MapGraphics g)
+		public override void Render(MapGraphics g)
 		{
 			AntiAliasing antiAliasing = g.AntiAliasing;
 			try
@@ -203,7 +203,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override object GetDefaultPropertyValue(string prop, object currentValue)
+		public override object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object obj = null;
 			switch (prop)

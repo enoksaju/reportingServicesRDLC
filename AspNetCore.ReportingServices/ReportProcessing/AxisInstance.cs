@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class AxisInstance
+	public sealed class AxisInstance
 	{
 		private int m_uniqueName;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private DataValueInstanceList m_customPropertyInstances;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartTitleInstance Title
+		public ChartTitleInstance Title
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] StyleAttributeValues
+		public object[] StyleAttributeValues
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] MajorGridLinesStyleAttributeValues
+		public object[] MajorGridLinesStyleAttributeValues
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] MinorGridLinesStyleAttributeValues
+		public object[] MinorGridLinesStyleAttributeValues
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object MinValue
+		public object MinValue
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object MaxValue
+		public object MaxValue
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object CrossAtValue
+		public object CrossAtValue
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object MajorIntervalValue
+		public object MajorIntervalValue
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object MinorIntervalValue
+		public object MinorIntervalValue
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstanceList CustomPropertyInstances
+		public DataValueInstanceList CustomPropertyInstances
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AxisInstance(ReportProcessing.ProcessingContext pc, Chart chart, Axis axisDef, Axis.Mode mode)
+		public AxisInstance(ReportProcessing.ProcessingContext pc, Chart chart, Axis axisDef, Axis.Mode mode)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 			string text = mode.ToString();
@@ -203,11 +203,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AxisInstance()
+		public AxisInstance()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));

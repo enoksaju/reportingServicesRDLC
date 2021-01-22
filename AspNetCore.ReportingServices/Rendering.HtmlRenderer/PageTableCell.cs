@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class PageTableCell
+	public sealed class PageTableCell
 	{
 		[NonSerialized]
 		private RoundedFloat m_x = new RoundedFloat(0f);
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		private RPLLine m_borderBottom;
 
-		internal bool VertMerge
+		public bool VertMerge
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool HorzMerge
+		public bool HorzMerge
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool FirstHorzMerge
+		public bool FirstHorzMerge
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool FirstVertMerge
+		public bool FirstVertMerge
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool KeepRightBorder
+		public bool KeepRightBorder
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool KeepBottomBorder
+		public bool KeepBottomBorder
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool ConsumedByEmptyWhiteSpace
+		public bool ConsumedByEmptyWhiteSpace
 		{
 			get
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool HasBorder
+		public bool HasBorder
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RPLLine BorderLeft
+		public RPLLine BorderLeft
 		{
 			get
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RPLLine BorderRight
+		public RPLLine BorderRight
 		{
 			get
 			{
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RPLLine BorderBottom
+		public RPLLine BorderBottom
 		{
 			get
 			{
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RPLLine BorderTop
+		public RPLLine BorderTop
 		{
 			get
 			{
@@ -194,7 +194,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal int UsedCell
+		public int UsedCell
 		{
 			get
 			{
@@ -206,7 +206,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RoundedFloat XValue
+		public RoundedFloat XValue
 		{
 			get
 			{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RoundedFloat DXValue
+		public RoundedFloat DXValue
 		{
 			get
 			{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RoundedFloat YValue
+		public RoundedFloat YValue
 		{
 			get
 			{
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RoundedFloat DYValue
+		public RoundedFloat DYValue
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal int RowSpan
+		public int RowSpan
 		{
 			get
 			{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal int ColSpan
+		public int ColSpan
 		{
 			get
 			{
@@ -262,7 +262,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool InUse
+		public bool InUse
 		{
 			get
 			{
@@ -274,7 +274,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool Eaten
+		public bool Eaten
 		{
 			get
 			{
@@ -286,7 +286,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RPLItemMeasurement Measurement
+		public RPLItemMeasurement Measurement
 		{
 			get
 			{
@@ -294,7 +294,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool NeedsRowHeight
+		public bool NeedsRowHeight
 		{
 			get
 			{
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal PageTableCell(float x, float y, float dx, float dy)
+		public PageTableCell(float x, float y, float dx, float dy)
 		{
 			this.m_x.Value = x;
 			this.m_y.Value = y;
@@ -325,13 +325,13 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.m_dy.Value = dy;
 		}
 
-		internal void MarkCellEaten(int index)
+		public void MarkCellEaten(int index)
 		{
 			this.m_fEaten = true;
 			this.m_usedCell = index;
 		}
 
-		internal void MarkCellUsed(RPLItemMeasurement measurement, int colSpan, int rowSpan, int index)
+		public void MarkCellUsed(RPLItemMeasurement measurement, int colSpan, int rowSpan, int index)
 		{
 			this.m_colSpan = colSpan;
 			this.m_rowSpan = rowSpan;

@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ParameterCollection : ReportElementCollectionBase<Parameter>
+	public sealed class ParameterCollection : ReportElementCollectionBase<Parameter>
 	{
 		private bool m_isOldSnapshot;
 
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DrillthroughParameters ParametersNameObjectCollection
+		public DrillthroughParameters ParametersNameObjectCollection
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ParameterCollection(ActionDrillthrough actionDef, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue> parameters)
+		public ParameterCollection(ActionDrillthrough actionDef, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue> parameters)
 		{
 			this.m_isOldSnapshot = false;
 			this.m_actionDef = actionDef;
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ParameterCollection(ActionDrillthrough actionDef, NameValueCollection drillthroughParameters, DrillthroughParameters parametersNameObjectCollection, ParameterValueList parameters, ActionItemInstance actionInstance)
+		public ParameterCollection(ActionDrillthrough actionDef, NameValueCollection drillthroughParameters, DrillthroughParameters parametersNameObjectCollection, ParameterValueList parameters, ActionItemInstance actionInstance)
 		{
 			this.m_isOldSnapshot = true;
 			this.m_actionDef = actionDef;
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal NameValueCollection ToNameValueCollectionForDrillthroughEvent()
+		public NameValueCollection ToNameValueCollectionForDrillthroughEvent()
 		{
 			bool[] array = default(bool[]);
 			return this.ConvertToNameValueCollection(true, out array);
@@ -186,14 +186,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return Formatter.FormatWithInvariantCulture(value);
 		}
 
-		internal Parameter Add(ActionDrillthrough owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue paramDef)
+		public Parameter Add(ActionDrillthrough owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue paramDef)
 		{
 			Parameter parameter = new Parameter(owner, paramDef);
 			this.m_list.Add(parameter);
 			return parameter;
 		}
 
-		internal void Update(NameValueCollection drillthroughParameters, DrillthroughParameters nameObjectCollection, ActionItemInstance actionInstance)
+		public void Update(NameValueCollection drillthroughParameters, DrillthroughParameters nameObjectCollection, ActionItemInstance actionInstance)
 		{
 			int count = this.m_list.Count;
 			for (int i = 0; i < count; i++)
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_parametersNameObjectCollection = nameObjectCollection;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (!this.m_isOldSnapshot)
 			{
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ConstructParameterDefinitions()
+		public void ConstructParameterDefinitions()
 		{
 			foreach (Parameter item in this.m_list)
 			{

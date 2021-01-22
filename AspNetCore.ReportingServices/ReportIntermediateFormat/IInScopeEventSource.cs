@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IInScopeEventSource : IReferenceable, IGloballyReferenceable, IGlobalIDOwner
+	public interface IInScopeEventSource : IReferenceable, IGloballyReferenceable, IGlobalIDOwner
 	{
 		AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{

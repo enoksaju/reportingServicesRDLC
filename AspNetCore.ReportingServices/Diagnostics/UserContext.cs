@@ -5,7 +5,7 @@ using System.Security.Principal;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal class UserContext
+	public class UserContext
 	{
 		protected string m_userName;
 
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			}
 		}
 
-		internal virtual bool UseAdditionalToken
+		public virtual bool UseAdditionalToken
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			}
 		}
         /*
-		internal virtual WindowsIdentity GetWindowsIdentity()
+		public virtual WindowsIdentity GetWindowsIdentity()
 		{
             
 			if (this.m_authType != AuthenticationType.Windows)

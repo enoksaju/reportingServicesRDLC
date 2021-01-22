@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapVectorLayer : MapLayer
+	public abstract class MapVectorLayer : MapLayer
 	{
 		private IReportScope m_reportScope;
 
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapVectorLayer MapVectorLayerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapVectorLayer MapVectorLayerDef
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal new MapVectorLayerInstance Instance
+		public new MapVectorLayerInstance Instance
 		{
 			get
 			{
@@ -136,12 +136,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapVectorLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapVectorLayer defObject, Map map)
+		public MapVectorLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapVectorLayer defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

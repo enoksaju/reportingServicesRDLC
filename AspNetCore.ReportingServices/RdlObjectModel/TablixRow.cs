@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TablixRow : ReportObject
+	public class TablixRow : ReportObject
 	{
-		internal class Definition : DefinitionStore<TablixRow, Definition.Properties>
+		public class Definition : DefinitionStore<TablixRow, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Height,
 				TablixCells
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TablixRow(IPropertyStore propertyStore)
+		public TablixRow(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

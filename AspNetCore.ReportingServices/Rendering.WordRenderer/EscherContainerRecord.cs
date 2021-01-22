@@ -3,23 +3,23 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherContainerRecord : EscherRecord
+	public class EscherContainerRecord : EscherRecord
 	{
-		internal const ushort DGG_CONTAINER = 61440;
+		public const ushort DGG_CONTAINER = 61440;
 
-		internal const ushort BSTORE_CONTAINER = 61441;
+		public const ushort BSTORE_CONTAINER = 61441;
 
-		internal const ushort DG_CONTAINER = 61442;
+		public const ushort DG_CONTAINER = 61442;
 
-		internal const ushort SPGR_CONTAINER = 61443;
+		public const ushort SPGR_CONTAINER = 61443;
 
-		internal const ushort SP_CONTAINER = 61444;
+		public const ushort SP_CONTAINER = 61444;
 
-		internal const ushort SOLVER_CONTAINER = 61445;
+		public const ushort SOLVER_CONTAINER = 61445;
 
 		private IList childRecords = new ArrayList();
 
-		internal override int RecordSize
+		public override int RecordSize
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override IList ChildRecords
+		public override IList ChildRecords
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override string RecordName
+		public override string RecordName
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override int Serialize(BinaryWriter dataWriter)
+		public override int Serialize(BinaryWriter dataWriter)
 		{
 			dataWriter.Write(this.getOptions());
 			dataWriter.Write(this.GetRecordId());
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return num2;
 		}
 
-		internal override void Display(StreamWriter w, int indent)
+		public override void Display(StreamWriter w, int indent)
 		{
 			base.Display(w, indent);
 			IEnumerator enumerator = this.childRecords.GetEnumerator();
@@ -103,12 +103,12 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual void addChildRecord(EscherRecord record)
+		public virtual void addChildRecord(EscherRecord record)
 		{
 			this.childRecords.Add(record);
 		}
 
-		internal virtual EscherRecord getChildById(ushort recordId)
+		public virtual EscherRecord getChildById(ushort recordId)
 		{
 			IEnumerator enumerator = this.childRecords.GetEnumerator();
 			while (enumerator.MoveNext())

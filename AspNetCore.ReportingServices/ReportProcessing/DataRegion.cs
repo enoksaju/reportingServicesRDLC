@@ -8,7 +8,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class DataRegion : ReportItem, IPageBreakItem, IAggregateHolder, ISortFilterScope
+	public abstract class DataRegion : ReportItem, IPageBreakItem, IAggregateHolder, ISortFilterScope
 	{
 		protected string m_dataSetName;
 
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		protected int m_currentDetailRowIndex = -1;
 
-		internal string DataSetName
+		public string DataSetName
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo NoRows
+		public ExpressionInfo NoRows
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageBreakAtEnd
+		public bool PageBreakAtEnd
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageBreakAtStart
+		public bool PageBreakAtStart
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool KeepTogether
+		public bool KeepTogether
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList RepeatSiblings
+		public IntList RepeatSiblings
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal FilterList Filters
+		public FilterList Filters
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList Aggregates
+		public DataAggregateInfoList Aggregates
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList PostSortAggregates
+		public DataAggregateInfoList PostSortAggregates
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList UserSortExpressions
+		public ExpressionInfoList UserSortExpressions
 		{
 			get
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal InScopeSortFilterHashtable DetailSortFiltersInScope
+		public InScopeSortFilterHashtable DetailSortFiltersInScope
 		{
 			get
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.RuntimeDataRegionObj RuntimeDataRegionObj
+		public ReportProcessing.RuntimeDataRegionObj RuntimeDataRegionObj
 		{
 			get
 			{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Hashtable ScopeNames
+		public Hashtable ScopeNames
 		{
 			get
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InPivotCell
+		public bool InPivotCell
 		{
 			get
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool[] IsSortFilterTarget
+		public bool[] IsSortFilterTarget
 		{
 			get
 			{
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool[] IsSortFilterExpressionScope
+		public bool[] IsSortFilterExpressionScope
 		{
 			get
 			{
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int[] SortFilterSourceDetailScopeInfo
+		public int[] SortFilterSourceDetailScopeInfo
 		{
 			get
 			{
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentDetailRowIndex
+		public int CurrentDetailRowIndex
 		{
 			get
 			{
@@ -353,7 +353,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_postSortAggregates = new DataAggregateInfoList();
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_filters != null)
@@ -465,7 +465,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.DataSetName, Token.String));

@@ -13,7 +13,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapBindingFieldPair : IPersistable
+	public sealed class MapBindingFieldPair : IPersistable
 	{
 		private int m_exprHostID = -1;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_bindingExpression;
 
-		internal ExpressionInfo FieldName
+		public ExpressionInfo FieldName
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BindingExpression
+		public ExpressionInfo BindingExpression
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InElementView
+		public bool InElementView
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapBindingFieldPairExprHost ExprHost
+		public MapBindingFieldPairExprHost ExprHost
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapBindingFieldPairExprHost ExprHostMapMember
+		public MapBindingFieldPairExprHost ExprHostMapMember
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostMapMemberID
+		public int ExpressionHostMapMemberID
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IInstancePath InstancePath
+		public IInstancePath InstancePath
 		{
 			get
 			{
@@ -122,17 +122,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapBindingFieldPair()
+		public MapBindingFieldPair()
 		{
 		}
 
-		internal MapBindingFieldPair(Map map, MapVectorLayer mapVectorLayer)
+		public MapBindingFieldPair(Map map, MapVectorLayer mapVectorLayer)
 		{
 			this.m_map = map;
 			this.m_mapVectorLayer = mapVectorLayer;
 		}
 
-		internal void Initialize(InitializationContext context, int index)
+		public void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.MapBindingFieldPairStart(index.ToString(CultureInfo.InvariantCulture.NumberFormat));
 			if (this.m_fieldName != null)
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.MapBindingFieldPairEnd();
 		}
 
-		internal void InitializeMapMember(InitializationContext context, int index)
+		public void InitializeMapMember(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.MapBindingFieldPairStart(index.ToString(CultureInfo.InvariantCulture.NumberFormat));
 			if (!this.InElementView && this.m_bindingExpression != null)
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostMapMemberID = context.ExprHostBuilder.MapBindingFieldPairEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapBindingFieldPair mapBindingFieldPair = (MapBindingFieldPair)base.MemberwiseClone();
 			mapBindingFieldPair.m_map = context.CurrentMapClone;
@@ -178,21 +178,21 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapBindingFieldPair;
 		}
 
-		internal void SetExprHost(MapBindingFieldPairExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapBindingFieldPairExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal void SetExprHostMapMember(MapBindingFieldPairExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHostMapMember(MapBindingFieldPairExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHostMapMember = exprHost;
 			this.m_exprHostMapMember.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.FieldName, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -298,13 +298,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapBindingFieldPair;
 		}
 
-		internal string EvaluateFieldName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateFieldName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapBindingFieldPairFieldNameExpression(this, this.m_map.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateBindingExpression(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateBindingExpression(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapBindingFieldPairBindingExpressionExpression(this, this.m_map.Name);

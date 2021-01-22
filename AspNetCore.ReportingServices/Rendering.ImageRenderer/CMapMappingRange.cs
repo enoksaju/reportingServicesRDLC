@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class CMapMappingRange
+	public sealed class CMapMappingRange
 	{
-		internal readonly CMapMapping Mapping;
+		public readonly CMapMapping Mapping;
 
-		internal readonly ushort Length;
+		public readonly ushort Length;
 
-		internal CMapMappingRange(CMapMapping mapping, ushort length)
+		public CMapMappingRange(CMapMapping mapping, ushort length)
 		{
 			this.Mapping = mapping;
 			this.Length = length;

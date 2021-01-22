@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal class AggregateUpdateQueue : Queue<AggregateUpdateCollection>
+	public class AggregateUpdateQueue : Queue<AggregateUpdateCollection>
 	{
 		private AggregateUpdateCollection m_originalState;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal AggregateUpdateQueue(AggregateUpdateCollection originalState)
+		public AggregateUpdateQueue(AggregateUpdateCollection originalState)
 		{
 			this.m_originalState = originalState;
 		}

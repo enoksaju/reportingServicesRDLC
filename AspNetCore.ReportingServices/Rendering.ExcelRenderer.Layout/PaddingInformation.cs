@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal class PaddingInformation
+	public class PaddingInformation
 	{
 		private int m_paddingLeft;
 
@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 
 		private int m_paddingBottom;
 
-		internal int PaddingLeft
+		public int PaddingLeft
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal int PaddingRight
+		public int PaddingRight
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal int PaddingTop
+		public int PaddingTop
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal int PaddingBottom
+		public int PaddingBottom
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal PaddingInformation(int paddingLeft, int paddingRight, int paddingTop, int paddingBottom)
+		public PaddingInformation(int paddingLeft, int paddingRight, int paddingTop, int paddingBottom)
 		{
 			this.m_paddingLeft = paddingLeft;
 			this.m_paddingRight = paddingRight;

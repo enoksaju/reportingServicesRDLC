@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class HotRegionList : MapObject
+	public class HotRegionList : MapObject
 	{
 		private ArrayList list = new ArrayList();
 
@@ -16,7 +16,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private float scaleFactorY = 1f;
 
-		internal ArrayList List
+		public ArrayList List
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float ScaleFactorX
+		public float ScaleFactorX
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float ScaleFactorY
+		public float ScaleFactorY
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal int FindHotRegionOfObject(object obj)
+		public int FindHotRegionOfObject(object obj)
 		{
 			int result = default(int);
 			if (this.selectedObjectIndex.TryGetValue(obj, out result))
@@ -63,7 +63,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return -1;
 		}
 
-		internal void RemoveHotRegionOfObject(object obj)
+		public void RemoveHotRegionOfObject(object obj)
 		{
 			int num = 0;
 			HotRegion hotRegion;
@@ -86,12 +86,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			hotRegion.Dispose();
 		}
 
-		internal void SetHotRegion(MapGraphics g, object selectedObject, params GraphicsPath[] pathArray)
+		public void SetHotRegion(MapGraphics g, object selectedObject, params GraphicsPath[] pathArray)
 		{
 			this.SetHotRegion(g, selectedObject, PointF.Empty, pathArray);
 		}
 
-		internal void SetHotRegion(MapGraphics g, object selectedObject, PointF pinPoint, params GraphicsPath[] pathArray)
+		public void SetHotRegion(MapGraphics g, object selectedObject, PointF pinPoint, params GraphicsPath[] pathArray)
 		{
 			GraphicsPath[] array = new GraphicsPath[pathArray.Length];
 			for (int i = 0; i < pathArray.Length; i++)
@@ -142,7 +142,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			hotRegion.BuildMatrices(g);
 		}
 
-		internal HotRegion[] CheckHotRegions(int x, int y, Type[] objectTypes, bool needTooltipOnly)
+		public HotRegion[] CheckHotRegions(int x, int y, Type[] objectTypes, bool needTooltipOnly)
 		{
 			ArrayList arrayList = new ArrayList();
 			for (int num = this.list.Count - 1; num >= 0; num--)
@@ -287,7 +287,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return null;
 		}
 
-		internal bool IsOfType(Type[] objectTypes, object obj)
+		public bool IsOfType(Type[] objectTypes, object obj)
 		{
 			if (objectTypes.Length == 0)
 			{
@@ -303,7 +303,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return false;
 		}
 
-		internal void ClearContentElements()
+		public void ClearContentElements()
 		{
 			for (int num = this.list.Count - 1; num >= 0; num--)
 			{
@@ -317,7 +317,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			foreach (HotRegion item in this.list)
 			{

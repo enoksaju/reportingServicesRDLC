@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapSize : MapObject, ICloneable
+	public class MapSize : MapObject, ICloneable
 	{
 		private SizeF size = new SizeF(100f, 100f);
 
@@ -77,7 +77,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool AutoSize
+		public bool AutoSize
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool DefaultValues
+		public bool DefaultValues
 		{
 			get
 			{
@@ -119,26 +119,26 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal MapSize(object parent)
+		public MapSize(object parent)
 			: base(parent)
 		{
 		}
 
-		internal MapSize(object parent, float width, float height)
+		public MapSize(object parent, float width, float height)
 			: this(parent)
 		{
 			this.size.Width = Math.Max(width, 0f);
 			this.size.Height = Math.Max(height, 0f);
 		}
 
-		internal MapSize(object parent, SizeF size)
+		public MapSize(object parent, SizeF size)
 			: this(parent)
 		{
 			this.size.Width = size.Width;
 			this.size.Height = size.Height;
 		}
 
-		internal MapSize(MapSize size)
+		public MapSize(MapSize size)
 			: this(size.Parent, size.Width, size.Height)
 		{
 		}
@@ -178,7 +178,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return size.ToSize();
 		}
 
-		internal SizeF GetSizeF()
+		public SizeF GetSizeF()
 		{
 			return this.size;
 		}

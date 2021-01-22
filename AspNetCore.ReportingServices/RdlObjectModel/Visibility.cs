@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Visibility : ReportObject
+	public class Visibility : ReportObject
 	{
-		internal class Definition : DefinitionStore<Visibility, Definition.Properties>
+		public class Definition : DefinitionStore<Visibility, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Hidden,
 				ToggleItem
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Visibility(IPropertyStore propertyStore)
+		public Visibility(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

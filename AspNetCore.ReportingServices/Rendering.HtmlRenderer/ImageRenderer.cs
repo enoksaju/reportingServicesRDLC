@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class ImageRenderer : IReportItemRenderer
+	public class ImageRenderer : IReportItemRenderer
 	{
 		private HTML5Renderer html5Renderer;
 

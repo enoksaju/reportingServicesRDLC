@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum GaugeThemes
+	public enum GaugeThemes
 	{
 		Graphite,
 		WhiteAndBlack,

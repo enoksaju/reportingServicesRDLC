@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapColorScale : MapDockableSubItem
+	public sealed class MapColorScale : MapDockableSubItem
 	{
 		private MapColorScaleTitle m_mapColorScaleTitle;
 
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorScale MapColorScaleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorScale MapColorScaleDef
 		{
 			get
 			{
@@ -169,12 +169,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapColorScale(AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorScale defObject, Map map)
+		public MapColorScale(AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorScale defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapSubItemInstance GetInstance()
+		public override MapSubItemInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapSubItemInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

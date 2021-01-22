@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal class Graphics : GraphicsBase
+	public class Graphics : GraphicsBase
 	{
 		private EncoderParameters m_encoderParameters;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 
 		private static ImageCodecInfo[] m_encoders = Graphics.GetGdiImageEncoders();
 
-		internal Graphics(float dpiX, float dpiY)
+		public Graphics(float dpiX, float dpiY)
 			: base(dpiX, dpiY)
 		{
 		}
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			base.Dispose(disposing);
 		}
 
-		internal virtual void Save(Stream outputStream, PaginationSettings.FormatEncoding outputFormat)
+		public virtual void Save(Stream outputStream, PaginationSettings.FormatEncoding outputFormat)
 		{
 			Bitmap bitmap = null;
 			bool flag = true;
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal void NewPage(float pageWidth, float pageHeight, int dpiX, int dpiY)
+		public void NewPage(float pageWidth, float pageHeight, int dpiX, int dpiY)
 		{
 			if (base.m_graphicsBase != null)
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			throw new ReportRenderingException(Marshal.GetExceptionForHR(Marshal.GetLastWin32Error()));
 		}
 
-		internal void DrawLine(Pen pen, float x1, float y1, float x2, float y2)
+		public void DrawLine(Pen pen, float x1, float y1, float x2, float y2)
 		{
 			this.ReleaseCachedHdc(true);
 			this.ExecuteSync(delegate
@@ -205,12 +205,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			});
 		}
 
-		internal void DrawImage(System.Drawing.Image image, RectangleF destination, RectangleF source)
+		public void DrawImage(System.Drawing.Image image, RectangleF destination, RectangleF source)
 		{
 			this.DrawImage(image, destination, source, true);
 		}
 
-		internal void DrawImage(System.Drawing.Image image, RectangleF destination, RectangleF source, bool tile)
+		public void DrawImage(System.Drawing.Image image, RectangleF destination, RectangleF source, bool tile)
 		{
 			this.ReleaseCachedHdc(true);
 			this.ExecuteSync(delegate
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			});
 		}
 
-		internal void DrawRectangle(Pen pen, RectangleF rectangle)
+		public void DrawRectangle(Pen pen, RectangleF rectangle)
 		{
 			this.ReleaseCachedHdc(true);
 			this.ExecuteSync(delegate
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			});
 		}
 
-		internal void FillPolygon(Brush brush, PointF[] polygon)
+		public void FillPolygon(Brush brush, PointF[] polygon)
 		{
 			this.ReleaseCachedHdc(true);
 			this.ExecuteSync(delegate
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			});
 		}
 
-		internal void FillRectangle(Brush brush, RectangleF rectangle)
+		public void FillRectangle(Brush brush, RectangleF rectangle)
 		{
 			this.ReleaseCachedHdc(true);
 			this.ExecuteSync(delegate
@@ -276,7 +276,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			});
 		}
 
-		internal void ResetClipAndTransform(RectangleF bounds)
+		public void ResetClipAndTransform(RectangleF bounds)
 		{
 			this.ReleaseCachedHdc(true);
 			this.ExecuteSync(delegate
@@ -293,7 +293,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			});
 		}
 
-		internal void RotateTransform(float angle)
+		public void RotateTransform(float angle)
 		{
 			this.ReleaseCachedHdc(true);
 			this.ExecuteSync(delegate
@@ -302,7 +302,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			});
 		}
 
-		internal void EndReport(PaginationSettings.FormatEncoding outputFormat)
+		public void EndReport(PaginationSettings.FormatEncoding outputFormat)
 		{
 			if (outputFormat == PaginationSettings.FormatEncoding.TIFF)
 			{

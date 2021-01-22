@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalDocumentMap : DocumentMap, IDocumentMap, IEnumerator<OnDemandDocumentMapNode>, IDisposable, IEnumerator
+	public sealed class InternalDocumentMap : DocumentMap, IDocumentMap, IEnumerator<OnDemandDocumentMapNode>, IDisposable, IEnumerator
 	{
 		private DocumentMapReader m_reader;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalDocumentMap(DocumentMapReader aReader)
+		public InternalDocumentMap(DocumentMapReader aReader)
 		{
 			this.m_reader = aReader;
 		}

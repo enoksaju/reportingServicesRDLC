@@ -5,9 +5,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Report : IDocumentMapEntry
+	public sealed class Report : IDocumentMapEntry
 	{
-		internal enum DataElementStyles
+		public enum DataElementStyles
 		{
 			AttributeNormal,
 			ElementNormal
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DocumentMapNode DocumentMap
+		public DocumentMapNode DocumentMap
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Bookmarks ReportBookmarks
+		public Bookmarks ReportBookmarks
 		{
 			get
 			{
@@ -535,7 +535,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.Report ReportDef
+		public AspNetCore.ReportingServices.ReportProcessing.Report ReportDef
 		{
 			get
 			{
@@ -543,7 +543,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportInstance ReportInstance
+		public ReportInstance ReportInstance
 		{
 			get
 			{
@@ -551,7 +551,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportInstanceInfo InstanceInfo
+		public ReportInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -567,7 +567,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -587,7 +587,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool BodyHasBorderStyles
+		public bool BodyHasBorderStyles
 		{
 			get
 			{
@@ -666,7 +666,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Report(AspNetCore.ReportingServices.ReportProcessing.Report reportDef, ReportInstance reportInstance, RenderingContext renderingContext, string reportName, string description, CultureInfo defaultLanguage)
+		public Report(AspNetCore.ReportingServices.ReportProcessing.Report reportDef, ReportInstance reportInstance, RenderingContext renderingContext, string reportName, string description, CultureInfo defaultLanguage)
 		{
 			this.m_reportDef = reportDef;
 			this.m_reportInstance = reportInstance;
@@ -790,7 +790,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool Search(int searchPage, string findValue)
+		public bool Search(int searchPage, string findValue)
 		{
 			SearchContext searchContext = new SearchContext(searchPage, findValue, 0, this.NumberOfPages - 1);
 			PageSection pageSection = this.PageHeader;

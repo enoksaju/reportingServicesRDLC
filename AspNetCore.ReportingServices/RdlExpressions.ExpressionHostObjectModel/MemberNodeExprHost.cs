@@ -10,13 +10,13 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		protected SortExprHost m_sortHost;
 
 		[CLSCompliant(false)]
-		protected IList<DataValueExprHost> m_customPropertyHostsRemotable;
+		public IList<DataValueExprHost> m_customPropertyHostsRemotable;
 
 		[CLSCompliant(false)]
-        internal IList<IMemberNode> m_memberTreeHostsRemotable;
+        public IList<IMemberNode> m_memberTreeHostsRemotable;
 
 		[CLSCompliant(false)]
-		protected IList<JoinConditionExprHost> m_joinConditionExprHostsRemotable;
+		public IList<JoinConditionExprHost> m_joinConditionExprHostsRemotable;
 
 		GroupExprHost IMemberNode.GroupHost
 		{

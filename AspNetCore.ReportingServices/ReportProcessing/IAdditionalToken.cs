@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IAdditionalToken
+	public interface IAdditionalToken
 	{
 		byte[] GetAdditionalToken();
 	}

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal sealed class AnchorModel
+	public sealed class AnchorModel
 	{
 		private Anchor _interface;
 

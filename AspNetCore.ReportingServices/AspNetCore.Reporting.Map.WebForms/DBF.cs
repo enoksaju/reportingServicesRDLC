@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DBF : RecordFileReader, IDisposable
+	public class DBF : RecordFileReader, IDisposable
 	{
 		private struct DBFColumnHeader
 		{

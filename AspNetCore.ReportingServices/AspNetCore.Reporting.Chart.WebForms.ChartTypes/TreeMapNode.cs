@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal sealed class TreeMapNode
+	public sealed class TreeMapNode
 	{
 		public double Value
 		{

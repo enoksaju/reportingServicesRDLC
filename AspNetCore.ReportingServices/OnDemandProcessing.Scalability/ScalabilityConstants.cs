@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal static class ScalabilityConstants
+	public static class ScalabilityConstants
 	{
 		public const int BytesPerMB = 1048576;
 

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class LabelData
+	public sealed class LabelData
 	{
 		private readonly AspNetCore.ReportingServices.ReportIntermediateFormat.LabelData m_labelData;
 
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal LabelData(AspNetCore.ReportingServices.ReportIntermediateFormat.LabelData labelData)
+		public LabelData(AspNetCore.ReportingServices.ReportIntermediateFormat.LabelData labelData)
 		{
 			this.m_labelData = labelData;
 		}

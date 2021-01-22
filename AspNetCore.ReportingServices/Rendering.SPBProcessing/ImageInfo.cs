@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class ImageInfo : IDisposable
+	public class ImageInfo : IDisposable
 	{
 		public Stream ImageData;
 

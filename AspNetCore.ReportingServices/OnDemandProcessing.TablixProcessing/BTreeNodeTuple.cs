@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class BTreeNodeTuple : IStorable, IPersistable
+	public sealed class BTreeNodeTuple : IStorable, IPersistable
 	{
 		private BTreeNodeValue m_value;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		[NonSerialized]
 		private static Declaration m_declaration = BTreeNodeTuple.GetDeclaration();
 
-		internal BTreeNodeValue Value
+		public BTreeNodeValue Value
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal int ChildIndex
+		public int ChildIndex
 		{
 			get
 			{
@@ -44,17 +44,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal BTreeNodeTuple()
+		public BTreeNodeTuple()
 		{
 		}
 
-		internal BTreeNodeTuple(BTreeNodeValue value, int childIndex)
+		public BTreeNodeTuple(BTreeNodeValue value, int childIndex)
 		{
 			this.m_value = value;
 			this.m_childIndex = childIndex;
 		}
 
-		internal void Traverse(ProcessingStages operation, bool ascending, ScalableList<BTreeNode> nodeList, ITraversalContext traversalContext)
+		public void Traverse(ProcessingStages operation, bool ascending, ScalableList<BTreeNode> nodeList, ITraversalContext traversalContext)
 		{
 			if (ascending)
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void VisitChild(ProcessingStages operation, bool ascending, ScalableList<BTreeNode> nodeList, ITraversalContext traversalContext)
+		public void VisitChild(ProcessingStages operation, bool ascending, ScalableList<BTreeNode> nodeList, ITraversalContext traversalContext)
 		{
 			if (-1 != this.m_childIndex)
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.BTreeNodeTuple;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (BTreeNodeTuple.m_declaration == null)
 			{

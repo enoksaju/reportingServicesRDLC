@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLActionInfo
+	public class RPLActionInfo
 	{
 		private RPLAction[] m_actions;
 
@@ -16,11 +16,11 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLActionInfo()
+		public RPLActionInfo()
 		{
 		}
 
-		internal RPLActionInfo(int count)
+		public RPLActionInfo(int count)
 		{
 			this.m_actions = new RPLAction[count];
 		}

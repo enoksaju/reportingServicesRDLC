@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class BackgroundImage : ReportObject
+	public class BackgroundImage : ReportObject
 	{
-		internal class Definition : DefinitionStore<BackgroundImage, Definition.Properties>
+		public class Definition : DefinitionStore<BackgroundImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Source,
 				Value,
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal BackgroundImage(IPropertyStore propertyStore)
+		public BackgroundImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

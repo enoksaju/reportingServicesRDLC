@@ -2,7 +2,7 @@ using AspNetCore.Reporting.Map.WebForms;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class LineTemplateMapper : SpatialElementTemplateMapper
+	public class LineTemplateMapper : SpatialElementTemplateMapper
 	{
 		private LineLayerMapper m_lineLayerMapper;
 
@@ -26,13 +26,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal LineTemplateMapper(MapMapper mapMapper, LineLayerMapper lineLayerMapper, MapLineLayer mapLineLayer)
+		public LineTemplateMapper(MapMapper mapMapper, LineLayerMapper lineLayerMapper, MapLineLayer mapLineLayer)
 			: base(mapMapper, mapLineLayer)
 		{
 			this.m_lineLayerMapper = lineLayerMapper;
 		}
 
-		internal void Render(MapLine mapLine, Path corePath, bool hasScope)
+		public void Render(MapLine mapLine, Path corePath, bool hasScope)
 		{
 			bool flag = this.UseCustomTemplate(mapLine, hasScope);
 			MapLineTemplate mapLineTemplate = (!flag) ? this.MapLineLayer.MapLineTemplate : mapLine.MapLineTemplate;
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int GetSize(MapLineTemplate mapLineTemplate, bool hasScope)
+		public int GetSize(MapLineTemplate mapLineTemplate, bool hasScope)
 		{
 			ReportSizeProperty width = mapLineTemplate.Width;
 			if (width != null)
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return LineTemplateMapper.GetDefaultSize(base.m_mapMapper.DpiX);
 		}
 
-		internal static int GetDefaultSize(float dpi)
+		public static int GetDefaultSize(float dpi)
 		{
 			return MappingHelper.ToIntPixels(LineTemplateMapper.m_defaultLineWidth, dpi);
 		}

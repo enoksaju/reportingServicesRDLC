@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLMapProps : RPLDynamicImageProps
+	public sealed class RPLMapProps : RPLDynamicImageProps
 	{
-		internal RPLMapProps()
+		public RPLMapProps()
 		{
 		}
 	}

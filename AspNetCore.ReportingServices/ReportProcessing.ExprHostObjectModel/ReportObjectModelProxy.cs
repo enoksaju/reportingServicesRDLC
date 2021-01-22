@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal void SetReportObjectModel(ObjectModel reportObjectModel)
+		public void SetReportObjectModel(ObjectModel reportObjectModel)
 		{
 			this.m_reportObjectModel = reportObjectModel;
 		}

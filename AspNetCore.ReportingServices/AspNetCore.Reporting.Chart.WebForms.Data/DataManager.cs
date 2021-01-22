@@ -9,11 +9,11 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Data
 {
-	internal class DataManager : IServiceProvider
+	public class DataManager : IServiceProvider
 	{
 		private SeriesCollection series;
 
-		internal IServiceContainer serviceContainer;
+		public IServiceContainer serviceContainer;
 
 		private ChartColorPalette colorPalette = ChartColorPalette.BrightPastel;
 
@@ -86,7 +86,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			throw new ArgumentException(SR.ExceptionDataManagerUnsupportedType(serviceType.ToString()));
 		}
 
-		internal void Initialize()
+		public void Initialize()
 		{
 			ChartImage chartImage = (ChartImage)this.serviceContainer.GetService(typeof(ChartImage));
 			chartImage.BeforePaint += this.ChartPicture_BeforePaint;
@@ -141,7 +141,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			}
 		}
 
-		internal void ApplyPaletteColors()
+		public void ApplyPaletteColors()
 		{
 			if (this.Palette == ChartColorPalette.None && this.PaletteCustomColors.Length <= 0)
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			}
 		}
 
-		internal void PrepareData(bool seriesApplyPaletteColors, bool pointsApplyPaletteColors, params string[] series)
+		public void PrepareData(bool seriesApplyPaletteColors, bool pointsApplyPaletteColors, params string[] series)
 		{
 			if (seriesApplyPaletteColors)
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return false;
 		}
 
-		internal int GetNumberOfPoints(params string[] series)
+		public int GetNumberOfPoints(params string[] series)
 		{
 			int num = 0;
 			foreach (string parameter in series)
@@ -218,7 +218,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMaxYValue(int valueIndex, params string[] series)
+		public double GetMaxYValue(int valueIndex, params string[] series)
 		{
 			double num = -1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -234,7 +234,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMaxYWithRadiusValue(ChartArea area, params string[] series)
+		public double GetMaxYWithRadiusValue(ChartArea area, params string[] series)
 		{
 			double num = -1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -250,7 +250,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMaxXWithRadiusValue(ChartArea area, params string[] series)
+		public double GetMaxXWithRadiusValue(ChartArea area, params string[] series)
 		{
 			double num = -1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -266,7 +266,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMinXWithRadiusValue(ChartArea area, params string[] series)
+		public double GetMinXWithRadiusValue(ChartArea area, params string[] series)
 		{
 			double num = 1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -282,7 +282,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMaxYValue(params string[] series)
+		public double GetMaxYValue(params string[] series)
 		{
 			double num = -1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -305,7 +305,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMaxXValue(params string[] series)
+		public double GetMaxXValue(params string[] series)
 		{
 			double num = -1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -321,7 +321,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal void GetMinMaxXValue(out double min, out double max, params string[] series)
+		public void GetMinMaxXValue(out double min, out double max, params string[] series)
 		{
 			max = -1.7976931348623157E+308;
 			min = 1.7976931348623157E+308;
@@ -335,7 +335,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			}
 		}
 
-		internal void GetMinMaxYValue(int valueIndex, out double min, out double max, params string[] series)
+		public void GetMinMaxYValue(int valueIndex, out double min, out double max, params string[] series)
 		{
 			max = -1.7976931348623157E+308;
 			min = 1.7976931348623157E+308;
@@ -356,7 +356,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			}
 		}
 
-		internal void GetMinMaxYValue(out double min, out double max, params string[] series)
+		public void GetMinMaxYValue(out double min, out double max, params string[] series)
 		{
 			max = -1.7976931348623157E+308;
 			min = 1.7976931348623157E+308;
@@ -380,7 +380,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			}
 		}
 
-		internal void GetMinMaxYValue(ArrayList seriesList, out double min, out double max)
+		public void GetMinMaxYValue(ArrayList seriesList, out double min, out double max)
 		{
 			max = -1.7976931348623157E+308;
 			min = 1.7976931348623157E+308;
@@ -404,7 +404,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			}
 		}
 
-		internal double GetMaxStackedYValue(int valueIndex, params string[] series)
+		public double GetMaxStackedYValue(int valueIndex, params string[] series)
 		{
 			double num = 0.0;
 			double num2 = (double)this.GetNumberOfPoints(series);
@@ -440,7 +440,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMaxUnsignedStackedYValue(int valueIndex, params string[] series)
+		public double GetMaxUnsignedStackedYValue(int valueIndex, params string[] series)
 		{
 			double num = 0.0;
 			double num2 = -1.7976931348623157E+308;
@@ -479,7 +479,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMaxStackedXValue(params string[] series)
+		public double GetMaxStackedXValue(params string[] series)
 		{
 			double num = 0.0;
 			double num2 = (double)this.GetNumberOfPoints(series);
@@ -498,7 +498,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMinYValue(int valueIndex, params string[] series)
+		public double GetMinYValue(int valueIndex, params string[] series)
 		{
 			double num = 1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -514,7 +514,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMinYWithRadiusValue(ChartArea area, params string[] series)
+		public double GetMinYWithRadiusValue(ChartArea area, params string[] series)
 		{
 			double num = 1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -530,7 +530,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMinYValue(params string[] series)
+		public double GetMinYValue(params string[] series)
 		{
 			double num = 1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -553,7 +553,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMinXValue(params string[] series)
+		public double GetMinXValue(params string[] series)
 		{
 			double num = 1.7976931348623157E+308;
 			foreach (string parameter in series)
@@ -569,7 +569,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMinStackedYValue(int valueIndex, params string[] series)
+		public double GetMinStackedYValue(int valueIndex, params string[] series)
 		{
 			double num = 1.7976931348623157E+308;
 			double num2 = (double)this.GetNumberOfPoints(series);
@@ -609,7 +609,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMinUnsignedStackedYValue(int valueIndex, params string[] series)
+		public double GetMinUnsignedStackedYValue(int valueIndex, params string[] series)
 		{
 			double num = 1.7976931348623157E+308;
 			double num2 = 1.7976931348623157E+308;
@@ -651,7 +651,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMinStackedXValue(params string[] series)
+		public double GetMinStackedXValue(params string[] series)
 		{
 			double num = 0.0;
 			double num2 = (double)this.GetNumberOfPoints(series);
@@ -670,7 +670,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			return num;
 		}
 
-		internal double GetMaxHundredPercentStackedYValue(bool supportNegative, int valueIndex, params string[] series)
+		public double GetMaxHundredPercentStackedYValue(bool supportNegative, int valueIndex, params string[] series)
 		{
 			double num = 0.0;
 			Series[] array = new Series[series.Length];
@@ -708,7 +708,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Data
 			}
 		}
 
-		internal double GetMinHundredPercentStackedYValue(bool supportNegative, int valueIndex, params string[] series)
+		public double GetMinHundredPercentStackedYValue(bool supportNegative, int valueIndex, params string[] series)
 		{
 			double num = 0.0;
 			Series[] array = new Series[series.Length];

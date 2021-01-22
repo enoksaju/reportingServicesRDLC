@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal interface IScope : IStorable, IPersistable
+	public interface IScope : IStorable, IPersistable
 	{
 		bool TargetForNonDetailSort
 		{

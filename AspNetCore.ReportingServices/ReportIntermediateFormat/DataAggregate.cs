@@ -9,9 +9,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class DataAggregate : IStorable, IPersistable
+	public abstract class DataAggregate : IStorable, IPersistable
 	{
-		internal abstract DataAggregateInfo.AggregateTypes AggregateType
+		public abstract DataAggregateInfo.AggregateTypes AggregateType
 		{
 			get;
 		}
@@ -21,21 +21,21 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			get;
 		}
 
-		internal abstract void Init();
+		public abstract void Init();
 
-		internal abstract void Update(object[] expressions, IErrorContext iErrorContext);
+		public abstract void Update(object[] expressions, IErrorContext iErrorContext);
 
-		internal abstract object Result();
+		public abstract object Result();
 
-		internal abstract DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef);
+		public abstract DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef);
 
-		internal static AspNetCore.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode GetTypeCode(object o)
+		public static AspNetCore.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode GetTypeCode(object o)
 		{
 			bool flag = default(bool);
 			return DataAggregate.GetTypeCode(o, true, out flag);
 		}
 
-		internal static AspNetCore.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode GetTypeCode(object o, bool throwException, out bool valid)
+		public static AspNetCore.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode GetTypeCode(object o, bool throwException, out bool valid)
 		{
             valid = true;
             if (o is string)

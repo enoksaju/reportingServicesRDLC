@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class OffsetInfo : InfoBase
+	public sealed class OffsetInfo : InfoBase
 	{
 		private long m_offset;
 
-		internal long Offset
+		public long Offset
 		{
 			get
 			{
@@ -20,16 +20,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OffsetInfo()
+		public OffsetInfo()
 		{
 		}
 
-		internal OffsetInfo(long offset)
+		public OffsetInfo(long offset)
 		{
 			this.m_offset = offset;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Offset, Token.Int64));

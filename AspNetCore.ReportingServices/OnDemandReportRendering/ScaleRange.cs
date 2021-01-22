@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ScaleRange : GaugePanelObjectCollectionItem, IROMStyleDefinitionContainer, IROMActionOwner
+	public sealed class ScaleRange : GaugePanelObjectCollectionItem, IROMStyleDefinitionContainer, IROMActionOwner
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ScaleRange ScaleRangeDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ScaleRange ScaleRangeDef
 		{
 			get
 			{
@@ -275,13 +275,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ScaleRange(AspNetCore.ReportingServices.ReportIntermediateFormat.ScaleRange defObject, GaugePanel gaugePanel)
+		public ScaleRange(AspNetCore.ReportingServices.ReportIntermediateFormat.ScaleRange defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

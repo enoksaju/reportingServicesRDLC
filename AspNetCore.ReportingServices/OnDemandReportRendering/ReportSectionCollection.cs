@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportSectionCollection : ReportElementCollectionBase<ReportSection>
+	public sealed class ReportSectionCollection : ReportElementCollectionBase<ReportSection>
 	{
 		private ReportSection[] m_sections;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSectionCollection(Report reportDef)
+		public ReportSectionCollection(Report reportDef)
 		{
 			List<AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSection> reportSections = reportDef.ReportDef.ReportSections;
 			this.m_sections = new ReportSection[reportSections.Count];
@@ -39,13 +39,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSectionCollection(Report reportDef, AspNetCore.ReportingServices.ReportRendering.Report renderReport)
+		public ReportSectionCollection(Report reportDef, AspNetCore.ReportingServices.ReportRendering.Report renderReport)
 		{
 			this.m_sections = new ReportSection[1];
 			this.m_sections[0] = new ReportSection(reportDef, renderReport, 0);
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			for (int i = 0; i < this.m_sections.Length; i++)
 			{

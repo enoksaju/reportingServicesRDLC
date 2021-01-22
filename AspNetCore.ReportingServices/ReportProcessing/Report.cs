@@ -8,9 +8,9 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Report : ReportItem, IAggregateHolder
+	public sealed class Report : ReportItem, IAggregateHolder
 	{
-		internal enum ShowHideTypes
+		public enum ShowHideTypes
 		{
 			None,
 			Static,
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private long m_mainChunkSize = -1L;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override string DataElementNameDefault
+		public override string DataElementNameDefault
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntermediateFormatVersion IntermediateFormatVersion
+		public IntermediateFormatVersion IntermediateFormatVersion
 		{
 			get
 			{
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Guid ReportVersion
+		public Guid ReportVersion
 		{
 			get
 			{
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Author
+		public string Author
 		{
 			get
 			{
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int AutoRefresh
+		public int AutoRefresh
 		{
 			get
 			{
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal EmbeddedImageHashtable EmbeddedImages
+		public EmbeddedImageHashtable EmbeddedImages
 		{
 			get
 			{
@@ -233,7 +233,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PageSection PageHeader
+		public PageSection PageHeader
 		{
 			get
 			{
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageHeaderEvaluation
+		public bool PageHeaderEvaluation
 		{
 			get
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PageSection PageFooter
+		public PageSection PageFooter
 		{
 			get
 			{
@@ -269,7 +269,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageFooterEvaluation
+		public bool PageFooterEvaluation
 		{
 			get
 			{
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double PageSectionWidth
+		public double PageSectionWidth
 		{
 			get
 			{
@@ -294,7 +294,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataSourceList DataSources
+		public DataSourceList DataSources
 		{
 			get
 			{
@@ -318,7 +318,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int DataSourceCount
+		public int DataSourceCount
 		{
 			get
 			{
@@ -330,7 +330,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string PageHeight
+		public string PageHeight
 		{
 			get
 			{
@@ -342,7 +342,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double PageHeightValue
+		public double PageHeightValue
 		{
 			get
 			{
@@ -354,7 +354,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string PageWidth
+		public string PageWidth
 		{
 			get
 			{
@@ -366,7 +366,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double PageWidthValue
+		public double PageWidthValue
 		{
 			get
 			{
@@ -378,7 +378,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string LeftMargin
+		public string LeftMargin
 		{
 			get
 			{
@@ -390,7 +390,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double LeftMarginValue
+		public double LeftMarginValue
 		{
 			get
 			{
@@ -402,7 +402,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string RightMargin
+		public string RightMargin
 		{
 			get
 			{
@@ -414,7 +414,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double RightMarginValue
+		public double RightMarginValue
 		{
 			get
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string TopMargin
+		public string TopMargin
 		{
 			get
 			{
@@ -438,7 +438,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double TopMarginValue
+		public double TopMarginValue
 		{
 			get
 			{
@@ -450,7 +450,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string BottomMargin
+		public string BottomMargin
 		{
 			get
 			{
@@ -462,7 +462,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double BottomMarginValue
+		public double BottomMarginValue
 		{
 			get
 			{
@@ -474,7 +474,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Columns
+		public int Columns
 		{
 			get
 			{
@@ -486,7 +486,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ColumnSpacing
+		public string ColumnSpacing
 		{
 			get
 			{
@@ -498,7 +498,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double ColumnSpacingValue
+		public double ColumnSpacingValue
 		{
 			get
 			{
@@ -510,7 +510,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList PageAggregates
+		public DataAggregateInfoList PageAggregates
 		{
 			get
 			{
@@ -522,7 +522,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal byte[] CompiledCode
+		public byte[] CompiledCode
 		{
 			get
 			{
@@ -534,7 +534,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool CompiledCodeGeneratedWithRefusedPermissions
+		public bool CompiledCodeGeneratedWithRefusedPermissions
 		{
 			get
 			{
@@ -546,7 +546,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool MergeOnePass
+		public bool MergeOnePass
 		{
 			get
 			{
@@ -558,7 +558,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageMergeOnePass
+		public bool PageMergeOnePass
 		{
 			get
 			{
@@ -570,7 +570,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SubReportMergeTransactions
+		public bool SubReportMergeTransactions
 		{
 			get
 			{
@@ -582,7 +582,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool NeedPostGroupProcessing
+		public bool NeedPostGroupProcessing
 		{
 			get
 			{
@@ -594,7 +594,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasPostSortAggregates
+		public bool HasPostSortAggregates
 		{
 			get
 			{
@@ -606,7 +606,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasReportItemReferences
+		public bool HasReportItemReferences
 		{
 			get
 			{
@@ -618,7 +618,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ShowHideTypes ShowHideType
+		public ShowHideTypes ShowHideType
 		{
 			get
 			{
@@ -630,7 +630,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageStreamNames ImageStreamNames
+		public ImageStreamNames ImageStreamNames
 		{
 			get
 			{
@@ -642,7 +642,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ParametersNotUsedInQuery
+		public bool ParametersNotUsedInQuery
 		{
 			get
 			{
@@ -654,7 +654,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int LastID
+		public int LastID
 		{
 			get
 			{
@@ -666,7 +666,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int BodyID
+		public int BodyID
 		{
 			get
 			{
@@ -678,7 +678,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SubReportList SubReports
+		public SubReportList SubReports
 		{
 			get
 			{
@@ -690,7 +690,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasImageStreams
+		public bool HasImageStreams
 		{
 			get
 			{
@@ -702,7 +702,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasLabels
+		public bool HasLabels
 		{
 			get
 			{
@@ -714,7 +714,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasBookmarks
+		public bool HasBookmarks
 		{
 			get
 			{
@@ -726,7 +726,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSize PageHeightForRendering
+		public ReportSize PageHeightForRendering
 		{
 			get
 			{
@@ -738,7 +738,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSize PageWidthForRendering
+		public ReportSize PageWidthForRendering
 		{
 			get
 			{
@@ -750,7 +750,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSize LeftMarginForRendering
+		public ReportSize LeftMarginForRendering
 		{
 			get
 			{
@@ -762,7 +762,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSize RightMarginForRendering
+		public ReportSize RightMarginForRendering
 		{
 			get
 			{
@@ -774,7 +774,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSize TopMarginForRendering
+		public ReportSize TopMarginForRendering
 		{
 			get
 			{
@@ -786,7 +786,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSize BottomMarginForRendering
+		public ReportSize BottomMarginForRendering
 		{
 			get
 			{
@@ -798,7 +798,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSize ColumnSpacingForRendering
+		public ReportSize ColumnSpacingForRendering
 		{
 			get
 			{
@@ -810,7 +810,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterDefList Parameters
+		public ParameterDefList Parameters
 		{
 			get
 			{
@@ -822,7 +822,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string OneDataSetName
+		public string OneDataSetName
 		{
 			get
 			{
@@ -834,7 +834,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal StringList CodeModules
+		public StringList CodeModules
 		{
 			get
 			{
@@ -846,7 +846,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CodeClassList CodeClasses
+		public CodeClassList CodeClasses
 		{
 			get
 			{
@@ -858,7 +858,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasSpecialRecursiveAggregates
+		public bool HasSpecialRecursiveAggregates
 		{
 			get
 			{
@@ -870,7 +870,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Language
+		public ExpressionInfo Language
 		{
 			get
 			{
@@ -882,7 +882,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportExprHost ReportExprHost
+		public ReportExprHost ReportExprHost
 		{
 			get
 			{
@@ -890,7 +890,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DataTransform
+		public string DataTransform
 		{
 			get
 			{
@@ -902,7 +902,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DataSchema
+		public string DataSchema
 		{
 			get
 			{
@@ -914,7 +914,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool DataElementStyleAttribute
+		public bool DataElementStyleAttribute
 		{
 			get
 			{
@@ -926,7 +926,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Code
+		public string Code
 		{
 			get
 			{
@@ -938,7 +938,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasUserSortFilter
+		public bool HasUserSortFilter
 		{
 			get
 			{
@@ -950,7 +950,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string InteractiveHeight
+		public string InteractiveHeight
 		{
 			get
 			{
@@ -962,7 +962,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double InteractiveHeightValue
+		public double InteractiveHeightValue
 		{
 			get
 			{
@@ -978,7 +978,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string InteractiveWidth
+		public string InteractiveWidth
 		{
 			get
 			{
@@ -990,7 +990,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double InteractiveWidthValue
+		public double InteractiveWidthValue
 		{
 			get
 			{
@@ -1006,7 +1006,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal InScopeSortFilterHashtable NonDetailSortFiltersInScope
+		public InScopeSortFilterHashtable NonDetailSortFiltersInScope
 		{
 			get
 			{
@@ -1018,7 +1018,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal InScopeSortFilterHashtable DetailSortFiltersInScope
+		public InScopeSortFilterHashtable DetailSortFiltersInScope
 		{
 			get
 			{
@@ -1030,7 +1030,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ExprHostAssemblyName
+		public string ExprHostAssemblyName
 		{
 			get
 			{
@@ -1038,7 +1038,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int LastAggregateID
+		public int LastAggregateID
 		{
 			get
 			{
@@ -1050,7 +1050,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal long MainChunkSize
+		public long MainChunkSize
 		{
 			get
 			{
@@ -1062,7 +1062,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Report(int id, int idForReportItems)
+		public Report(int id, int idForReportItems)
 			: base(id, null)
 		{
 			this.m_intermediateFormatVersion = new IntermediateFormatVersion();
@@ -1075,7 +1075,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_exprCompiledCode = new byte[0];
 		}
 
-		internal Report(ReportItem parent, IntermediateFormatVersion version, Guid reportVersion)
+		public Report(ReportItem parent, IntermediateFormatVersion version, Guid reportVersion)
 			: base(parent)
 		{
 			this.m_intermediateFormatVersion = version;
@@ -1084,7 +1084,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			base.m_endPage = 0;
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.Location = LocationFlags.None;
 			context.ObjectType = this.ObjectType;
@@ -1165,7 +1165,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal void BodyInitialize(InitializationContext context)
+		public void BodyInitialize(InitializationContext context)
 		{
 			context.RegisterReportItems(this.m_reportItems);
 			this.m_reportItems.Initialize(context, true);
@@ -1175,7 +1175,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.UnRegisterReportItems(this.m_reportItems);
 		}
 
-		internal void PageHeaderFooterInitialize(InitializationContext context)
+		public void PageHeaderFooterInitialize(InitializationContext context)
 		{
 			context.RegisterPageSectionScope(this.m_pageAggregates);
 			if (this.m_pageHeader != null)
@@ -1211,14 +1211,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(reportExprHost != null && reportObjectModel != null, "(reportExprHost != null && reportObjectModel != null)");
 			this.m_exprHost = reportExprHost;
 			base.ReportItemSetExprHost(this.m_exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.IntermediateFormatVersion, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.IntermediateFormatVersion));

@@ -9,14 +9,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapCustomColorRule : MapColorRule, IPersistable
+	public sealed class MapCustomColorRule : MapColorRule, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapCustomColorRule.GetDeclaration();
 
 		private List<MapCustomColor> m_mapCustomColors;
 
-		internal List<MapCustomColor> MapCustomColors
+		public List<MapCustomColor> MapCustomColors
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapCustomColorRuleExprHost ExprHost
+		public new MapCustomColorRuleExprHost ExprHost
 		{
 			get
 			{
@@ -36,16 +36,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapCustomColorRule()
+		public MapCustomColorRule()
 		{
 		}
 
-		internal MapCustomColorRule(MapVectorLayer mapVectorLayer, Map map)
+		public MapCustomColorRule(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapCustomColorRuleStart();
 			base.Initialize(context);
@@ -59,14 +59,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapCustomColorRuleEnd();
 		}
 
-		internal override void InitializeMapMember(InitializationContext context)
+		public override void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapCustomColorRuleStart();
 			base.InitializeMapMember(context);
 			context.ExprHostBuilder.MapCustomColorRuleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapCustomColorRule mapCustomColorRule = (MapCustomColorRule)base.PublishClone(context);
 			if (this.m_mapCustomColors != null)
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapCustomColorRule;
 		}
 
-		internal override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapCustomColors, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapCustomColor));

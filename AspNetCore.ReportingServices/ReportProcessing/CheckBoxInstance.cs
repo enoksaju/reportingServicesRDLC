@@ -4,9 +4,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CheckBoxInstance : ReportItemInstance
+	public sealed class CheckBoxInstance : ReportItemInstance
 	{
-		internal CheckBoxInstanceInfo InstanceInfo
+		public CheckBoxInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -19,23 +19,23 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CheckBoxInstance(ReportProcessing.ProcessingContext pc, CheckBox reportItemDef, int index)
+		public CheckBoxInstance(ReportProcessing.ProcessingContext pc, CheckBox reportItemDef, int index)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new CheckBoxInstanceInfo(pc, reportItemDef, this, index);
 		}
 
-		internal CheckBoxInstance()
+		public CheckBoxInstance()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList members = new MemberInfoList();
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance, members);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadCheckBoxInstanceInfo((CheckBox)base.m_reportItemDef);

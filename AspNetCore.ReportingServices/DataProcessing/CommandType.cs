@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal enum CommandType
+	public enum CommandType
 	{
 		Text = 1,
 		StoredProcedure = 4,

@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ListInstance : ReportItemInstance, IPageItem
+	public sealed class ListInstance : ReportItemInstance, IPageItem
 	{
 		private ListContentInstanceList m_listContentInstances;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal ListContentInstanceList ListContents
+		public ListContentInstanceList ListContents
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RenderingPagesRangesList ChildrenStartAndEndPages
+		public RenderingPagesRangesList ChildrenStartAndEndPages
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NumberOfContentsOnThisPage
+		public int NumberOfContentsOnThisPage
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ListInstance(ReportProcessing.ProcessingContext pc, List reportItemDef)
+		public ListInstance(ReportProcessing.ProcessingContext pc, List reportItemDef)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new ListInstanceInfo(pc, reportItemDef, this);
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_renderingPages = new RenderingPagesRangesList();
 		}
 
-		internal ListInstance(ReportProcessing.ProcessingContext pc, List reportItemDef, ListContentInstanceList listContentInstances, RenderingPagesRangesList renderingPages)
+		public ListInstance(ReportProcessing.ProcessingContext pc, List reportItemDef, ListContentInstanceList listContentInstances, RenderingPagesRangesList renderingPages)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new ListInstanceInfo(pc, reportItemDef, this);
@@ -95,11 +95,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_renderingPages = renderingPages;
 		}
 
-		internal ListInstance()
+		public ListInstance()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ListContentInstances, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ListContentInstanceList));
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadListInstanceInfo((List)base.m_reportItemDef);

@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class DoubleNanValueConverter : DoubleConverter
+	public class DoubleNanValueConverter : DoubleConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

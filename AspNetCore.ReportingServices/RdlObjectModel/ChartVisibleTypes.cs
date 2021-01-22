@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartVisibleTypes
+	public enum ChartVisibleTypes
 	{
 		Auto,
 		True,

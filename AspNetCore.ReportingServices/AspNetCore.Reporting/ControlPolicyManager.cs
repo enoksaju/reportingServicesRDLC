@@ -9,7 +9,7 @@ using System.Security.Policy;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ControlPolicyManager : PolicyManager
+	public sealed class ControlPolicyManager : PolicyManager
 	{
 		private static StrongName[] m_baseFullTrustAssemblies;
 

@@ -10,7 +10,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlDocumentModel
+	public sealed class OpenXmlDocumentModel
 	{
 		private sealed class PartInfo
 		{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 
 		private TemporaryHeaderFooterReferences _currentHeaderFooterReferences;
 
-		internal Package ZipPackage
+		public Package ZipPackage
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal OoxmlPart Part
+		public OoxmlPart Part
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal OpenXmlListNumberingManager ListManager
+		public OpenXmlListNumberingManager ListManager
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal OpenXmlSectionPropertiesModel SectionProperties
+		public OpenXmlSectionPropertiesModel SectionProperties
 		{
 			get
 			{
@@ -301,28 +301,28 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			this._currentPart = this._documentPart;
 		}
 
-		internal Relationship WriteImageData(byte[] imgBuf, ImageHash hash, string extension)
+		public Relationship WriteImageData(byte[] imgBuf, ImageHash hash, string extension)
 		{
 			return this._manager.AddImageToTree(new MemoryStream(imgBuf), hash, extension, "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image", "word/media/img{0}.{{0}}", this._currentPart.PartName);
 		}
 
-		internal void WriteDocumentProperties(string title, string author, string description)
+		public void WriteDocumentProperties(string title, string author, string description)
 		{
 			OpenXmlDocumentPropertiesModel openXmlDocumentPropertiesModel = new OpenXmlDocumentPropertiesModel(author, title, description);
 			this._manager.WriteStaticRootPart(openXmlDocumentPropertiesModel.PropertiesPart, "application/vnd.openxmlformats-package.core-properties+xml", "http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties", "docProps/core.xml");
 		}
 
-		internal void WriteParagraph(OpenXmlParagraphModel paragraph)
+		public void WriteParagraph(OpenXmlParagraphModel paragraph)
 		{
 			paragraph.Write(this._currentPart.Writer.TextWriter);
 		}
 
-		internal void WriteEmptyParagraph()
+		public void WriteEmptyParagraph()
 		{
 			OpenXmlParagraphModel.WriteEmptyParagraph(this._currentPart.Writer.TextWriter);
 		}
 
-		internal void WritePageBreak()
+		public void WritePageBreak()
 		{
 			OpenXmlParagraphModel.WritePageBreakParagraph(this._currentPart.Writer.TextWriter);
 		}
@@ -338,7 +338,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal void Save()
+		public void Save()
 		{
 			this._sectionProperties.WriteToBody(this._currentPart.Writer.TextWriter, (OpenXmlSectionPropertiesModel.IHeaderFooterReferences)(object)this._currentHeaderFooterReferences);
 			this._firstSection = true;

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class GetExternalImagesFailureException : ReportCatalogException
+	public sealed class GetExternalImagesFailureException : ReportCatalogException
 	{
 		public GetExternalImagesFailureException(string message, ErrorCode errorCode)
 			: this(message, errorCode, null)

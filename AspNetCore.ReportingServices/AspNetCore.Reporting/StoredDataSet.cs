@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal class StoredDataSet
+	public class StoredDataSet
 	{
 		public byte[] Definition
 		{

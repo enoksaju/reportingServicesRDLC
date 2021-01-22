@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartGridLinesInstance : BaseInstance
+	public sealed class ChartGridLinesInstance : BaseInstance
 	{
 		private ChartGridLines m_gridLinesDef;
 
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartGridLinesInstance(ChartGridLines gridlinesDef)
+		public ChartGridLinesInstance(ChartGridLines gridlinesDef)
 			: base(gridlinesDef.ChartDef)
 		{
 			this.m_gridLinesDef = gridlinesDef;

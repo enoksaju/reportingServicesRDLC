@@ -2,7 +2,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IStreambookModel : IWorkbookModel
+	public interface IStreambookModel : IWorkbookModel
 	{
 		Package ZipPackage
 		{

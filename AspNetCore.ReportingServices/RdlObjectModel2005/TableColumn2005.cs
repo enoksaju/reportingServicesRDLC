@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class TableColumn2005 : ReportObject
+	public class TableColumn2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<TableColumn2005, Definition.Properties>
+		public class Definition : DefinitionStore<TableColumn2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Width,
 				Visibility,

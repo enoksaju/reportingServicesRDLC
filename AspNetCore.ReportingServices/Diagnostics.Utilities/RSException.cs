@@ -10,7 +10,7 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal class RSException : Exception
+	public class RSException : Exception
     {
         protected RSException(SerializationInfo info, StreamingContext context)
             : base(info, context)
@@ -49,51 +49,51 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
             this.m_OS = inner.m_OS;
             this.m_AdditionalTraceMessage = inner.m_AdditionalTraceMessage;
         }
-        internal sealed class AdditionalMessage
+        public sealed class AdditionalMessage
 		{
-			internal string Code
+			public string Code
 			{
 				get;
 				private set;
 			}
 
-			internal string Severity
+			public string Severity
 			{
 				get;
 				private set;
 			}
 
-			internal string Message
+			public string Message
 			{
 				get;
 				private set;
 			}
 
-			internal string ObjectType
+			public string ObjectType
 			{
 				get;
 				private set;
 			}
 
-			internal string ObjectName
+			public string ObjectName
 			{
 				get;
 				private set;
 			}
 
-			internal string PropertyName
+			public string PropertyName
 			{
 				get;
 				private set;
 			}
 
-			internal string[] AffectedItems
+			public string[] AffectedItems
 			{
 				get;
 				private set;
 			}
 
-			internal AdditionalMessage(string code, string severity, string message, string objectType = null, string objectName = null, string propertyName = null, string[] affectedItems = null)
+			public AdditionalMessage(string code, string severity, string message, string objectType = null, string objectName = null, string propertyName = null, string[] affectedItems = null)
 			{
 				this.Code = code;
 				this.Severity = severity;
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal List<AdditionalMessage> AdditionalMessages
+		public List<AdditionalMessage> AdditionalMessages
 		{
 			get
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal string ProductName
+		public string ProductName
 		{
 			get
 			{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal string ProductVersion
+		public string ProductVersion
 		{
 			get
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal int ProductLocaleID
+		public int ProductLocaleID
 		{
 			get
 			{
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal string OperatingSystem
+		public string OperatingSystem
 		{
 			get
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal int CountryLocaleID
+		public int CountryLocaleID
 		{
 			get
 			{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		public static event EventHandler<RSExceptionCreatedEventArgs> ExceptionCreated;
 
-		internal static bool IsClientLocal()
+		public static bool IsClientLocal()
 		{
 			return true;
 		}
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			return this.AddMoreInformationForException(doc, parent, this, errorMsgBuilder);
 		}
 
-		internal void AddWarningsInternal(XmlDocument doc, XmlNode parent)
+		public void AddWarningsInternal(XmlDocument doc, XmlNode parent)
 		{
 			XmlNode xmlNode = SoapUtil.CreateWarningNode(doc);
 			parent.AppendChild(xmlNode);
@@ -406,7 +406,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			return string.Format(CultureInfo.CurrentCulture, "https://go.microsoft.com/fwlink/?LinkId=20476&EvtSrc={0}&EvtID={1}&ProdName=Microsoft%20SQL%20Server%20Reporting%20Services&ProdVer={2}", messageSource, id, this.m_ProductVersion);
 		}
 
-		internal void AddMoreInformation(XmlDocument doc, XmlNode parent, bool enableRemoteErrors, StringBuilder errorMsgBuilder)
+		public void AddMoreInformation(XmlDocument doc, XmlNode parent, bool enableRemoteErrors, StringBuilder errorMsgBuilder)
 		{
 			Exception ex = this;
 			XmlNode parent2 = parent;
@@ -475,7 +475,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal bool ContainsErrorCode(ErrorCode code)
+		public bool ContainsErrorCode(ErrorCode code)
 		{
 			for (RSException ex = this; ex != null; ex = (ex.InnerException as RSException))
 			{

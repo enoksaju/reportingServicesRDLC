@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartMember : ReportHierarchyNode, IPersistable
+	public sealed class ChartMember : ReportHierarchyNode, IPersistable
 	{
 		private ChartMemberList m_chartMembers;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartMemberExprHost m_exprHost;
 
-		internal override string RdlElementName
+		public override string RdlElementName
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList InnerHierarchy
+		public override HierarchyNodeList InnerHierarchy
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMemberList ChartMembers
+		public ChartMemberList ChartMembers
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Label
+		public ExpressionInfo Label
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ChartGroupExpression
+		public bool ChartGroupExpression
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMemberExprHost ExprHost
+		public ChartMemberExprHost ExprHost
 		{
 			get
 			{
@@ -118,16 +118,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMember()
+		public ChartMember()
 		{
 		}
 
-		internal ChartMember(int id, Chart crItem)
+		public ChartMember(int id, Chart crItem)
 			: base(id, crItem)
 		{
 		}
 
-		internal void SetIsCategoryMember(bool value)
+		public void SetIsCategoryMember(bool value)
 		{
 			base.m_isColumn = value;
 			if (this.m_chartMembers != null)
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return builder.DataGroupEnd(AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder.DataRegionMode.Chart, base.m_isColumn);
 		}
 
-		internal override bool InnerInitialize(InitializationContext context, bool restrictive)
+		public override bool InnerInitialize(InitializationContext context, bool restrictive)
 		{
 			if (this.m_labelExpression != null)
 			{
@@ -164,13 +164,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return base.InnerInitialize(context, restrictive);
 		}
 
-		internal override bool Initialize(InitializationContext context, bool restrictive)
+		public override bool Initialize(InitializationContext context, bool restrictive)
 		{
 			this.DataRendererInitialize(context);
 			return base.Initialize(context, restrictive);
 		}
 
-		internal void DataRendererInitialize(InitializationContext context)
+		public void DataRendererInitialize(InitializationContext context)
 		{
 			if (this.m_dataElementOutput == DataElementOutputTypes.Auto)
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			AspNetCore.ReportingServices.ReportPublishing.CLSNameValidator.ValidateDataElementName(ref this.m_dataElementName, defaultName, context.ObjectType, context.ObjectName, "DataElementName", context.ErrorContext);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context, DataRegion newContainingRegion)
+		public override object PublishClone(AutomaticSubtotalContext context, DataRegion newContainingRegion)
 		{
 			ChartMember chartMember = (ChartMember)base.PublishClone(context, newContainingRegion);
 			if (this.m_chartMembers != null)
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartMember;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ChartMembers, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartMember));
@@ -297,7 +297,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartMember;
 		}
 
-		internal override void SetExprHost(IMemberNode memberExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(IMemberNode memberExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -316,17 +316,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void MemberContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
+		public override void MemberContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
 		{
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateLabel(ChartMemberInstance instance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateLabel(ChartMemberInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, instance.ReportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDynamicMemberLabelExpression(this, this.m_labelExpression, base.m_dataRegionDef.Name);
 		}
 
-		internal string GetFormattedLabelValue(AspNetCore.ReportingServices.RdlExpressions.VariantResult labelObject, OnDemandProcessingContext context)
+		public string GetFormattedLabelValue(AspNetCore.ReportingServices.RdlExpressions.VariantResult labelObject, OnDemandProcessingContext context)
 		{
 			string result = null;
 			if (labelObject.ErrorOccurred)

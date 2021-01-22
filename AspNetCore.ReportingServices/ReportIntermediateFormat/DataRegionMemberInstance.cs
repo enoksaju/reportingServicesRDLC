@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class DataRegionMemberInstance : ScopeInstance, IMemberHierarchy
+	public sealed class DataRegionMemberInstance : ScopeInstance, IMemberHierarchy
 	{
 		private int m_memberInstanceIndexWithinScopeLevel = -1;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DataRegionMemberInstance.GetDeclaration();
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int MemberInstanceIndexWithinScopeLevel
+		public int MemberInstanceIndexWithinScopeLevel
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int RecursiveLevel
+		public int RecursiveLevel
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object[] GroupVariables
+		public object[] GroupVariables
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object[] GroupExprValues
+		public object[] GroupExprValues
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ScalableList<DataRegionMemberInstance>> Children
+		public List<ScalableList<DataRegionMemberInstance>> Children
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ScalableList<DataCellInstanceList> Cells
+		public ScalableList<DataCellInstanceList> Cells
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportHierarchyNode MemberDef
+		public ReportHierarchyNode MemberDef
 		{
 			get
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int RecursiveParentIndex
+		public int RecursiveParentIndex
 		{
 			get
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool? HasRecursiveChildren
+		public bool? HasRecursiveChildren
 		{
 			get
 			{
@@ -171,18 +171,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_variables = groupVariableValues;
 		}
 
-		internal DataRegionMemberInstance()
+		public DataRegionMemberInstance()
 		{
 		}
 
-		internal static DataRegionMemberInstance CreateInstance(IMemberHierarchy parentInstance, OnDemandProcessingContext odpContext, ReportHierarchyNode memberDef, long firstRowOffset, int memberInstanceIndexWithinScopeLevel, int recursiveLevel, List<object> groupExpressionValues, object[] groupVariableValues, out int instanceIndex)
+		public static DataRegionMemberInstance CreateInstance(IMemberHierarchy parentInstance, OnDemandProcessingContext odpContext, ReportHierarchyNode memberDef, long firstRowOffset, int memberInstanceIndexWithinScopeLevel, int recursiveLevel, List<object> groupExpressionValues, object[] groupVariableValues, out int instanceIndex)
 		{
 			DataRegionMemberInstance dataRegionMemberInstance = new DataRegionMemberInstance(odpContext, memberDef, firstRowOffset, memberInstanceIndexWithinScopeLevel, recursiveLevel, groupExpressionValues, groupVariableValues);
 			dataRegionMemberInstance.m_cleanupRef = parentInstance.AddMemberInstance(dataRegionMemberInstance, memberDef.IndexInCollection, (IScalabilityCache)odpContext.OdpMetadata.GroupTreeScalabilityCache, out instanceIndex);
 			return dataRegionMemberInstance;
 		}
 
-		internal override void InstanceComplete()
+		public override void InstanceComplete()
 		{
 			if (this.m_cells != null)
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return DataRegionInstance.AddCellInstance(this.m_cells, columnMemberSequenceId, cellIndexInCollection, cellInstance, cache);
 		}
 
-		internal void SetupEnvironment(OnDemandProcessingContext odpContext, int dataSetIndex)
+		public void SetupEnvironment(OnDemandProcessingContext odpContext, int dataSetIndex)
 		{
 			base.SetupFields(odpContext, dataSetIndex);
 			int num = 0;
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ID, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ReportHierarchyNode, Token.GlobalReference));

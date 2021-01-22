@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class RemotePublicKeyUnavailableException : ReportCatalogException
+	public sealed class RemotePublicKeyUnavailableException : ReportCatalogException
 	{
 		public RemotePublicKeyUnavailableException()
 			: base(ErrorCode.rsRemotePublicKeyUnavailable, ErrorStrings.rsRemotePublicKeyUnavailable, null, null)

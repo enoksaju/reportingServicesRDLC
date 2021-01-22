@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DataAggregateInfoList : ArrayList
+	public sealed class DataAggregateInfoList : ArrayList
 	{
-		internal new DataAggregateInfo this[int index]
+		public new DataAggregateInfo this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList()
+		public DataAggregateInfoList()
 		{
 		}
 
-		internal DataAggregateInfoList(int capacity)
+		public DataAggregateInfoList(int capacity)
 			: base(capacity)
 		{
 		}

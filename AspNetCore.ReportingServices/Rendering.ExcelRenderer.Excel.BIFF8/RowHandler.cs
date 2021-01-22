@@ -7,9 +7,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class RowHandler
+	public sealed class RowHandler
 	{
-		internal enum TransformResult
+		public enum TransformResult
 		{
 			NotHandled,
 			Handled,
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private SSTHandler m_stringHandler;
 
-		internal int Row
+		public int Row
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal RowHandler(BinaryWriter output, int firstRow, SSTHandler sst)
+		public RowHandler(BinaryWriter output, int firstRow, SSTHandler sst)
 		{
 			this.m_stream = output;
 			this.m_counter = 0;
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			this.m_stringHandler = sst;
 		}
 
-		internal bool Add(object value, RichTextInfo richTextInfo, TypeCode type, ExcelDataType excelType, ExcelErrorCode errorCode, short column, ushort ixfe)
+		public bool Add(object value, RichTextInfo richTextInfo, TypeCode type, ExcelDataType excelType, ExcelErrorCode errorCode, short column, ushort ixfe)
 		{
 			this.m_details.Initialize(this.m_stream, this.m_row, column, ixfe);
 			TransformResult transformResult;
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return TransformResult.Handled;
 		}
 
-		internal TransformResult CreateStringRecord(string input, CellRenderingDetails details)
+		public TransformResult CreateStringRecord(string input, CellRenderingDetails details)
 		{
 			if (input.Length > 32767)
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return TransformResult.Handled;
 		}
 
-		internal TransformResult CreateBoolRecord(object val, CellRenderingDetails details)
+		public TransformResult CreateBoolRecord(object val, CellRenderingDetails details)
 		{
 			if (val == null)
 			{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return this.CreateBoolErrRecord(Convert.ToByte(value), false, details);
 		}
 
-		internal TransformResult CreateErrorRecord(ExcelErrorCode errorCode, CellRenderingDetails details)
+		public TransformResult CreateErrorRecord(ExcelErrorCode errorCode, CellRenderingDetails details)
 		{
 			return this.CreateBoolErrRecord((byte)errorCode, true, details);
 		}
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return TransformResult.Handled;
 		}
 
-		internal TransformResult CreateRKorNumberRecord(ValueType val, CellRenderingDetails details, out uint? rkValue)
+		public TransformResult CreateRKorNumberRecord(ValueType val, CellRenderingDetails details, out uint? rkValue)
 		{
 			if (val == null)
 			{
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return TransformResult.Handled;
 		}
 
-		internal void FlushRow()
+		public void FlushRow()
 		{
 			this.FlushMultiRecord();
 			this.m_counter = 0;
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			this.m_valueCol2 = -1;
 		}
 
-		internal static double DateToDays(DateTime dateTime)
+		public static double DateToDays(DateTime dateTime)
 		{
 			double num = dateTime.Subtract(RowHandler.Epoch).TotalDays + 1.0;
 			if (num >= 60.0)

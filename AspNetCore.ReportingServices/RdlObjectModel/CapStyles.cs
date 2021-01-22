@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum CapStyles
+	public enum CapStyles
 	{
 		RoundedDark,
 		Rounded,

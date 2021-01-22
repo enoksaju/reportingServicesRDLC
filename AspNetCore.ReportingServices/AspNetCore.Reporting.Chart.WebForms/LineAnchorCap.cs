@@ -1,7 +1,7 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeLineAnchorCap_LineAnchorCap")]
-	internal enum LineAnchorCap
+	public enum LineAnchorCap
 	{
 		None,
 		Arrow,

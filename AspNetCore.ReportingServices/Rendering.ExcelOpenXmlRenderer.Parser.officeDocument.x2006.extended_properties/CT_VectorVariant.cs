@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.officeDocument.x2006.extended_properties
 {
-	internal class CT_VectorVariant : OoxmlComplexType
+	public class CT_VectorVariant : OoxmlComplexType
 	{
 		private CT_Vector _vector;
 

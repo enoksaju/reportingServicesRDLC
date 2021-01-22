@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal class PrintTitleInfo
+	public class PrintTitleInfo
 	{
 		private ushort m_externSheetIndex;
 
@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private ushort m_lastRow;
 
-		internal ushort ExternSheetIndex
+		public ushort ExternSheetIndex
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ushort CurrentSheetIndex
+		public ushort CurrentSheetIndex
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ushort FirstRow
+		public ushort FirstRow
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ushort LastRow
+		public ushort LastRow
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal PrintTitleInfo(ushort externSheetIndex, ushort currentSheetIndex, ushort firstRow, ushort lastRow)
+		public PrintTitleInfo(ushort externSheetIndex, ushort currentSheetIndex, ushort firstRow, ushort lastRow)
 		{
 			this.m_externSheetIndex = externSheetIndex;
 			this.m_currentSheetIndex = currentSheetIndex;

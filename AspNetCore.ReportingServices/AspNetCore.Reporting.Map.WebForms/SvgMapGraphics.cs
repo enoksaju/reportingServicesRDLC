@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SvgMapGraphics : SvgRendering, IMapRenderingEngine
+	public class SvgMapGraphics : SvgRendering, IMapRenderingEngine
 	{
 		private Graphics graphics;
 

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class LiveRecordRowReader : IRecordRowReader, IDisposable
+	public sealed class LiveRecordRowReader : IRecordRowReader, IDisposable
 	{
 		private RuntimeLiveReaderDataSource m_dataSource;
 

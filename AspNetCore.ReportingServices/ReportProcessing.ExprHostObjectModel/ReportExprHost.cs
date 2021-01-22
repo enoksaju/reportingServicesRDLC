@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<AggregateParamExprHost> AggregateParamHostsRemotable
+		public IList<AggregateParamExprHost> AggregateParamHostsRemotable
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<ReportParamExprHost> ReportParameterHostsRemotable
+		public IList<ReportParamExprHost> ReportParameterHostsRemotable
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<DataSourceExprHost> DataSourceHostsRemotable
+		public IList<DataSourceExprHost> DataSourceHostsRemotable
 		{
 			get
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<DataSetExprHost> DataSetHostsRemotable
+		public IList<DataSetExprHost> DataSetHostsRemotable
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<StyleExprHost> PageSectionHostsRemotable
+		public IList<StyleExprHost> PageSectionHostsRemotable
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<ReportItemExprHost> LineHostsRemotable
+		public IList<ReportItemExprHost> LineHostsRemotable
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<ReportItemExprHost> RectangleHostsRemotable
+		public IList<ReportItemExprHost> RectangleHostsRemotable
 		{
 			get
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<TextBoxExprHost> TextBoxHostsRemotable
+		public IList<TextBoxExprHost> TextBoxHostsRemotable
 		{
 			get
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<ImageExprHost> ImageHostsRemotable
+		public IList<ImageExprHost> ImageHostsRemotable
 		{
 			get
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<SubreportExprHost> SubreportHostsRemotable
+		public IList<SubreportExprHost> SubreportHostsRemotable
 		{
 			get
 			{
@@ -219,7 +219,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<ActiveXControlExprHost> ActiveXControlHostsRemotable
+		public IList<ActiveXControlExprHost> ActiveXControlHostsRemotable
 		{
 			get
 			{
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<ListExprHost> ListHostsRemotable
+		public IList<ListExprHost> ListHostsRemotable
 		{
 			get
 			{
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<MatrixExprHost> MatrixHostsRemotable
+		public IList<MatrixExprHost> MatrixHostsRemotable
 		{
 			get
 			{
@@ -255,7 +255,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<ChartExprHost> ChartHostsRemotable
+		public IList<ChartExprHost> ChartHostsRemotable
 		{
 			get
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<TableExprHost> TableHostsRemotable
+		public IList<TableExprHost> TableHostsRemotable
 		{
 			get
 			{
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<OWCChartExprHost> OWCChartHostsRemotable
+		public IList<OWCChartExprHost> OWCChartHostsRemotable
 		{
 			get
 			{
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<CustomReportItemExprHost> CustomReportItemHostsRemotable
+		public IList<CustomReportItemExprHost> CustomReportItemHostsRemotable
 		{
 			get
 			{
@@ -308,7 +308,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			base.SetReportObjectModel((ObjectModel)reportObjectModel);
 		}
 
-		internal void CustomCodeOnInit()
+		public void CustomCodeOnInit()
 		{
 			if (this.m_codeProxyBase != null)
 			{

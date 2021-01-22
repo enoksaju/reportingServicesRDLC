@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableHeaderFooterRows : TableRowCollection
+	public sealed class TableHeaderFooterRows : TableRowCollection
 	{
 		private bool m_repeatOnNewPage;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableHeaderFooterRows(Table owner, bool repeatOnNewPage, TableRowList rowDefs, TableRowInstance[] rowInstances)
+		public TableHeaderFooterRows(Table owner, bool repeatOnNewPage, TableRowList rowDefs, TableRowInstance[] rowInstances)
 			: base(owner, rowDefs, rowInstances)
 		{
 			this.m_repeatOnNewPage = repeatOnNewPage;

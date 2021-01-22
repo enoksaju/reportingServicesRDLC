@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IPaletteModel
+	public interface IPaletteModel
 	{
 		Palette Interface
 		{

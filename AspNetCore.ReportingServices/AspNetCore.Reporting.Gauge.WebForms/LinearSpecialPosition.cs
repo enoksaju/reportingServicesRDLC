@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class LinearSpecialPosition : SpecialPosition
+	public class LinearSpecialPosition : SpecialPosition
 	{
 		private LinearPinLabel pinLinearLabel;
 

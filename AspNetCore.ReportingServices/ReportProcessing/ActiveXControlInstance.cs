@@ -4,9 +4,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ActiveXControlInstance : ReportItemInstance
+	public sealed class ActiveXControlInstance : ReportItemInstance
 	{
-		internal ActiveXControlInstanceInfo InstanceInfo
+		public ActiveXControlInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -19,23 +19,23 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActiveXControlInstance(ReportProcessing.ProcessingContext pc, ActiveXControl reportItemDef, int index)
+		public ActiveXControlInstance(ReportProcessing.ProcessingContext pc, ActiveXControl reportItemDef, int index)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new ActiveXControlInstanceInfo(pc, reportItemDef, this, index);
 		}
 
-		internal ActiveXControlInstance()
+		public ActiveXControlInstance()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList members = new MemberInfoList();
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance, members);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadActiveXControlInstanceInfo((ActiveXControl)base.m_reportItemDef);

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class Cell : IDOwner, IAggregateHolder, IRunningValueHolder, IPersistable, IIndexedInCollection, IGloballyReferenceable, IGlobalIDOwner, IRIFReportIntersectionScope, IRIFReportDataScope, IRIFReportScope, IInstancePath, IRIFDataScope
+	public abstract class Cell : IDOwner, IAggregateHolder, IRunningValueHolder, IPersistable, IIndexedInCollection, IGloballyReferenceable, IGlobalIDOwner, IRIFReportIntersectionScope, IRIFReportDataScope, IRIFReportScope, IInstancePath, IRIFDataScope
 	{
 		protected int m_exprHostID = -1;
 
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			get;
 		}
 
-		internal DataScopeInfo CanonicalDataScopeInfo
+		public DataScopeInfo CanonicalDataScopeInfo
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ParentRowMemberID
+		public int ParentRowMemberID
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ParentColumnMemberID
+		public int ParentColumnMemberID
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataRegion DataRegionDef
+		public DataRegion DataRegionDef
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> AggregateIndexes
+		public List<int> AggregateIndexes
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> PostSortAggregateIndexes
+		public List<int> PostSortAggregateIndexes
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> RunningValueIndexes
+		public List<int> RunningValueIndexes
 		{
 			get
 			{
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasInnerGroupTreeHierarchy
+		public bool HasInnerGroupTreeHierarchy
 		{
 			get
 			{
@@ -178,7 +178,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool SimpleGroupTreeCell
+		public bool SimpleGroupTreeCell
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> Aggregates
+		public List<DataAggregateInfo> Aggregates
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> PostSortAggregates
+		public List<DataAggregateInfo> PostSortAggregates
 		{
 			get
 			{
@@ -206,7 +206,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<RunningValueInfo> RunningValues
+		public List<RunningValueInfo> RunningValues
 		{
 			get
 			{
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<IInScopeEventSource> InScopeEventSources
+		public List<IInScopeEventSource> InScopeEventSources
 		{
 			get
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InDynamicRowAndColumnContext
+		public bool InDynamicRowAndColumnContext
 		{
 			get
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual List<ReportItem> CellContentCollection
+		public virtual List<ReportItem> CellContentCollection
 		{
 			get
 			{
@@ -416,11 +416,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			get;
 		}
 
-		internal Cell()
+		public Cell()
 		{
 		}
 
-		internal Cell(int id, DataRegion dataRegion)
+		public Cell(int id, DataRegion dataRegion)
 			: base(id)
 		{
 			this.m_dataRegionDef = dataRegion;
@@ -544,7 +544,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_currentStreamingScopeInstance = null;
 		}
 
-		internal void TraverseScopes(IRIFScopeVisitor visitor, int rowIndex, int colIndex)
+		public void TraverseScopes(IRIFScopeVisitor visitor, int rowIndex, int colIndex)
 		{
 			visitor.PreVisit(this, rowIndex, colIndex);
 			this.TraverseNestedScopes(visitor);
@@ -593,7 +593,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void GenerateAggregateIndexes(Dictionary<string, int> aggregateIndexMapping, Dictionary<string, int> postSortAggregateIndexMapping, Dictionary<string, int> runningValueIndexMapping)
+		public void GenerateAggregateIndexes(Dictionary<string, int> aggregateIndexMapping, Dictionary<string, int> postSortAggregateIndexMapping, Dictionary<string, int> runningValueIndexMapping)
 		{
 			if (this.m_aggregates != null)
 			{
@@ -627,7 +627,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static bool ContainsInnerGroupTreeHierarchy(ReportItem cellContents)
+		public static bool ContainsInnerGroupTreeHierarchy(ReportItem cellContents)
 		{
 			if (cellContents == null)
 			{
@@ -636,7 +636,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return cellContents.IsOrContainsDataRegionOrSubReport();
 		}
 
-		internal void Initialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
+		public void Initialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
 		{
 			bool flag = this.IsDataRegionBodyCell && context.IsDataRegionCellScope;
 			if (flag)
@@ -683,7 +683,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal abstract void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context);
+		public abstract void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context);
 
 		protected virtual void StartExprHost(InitializationContext context)
 		{
@@ -704,7 +704,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			Cell cell = (Cell)base.PublishClone(context);
 			cell.m_aggregates = new List<DataAggregateInfo>();
@@ -720,7 +720,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return cell;
 		}
 
-		internal void BaseSetExprHost(CellExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void BaseSetExprHost(CellExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_dataScopeInfo != null && this.m_dataScopeInfo.JoinInfo != null && exprHost.JoinConditionExprHostsRemotable != null)
 			{
@@ -728,7 +728,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ExprHostID, Token.Int32));

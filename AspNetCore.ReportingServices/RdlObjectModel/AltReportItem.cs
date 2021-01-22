@@ -2,11 +2,11 @@ using System;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class AltReportItem : ReportObject
+	public class AltReportItem : ReportObject
 	{
-		internal class Definition : DefinitionStore<AltReportItem, Definition.Properties>
+		public class Definition : DefinitionStore<AltReportItem, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ReportItem
 			}
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal AltReportItem(IPropertyStore propertyStore)
+		public AltReportItem(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

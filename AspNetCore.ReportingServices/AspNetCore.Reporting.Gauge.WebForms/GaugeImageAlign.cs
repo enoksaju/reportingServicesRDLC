@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum GaugeImageAlign
+	public enum GaugeImageAlign
 	{
 		TopLeft,
 		Top,

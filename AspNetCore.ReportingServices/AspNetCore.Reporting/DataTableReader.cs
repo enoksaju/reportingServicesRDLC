@@ -4,7 +4,7 @@ using System.Data;
 
 namespace AspNetCore.Reporting
 {
-	internal class DataTableReader : AspNetCore.ReportingServices.DataProcessing.IDataReader, IDisposable
+	public class DataTableReader : AspNetCore.ReportingServices.DataProcessing.IDataReader, IDisposable
 	{
 		private int m_currentRowNumber = -1;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal DataTableReader(DataTable dataTable)
+		public DataTableReader(DataTable dataTable)
 		{
 			this.m_dataTable = dataTable;
 		}

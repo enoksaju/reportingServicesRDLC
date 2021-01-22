@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TablixHierarchy : ReportObject, IHierarchy
+	public class TablixHierarchy : ReportObject, IHierarchy
 	{
-		internal class Definition : DefinitionStore<TablixHierarchy, Definition.Properties>
+		public class Definition : DefinitionStore<TablixHierarchy, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				TablixMembers
 			}
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TablixHierarchy(IPropertyStore propertyStore)
+		public TablixHierarchy(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

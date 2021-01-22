@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal interface ICellController
+	public interface ICellController
 	{
 		object Value
 		{

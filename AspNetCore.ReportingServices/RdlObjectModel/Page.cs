@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Page : ReportObject
+	public class Page : ReportObject
 	{
-		internal class Definition : DefinitionStore<Page, Definition.Properties>
+		public class Definition : DefinitionStore<Page, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				PageHeader,
 				PageFooter,
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Page(IPropertyStore propertyStore)
+		public Page(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

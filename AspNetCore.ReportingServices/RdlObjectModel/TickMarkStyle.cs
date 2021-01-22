@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TickMarkStyle : ReportObject
+	public class TickMarkStyle : ReportObject
 	{
-		internal class Definition : DefinitionStore<TickMarkStyle, Definition.Properties>
+		public class Definition : DefinitionStore<TickMarkStyle, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				DistanceFromScale,
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TickMarkStyle(IPropertyStore propertyStore)
+		public TickMarkStyle(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

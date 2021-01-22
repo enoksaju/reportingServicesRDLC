@@ -1,4 +1,4 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal delegate void ContextBody();
+	public delegate void ContextBody();
 }

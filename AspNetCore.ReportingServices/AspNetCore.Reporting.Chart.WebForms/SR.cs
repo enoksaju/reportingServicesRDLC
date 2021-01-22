@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[CompilerGenerated]
-	internal class SR
+	public class SR
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string ExceptionElementPositionConverter = "ExceptionElementPositionConverter";
 

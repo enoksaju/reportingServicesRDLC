@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapColorRule : MapAppearanceRule
+	public abstract class MapColorRule : MapAppearanceRule
 	{
 		private ReportBoolProperty m_showInColorScale;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorRule MapColorRuleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorRule MapColorRuleDef
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal new MapColorRuleInstance Instance
+		public new MapColorRuleInstance Instance
 		{
 			get
 			{
@@ -34,12 +34,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapColorRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorRule defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapColorRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorRule defObject, MapVectorLayer mapVectorLayer, Map map)
 			: base(defObject, mapVectorLayer, map)
 		{
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

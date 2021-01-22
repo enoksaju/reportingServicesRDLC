@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class Paragraph
+	public sealed class Paragraph
 	{
 		private const int m_maxRunLength = 21845;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private int m_lastCharIndexInRun;
 
-		internal IParagraphProps ParagraphProps
+		public IParagraphProps ParagraphProps
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int ParagraphNumber
+		public int ParagraphNumber
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal List<TextRun> Runs
+		public List<TextRun> Runs
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal List<TextLine> TextLines
+		public List<TextLine> TextLines
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool Updated
+		public bool Updated
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool ProcessedEmptyParagraph
+		public bool ProcessedEmptyParagraph
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int OffsetY
+		public int OffsetY
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int Height
+		public int Height
 		{
 			get
 			{
@@ -116,18 +116,18 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal Paragraph()
+		public Paragraph()
 		{
 			this.m_runs = new List<TextRun>();
 		}
 
-		internal Paragraph(IParagraphProps paraProps)
+		public Paragraph(IParagraphProps paraProps)
 		{
 			this.m_paragraphProps = paraProps;
 			this.m_runs = new List<TextRun>();
 		}
 
-		internal Paragraph(IParagraphProps paraProps, int textRunCount)
+		public Paragraph(IParagraphProps paraProps, int textRunCount)
 		{
 			this.m_paragraphProps = paraProps;
 			this.m_runs = new List<TextRun>(textRunCount);
@@ -206,7 +206,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal void ScriptItemize(RPLFormat.Directions direction)
+		public void ScriptItemize(RPLFormat.Directions direction)
 		{
 			SCRIPT_ITEM[] array = null;
 			int num = 0;
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return flag;
 		}
 
-		internal bool AtEndOfParagraph(TextBoxContext context)
+		public bool AtEndOfParagraph(TextBoxContext context)
 		{
 			if (context == null)
 			{
@@ -352,12 +352,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return true;
 		}
 
-		internal void AdvanceToNextRun(TextBoxContext context)
+		public void AdvanceToNextRun(TextBoxContext context)
 		{
 			this.AdvanceToNextRun(context, true);
 		}
 
-		internal void AdvanceToNextRun(TextBoxContext context, bool skipEmptyRuns)
+		public void AdvanceToNextRun(TextBoxContext context, bool skipEmptyRuns)
 		{
 			if (context != null && context.TextRunIndex < this.m_runs.Count)
 			{
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal TextRun GetSubRunForLine(TextBoxContext context, ref bool newLine)
+		public TextRun GetSubRunForLine(TextBoxContext context, ref bool newLine)
 		{
 			this.AdvanceToNextRun(context);
 			if (context.TextRunIndex < this.m_runs.Count)
@@ -430,7 +430,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return null;
 		}
 
-		internal string GetNextTextBlock()
+		public string GetNextTextBlock()
 		{
 			if (this.m_lastRunIndex >= this.m_runs.Count)
 			{
@@ -483,7 +483,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return stringBuilder.ToString();
 		}
 
-		internal void GetParagraphIndents(RPLFormat.Directions direction, float dpiX, out float leftIndent, out float rightIndent, out float hangingIndent)
+		public void GetParagraphIndents(RPLFormat.Directions direction, float dpiX, out float leftIndent, out float rightIndent, out float hangingIndent)
 		{
 			leftIndent = (float)TextBox.ConvertToPixels(this.m_paragraphProps.LeftIndent, dpiX);
 			rightIndent = (float)TextBox.ConvertToPixels(this.m_paragraphProps.RightIndent, dpiX);

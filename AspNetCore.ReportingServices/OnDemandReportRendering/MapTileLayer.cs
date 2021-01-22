@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapTileLayer : MapLayer
+	public sealed class MapTileLayer : MapLayer
 	{
 		private ReportStringProperty m_serviceUrl;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapTileLayer MapTileLayerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapTileLayer MapTileLayerDef
 		{
 			get
 			{
@@ -76,12 +76,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapTileLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapTileLayer defObject, Map map)
+		public MapTileLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapTileLayer defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapLayerInstance GetInstance()
+		public override MapLayerInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapLayerInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapMarkerImage : ReportObject
+	public class MapMarkerImage : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapMarkerImage, Definition.Properties>
+		public class Definition : DefinitionStore<MapMarkerImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Source,
 				Value,
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapMarkerImage(IPropertyStore propertyStore)
+		public MapMarkerImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

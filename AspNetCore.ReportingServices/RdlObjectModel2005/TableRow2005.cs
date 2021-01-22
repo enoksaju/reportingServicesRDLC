@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class TableRow2005 : ReportObject
+	public class TableRow2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<TableRow2005, Definition.Properties>
+		public class Definition : DefinitionStore<TableRow2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				TableCells,
 				Height,

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CompiledRichTextStyleInstance : StyleInstance, ICompiledStyleInstance
+	public sealed class CompiledRichTextStyleInstance : StyleInstance, ICompiledStyleInstance
 	{
 		private List<StyleAttributeNames> m_nonSharedStyles;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CompiledRichTextStyleInstance(IROMStyleDefinitionContainer styleDefinitionContainer, IReportScope reportScope, RenderingContext context)
+		public CompiledRichTextStyleInstance(IROMStyleDefinitionContainer styleDefinitionContainer, IReportScope reportScope, RenderingContext context)
 			: base(styleDefinitionContainer, reportScope, context)
 		{
 		}

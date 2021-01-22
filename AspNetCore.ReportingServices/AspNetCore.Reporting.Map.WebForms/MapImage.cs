@@ -7,7 +7,7 @@ using System.Drawing.Imaging;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(MapImageConverter))]
-	internal class MapImage : DockablePanel, IToolTipProvider, IImageMapProvider
+	public class MapImage : DockablePanel, IToolTipProvider, IImageMapProvider
 	{
 		private ResizeMode resizeMode = ResizeMode.AutoFit;
 
@@ -316,7 +316,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Position Position
+		public Position Position
 		{
 			get
 			{
@@ -341,7 +341,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal MapImage(CommonElements common)
+		public MapImage(CommonElements common)
 			: base(common)
 		{
 			this.Location = new MapLocation(this, 20f, 20f);
@@ -356,12 +356,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Name;
 		}
 
-		internal override bool ShouldRenderBackground()
+		public override bool ShouldRenderBackground()
 		{
 			return false;
 		}
 
-		internal override void Render(MapGraphics g)
+		public override void Render(MapGraphics g)
 		{
 			g.StartHotRegion(this);
 			MapDashStyle mapDashStyle = this.BorderStyle;
@@ -409,7 +409,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			g.EndHotRegion();
 		}
 
-		internal void DrawImage(MapGraphics g, string imageName, bool drawShadow)
+		public void DrawImage(MapGraphics g, string imageName, bool drawShadow)
 		{
 			if (drawShadow && this.ShadowOffset == 0.0)
 			{
@@ -500,7 +500,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal GraphicsPath GetPath(MapGraphics g)
+		public GraphicsPath GetPath(MapGraphics g)
 		{
 			if (!this.IsVisible())
 			{
@@ -522,7 +522,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return graphicsPath;
 		}
 
-		internal Pen GetPen()
+		public Pen GetPen()
 		{
 			if (this.BorderWidth <= 0)
 			{
@@ -537,7 +537,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return pen;
 		}
 
-		internal override object GetDefaultPropertyValue(string prop, object currentValue)
+		public override object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object obj = null;
 			switch (prop)

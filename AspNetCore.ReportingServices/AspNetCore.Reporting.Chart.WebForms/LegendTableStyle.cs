@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum LegendTableStyle
+	public enum LegendTableStyle
 	{
 		Auto,
 		Wide,

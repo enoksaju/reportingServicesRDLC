@@ -9,21 +9,21 @@ using System.Resources;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal class Renderer : IDisposable
+	public class Renderer : IDisposable
 	{
-		internal WriterBase Writer;
+		public WriterBase Writer;
 
-		internal RPLReport RplReport;
+		public RPLReport RplReport;
 
-		internal int SharedItemsCount;
+		public int SharedItemsCount;
 
-		internal string CurrentLanguage;
+		public string CurrentLanguage;
 
-		internal bool PhysicalPagination;
+		public bool PhysicalPagination;
 
 		private int m_pageNumber;
 
-		internal Dictionary<string, int> SharedItems = new Dictionary<string, int>(50);
+		public Dictionary<string, int> SharedItems = new Dictionary<string, int>(50);
 
 		private Dictionary<string, float> m_cachedReportSizes = new Dictionary<string, float>();
 
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 
 		private bool m_beginPage;
 
-		internal static Dictionary<string, Bitmap> ImageResources;
+		public static Dictionary<string, Bitmap> ImageResources;
 
 		private static ResourceManager ImageResourceManager;
 
@@ -78,12 +78,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
             catch {
                 }
         }
-		internal Renderer(bool physicalPagination)
+		public Renderer(bool physicalPagination)
 		{
 			this.PhysicalPagination = physicalPagination;
 		}
 
-		internal Renderer(bool physicalPagination, FontCache fontCache)
+		public Renderer(bool physicalPagination, FontCache fontCache)
 			: this(physicalPagination)
 		{
 			this.m_fontCache = fontCache;
@@ -585,7 +585,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal void ProcessPage(RPLReport rplReport, int pageNumber, FontCache sharedFontCache, List<SectionItemizedData> glyphCache)
+		public void ProcessPage(RPLReport rplReport, int pageNumber, FontCache sharedFontCache, List<SectionItemizedData> glyphCache)
 		{
 			this.RplReport = rplReport;
 			this.CurrentLanguage = this.RplReport.Language;
@@ -756,7 +756,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			goto IL_002e;
 		}
 
-		internal List<Operation> ProcessReportItem(RPLItemMeasurement measurement, RectangleF bounds, bool renderBorders, RectangleF styleBounds, bool renderStylesOnBounds)
+		public List<Operation> ProcessReportItem(RPLItemMeasurement measurement, RectangleF bounds, bool renderBorders, RectangleF styleBounds, bool renderStylesOnBounds)
 		{
 			return this.ProcessReportItem(measurement, bounds, renderBorders, styleBounds, renderStylesOnBounds, false);
 		}

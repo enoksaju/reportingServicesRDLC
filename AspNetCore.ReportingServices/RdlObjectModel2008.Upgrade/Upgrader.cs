@@ -4,9 +4,9 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2008.Upgrade
 {
-	internal class Upgrader
+	public class Upgrader
 	{
-		internal static void Upgrade(string inputFile, string outputFile, bool throwUpgradeException)
+		public static void Upgrade(string inputFile, string outputFile, bool throwUpgradeException)
 		{
 			using (FileStream inStream = File.OpenRead(inputFile))
 			{
@@ -17,20 +17,20 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2008.Upgrade
 			}
 		}
 
-		internal static void Upgrade(Stream inStream, Stream outStream, bool throwUpgradeException)
+		public static void Upgrade(Stream inStream, Stream outStream, bool throwUpgradeException)
 		{
 			XmlTextReader xmlTextReader = new XmlTextReader(inStream);
 			xmlTextReader.ProhibitDtd = true;
 			Upgrader.Upgrade(xmlTextReader, outStream, throwUpgradeException);
 		}
 
-		internal static void Upgrade(XmlReader xmlReader, Stream outStream, bool throwUpgradeException)
+		public static void Upgrade(XmlReader xmlReader, Stream outStream, bool throwUpgradeException)
 		{
 			UpgradeImpl2008 upgradeImpl = new UpgradeImpl2008();
 			upgradeImpl.Upgrade(xmlReader, outStream);
 		}
 
-		internal static Stream UpgradeToCurrent(Stream inStream, bool throwUpgradeException)
+		public static Stream UpgradeToCurrent(Stream inStream, bool throwUpgradeException)
 		{
 			return RDLUpgrader.UpgradeToCurrent(inStream, throwUpgradeException, true);
 		}

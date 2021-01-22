@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ZoomPanel : DockablePanel, IToolTipProvider
+	public class ZoomPanel : DockablePanel, IToolTipProvider
 	{
 		private const double MaxScaleValue = 100.0;
 
@@ -412,7 +412,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal LinearScale Scale
+		public LinearScale Scale
 		{
 			get
 			{
@@ -420,7 +420,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal LinearPointer Pointer
+		public LinearPointer Pointer
 		{
 			get
 			{
@@ -432,7 +432,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal SizeF AbsoluteSize
+		public SizeF AbsoluteSize
 		{
 			get
 			{
@@ -444,7 +444,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Position Position
+		public Position Position
 		{
 			get
 			{
@@ -452,7 +452,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal double MinimumZoom
+		public double MinimumZoom
 		{
 			get
 			{
@@ -464,7 +464,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal double MaximumZoom
+		public double MaximumZoom
 		{
 			get
 			{
@@ -476,7 +476,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal double ZoomLevel
+		public double ZoomLevel
 		{
 			get
 			{
@@ -504,7 +504,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -529,7 +529,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal ZoomPanel(CommonElements common)
+		public ZoomPanel(CommonElements common)
 			: base(common)
 		{
 			this.Name = "ZoomPanel";
@@ -582,14 +582,14 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.Pointer.Value = (double)thumbPosition;
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 			this.Scale.BeginInit();
 			this.Pointer.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.Scale.EndInit();
@@ -603,7 +603,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.Pointer.Dispose();
 		}
 
-		internal Orientation GetOrientation()
+		public Orientation GetOrientation()
 		{
 			if (this.Orientation == Orientation.Auto)
 			{
@@ -617,12 +617,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Orientation;
 		}
 
-		internal bool GetReversed()
+		public bool GetReversed()
 		{
 			return this.Reversed;
 		}
 
-		internal void InternalZoomLevelChanged()
+		public void InternalZoomLevelChanged()
 		{
 			try
 			{
@@ -639,7 +639,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void UpdateZoomRange()
+		public void UpdateZoomRange()
 		{
 			if (this.Common != null && this.Common.MapCore != null)
 			{
@@ -655,7 +655,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal double GetSnappingInterval()
+		public double GetSnappingInterval()
 		{
 			if (this.Pointer.SnappingEnabled)
 			{
@@ -664,7 +664,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return 0.25;
 		}
 
-		internal double GetNextZoomLevel(double currentZoom, int zoomLevels, bool zoomIn)
+		public double GetNextZoomLevel(double currentZoom, int zoomLevels, bool zoomIn)
 		{
 			double pointerPositionFromZoomLevel = this.GetPointerPositionFromZoomLevel(currentZoom);
 			pointerPositionFromZoomLevel += (zoomIn ? ((double)zoomLevels * this.GetSnappingInterval()) : ((double)(-zoomLevels) * this.GetSnappingInterval()));
@@ -748,7 +748,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal double GetZoomLevelFromPointerPosition(double pos)
+		public double GetZoomLevelFromPointerPosition(double pos)
 		{
 			double minimumZoom = this.MinimumZoom;
 			double num = 0.0;
@@ -766,7 +766,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return num3 * pos + minimumZoom;
 		}
 
-		internal double GetPointerPositionFromZoomLevel(double zoom)
+		public double GetPointerPositionFromZoomLevel(double zoom)
 		{
 			double minimumZoom = this.MinimumZoom;
 			double num = 0.0;
@@ -789,7 +789,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return 100.0 / (double)(tickNumber - 1) - 4.94065645841247E-324;
 		}
 
-		internal float[] GetPossibleZoomLevels(float currentZoom)
+		public float[] GetPossibleZoomLevels(float currentZoom)
 		{
 			if (!this.SnapToTickMarks)
 			{
@@ -822,7 +822,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (float[])arrayList.ToArray(typeof(float));
 		}
 
-		internal void RenderStaticElements(MapGraphics g)
+		public void RenderStaticElements(MapGraphics g)
 		{
 			g.StartHotRegion(this);
 			g.EndHotRegion();
@@ -863,13 +863,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.Scale.EndMargin = num2;
 		}
 
-		internal void RenderDynamicElements(MapGraphics g)
+		public void RenderDynamicElements(MapGraphics g)
 		{
 			this.RenderDynamicShadows(g);
 			this.Pointer.Render(g);
 		}
 
-		internal void RenderDynamicShadows(MapGraphics g)
+		public void RenderDynamicShadows(MapGraphics g)
 		{
 			using (GraphicsPath graphicsPath = new GraphicsPath())
 			{
@@ -886,7 +886,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderStaticShadows(MapGraphics g)
+		public void RenderStaticShadows(MapGraphics g)
 		{
 			using (GraphicsPath graphicsPath = new GraphicsPath())
 			{
@@ -962,7 +962,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			button.Render(g);
 		}
 
-		internal override void Render(MapGraphics g)
+		public override void Render(MapGraphics g)
 		{
 			this.AbsoluteSize = g.GetAbsoluteSize(this.Size);
 			this.AdjustScaleSize(g);
@@ -983,7 +983,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override object GetDefaultPropertyValue(string prop, object currentValue)
+		public override object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object obj = null;
 			switch (prop)

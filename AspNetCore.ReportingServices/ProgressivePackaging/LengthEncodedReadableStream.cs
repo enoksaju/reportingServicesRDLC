@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal class LengthEncodedReadableStream : Stream
+	public class LengthEncodedReadableStream : Stream
 	{
 		private BinaryReader m_reader;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			}
 		}
 
-		internal bool Closed
+		public bool Closed
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			}
 		}
 
-		internal LengthEncodedReadableStream(BinaryReader reader)
+		public LengthEncodedReadableStream(BinaryReader reader)
 		{
 			if (reader == null)
 			{

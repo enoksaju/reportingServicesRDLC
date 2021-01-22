@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface ILayerElement
+	public interface ILayerElement
 	{
 		string Layer
 		{

@@ -4,9 +4,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
 	[Serializable]
-	internal class RichTextParseException : Exception
+	public class RichTextParseException : Exception
 	{
-		internal RichTextParseException(string message)
+		public RichTextParseException(string message)
 			: base(message)
 		{
 		}

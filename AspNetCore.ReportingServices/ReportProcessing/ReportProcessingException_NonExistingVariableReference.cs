@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_NonExistingVariableReference : Exception
+	public sealed class ReportProcessingException_NonExistingVariableReference : Exception
 	{
-		internal ReportProcessingException_NonExistingVariableReference(string varName)
+		public ReportProcessingException_NonExistingVariableReference(string varName)
 			: base(string.Format(CultureInfo.CurrentCulture, RPRes.rsNonExistingVariableReference(varName)))
 		{
 		}

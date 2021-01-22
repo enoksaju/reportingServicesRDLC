@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class ReportParametersGridLayoutValidator
+	public sealed class ReportParametersGridLayoutValidator
 	{
 		private const int MaxNumberOfRows = 10000;
 

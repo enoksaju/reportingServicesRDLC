@@ -2,16 +2,16 @@ using AspNetCore.ReportingServices.OnDemandReportRendering;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal abstract class WalkTablix
+	public abstract class WalkTablix
 	{
-		internal enum State
+		public enum State
 		{
 			RowMembers,
 			ColMembers,
 			DetailRows
 		}
 
-		internal static int AddMembersToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, TablixMember memberParent, int rowMemberIndexCell, State state, bool createDetail, bool noRows, PageContext context, bool useForPageHFEval, Interactivity interactivity)
+		public static int AddMembersToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, TablixMember memberParent, int rowMemberIndexCell, State state, bool createDetail, bool noRows, PageContext context, bool useForPageHFEval, Interactivity interactivity)
 		{
 			TablixMemberCollection tablixMemberCollection = null;
 			if (memberParent == null)
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal static void AddDetailCellToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int colMemberIndexCell, int rowMemberIndexCell, PageContext context, bool useForPageHFEval, Interactivity interactivity)
+		public static void AddDetailCellToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix, int colMemberIndexCell, int rowMemberIndexCell, PageContext context, bool useForPageHFEval, Interactivity interactivity)
 		{
 			if (rowMemberIndexCell >= 0)
 			{

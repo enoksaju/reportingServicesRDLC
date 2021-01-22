@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapFieldNameInstance : BaseInstance
+	public sealed class MapFieldNameInstance : BaseInstance
 	{
 		private MapFieldName m_defObject;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapFieldNameInstance(MapFieldName defObject)
+		public MapFieldNameInstance(MapFieldName defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

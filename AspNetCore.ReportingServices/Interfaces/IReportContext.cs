@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IReportContext
+	public interface IReportContext
 	{
 		string ReportName
 		{

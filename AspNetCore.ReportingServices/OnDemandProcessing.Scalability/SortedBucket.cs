@@ -1,14 +1,14 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class SortedBucket
+	public sealed class SortedBucket
 	{
-		internal int Limit;
+		public int Limit;
 
-		internal int Minimum;
+		public int Minimum;
 
-		internal Heap<long, Space> m_spaces;
+		public Heap<long, Space> m_spaces;
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal int Maximum
+		public int Maximum
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal SortedBucket(int maxSpacesPerBucket)
+		public SortedBucket(int maxSpacesPerBucket)
 		{
 			int num = 500;
 			if (num > maxSpacesPerBucket)
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			this.Minimum = 2147483647;
 		}
 
-		internal SortedBucket Split(int maxSpacesPerBucket)
+		public SortedBucket Split(int maxSpacesPerBucket)
 		{
 			SortedBucket sortedBucket = new SortedBucket(maxSpacesPerBucket);
 			int num = this.Count / 2;
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return sortedBucket;
 		}
 
-		internal void Insert(Space space)
+		public void Insert(Space space)
 		{
 			if (space.Size < this.Minimum)
 			{
@@ -56,12 +56,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			this.m_spaces.Insert(space.Size, space);
 		}
 
-		internal Space Peek()
+		public Space Peek()
 		{
 			return this.m_spaces.Peek();
 		}
 
-		internal Space ExtractMax()
+		public Space ExtractMax()
 		{
 			Space result = this.m_spaces.ExtractMax();
 			if (this.m_spaces.Count == 0)

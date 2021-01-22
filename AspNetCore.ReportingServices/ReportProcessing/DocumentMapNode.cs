@@ -5,7 +5,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DocumentMapNode : InstanceInfo
+	public sealed class DocumentMapNode : InstanceInfo
 	{
 		private string m_id;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private DocumentMapNode[] m_children;
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Id
+		public string Id
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Page
+		public int Page
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DocumentMapNode[] Children
+		public DocumentMapNode[] Children
 		{
 			get
 			{
@@ -63,11 +63,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DocumentMapNode()
+		public DocumentMapNode()
 		{
 		}
 
-		internal DocumentMapNode(string id, string label, int page, ArrayList children)
+		public DocumentMapNode(string id, string label, int page, ArrayList children)
 		{
 			Global.Tracer.Assert(id != null, "The id of a document map node cannot be null.");
 			this.m_id = id;
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Id, Token.String));

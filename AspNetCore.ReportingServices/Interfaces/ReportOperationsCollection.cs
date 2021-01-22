@@ -4,7 +4,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.Interfaces
 {
 	[Serializable]
-	internal sealed class ReportOperationsCollection : CollectionBase
+	public sealed class ReportOperationsCollection : CollectionBase
 	{
 		public ReportOperation this[int index]
 		{

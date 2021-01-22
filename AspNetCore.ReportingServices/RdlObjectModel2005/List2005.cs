@@ -7,11 +7,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class List2005 : Tablix, IReportItem2005, IPageBreakLocation2005, IUpgradeable
+	public class List2005 : Tablix, IReportItem2005, IPageBreakLocation2005, IUpgradeable
 	{
-		internal new class Definition : DefinitionStore<List2005, Definition.Properties>
+		public new class Definition : DefinitionStore<List2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Action = 36,
 				PageBreakAtStart,

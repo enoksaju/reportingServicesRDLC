@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.officeDocument.x2006.sharedTypes
 {
-	internal class ST_VerticalAlignRun
+	public class ST_VerticalAlignRun
 	{
 		private string _ooxmlEnumerationValue;
 

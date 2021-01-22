@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal enum XmlFillType
+	public enum XmlFillType
 	{
 		Gradient,
 		Pattern

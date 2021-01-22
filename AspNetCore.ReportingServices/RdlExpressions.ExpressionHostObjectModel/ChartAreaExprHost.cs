@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 
 		public ChartElementPositionExprHost ChartInnerPlotPositionHost;
 
-		internal IList<ChartAxisExprHost> CategoryAxesHostsRemotable
+		public IList<ChartAxisExprHost> CategoryAxesHostsRemotable
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartAxisExprHost> ValueAxesHostsRemotable
+		public IList<ChartAxisExprHost> ValueAxesHostsRemotable
 		{
 			get
 			{

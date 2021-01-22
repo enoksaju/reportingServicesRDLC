@@ -7,7 +7,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
 	[Serializable]
-	internal abstract class PublishingContextBase
+	public abstract class PublishingContextBase
 	{
 		private readonly bool m_isRdlx;
 
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private readonly PublishingVersioning m_publishingVersioning;
 
-		internal PublishingVersioning PublishingVersioning
+		public PublishingVersioning PublishingVersioning
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool IsInternalRepublish
+		public bool IsInternalRepublish
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal PublishingContextKind PublishingContextKind
+		public PublishingContextKind PublishingContextKind
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal ICatalogItemContext CatalogContext
+		public ICatalogItemContext CatalogContext
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal IChunkFactory CreateChunkFactory
+		public IChunkFactory CreateChunkFactory
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal AppDomain CompilationTempAppDomain
+		public AppDomain CompilationTempAppDomain
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool GenerateExpressionHostWithRefusedPermissions
+		public bool GenerateExpressionHostWithRefusedPermissions
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal ReportProcessingFlags ProcessingFlags
+		public ReportProcessingFlags ProcessingFlags
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.CheckSharedDataSource CheckDataSourceCallback
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.CheckSharedDataSource CheckDataSourceCallback
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.CheckSharedDataSet CheckDataSetCallback
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.CheckSharedDataSet CheckDataSetCallback
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ResolveTemporaryDataSource ResolveTemporaryDataSourceCallback
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ResolveTemporaryDataSource ResolveTemporaryDataSourceCallback
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ResolveTemporaryDataSet ResolveTemporaryDataSetCallback
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ResolveTemporaryDataSet ResolveTemporaryDataSetCallback
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal DataSourceInfoCollection OriginalDataSources
+		public DataSourceInfoCollection OriginalDataSources
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal DataSetInfoCollection OriginalDataSets
+		public DataSetInfoCollection OriginalDataSets
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal IConfiguration Configuration
+		public IConfiguration Configuration
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal IDataProtection DataProtection
+		public IDataProtection DataProtection
 		{
 			get
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool TraceAtomicScopes
+		public bool TraceAtomicScopes
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool IsRdlx
+		public bool IsRdlx
 		{
 			get
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool IsPackagedReportArchive
+		public bool IsPackagedReportArchive
 		{
 			get
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool IsRdlSandboxingEnabled
+		public bool IsRdlSandboxingEnabled
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_publishingVersioning = new PublishingVersioning(this.m_configuration, this);
 		}
 
-		internal bool IsRestrictedDataRegionSort(bool isDataRowSort)
+		public bool IsRestrictedDataRegionSort(bool isDataRowSort)
 		{
 			if (isDataRowSort)
 			{
@@ -247,7 +247,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal bool IsRestrictedGroupSort(bool isDataRowSort, AspNetCore.ReportingServices.ReportIntermediateFormat.Sorting sorting)
+		public bool IsRestrictedGroupSort(bool isDataRowSort, AspNetCore.ReportingServices.ReportIntermediateFormat.Sorting sorting)
 		{
 			if (!sorting.NaturalSort && !sorting.DeferredSort)
 			{
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal bool IsRestrictedNaturalGroupSort(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expressionInfo)
+		public bool IsRestrictedNaturalGroupSort(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expressionInfo)
 		{
 			if (expressionInfo.Type != AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo.Types.Field)
 			{

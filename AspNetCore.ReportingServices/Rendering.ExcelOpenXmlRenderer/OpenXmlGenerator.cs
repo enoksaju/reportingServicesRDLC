@@ -16,9 +16,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal class OpenXmlGenerator : IExcelGenerator
+	public class OpenXmlGenerator : IExcelGenerator
 	{
-		internal struct MergeInfo
+		public struct MergeInfo
 		{
 			private int _firstRow;
 
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal struct BookmarkTargetInfo
+		public struct BookmarkTargetInfo
 		{
 			private readonly string _sheet;
 
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal struct LinkInfo
+		public struct LinkInfo
 		{
 			private readonly string _areaFormula;
 
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal struct PictureLinkInfo
+		public struct PictureLinkInfo
 		{
 			private readonly Picture _picture;
 
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal struct UnresolvedStreamsheet
+		public struct UnresolvedStreamsheet
 		{
 			private readonly Streamsheet _streamsheet;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum DataGrouping
+	public enum DataGrouping
 	{
 		EqualInterval,
 		EqualDistribution,

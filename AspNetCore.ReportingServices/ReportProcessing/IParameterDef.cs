@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IParameterDef
+	public interface IParameterDef
 	{
 		int DefaultValuesExpressionCount
 		{

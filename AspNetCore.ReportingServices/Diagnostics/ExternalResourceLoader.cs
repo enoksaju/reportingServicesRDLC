@@ -5,9 +5,9 @@ using System.Net;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class ExternalResourceLoader
+	public static class ExternalResourceLoader
 	{
-		internal static readonly int MaxResourceSizeUnlimited = -1;
+		public static readonly int MaxResourceSizeUnlimited = -1;
 
 		public static byte[] GetExternalResource(string resourceUrl, bool impersonate, string surrogateUser, string surrogatePassword, string surrogateDomain, int webTimeout, int maxResourceSizeBytes, ExternalResourceAbortHelper abortHelper, out string mimeType, out bool resourceExceededMaxSize)
 		{

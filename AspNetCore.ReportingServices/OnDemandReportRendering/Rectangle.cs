@@ -5,7 +5,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Rectangle : ReportItem, IPageBreakItem
+	public sealed class Rectangle : ReportItem, IPageBreakItem
 	{
 		private AspNetCore.ReportingServices.ReportRendering.Rectangle m_renderRectangle;
 
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportRendering.ReportItem RenderReportItem
+		public override AspNetCore.ReportingServices.ReportRendering.ReportItem RenderReportItem
 		{
 			get
 			{
@@ -233,7 +233,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsListContentsRectangle
+		public bool IsListContentsRectangle
 		{
 			get
 			{
@@ -241,24 +241,24 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Rectangle(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
+		public Rectangle(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
 			: base(reportScope, parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 		}
 
-		internal Rectangle(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Rectangle renderRectangle, RenderingContext renderingContext)
+		public Rectangle(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Rectangle renderRectangle, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, inSubtotal, renderRectangle, renderingContext)
 		{
 			this.m_renderRectangle = renderRectangle;
 		}
 
-		internal Rectangle(IDefinitionPath parentDefinitionPath, bool inSubtotal, ListContent renderContents, RenderingContext renderingContext)
+		public Rectangle(IDefinitionPath parentDefinitionPath, bool inSubtotal, ListContent renderContents, RenderingContext renderingContext)
 			: base(parentDefinitionPath, inSubtotal, renderingContext)
 		{
 			this.m_listContents = renderContents;
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_reportItems != null)
 			{
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateListContents(ListContent listContents)
+		public void UpdateListContents(ListContent listContents)
 		{
 			if (!base.m_isOldSnapshot)
 			{
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			base.UpdateRenderReportItem(renderReportItem);
 			this.m_renderRectangle = (AspNetCore.ReportingServices.ReportRendering.Rectangle)renderReportItem;

@@ -3,7 +3,7 @@ using System.Configuration;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ConfigFilePropertyInterface<InterfaceType> where InterfaceType : class
+	public sealed class ConfigFilePropertyInterface<InterfaceType> where InterfaceType : class
 	{
 		private string m_propertyName;
 

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class CatalogItemNameUtility
+	public static class CatalogItemNameUtility
 	{
 		public const char PathSeparatorChar = '/';
 

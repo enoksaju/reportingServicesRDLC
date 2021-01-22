@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class LinearPointerCollection : GaugePanelObjectCollectionBase<LinearPointer>
+	public sealed class LinearPointerCollection : GaugePanelObjectCollectionBase<LinearPointer>
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal LinearPointerCollection(LinearScale linearScale, GaugePanel gaugePanel)
+		public LinearPointerCollection(LinearScale linearScale, GaugePanel gaugePanel)
 		{
 			this.m_linearScale = linearScale;
 			this.m_gaugePanel = gaugePanel;

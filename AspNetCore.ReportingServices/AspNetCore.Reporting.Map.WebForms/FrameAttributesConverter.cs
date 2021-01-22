@@ -4,7 +4,7 @@ using System.Drawing.Design;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FrameAttributesConverter : NoNameExpandableObjectConverter
+	public class FrameAttributesConverter : NoNameExpandableObjectConverter
 	{
 		private class NullUIEditor : UITypeEditor
 		{

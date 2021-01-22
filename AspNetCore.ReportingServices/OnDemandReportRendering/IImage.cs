@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IImage
+	public interface IImage
 	{
 		Image.SourceType Source
 		{

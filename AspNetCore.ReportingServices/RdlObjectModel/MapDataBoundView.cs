@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapDataBoundView : MapView
+	public class MapDataBoundView : MapView
 	{
-		internal new class Definition : DefinitionStore<MapDataBoundView, Definition.Properties>
+		public new class Definition : DefinitionStore<MapDataBoundView, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Zoom,
 				PropertyCount
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapDataBoundView(IPropertyStore propertyStore)
+		public MapDataBoundView(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -5,7 +5,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class MatrixHeadingInstanceInfo : InstanceInfo
+	public class MatrixHeadingInstanceInfo : InstanceInfo
 	{
 		private NonComputedUniqueNames m_contentUniqueNames;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private DataValueInstanceList m_customPropertyInstances;
 
-		internal NonComputedUniqueNames ContentUniqueNames
+		public NonComputedUniqueNames ContentUniqueNames
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int HeadingCellIndex
+		public int HeadingCellIndex
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int HeadingSpan
+		public int HeadingSpan
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object GroupExpressionValue
+		public object GroupExpressionValue
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstanceList CustomPropertyInstances
+		public DataValueInstanceList CustomPropertyInstances
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeadingInstanceInfo(ReportProcessing.ProcessingContext pc, int headingCellIndex, MatrixHeading matrixHeadingDef, MatrixHeadingInstance owner, bool isSubtotal, int reportItemDefIndex, VariantList groupExpressionValues, out NonComputedUniqueNames nonComputedUniqueNames)
+		public MatrixHeadingInstanceInfo(ReportProcessing.ProcessingContext pc, int headingCellIndex, MatrixHeading matrixHeadingDef, MatrixHeadingInstance owner, bool isSubtotal, int reportItemDefIndex, VariantList groupExpressionValues, out NonComputedUniqueNames nonComputedUniqueNames)
 		{
 			ReportItemCollection reportItems;
 			if (isSubtotal)
@@ -148,11 +148,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			matrixHeadingDef.StartHidden = this.m_startHidden;
 		}
 
-		internal MatrixHeadingInstanceInfo()
+		public MatrixHeadingInstanceInfo()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ContentUniqueNames, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.NonComputedUniqueNames));

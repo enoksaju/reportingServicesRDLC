@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class ROMInstanceObjectCreator : PersistenceHelper, IRIFObjectCreator
+	public class ROMInstanceObjectCreator : PersistenceHelper, IRIFObjectCreator
 	{
 		private ReportItemInstance m_reportItemInstance;
 
@@ -29,30 +29,30 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ROMInstanceObjectCreator(ReportItemInstance reportItemInstance)
+		public ROMInstanceObjectCreator(ReportItemInstance reportItemInstance)
 		{
 			this.m_reportItemInstance = reportItemInstance;
 		}
 
-		internal void StartActionInfoInstancesDeserialization(ActionInfo actionInfo)
+		public void StartActionInfoInstancesDeserialization(ActionInfo actionInfo)
 		{
 			this.m_currentActionInfo = actionInfo;
 			this.m_currentActionIndex = 0;
 		}
 
-		internal void CompleteActionInfoInstancesDeserialization()
+		public void CompleteActionInfoInstancesDeserialization()
 		{
 			this.m_currentActionInfo = null;
 			this.m_currentActionIndex = 0;
 		}
 
-		internal void StartParameterInstancesDeserialization(ParameterCollection paramCollection)
+		public void StartParameterInstancesDeserialization(ParameterCollection paramCollection)
 		{
 			this.m_currentParameterCollection = paramCollection;
 			this.m_currentParameterIndex = 0;
 		}
 
-		internal void CompleteParameterInstancesDeserialization()
+		public void CompleteParameterInstancesDeserialization()
 		{
 			this.m_currentParameterCollection = null;
 			this.m_currentParameterIndex = 0;

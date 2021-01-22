@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartAlignTypeInstance : BaseInstance
+	public sealed class ChartAlignTypeInstance : BaseInstance
 	{
 		private ChartAlignType m_chartAlignTypeDef;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartAlignTypeInstance(ChartAlignType chartAlignTypeDef)
+		public ChartAlignTypeInstance(ChartAlignType chartAlignTypeDef)
 			: base(chartAlignTypeDef.ChartDef)
 		{
 			this.m_chartAlignTypeDef = chartAlignTypeDef;

@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartArea3DStyle
+	public class ChartArea3DStyle
 	{
 		private ChartArea chartArea;
 
@@ -285,7 +285,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.chartArea = chartArea;
 		}
 
-		internal void Initialize(ChartArea chartArea)
+		public void Initialize(ChartArea chartArea)
 		{
 			this.chartArea = chartArea;
 		}

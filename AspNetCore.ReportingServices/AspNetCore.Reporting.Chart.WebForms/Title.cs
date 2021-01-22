@@ -8,11 +8,11 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeTitle5")]
-	internal class Title : IMapAreaAttributes
+	public class Title : IMapAreaAttributes
 	{
 		private Chart chart;
 
-		internal int titleBorderSpacing = 4;
+		public int titleBorderSpacing = 4;
 
 		private object mapAreaTag;
 
@@ -650,7 +650,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal bool BackGroundIsVisible
+		public bool BackGroundIsVisible
 		{
 			get
 			{
@@ -662,7 +662,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Chart Chart
+		public Chart Chart
 		{
 			get
 			{
@@ -739,7 +739,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.TextOrientation;
 		}
 
-		internal bool IsVisible()
+		public bool IsVisible()
 		{
 			if (this.Visible)
 			{
@@ -756,11 +756,11 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal void Invalidate(bool invalidateTitleOnly)
+		public void Invalidate(bool invalidateTitleOnly)
 		{
 		}
 
-		internal void Paint(ChartGraphics chartGraph)
+		public void Paint(ChartGraphics chartGraph)
 		{
 			if (this.IsVisible())
 			{
@@ -990,7 +990,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void CalcTitlePosition(ChartGraphics chartGraph, ref RectangleF chartAreasRectangle, ref RectangleF frameTitlePosition, float elementSpacing)
+		public void CalcTitlePosition(ChartGraphics chartGraph, ref RectangleF chartAreasRectangle, ref RectangleF frameTitlePosition, float elementSpacing)
 		{
 			if (!frameTitlePosition.IsEmpty && this.Position.Auto && this.Docking == Docking.Top && this.DockToChartArea == "NotSet")
 			{

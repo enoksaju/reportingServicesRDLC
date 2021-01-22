@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class DataValueCollection : ReportElementCollectionBase<DataValue>
+	public sealed class DataValueCollection : ReportElementCollectionBase<DataValue>
 	{
 		private bool m_isChartValues;
 
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataValueCollection(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.ChartDataPoint dataPoint)
+		public DataValueCollection(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.ChartDataPoint dataPoint)
 		{
 			this.m_isChartValues = true;
 			if (dataPoint.DataValues == null)
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataValueCollection(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.DataCell dataCell)
+		public DataValueCollection(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.DataCell dataCell)
 		{
 			this.m_isChartValues = false;
 			if (dataCell.DataValues == null)
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataValueCollection(Cell cell, IReportScope reportScope, RenderingContext renderingContext, IList<AspNetCore.ReportingServices.ReportIntermediateFormat.DataValue> dataValues, string objectName, bool isChart)
+		public DataValueCollection(Cell cell, IReportScope reportScope, RenderingContext renderingContext, IList<AspNetCore.ReportingServices.ReportIntermediateFormat.DataValue> dataValues, string objectName, bool isChart)
 		{
 			this.m_isChartValues = isChart;
 			this.m_cell = cell;
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_objectName = objectName;
 		}
 
-		internal void UpdateChartDataValues(object[] datavalues)
+		public void UpdateChartDataValues(object[] datavalues)
 		{
 			if (this.m_isChartValues)
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateDataCellValues(AspNetCore.ReportingServices.ReportRendering.DataCell dataCell)
+		public void UpdateDataCellValues(AspNetCore.ReportingServices.ReportRendering.DataCell dataCell)
 		{
 			if (!this.m_isChartValues)
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_cachedDataValues != null)
 			{

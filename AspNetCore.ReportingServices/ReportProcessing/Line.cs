@@ -7,7 +7,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Line : ReportItem
+	public sealed class Line : ReportItem
 	{
 		private const string ZeroSize = "0mm";
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ReportItemExprHost m_exprHost;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool LineSlant
+		public bool LineSlant
 		{
 			get
 			{
@@ -36,17 +36,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Line(ReportItem parent)
+		public Line(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Line(int id, ReportItem parent)
+		public Line(int id, ReportItem parent)
 			: base(id, parent)
 		{
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
+		public override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
 		{
 			if (overwrite)
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			base.m_heightValue = context.ValidateSize(ref base.m_height, "Height");
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Slanted, Token.Boolean));

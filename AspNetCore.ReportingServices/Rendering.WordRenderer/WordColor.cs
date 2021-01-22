@@ -3,30 +3,30 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class WordColor
+	public class WordColor
 	{
 		private static readonly Color darkYellow = Color.FromArgb(32896);
 
-		internal int _ico;
+		public int _ico;
 
-		internal int _ico24;
+		public int _ico24;
 
-		internal WordColor(int ico)
+		public WordColor(int ico)
 		{
 			this._ico = ico;
 		}
 
-		internal WordColor(ref Color color)
+		public WordColor(ref Color color)
 		{
 			this._ico = WordColor.getIco97(ref color);
 		}
 
-		internal virtual Color getColor()
+		public virtual Color getColor()
 		{
 			return WordColor.get97Color(this._ico);
 		}
 
-		internal static Color get97Color(int ico97)
+		public static Color get97Color(int ico97)
 		{
 			switch (ico97)
 			{
@@ -68,17 +68,17 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal static Color getColor(int ico24)
+		public static Color getColor(int ico24)
 		{
 			return Color.FromArgb(WordColor.transposeIco(ico24));
 		}
 
-		internal static int GetIco24(Color color)
+		public static int GetIco24(Color color)
 		{
 			return color.B << 16 | color.G << 8 | color.R;
 		}
 
-		internal static int getIco97(ref Color color)
+		public static int getIco97(ref Color color)
 		{
 			float[] hSBModel = WordColor.getHSBModel(ref color);
 			float num = 2.14748365E+09f;
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return array;
 		}
 
-		internal static int transposeIco(int ico)
+		public static int transposeIco(int ico)
 		{
 			return ((ico & 0xFF) << 16) + (ico & 0xFF00) + ((ico & 0xFF0000) >> 16);
 		}

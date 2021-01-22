@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class LabelFormatEditorForm : Form
+	public class LabelFormatEditorForm : Form
 	{
-		internal string resultFormat = "";
+		public string resultFormat = "";
 
 		private string formatString = "";
 

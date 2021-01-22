@@ -5,24 +5,24 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class ShapefileMapper : SpatialDataMapper
+	public class ShapefileMapper : SpatialDataMapper
 	{
 		private MapShapefile m_shapefile;
 
 		private bool m_shapefileMatchingLayer;
 
-		internal ShapefileMapper(VectorLayerMapper vectorLayerMapper, Dictionary<SpatialElementKey, SpatialElementInfoGroup> spatialElementsDictionary, MapControl coreMap, MapMapper mapMapper)
+		public ShapefileMapper(VectorLayerMapper vectorLayerMapper, Dictionary<SpatialElementKey, SpatialElementInfoGroup> spatialElementsDictionary, MapControl coreMap, MapMapper mapMapper)
 			: base(vectorLayerMapper, spatialElementsDictionary, coreMap, mapMapper)
 		{
 			this.m_shapefile = (MapShapefile)base.m_mapVectorLayer.MapSpatialData;
 		}
 
-		internal void SubscribeToAddedEvent()
+		public void SubscribeToAddedEvent()
 		{
 			base.m_coreMap.ElementAdded += this.CoreMap_ElementAdded;
 		}
 
-		internal void UnsubscribeToAddedEvent()
+		public void UnsubscribeToAddedEvent()
 		{
 			base.m_coreMap.ElementAdded -= this.CoreMap_ElementAdded;
 		}
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void Populate()
+		public override void Populate()
 		{
 			this.SubscribeToAddedEvent();
 			string[] columnsToImport = default(string[]);

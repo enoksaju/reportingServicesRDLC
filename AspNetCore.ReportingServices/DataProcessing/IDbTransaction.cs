@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbTransaction : IDisposable
+	public interface IDbTransaction : IDisposable
 	{
 		void Commit();
 

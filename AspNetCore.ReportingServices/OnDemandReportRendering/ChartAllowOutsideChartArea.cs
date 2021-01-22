@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartAllowOutsideChartArea
+	public enum ChartAllowOutsideChartArea
 	{
 		Partial,
 		True,

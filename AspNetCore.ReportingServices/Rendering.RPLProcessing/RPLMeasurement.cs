@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLMeasurement : RPLSizes
+	public class RPLMeasurement : RPLSizes
 	{
 		protected int m_zindex;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal virtual OffsetInfo OffsetInfo
+		public virtual OffsetInfo OffsetInfo
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			this.m_zindex = measures.ZIndex;
 		}
 
-		internal virtual void SetOffset(long offset, RPLContext context)
+		public virtual void SetOffset(long offset, RPLContext context)
 		{
 			if (offset >= 0)
 			{

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ReportItemCollection : IDOwner, IPersistable, IStaticReferenceable, IEnumerable<ReportItem>, IEnumerable
+	public sealed class ReportItemCollection : IDOwner, IPersistable, IStaticReferenceable, IEnumerable<ReportItem>, IEnumerable
 	{
 		private List<ReportItem> m_nonComputedReportItems;
 
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private int m_staticRefId = -2147483648;
 
-		internal ReportItem this[int index]
+		public ReportItem this[int index]
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ReportItem> ComputedReportItems
+		public List<ReportItem> ComputedReportItems
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ReportItem> NonComputedReportItems
+		public List<ReportItem> NonComputedReportItems
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ReportItemIndexer> SortedReportItems
+		public List<ReportItemIndexer> SortedReportItems
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> ROMIndexMap
+		public List<int> ROMIndexMap
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool FirstInstance
+		public bool FirstInstance
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string LinkToChild
+		public string LinkToChild
 		{
 			set
 			{
@@ -149,11 +149,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItemCollection()
+		public ReportItemCollection()
 		{
 		}
 
-		internal ReportItemCollection(int id, bool normal)
+		public ReportItemCollection(int id, bool normal)
 			: base(id)
 		{
 			this.m_normal = normal;
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.GetEnumerator();
 		}
 
-		internal void AddReportItem(ReportItem reportItem)
+		public void AddReportItem(ReportItem reportItem)
 		{
 			Global.Tracer.Assert(this.m_unpopulated, "(m_unpopulated)");
 			Global.Tracer.Assert(null != reportItem, "(null != reportItem)");
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_entries.Add(reportItem);
 		}
 
-		internal void AddCustomRenderItem(ReportItem reportItem)
+		public void AddCustomRenderItem(ReportItem reportItem)
 		{
 			Global.Tracer.Assert(null != reportItem, "(null != reportItem)");
 			this.m_unpopulated = false;
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_sortedReportItemList.Add(item);
 		}
 
-		internal bool Initialize(InitializationContext context)
+		public bool Initialize(InitializationContext context)
 		{
 			Global.Tracer.Assert(this.m_unpopulated, "(m_unpopulated)");
 			if ((context.Location & AspNetCore.ReportingServices.ReportPublishing.LocationFlags.InPageSection) == (AspNetCore.ReportingServices.ReportPublishing.LocationFlags)0)
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal void InitializeRVDirectionDependentItems(InitializationContext context)
+		public void InitializeRVDirectionDependentItems(InitializationContext context)
 		{
 			for (int i = 0; i < this.m_entries.Count; i++)
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
+		public void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
 		{
 			for (int i = 0; i < this.m_entries.Count; i++)
 			{
@@ -337,7 +337,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void CalculateSizes(InitializationContext context, bool overwrite)
+		public void CalculateSizes(InitializationContext context, bool overwrite)
 		{
 			Global.Tracer.Assert(this.m_unpopulated, "(m_unpopulated)");
 			Global.Tracer.Assert(null != this.m_entries, "(null != m_entries)");
@@ -349,7 +349,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void MarkChildrenComputed()
+		public void MarkChildrenComputed()
 		{
 			Global.Tracer.Assert(this.m_unpopulated, "(m_unpopulated)");
 			Global.Tracer.Assert(null != this.m_entries, "(null != m_entries)");
@@ -364,7 +364,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Populate(ErrorContext errorContext)
+		public void Populate(ErrorContext errorContext)
 		{
 			Global.Tracer.Assert(this.m_unpopulated, "(m_unpopulated)");
 			Global.Tracer.Assert(null != this.m_entries, "(null != m_entries)");
@@ -459,21 +459,21 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsReportItemComputed(int index)
+		public bool IsReportItemComputed(int index)
 		{
 			Global.Tracer.Assert(!this.m_unpopulated, "(!m_unpopulated)");
 			Global.Tracer.Assert(0 <= index, "(0 <= index)");
 			return this.m_sortedReportItemList[index].IsComputed;
 		}
 
-		internal ReportItem GetUnsortedReportItem(int index, bool computed)
+		public ReportItem GetUnsortedReportItem(int index, bool computed)
 		{
 			Global.Tracer.Assert(!this.m_unpopulated, "(!m_unpopulated)");
 			Global.Tracer.Assert(0 <= index, "(0 <= index)");
 			return this.InternalGet(index, computed);
 		}
 
-		internal void GetReportItem(int index, out bool computed, out int internalIndex, out ReportItem reportItem)
+		public void GetReportItem(int index, out bool computed, out int internalIndex, out ReportItem reportItem)
 		{
 			Global.Tracer.Assert(!this.m_unpopulated, "(!m_unpopulated)");
 			computed = false;
@@ -502,7 +502,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_nonComputedReportItems[index];
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ReportItemCollection reportItemCollection = (ReportItemCollection)base.PublishClone(context);
 			context.AddReportItemCollection(reportItemCollection);
@@ -534,7 +534,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return reportItemCollection;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.NonComputedReportItems, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ReportItem));

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class TablixCell : TablixCellBase, IPersistable
+	public sealed class TablixCell : TablixCellBase, IPersistable
 	{
 		private string m_dataElementName;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string CellIDForRendering
+		public string CellIDForRendering
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize CellWidthForRendering
+		public ReportSize CellWidthForRendering
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize CellHeightForRendering
+		public ReportSize CellHeightForRendering
 		{
 			get
 			{
@@ -95,16 +95,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixCell()
+		public TablixCell()
 		{
 		}
 
-		internal TablixCell(int id, DataRegion dataRegion)
+		public TablixCell(int id, DataRegion dataRegion)
 			: base(id, dataRegion)
 		{
 		}
 
-		internal override void DataRendererInitialize(InitializationContext context)
+		public override void DataRendererInitialize(InitializationContext context)
 		{
 			if (this.m_dataElementOutput == DataElementOutputTypes.Auto)
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			AspNetCore.ReportingServices.ReportPublishing.CLSNameValidator.ValidateDataElementName(ref this.m_dataElementName, "Cell", context.ObjectType, context.ObjectName, "DataElementName", context.ErrorContext);
 		}
 
-		internal void InitializeRVDirectionDependentItems(InitializationContext context)
+		public void InitializeRVDirectionDependentItems(InitializationContext context)
 		{
 			bool flag = false;
 			if (context.HasUserSorts)
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
+		public void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
 		{
 			if (base.m_cellContents != null)
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			TablixCell tablixCell = (TablixCell)base.PublishClone(context);
 			if (this.m_dataElementName != null)
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return tablixCell;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataElementName, Token.String));
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.TablixCell;
 		}
 
-		internal void SetExprHost(TablixCellExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(TablixCellExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			base.BaseSetExprHost(exprHost, reportObjectModel);
 		}

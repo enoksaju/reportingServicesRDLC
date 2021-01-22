@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal interface IRichTextInfo
+	public interface IRichTextInfo
 	{
 		bool CheckForRotatedFarEastChars
 		{

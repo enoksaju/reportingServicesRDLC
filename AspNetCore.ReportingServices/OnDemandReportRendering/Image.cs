@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Image : ReportItem, IImage, IROMActionOwner, IBaseImage
+	public sealed class Image : ReportItem, IImage, IROMActionOwner, IBaseImage
 	{
-		internal enum Sizings
+		public enum Sizings
 		{
 			AutoSize,
 			Fit,
@@ -15,14 +15,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			Clip
 		}
 
-		internal enum SourceType
+		public enum SourceType
 		{
 			External,
 			Embedded,
 			Database
 		}
 
-		internal enum EmbeddingModes
+		public enum EmbeddingModes
 		{
 			Inline,
 			Package
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TagCollection Tags
+		public TagCollection Tags
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsNullImage
+		public bool IsNullImage
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Image ImageDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Image ImageDef
 		{
 			get
 			{
@@ -263,18 +263,18 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Image(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Image reportItemDef, RenderingContext renderingContext)
+		public Image(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Image reportItemDef, RenderingContext renderingContext)
 			: base(reportScope, parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 		}
 
-		internal Image(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Image renderImage, RenderingContext renderingContext)
+		public Image(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Image renderImage, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, inSubtotal, renderImage, renderingContext)
 		{
 			this.m_renderImage = renderImage;
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -350,7 +350,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return internalImageInstance.LoadAndCacheTransparentImage(out mimeType, out imageData);
 		}
 
-		internal override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			base.UpdateRenderReportItem(renderReportItem);
 			if (this.m_actionInfo != null)
@@ -359,7 +359,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			base.SetNewContextChildren();
 			if (this.m_actionInfo != null)
@@ -372,7 +372,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void ConstructReportItemDefinition()
+		public override void ConstructReportItemDefinition()
 		{
 			base.ConstructReportItemDefinitionImpl();
 			ImageInstance imageInstance = this.ImageInstance;
@@ -402,7 +402,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void CompleteCriGeneratedInstanceEvaluation()
+		public override void CompleteCriGeneratedInstanceEvaluation()
 		{
 			Global.Tracer.Assert(base.CriGenerationPhase == CriGenerationPhases.Instance, "(CriGenerationPhase == CriGenerationPhases.Instance)");
 			ImageInstance imageInstance = this.ImageInstance;

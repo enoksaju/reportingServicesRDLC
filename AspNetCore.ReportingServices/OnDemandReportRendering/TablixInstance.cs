@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixInstance : DataRegionInstance
+	public sealed class TablixInstance : DataRegionInstance
 	{
 		private Tablix m_owner;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixInstance(Tablix reportItemDef)
+		public TablixInstance(Tablix reportItemDef)
 			: base(reportItemDef)
 		{
 			this.m_owner = reportItemDef;
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return property;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			this.m_topMargin = (this.m_bottomMargin = (this.m_leftMargin = (this.m_rightMargin = null)));
 			base.SetNewContext();

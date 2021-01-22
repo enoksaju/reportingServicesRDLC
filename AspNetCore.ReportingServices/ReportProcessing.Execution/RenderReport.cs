@@ -11,7 +11,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal abstract class RenderReport
+	public abstract class RenderReport
 	{
 		private readonly ProcessingContext m_publicProcessingContext;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 			}
 		}
 
-		internal ProcessingContext PublicProcessingContext
+		public ProcessingContext PublicProcessingContext
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 			}
 		}
 
-		internal RenderingContext PublicRenderingContext
+		public RenderingContext PublicRenderingContext
 		{
 			get
 			{

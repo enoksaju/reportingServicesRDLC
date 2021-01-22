@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
-    internal sealed class ExternalImageCategory
+    public sealed class ExternalImageCategory
 	{
 		public string Count
 		{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Internal
 			set;
 		}
 
-		internal ExternalImageCategory()
+		public ExternalImageCategory()
 		{
 		}
 	}

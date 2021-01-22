@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class DataHierarchy : MemberHierarchy<DataMember>
+	public sealed class DataHierarchy : MemberHierarchy<DataMember>
 	{
 		private CustomReportItem OwnerCri
 		{
@@ -35,12 +35,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataHierarchy(CustomReportItem owner, bool isColumn)
+		public DataHierarchy(CustomReportItem owner, bool isColumn)
 			: base((ReportItem)owner, isColumn)
 		{
 		}
 
-		internal override void ResetContext()
+		public override void ResetContext()
 		{
 			if (base.m_members != null)
 			{

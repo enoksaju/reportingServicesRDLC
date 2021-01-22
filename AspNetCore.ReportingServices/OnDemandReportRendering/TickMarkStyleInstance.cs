@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class TickMarkStyleInstance : BaseInstance
+	public class TickMarkStyleInstance : BaseInstance
 	{
 		protected TickMarkStyle m_defObject;
 
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TickMarkStyleInstance(TickMarkStyle defObject)
+		public TickMarkStyleInstance(TickMarkStyle defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class LinearGaugeInstance : GaugeInstance
+	public sealed class LinearGaugeInstance : GaugeInstance
 	{
 		private LinearGauge m_defObject;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal LinearGaugeInstance(LinearGauge defObject)
+		public LinearGaugeInstance(LinearGauge defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Rectangle : ReportItem, IPageBreakOwner, IPersistable
+	public sealed class Rectangle : ReportItem, IPageBreakOwner, IPersistable
 	{
 		private ReportItemCollection m_reportItems;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Rectangle.GetDeclaration();
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int LinkToChild
+		public int LinkToChild
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool KeepTogether
+		public bool KeepTogether
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool OmitBorderOnPageBreak
+		public bool OmitBorderOnPageBreak
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsSimple
+		public bool IsSimple
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override DataElementOutputTypes DataElementOutputDefault
+		public override DataElementOutputTypes DataElementOutputDefault
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo PageName
+		public ExpressionInfo PageName
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PageBreak PageBreak
+		public PageBreak PageBreak
 		{
 			get
 			{
@@ -169,24 +169,24 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Rectangle(ReportItem parent)
+		public Rectangle(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Rectangle(int id, int idForReportItems, ReportItem parent)
+		public Rectangle(int id, int idForReportItems, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_reportItems = new ReportItemCollection(idForReportItems, true);
 		}
 
-		internal override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
+		public override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
 		{
 			base.CalculateSizes(width, height, context, overwrite);
 			this.m_reportItems.CalculateSizes(context, false);
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal override void TraverseScopes(IRIFScopeVisitor visitor)
+		public override void TraverseScopes(IRIFScopeVisitor visitor)
 		{
 			if (this.m_reportItems != null)
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void InitializeRVDirectionDependentItems(InitializationContext context)
+		public override void InitializeRVDirectionDependentItems(InitializationContext context)
 		{
 			if (this.m_reportItems != null)
 			{
@@ -237,7 +237,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
+		public override void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
 		{
 			if (this.m_reportItems != null)
 			{
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ContainsDataRegionOrSubReport()
+		public bool ContainsDataRegionOrSubReport()
 		{
 			for (int i = 0; i < this.m_reportItems.Count; i++)
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ReportItems, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ReportItemCollection));
@@ -358,7 +358,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Rectangle;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			Rectangle rectangle = (Rectangle)base.PublishClone(context);
 			if (this.m_reportItems != null)
@@ -376,7 +376,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return rectangle;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -390,7 +390,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string EvaluatePageName(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public string EvaluatePageName(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			return context.ReportRuntime.EvaluateRectanglePageNameExpression(this, this.m_pageName, base.m_name);

@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class PropertyDefinition
+	public abstract class PropertyDefinition
 	{
 		private string m_name;
 
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			return null;
 		}
 	}
-	internal abstract class PropertyDefinition<T> : PropertyDefinition, IPropertyDefinition where T : struct
+	public abstract class PropertyDefinition<T> : PropertyDefinition, IPropertyDefinition where T : struct
 	{
 		private T? m_default;
 

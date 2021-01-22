@@ -3,9 +3,9 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RuntimeDataSourceStreamingDataProcessing : RuntimeDataSourceDataProcessing
+	public sealed class RuntimeDataSourceStreamingDataProcessing : RuntimeDataSourceDataProcessing
 	{
-		internal RuntimeDataSourceStreamingDataProcessing(DataSet dataSet, OnDemandProcessingContext processingContext)
+		public RuntimeDataSourceStreamingDataProcessing(DataSet dataSet, OnDemandProcessingContext processingContext)
 			: base(dataSet, processingContext)
 		{
 		}

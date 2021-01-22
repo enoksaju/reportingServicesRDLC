@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartHierarchy : MemberHierarchy<ChartMember>
+	public sealed class ChartHierarchy : MemberHierarchy<ChartMember>
 	{
 		private Chart OwnerChart
 		{
@@ -31,12 +31,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartHierarchy(Chart owner, bool isColumn)
+		public ChartHierarchy(Chart owner, bool isColumn)
 			: base((ReportItem)owner, isColumn)
 		{
 		}
 
-		internal override void ResetContext()
+		public override void ResetContext()
 		{
 			if (base.m_members != null)
 			{

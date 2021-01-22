@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class RuntimeChartObjReference : RuntimeChartCriObjReference, IReference<RuntimeChartObj>, IReference, IStorable, IPersistable
+	public class RuntimeChartObjReference : RuntimeChartCriObjReference, IReference<RuntimeChartObj>, IReference, IStorable, IPersistable
 	{
-		internal RuntimeChartObjReference()
+		public RuntimeChartObjReference()
 		{
 		}
 

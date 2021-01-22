@@ -8,7 +8,7 @@ using System.Security.Policy;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class ReportRuntimeSetupHandler : IDisposable
+	public sealed class ReportRuntimeSetupHandler : IDisposable
 	{
 		private enum TriState
 		{
@@ -35,7 +35,7 @@ namespace AspNetCore.Reporting
 
 		private static readonly object m_appDomainPoolLoaderLock = new object();
 
-		internal ReportRuntimeSetup ReportRuntimeSetup
+		public ReportRuntimeSetup ReportRuntimeSetup
 		{
 			[SecurityCritical]
 			
@@ -51,7 +51,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal bool RequireExpressionHostWithRefusedPermissions
+		public bool RequireExpressionHostWithRefusedPermissions
 		{
 			
 			[SecurityCritical]
@@ -104,7 +104,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal ReportRuntimeSetupHandler()
+		public ReportRuntimeSetupHandler()
 		{
 			this.m_executeInSandbox = TriState.Unknown;
 			this.m_isAppDomainCasPolicyEnabled = TriState.Unknown;
@@ -146,7 +146,7 @@ namespace AspNetCore.Reporting
 		
 		[SecurityCritical]
 		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
-		internal void ExecuteReportInCurrentAppDomain()
+		public void ExecuteReportInCurrentAppDomain()
 		{
 			if (!this.IsAppDomainCasPolicyEnabled)
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.Reporting
 		[SecurityCritical]
 		
 		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
-		internal void ExecuteReportInCurrentAppDomain(Evidence reportEvidence)
+		public void ExecuteReportInCurrentAppDomain(Evidence reportEvidence)
 		{
 			if (!this.IsAppDomainCasPolicyEnabled)
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.Reporting
 		
 		[SecurityCritical]
 		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
-		internal void ExecuteReportInSandboxAppDomain()
+		public void ExecuteReportInSandboxAppDomain()
 		{
 			this.SetAppDomain(true);
 			AppDomain exprHostAppDomain = null;
@@ -186,7 +186,7 @@ namespace AspNetCore.Reporting
 		[SecurityCritical]
 		
 		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
-		internal void AddTrustedCodeModuleInCurrentAppDomain(string assemblyName)
+		public void AddTrustedCodeModuleInCurrentAppDomain(string assemblyName)
 		{
 			if (!this.IsAppDomainCasPolicyEnabled)
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.Reporting
 		[SecurityCritical]
 		
 		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
-		internal void AddFullTrustModuleInSandboxAppDomain(StrongName assemblyName)
+		public void AddFullTrustModuleInSandboxAppDomain(StrongName assemblyName)
 		{
 			this.m_isExprHostSandboxAppDomainDirty = true;
 			this.m_sandboxCasSettings.AddFullTrustAssembly(assemblyName);
@@ -207,7 +207,7 @@ namespace AspNetCore.Reporting
 		
 		[SecurityCritical]
 		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
-		internal void SetBasePermissionsForSandboxAppDomain(PermissionSet permissions)
+		public void SetBasePermissionsForSandboxAppDomain(PermissionSet permissions)
 		{
 			this.m_isExprHostSandboxAppDomainDirty = true;
 			this.m_sandboxCasSettings.BasePermissions = permissions;

@@ -2,30 +2,30 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class NativeMethodsGeneral
+	public static class NativeMethodsGeneral
 	{
 		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
 		private struct MEMORYSTATUSEX
 		{
-			internal int dwLength;
+			public int dwLength;
 
-			internal int dwMemoryLoad;
+			public int dwMemoryLoad;
 
-			internal long ullTotalPhys;
+			public long ullTotalPhys;
 
-			internal long ullAvailPhys;
+			public long ullAvailPhys;
 
-			internal long ullTotalPageFile;
+			public long ullTotalPageFile;
 
-			internal long ullAvailPageFile;
+			public long ullAvailPageFile;
 
-			internal long ullTotalVirtual;
+			public long ullTotalVirtual;
 
-			internal long ullAvailVirtual;
+			public long ullAvailVirtual;
 
-			internal long ullAvailExtendedVirtual;
+			public long ullAvailExtendedVirtual;
 
-			internal void Init()
+			public void Init()
 			{
 				this.dwLength = Marshal.SizeOf(typeof(MEMORYSTATUSEX));
 			}

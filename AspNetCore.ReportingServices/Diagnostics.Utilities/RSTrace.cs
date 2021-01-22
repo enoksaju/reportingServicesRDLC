@@ -7,9 +7,9 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal sealed class RSTrace
+	public sealed class RSTrace
 	{
-		internal enum TraceComponents
+		public enum TraceComponents
 		{
 			Library,
 			ConfigManager,
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			Thread
 		}
 
-		private class DefaultRSTraceInternal : IRSTraceInternal
+		private class DefaultRSTracepublic : IRSTraceInternal
 		{
 			public string TraceDirectory
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal sealed class WriteOnce
+		public sealed class WriteOnce
 		{
 			private Hashtable m_traceWriteOnce = new Hashtable();
 
@@ -284,7 +284,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		private TraceLevel m_componentTraceLevel;
 
-		private static IRSTraceInternal m_traceInternal = new DefaultRSTraceInternal();
+		private static IRSTraceInternal m_tracepublic = new DefaultRSTracepublic();
 
 		private static IRSTraceInternalWithDynamicLevel m_alternateTraceInternal;
 
@@ -994,19 +994,19 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal static bool IsTraceInitialized
+		public static bool IsTraceInitialized
 		{
 			get
 			{
-				return RSTrace.m_traceInternal.IsTraceInitialized;
+				return RSTrace.m_tracepublic.IsTraceInitialized;
 			}
 		}
 
-		internal string TraceFileName
+		public string TraceFileName
 		{
 			get
 			{
-				return RSTrace.m_traceInternal.CurrentTraceFilePath;
+				return RSTrace.m_tracepublic.CurrentTraceFilePath;
 			}
 		}
 
@@ -1014,7 +1014,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 		{
 			get
 			{
-				return RSTrace.m_traceInternal.TraceDirectory;
+				return RSTrace.m_tracepublic.TraceDirectory;
 			}
 		}
 
@@ -1022,11 +1022,11 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 		{
 			get
 			{
-				return RSTrace.m_traceInternal.BufferOutput;
+				return RSTrace.m_tracepublic.BufferOutput;
 			}
 			set
 			{
-				RSTrace.m_traceInternal.BufferOutput = value;
+				RSTrace.m_tracepublic.BufferOutput = value;
 			}
 		}
 
@@ -1038,7 +1038,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 				{
 					lock (this)
 					{
-						string defaultTraceLevel = RSTrace.m_traceInternal.GetDefaultTraceLevel();
+						string defaultTraceLevel = RSTrace.m_tracepublic.GetDefaultTraceLevel();
 						RSTrace.m_rsTraceSwitch = new TraceSwitch("DefaultTraceSwitch", "Default Trace Switch", defaultTraceLevel);
 					}
 				}
@@ -1053,7 +1053,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			}
 		}
 
-		internal RSTrace(string componentName)
+		public RSTrace(string componentName)
 		{
 			this.m_ComponentName = componentName.ToLowerInvariant();
 			this.m_componentTraceLevel = RSTrace.GetTraceLevel(this.m_ComponentName);
@@ -1061,7 +1061,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		public void Trace(string message)
 		{
-			RSTrace.m_traceInternal.Trace(this.m_ComponentName, message);
+			RSTrace.m_tracepublic.Trace(this.m_ComponentName, message);
 			if (RSTrace.m_alternateTraceInternal != null)
 			{
 				RSTrace.m_alternateTraceInternal.Trace(this.m_ComponentName, message);
@@ -1070,7 +1070,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		public void Trace(TraceLevel traceLevel, string message)
 		{
-			RSTrace.m_traceInternal.Trace(traceLevel, this.m_ComponentName, message);
+			RSTrace.m_tracepublic.Trace(traceLevel, this.m_ComponentName, message);
 			if (RSTrace.m_alternateTraceInternal != null)
 			{
 				RSTrace.m_alternateTraceInternal.Trace(traceLevel, this.m_ComponentName, message);
@@ -1079,7 +1079,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		public void TraceWithDetails(TraceLevel traceLevel, string message, string details)
 		{
-			RSTrace.m_traceInternal.TraceWithDetails(traceLevel, this.m_ComponentName, message, details);
+			RSTrace.m_tracepublic.TraceWithDetails(traceLevel, this.m_ComponentName, message, details);
 			if (RSTrace.m_alternateTraceInternal != null)
 			{
 				RSTrace.m_alternateTraceInternal.TraceWithDetails(traceLevel, this.m_ComponentName, message, details);
@@ -1088,7 +1088,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		public void TraceException(TraceLevel traceLevel, string message)
 		{
-			RSTrace.m_traceInternal.TraceException(traceLevel, this.m_ComponentName, message);
+			RSTrace.m_tracepublic.TraceException(traceLevel, this.m_ComponentName, message);
 			if (RSTrace.m_alternateTraceInternal != null)
 			{
 				RSTrace.m_alternateTraceInternal.TraceException(traceLevel, this.m_ComponentName, message);
@@ -1097,7 +1097,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		public void Trace(string format, params object[] arg)
 		{
-			RSTrace.m_traceInternal.Trace(this.m_ComponentName, format, arg);
+			RSTrace.m_tracepublic.Trace(this.m_ComponentName, format, arg);
 			if (RSTrace.m_alternateTraceInternal != null)
 			{
 				RSTrace.m_alternateTraceInternal.Trace(this.m_ComponentName, format, arg);
@@ -1106,7 +1106,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		public void Trace(TraceLevel traceLevel, string format, params object[] arg)
 		{
-			RSTrace.m_traceInternal.Trace(traceLevel, this.m_ComponentName, format, arg);
+			RSTrace.m_tracepublic.Trace(traceLevel, this.m_ComponentName, format, arg);
 			if (RSTrace.m_alternateTraceInternal != null)
 			{
 				RSTrace.m_alternateTraceInternal.Trace(traceLevel, this.m_ComponentName, format, arg);
@@ -1118,7 +1118,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			if (this.IsTraceLevelEnabled(traceLevel))
 			{
 				string message = string.Format(CultureInfo.InvariantCulture, format, arg);
-				RSTrace.m_traceInternal.TraceException(traceLevel, this.m_ComponentName, message);
+				RSTrace.m_tracepublic.TraceException(traceLevel, this.m_ComponentName, message);
 				if (RSTrace.m_alternateTraceInternal != null)
 				{
 					RSTrace.m_alternateTraceInternal.TraceException(traceLevel, this.m_ComponentName, message);
@@ -1128,7 +1128,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		public void TraceWithNoEventLog(TraceLevel traceLevel, string format, params object[] arg)
 		{
-			RSTrace.m_traceInternal.TraceWithNoEventLog(traceLevel, this.m_ComponentName, format, arg);
+			RSTrace.m_tracepublic.TraceWithNoEventLog(traceLevel, this.m_ComponentName, format, arg);
 			if (RSTrace.m_alternateTraceInternal != null)
 			{
 				RSTrace.m_alternateTraceInternal.TraceWithNoEventLog(traceLevel, this.m_ComponentName, format, arg);
@@ -1147,10 +1147,10 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 					}
 					catch
 					{
-						RSTrace.m_traceInternal.Fail(this.m_ComponentName);
+						RSTrace.m_tracepublic.Fail(this.m_ComponentName);
 					}
 				}
-				RSTrace.m_traceInternal.Fail(this.m_ComponentName);
+				RSTrace.m_tracepublic.Fail(this.m_ComponentName);
 			}
 		}
 
@@ -1166,10 +1166,10 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 					}
 					catch
 					{
-						RSTrace.m_traceInternal.Fail(this.m_ComponentName, message);
+						RSTrace.m_tracepublic.Fail(this.m_ComponentName, message);
 					}
 				}
-				RSTrace.m_traceInternal.Fail(this.m_ComponentName, message);
+				RSTrace.m_tracepublic.Fail(this.m_ComponentName, message);
 			}
 		}
 
@@ -1209,7 +1209,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 		{
 			TraceLevel result = TraceLevel.Error;
 			int num = default(int);
-			if (RSTrace.m_traceInternal != null && !RSTrace.m_traceInternal.GetTraceLevel(componentName, out result) && !RSTrace.m_traceInternal.GetTraceLevel("all", out result) && int.TryParse(RSTrace.m_traceInternal.GetDefaultTraceLevel(), NumberStyles.None, (IFormatProvider)CultureInfo.InvariantCulture, out num) && num >= 0 && num <= 3)
+			if (RSTrace.m_tracepublic != null && !RSTrace.m_tracepublic.GetTraceLevel(componentName, out result) && !RSTrace.m_tracepublic.GetTraceLevel("all", out result) && int.TryParse(RSTrace.m_tracepublic.GetDefaultTraceLevel(), NumberStyles.None, (IFormatProvider)CultureInfo.InvariantCulture, out num) && num >= 0 && num <= 3)
 			{
 				result = (TraceLevel)num;
 			}
@@ -1219,7 +1219,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 		public bool IsTraceLevelEnabled(TraceLevel level)
 		{
 			TraceLevel componentTraceLevel = default(TraceLevel);
-			if (RSTrace.m_traceInternal is IRSTraceInternalWithDynamicLevel && RSTrace.m_traceInternal.GetTraceLevel(this.m_ComponentName, out componentTraceLevel))
+			if (RSTrace.m_tracepublic is IRSTraceInternalWithDynamicLevel && RSTrace.m_tracepublic.GetTraceLevel(this.m_ComponentName, out componentTraceLevel))
 			{
 				this.m_componentTraceLevel = componentTraceLevel;
 			}
@@ -1237,12 +1237,12 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		public void ClearBuffer()
 		{
-			RSTrace.m_traceInternal.ClearBuffer();
+			RSTrace.m_tracepublic.ClearBuffer();
 		}
 
 		public void WriteBuffer()
 		{
-			RSTrace.m_traceInternal.WriteBuffer();
+			RSTrace.m_tracepublic.WriteBuffer();
 		}
 
 		public static void SetTrace(IRSTraceInternal trace)
@@ -1251,17 +1251,17 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 			{
 				throw new ArgumentNullException("trace");
 			}
-			RSTrace.m_traceInternal = trace;
+			RSTrace.m_tracepublic = trace;
 		}
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		internal static IRSTraceInternal GetTrace()
+		public static IRSTraceInternal GetTrace()
 		{
-			return RSTrace.m_traceInternal;
+			return RSTrace.m_tracepublic;
 		}
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		internal static IRSTraceInternal GetAlternateTrace()
+		public static IRSTraceInternal GetAlternateTrace()
 		{
 			return RSTrace.m_alternateTraceInternal;
 		}

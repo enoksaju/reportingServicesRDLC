@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.Reporting
 {
-	internal static class SPStringUtility
+	public static class SPStringUtility
 	{
 		public static string RemoveNonAlphaNumericChars(string value)
 		{

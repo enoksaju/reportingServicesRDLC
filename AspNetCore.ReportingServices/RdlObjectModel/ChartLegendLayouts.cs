@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartLegendLayouts
+	public enum ChartLegendLayouts
 	{
 		Column,
 		Row,

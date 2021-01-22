@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class IntlDate
+	public sealed class IntlDate
 	{
 		private int m_Year;
 
@@ -143,12 +143,12 @@ namespace AspNetCore.Reporting
 			this.JDay += days;
 		}
 
-		internal void Init(int year, int month, int day, SPCalendarType calendarType)
+		public void Init(int year, int month, int day, SPCalendarType calendarType)
 		{
 			this.Init(year, month, day, 1, calendarType);
 		}
 
-		internal void Init(int year, int month, int day, int era, SPCalendarType calendarType)
+		public void Init(int year, int month, int day, int era, SPCalendarType calendarType)
 		{
 			this.m_Year = year;
 			this.m_Month = month;
@@ -163,7 +163,7 @@ namespace AspNetCore.Reporting
 			this.m_Jday = SPIntlCal.LocalToJulianDay(this.m_CalendarType, ref simpleDate);
 		}
 
-		internal void Init(int julianDay, SPCalendarType calendarType)
+		public void Init(int julianDay, SPCalendarType calendarType)
 		{
 			SimpleDate simpleDate = new SimpleDate(0, 0, 0);
 			SPIntlCal.JulianDayToLocal(calendarType, julianDay, ref simpleDate);

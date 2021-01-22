@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartSmartLabel
+	public sealed class ChartSmartLabel
 	{
 		private Chart m_chart;
 
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartSmartLabel ChartSmartLabelDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartSmartLabel ChartSmartLabelDef
 		{
 			get
 			{
@@ -248,14 +248,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartSmartLabel(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartSmartLabel chartSmartLabelDef, Chart chart)
+		public ChartSmartLabel(InternalChartSeries chartSeries, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartSmartLabel chartSmartLabelDef, Chart chart)
 		{
 			this.m_chartSeries = chartSeries;
 			this.m_chartSmartLabelDef = chartSmartLabelDef;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

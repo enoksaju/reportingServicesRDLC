@@ -2,19 +2,19 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class ScopeNameValidator : NameValidator
+	public sealed class ScopeNameValidator : NameValidator
 	{
-		internal ScopeNameValidator()
+		public ScopeNameValidator()
 			: base(false)
 		{
 		}
 
-		internal bool Validate(bool isGrouping, string scopeName, ObjectType objectType, string objectName, ErrorContext errorContext)
+		public bool Validate(bool isGrouping, string scopeName, ObjectType objectType, string objectName, ErrorContext errorContext)
 		{
 			return this.Validate(isGrouping, scopeName, objectType, objectName, errorContext, true);
 		}
 
-		internal bool Validate(bool isGrouping, string scopeName, ObjectType objectType, string objectName, ErrorContext errorContext, bool enforceCLSCompliance)
+		public bool Validate(bool isGrouping, string scopeName, ObjectType objectType, string objectName, ErrorContext errorContext, bool enforceCLSCompliance)
 		{
 			bool result = true;
 			if (!NameValidator.IsCLSCompliant(scopeName) && enforceCLSCompliance)

@@ -11,14 +11,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapColorRule : MapAppearanceRule, IPersistable
+	public class MapColorRule : MapAppearanceRule, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapColorRule.GetDeclaration();
 
 		private ExpressionInfo m_showInColorScale;
 
-		internal ExpressionInfo ShowInColorScale
+		public ExpressionInfo ShowInColorScale
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapColorRuleExprHost ExprHost
+		public new MapColorRuleExprHost ExprHost
 		{
 			get
 			{
@@ -38,16 +38,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapColorRule()
+		public MapColorRule()
 		{
 		}
 
-		internal MapColorRule(MapVectorLayer mapVectorLayer, Map map)
+		public MapColorRule(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_showInColorScale != null)
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapColorRule mapColorRule = (MapColorRule)base.PublishClone(context);
 			if (this.m_showInColorScale != null)
@@ -67,13 +67,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapColorRule;
 		}
 
-		internal override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ShowInColorScale, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapColorRule;
 		}
 
-		internal bool EvaluateShowInColorScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateShowInColorScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorRuleShowInColorScaleExpression(this, base.m_map.Name);

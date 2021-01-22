@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class LinearScaleCollection : NamedCollection
+	public class LinearScaleCollection : NamedCollection
 	{
 		private LinearScale this[int index]
 		{
@@ -62,7 +62,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal LinearScaleCollection(NamedElement parent, CommonElements common)
+		public LinearScaleCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(LinearScale);
@@ -101,7 +101,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return base.List.IndexOf(value);
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Scale{0}";
 		}

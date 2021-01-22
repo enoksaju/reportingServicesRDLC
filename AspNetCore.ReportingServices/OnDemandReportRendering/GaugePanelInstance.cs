@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugePanelInstance : DynamicImageInstance, IDynamicImageInstance
+	public sealed class GaugePanelInstance : DynamicImageInstance, IDynamicImageInstance
 	{
 		private GaugeAntiAliasings? m_antiAliasing;
 
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanelInstance(GaugePanel reportItemDef)
+		public GaugePanelInstance(GaugePanel reportItemDef)
 			: base(reportItemDef)
 		{
 		}

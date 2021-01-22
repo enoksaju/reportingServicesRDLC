@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class StateIndicatorCollection : NamedCollection
+	public class StateIndicatorCollection : NamedCollection
 	{
 		private StateIndicator this[int index]
 		{
@@ -62,7 +62,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal StateIndicatorCollection(NamedElement parent, CommonElements common)
+		public StateIndicatorCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(StateIndicator);
@@ -101,12 +101,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return base.List.IndexOf(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "StateIndicator1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "StateIndicator{0}";
 		}

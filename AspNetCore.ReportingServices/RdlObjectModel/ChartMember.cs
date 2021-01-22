@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartMember : HierarchyMember, IHierarchyMember
+	public class ChartMember : HierarchyMember, IHierarchyMember
 	{
-		internal class Definition : DefinitionStore<ChartMember, Definition.Properties>
+		public class Definition : DefinitionStore<ChartMember, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Group,
 				SortExpressions,
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartMember(IPropertyStore propertyStore)
+		public ChartMember(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

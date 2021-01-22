@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartArea : ChartObjectCollectionItem<ChartAreaInstance>, IROMStyleDefinitionContainer
+	public sealed class ChartArea : ChartObjectCollectionItem<ChartAreaInstance>, IROMStyleDefinitionContainer
 	{
 		private Chart m_chart;
 
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartArea ChartAreaDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartArea ChartAreaDef
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -244,18 +244,18 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartArea(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartArea chartAreaDef, Chart chart)
+		public ChartArea(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartArea chartAreaDef, Chart chart)
 		{
 			this.m_chart = chart;
 			this.m_chartAreaDef = chartAreaDef;
 		}
 
-		internal ChartArea(Chart chart)
+		public ChartArea(Chart chart)
 		{
 			this.m_chart = chart;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_style != null)

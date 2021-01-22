@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportStringProperty : ReportProperty
+	public sealed class ReportStringProperty : ReportProperty
 	{
 		private string m_value;
 
@@ -15,17 +15,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportStringProperty()
+		public ReportStringProperty()
 		{
 			this.m_value = null;
 		}
 
-		internal ReportStringProperty(bool isExpression, string expressionString, string value)
+		public ReportStringProperty(bool isExpression, string expressionString, string value)
 			: this(isExpression, expressionString, value, null)
 		{
 		}
 
-		internal ReportStringProperty(bool isExpression, string expressionString, string value, string defaultValue)
+		public ReportStringProperty(bool isExpression, string expressionString, string value, string defaultValue)
 			: base(isExpression, expressionString)
 		{
 			if (!isExpression)
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportStringProperty(AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo expression)
+		public ReportStringProperty(AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo expression)
 			: base(expression != null && expression.IsExpression, (expression == null) ? null : expression.OriginalText)
 		{
 			if (expression != null && !expression.IsExpression)
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportStringProperty(AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo expression, string formulaText)
+		public ReportStringProperty(AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo expression, string formulaText)
 			: base(expression != null && expression.IsExpression, (expression == null) ? null : ((expression.IsExpression && expression.OriginalText == null) ? formulaText : expression.OriginalText))
 		{
 			if (expression != null && !expression.IsExpression)
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportStringProperty(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public ReportStringProperty(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 			: base(expression != null && expression.IsExpression, (expression == null) ? null : expression.OriginalText)
 		{
 			if (expression != null && !expression.IsExpression)

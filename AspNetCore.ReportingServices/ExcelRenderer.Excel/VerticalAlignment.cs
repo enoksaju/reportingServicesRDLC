@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum VerticalAlignment
+	public enum VerticalAlignment
 	{
 		Top,
 		Center,

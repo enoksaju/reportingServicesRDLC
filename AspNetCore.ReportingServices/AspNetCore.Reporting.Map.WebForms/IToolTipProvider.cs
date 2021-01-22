@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface IToolTipProvider
+	public interface IToolTipProvider
 	{
 		string GetToolTip();
 	}

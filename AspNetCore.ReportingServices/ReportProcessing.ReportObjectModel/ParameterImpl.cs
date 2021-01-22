@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ParameterImpl(object[] value, string[] labels, bool isMultiValue)
+		public ParameterImpl(object[] value, string[] labels, bool isMultiValue)
 		{
 			this.m_value = value;
 			this.m_labels = labels;

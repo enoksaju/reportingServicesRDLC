@@ -5,11 +5,11 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ScopeLookupTable
+	public sealed class ScopeLookupTable
 	{
 		private object m_lookupTable;
 
-		internal object LookupTable
+		public object LookupTable
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			Hashtable hashtable = this.m_lookupTable as Hashtable;
 			if (hashtable != null)
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Add(GroupingList scopeDefs, VariantList[] scopeValues, int value)
+		public void Add(GroupingList scopeDefs, VariantList[] scopeValues, int value)
 		{
 			if (scopeValues == null || scopeValues.Length == 0)
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			hashEntries = hashtable;
 		}
 
-		internal int Lookup(GroupingList scopeDefs, VariantList[] scopeValues)
+		public int Lookup(GroupingList scopeDefs, VariantList[] scopeValues)
 		{
 			object obj = null;
 			if (scopeValues == null || scopeValues.Length == 0)
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return (int)obj;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.LookupTable, Token.Object));

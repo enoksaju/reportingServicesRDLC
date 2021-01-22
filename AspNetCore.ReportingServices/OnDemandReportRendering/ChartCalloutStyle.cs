@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartCalloutStyle
+	public enum ChartCalloutStyle
 	{
 		Underline,
 		Box,

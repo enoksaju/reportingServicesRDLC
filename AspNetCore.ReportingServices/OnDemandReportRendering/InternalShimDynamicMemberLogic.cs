@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalShimDynamicMemberLogic : InternalDynamicMemberLogic
+	public sealed class InternalShimDynamicMemberLogic : InternalDynamicMemberLogic
 	{
 		private readonly IShimDataRegionMember m_shimMember;
 
@@ -44,17 +44,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal override ScopeID GetScopeID()
+		public override ScopeID GetScopeID()
 		{
 			throw new RenderingObjectModelException(ProcessingErrorCode.rsNotSupportedInStreamingMode, "GetScopeID");
 		}
 
-		internal override ScopeID GetLastScopeID()
+		public override ScopeID GetLastScopeID()
 		{
 			throw new RenderingObjectModelException(ProcessingErrorCode.rsNotSupportedInStreamingMode, "GetLastScopeID");
 		}
 
-		internal override void SetScopeID(ScopeID scopeID)
+		public override void SetScopeID(ScopeID scopeID)
 		{
 			throw new RenderingObjectModelException(ProcessingErrorCode.rsNotSupportedInStreamingMode, "SetScopeID");
 		}

@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class DataSetBase : ReportObject, IGlobalNamedObject, INamedObject
+	public abstract class DataSetBase : ReportObject, IGlobalNamedObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<DataSetBase, Definition.Properties>
+		public class Definition : DefinitionStore<DataSetBase, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				CaseSensitivity,
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal DataSetBase(IPropertyStore propertyStore)
+		public DataSetBase(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

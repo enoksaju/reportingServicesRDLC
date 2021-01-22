@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class FloatAutoValueConverter : SingleConverter
+	public class FloatAutoValueConverter : SingleConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

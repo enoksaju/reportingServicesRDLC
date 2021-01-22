@@ -4,7 +4,7 @@ using System.Data;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal class DataReaderWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDataReader, IDisposable
+	public class DataReaderWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDataReader, IDisposable
 	{
 		public virtual int FieldCount
 		{

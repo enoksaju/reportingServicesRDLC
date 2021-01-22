@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[AttributeUsage(AttributeTargets.Property)]
-	internal sealed class ValidateBound : Attribute
+	public sealed class ValidateBound : Attribute
 	{
 		private double minimum;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private bool required = true;
 
-		internal double Minimum
+		public double Minimum
 		{
 			get
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal double Maximum
+		public double Maximum
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool Required
+		public bool Required
 		{
 			get
 			{
@@ -35,13 +35,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal ValidateBound(double minimum, double maximum)
+		public ValidateBound(double minimum, double maximum)
 		{
 			this.minimum = minimum;
 			this.maximum = maximum;
 		}
 
-		internal ValidateBound(double minimum, double maximum, bool required)
+		public ValidateBound(double minimum, double maximum, bool required)
 		{
 			this.minimum = minimum;
 			this.maximum = maximum;

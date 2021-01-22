@@ -15,11 +15,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 	[XmlElementClass("CustomReportItem", typeof(CustomReportItem))]
 	[XmlElementClass("Map", typeof(Map))]
 	[XmlElementClass("GaugePanel", typeof(GaugePanel))]
-	internal abstract class ReportItem : ReportElement, IGlobalNamedObject, INamedObject, IShouldSerialize
+	public abstract class ReportItem : ReportElement, IGlobalNamedObject, INamedObject, IShouldSerialize
 	{
-		internal new class Definition : DefinitionStore<ReportItem, Definition.Properties>
+		public new class Definition : DefinitionStore<ReportItem, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Name,
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ReportItem(IPropertyStore propertyStore)
+		public ReportItem(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

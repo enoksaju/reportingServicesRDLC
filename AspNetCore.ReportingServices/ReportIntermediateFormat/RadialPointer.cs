@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class RadialPointer : GaugePointer, IPersistable
+	public sealed class RadialPointer : GaugePointer, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = RadialPointer.GetDeclaration();
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_needleStyle;
 
-		internal ExpressionInfo Type
+		public ExpressionInfo Type
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PointerCap PointerCap
+		public PointerCap PointerCap
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo NeedleStyle
+		public ExpressionInfo NeedleStyle
 		{
 			get
 			{
@@ -58,16 +58,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RadialPointer()
+		public RadialPointer()
 		{
 		}
 
-		internal RadialPointer(GaugePanel gaugePanel, int id)
+		public RadialPointer(GaugePanel gaugePanel, int id)
 			: base(gaugePanel, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.RadialPointerStart(base.m_name);
 			base.Initialize(context);
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.RadialPointerEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			RadialPointer radialPointer = (RadialPointer)base.PublishClone(context);
 			if (this.m_type != null)
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return radialPointer;
 		}
 
-		internal void SetExprHost(RadialPointerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(RadialPointerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Type, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -179,13 +179,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RadialPointer;
 		}
 
-		internal RadialPointerTypes EvaluateType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public RadialPointerTypes EvaluateType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateRadialPointerTypes(context.ReportRuntime.EvaluateRadialPointerTypeExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal RadialPointerNeedleStyles EvaluateNeedleStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public RadialPointerNeedleStyles EvaluateNeedleStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateRadialPointerNeedleStyles(context.ReportRuntime.EvaluateRadialPointerNeedleStyleExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);

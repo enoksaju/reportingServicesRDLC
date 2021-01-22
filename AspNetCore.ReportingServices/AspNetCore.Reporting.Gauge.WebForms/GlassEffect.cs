@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum GlassEffect
+	public enum GlassEffect
 	{
 		None,
 		Simple

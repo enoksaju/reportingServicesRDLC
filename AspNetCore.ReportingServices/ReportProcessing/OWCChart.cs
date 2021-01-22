@@ -6,7 +6,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class OWCChart : DataRegion, IRunningValueHolder
+	public sealed class OWCChart : DataRegion, IRunningValueHolder
 	{
 		private ChartColumnList m_chartData;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private OWCChartExprHost m_exprHost;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartColumnList ChartData
+		public ChartColumnList ChartData
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ChartDefinition
+		public string ChartDefinition
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList DetailRunningValues
+		public RunningValueInfoList DetailRunningValues
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OWCChartExprHost OWCChartExprHost
+		public OWCChartExprHost OWCChartExprHost
 		{
 			get
 			{
@@ -91,12 +91,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OWCChart(ReportItem parent)
+		public OWCChart(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal OWCChart(int id, ReportItem parent)
+		public OWCChart(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_chartData = new ChartColumnList();
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_runningValues = new RunningValueInfoList();
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			base.ExprHostID = context.ExprHostBuilder.OWCChartEnd();
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ChartData, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ChartColumnList));

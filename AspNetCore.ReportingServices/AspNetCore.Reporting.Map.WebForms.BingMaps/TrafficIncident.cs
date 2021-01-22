@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract(Namespace = "http://schemas.microsoft.com/search/local/ws/rest/v1")]
-	internal class TrafficIncident : Resource
+	public class TrafficIncident : Resource
 	{
 		[DataMember(Name = "point", EmitDefaultValue = false)]
 		public Point Point

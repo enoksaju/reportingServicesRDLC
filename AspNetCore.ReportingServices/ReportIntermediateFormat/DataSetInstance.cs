@@ -10,7 +10,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class DataSetInstance : ScopeInstance
+	public sealed class DataSetInstance : ScopeInstance
 	{
 		private int m_recordSetSize = -1;
 
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private DataSet m_dataSetDef;
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet DataSetDef
+		public DataSet DataSetDef
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int RecordSetSize
+		public int RecordSetSize
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal FieldInfo[] FieldInfos
+		public FieldInfo[] FieldInfos
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string RewrittenCommandText
+		public string RewrittenCommandText
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string CommandText
+		public string CommandText
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet.TriState CaseSensitivity
+		public DataSet.TriState CaseSensitivity
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet.TriState AccentSensitivity
+		public DataSet.TriState AccentSensitivity
 		{
 			get
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet.TriState KanatypeSensitivity
+		public DataSet.TriState KanatypeSensitivity
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet.TriState WidthSensitivity
+		public DataSet.TriState WidthSensitivity
 		{
 			get
 			{
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal uint LCID
+		public uint LCID
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<LookupObjResult> LookupResults
+		public List<LookupObjResult> LookupResults
 		{
 			get
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool OldSnapshotTablixProcessingComplete
+		public bool OldSnapshotTablixProcessingComplete
 		{
 			get
 			{
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataChunkName
+		public string DataChunkName
 		{
 			get
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CompareInfo CompareInfo
+		public CompareInfo CompareInfo
 		{
 			get
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CompareOptions ClrCompareOptions
+		public CompareOptions ClrCompareOptions
 		{
 			get
 			{
@@ -247,16 +247,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSetInstance(DataSet dataSetDef)
+		public DataSetInstance(DataSet dataSetDef)
 		{
 			this.m_dataSetDef = dataSetDef;
 		}
 
-		internal DataSetInstance()
+		public DataSetInstance()
 		{
 		}
 
-		internal void InitializeForReprocessing()
+		public void InitializeForReprocessing()
 		{
 			this.m_oldSnapshotTablixProcessingComplete = false;
 			base.m_aggregateValues = null;
@@ -264,12 +264,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_firstRowOffset = -1L;
 		}
 
-		internal override void AddChildScope(IReference<ScopeInstance> child, int indexInCollection)
+		public override void AddChildScope(IReference<ScopeInstance> child, int indexInCollection)
 		{
 			Global.Tracer.Assert(false);
 		}
 
-		internal void SetupEnvironment(OnDemandProcessingContext odpContext, bool newDataSetDefinition)
+		public void SetupEnvironment(OnDemandProcessingContext odpContext, bool newDataSetDefinition)
 		{
 			if (newDataSetDefinition)
 			{
@@ -291,19 +291,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetupDataSetLevelAggregates(OnDemandProcessingContext odpContext)
+		public void SetupDataSetLevelAggregates(OnDemandProcessingContext odpContext)
 		{
 			int num = 0;
 			base.SetupAggregates(odpContext, this.m_dataSetDef.Aggregates, ref num);
 			base.SetupAggregates(odpContext, this.m_dataSetDef.PostSortAggregates, ref num);
 		}
 
-		internal void SetupCollationSettings(OnDemandProcessingContext odpContext)
+		public void SetupCollationSettings(OnDemandProcessingContext odpContext)
 		{
 			odpContext.SetComparisonInformation(this.CompareInfo, this.ClrCompareOptions, this.m_dataSetDef.NullsAsBlanks, this.m_dataSetDef.UseOrdinalStringKeyGeneration);
 		}
 
-		internal void SaveCollationSettings(DataSet dataSet)
+		public void SaveCollationSettings(DataSet dataSet)
 		{
 			this.LCID = dataSet.LCID;
 			this.CaseSensitivity = dataSet.CaseSensitivity;
@@ -326,7 +326,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_cachedCompareOptions = this.m_dataSetDef.GetCLRCompareOptions();
 		}
 
-		internal IDataComparer CreateProcessingComparer(OnDemandProcessingContext odpContext)
+		public IDataComparer CreateProcessingComparer(OnDemandProcessingContext odpContext)
 		{
 			if (odpContext.ContextMode == OnDemandProcessingContext.Mode.Streaming)
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ProcessingComparer(this.CompareInfo, this.ClrCompareOptions, this.m_dataSetDef.NullsAsBlanks);
 		}
 
-		internal DateTime GetQueryExecutionTime(DateTime reportExecutionTime)
+		public DateTime GetQueryExecutionTime(DateTime reportExecutionTime)
 		{
 			if (!(this.m_executionTime == DateTime.MinValue))
 			{
@@ -344,12 +344,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return reportExecutionTime;
 		}
 
-		internal void SetQueryExecutionTime(DateTime queryExecutionTime)
+		public void SetQueryExecutionTime(DateTime queryExecutionTime)
 		{
 			this.m_executionTime = queryExecutionTime;
 		}
 
-		internal FieldInfo GetOrCreateFieldInfo(int aIndex)
+		public FieldInfo GetOrCreateFieldInfo(int aIndex)
 		{
 			if (this.m_fieldInfos == null)
 			{
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_fieldInfos[aIndex];
 		}
 
-		internal bool IsFieldMissing(int index)
+		public bool IsFieldMissing(int index)
 		{
 			if (this.m_fieldInfos != null && this.m_fieldInfos[index] != null)
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal int GetFieldPropertyCount(int index)
+		public int GetFieldPropertyCount(int index)
 		{
 			if (this.m_fieldInfos != null && this.m_fieldInfos[index] != null)
 			{
@@ -380,7 +380,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return 0;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.RecordSetSize, Token.Int32));

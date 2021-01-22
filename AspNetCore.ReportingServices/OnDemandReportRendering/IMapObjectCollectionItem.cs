@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IMapObjectCollectionItem
+	public interface IMapObjectCollectionItem
 	{
 		void SetNewContext();
 	}

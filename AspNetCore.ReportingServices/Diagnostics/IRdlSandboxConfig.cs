@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IRdlSandboxConfig
+	public interface IRdlSandboxConfig
 	{
 		IList<IRdlSandboxTypeInfo> AllowedTypes
 		{

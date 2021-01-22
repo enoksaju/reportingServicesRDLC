@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ShapeCollection : NamedCollection
+	public class ShapeCollection : NamedCollection
 	{
 		private Shape this[int index]
 		{
@@ -60,7 +60,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ShapeCollection(NamedElement parent, CommonElements common)
+		public ShapeCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(Shape);
@@ -164,12 +164,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return arrayList;
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Shape1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Shape{0}";
 		}
@@ -180,7 +180,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			Shape shape = (Shape)value;
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (base.Common != null)
 			{

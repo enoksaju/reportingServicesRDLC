@@ -7,42 +7,42 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class PointChart : IChartType
+	public class PointChart : IChartType
 	{
-		internal class Label3DInfo
+		public class Label3DInfo
 		{
-			internal DataPoint3D PointEx;
+			public DataPoint3D PointEx;
 
-			internal PointF MarkerPosition = PointF.Empty;
+			public PointF MarkerPosition = PointF.Empty;
 
-			internal SizeF MarkerSize = SizeF.Empty;
+			public SizeF MarkerSize = SizeF.Empty;
 
-			internal PointF AnimatedPoint = PointF.Empty;
+			public PointF AnimatedPoint = PointF.Empty;
 		}
 
-		internal bool alwaysDrawMarkers = true;
+		public bool alwaysDrawMarkers = true;
 
-		internal int yValueIndex;
+		public int yValueIndex;
 
-		internal int labelYValueIndex = -1;
+		public int labelYValueIndex = -1;
 
-		internal bool autoLabelPosition = true;
+		public bool autoLabelPosition = true;
 
-		internal LabelAlignmentTypes labelPosition = LabelAlignmentTypes.Top;
+		public LabelAlignmentTypes labelPosition = LabelAlignmentTypes.Top;
 
-		internal Axis vAxis;
+		public Axis vAxis;
 
-		internal Axis hAxis;
+		public Axis hAxis;
 
-		internal bool indexedSeries;
+		public bool indexedSeries;
 
-		internal CommonElements common;
+		public CommonElements common;
 
-		internal ChartArea area;
+		public ChartArea area;
 
-		internal bool middleMarker = true;
+		public bool middleMarker = true;
 
-		internal ArrayList label3DInfoList;
+		public ArrayList label3DInfoList;
 
 		public virtual string Name
 		{
@@ -599,7 +599,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal static RectangleF GetLabelPosition(ChartGraphics graph, PointF position, SizeF size, StringFormat format, bool adjustForDrawing)
+		public static RectangleF GetLabelPosition(ChartGraphics graph, PointF position, SizeF size, StringFormat format, bool adjustForDrawing)
 		{
 			RectangleF empty = RectangleF.Empty;
 			empty.Width = size.Width;
@@ -678,7 +678,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			goto IL_0044;
 		}
 
-		internal void ProcessSinglePoint3D(DataPoint3D pointEx, bool selection, ChartGraphics graph, CommonElements common, ChartArea area)
+		public void ProcessSinglePoint3D(DataPoint3D pointEx, bool selection, ChartGraphics graph, CommonElements common, ChartArea area)
 		{
 			DataPoint dataPoint = pointEx.dataPoint;
 			Series series = dataPoint.series;
@@ -775,7 +775,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal void DrawAccumulated3DLabels(ChartGraphics graph, CommonElements common, ChartArea area)
+		public void DrawAccumulated3DLabels(ChartGraphics graph, CommonElements common, ChartArea area)
 		{
 			if (this.label3DInfoList != null)
 			{
@@ -846,7 +846,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return num;
 		}
 
-		internal double GetEmptyPointValue(DataPoint point, int pointIndex)
+		public double GetEmptyPointValue(DataPoint point, int pointIndex)
 		{
 			Series series = point.series;
 			double num = 0.0;

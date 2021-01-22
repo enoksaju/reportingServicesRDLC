@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal enum ActionType
+	public enum ActionType
 	{
 		None,
 		HyperLink,

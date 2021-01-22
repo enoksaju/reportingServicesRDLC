@@ -7,11 +7,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlPictureModel : OpenXmlParagraphModel.IParagraphContent
+	public sealed class OpenXmlPictureModel : OpenXmlParagraphModel.IParagraphContent
 	{
 		private CT_Drawing _drawing;
 
-		internal CT_Drawing CtDrawing
+		public CT_Drawing CtDrawing
 		{
 			get
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal OpenXmlPictureModel(Size size, Size desiredSize, bool clip, uint inlineId, uint picId, string relationshipId, string name)
+		public OpenXmlPictureModel(Size size, Size desiredSize, bool clip, uint inlineId, uint picId, string relationshipId, string name)
 		{
 			this._drawing = new CT_Drawing
 			{

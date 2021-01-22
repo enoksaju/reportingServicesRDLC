@@ -8,11 +8,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class SubReport : PageItemContainer, IStorable, IPersistable
+	public sealed class SubReport : PageItemContainer, IStorable, IPersistable
 	{
 		private static Declaration m_declaration = SubReport.GetDeclaration();
 
-		internal override byte RPLFormatType
+		public override byte RPLFormatType
 		{
 			get
 			{
@@ -20,11 +20,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal SubReport()
+		public SubReport()
 		{
 		}
 
-		internal SubReport(AspNetCore.ReportingServices.OnDemandReportRendering.SubReport source)
+		public SubReport(AspNetCore.ReportingServices.OnDemandReportRendering.SubReport source)
 			: base(source)
 		{
 			base.m_itemPageSizes = new ItemSizes(source);
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void OmitBorderOnPageBreak(RPLWriter rplWriter, double pageLeft, double pageTop, double pageRight, double pageBottom)
+		public override void OmitBorderOnPageBreak(RPLWriter rplWriter, double pageLeft, double pageTop, double pageRight, double pageBottom)
 		{
 			if (rplWriter != null && ((AspNetCore.ReportingServices.OnDemandReportRendering.SubReport)base.m_source).OmitBorderOnPageBreak)
 			{
@@ -91,18 +91,18 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override RPLElement CreateRPLElement()
+		public override RPLElement CreateRPLElement()
 		{
 			return new RPLSubReport();
 		}
 
-		internal override RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext)
+		public override RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext)
 		{
 			RPLItemProps rplElementProps = props as RPLItemProps;
 			return new RPLSubReport(rplElementProps);
 		}
 
-		internal override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (rplWriter != null)
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.SubReport subReport = (AspNetCore.ReportingServices.OnDemandReportRendering.SubReport)base.m_source;
 			if (subReport.ReportName != null)
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.SubReport subReport = (AspNetCore.ReportingServices.OnDemandReportRendering.SubReport)base.m_source;
 			if (subReport.ReportName != null)
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, PageContext pageContext)
+		public override void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Report report = ((AspNetCore.ReportingServices.OnDemandReportRendering.SubReport)base.m_source).Report;
 			if (report != null)
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomNonSharedItemProps(RPLElementProps nonSharedProps, PageContext pageContext)
+		public override void WriteCustomNonSharedItemProps(RPLElementProps nonSharedProps, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Report report = ((AspNetCore.ReportingServices.OnDemandReportRendering.SubReport)base.m_source).Report;
 			if (report != null)
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override bool AddToPage(RPLWriter rplWriter, PageContext pageContext, double pageLeft, double pageTop, double pageRight, double pageBottom, RepeatState repeatState)
+		public override bool AddToPage(RPLWriter rplWriter, PageContext pageContext, double pageLeft, double pageTop, double pageRight, double pageBottom, RepeatState repeatState)
 		{
 			bool inSubReport = pageContext.Common.InSubReport;
 			pageContext.Common.InSubReport = true;
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.SubReport;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (SubReport.m_declaration == null)
 			{

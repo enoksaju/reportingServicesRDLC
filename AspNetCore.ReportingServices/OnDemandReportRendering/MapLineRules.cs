@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLineRules
+	public sealed class MapLineRules
 	{
 		private Map m_map;
 
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineRules MapLineRulesDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineRules MapLineRulesDef
 		{
 			get
 			{
@@ -87,14 +87,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLineRules(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineRules defObject, MapLineLayer mapLineLayer, Map map)
+		public MapLineRules(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineRules defObject, MapLineLayer mapLineLayer, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_mapLineLayer = mapLineLayer;
 			this.m_map = map;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

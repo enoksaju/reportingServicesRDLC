@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum MapImageFormat
+	public enum MapImageFormat
 	{
 		Jpeg,
 		Png,

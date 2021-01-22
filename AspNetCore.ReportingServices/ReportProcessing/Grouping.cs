@@ -8,7 +8,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Grouping : IAggregateHolder, ISortFilterScope
+	public sealed class Grouping : IAggregateHolder, ISortFilterScope
 	{
 		private string m_name;
 
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool[] m_isSortFilterExpressionScope;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo GroupLabel
+		public ExpressionInfo GroupLabel
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BoolList SortDirections
+		public BoolList SortDirections
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList GroupExpressions
+		public ExpressionInfoList GroupExpressions
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageBreakAtEnd
+		public bool PageBreakAtEnd
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageBreakAtStart
+		public bool PageBreakAtStart
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Custom
+		public string Custom
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList Aggregates
+		public DataAggregateInfoList Aggregates
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool GroupAndSort
+		public bool GroupAndSort
 		{
 			get
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal FilterList Filters
+		public FilterList Filters
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SimpleGroupExpressions
+		public bool SimpleGroupExpressions
 		{
 			get
 			{
@@ -239,7 +239,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemList ReportItemsWithHideDuplicates
+		public ReportItemList ReportItemsWithHideDuplicates
 		{
 			get
 			{
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList Parent
+		public ExpressionInfoList Parent
 		{
 			get
 			{
@@ -263,7 +263,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IndexedExprHost ParentExprHost
+		public IndexedExprHost ParentExprHost
 		{
 			get
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList RecursiveAggregates
+		public DataAggregateInfoList RecursiveAggregates
 		{
 			get
 			{
@@ -287,7 +287,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList PostSortAggregates
+		public DataAggregateInfoList PostSortAggregates
 		{
 			get
 			{
@@ -299,7 +299,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -311,7 +311,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DataCollectionName
+		public string DataCollectionName
 		{
 			get
 			{
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueList CustomProperties
+		public DataValueList CustomProperties
 		{
 			get
 			{
@@ -347,7 +347,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SaveGroupExprValues
+		public bool SaveGroupExprValues
 		{
 			get
 			{
@@ -359,7 +359,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList UserSortExpressions
+		public ExpressionInfoList UserSortExpressions
 		{
 			get
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal InScopeSortFilterHashtable NonDetailSortFiltersInScope
+		public InScopeSortFilterHashtable NonDetailSortFiltersInScope
 		{
 			get
 			{
@@ -383,7 +383,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal InScopeSortFilterHashtable DetailSortFiltersInScope
+		public InScopeSortFilterHashtable DetailSortFiltersInScope
 		{
 			get
 			{
@@ -395,7 +395,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList HideDuplicatesReportItemIDs
+		public IntList HideDuplicatesReportItemIDs
 		{
 			get
 			{
@@ -407,7 +407,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal GroupingExprHost ExprHost
+		public GroupingExprHost ExprHost
 		{
 			get
 			{
@@ -415,7 +415,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Hashtable ScopeNames
+		public Hashtable ScopeNames
 		{
 			get
 			{
@@ -427,7 +427,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InPivotCell
+		public bool InPivotCell
 		{
 			get
 			{
@@ -439,7 +439,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int RecursiveLevel
+		public int RecursiveLevel
 		{
 			get
 			{
@@ -451,7 +451,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasInnerFilters
+		public bool HasInnerFilters
 		{
 			get
 			{
@@ -463,7 +463,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal VariantList CurrentGroupExpressionValues
+		public VariantList CurrentGroupExpressionValues
 		{
 			get
 			{
@@ -475,7 +475,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportHierarchyNode Owner
+		public ReportHierarchyNode Owner
 		{
 			get
 			{
@@ -487,7 +487,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal VariantList[] SortFilterScopeInfo
+		public VariantList[] SortFilterScopeInfo
 		{
 			get
 			{
@@ -499,7 +499,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int[] SortFilterScopeIndex
+		public int[] SortFilterScopeIndex
 		{
 			get
 			{
@@ -511,7 +511,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool[] NeedScopeInfoForSortFilterExpression
+		public bool[] NeedScopeInfoForSortFilterExpression
 		{
 			get
 			{
@@ -523,7 +523,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool[] IsSortFilterTarget
+		public bool[] IsSortFilterTarget
 		{
 			get
 			{
@@ -535,7 +535,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool[] IsSortFilterExpressionScope
+		public bool[] IsSortFilterExpressionScope
 		{
 			get
 			{
@@ -547,7 +547,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool[] SortFilterScopeMatched
+		public bool[] SortFilterScopeMatched
 		{
 			get
 			{
@@ -624,7 +624,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Grouping(ConstructionPhase phase)
+		public Grouping(ConstructionPhase phase)
 		{
 			if (phase == ConstructionPhase.Publishing)
 			{
@@ -635,7 +635,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.GroupingStart(this.m_name);
 			this.DataRendererInitialize(context);
@@ -729,7 +729,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			CLSNameValidator.ValidateDataElementName(ref this.m_dataCollectionName, this.m_dataElementName + "_Collection", context.ObjectType, context.ObjectName, "DataCollectionName", context.ErrorContext);
 		}
 
-		internal void AddReportItemWithHideDuplicates(ReportItem reportItem)
+		public void AddReportItemWithHideDuplicates(ReportItem reportItem)
 		{
 			if (this.m_reportItemsWithHideDuplicates == null)
 			{
@@ -738,7 +738,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_reportItemsWithHideDuplicates.Add(reportItem);
 		}
 
-		internal void SetExprHost(GroupingExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(GroupingExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			this.m_exprHost = exprHost;
@@ -767,7 +767,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsOnPathToSortFilterSource(int index)
+		public bool IsOnPathToSortFilterSource(int index)
 		{
 			if (this.m_sortFilterScopeInfo != null && this.m_sortFilterScopeIndex != null && -1 != this.m_sortFilterScopeIndex[index])
 			{
@@ -776,7 +776,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal int[] GetGroupExpressionFieldIndices()
+		public int[] GetGroupExpressionFieldIndices()
 		{
 			if (this.m_groupExpressionFieldIndices == null)
 			{
@@ -799,7 +799,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.m_groupExpressionFieldIndices;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Name, Token.String));

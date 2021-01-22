@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 {
-	internal class SerializerHost2005 : SerializerHost2008
+	public class SerializerHost2005 : SerializerHost2008
 	{
 		private List<IUpgradeable> m_upgradeable;
 

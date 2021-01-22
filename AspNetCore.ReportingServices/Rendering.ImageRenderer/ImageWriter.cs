@@ -11,15 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class ImageWriter : WriterBase
+	public sealed class ImageWriter : WriterBase
 	{
-		internal const char StreamNameSeparator = '_';
+		public const char StreamNameSeparator = '_';
 
 		private Graphics m_graphics;
 
 		private Dictionary<string, System.Drawing.Image> m_cachedImages = new Dictionary<string, System.Drawing.Image>();
 
-		internal PaginationSettings.FormatEncoding OutputFormat;
+		public PaginationSettings.FormatEncoding OutputFormat;
 
 		private RectangleF MetafileRectangle = RectangleF.Empty;
 
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 
 		private int DYNAMIC_IMAGE_MIN_RESOLUTION_Y = 300;
 
-		internal bool IsEmf
+		public bool IsEmf
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal Stream OutputStream
+		public Stream OutputStream
 		{
 			set
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal ImageWriter(Renderer renderer, Stream stream, bool disposeRenderer, CreateAndRegisterStream createAndRegisterStream, int measureImageDpiX, int measureImageDpiY)
+		public ImageWriter(Renderer renderer, Stream stream, bool disposeRenderer, CreateAndRegisterStream createAndRegisterStream, int measureImageDpiX, int measureImageDpiY)
 			: base(renderer, stream, disposeRenderer, createAndRegisterStream)
 		{
 			this.m_measureImageDpiX = measureImageDpiX;
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.Dispose(false);
 		}
 
-		internal override void BeginReport(int dpiX, int dpiY)
+		public override void BeginReport(int dpiX, int dpiY)
 		{
 			this.m_dpiX = dpiX;
 			this.m_dpiY = dpiY;
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			base.m_commonGraphics = this.m_graphics;
 		}
 
-		internal override void BeginPage(float pageWidth, float pageHeight)
+		public override void BeginPage(float pageWidth, float pageHeight)
 		{
 			if (!this.IsEmf)
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void BeginPageSection(RectangleF bounds)
+		public override void BeginPageSection(RectangleF bounds)
 		{
 			base.BeginPageSection(bounds);
 			int dpiX = base.m_commonGraphics.DpiX;
@@ -156,22 +156,22 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.m_graphics.ResetClipAndTransform(new RectangleF(bounds.Left, bounds.Top, bounds.Width + this.HalfPixelWidthX, bounds.Height + this.HalfPixelWidthY));
 		}
 
-		internal override RectangleF CalculateColumnBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, RPLItemMeasurement column, int columnNumber, float top, float columnHeight, float columnWidth)
+		public override RectangleF CalculateColumnBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, RPLItemMeasurement column, int columnNumber, float top, float columnHeight, float columnWidth)
 		{
 			return HardPageBreakShared.CalculateColumnBounds(reportSection, pageLayout, columnNumber, top, columnHeight);
 		}
 
-		internal override RectangleF CalculateHeaderBounds(RPLReportSection section, RPLPageLayout pageLayout, float top, float width)
+		public override RectangleF CalculateHeaderBounds(RPLReportSection section, RPLPageLayout pageLayout, float top, float width)
 		{
 			return HardPageBreakShared.CalculateHeaderBounds(section, pageLayout, top, width);
 		}
 
-		internal override RectangleF CalculateFooterBounds(RPLReportSection section, RPLPageLayout pageLayout, float top, float width)
+		public override RectangleF CalculateFooterBounds(RPLReportSection section, RPLPageLayout pageLayout, float top, float width)
 		{
 			return HardPageBreakShared.CalculateFooterBounds(section, pageLayout, top, width);
 		}
 
-		internal override void DrawBackgroundImage(RPLImageData imageData, RPLFormat.BackgroundRepeatTypes repeat, PointF start, RectangleF position)
+		public override void DrawBackgroundImage(RPLImageData imageData, RPLFormat.BackgroundRepeatTypes repeat, PointF start, RectangleF position)
 		{
 			System.Drawing.Image image = default(System.Drawing.Image);
 			bool image2 = this.GetImage(imageData.ImageName, imageData.ImageData, imageData.ImageDataOffset, false, out image);
@@ -219,12 +219,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void DrawLine(Color color, float size, RPLFormat.BorderStyles style, float x1, float y1, float x2, float y2)
+		public override void DrawLine(Color color, float size, RPLFormat.BorderStyles style, float x1, float y1, float x2, float y2)
 		{
 			this.m_graphics.DrawLine(GDIPen.GetPen(this.m_pens, color, (float)this.ConvertToPixels(size), style), x1, y1, x2, y2);
 		}
 
-		internal void GetDefaultImage(out System.Drawing.Image gdiImage)
+		public void GetDefaultImage(out System.Drawing.Image gdiImage)
 		{
 			string key = "__int__InvalidImage";
 			if (!this.m_cachedImages.TryGetValue(key, out gdiImage))
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void DrawDynamicImage(string imageName, Stream imageStream, long imageDataOffset, RectangleF position)
+		public override void DrawDynamicImage(string imageName, Stream imageStream, long imageDataOffset, RectangleF position)
 		{
 			System.Drawing.Image image = default(System.Drawing.Image);
 			bool flag = this.GetImage(imageName, imageStream, imageDataOffset, true, out image);
@@ -263,7 +263,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void DrawImage(RectangleF position, RPLImage image, RPLImageProps instanceProperties, RPLImagePropsDef definitionProperties)
+		public override void DrawImage(RectangleF position, RPLImage image, RPLImageProps instanceProperties, RPLImagePropsDef definitionProperties)
 		{
 			RPLImageData image2 = instanceProperties.Image;
 			System.Drawing.Image image3 = default(System.Drawing.Image);
@@ -287,12 +287,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void DrawRectangle(Color color, float size, RPLFormat.BorderStyles style, RectangleF rectangle)
+		public override void DrawRectangle(Color color, float size, RPLFormat.BorderStyles style, RectangleF rectangle)
 		{
 			this.m_graphics.DrawRectangle(GDIPen.GetPen(this.m_pens, color, (float)this.ConvertToPixels(size), style), rectangle);
 		}
 
-		internal override void DrawTextRun(Win32DCSafeHandle hdc, FontCache fontCache, ReportTextBox textBox, AspNetCore.ReportingServices.Rendering.RichText.TextRun run, TypeCode typeCode, RPLFormat.TextAlignments textAlign, RPLFormat.VerticalAlignments verticalAlign, RPLFormat.WritingModes writingMode, RPLFormat.Directions direction, Point pointPosition, System.Drawing.Rectangle layoutRectangle, int lineHeight, int baselineY)
+		public override void DrawTextRun(Win32DCSafeHandle hdc, FontCache fontCache, ReportTextBox textBox, AspNetCore.ReportingServices.Rendering.RichText.TextRun run, TypeCode typeCode, RPLFormat.TextAlignments textAlign, RPLFormat.VerticalAlignments verticalAlign, RPLFormat.WritingModes writingMode, RPLFormat.Directions direction, Point pointPosition, System.Drawing.Rectangle layoutRectangle, int lineHeight, int baselineY)
 		{
 			if (!string.IsNullOrEmpty(run.Text))
 			{
@@ -331,24 +331,24 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void EndPage()
+		public override void EndPage()
 		{
 			this.m_graphics.ReleaseCachedHdc(true);
 			this.m_graphics.Save(base.m_outputStream, this.OutputFormat);
 		}
 
-		internal override void EndReport()
+		public override void EndReport()
 		{
 			this.m_graphics.EndReport(this.OutputFormat);
 			base.m_outputStream.Flush();
 		}
 
-		internal override void FillPolygon(Color color, PointF[] polygon)
+		public override void FillPolygon(Color color, PointF[] polygon)
 		{
 			this.m_graphics.FillPolygon(GDIBrush.GetBrush(this.m_brushes, color), polygon);
 		}
 
-		internal override void FillRectangle(Color color, RectangleF rectangle)
+		public override void FillRectangle(Color color, RectangleF rectangle)
 		{
 			this.m_graphics.FillRectangle(GDIBrush.GetBrush(this.m_brushes, color), rectangle);
 		}
@@ -468,7 +468,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			bitmap.SetResolution((float)num, (float)num2);
 		}
 
-		internal override void ClipTextboxRectangle(Win32DCSafeHandle hdc, RectangleF position)
+		public override void ClipTextboxRectangle(Win32DCSafeHandle hdc, RectangleF position)
 		{
 			if (this.m_bodyRect.X != 0 || this.m_bodyRect.Y != 0)
 			{
@@ -525,7 +525,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void UnClipTextboxRectangle(Win32DCSafeHandle hdc)
+		public override void UnClipTextboxRectangle(Win32DCSafeHandle hdc)
 		{
 			if (AspNetCore.ReportingServices.Rendering.RichText.Win32.SelectClipRgn(hdc, Win32ObjectSafeHandle.Zero) == 0)
 			{
@@ -546,7 +546,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			throw new Exception(message2);
 		}
 
-		internal static void GetScreenDpi(out int dpiX, out int dpiY)
+		public static void GetScreenDpi(out int dpiX, out int dpiY)
 		{
 			using (Bitmap image = new Bitmap(2, 2))
 			{

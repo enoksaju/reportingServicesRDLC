@@ -2,9 +2,9 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class TextBoxList : ArrayList
+	public sealed class TextBoxList : ArrayList
 	{
-		internal new TextBox this[int index]
+		public new TextBox this[int index]
 		{
 			get
 			{
@@ -12,11 +12,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TextBoxList()
+		public TextBoxList()
 		{
 		}
 
-		internal TextBoxList(int capacity)
+		public TextBoxList(int capacity)
 			: base(capacity)
 		{
 		}

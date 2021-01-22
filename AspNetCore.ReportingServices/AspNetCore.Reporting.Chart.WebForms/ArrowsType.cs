@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ArrowsType
+	public enum ArrowsType
 	{
 		None,
 		Triangle,

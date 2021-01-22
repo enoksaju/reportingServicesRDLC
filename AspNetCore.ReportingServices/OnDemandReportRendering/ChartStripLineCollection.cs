@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartStripLineCollection : ChartObjectCollectionBase<ChartStripLine, ChartStripLineInstance>
+	public sealed class ChartStripLineCollection : ChartObjectCollectionBase<ChartStripLine, ChartStripLineInstance>
 	{
 		private Chart m_chart;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartStripLineCollection(ChartAxis axis, Chart chart)
+		public ChartStripLineCollection(ChartAxis axis, Chart chart)
 		{
 			this.m_axis = axis;
 			this.m_chart = chart;

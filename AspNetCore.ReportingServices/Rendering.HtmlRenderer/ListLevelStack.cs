@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class ListLevelStack
+	public class ListLevelStack
 	{
 		private List<ListLevel> m_listLevels = new List<ListLevel>();
 
-		internal void PushTo(IHtmlReportWriter renderer, int listLevel, RPLFormat.ListStyles style, bool writeNoVerticalMargin)
+		public void PushTo(IHtmlReportWriter renderer, int listLevel, RPLFormat.ListStyles style, bool writeNoVerticalMargin)
 		{
 			if (listLevel == 0)
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void Pop()
+		public void Pop()
 		{
 			if (this.m_listLevels.Count != 0)
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void PopAll()
+		public void PopAll()
 		{
 			for (int num = this.m_listLevels.Count - 1; num > -1; num--)
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal ListLevel Push(IHtmlReportWriter renderer, int listLevel, RPLFormat.ListStyles style, bool writeNoVerticalMarginClass)
+		public ListLevel Push(IHtmlReportWriter renderer, int listLevel, RPLFormat.ListStyles style, bool writeNoVerticalMarginClass)
 		{
 			int num = listLevel - this.m_listLevels.Count;
 			ListLevel listLevel2 = null;

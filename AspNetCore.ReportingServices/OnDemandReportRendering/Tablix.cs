@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Tablix : DataRegion, IPageBreakItem
+	public sealed class Tablix : DataRegion, IPageBreakItem
 	{
 		private TablixCorner m_corner;
 
@@ -417,7 +417,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Tablix TablixDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Tablix TablixDef
 		{
 			get
 			{
@@ -425,7 +425,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool HasDataCells
+		public override bool HasDataCells
 		{
 			get
 			{
@@ -437,7 +437,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IDataRegionRowCollection RowCollection
+		public override IDataRegionRowCollection RowCollection
 		{
 			get
 			{
@@ -449,7 +449,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Type SnapshotTablixType
+		public Type SnapshotTablixType
 		{
 			get
 			{
@@ -457,7 +457,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.List RenderList
+		public AspNetCore.ReportingServices.ReportRendering.List RenderList
 		{
 			get
 			{
@@ -469,7 +469,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.Table RenderTable
+		public AspNetCore.ReportingServices.ReportRendering.Table RenderTable
 		{
 			get
 			{
@@ -481,7 +481,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.Matrix RenderMatrix
+		public AspNetCore.ReportingServices.ReportRendering.Matrix RenderMatrix
 		{
 			get
 			{
@@ -493,7 +493,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int[] MatrixRowDefinitionMapping
+		public int[] MatrixRowDefinitionMapping
 		{
 			get
 			{
@@ -505,7 +505,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int[] MatrixColDefinitionMapping
+		public int[] MatrixColDefinitionMapping
 		{
 			get
 			{
@@ -517,7 +517,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MatrixMemberInfoCache MatrixMemberColIndexes
+		public MatrixMemberInfoCache MatrixMemberColIndexes
 		{
 			get
 			{
@@ -529,24 +529,24 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Tablix(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Tablix reportItemDef, RenderingContext renderingContext)
+		public Tablix(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Tablix reportItemDef, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 		}
 
-		internal Tablix(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.List renderList, RenderingContext renderingContext)
+		public Tablix(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.List renderList, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, inSubtotal, renderList, renderingContext)
 		{
 			base.m_snapshotDataRegionType = Type.List;
 		}
 
-		internal Tablix(IDefinitionPath parentDefinitionPath, int indexIntoParentCollection, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Table renderTable, RenderingContext renderingContext)
+		public Tablix(IDefinitionPath parentDefinitionPath, int indexIntoParentCollection, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Table renderTable, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollection, inSubtotal, renderTable, renderingContext)
 		{
 			base.m_snapshotDataRegionType = Type.Table;
 		}
 
-		internal Tablix(IDefinitionPath parentDefinitionPath, int indexIntoParentCollection, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Matrix renderMatrix, RenderingContext renderingContext)
+		public Tablix(IDefinitionPath parentDefinitionPath, int indexIntoParentCollection, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Matrix renderMatrix, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollection, inSubtotal, renderMatrix, renderingContext)
 		{
 			base.m_snapshotDataRegionType = Type.Matrix;
@@ -565,7 +565,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal void SetPageBreakLocation(PageBreakLocation pageBreakLocation)
+		public void SetPageBreakLocation(PageBreakLocation pageBreakLocation)
 		{
 			if (base.m_isOldSnapshot)
 			{
@@ -573,7 +573,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -582,7 +582,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			base.UpdateRenderReportItem(renderReportItem);
 			if (renderReportItem != null)
@@ -619,17 +619,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int GetCurrentMemberCellDefinitionIndex()
+		public int GetCurrentMemberCellDefinitionIndex()
 		{
 			return this.m_memberCellDefinitionIndex;
 		}
 
-		internal int GetAndIncrementMemberCellDefinitionIndex()
+		public int GetAndIncrementMemberCellDefinitionIndex()
 		{
 			return this.m_memberCellDefinitionIndex++;
 		}
 
-		internal void ResetMemberCellDefinitionIndex(int startIndex)
+		public void ResetMemberCellDefinitionIndex(int startIndex)
 		{
 			this.m_memberCellDefinitionIndex = startIndex;
 		}
@@ -694,7 +694,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_corner != null)
 			{

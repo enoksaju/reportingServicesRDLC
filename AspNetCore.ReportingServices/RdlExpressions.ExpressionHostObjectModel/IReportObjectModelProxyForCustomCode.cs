@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 {
-	internal interface IReportObjectModelProxyForCustomCode
+	public interface IReportObjectModelProxyForCustomCode
 	{
 		Parameters Parameters
 		{

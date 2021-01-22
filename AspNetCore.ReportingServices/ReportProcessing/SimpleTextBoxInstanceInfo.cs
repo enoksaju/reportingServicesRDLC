@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class SimpleTextBoxInstanceInfo : InstanceInfo
+	public sealed class SimpleTextBoxInstanceInfo : InstanceInfo
 	{
 		private string m_formattedValue;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ReportItem m_reportItemDef;
 
-		internal string FormattedValue
+		public string FormattedValue
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object OriginalValue
+		public object OriginalValue
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SimpleTextBoxInstanceInfo(ReportProcessing.ProcessingContext pc, TextBox reportItemDef, TextBoxInstance owner, int index)
+		public SimpleTextBoxInstanceInfo(ReportProcessing.ProcessingContext pc, TextBox reportItemDef, TextBoxInstance owner, int index)
 		{
 			this.m_reportItemDef = reportItemDef;
 			ReportProcessing.RuntimeRICollection.ResetSubtotalReferences(pc);
@@ -47,19 +47,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SimpleTextBoxInstanceInfo(TextBox reportItemDef)
+		public SimpleTextBoxInstanceInfo(TextBox reportItemDef)
 		{
 			this.m_reportItemDef = reportItemDef;
 		}
 
-		internal SimpleTextBoxInstanceInfo(TextBox reportItemDef, TextBoxInstanceInfo instanceInfo)
+		public SimpleTextBoxInstanceInfo(TextBox reportItemDef, TextBoxInstanceInfo instanceInfo)
 		{
 			this.m_reportItemDef = reportItemDef;
 			this.m_originalValue = instanceInfo.OriginalValue;
 			this.m_formattedValue = instanceInfo.FormattedValue;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.FormattedValue, Token.String));

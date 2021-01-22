@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ImageStreamNames : Hashtable
+	public sealed class ImageStreamNames : Hashtable
 	{
-		internal ImageInfo this[string url]
+		public ImageInfo this[string url]
 		{
 			get
 			{
@@ -18,11 +18,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageStreamNames()
+		public ImageStreamNames()
 		{
 		}
 
-		internal ImageStreamNames(int capacity)
+		public ImageStreamNames(int capacity)
 			: base(capacity)
 		{
 		}

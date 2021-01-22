@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum SerializationFormat
+	public enum SerializationFormat
 	{
 		Xml,
 		Binary

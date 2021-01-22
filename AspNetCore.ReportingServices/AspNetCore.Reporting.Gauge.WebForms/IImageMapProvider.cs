@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface IImageMapProvider
+	public interface IImageMapProvider
 	{
 		string Href
 		{

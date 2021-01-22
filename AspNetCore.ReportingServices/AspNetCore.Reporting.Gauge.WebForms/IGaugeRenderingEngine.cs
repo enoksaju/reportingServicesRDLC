@@ -5,7 +5,7 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface IGaugeRenderingEngine
+	public interface IGaugeRenderingEngine
 	{
 		Matrix Transform
 		{

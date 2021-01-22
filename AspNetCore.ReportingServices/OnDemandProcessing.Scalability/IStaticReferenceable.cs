@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface IStaticReferenceable
+	public interface IStaticReferenceable
 	{
 		int ID
 		{

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimRenderGroups
+	public sealed class ShimRenderGroups
 	{
 		private DataRegion.Type m_type;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private AspNetCore.ReportingServices.ReportRendering.DataMemberCollection m_renderDataMembers;
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int MatrixMemberCollectionCount
+		public int MatrixMemberCollectionCount
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.Group this[int index]
+		public AspNetCore.ReportingServices.ReportRendering.Group this[int index]
 		{
 			get
 			{
@@ -85,19 +85,19 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimRenderGroups(ListContentCollection renderGroups)
+		public ShimRenderGroups(ListContentCollection renderGroups)
 		{
 			this.m_type = DataRegion.Type.List;
 			this.m_renderListContents = renderGroups;
 		}
 
-		internal ShimRenderGroups(TableGroupCollection renderGroups)
+		public ShimRenderGroups(TableGroupCollection renderGroups)
 		{
 			this.m_type = DataRegion.Type.Table;
 			this.m_renderTableGroups = renderGroups;
 		}
 
-		internal ShimRenderGroups(MatrixMemberCollection renderGroups, bool beforeSubtotal, bool afterSubtotal)
+		public ShimRenderGroups(MatrixMemberCollection renderGroups, bool beforeSubtotal, bool afterSubtotal)
 		{
 			this.m_type = DataRegion.Type.Matrix;
 			this.m_renderMatrixMembers = renderGroups;
@@ -105,13 +105,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_afterSubtotal = afterSubtotal;
 		}
 
-		internal ShimRenderGroups(AspNetCore.ReportingServices.ReportRendering.ChartMemberCollection renderGroups)
+		public ShimRenderGroups(AspNetCore.ReportingServices.ReportRendering.ChartMemberCollection renderGroups)
 		{
 			this.m_type = DataRegion.Type.Chart;
 			this.m_renderChartMembers = renderGroups;
 		}
 
-		internal ShimRenderGroups(AspNetCore.ReportingServices.ReportRendering.DataMemberCollection renderGroups)
+		public ShimRenderGroups(AspNetCore.ReportingServices.ReportRendering.DataMemberCollection renderGroups)
 		{
 			this.m_type = DataRegion.Type.CustomReportItem;
 			this.m_renderDataMembers = renderGroups;

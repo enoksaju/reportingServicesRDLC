@@ -1,9 +1,9 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal struct GOFFSET
+	public struct GOFFSET
 	{
-		internal int du;
+		public int du;
 
-		internal int dv;
+		public int dv;
 	}
 }

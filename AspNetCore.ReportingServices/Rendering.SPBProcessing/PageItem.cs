@@ -9,9 +9,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal abstract class PageItem : PageElement
+	public abstract class PageItem : PageElement
 	{
-		internal enum State : byte
+		public enum State : byte
 		{
 			Unknow,
 			OnPage,
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal new ReportItem Source
+		public new ReportItem Source
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override ReportElement OriginalSource
+		public override ReportElement OriginalSource
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override string SourceID
+		public override string SourceID
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override string SourceUniqueName
+		public override string SourceUniqueName
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual bool StaticItem
+		public virtual bool StaticItem
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal byte RplItemState
+		public byte RplItemState
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool RepeatedSibling
+		public bool RepeatedSibling
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ItemSizes ItemPageSizes
+		public ItemSizes ItemPageSizes
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ItemSizes ItemRenderSizes
+		public ItemSizes ItemRenderSizes
 		{
 			get
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal List<int> PageItemsAbove
+		public List<int> PageItemsAbove
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal List<int> PageItemsLeft
+		public List<int> PageItemsLeft
 		{
 			get
 			{
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal State ItemState
+		public State ItemState
 		{
 			get
 			{
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double DefLeftValue
+		public double DefLeftValue
 		{
 			get
 			{
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal string ItemName
+		public string ItemName
 		{
 			get
 			{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool PageBreakAtStart
+		public bool PageBreakAtStart
 		{
 			get
 			{
@@ -239,7 +239,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool PageBreakAtEnd
+		public bool PageBreakAtEnd
 		{
 			get
 			{
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool IgnorePageBreaks
+		public bool IgnorePageBreaks
 		{
 			get
 			{
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual double SourceWidthInMM
+		public virtual double SourceWidthInMM
 		{
 			get
 			{
@@ -299,7 +299,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static List<int> GetNewList(List<int> source)
+		public static List<int> GetNewList(List<int> source)
 		{
 			if (source != null && source.Count != 0)
 			{
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return null;
 		}
 
-		internal static int[] GetNewArray(int[] source)
+		public static int[] GetNewArray(int[] source)
 		{
 			if (source != null && source.Length != 0)
 			{
@@ -324,7 +324,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return null;
 		}
 
-		internal static PageItem Create(ReportItem source, PageContext pageContext, bool tablixCellParent, bool createForRepeat)
+		public static PageItem Create(ReportItem source, PageContext pageContext, bool tablixCellParent, bool createForRepeat)
 		{
 			if (source == null)
 			{
@@ -376,7 +376,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal static bool TransformToTextBox(DataRegion source)
+		public static bool TransformToTextBox(DataRegion source)
 		{
 			bool result = false;
 			DataRegionInstance dataRegionInstance = (DataRegionInstance)source.Instance;
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal static bool TransformToTextBox(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix source, bool tablixCellParent, ref bool noRows)
+		public static bool TransformToTextBox(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix source, bool tablixCellParent, ref bool noRows)
 		{
 			bool flag = false;
 			TablixInstance tablixInstance = (TablixInstance)source.Instance;
@@ -423,7 +423,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return flag;
 		}
 
-		internal static bool TransformToTextBox(AspNetCore.ReportingServices.OnDemandReportRendering.SubReport source, bool tablixCellParent, ref bool noRows)
+		public static bool TransformToTextBox(AspNetCore.ReportingServices.OnDemandReportRendering.SubReport source, bool tablixCellParent, ref bool noRows)
 		{
 			bool result = false;
 			SubReportInstance subReportInstance = (SubReportInstance)source.Instance;
@@ -451,7 +451,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal virtual void CreateItemRenderSizes(ItemSizes contentSize, PageContext pageContext, bool createForRepeat)
+		public virtual void CreateItemRenderSizes(ItemSizes contentSize, PageContext pageContext, bool createForRepeat)
 		{
 			if (contentSize == null)
 			{
@@ -477,7 +477,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double ReserveSpaceForRepeatWith(RepeatWithItem[] repeatWithItems, PageContext pageContext)
+		public double ReserveSpaceForRepeatWith(RepeatWithItem[] repeatWithItems, PageContext pageContext)
 		{
 			if (repeatWithItems == null)
 			{
@@ -522,12 +522,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return 0.0;
 		}
 
-		internal void WritePageItemRenderSizes(BinaryWriter spbifWriter)
+		public void WritePageItemRenderSizes(BinaryWriter spbifWriter)
 		{
 			this.WritePageItemRenderSizes(spbifWriter, this.m_offset);
 		}
 
-		internal void WritePageItemRenderSizes(BinaryWriter spbifWriter, long offset)
+		public void WritePageItemRenderSizes(BinaryWriter spbifWriter, long offset)
 		{
 			spbifWriter.Write((float)this.m_itemRenderSizes.Left);
 			spbifWriter.Write((float)this.m_itemRenderSizes.Top);
@@ -545,7 +545,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			spbifWriter.Write(offset);
 		}
 
-		internal RPLItemMeasurement WritePageItemRenderSizes()
+		public RPLItemMeasurement WritePageItemRenderSizes()
 		{
 			RPLItemMeasurement rPLItemMeasurement = new RPLItemMeasurement();
 			rPLItemMeasurement.Left = (float)this.m_itemRenderSizes.Left;
@@ -561,7 +561,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return rPLItemMeasurement;
 		}
 
-		internal void MergeRepeatSiblings(ref List<int> repeatedSiblings)
+		public void MergeRepeatSiblings(ref List<int> repeatedSiblings)
 		{
 			if (this.ItemState != State.OnPage && this.ItemState != State.OnPagePBEnd && this.ItemState != State.SpanPages)
 			{
@@ -600,7 +600,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
+		public override void WriteSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
 		{
 			Hashtable hashtable = pageContext.ItemPropsStart;
 			if (hashtable != null)
@@ -651,7 +651,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal override void WriteNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			spbifWriter.Write((byte)1);
 			spbifWriter.Write((byte)0);
@@ -676,7 +676,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal override void WriteSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			Hashtable hashtable = pageContext.ItemPropsStart;
 			if (hashtable != null)
@@ -717,7 +717,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			rPLItemPropsDef.SharedStyle = this.WriteSharedStyle(null, pageContext);
 		}
 
-		internal override void WriteNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			elemProps.UniqueName = this.m_source.Instance.UniqueName;
 			RPLItemProps rPLItemProps = elemProps as RPLItemProps;
@@ -737,7 +737,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			elemProps.NonSharedStyle = this.WriteNonSharedStyle(null, null, pageContext, null);
 		}
 
-		internal override void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			switch (styleAttribute)
 			{
@@ -792,7 +792,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			switch (styleAttribute)
 			{
@@ -847,9 +847,9 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal abstract bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentHeight, Interactivity interactivity);
+		public abstract bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentHeight, Interactivity interactivity);
 
-		internal bool HiddenForOverlap(PageContext pageContext)
+		public bool HiddenForOverlap(PageContext pageContext)
 		{
 			if (this.m_source.Visibility == null)
 			{
@@ -867,7 +867,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return this.m_source.Visibility.Hidden.Value;
 		}
 
-		internal bool ResolveItemHiddenState(RPLWriter rplWriter, Interactivity interactivity, PageContext pageContext, bool createForRepeat, ref ItemSizes contentSize)
+		public bool ResolveItemHiddenState(RPLWriter rplWriter, Interactivity interactivity, PageContext pageContext, bool createForRepeat, ref ItemSizes contentSize)
 		{
 			if (this.m_source.Visibility == null)
 			{
@@ -1007,7 +1007,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal virtual bool HitsCurrentPage(PageContext pageContext, double parentTopInPage)
+		public virtual bool HitsCurrentPage(PageContext pageContext, double parentTopInPage)
 		{
 			if (pageContext.CancelPage)
 			{
@@ -1067,7 +1067,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal bool HasItemsAbove(PageItem[] siblings, RepeatWithItem[] repeatWithItems)
+		public bool HasItemsAbove(PageItem[] siblings, RepeatWithItem[] repeatWithItems)
 		{
 			if (this.m_pageItemsAbove == null)
 			{
@@ -1101,12 +1101,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal void AdjustOriginFromItemsAbove(PageItem[] siblings, RepeatWithItem[] repeatWithItems)
+		public void AdjustOriginFromItemsAbove(PageItem[] siblings, RepeatWithItem[] repeatWithItems)
 		{
 			this.AdjustOriginFromItemsAbove(siblings, repeatWithItems, false);
 		}
 
-		internal void AdjustOriginFromItemsAbove(PageItem[] siblings, RepeatWithItem[] repeatWithItems, bool adjustForRender)
+		public void AdjustOriginFromItemsAbove(PageItem[] siblings, RepeatWithItem[] repeatWithItems, bool adjustForRender)
 		{
 			if (this.m_pageItemsAbove != null)
 			{
@@ -1195,7 +1195,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void AdjustOriginFromItemsAtLeft(PageItem[] siblings, bool adjustForRender)
+		public void AdjustOriginFromItemsAtLeft(PageItem[] siblings, bool adjustForRender)
 		{
 			if (this.m_pageItemsLeft != null)
 			{
@@ -1271,11 +1271,11 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual void CalculateRepeatWithPage(RPLWriter rplWriter, PageContext pageContext, PageItem[] siblings)
+		public virtual void CalculateRepeatWithPage(RPLWriter rplWriter, PageContext pageContext, PageItem[] siblings)
 		{
 		}
 
-		internal void AdjustOriginFromRepeatItems(PageItem[] siblings)
+		public void AdjustOriginFromRepeatItems(PageItem[] siblings)
 		{
 			if (this.m_pageItemsAbove != null)
 			{
@@ -1313,12 +1313,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual int WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
+		public virtual int WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
 		{
 			return 0;
 		}
 
-		internal void UpdateSizes(double topDelta, PageItem[] siblings, RepeatWithItem[] repeatWithItems)
+		public void UpdateSizes(double topDelta, PageItem[] siblings, RepeatWithItem[] repeatWithItems)
 		{
 			this.m_itemPageSizes.UpdateSizes(topDelta, this, siblings, repeatWithItems);
 			this.m_itemRenderSizes = null;
@@ -1326,7 +1326,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_rplItemState = 0;
 		}
 
-		internal virtual void UpdateItem(PageItemHelper itemHelper)
+		public virtual void UpdateItem(PageItemHelper itemHelper)
 		{
 			if (itemHelper != null)
 			{
@@ -1341,7 +1341,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public virtual void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -1351,12 +1351,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual PageItemHelper WritePaginationInfo()
+		public virtual PageItemHelper WritePaginationInfo()
 		{
 			return null;
 		}
 
-		internal virtual void WritePaginationInfoProperties(BinaryWriter reportPageInfo)
+		public virtual void WritePaginationInfoProperties(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -1389,7 +1389,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual void WritePaginationInfoProperties(PageItemHelper itemHelper)
+		public virtual void WritePaginationInfoProperties(PageItemHelper itemHelper)
 		{
 			if (itemHelper != null)
 			{

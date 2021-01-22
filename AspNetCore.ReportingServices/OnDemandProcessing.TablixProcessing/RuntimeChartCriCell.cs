@@ -8,16 +8,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeChartCriCell : RuntimeCell
+	public sealed class RuntimeChartCriCell : RuntimeCell
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeChartCriCell.GetDeclaration();
 
-		internal RuntimeChartCriCell()
+		public RuntimeChartCriCell()
 		{
 		}
 
-		internal RuntimeChartCriCell(RuntimeChartCriGroupLeafObjReference owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, bool innermost)
+		public RuntimeChartCriCell(RuntimeChartCriGroupLeafObjReference owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, bool innermost)
 			: base(owner, outerGroupingMember, innerGroupingMember, innermost)
 		{
 		}
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RuntimeChartCriCell;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (RuntimeChartCriCell.m_declaration == null)
 			{

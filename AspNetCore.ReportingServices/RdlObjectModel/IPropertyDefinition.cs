@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal interface IPropertyDefinition
+	public interface IPropertyDefinition
 	{
 		string Name
 		{

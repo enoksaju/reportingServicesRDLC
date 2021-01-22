@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class Statistics
+	public class Statistics
 	{
 		private string tempOutputSeriesName = "Statistical Analyses Formula Temporary Output Series 2552003";
 

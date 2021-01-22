@@ -4,9 +4,9 @@ using System.Data;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal class ParameterCollectionWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDataParameterCollection, IEnumerable
+	public class ParameterCollectionWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDataParameterCollection, IEnumerable
 	{
-		internal sealed class Enumerator : IEnumerator
+		public sealed class Enumerator : IEnumerator
 		{
 			private IEnumerator m_underlyingEnumerator;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 				}
 			}
 
-			internal Enumerator(IEnumerator underlyingEnumerator)
+			public Enumerator(IEnumerator underlyingEnumerator)
 			{
 				this.m_underlyingEnumerator = underlyingEnumerator;
 			}

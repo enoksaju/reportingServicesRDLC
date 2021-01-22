@@ -2,7 +2,7 @@ using System.Collections;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ZOrderSort : IComparer
+	public class ZOrderSort : IComparer
 	{
 		private ArrayList collection;
 

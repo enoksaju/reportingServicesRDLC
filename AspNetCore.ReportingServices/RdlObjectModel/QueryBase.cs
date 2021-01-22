@@ -3,11 +3,11 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class QueryBase : ReportObject
+	public class QueryBase : ReportObject
 	{
-		internal class Definition : DefinitionStore<Query, Definition.Properties>
+		public class Definition : DefinitionStore<Query, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				CommandType,
 				CommandText,
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal QueryBase(IPropertyStore propertyStore)
+		public QueryBase(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

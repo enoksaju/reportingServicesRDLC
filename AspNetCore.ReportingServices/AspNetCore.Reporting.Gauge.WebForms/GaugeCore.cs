@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GaugeCore : NamedElement, IDisposable, ISelectable
+	public class GaugeCore : NamedElement, IDisposable, ISelectable
 	{
 		private InputValueCollection inputValues;
 
@@ -36,13 +36,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private NamedImageCollection namedImages;
 
-		internal bool silentPaint;
+		public bool silentPaint;
 
-		internal RenderContent renderContent;
+		public RenderContent renderContent;
 
-		internal string loadedBuildNumber = string.Empty;
+		public string loadedBuildNumber = string.Empty;
 
-		internal bool hasTransparentBackground;
+		public bool hasTransparentBackground;
 
 		private MapAreaCollection mapAreas;
 
@@ -54,23 +54,23 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private ImageLoader imageLoader;
 
-		internal bool dirtyFlag;
+		public bool dirtyFlag;
 
-		internal bool disableInvalidate;
+		public bool disableInvalidate;
 
-		internal bool layoutFlag;
+		public bool layoutFlag;
 
-		internal bool isInitializing;
+		public bool isInitializing;
 
-		internal bool refreshPending;
+		public bool refreshPending;
 
-		internal bool boundToDataSource;
+		public bool boundToDataSource;
 
 		private bool isPrinting;
 
 		private Size printSize = new Size(0, 0);
 
-		internal ServiceContainer serviceContainer;
+		public ServiceContainer serviceContainer;
 
 		private NamedCollection[] elementCollections;
 
@@ -840,7 +840,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal object DataSource
+		public object DataSource
 		{
 			get
 			{
@@ -854,7 +854,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		}
 
 		[SerializationVisibility(SerializationVisibility.Hidden)]
-		internal GaugeSerializer Serializer
+		public GaugeSerializer Serializer
 		{
 			get
 			{
@@ -863,7 +863,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		}
 
 		[SerializationVisibility(SerializationVisibility.Hidden)]
-		internal CallbackManager CallbackManager
+		public CallbackManager CallbackManager
 		{
 			get
 			{
@@ -871,7 +871,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GaugeContainer GaugeContainer
+		public GaugeContainer GaugeContainer
 		{
 			get
 			{
@@ -879,7 +879,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal HotRegionList HotRegionList
+		public HotRegionList HotRegionList
 		{
 			get
 			{
@@ -891,7 +891,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool Serializing
+		public bool Serializing
 		{
 			get
 			{
@@ -903,7 +903,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal ISelectable SelectedDesignTimeElement
+		public ISelectable SelectedDesignTimeElement
 		{
 			get
 			{
@@ -916,7 +916,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool SavingToMetafile
+		public bool SavingToMetafile
 		{
 			get
 			{
@@ -928,7 +928,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool InvokeRequired
+		public bool InvokeRequired
 		{
 			get
 			{
@@ -951,7 +951,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.namedImages = new NamedImageCollection(this, base.common);
 		}
 
-		internal GaugeCore(GaugeContainer parent)
+		public GaugeCore(GaugeContainer parent)
 		{
 			this.parent = parent;
 			this.serviceContainer = new ServiceContainer();
@@ -976,7 +976,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.serviceContainer.AddService(typeof(ImageLoader), this.imageLoader);
 		}
 
-		internal void DoAutoLayout()
+		public void DoAutoLayout()
 		{
 			if (this.AutoLayout && this.GetWidth() != 0 && this.GetHeight() != 0)
 			{
@@ -1187,7 +1187,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return pixelWidth / pixelHeight;
 		}
 
-		internal CircularGauge[] GetCircularAutoLayoutGauges()
+		public CircularGauge[] GetCircularAutoLayoutGauges()
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (CircularGauge circularGauge in this.CircularGauges)
@@ -1200,7 +1200,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (CircularGauge[])arrayList.ToArray(typeof(CircularGauge));
 		}
 
-		internal LinearGauge[] GetLinearAutoLayoutGauges()
+		public LinearGauge[] GetLinearAutoLayoutGauges()
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (LinearGauge linearGauge in this.LinearGauges)
@@ -1213,7 +1213,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (LinearGauge[])arrayList.ToArray(typeof(LinearGauge));
 		}
 
-		internal StateIndicator[] GetAutoLayoutStateIndicators()
+		public StateIndicator[] GetAutoLayoutStateIndicators()
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (StateIndicator stateIndicator in this.StateIndicators)
@@ -1358,7 +1358,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal int GetWidth()
+		public int GetWidth()
 		{
 			if (this.isPrinting)
 			{
@@ -1367,7 +1367,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.GaugeContainer.Width;
 		}
 
-		internal int GetHeight()
+		public int GetHeight()
 		{
 			if (this.isPrinting)
 			{
@@ -1376,7 +1376,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.GaugeContainer.Height;
 		}
 
-		internal void ResetAutoValues()
+		public void ResetAutoValues()
 		{
 			if (this.selectedDesignTimeElement != null)
 			{
@@ -1384,7 +1384,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (!this.layoutFlag)
 			{
@@ -1397,7 +1397,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void OnFontChanged()
+		public void OnFontChanged()
 		{
 		}
 
@@ -1410,11 +1410,11 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void Refresh()
+		public override void Refresh()
 		{
 		}
 
-		internal NamedCollection[] GetRenderCollections()
+		public NamedCollection[] GetRenderCollections()
 		{
 			if (this.elementCollections == null)
 			{
@@ -1429,7 +1429,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.elementCollections;
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			this.isInitializing = true;
 			this.Values.BeginInit();
@@ -1440,7 +1440,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			this.isInitializing = false;
 			this.Values.EndInit();
@@ -1451,7 +1451,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void ReconnectData(bool exact)
+		public override void ReconnectData(bool exact)
 		{
 			this.Values.ReconnectData(exact);
 			NamedCollection[] renderCollections = this.GetRenderCollections();
@@ -1461,7 +1461,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			NamedCollection[] renderCollections = this.GetRenderCollections();
 			foreach (NamedCollection namedCollection in renderCollections)
@@ -1475,7 +1475,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.InitBitmap(bmp, new Size(this.GetWidth(), this.GetHeight()), dpiX, dpiY);
 		}
 
-		internal BufferBitmap InitBitmap(BufferBitmap bmp, Size size, float dpiX, float dpiY)
+		public BufferBitmap InitBitmap(BufferBitmap bmp, Size size, float dpiX, float dpiY)
 		{
 			if (bmp == null)
 			{
@@ -1536,7 +1536,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return gaugeGraphics;
 		}
 
-		internal IRenderable[] GetGraphElements()
+		public IRenderable[] GetGraphElements()
 		{
 			if (this.renderableElements == null || this.dirtyFlag)
 			{
@@ -1557,7 +1557,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal void RenderOneDynamicElement(GaugeGraphics g, IRenderable element, bool renderChildrenFirst)
+		public void RenderOneDynamicElement(GaugeGraphics g, IRenderable element, bool renderChildrenFirst)
 		{
 			try
 			{
@@ -1585,7 +1585,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderElements(GaugeGraphics g, IRenderable parentElement, bool renderStaticElements)
+		public void RenderElements(GaugeGraphics g, IRenderable parentElement, bool renderStaticElements)
 		{
 			IRenderable[] graphElements = this.GetGraphElements();
 			ArrayList arrayList = new ArrayList();
@@ -1648,7 +1648,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderSelection(GaugeGraphics g)
+		public void RenderSelection(GaugeGraphics g)
 		{
 			NamedElement[] selectedElements = this.GetSelectedElements();
 			if (selectedElements != null)
@@ -1669,7 +1669,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal NamedElement[] GetSelectedElements()
+		public NamedElement[] GetSelectedElements()
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (CircularGauge circularGauge in this.CircularGauges)
@@ -1770,7 +1770,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (NamedElement[])arrayList.ToArray(typeof(NamedElement));
 		}
 
-		internal void RenderTopImage(GaugeGraphics g)
+		public void RenderTopImage(GaugeGraphics g)
 		{
 			if (this.TopImage != "")
 			{
@@ -1797,7 +1797,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderStaticElements(GaugeGraphics g)
+		public void RenderStaticElements(GaugeGraphics g)
 		{
 			if (this.renderContent != RenderContent.Dynamic)
 			{
@@ -1841,7 +1841,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderStaticElementsBufered(GaugeGraphics g)
+		public void RenderStaticElementsBufered(GaugeGraphics g)
 		{
 			if (this.dirtyFlag || this.bmpFaces == null)
 			{
@@ -1861,7 +1861,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			g.DrawImage(this.bmpFaces.Bitmap, new Rectangle(new Point(0, 0), this.bmpFaces.Size));
 		}
 
-		internal void RenderDynamicElements(GaugeGraphics g)
+		public void RenderDynamicElements(GaugeGraphics g)
 		{
 			if (this.renderContent != RenderContent.Static)
 			{
@@ -1872,7 +1872,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void Paint(Graphics gdiGraph, RenderingType renderingType, Stream stream, bool buffered)
+		public void Paint(Graphics gdiGraph, RenderingType renderingType, Stream stream, bool buffered)
 		{
 			this.TraceWrite("GaugePaint", SR.TraceStartingPaint);
 			this.disableInvalidate = true;
@@ -1901,7 +1901,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.TraceWrite("GaugePaint", SR.TracePaintComplete);
 		}
 
-		internal void PrintPaint(Graphics g, Rectangle position)
+		public void PrintPaint(Graphics g, Rectangle position)
 		{
 			this.Notify(MessageType.PrepareSnapShot, this, null);
 			this.printSize = position.Size;
@@ -1919,7 +1919,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void Paint(Graphics g)
+		public void Paint(Graphics g)
 		{
 			this.disableInvalidate = true;
 			this.bmpGauge = this.InitBitmap(this.bmpGauge, g.DpiX, g.DpiY);
@@ -1948,7 +1948,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.dirtyFlag = false;
 		}
 
-		internal void SaveTo(Stream stream, GaugeImageFormat imageFormat, int compression, float dpiX, float dpiY)
+		public void SaveTo(Stream stream, GaugeImageFormat imageFormat, int compression, float dpiX, float dpiY)
 		{
 			if (this.isInitializing)
 			{
@@ -2026,17 +2026,17 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void SaveTo(Stream stream, GaugeImageFormat imageFormat, float dpiX, float dpiY)
+		public void SaveTo(Stream stream, GaugeImageFormat imageFormat, float dpiX, float dpiY)
 		{
 			this.SaveTo(stream, imageFormat, -1, dpiX, dpiY);
 		}
 
-		internal void SaveTo(string fileName, GaugeImageFormat imageFormat, float dpiX, float dpiY)
+		public void SaveTo(string fileName, GaugeImageFormat imageFormat, float dpiX, float dpiY)
 		{
 			this.SaveTo(fileName, imageFormat, -1, dpiX, dpiY);
 		}
 
-		internal void SaveTo(string fileName, GaugeImageFormat imageFormat, int compression, float dpiX, float dpiY)
+		public void SaveTo(string fileName, GaugeImageFormat imageFormat, int compression, float dpiX, float dpiY)
 		{
 			using (Stream stream = new FileStream(fileName, FileMode.Create))
 			{
@@ -2112,12 +2112,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool IsDesignMode()
+		public bool IsDesignMode()
 		{
 			return this.GaugeContainer.IsDesignMode();
 		}
 
-		internal void DrawException(Graphics graphics, Exception e)
+		public void DrawException(Graphics graphics, Exception e)
 		{
 			graphics.FillRectangle(new SolidBrush(Color.White), 0, 0, this.GetWidth(), this.GetHeight());
 			graphics.DrawRectangle(new Pen(Color.Red, 4f), 0, 0, this.GetWidth(), this.GetHeight());
@@ -2139,7 +2139,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			graphics.DrawString(text2, new Font("Microsoft Sans Serif", 8f), new SolidBrush(Color.Black), layoutRectangle, format);
 		}
 
-		internal HitTestResult[] HitTest(int x, int y, Type[] objectTypes, bool returnMultipleElements)
+		public HitTestResult[] HitTest(int x, int y, Type[] objectTypes, bool returnMultipleElements)
 		{
 			if (objectTypes == null)
 			{
@@ -2172,7 +2172,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (HitTestResult[])arrayList.ToArray(typeof(HitTestResult));
 		}
 
-		internal HotRegion GetHotRegion(NamedElement element)
+		public HotRegion GetHotRegion(NamedElement element)
 		{
 			if (element == null)
 			{
@@ -2190,7 +2190,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			throw new ArgumentException(Utils.SRGetStr("ExceptionHotRegionInitialize", element.Name));
 		}
 
-		internal void PopulateImageMaps()
+		public void PopulateImageMaps()
 		{
 			for (int num = this.HotRegionList.List.Count - 1; num >= 0; num--)
 			{
@@ -2216,7 +2216,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void WriteMapTag(TextWriter output, string mapName)
+		public void WriteMapTag(TextWriter output, string mapName)
 		{
 			output.Write("\r\n<MAP NAME=\"" + mapName + "\">");
 			foreach (MapArea mapArea in this.mapAreas)
@@ -2226,7 +2226,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			output.Write("\r\n</MAP>\r\n");
 		}
 
-		internal void PerformDataBinding(IEnumerable data)
+		public void PerformDataBinding(IEnumerable data)
 		{
 			foreach (InputValue value in this.Values)
 			{
@@ -2235,7 +2235,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void AutoDataBind(bool forceBinding)
+		public void AutoDataBind(bool forceBinding)
 		{
 			if ((this.boundToDataSource || this.IsDesignMode()) && !forceBinding)
 			{
@@ -2248,7 +2248,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal static bool IsValidDataSource(object dataSource)
+		public static bool IsValidDataSource(object dataSource)
 		{
 			if (!(dataSource is IEnumerable) && !(dataSource is DataSet) && !(dataSource is DataView) && !(dataSource is DataTable) && !(dataSource is SqlCommand) && !(dataSource is SqlDataAdapter) && dataSource.GetType().GetInterface("IDataSource") == null)
 			{
@@ -2257,7 +2257,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return true;
 		}
 
-		internal string ResolveAllKeywords(string original, NamedElement element)
+		public string ResolveAllKeywords(string original, NamedElement element)
 		{
 			if (original.Length == 0)
 			{
@@ -2316,7 +2316,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return text;
 		}
 
-		internal string ResolveKeyword(string original, string keyword, double val)
+		public string ResolveKeyword(string original, string keyword, double val)
 		{
 			string text = original;
 			int num = -1;
@@ -2342,7 +2342,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return text;
 		}
 
-		internal void TraceWrite(string category, string message)
+		public void TraceWrite(string category, string message)
 		{
 			if (this.serviceContainer != null)
 			{
@@ -2354,7 +2354,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal object GetService(Type serviceType)
+		public object GetService(Type serviceType)
 		{
 			object result = null;
 			if (this.serviceContainer != null)
@@ -2393,7 +2393,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal static bool CheckLicense()
+		public static bool CheckLicense()
 		{
 			bool result = false;
 			try

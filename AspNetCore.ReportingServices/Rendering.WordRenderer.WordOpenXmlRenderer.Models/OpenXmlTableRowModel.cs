@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlTableRowModel
+	public sealed class OpenXmlTableRowModel
 	{
 		private readonly OpenXmlTableRowModel _containingRow;
 

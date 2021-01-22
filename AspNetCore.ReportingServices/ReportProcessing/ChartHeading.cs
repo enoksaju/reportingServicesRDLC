@@ -6,7 +6,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartHeading : PivotHeading, IRunningValueHolder
+	public sealed class ChartHeading : PivotHeading, IRunningValueHolder
 	{
 		private ExpressionInfoList m_labels;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ChartDynamicGroupExprHost m_exprHost;
 
-		internal new ChartHeading SubHeading
+		public new ChartHeading SubHeading
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList Labels
+		public ExpressionInfoList Labels
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ChartGroupExpression
+		public bool ChartGroupExpression
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BoolList PlotTypesLine
+		public BoolList PlotTypesLine
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartDynamicGroupExprHost ExprHost
+		public ChartDynamicGroupExprHost ExprHost
 		{
 			get
 			{
@@ -87,11 +87,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeading()
+		public ChartHeading()
 		{
 		}
 
-		internal ChartHeading(int id, Chart chartDef)
+		public ChartHeading(int id, Chart chartDef)
 			: base(id, chartDef)
 		{
 			this.m_runningValues = new RunningValueInfoList();
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(ChartDynamicGroupExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartDynamicGroupExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null && base.HasExprHost);
 			this.m_exprHost = exprHost;
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			base.ReportHierarchyNodeSetExprHost(this.m_exprHost, reportObjectModel);
 		}
 
-		internal void LabelCollectionInitialize(InitializationContext context, bool registerRunningValues, bool isStatic)
+		public void LabelCollectionInitialize(InitializationContext context, bool registerRunningValues, bool isStatic)
 		{
 			if (isStatic)
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int DynamicInitialize(bool column, int level, InitializationContext context)
+		public int DynamicInitialize(bool column, int level, InitializationContext context)
 		{
 			base.m_level = level;
 			base.m_isColumn = column;
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return base.m_subtotalSpan + 1;
 		}
 
-		internal int StaticInitialize(InitializationContext context)
+		public int StaticInitialize(InitializationContext context)
 		{
 			if (base.m_grouping != null)
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return 0;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Labels, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ExpressionInfoList));

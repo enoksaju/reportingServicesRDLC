@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal enum ResourceOperation
+	public enum ResourceOperation
 	{
 		Delete,
 		ReadProperties,

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalDataMember : DataMember
+	public sealed class InternalDataMember : DataMember
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.DataMember m_memberDef;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private bool m_customPropertyCollectionReady;
 
-		internal override string UniqueName
+		public override string UniqueName
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScopeInstance ReportScopeInstance
+		public override IReportScopeInstance ReportScopeInstance
 		{
 			get
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.DataMember MemberDefinition
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.DataMember MemberDefinition
 		{
 			get
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalDataMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, CustomReportItem owner, DataMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.DataMember memberDef, int parentCollectionIndex)
+		public InternalDataMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, CustomReportItem owner, DataMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.DataMember memberDef, int parentCollectionIndex)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex)
 		{
 			this.m_memberDef = memberDef;
@@ -194,7 +194,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			base.m_group = new Group(owner, this.m_memberDef, this);
 		}
 
-		internal override void SetNewContext(bool fromMoveNext)
+		public override void SetNewContext(bool fromMoveNext)
 		{
 			if (!fromMoveNext && base.m_instance != null && !this.IsStatic)
 			{

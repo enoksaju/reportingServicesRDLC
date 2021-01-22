@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal class AreaInfo
+	public class AreaInfo
 	{
 		private ushort m_FirstRow;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private ushort m_LastColumn;
 
-		internal AreaInfo(ushort firstRow, ushort lastRow, ushort firstCol, ushort lastCol)
+		public AreaInfo(ushort firstRow, ushort lastRow, ushort firstCol, ushort lastCol)
 		{
 			this.m_FirstRow = firstRow;
 			this.m_LastRow = lastRow;
@@ -20,12 +20,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			this.m_LastColumn = lastCol;
 		}
 
-		internal AreaInfo(int firstRow, int lastRow, int firstCol, int lastCol)
+		public AreaInfo(int firstRow, int lastRow, int firstCol, int lastCol)
 			: this((ushort)firstRow, (ushort)lastRow, (ushort)firstCol, (ushort)lastCol)
 		{
 		}
 
-		internal void WriteToStream(BinaryWriter output)
+		public void WriteToStream(BinaryWriter output)
 		{
 			output.Write(this.m_FirstRow);
 			output.Write(this.m_LastRow);

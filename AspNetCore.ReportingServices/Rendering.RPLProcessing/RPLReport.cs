@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLReport
+	public sealed class RPLReport
 	{
 		private RPLPageContent[] m_rplPaginatedPages;
 
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLReport()
+		public RPLReport()
 		{
 		}
 

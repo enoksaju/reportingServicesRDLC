@@ -3,9 +3,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal abstract class Reference<T> : BaseReference, IReference<T>, IReference, IStorable, IPersistable, IDisposable where T : IStorable
+	public abstract class Reference<T> : BaseReference, IReference<T>, IReference, IStorable, IPersistable, IDisposable where T : IStorable
 	{
-		internal Reference()
+		public Reference()
 		{
 		}
 

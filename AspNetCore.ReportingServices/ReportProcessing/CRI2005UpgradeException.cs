@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CRI2005UpgradeException : Exception
+	public sealed class CRI2005UpgradeException : Exception
 	{
 		public CRI2005UpgradeException(string msg)
 			: base(msg)

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLimits
+	public sealed class MapLimits
 	{
 		private Map m_map;
 
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapLimits MapLimitsDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapLimits MapLimitsDef
 		{
 			get
 			{
@@ -112,13 +112,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLimits(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLimits defObject, Map map)
+		public MapLimits(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLimits defObject, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_map = map;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

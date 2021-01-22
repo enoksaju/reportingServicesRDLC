@@ -2,9 +2,9 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GaugeObject : IDisposable
+	public class GaugeObject : IDisposable
 	{
-		internal bool initialized = true;
+		public bool initialized = true;
 
 		private object parent;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private bool disposed;
 
-		internal virtual object Parent
+		public virtual object Parent
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual CommonElements Common
+		public virtual CommonElements Common
 		{
 			get
 			{
@@ -56,12 +56,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GaugeObject(object parent)
+		public GaugeObject(object parent)
 		{
 			this.parent = parent;
 		}
 
-		internal virtual void Invalidate()
+		public virtual void Invalidate()
 		{
 			if (this.Common != null)
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void Refresh()
+		public virtual void Refresh()
 		{
 			if (this.Common != null)
 			{
@@ -77,21 +77,21 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void BeginInit()
+		public virtual void BeginInit()
 		{
 			this.initialized = false;
 		}
 
-		internal virtual void EndInit()
+		public virtual void EndInit()
 		{
 			this.initialized = true;
 		}
 
-		internal virtual void ReconnectData(bool exact)
+		public virtual void ReconnectData(bool exact)
 		{
 		}
 
-		internal virtual void Notify(MessageType msg, NamedElement element, object param)
+		public virtual void Notify(MessageType msg, NamedElement element, object param)
 		{
 		}
 

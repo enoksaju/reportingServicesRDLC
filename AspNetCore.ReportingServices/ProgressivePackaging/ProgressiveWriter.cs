@@ -4,13 +4,13 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal class ProgressiveWriter : IMessageWriter, IDisposable
+	public class ProgressiveWriter : IMessageWriter, IDisposable
 	{
-		internal const string Format = "Progressive";
+		public const string Format = "Progressive";
 
-		internal const int MajorVersion = 1;
+		public const int MajorVersion = 1;
 
-		internal const int MinorVersion = 0;
+		public const int MinorVersion = 0;
 
 		private BinaryWriter m_writer;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 
 		private LengthEncodedWritableStream m_lastStream;
 
-		internal ProgressiveWriter(BinaryWriter writer)
+		public ProgressiveWriter(BinaryWriter writer)
 		{
 			this.m_writer = writer;
 		}

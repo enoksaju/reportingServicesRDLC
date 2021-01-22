@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class DoubleProperty : ComparablePropertyDefinition<double>
+	public class DoubleProperty : ComparablePropertyDefinition<double>
 	{
 		public DoubleProperty(string name, double? defaultValue)
 			: base(name, defaultValue)

@@ -12,14 +12,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapSpatialDataRegion : MapSpatialData, IPersistable
+	public sealed class MapSpatialDataRegion : MapSpatialData, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapSpatialDataRegion.GetDeclaration();
 
 		private ExpressionInfo m_vectorData;
 
-		internal ExpressionInfo VectorData
+		public ExpressionInfo VectorData
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapSpatialDataRegionExprHost ExprHost
+		public new MapSpatialDataRegionExprHost ExprHost
 		{
 			get
 			{
@@ -47,16 +47,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSpatialDataRegion()
+		public MapSpatialDataRegion()
 		{
 		}
 
-		internal MapSpatialDataRegion(MapVectorLayer mapVectorLayer, Map map)
+		public MapSpatialDataRegion(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
 
-		internal override void InitializeMapMember(InitializationContext context)
+		public override void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapSpatialDataRegionStart();
 			base.InitializeMapMember(context);
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapSpatialDataRegionEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapSpatialDataRegion mapSpatialDataRegion = (MapSpatialDataRegion)base.PublishClone(context);
 			if (this.m_vectorData != null)
@@ -78,12 +78,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapSpatialDataRegion;
 		}
 
-		internal override void SetExprHostMapMember(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHostMapMember(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			base.SetExprHostInternal(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.VectorData, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapSpatialDataRegion;
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateVectorData(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateVectorData(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapSpatialDataRegionVectorDataExpression(this, base.m_map.Name);

@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PathCollection : NamedCollection
+	public class PathCollection : NamedCollection
 	{
 		private Path this[int index]
 		{
@@ -60,7 +60,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal PathCollection(NamedElement parent, CommonElements common)
+		public PathCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(Path);
@@ -164,12 +164,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return arrayList;
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Path1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Path{0}";
 		}
@@ -180,7 +180,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			Path path = (Path)value;
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (base.Common != null)
 			{

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class GaugeTickMarks : TickMarkStyle, IPersistable
+	public sealed class GaugeTickMarks : TickMarkStyle, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = GaugeTickMarks.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_intervalOffset;
 
-		internal ExpressionInfo Interval
+		public ExpressionInfo Interval
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffset
+		public ExpressionInfo IntervalOffset
 		{
 			get
 			{
@@ -44,16 +44,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeTickMarks()
+		public GaugeTickMarks()
 		{
 		}
 
-		internal GaugeTickMarks(GaugePanel gaugePanel)
+		public GaugeTickMarks(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal void Initialize(InitializationContext context, bool isMajor)
+		public void Initialize(InitializationContext context, bool isMajor)
 		{
 			context.ExprHostBuilder.GaugeTickMarksStart(isMajor);
 			base.InitializeInternal(context);
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.GaugeTickMarksEnd(isMajor);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			GaugeTickMarks gaugeTickMarks = (GaugeTickMarks)base.PublishClone(context);
 			if (this.m_interval != null)
@@ -84,14 +84,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return gaugeTickMarks;
 		}
 
-		internal void SetExprHost(GaugeTickMarksExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(GaugeTickMarksExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
 			base.m_exprHost = exprHost;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Interval, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -146,13 +146,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugeTickMarks;
 		}
 
-		internal double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeTickMarksIntervalExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeTickMarksIntervalOffsetExpression(this, base.m_gaugePanel.Name);

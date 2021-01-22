@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeGlassEffects
+	public enum GaugeGlassEffects
 	{
 		None,
 		Simple

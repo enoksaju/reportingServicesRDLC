@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Flags]
-	internal enum ReportProcessingFlags
+	public enum ReportProcessingFlags
 	{
 		NotSet = 0,
 		OnDemandEngine = 1,

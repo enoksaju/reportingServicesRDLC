@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class RecordSetPropertyNamesList : ArrayList
+	public sealed class RecordSetPropertyNamesList : ArrayList
 	{
-		internal new RecordSetPropertyNames this[int index]
+		public new RecordSetPropertyNames this[int index]
 		{
 			get
 			{
@@ -14,16 +14,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RecordSetPropertyNamesList()
+		public RecordSetPropertyNamesList()
 		{
 		}
 
-		internal RecordSetPropertyNamesList(int capacity)
+		public RecordSetPropertyNamesList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal StringList GetPropertyNames(int aliasIndex)
+		public StringList GetPropertyNames(int aliasIndex)
 		{
 			if (aliasIndex >= 0 && aliasIndex < this.Count)
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal string GetPropertyName(int aliasIndex, int propertyIndex)
+		public string GetPropertyName(int aliasIndex, int propertyIndex)
 		{
 			StringList propertyNames = this.GetPropertyNames(aliasIndex);
 			if (propertyNames != null && propertyIndex >= 0 && propertyIndex < propertyNames.Count)

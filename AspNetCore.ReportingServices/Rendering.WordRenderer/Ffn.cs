@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class Ffn
+	public class Ffn
 	{
 		private int m_cbFfnM1;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private int m_xszFfnLength;
 
-		internal Ffn(int size, byte info, short wWeight, byte chs, byte ixchSzAlt, byte[] panose, byte[] fontSig, char[] xszFfn)
+		public Ffn(int size, byte info, short wWeight, byte chs, byte ixchSzAlt, byte[] panose, byte[] fontSig, char[] xszFfn)
 		{
 			this.m_cbFfnM1 = size;
 			this.m_info = info;
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.m_xszFfnLength = this.m_xszFfn.Length;
 		}
 
-		internal virtual byte[] toByteArray()
+		public virtual byte[] toByteArray()
 		{
 			int num = 0;
 			byte[] array = new byte[this.m_cbFfnM1 + 1];

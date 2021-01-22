@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapLine : MapSpatialElement
+	public class MapLine : MapSpatialElement
 	{
-		internal new class Definition : DefinitionStore<MapLine, Definition.Properties>
+		public new class Definition : DefinitionStore<MapLine, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				VectorData,
 				MapFields,
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapLine(IPropertyStore propertyStore)
+		public MapLine(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

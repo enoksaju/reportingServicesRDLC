@@ -7,7 +7,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class RenderingContext
+	public sealed class RenderingContext
 	{
 		private sealed class CommonInfo
 		{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 			private IntermediateFormatVersion m_intermediateFormatVersion;
 
-			internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk GetChunkCallback
+			public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk GetChunkCallback
 			{
 				get
 				{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal string RendererID
+			public string RendererID
 			{
 				get
 				{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal DateTime ExecutionTime
+			public DateTime ExecutionTime
 			{
 				get
 				{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal string ReplacementRoot
+			public string ReplacementRoot
 			{
 				get
 				{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal RenderingInfoManager RenderingInfoManager
+			public RenderingInfoManager RenderingInfoManager
 			{
 				get
 				{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal bool CacheState
+			public bool CacheState
 			{
 				get
 				{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal ChunkManager.RenderingChunkManager ChunkManager
+			public ChunkManager.RenderingChunkManager ChunkManager
 			{
 				get
 				{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal IGetResource GetResourceCallback
+			public IGetResource GetResourceCallback
 			{
 				get
 				{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetChunkMimeType GetChunkMimeType
+			public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetChunkMimeType GetChunkMimeType
 			{
 				get
 				{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters StoreServerParameters
+			public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters StoreServerParameters
 			{
 				get
 				{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal ICatalogItemContext TopLevelReportContext
+			public ICatalogItemContext TopLevelReportContext
 			{
 				get
 				{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal UserProfileState AllowUserProfileState
+			public UserProfileState AllowUserProfileState
 			{
 				get
 				{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal UserProfileState UsedUserProfileState
+			public UserProfileState UsedUserProfileState
 			{
 				get
 				{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal ReportRuntimeSetup ReportRuntimeSetup
+			public ReportRuntimeSetup ReportRuntimeSetup
 			{
 				get
 				{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal IntermediateFormatVersion IntermediateFormatVersion
+			public IntermediateFormatVersion IntermediateFormatVersion
 			{
 				get
 				{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal CommonInfo(string rendererID, DateTime executionTime, ICatalogItemContext reportContext, NameValueCollection reportParameters, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk getChunkCallback, ChunkManager.RenderingChunkManager chunkManager, IGetResource getResourceCallback, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetChunkMimeType getChunkMimeType, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, bool retrieveRenderingInfo, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, IntermediateFormatVersion intermediateFormatVersion)
+			public CommonInfo(string rendererID, DateTime executionTime, ICatalogItemContext reportContext, NameValueCollection reportParameters, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk getChunkCallback, ChunkManager.RenderingChunkManager chunkManager, IGetResource getResourceCallback, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetChunkMimeType getChunkMimeType, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, bool retrieveRenderingInfo, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, IntermediateFormatVersion intermediateFormatVersion)
 			{
 				this.m_rendererID = rendererID;
 				this.m_executionTime = executionTime;
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 		private IDataProtection m_dataProtection;
 
-		internal ICatalogItemContext TopLevelReportContext
+		public ICatalogItemContext TopLevelReportContext
 		{
 			get
 			{
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk GetChunkCallback
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk GetChunkCallback
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetChunkMimeType GetChunkMimeType
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetChunkMimeType GetChunkMimeType
 		{
 			get
 			{
@@ -246,7 +246,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters StoreServerParameters
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters StoreServerParameters
 		{
 			get
 			{
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal string RendererID
+		public string RendererID
 		{
 			get
 			{
@@ -262,7 +262,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DateTime ExecutionTime
+		public DateTime ExecutionTime
 		{
 			get
 			{
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal string ReplacementRoot
+		public string ReplacementRoot
 		{
 			get
 			{
@@ -278,7 +278,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool CacheState
+		public bool CacheState
 		{
 			get
 			{
@@ -290,7 +290,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal RenderingInfoManager RenderingInfoManager
+		public RenderingInfoManager RenderingInfoManager
 		{
 			get
 			{
@@ -298,7 +298,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ChunkManager.RenderingChunkManager ChunkManager
+		public ChunkManager.RenderingChunkManager ChunkManager
 		{
 			get
 			{
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal IGetResource GetResourceCallback
+		public IGetResource GetResourceCallback
 		{
 			get
 			{
@@ -314,7 +314,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportRuntimeSetup ReportRuntimeSetup
+		public ReportRuntimeSetup ReportRuntimeSetup
 		{
 			get
 			{
@@ -322,7 +322,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal IntermediateFormatVersion IntermediateFormatVersion
+		public IntermediateFormatVersion IntermediateFormatVersion
 		{
 			get
 			{
@@ -330,7 +330,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ImageStreamNames ImageStreamNames
+		public ImageStreamNames ImageStreamNames
 		{
 			get
 			{
@@ -338,7 +338,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal EmbeddedImageHashtable EmbeddedImages
+		public EmbeddedImageHashtable EmbeddedImages
 		{
 			get
 			{
@@ -346,7 +346,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool InPageSection
+		public bool InPageSection
 		{
 			get
 			{
@@ -354,7 +354,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal string UniqueNamePrefix
+		public string UniqueNamePrefix
 		{
 			get
 			{
@@ -363,7 +363,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Uri ContextUri
+		public Uri ContextUri
 		{
 			get
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportSnapshot ReportSnapshot
+		public ReportSnapshot ReportSnapshot
 		{
 			get
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MatrixHeadingInstance HeadingInstance
+		public MatrixHeadingInstance HeadingInstance
 		{
 			get
 			{
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal UserProfileState AllowUserProfileState
+		public UserProfileState AllowUserProfileState
 		{
 			get
 			{
@@ -424,7 +424,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal UserProfileState UsedUserProfileState
+		public UserProfileState UsedUserProfileState
 		{
 			get
 			{
@@ -436,7 +436,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ICatalogItemContext CurrentReportContext
+		public ICatalogItemContext CurrentReportContext
 		{
 			get
 			{
@@ -444,7 +444,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool NativeAllCRITypes
+		public bool NativeAllCRITypes
 		{
 			get
 			{
@@ -456,7 +456,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Hashtable NativeCRITypes
+		public Hashtable NativeCRITypes
 		{
 			get
 			{
@@ -468,7 +468,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal IJobContext JobContext
+		public IJobContext JobContext
 		{
 			get
 			{
@@ -476,7 +476,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal IDataProtection DataProtection
+		public IDataProtection DataProtection
 		{
 			get
 			{
@@ -484,7 +484,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool ShowHideStateChanged
+		public bool ShowHideStateChanged
 		{
 			get
 			{
@@ -496,7 +496,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal RenderingContext(ReportSnapshot reportSnapshot, string rendererID, DateTime executionTime, EmbeddedImageHashtable embeddedImages, ImageStreamNames imageStreamNames, EventInformation eventInfo, ICatalogItemContext reportContext, Uri contextUri, NameValueCollection reportParameters, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk getChunkCallback, ChunkManager.RenderingChunkManager chunkManager, IGetResource getResourceCallback, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetChunkMimeType getChunkMimeType, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, bool retrieveRenderingInfo, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, IJobContext jobContext, IDataProtection dataProtection)
+		public RenderingContext(ReportSnapshot reportSnapshot, string rendererID, DateTime executionTime, EmbeddedImageHashtable embeddedImages, ImageStreamNames imageStreamNames, EventInformation eventInfo, ICatalogItemContext reportContext, Uri contextUri, NameValueCollection reportParameters, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk getChunkCallback, ChunkManager.RenderingChunkManager chunkManager, IGetResource getResourceCallback, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetChunkMimeType getChunkMimeType, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.StoreServerParameters storeServerParameters, bool retrieveRenderingInfo, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, IJobContext jobContext, IDataProtection dataProtection)
 		{
 			this.m_commonInfo = new CommonInfo(rendererID, executionTime, reportContext, reportParameters, getChunkCallback, chunkManager, getResourceCallback, getChunkMimeType, storeServerParameters, retrieveRenderingInfo, allowUserProfileState, reportRuntimeSetup, reportSnapshot.Report.IntermediateFormatVersion);
 			this.m_inPageSection = false;
@@ -513,7 +513,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_dataProtection = dataProtection;
 		}
 
-		internal RenderingContext(RenderingContext copy, Uri contextUri, EmbeddedImageHashtable embeddedImages, ImageStreamNames imageStreamNames, ICatalogItemContext subreportICatalogItemContext)
+		public RenderingContext(RenderingContext copy, Uri contextUri, EmbeddedImageHashtable embeddedImages, ImageStreamNames imageStreamNames, ICatalogItemContext subreportICatalogItemContext)
 		{
 			this.m_commonInfo = copy.m_commonInfo;
 			this.m_inPageSection = false;
@@ -530,7 +530,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_dataProtection = copy.m_dataProtection;
 		}
 
-		internal RenderingContext(RenderingContext copy, string prefix)
+		public RenderingContext(RenderingContext copy, string prefix)
 		{
 			this.m_commonInfo = copy.m_commonInfo;
 			this.m_inPageSection = true;
@@ -547,7 +547,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_dataProtection = copy.m_dataProtection;
 		}
 
-		internal ReportItem FindReportItemInBody(int uniqueName)
+		public ReportItem FindReportItemInBody(int uniqueName)
 		{
 			object obj = null;
 			NonComputedUniqueNames nonComputedUniqueNames = null;
@@ -574,7 +574,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return ReportItem.CreateItem(-1, reportItemInstance.ReportItemDef, reportItemInstance, this, nonComputedUniqueNames);
 		}
 
-		internal bool IsItemHidden(int uniqueName, bool potentialSender)
+		public bool IsItemHidden(int uniqueName, bool potentialSender)
 		{
 			try
 			{
@@ -597,7 +597,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool IsToggleStateNegated(int uniqueName)
+		public bool IsToggleStateNegated(int uniqueName)
 		{
 			if (this.m_eventInfo != null && this.m_eventInfo.ToggleStateInfo != null && this.m_eventInfo.HiddenInfo != null)
 			{
@@ -606,7 +606,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return false;
 		}
 
-		internal bool IsToggleParent(int uniqueName)
+		public bool IsToggleParent(int uniqueName)
 		{
 			if (this.ShowHideSenderInfo == null)
 			{
@@ -615,7 +615,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return this.ShowHideSenderInfo.ContainsKey(uniqueName);
 		}
 
-		internal bool IsToggleChild(int uniqueName)
+		public bool IsToggleChild(int uniqueName)
 		{
 			if (this.ShowHideReceiverInfo == null)
 			{
@@ -624,7 +624,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return this.ShowHideReceiverInfo.ContainsKey(uniqueName);
 		}
 
-		internal TextBox GetToggleParent(int uniqueName)
+		public TextBox GetToggleParent(int uniqueName)
 		{
 			if (this.ShowHideReceiverInfo != null)
 			{
@@ -640,7 +640,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return null;
 		}
 
-		internal static bool GetDefinitionHidden(AspNetCore.ReportingServices.ReportProcessing.Visibility visibility)
+		public static bool GetDefinitionHidden(AspNetCore.ReportingServices.ReportProcessing.Visibility visibility)
 		{
 			if (visibility == null)
 			{
@@ -657,7 +657,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return false;
 		}
 
-		internal SortOptions GetSortState(int uniqueName)
+		public SortOptions GetSortState(int uniqueName)
 		{
 			if (this.m_eventInfo != null && this.m_eventInfo.SortInfo != null)
 			{
@@ -745,12 +745,12 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return false;
 		}
 
-		internal static void FindRange(RenderingPagesRangesList pagesRangesList, int startIndex, int endIndex, int page, ref int startChild, ref int endChild)
+		public static void FindRange(RenderingPagesRangesList pagesRangesList, int startIndex, int endIndex, int page, ref int startChild, ref int endChild)
 		{
 			RenderingContext.FindRange(pagesRangesList, startIndex, endIndex, page, true, true, ref startChild, ref endChild);
 		}
 
-		internal static void FindRange(RenderingPagesRangesList pagesRangesList, int startIndex, int endIndex, int page, bool checkStart, bool checkEnd, ref int startChild, ref int endChild)
+		public static void FindRange(RenderingPagesRangesList pagesRangesList, int startIndex, int endIndex, int page, bool checkStart, bool checkEnd, ref int startChild, ref int endChild)
 		{
 			int num = 0;
 			bool flag = false;

@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class RenderReportOdpSnapshotStream : RenderReportOdpSnapshot
+	public class RenderReportOdpSnapshotStream : RenderReportOdpSnapshot
 	{
 		private readonly string m_streamName;
 

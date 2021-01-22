@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportRendering
 {
 	[Serializable]
-	internal abstract class Page
+	public abstract class Page
 	{
 		private PageSectionInstance m_pageHeaderInstance;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 		[NonSerialized]
 		private PageSection m_pageFooter;
 
-		internal PageSection PageSectionHeader
+		public PageSection PageSectionHeader
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal PageSection PageSectionFooter
+		public PageSection PageSectionFooter
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal PageSectionInstance HeaderInstance
+		public PageSectionInstance HeaderInstance
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal PageSectionInstance FooterInstance
+		public PageSectionInstance FooterInstance
 		{
 			get
 			{

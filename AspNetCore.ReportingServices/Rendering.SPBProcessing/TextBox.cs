@@ -10,9 +10,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class TextBox : PageItem, ITextBoxProps
+	public sealed class TextBox : PageItem, ITextBoxProps
 	{
-		internal enum CalcSize : byte
+		public enum CalcSize : byte
 		{
 			None,
 			Done,
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private long m_startTextBoxOffset;
 
-		internal override string SourceID
+		public override string SourceID
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal CalcSize CalcSizeState
+		public CalcSize CalcSizeState
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool IsSimple
+		public bool IsSimple
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal TextBox(AspNetCore.ReportingServices.OnDemandReportRendering.TextBox source, PageContext pageContext, bool createForRepeat)
+		public TextBox(AspNetCore.ReportingServices.OnDemandReportRendering.TextBox source, PageContext pageContext, bool createForRepeat)
 			: base(source)
 		{
 			if (pageContext != null)
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal TextBox(DataRegion source, PageContext pageContext, bool createForRepeat)
+		public TextBox(DataRegion source, PageContext pageContext, bool createForRepeat)
 			: base(source)
 		{
 			if (pageContext != null)
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal TextBox(AspNetCore.ReportingServices.OnDemandReportRendering.SubReport source, PageContext pageContext, bool createForRepeat)
+		public TextBox(AspNetCore.ReportingServices.OnDemandReportRendering.SubReport source, PageContext pageContext, bool createForRepeat)
 			: base(source)
 		{
 			if (pageContext != null)
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 		{
 		}
 
-		internal override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
+		public override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
 		{
 			base.AdjustOriginFromItemsAbove(siblings, repeatWithItems);
 			if (!this.HitsCurrentPage(pageContext, parentTopInPage))
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal override void CalculateRepeatWithPage(RPLWriter rplWriter, PageContext pageContext, PageItem[] siblings)
+		public override void CalculateRepeatWithPage(RPLWriter rplWriter, PageContext pageContext, PageItem[] siblings)
 		{
 			base.AdjustOriginFromItemsAbove(siblings, null);
 			ItemSizes contentSize = null;
@@ -328,7 +328,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override int WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
+		public override int WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (base.ItemState == State.OnPageHidden)
 			{
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return 1;
 		}
 
-		internal override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.TextBox textBox = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.TextBox;
 			if (textBox != null)
@@ -408,7 +408,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.TextBox textBox = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.TextBox;
 			if (textBox != null)
@@ -448,7 +448,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			TextBoxInstance textBoxInstance = base.m_source.Instance as TextBoxInstance;
 			if (textBoxInstance == null)
@@ -595,7 +595,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteCustomNonSharedItemProps(RPLElementProps nonSharedProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomNonSharedItemProps(RPLElementProps nonSharedProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			RPLTextBoxProps rPLTextBoxProps = (RPLTextBoxProps)nonSharedProps;
 			TextBoxInstance textBoxInstance = base.m_source.Instance as TextBoxInstance;
@@ -715,7 +715,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BackgroundColor, 34);
 			this.WriteBackgroundImage(spbifWriter, style, true, pageContext);
@@ -753,7 +753,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BackgroundColor, 34);
 			this.WriteBackgroundImage(rplStyleProps, style, true, pageContext);
@@ -791,7 +791,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -887,7 +887,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -983,7 +983,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteNonSharedStyle(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, PageContext pageContext, byte? rplTag, ReportElementInstance compiledSource)
+		public override void WriteNonSharedStyle(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, PageContext pageContext, byte? rplTag, ReportElementInstance compiledSource)
 		{
 			if (base.m_source != null)
 			{
@@ -1033,7 +1033,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override RPLStyleProps WriteNonSharedStyle(Style styleDef, StyleInstance style, PageContext pageContext, ReportElementInstance compiledSource)
+		public override RPLStyleProps WriteNonSharedStyle(Style styleDef, StyleInstance style, PageContext pageContext, ReportElementInstance compiledSource)
 		{
 			RPLStyleProps rPLStyleProps = base.WriteNonSharedStyle(styleDef, style, pageContext, compiledSource);
 			AspNetCore.ReportingServices.OnDemandReportRendering.TextBox textBox = base.m_source as AspNetCore.ReportingServices.OnDemandReportRendering.TextBox;
@@ -1071,7 +1071,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return rPLStyleProps;
 		}
 
-		internal override void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public override void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -1081,14 +1081,14 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override PageItemHelper WritePaginationInfo()
+		public override PageItemHelper WritePaginationInfo()
 		{
 			PageItemHelper pageItemHelper = new PageItemHelper(12);
 			base.WritePaginationInfoProperties(pageItemHelper);
 			return pageItemHelper;
 		}
 
-		internal void MeasureTextBox(PageContext pageContext, ItemSizes contentSize, bool createForRepeat)
+		public void MeasureTextBox(PageContext pageContext, ItemSizes contentSize, bool createForRepeat)
 		{
 			double num3;
 			if (this.m_calcSizeState != CalcSize.Done)
@@ -1273,7 +1273,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return stringBuilder.ToString();
 		}
 
-		internal bool SearchTextBox(string findValue, PageContext pageContext)
+		public bool SearchTextBox(string findValue, PageContext pageContext)
 		{
 			string text = null;
 			TextBoxInstance textBoxInstance = base.m_source.Instance as TextBoxInstance;
@@ -1533,7 +1533,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal void DelayWriteContent(RPLWriter rplWriter, PageContext pageContext)
+		public void DelayWriteContent(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (rplWriter != null)
 			{
@@ -1555,7 +1555,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void CopyData(BinaryReader cacheReader, RPLWriter rplWriter, long length)
+		public void CopyData(BinaryReader cacheReader, RPLWriter rplWriter, long length)
 		{
 			byte[] array = new byte[1024];
 			while (length >= array.Length)
@@ -1872,7 +1872,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return canvasFont;
 		}
 
-		internal static void AddNewLinesAtGdiLimits(ref string text)
+		public static void AddNewLinesAtGdiLimits(ref string text)
 		{
 			if (text != null && text.Length > 32000)
 			{

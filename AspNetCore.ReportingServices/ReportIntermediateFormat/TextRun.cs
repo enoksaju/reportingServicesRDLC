@@ -13,7 +13,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class TextRun : IDOwner, IPersistable, IStyleContainer, IActionOwner
+	public sealed class TextRun : IDOwner, IPersistable, IStyleContainer, IActionOwner
 	{
 		private ExpressionInfo m_value;
 
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private List<string> m_fieldsUsedInValueExpression;
 
-		internal string IDString
+		public string IDString
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MarkupType
+		public ExpressionInfo MarkupType
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Style StyleClass
+		public Style StyleClass
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Paragraph Paragraph
+		public Paragraph Paragraph
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int IndexInCollection
+		public int IndexInCollection
 		{
 			get
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataType DataType
+		public DataType DataType
 		{
 			get
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ValueReferenced
+		public bool ValueReferenced
 		{
 			get
 			{
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TypeCode ValueTypeCode
+		public TypeCode ValueTypeCode
 		{
 			get
 			{
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -277,7 +277,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TextRunExprHost ExprHost
+		public TextRunExprHost ExprHost
 		{
 			get
 			{
@@ -285,18 +285,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TextRun(Paragraph paragraph, int index, int id)
+		public TextRun(Paragraph paragraph, int index, int id)
 			: base(id)
 		{
 			this.m_indexInCollection = index;
 			this.m_paragraph = paragraph;
 		}
 
-		internal TextRun()
+		public TextRun()
 		{
 		}
 
-		internal bool Initialize(InitializationContext context, out bool hasExpressionBasedValue)
+		public bool Initialize(InitializationContext context, out bool hasExpressionBasedValue)
 		{
 			bool result = false;
 			hasExpressionBasedValue = false;
@@ -330,7 +330,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			TextRun textRun = (TextRun)base.PublishClone(context);
 			if (this.m_value != null)
@@ -356,7 +356,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return textRun;
 		}
 
-		internal bool DetermineSimplicity()
+		public bool DetermineSimplicity()
 		{
 			if (this.m_markupType != null && (this.m_markupType.IsExpression || !string.Equals(this.m_markupType.StringValue, "None", StringComparison.Ordinal)))
 			{
@@ -386,7 +386,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Value, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -526,12 +526,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.TextRun;
 		}
 
-		internal void SetExprHost(TextRunExprHost textRunExprHost)
+		public void SetExprHost(TextRunExprHost textRunExprHost)
 		{
 			this.m_exprHost = textRunExprHost;
 		}
 
-		internal void SetExprHost(ParagraphExprHost paragraphExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ParagraphExprHost paragraphExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -549,24 +549,24 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string EvaluateMarkupType(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateMarkupType(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_paragraph.TextBox, instance);
 			return context.ReportRuntime.EvaluateTextRunMarkupTypeExpression(this);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_paragraph.TextBox, instance);
 			return context.ReportRuntime.EvaluateTextRunToolTipExpression(this);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateValue(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateValue(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			return this.GetTextRunImpl(context).GetResult(instance);
 		}
 
-		internal List<string> GetFieldsUsedInValueExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public List<string> GetFieldsUsedInValueExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			return this.GetTextRunImpl(context).GetFieldsUsedInValueExpression(romInstance);
 		}
@@ -580,7 +580,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_textRunImpl;
 		}
 
-		internal string FormatTextRunValue(AspNetCore.ReportingServices.RdlExpressions.VariantResult textRunResult, OnDemandProcessingContext context)
+		public string FormatTextRunValue(AspNetCore.ReportingServices.RdlExpressions.VariantResult textRunResult, OnDemandProcessingContext context)
 		{
 			string result = null;
 			if (textRunResult.ErrorOccurred)
@@ -594,7 +594,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal string FormatTextRunValue(object textRunValue, TypeCode typeCode, OnDemandProcessingContext context)
+		public string FormatTextRunValue(object textRunValue, TypeCode typeCode, OnDemandProcessingContext context)
 		{
 			return this.FormatTextRunValue(textRunValue, typeCode, string.Empty, context);
 		}

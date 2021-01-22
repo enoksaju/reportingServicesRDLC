@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class CannotRetrieveModelException : ReportCatalogException
+	public sealed class CannotRetrieveModelException : ReportCatalogException
 	{
 		public static bool IsCannotRetrieveModelErrorCode(ErrorCode errorCode)
 		{

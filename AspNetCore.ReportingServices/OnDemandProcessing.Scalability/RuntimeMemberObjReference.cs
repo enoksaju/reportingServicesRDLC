@@ -3,9 +3,9 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class RuntimeMemberObjReference : Reference<RuntimeMemberObj>
+	public class RuntimeMemberObjReference : Reference<RuntimeMemberObj>
 	{
-		internal RuntimeMemberObjReference()
+		public RuntimeMemberObjReference()
 		{
 		}
 

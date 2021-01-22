@@ -4,9 +4,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlParagraphModel : OpenXmlTableCellModel.ICellContent
+	public sealed class OpenXmlParagraphModel : OpenXmlTableCellModel.ICellContent
 	{
-		internal sealed class PageBreakParagraph : OpenXmlTableCellModel.ICellContent
+		public sealed class PageBreakParagraph : OpenXmlTableCellModel.ICellContent
 		{
 			public void Write(TextWriter writer)
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal sealed class EmptyParagraph : OpenXmlTableCellModel.ICellContent
+		public sealed class EmptyParagraph : OpenXmlTableCellModel.ICellContent
 		{
 			public void Write(TextWriter writer)
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal interface IParagraphContent
+		public interface IParagraphContent
 		{
 			void Write(TextWriter writer);
 		}

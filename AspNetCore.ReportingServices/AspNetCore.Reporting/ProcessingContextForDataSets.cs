@@ -11,13 +11,13 @@ using System.Threading;
 
 namespace AspNetCore.Reporting
 {
-	internal class ProcessingContextForDataSets : ProcessingContext
+	public class ProcessingContextForDataSets : ProcessingContext
 	{
 		private IEnumerable m_dataSources;
 
 		private LocalDataRetrievalFromDataSet.GetSubReportDataSetCallback m_subReportInfoCallback;
 
-		internal override bool EnableDataBackedParameters
+		public override bool EnableDataBackedParameters
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal override IProcessingDataExtensionConnection CreateAndSetupDataExtensionFunction
+		public override IProcessingDataExtensionConnection CreateAndSetupDataExtensionFunction
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal override RuntimeDataSourceInfoCollection DataSources
+		public override RuntimeDataSourceInfoCollection DataSources
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal override RuntimeDataSetInfoCollection SharedDataSetReferences
+		public override RuntimeDataSetInfoCollection SharedDataSetReferences
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal override bool CanShareDataSets
+		public override bool CanShareDataSets
 		{
 			get
 			{
@@ -64,13 +64,13 @@ namespace AspNetCore.Reporting
 			this.m_subReportInfoCallback = subReportInfoCallback;
 		}
 
-		internal override ReportProcessing.ProcessingContext CreateInternalProcessingContext(string chartName, AspNetCore.ReportingServices.ReportProcessing.Report report, ErrorContext errorContext, DateTime executionTime, UserProfileState allowUserProfileState, bool isHistorySnapshot, bool snapshotProcessing, bool processWithCachedData, ReportProcessing.GetReportChunk getChunkCallback, ReportProcessing.CreateReportChunk cacheDataCallback)
+		public override ReportProcessing.ProcessingContext CreateInternalProcessingContext(string chartName, AspNetCore.ReportingServices.ReportProcessing.Report report, ErrorContext errorContext, DateTime executionTime, UserProfileState allowUserProfileState, bool isHistorySnapshot, bool snapshotProcessing, bool processWithCachedData, ReportProcessing.GetReportChunk getChunkCallback, ReportProcessing.CreateReportChunk cacheDataCallback)
 		{
 			AspNetCore.ReportingServices.ReportProcessing.Global.Tracer.Assert(false, "CreateInternalProcessingContext is not used for ODP Engine Controls");
 			return null;
 		}
 
-		internal override ReportProcessing.ProcessingContext ParametersInternalProcessingContext(ErrorContext errorContext, DateTime executionTimeStamp, bool isSnapshot)
+		public override ReportProcessing.ProcessingContext ParametersInternalProcessingContext(ErrorContext errorContext, DateTime executionTimeStamp, bool isSnapshot)
 		{
 			AspNetCore.ReportingServices.ReportProcessing.Global.Tracer.Assert(false, "ParametersInternalProcessingContext is not used for ODP Engine Controls");
 			return null;

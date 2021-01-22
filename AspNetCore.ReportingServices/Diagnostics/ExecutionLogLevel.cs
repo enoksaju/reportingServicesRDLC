@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal enum ExecutionLogLevel
+	public enum ExecutionLogLevel
 	{
 		Normal,
 		Verbose

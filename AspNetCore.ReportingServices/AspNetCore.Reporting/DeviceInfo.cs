@@ -5,7 +5,7 @@ namespace AspNetCore.Reporting
 {
 	[Serializable]
 	[ComVisible(false)]
-	internal sealed class DeviceInfo
+	public sealed class DeviceInfo
 	{
 		private string m_name;
 

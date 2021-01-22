@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportInstance : BaseInstance, IReportScopeInstance
+	public sealed class ReportInstance : BaseInstance, IReportScopeInstance
 	{
 		private Report m_reportDef;
 
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Report ReportDef
+		public Report ReportDef
 		{
 			get
 			{
@@ -106,14 +106,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportInstance(Report reportDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
+		public ReportInstance(Report reportDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
 			: base(null)
 		{
 			this.m_reportDef = reportDef;
 			this.m_reportInstance = reportInstance;
 		}
 
-		internal ReportInstance(Report reportDef)
+		public ReportInstance(Report reportDef)
 			: base(null)
 		{
 			this.m_reportDef = reportDef;
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_reportDef.SetNewContext();
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			this.m_isNewContext = true;

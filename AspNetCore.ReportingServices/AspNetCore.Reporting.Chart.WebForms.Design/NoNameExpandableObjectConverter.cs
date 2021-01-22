@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class NoNameExpandableObjectConverter : ExpandableObjectConverter
+	public class NoNameExpandableObjectConverter : ExpandableObjectConverter
 	{
 		public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
 		{

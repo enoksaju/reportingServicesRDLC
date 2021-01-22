@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DataRegionMemberCollection<T> : ReportElementCollectionBase<T>, IDefinitionPath, IDataRegionMemberCollection
+	public abstract class DataRegionMemberCollection<T> : ReportElementCollectionBase<T>, IDefinitionPath, IDataRegionMemberCollection
 	{
 		protected DataRegionMember[] m_children;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataRegionMemberCollection(IDefinitionPath parentDefinitionPath, ReportItem owner)
+		public DataRegionMemberCollection(IDefinitionPath parentDefinitionPath, ReportItem owner)
 		{
 			this.m_parentDefinitionPath = parentDefinitionPath;
 			this.m_owner = owner;

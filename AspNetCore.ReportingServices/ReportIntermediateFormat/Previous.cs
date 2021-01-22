@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class Previous : DataAggregate
+	public sealed class Previous : DataAggregate
 	{
 		private class ListCloner
 		{
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			{
 			}
 
-			internal static List<object> CloneList(List<object> key, int startIndex)
+			public static List<object> CloneList(List<object> key, int startIndex)
 			{
 				if (key == null)
 				{
@@ -31,9 +31,9 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal class ListOfObjectsEqualityComparer : IEqualityComparer<List<object>>
+		public class ListOfObjectsEqualityComparer : IEqualityComparer<List<object>>
 		{
-			internal static readonly ListOfObjectsEqualityComparer Instance = new ListOfObjectsEqualityComparer();
+			public static readonly ListOfObjectsEqualityComparer Instance = new ListOfObjectsEqualityComparer();
 
 			private ListOfObjectsEqualityComparer()
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private static Declaration m_declaration = Previous.GetDeclaration();
 
-		internal override DataAggregateInfo.AggregateTypes AggregateType
+		public override DataAggregateInfo.AggregateTypes AggregateType
 		{
 			get
 			{
@@ -108,11 +108,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Previous()
+		public Previous()
 		{
 		}
 
-		internal Previous(OnDemandProcessingContext odpContext, int startIndex, bool isScopedInEvaluationScope, bool hasNoExplicitScope)
+		public Previous(OnDemandProcessingContext odpContext, int startIndex, bool isScopedInEvaluationScope, bool hasNoExplicitScope)
 		{
 			this.m_odpContext = odpContext;
 			this.m_isScopedInEvaluationScope = isScopedInEvaluationScope;
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_startIndex = startIndex;
 		}
 
-		internal override void Init()
+		public override void Init()
 		{
 			if (!this.m_isScopedInEvaluationScope && !this.m_previousEnabled)
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_previousEnabled = true;
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			if (this.m_isScopedInEvaluationScope)
 			{
@@ -152,12 +152,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_previousEnabled = false;
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			return this.m_previous;
 		}
 
-		internal override DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef)
+		public override DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef)
 		{
 			RunningValueInfo runningValueInfo = (RunningValueInfo)aggregateDef;
 			return new Previous(odpContext, runningValueInfo.TotalGroupingExpressionCount, runningValueInfo.IsScopedInEvaluationScope, string.IsNullOrEmpty(runningValueInfo.Scope));

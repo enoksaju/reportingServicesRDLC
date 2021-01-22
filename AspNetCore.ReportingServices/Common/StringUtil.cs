@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class StringUtil
+	public static class StringUtil
 	{
 		private sealed class StringComparerWithOptions : EqualityComparer<string>
 		{
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.Common
 
 			private readonly CompareOptions m_options;
 
-			internal StringComparerWithOptions(CultureInfo culture, CompareOptions compareOptions)
+			public StringComparerWithOptions(CultureInfo culture, CompareOptions compareOptions)
 			{
 				this.m_compareInfo = culture.CompareInfo;
 				this.m_options = compareOptions;

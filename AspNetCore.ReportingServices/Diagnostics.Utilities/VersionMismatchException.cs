@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class VersionMismatchException : ReportCatalogException
+	public sealed class VersionMismatchException : ReportCatalogException
 	{
 		private Guid m_reportID;
 

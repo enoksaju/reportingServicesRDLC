@@ -3,7 +3,7 @@ using System.Diagnostics;
 namespace AspNetCore.ReportingServices.Diagnostics
 {
 	[DebuggerDisplay("CatalogItemPath: {m_originalValue}")]
-	internal class CatalogItemPath : ItemPathBase
+	public class CatalogItemPath : ItemPathBase
 	{
 		public static readonly CatalogItemPath Empty = new CatalogItemPath(string.Empty);
 

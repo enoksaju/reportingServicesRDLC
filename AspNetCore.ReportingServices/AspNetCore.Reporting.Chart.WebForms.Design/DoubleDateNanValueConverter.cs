@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class DoubleDateNanValueConverter : DoubleConverter
+	public class DoubleDateNanValueConverter : DoubleConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

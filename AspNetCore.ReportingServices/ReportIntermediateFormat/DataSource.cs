@@ -13,7 +13,7 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class DataSource : IPersistable, IReferenceable, IProcessingDataSource
+	public sealed class DataSource : IPersistable, IReferenceable, IProcessingDataSource
 	{
 		private int m_referenceID = -1;
 
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DataSource.GetDeclaration();
 
-		internal bool IsArtificialForSharedDataSets
+		public bool IsArtificialForSharedDataSets
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ConnectStringExpression
+		public ExpressionInfo ConnectStringExpression
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataSet> DataSets
+		public List<DataSet> DataSets
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSourceExprHost ExprHost
+		public DataSourceExprHost ExprHost
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -192,7 +192,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsComplex
+		public bool IsComplex
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Dictionary<string, bool> ParameterNames
+		public Dictionary<string, bool> ParameterNames
 		{
 			get
 			{
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string ConnectionCategory
+		public string ConnectionCategory
 		{
 			get
 			{
@@ -248,16 +248,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSource()
+		public DataSource()
 		{
 		}
 
-		internal DataSource(int id)
+		public DataSource(int id)
 		{
 			this.m_referenceID = id;
 		}
 
-		internal DataSource(int id, Guid sharedDataSourceReferenceId)
+		public DataSource(int id, Guid sharedDataSourceReferenceId)
 		{
 			this.m_referenceID = id;
 			this.m_ID = sharedDataSourceReferenceId;
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_name = " Data source for shared dataset";
 		}
 
-		internal DataSource(int id, Guid sharedDataSourceReferenceId, DataSetCore dataSetCore)
+		public DataSource(int id, Guid sharedDataSourceReferenceId, DataSetCore dataSetCore)
 			: this(id, sharedDataSourceReferenceId)
 		{
 			DataSet item = new DataSet(dataSetCore);
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_dataSets.Add(item);
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ObjectType = AspNetCore.ReportingServices.ReportProcessing.ObjectType.DataSource;
 			context.ObjectName = this.m_name;
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void DetermineDecomposability(InitializationContext context)
+		public void DetermineDecomposability(InitializationContext context)
 		{
 			if (this.m_dataSets != null)
 			{
@@ -303,7 +303,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string ResolveConnectionString(OnDemandProcessingContext pc, out DataSourceInfo dataSourceInfo)
+		public string ResolveConnectionString(OnDemandProcessingContext pc, out DataSourceInfo dataSourceInfo)
 		{
 			dataSourceInfo = this.GetDataSourceInfo(pc);
 			string text = null;
@@ -326,7 +326,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return text;
 		}
 
-		internal DataSourceInfo GetDataSourceInfo(OnDemandProcessingContext pc)
+		public DataSourceInfo GetDataSourceInfo(OnDemandProcessingContext pc)
 		{
 			DataSourceInfo dataSourceInfo = null;
 			if (pc.DataSourceInfos != null)
@@ -402,7 +402,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return stringResult.Value;
 		}
 
-		internal bool AnyActiveDataSetNeedsAutoDetectCollation()
+		public bool AnyActiveDataSetNeedsAutoDetectCollation()
 		{
 			foreach (DataSet dataSet in this.m_dataSets)
 			{
@@ -414,7 +414,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void MergeCollationSettingsForAllDataSets(ErrorContext errorContext, string cultureName, bool caseSensitive, bool accentSensitive, bool kanatypeSensitive, bool widthSensitive)
+		public void MergeCollationSettingsForAllDataSets(ErrorContext errorContext, string cultureName, bool caseSensitive, bool accentSensitive, bool kanatypeSensitive, bool widthSensitive)
 		{
 			for (int i = 0; i < this.m_dataSets.Count; i++)
 			{
@@ -423,7 +423,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));

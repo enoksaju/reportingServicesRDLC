@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal class ReportTextBox : ITextBoxProps
+	public class ReportTextBox : ITextBoxProps
 	{
 		private RPLTextBoxProps m_source;
 
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal RPLFormat.VerticalAlignments VerticalAlignment
+		public RPLFormat.VerticalAlignments VerticalAlignment
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal bool SpanPages
+		public bool SpanPages
 		{
 			set
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal string UniqueName
+		public string UniqueName
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal ReportTextBox(RPLTextBoxProps source, WriterBase writer)
+		public ReportTextBox(RPLTextBoxProps source, WriterBase writer)
 		{
 			this.m_source = source;
 			this.m_writer = writer;

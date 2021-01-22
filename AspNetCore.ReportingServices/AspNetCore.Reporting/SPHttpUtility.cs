@@ -4,9 +4,9 @@ using System.Text;
 
 namespace AspNetCore.Reporting
 {
-	internal static class SPHttpUtility
+	public static class SPHttpUtility
 	{
-		internal static class HtmlStrings
+		public static class HtmlStrings
 		{
 			public const string Empty = "";
 
@@ -115,7 +115,7 @@ namespace AspNetCore.Reporting
 			0
 		};
 
-		internal static readonly string[] HTMLData = new string[16]
+		public static readonly string[] HTMLData = new string[16]
 		{
 			"",
 			"&quot;",
@@ -582,7 +582,7 @@ namespace AspNetCore.Reporting
 			return SPHttpUtility.UrlPathEncode(urlToEncode, allowHashParameter, encodeUnicodeCharacters, ref flag);
 		}
 
-		internal static string UrlPathEncode(string urlToEncode, bool allowHashParameter, bool encodeUnicodeCharacters, ref bool invalidUnicode)
+		public static string UrlPathEncode(string urlToEncode, bool allowHashParameter, bool encodeUnicodeCharacters, ref bool invalidUnicode)
 		{
 			if (urlToEncode != null && urlToEncode.Length != 0)
 			{

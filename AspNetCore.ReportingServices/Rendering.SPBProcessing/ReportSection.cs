@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class ReportSection
+	public sealed class ReportSection
 	{
 		private AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection m_reportSectionDef;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private int m_itemsOnPage;
 
-		internal bool Done
+		public bool Done
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool SpanPages
+		public bool SpanPages
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool OnPagePBEnd
+		public bool OnPagePBEnd
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItem Body
+		public PageItem Body
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageHeadFoot Header
+		public PageHeadFoot Header
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageHeadFoot Footer
+		public PageHeadFoot Footer
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ItemSizes ItemRenderSizes
+		public ItemSizes ItemRenderSizes
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int SectionIndex
+		public int SectionIndex
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal long Offset
+		public long Offset
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLReportSection RPLReportSection
+		public RPLReportSection RPLReportSection
 		{
 			get
 			{
@@ -131,18 +131,18 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ReportSection(AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection section, PageContext pageContext)
+		public ReportSection(AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection section, PageContext pageContext)
 		{
 			this.m_reportSectionDef = section;
 			this.m_pageContext = pageContext;
 		}
 
-		internal void SetContext()
+		public void SetContext()
 		{
 			this.m_body = new ReportBody(this.m_reportSectionDef.Body, this.m_reportSectionDef.Width, this.m_pageContext);
 		}
 
-		internal bool CalculatePage(RPLWriter rplWriter, int page, int totalPages, int regionPageNumber, int regionTotalPages, bool firstSectionOnPage, bool lastSection, Interactivity interactivity, double heightToBeUsed, ref PageItemHelper lastBodyInfo, ref bool delayedHeader, ref bool delayedFooter, ref bool lastSectionOnPage)
+		public bool CalculatePage(RPLWriter rplWriter, int page, int totalPages, int regionPageNumber, int regionTotalPages, bool firstSectionOnPage, bool lastSection, Interactivity interactivity, double heightToBeUsed, ref PageItemHelper lastBodyInfo, ref bool delayedHeader, ref bool delayedFooter, ref bool lastSectionOnPage)
 		{
 			this.m_pageContext.EvaluatePageHeaderFooter = false;
 			PageSection pageHeader = this.m_reportSectionDef.Page.PageHeader;
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal void WriteStartItemToStream(RPLWriter rplWriter)
+		public void WriteStartItemToStream(RPLWriter rplWriter)
 		{
 			if (rplWriter != null)
 			{
@@ -287,7 +287,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteEndItemToStream(RPLWriter rplWriter)
+		public void WriteEndItemToStream(RPLWriter rplWriter)
 		{
 			if (rplWriter != null)
 			{
@@ -310,7 +310,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteBodyColumnsToStream(RPLWriter rplWriter)
+		public void WriteBodyColumnsToStream(RPLWriter rplWriter)
 		{
 			if (this.m_pageContext.VersionPicker != 0 && this.m_pageContext.VersionPicker != RPLVersionEnum.RPL2008WithImageConsolidation && rplWriter != null)
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void CalculateDelayedHeader(RPLWriter rplWriter, Interactivity interactivity)
+		public void CalculateDelayedHeader(RPLWriter rplWriter, Interactivity interactivity)
 		{
 			PageSection pageHeader = this.m_reportSectionDef.Page.PageHeader;
 			PageContext pageContext = new PageContext(this.m_pageContext, PageContext.PageContextFlags.FullOnPage, PageContext.IgnorePBReasonFlag.HeaderFooter);
@@ -345,7 +345,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_itemsOnPage++;
 		}
 
-		internal void CalculateDelayedFooter(RPLWriter rplWriter, Interactivity interactivity)
+		public void CalculateDelayedFooter(RPLWriter rplWriter, Interactivity interactivity)
 		{
 			PageSection pageFooter = this.m_reportSectionDef.Page.PageFooter;
 			PageContext pageContext = new PageContext(this.m_pageContext, PageContext.PageContextFlags.FullOnPage, PageContext.IgnorePBReasonFlag.HeaderFooter);
@@ -355,7 +355,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_itemsOnPage++;
 		}
 
-		internal void UpdateItem(ReportSectionHelper sectionHelper)
+		public void UpdateItem(ReportSectionHelper sectionHelper)
 		{
 			if (sectionHelper != null)
 			{
@@ -364,7 +364,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -374,14 +374,14 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ReportSectionHelper WritePaginationInfo()
+		public ReportSectionHelper WritePaginationInfo()
 		{
 			ReportSectionHelper reportSectionHelper = new ReportSectionHelper();
 			this.WritePaginationInfoProperties(reportSectionHelper);
 			return reportSectionHelper;
 		}
 
-		internal void WritePaginationInfoProperties(BinaryWriter reportPageInfo)
+		public void WritePaginationInfoProperties(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WritePaginationInfoProperties(ReportSectionHelper sectionHelper)
+		public void WritePaginationInfoProperties(ReportSectionHelper sectionHelper)
 		{
 			if (sectionHelper != null)
 			{
@@ -406,7 +406,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void UpdateReportSectionSizes(RPLWriter rplWriter)
+		public void UpdateReportSectionSizes(RPLWriter rplWriter)
 		{
 			if (this.m_itemRenderSizes != null && rplWriter != null)
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.m_header = null;
 			this.m_footer = null;
@@ -443,7 +443,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool IsHeaderPrintOnLastPage()
+		public bool IsHeaderPrintOnLastPage()
 		{
 			PageSection pageHeader = this.m_reportSectionDef.Page.PageHeader;
 			if (pageHeader == null)

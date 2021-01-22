@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum FrameStyle
+	public enum FrameStyle
 	{
 		None,
 		Emboss,

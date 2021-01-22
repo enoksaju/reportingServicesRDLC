@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum UnicodeBiDiTypes
+	public enum UnicodeBiDiTypes
 	{
 		Normal,
 		Embed,

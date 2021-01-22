@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLayerCollection : MapObjectCollectionBase<MapLayer>
+	public sealed class MapLayerCollection : MapObjectCollectionBase<MapLayer>
 	{
 		private Map m_map;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLayerCollection(Map map)
+		public MapLayerCollection(Map map)
 		{
 			this.m_map = map;
 		}

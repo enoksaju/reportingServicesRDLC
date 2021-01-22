@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartMarkerTypes
+	public enum ChartMarkerTypes
 	{
 		None,
 		Square,

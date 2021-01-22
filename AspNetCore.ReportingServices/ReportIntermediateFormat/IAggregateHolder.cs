@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IAggregateHolder
+	public interface IAggregateHolder
 	{
 		DataScopeInfo DataScopeInfo
 		{

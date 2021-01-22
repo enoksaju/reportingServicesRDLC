@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Anchor
+	public sealed class Anchor
 	{
 		private readonly AnchorModel mModel;
 
-		internal AnchorModel Model
+		public AnchorModel Model
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal Anchor(AnchorModel model)
+		public Anchor(AnchorModel model)
 		{
 			this.mModel = model;
 		}

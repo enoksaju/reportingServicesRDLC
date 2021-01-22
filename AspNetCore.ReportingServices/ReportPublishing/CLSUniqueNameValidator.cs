@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class CLSUniqueNameValidator : NameValidator
+	public sealed class CLSUniqueNameValidator : NameValidator
 	{
 		private ProcessingErrorCode m_errorCodeNotCLS;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private ProcessingErrorCode m_errorCodeCaseInsensitiveDuplicate;
 
-		internal CLSUniqueNameValidator(ProcessingErrorCode errorCodeNotCLS, ProcessingErrorCode errorCodeNotUnique, ProcessingErrorCode errorCodeNameLength)
+		public CLSUniqueNameValidator(ProcessingErrorCode errorCodeNotCLS, ProcessingErrorCode errorCodeNotUnique, ProcessingErrorCode errorCodeNameLength)
 			: base(false)
 		{
 			this.m_errorCodeNotCLS = errorCodeNotCLS;
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_errorCodeCaseInsensitiveDuplicate = ProcessingErrorCode.rsNone;
 		}
 
-		internal CLSUniqueNameValidator(ProcessingErrorCode errorCodeNotCLS, ProcessingErrorCode errorCodeNotUnique, ProcessingErrorCode errorCodeNameLength, ProcessingErrorCode errorCodeCaseInsensitiveDuplicate)
+		public CLSUniqueNameValidator(ProcessingErrorCode errorCodeNotCLS, ProcessingErrorCode errorCodeNotUnique, ProcessingErrorCode errorCodeNameLength, ProcessingErrorCode errorCodeCaseInsensitiveDuplicate)
 			: base(true)
 		{
 			this.m_errorCodeNotCLS = errorCodeNotCLS;
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_errorCodeCaseInsensitiveDuplicate = errorCodeCaseInsensitiveDuplicate;
 		}
 
-		internal bool Validate(ObjectType objectType, string name, ErrorContext errorContext)
+		public bool Validate(ObjectType objectType, string name, ErrorContext errorContext)
 		{
 			bool result = true;
 			if (string.IsNullOrEmpty(name) || name.Length > 256)
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return result;
 		}
 
-		internal bool Validate(string name, ObjectType objectType, string objectName, ErrorContext errorContext)
+		public bool Validate(string name, ObjectType objectType, string objectName, ErrorContext errorContext)
 		{
 			bool result = true;
 			if (string.IsNullOrEmpty(name) || name.Length > 256)
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return result;
 		}
 
-		internal bool Validate(string name, string dataField, string dataSetName, ErrorContext errorContext)
+		public bool Validate(string name, string dataField, string dataSetName, ErrorContext errorContext)
 		{
 			bool result = true;
 			if (string.IsNullOrEmpty(name) || name.Length > 256)

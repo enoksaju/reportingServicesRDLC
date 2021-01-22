@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SpecialPosition : PinMajorTickMark
+	public class SpecialPosition : PinMajorTickMark
 	{
 		private bool enable;
 

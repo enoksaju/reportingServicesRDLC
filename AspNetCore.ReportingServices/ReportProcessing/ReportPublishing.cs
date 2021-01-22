@@ -15,7 +15,7 @@ using System.Xml.Schema;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ReportPublishing
+	public sealed class ReportPublishing
 	{
 		private enum StyleOwnerType
 		{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private string m_objectName;
 
-			internal LocationFlags Location
+			public LocationFlags Location
 			{
 				get
 				{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ObjectType ObjectType
+			public ObjectType ObjectType
 			{
 				get
 				{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal string ObjectName
+			public string ObjectName
 			{
 				get
 				{
@@ -80,19 +80,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal PublishingContextStruct(LocationFlags location, ObjectType objectType, string objectName)
+			public PublishingContextStruct(LocationFlags location, ObjectType objectType, string objectName)
 			{
 				this.m_location = location;
 				this.m_objectType = objectType;
 				this.m_objectName = objectName;
 			}
 
-			internal ExpressionParser.ExpressionContext CreateExpressionContext(ExpressionParser.ExpressionType expressionType, ExpressionParser.ConstantType constantType, string propertyName, string dataSetName)
+			public ExpressionParser.ExpressionContext CreateExpressionContext(ExpressionParser.ExpressionType expressionType, ExpressionParser.ConstantType constantType, string propertyName, string dataSetName)
 			{
 				return new ExpressionParser.ExpressionContext(expressionType, constantType, this.m_location, this.m_objectType, this.m_objectName, propertyName, dataSetName, false);
 			}
 
-			internal ExpressionParser.ExpressionContext CreateExpressionContext(ExpressionParser.ExpressionType expressionType, ExpressionParser.ConstantType constantType, string propertyName, string dataSetName, bool parseExtended)
+			public ExpressionParser.ExpressionContext CreateExpressionContext(ExpressionParser.ExpressionType expressionType, ExpressionParser.ConstantType constantType, string propertyName, string dataSetName, bool parseExtended)
 			{
 				return new ExpressionParser.ExpressionContext(expressionType, constantType, this.m_location, this.m_objectType, this.m_objectName, propertyName, dataSetName, parseExtended);
 			}
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private static bool[,] AllowStyleAttributeByType;
 
-			internal StringList Names
+			public StringList Names
 			{
 				get
 				{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ExpressionInfoList Values
+			public ExpressionInfoList Values
 			{
 				get
 				{
@@ -777,7 +777,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				StyleInformation.StyleNameIndexes.Add("BackgroundGradientEndColor", 42);
 			}
 
-			internal void AddAttribute(string name, ExpressionInfo expression)
+			public void AddAttribute(string name, ExpressionInfo expression)
 			{
 				Global.Tracer.Assert(null != name);
 				Global.Tracer.Assert(null != expression);
@@ -785,7 +785,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_values.Add(expression);
 			}
 
-			internal void Filter(StyleOwnerType ownerType, bool hasNoRows)
+			public void Filter(StyleOwnerType ownerType, bool hasNoRows)
 			{
 				Global.Tracer.Assert(this.m_names.Count == this.m_values.Count);
 				int ownerType2 = this.MapStyleOwnerTypeToIndex(ownerType, hasNoRows);
@@ -831,7 +831,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class RmlValidatingReader : RDLValidatingReader
 		{
-			internal enum CustomFlags
+			public enum CustomFlags
 			{
 				None,
 				InCustomElement,
@@ -899,7 +899,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return base.ReadString();
 			}
 
-			internal static RmlValidatingReader CreateReader(XmlTextReader upgradedRDLReader, PublishingErrorContext errorContext, string targetRDLNamespace)
+			public static RmlValidatingReader CreateReader(XmlTextReader upgradedRDLReader, PublishingErrorContext errorContext, string targetRDLNamespace)
 			{
 				Global.Tracer.Assert(null != upgradedRDLReader);
 				upgradedRDLReader.WhitespaceHandling = WhitespaceHandling.None;
@@ -907,7 +907,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return new RmlValidatingReader(upgradedRDLReader, errorContext, targetRDLNamespace);
 			}
 
-			internal bool ReadBoolean()
+			public bool ReadBoolean()
 			{
 				if (base.IsEmptyElement)
 				{
@@ -917,7 +917,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return XmlConvert.ToBoolean(base.ReadString());
 			}
 
-			internal int ReadInteger()
+			public int ReadInteger()
 			{
 				if (base.IsEmptyElement)
 				{
@@ -927,7 +927,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return XmlConvert.ToInt32(base.ReadString());
 			}
 
-			internal string ReadCustomXml()
+			public string ReadCustomXml()
 			{
 				Global.Tracer.Assert(CustomFlags.None == this.m_custom);
 				if (base.IsEmptyElement)
@@ -965,7 +965,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private object m_nullValue;
 
-			internal object this[string name]
+			public object this[string name]
 			{
 				get
 				{
@@ -1085,7 +1085,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private PublishingErrorContext m_errorContext;
 
-		internal Report CreateIntermediateFormat(ICatalogItemContext reportContext, byte[] definition, ReportProcessing.CreateReportChunk createChunkCallback, ReportProcessing.CheckSharedDataSource checkDataSourceCallback, ReportProcessing.ResolveTemporaryDataSource resolveTemporaryDataSourceCallback, DataSourceInfoCollection originalDataSources, PublishingErrorContext errorContext, AppDomain compilationTempAppDomain, bool generateExpressionHostWithRefusedPermissions, IDataProtection dataProtection, out string description, out string language, out ParameterInfoCollection parameters, out DataSourceInfoCollection dataSources, out UserLocationFlags userReferenceLocation, out ArrayList dataSetsName, out bool hasExternalImages, out bool hasHyperlinks)
+		public Report CreateIntermediateFormat(ICatalogItemContext reportContext, byte[] definition, ReportProcessing.CreateReportChunk createChunkCallback, ReportProcessing.CheckSharedDataSource checkDataSourceCallback, ReportProcessing.ResolveTemporaryDataSource resolveTemporaryDataSourceCallback, DataSourceInfoCollection originalDataSources, PublishingErrorContext errorContext, AppDomain compilationTempAppDomain, bool generateExpressionHostWithRefusedPermissions, IDataProtection dataProtection, out string description, out string language, out ParameterInfoCollection parameters, out DataSourceInfoCollection dataSources, out UserLocationFlags userReferenceLocation, out ArrayList dataSetsName, out bool hasExternalImages, out bool hasHyperlinks)
 		{
 			try
 			{
@@ -8894,7 +8894,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			runningValueHashByType.Clear();
 		}
 
-		internal static void CalculateChildrenDependencies(ReportItem reportItem)
+		public static void CalculateChildrenDependencies(ReportItem reportItem)
 		{
 			ReportItemCollection reportItemCollection = null;
 			if (!(reportItem is DataRegion) && !(reportItem is Rectangle) && !(reportItem is Report))
@@ -9013,7 +9013,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static void CalculateChildrenPostions(ReportItem reportItem)
+		public static void CalculateChildrenPostions(ReportItem reportItem)
 		{
 			ReportItemCollection reportItemCollection = null;
 			if (!(reportItem is DataRegion) && !(reportItem is Rectangle) && !(reportItem is Report))

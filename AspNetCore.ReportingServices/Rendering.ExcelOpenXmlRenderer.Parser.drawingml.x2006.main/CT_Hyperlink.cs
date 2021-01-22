@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class CT_Hyperlink : OoxmlComplexType
+	public class CT_Hyperlink : OoxmlComplexType
 	{
 		private string _invalidUrl_attr;
 

@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal interface ITextRunProps
+	public interface ITextRunProps
 	{
 		string FontFamily
 		{

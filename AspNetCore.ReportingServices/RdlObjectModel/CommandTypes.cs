@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum CommandTypes
+	public enum CommandTypes
 	{
 		Text,
 		StoredProcedure,

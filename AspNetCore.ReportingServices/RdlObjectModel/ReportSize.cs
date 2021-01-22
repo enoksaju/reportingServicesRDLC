@@ -10,17 +10,17 @@ using System.Xml.Serialization;
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[TypeConverter(typeof(ReportSizeConverter))]
-	internal struct ReportSize : IComparable, IXmlSerializable, IFormattable, IShouldSerialize
+	public struct ReportSize : IComparable, IXmlSerializable, IFormattable, IShouldSerialize
 	{
-		internal const double CentimetersPerInch = 2.54;
+		public const double CentimetersPerInch = 2.54;
 
-		internal const double MillimetersPerInch = 25.4;
+		public const double MillimetersPerInch = 25.4;
 
-		internal const double PicasPerInch = 6.0;
+		public const double PicasPerInch = 6.0;
 
-		internal const double PointsPerInch = 72.0;
+		public const double PointsPerInch = 72.0;
 
-		internal const int DefaultDecimalDigits = 5;
+		public const int DefaultDecimalDigits = 5;
 
 		private static float m_dotsPerInch;
 
@@ -307,7 +307,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			}
 		}
 
-		internal static SizeTypes GetTypeFromString(string value)
+		public static SizeTypes GetTypeFromString(string value)
 		{
 			if (value != null && value.Length > 0)
 			{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			return string.Format(provider, ReportSize.m_serializationFormat, this.SerializedValue, ReportSize.GetStringFromType(this.m_type));
 		}
 
-		internal ReportSize ChangeType(SizeTypes type)
+		public ReportSize ChangeType(SizeTypes type)
 		{
 			if (type == this.m_type)
 			{
@@ -403,7 +403,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			return new ReportSize(ReportSize.ConvertToUnits(this.ConvertToPixels(this.m_value, this.m_type), type), type);
 		}
 
-		internal double ConvertToPixels(double value, SizeTypes type)
+		public double ConvertToPixels(double value, SizeTypes type)
 		{
 			switch (type)
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			return value;
 		}
 
-		internal double ConvertToMillimeters(double value, SizeTypes type)
+		public double ConvertToMillimeters(double value, SizeTypes type)
 		{
 			switch (type)
 			{
@@ -446,7 +446,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			return value;
 		}
 
-		internal static double ConvertToUnits(double pixels, SizeTypes type)
+		public static double ConvertToUnits(double pixels, SizeTypes type)
 		{
 			double num = pixels;
 			switch (type)

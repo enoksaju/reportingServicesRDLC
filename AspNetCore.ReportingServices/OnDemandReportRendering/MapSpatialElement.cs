@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapSpatialElement : MapObjectCollectionItem
+	public abstract class MapSpatialElement : MapObjectCollectionItem
 	{
 		protected Map m_map;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialElement MapSpatialElementDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialElement MapSpatialElementDef
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSpatialElementInstance Instance
+		public MapSpatialElementInstance Instance
 		{
 			get
 			{
@@ -64,16 +64,16 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSpatialElement(AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialElement defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapSpatialElement(AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialElement defObject, MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_mapVectorLayer = mapVectorLayer;
 			this.m_map = map;
 		}
 
-		internal abstract MapSpatialElementInstance GetInstance();
+		public abstract MapSpatialElementInstance GetInstance();
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

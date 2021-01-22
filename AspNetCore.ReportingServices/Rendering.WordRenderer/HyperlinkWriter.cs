@@ -3,9 +3,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class HyperlinkWriter
+	public class HyperlinkWriter
 	{
-		internal enum LinkType
+		public enum LinkType
 		{
 			Hyperlink,
 			File,
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private const byte Unknown5 = 8;
 
-		internal static readonly byte[] EMPTY_PIC = new byte[64]
+		public static readonly byte[] EMPTY_PIC = new byte[64]
 		{
 			68,
 			0,
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			0
 		};
 
-		internal static readonly byte[] MAGIC_NUM1 = new byte[16]
+		public static readonly byte[] MAGIC_NUM1 = new byte[16]
 		{
 			208,
 			201,
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			11
 		};
 
-		internal static readonly byte[] MAGIC_NUM2 = new byte[16]
+		public static readonly byte[] MAGIC_NUM2 = new byte[16]
 		{
 			224,
 			201,
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			11
 		};
 
-		internal static readonly byte[] MAGIC_NUM3 = new byte[18]
+		public static readonly byte[] MAGIC_NUM3 = new byte[18]
 		{
 			3,
 			3,
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			0
 		};
 
-		internal static readonly byte[] MAGIC_NUM4 = new byte[24]
+		public static readonly byte[] MAGIC_NUM4 = new byte[24]
 		{
 			255,
 			255,
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			0
 		};
 
-		internal static void WriteHyperlink(Stream dataStream, string target, LinkType type)
+		public static void WriteHyperlink(Stream dataStream, string target, LinkType type)
 		{
 			int num = 4 + HyperlinkWriter.EMPTY_PIC.Length + 1 + HyperlinkWriter.MAGIC_NUM1.Length + 4 + 4;
 			switch (type)

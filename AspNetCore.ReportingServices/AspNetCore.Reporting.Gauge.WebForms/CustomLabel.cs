@@ -5,7 +5,7 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CustomLabelConverter))]
-	internal class CustomLabel : NamedElement
+	public class CustomLabel : NamedElement
 	{
 		private double labelValue;
 

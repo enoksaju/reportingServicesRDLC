@@ -10,14 +10,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class GaugeMember : ReportHierarchyNode, IPersistable
+	public sealed class GaugeMember : ReportHierarchyNode, IPersistable
 	{
 		private GaugeMemberList m_innerMembers;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = GaugeMember.GetDeclaration();
 
-		internal override string RdlElementName
+		public override string RdlElementName
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList InnerHierarchy
+		public override HierarchyNodeList InnerHierarchy
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeMember ChildGaugeMember
+		public GaugeMember ChildGaugeMember
 		{
 			get
 			{
@@ -60,16 +60,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeMember()
+		public GaugeMember()
 		{
 		}
 
-		internal GaugeMember(int id, GaugePanel crItem)
+		public GaugeMember(int id, GaugePanel crItem)
 			: base(id, crItem)
 		{
 		}
 
-		internal void SetIsCategoryMember(bool value)
+		public void SetIsCategoryMember(bool value)
 		{
 			base.m_isColumn = value;
 			if (this.ChildGaugeMember != null)
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return builder.DataGroupEnd(AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder.DataRegionMode.GaugePanel, base.m_isColumn);
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			if (!base.m_isColumn)
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return base.Initialize(context);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context, DataRegion newContainingRegion)
+		public override object PublishClone(AutomaticSubtotalContext context, DataRegion newContainingRegion)
 		{
 			GaugeMember gaugeMember = (GaugeMember)base.PublishClone(context, newContainingRegion);
 			if (this.ChildGaugeMember != null)
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return gaugeMember;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new ReadOnlyMemberInfo(MemberName.GaugeMember, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugeMember));
@@ -175,13 +175,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugeMember;
 		}
 
-		internal override void SetExprHost(IMemberNode memberExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(IMemberNode memberExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(memberExprHost != null && reportObjectModel != null);
 			base.MemberNodeSetExprHost(memberExprHost, reportObjectModel);
 		}
 
-		internal override void MemberContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
+		public override void MemberContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
 		{
 		}
 	}

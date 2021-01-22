@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal enum RestartMode
+	public enum RestartMode
 	{
 		Query,
 		Rom

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class Gap
+	public class Gap
 	{
 		public float Inside;
 

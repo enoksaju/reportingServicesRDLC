@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum MapDashStyle
+	public enum MapDashStyle
 	{
 		None,
 		Dash,

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class ItineraryItem
+	public class ItineraryItem
 	{
 		[DataMember(Name = "childItineraryItems", EmitDefaultValue = false)]
 		public ItineraryItem[] ChildItineraryItems

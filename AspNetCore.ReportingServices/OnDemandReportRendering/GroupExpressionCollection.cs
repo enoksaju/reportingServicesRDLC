@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GroupExpressionCollection : ReportElementCollectionBase<ReportVariantProperty>
+	public sealed class GroupExpressionCollection : ReportElementCollectionBase<ReportVariantProperty>
 	{
 		private List<ReportVariantProperty> m_list;
 
@@ -28,12 +28,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GroupExpressionCollection()
+		public GroupExpressionCollection()
 		{
 			this.m_list = new List<ReportVariantProperty>();
 		}
 
-		internal GroupExpressionCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.Grouping grouping)
+		public GroupExpressionCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.Grouping grouping)
 		{
 			if (grouping == null || grouping.GroupExpressions == null)
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GroupExpressionCollection(AspNetCore.ReportingServices.ReportProcessing.Grouping grouping)
+		public GroupExpressionCollection(AspNetCore.ReportingServices.ReportProcessing.Grouping grouping)
 		{
 			if (grouping == null || grouping.GroupExpressions == null)
 			{

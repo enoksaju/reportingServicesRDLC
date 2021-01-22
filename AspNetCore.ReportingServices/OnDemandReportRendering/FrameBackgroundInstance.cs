@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class FrameBackgroundInstance : BaseInstance
+	public sealed class FrameBackgroundInstance : BaseInstance
 	{
 		private FrameBackground m_defObject;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal FrameBackgroundInstance(FrameBackground defObject)
+		public FrameBackgroundInstance(FrameBackground defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

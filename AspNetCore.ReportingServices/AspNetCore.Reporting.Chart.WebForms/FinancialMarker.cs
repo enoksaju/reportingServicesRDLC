@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class FinancialMarker
+	public class FinancialMarker
 	{
 		private FinancialMarkerType markerType;
 

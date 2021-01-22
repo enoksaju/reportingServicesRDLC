@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class TextBoxRenderer : IReportItemRenderer
+	public class TextBoxRenderer : IReportItemRenderer
 	{
 		private const string FitVertTextSuffix = "_fvt";
 

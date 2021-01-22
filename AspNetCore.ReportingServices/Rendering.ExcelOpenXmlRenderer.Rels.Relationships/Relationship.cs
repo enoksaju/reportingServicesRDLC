@@ -4,7 +4,7 @@ using System.IO.Packaging;
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Rels.Relationships
 {
 	[DebuggerDisplay("{RelatedPart.Location} : {RelationshipId}")]
-	internal class Relationship
+	public class Relationship
 	{
 		private string _relationshipId;
 

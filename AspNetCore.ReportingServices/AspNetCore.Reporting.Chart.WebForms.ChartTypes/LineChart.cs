@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class LineChart : PointChart
+	public class LineChart : PointChart
 	{
 		protected float lineTension;
 
@@ -569,7 +569,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			graph.DrawLine(pen, empty, empty2);
 		}
 
-		internal static PointF GetIntersectionY(PointF firstPoint, PointF secondPoint, float pointY)
+		public static PointF GetIntersectionY(PointF firstPoint, PointF secondPoint, float pointY)
 		{
 			PointF result = default(PointF);
 			result.Y = pointY;
@@ -577,7 +577,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return result;
 		}
 
-		internal static PointF GetIntersectionX(PointF firstPoint, PointF secondPoint, float pointX)
+		public static PointF GetIntersectionX(PointF firstPoint, PointF secondPoint, float pointX)
 		{
 			PointF result = default(PointF);
 			result.X = pointX;

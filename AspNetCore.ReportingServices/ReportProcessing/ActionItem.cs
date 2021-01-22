@@ -8,7 +8,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ActionItem
+	public sealed class ActionItem
 	{
 		private ExpressionInfo m_hyperLinkURL;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ActionExprHost m_exprHost;
 
-		internal ExpressionInfo HyperLinkURL
+		public ExpressionInfo HyperLinkURL
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo DrillthroughReportName
+		public ExpressionInfo DrillthroughReportName
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterValueList DrillthroughParameters
+		public ParameterValueList DrillthroughParameters
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo DrillthroughBookmarkLink
+		public ExpressionInfo DrillthroughBookmarkLink
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo BookmarkLink
+		public ExpressionInfo BookmarkLink
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Label
+		public ExpressionInfo Label
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ComputedIndex
+		public int ComputedIndex
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActionExprHost ExprHost
+		public ActionExprHost ExprHost
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ActionStart();
 			if (this.m_hyperLinkURL != null)
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_exprHostID = context.ExprHostBuilder.ActionEnd();
 		}
 
-		internal void SetExprHost(IList<ActionExprHost> actionItemExprHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<ActionExprHost> actionItemExprHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -192,7 +192,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(ActionExprHost actionExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ActionExprHost actionExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(actionExprHost != null && reportObjectModel != null);
 			this.m_exprHost = actionExprHost;
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.HyperLinkURL, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ExpressionInfo));
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.None, memberInfoList);
 		}
 
-		internal void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, int ownerUniqueName, int index)
+		public void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, int ownerUniqueName, int index)
 		{
 			if (this.m_drillthroughReportName != null)
 			{

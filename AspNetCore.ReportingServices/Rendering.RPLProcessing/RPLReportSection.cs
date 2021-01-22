@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLReportSection
+	public sealed class RPLReportSection
 	{
 		private string m_id;
 
@@ -102,12 +102,12 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLReportSection(int columns)
+		public RPLReportSection(int columns)
 		{
 			this.m_columns = new RPLItemMeasurement[columns];
 		}
 
-		internal RPLReportSection(long endOffset)
+		public RPLReportSection(long endOffset)
 		{
 			this.m_endOffset = endOffset;
 		}

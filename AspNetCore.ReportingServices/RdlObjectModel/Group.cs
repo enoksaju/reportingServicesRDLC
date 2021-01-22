@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Group : ReportObject, IGlobalNamedObject, INamedObject
+	public class Group : ReportObject, IGlobalNamedObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<Group, Definition.Properties>
+		public class Definition : DefinitionStore<Group, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				DocumentMapLabel,
@@ -194,7 +194,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Group(IPropertyStore propertyStore)
+		public Group(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

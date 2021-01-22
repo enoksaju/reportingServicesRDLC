@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<AggregateParamExprHost> AggregateParamHostsRemotable
+		public IList<AggregateParamExprHost> AggregateParamHostsRemotable
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ReportParamExprHost> ReportParameterHostsRemotable
+		public IList<ReportParamExprHost> ReportParameterHostsRemotable
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<DataSourceExprHost> DataSourceHostsRemotable
+		public IList<DataSourceExprHost> DataSourceHostsRemotable
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<DataSetExprHost> DataSetHostsRemotable
+		public IList<DataSetExprHost> DataSetHostsRemotable
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<StyleExprHost> PageSectionHostsRemotable
+		public IList<StyleExprHost> PageSectionHostsRemotable
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal virtual StyleExprHost PageHost
+		public virtual StyleExprHost PageHost
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ReportItemExprHost> LineHostsRemotable
+		public IList<ReportItemExprHost> LineHostsRemotable
 		{
 			get
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ReportItemExprHost> RectangleHostsRemotable
+		public IList<ReportItemExprHost> RectangleHostsRemotable
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<TextBoxExprHost> TextBoxHostsRemotable
+		public IList<TextBoxExprHost> TextBoxHostsRemotable
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ImageExprHost> ImageHostsRemotable
+		public IList<ImageExprHost> ImageHostsRemotable
 		{
 			get
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<SubreportExprHost> SubreportHostsRemotable
+		public IList<SubreportExprHost> SubreportHostsRemotable
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<TablixExprHost> TablixHostsRemotable
+		public IList<TablixExprHost> TablixHostsRemotable
 		{
 			get
 			{
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartExprHost> ChartHostsRemotable
+		public IList<ChartExprHost> ChartHostsRemotable
 		{
 			get
 			{
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<GaugePanelExprHost> GaugePanelHostsRemotable
+		public IList<GaugePanelExprHost> GaugePanelHostsRemotable
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapExprHost> MapHostsRemotable
+		public IList<MapExprHost> MapHostsRemotable
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapDataRegionExprHost> MapDataRegionHostsRemotable
+		public IList<MapDataRegionExprHost> MapDataRegionHostsRemotable
 		{
 			get
 			{
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<CustomReportItemExprHost> CustomReportItemHostsRemotable
+		public IList<CustomReportItemExprHost> CustomReportItemHostsRemotable
 		{
 			get
 			{
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			base.SetReportObjectModel((OnDemandObjectModel)reportObjectModel);
 		}
 
-		internal void CustomCodeOnInit()
+		public void CustomCodeOnInit()
 		{
 			if (this.m_codeProxyBase != null)
 			{

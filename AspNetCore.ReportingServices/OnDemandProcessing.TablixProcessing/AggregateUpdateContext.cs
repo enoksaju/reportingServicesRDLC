@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal class AggregateUpdateContext : ITraversalContext
+	public class AggregateUpdateContext : ITraversalContext
 	{
 		private AggregateMode m_mode;
 

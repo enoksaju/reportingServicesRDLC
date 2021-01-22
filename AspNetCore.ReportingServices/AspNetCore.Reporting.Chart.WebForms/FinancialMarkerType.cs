@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum FinancialMarkerType
+	public enum FinancialMarkerType
 	{
 		FibonacciArcs,
 		TrendLine,

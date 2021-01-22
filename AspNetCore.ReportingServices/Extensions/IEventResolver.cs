@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Extensions
 {
-	internal interface IEventResolver
+	public interface IEventResolver
 	{
 		IEventHandler ResolveEvent(string eventType);
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert
 {
-	internal enum ExcelDataType
+	public enum ExcelDataType
 	{
 		Boolean,
 		Number,

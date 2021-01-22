@@ -7,11 +7,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Grouping2005 : Group, IPageBreakLocation2005, IUpgradeable
+	public class Grouping2005 : Group, IPageBreakLocation2005, IUpgradeable
 	{
 		public new class Definition : DefinitionStore<Grouping2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				PageBreakAtStart = 13,
 				PageBreakAtEnd,

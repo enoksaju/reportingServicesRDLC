@@ -8,7 +8,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Rels.Relationships
 {
-	internal class OPCRelationshipTree
+	public class OPCRelationshipTree
 	{
 		private Dictionary<string, RelPart> _parts;
 

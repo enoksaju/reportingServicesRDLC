@@ -3,9 +3,9 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class PropertyMapping : MemberMapping
+	public class PropertyMapping : MemberMapping
 	{
-		internal enum PropertyTypeCode
+		public enum PropertyTypeCode
 		{
 			None,
 			Object,

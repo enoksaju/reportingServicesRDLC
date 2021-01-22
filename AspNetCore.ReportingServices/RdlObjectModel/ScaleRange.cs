@@ -2,11 +2,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ScaleRange : ReportObject, INamedObject
+	public class ScaleRange : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<ScaleRange, Definition.Properties>
+		public class Definition : DefinitionStore<ScaleRange, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ScaleRange(IPropertyStore propertyStore)
+		public ScaleRange(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

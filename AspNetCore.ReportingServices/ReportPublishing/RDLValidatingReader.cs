@@ -12,11 +12,11 @@ using System.Xml.Schema;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal class RDLValidatingReader : XmlReader
+	public class RDLValidatingReader : XmlReader
 	{
 		private sealed class RdlElementStack : ArrayList
 		{
-			internal new Hashtable this[int index]
+			public new Hashtable this[int index]
 			{
 				get
 				{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 				}
 			}
 
-			internal RdlElementStack()
+			public RdlElementStack()
 			{
 			}
 		}
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		protected static XmlSchemaContentProcessing m_processContent;
 
-		internal int LineNumber
+		public int LineNumber
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int LinePosition
+		public int LinePosition
 		{
 			get
 			{
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		public event ValidationEventHandler ValidationEventHandler;
 
-		internal RDLValidatingReader(Stream stream, List<Pair<string, Stream>> namespaceSchemaStreamMap)
+		public RDLValidatingReader(Stream stream, List<Pair<string, Stream>> namespaceSchemaStreamMap)
 		{
 			try
 			{
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return this.m_reader.GetAttribute(name);
 		}
 
-		internal string GetAttributeLocalName(string name)
+		public string GetAttributeLocalName(string name)
 		{
 			string result = null;
 			if (this.m_reader.HasAttributes)

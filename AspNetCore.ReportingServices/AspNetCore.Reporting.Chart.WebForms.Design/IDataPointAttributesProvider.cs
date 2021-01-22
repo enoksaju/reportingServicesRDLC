@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal interface IDataPointAttributesProvider
+	public interface IDataPointAttributesProvider
 	{
 		DataPointAttributes DataPointAttributes
 		{

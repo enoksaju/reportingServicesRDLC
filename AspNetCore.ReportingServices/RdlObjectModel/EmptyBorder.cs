@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.RdlObjectModel.Serialization;
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[XmlElementClass("Border")]
-	internal class EmptyBorder : Border, IShouldSerialize
+	public class EmptyBorder : Border, IShouldSerialize
 	{
 		[ReportExpressionDefaultValue(typeof(ReportColor))]
 		public new ReportExpression<ReportColor> Color
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			this.Style = BorderStyles.Solid;
 		}
 
-		internal EmptyBorder(IPropertyStore propertyStore)
+		public EmptyBorder(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

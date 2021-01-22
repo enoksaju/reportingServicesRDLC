@@ -11,7 +11,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal abstract class SerializerBase
+	public abstract class SerializerBase
 	{
 		private class ItemInfo
 		{
@@ -36,13 +36,13 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 
 		protected int binaryFormatVersion = 300;
 
-		internal static FontConverter fontConverter = new FontConverter();
+		public static FontConverter fontConverter = new FontConverter();
 
-		internal static ColorConverter colorConverter = new ColorConverter();
+		public static ColorConverter colorConverter = new ColorConverter();
 
-		internal static SizeConverter sizeConverter = new SizeConverter();
+		public static SizeConverter sizeConverter = new SizeConverter();
 
-		internal static ArrayConverter arrayConverter = new ArrayConverter();
+		public static ArrayConverter arrayConverter = new ArrayConverter();
 
 		protected static CaseInsensitiveHashCodeProvider hashCodeProvider = CaseInsensitiveHashCodeProvider.Default;
 
@@ -217,7 +217,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 
 		public abstract void Deserialize(object objectToDeserialize, object source);
 
-		internal static string FontToString(Font font)
+		public static string FontToString(Font font)
 		{
 			string text = SerializerBase.fontConverter.ConvertToInvariantString(font);
 			if (font.GdiCharSet != 1)
@@ -231,7 +231,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return text;
 		}
 
-		internal static Font FontFromString(string fontString)
+		public static Font FontFromString(string fontString)
 		{
 			string text = fontString;
 			byte b = 1;
@@ -270,7 +270,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return result;
 		}
 
-		internal static short GetStringHashCode(string str)
+		public static short GetStringHashCode(string str)
 		{
 			return (short)(SerializerBase.hashCodeProvider.GetHashCode(str) + str.Length * 2);
 		}
@@ -325,7 +325,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return result;
 		}
 
-		internal static string ImageToString(Image image)
+		public static string ImageToString(Image image)
 		{
 			MemoryStream memoryStream = new MemoryStream();
 			image.Save(memoryStream, ImageFormat.Png);
@@ -358,7 +358,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return result;
 		}
 
-		internal string GetObjectName(object obj)
+		public string GetObjectName(object obj)
 		{
 			string text = obj.GetType().ToString();
 			return text.Substring(text.LastIndexOf('.') + 1);
@@ -493,7 +493,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return false;
 		}
 
-		internal bool IsSerializableContent(string propertyName, object parent)
+		public bool IsSerializableContent(string propertyName, object parent)
 		{
 			bool flag = true;
 			if (this.serializableContent.Length > 0 || this.nonSerializableContent.Length > 0)

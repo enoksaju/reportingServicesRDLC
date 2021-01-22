@@ -1,183 +1,183 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal static class CustomAttributeName
+	public static class CustomAttributeName
 	{
-		internal const string DrawSideBySide = "DrawSideBySide";
+		public const string DrawSideBySide = "DrawSideBySide";
 
-		internal const string EmptyPointValue = "EmptyPointValue";
+		public const string EmptyPointValue = "EmptyPointValue";
 
-		internal const string BarLabelStyle = "BarLabelStyle";
+		public const string BarLabelStyle = "BarLabelStyle";
 
-		internal const string StackedGroupName = "StackedGroupName";
+		public const string StackedGroupName = "StackedGroupName";
 
-		internal const string DrawingStyle = "DrawingStyle";
+		public const string DrawingStyle = "DrawingStyle";
 
-		internal const string PointWidth = "PointWidth";
+		public const string PointWidth = "PointWidth";
 
-		internal const string PixelPointWidth = "PixelPointWidth";
+		public const string PixelPointWidth = "PixelPointWidth";
 
-		internal const string MinPixelPointWidth = "MinPixelPointWidth";
+		public const string MinPixelPointWidth = "MinPixelPointWidth";
 
-		internal const string MaxPixelPointWidth = "MaxPixelPointWidth";
+		public const string MaxPixelPointWidth = "MaxPixelPointWidth";
 
-		internal const string PriceUpColor = "PriceUpColor";
+		public const string PriceUpColor = "PriceUpColor";
 
-		internal const string PriceDownColor = "PriceDownColor";
+		public const string PriceDownColor = "PriceDownColor";
 
-		internal const string LabelValueType = "LabelValueType";
+		public const string LabelValueType = "LabelValueType";
 
-		internal const string OpenCloseStyle = "OpenCloseStyle";
+		public const string OpenCloseStyle = "OpenCloseStyle";
 
-		internal const string ShowOpenClose = "ShowOpenClose";
+		public const string ShowOpenClose = "ShowOpenClose";
 
-		internal const string BubbleScaleMin = "BubbleScaleMin";
+		public const string BubbleScaleMin = "BubbleScaleMin";
 
-		internal const string BubbleScaleMax = "BubbleScaleMax";
+		public const string BubbleScaleMax = "BubbleScaleMax";
 
-		internal const string BubbleMaxSize = "BubbleMaxSize";
+		public const string BubbleMaxSize = "BubbleMaxSize";
 
-		internal const string BubbleMinSize = "BubbleMinSize";
+		public const string BubbleMinSize = "BubbleMinSize";
 
-		internal const string BubbleUseSizeForLabel = "BubbleUseSizeForLabel";
+		public const string BubbleUseSizeForLabel = "BubbleUseSizeForLabel";
 
-		internal const string PieDrawingStyle = "PieDrawingStyle";
+		public const string PieDrawingStyle = "PieDrawingStyle";
 
-		internal const string CollectedStyle = "CollectedStyle";
+		public const string CollectedStyle = "CollectedStyle";
 
-		internal const string CollectedThreshold = "CollectedThreshold";
+		public const string CollectedThreshold = "CollectedThreshold";
 
-		internal const double DefaultCollectedThreshold = 5.0;
+		public const double DefaultCollectedThreshold = 5.0;
 
-		internal const string CollectedThresholdUsePercent = "CollectedThresholdUsePercent";
+		public const string CollectedThresholdUsePercent = "CollectedThresholdUsePercent";
 
-		internal const string CollectedSliceExploded = "CollectedSliceExploded";
+		public const string CollectedSliceExploded = "CollectedSliceExploded";
 
-		internal const string CollectedLabel = "CollectedLabel";
+		public const string CollectedLabel = "CollectedLabel";
 
-		internal const string CollectedLegendText = "CollectedLegendText";
+		public const string CollectedLegendText = "CollectedLegendText";
 
-		internal const string CollectedToolTip = "CollectedToolTip";
+		public const string CollectedToolTip = "CollectedToolTip";
 
-		internal const string CollectedColor = "CollectedColor";
+		public const string CollectedColor = "CollectedColor";
 
-		internal const string CollectedChartShowLegend = "CollectedChartShowLegend";
+		public const string CollectedChartShowLegend = "CollectedChartShowLegend";
 
-		internal const string CollectedChartShowLabels = "CollectedChartShowLabels";
+		public const string CollectedChartShowLabels = "CollectedChartShowLabels";
 
-		internal const string PieStartAngle = "PieStartAngle";
+		public const string PieStartAngle = "PieStartAngle";
 
-		internal const string Exploded = "Exploded";
+		public const string Exploded = "Exploded";
 
-		internal const string LabelsRadialLineSize = "LabelsRadialLineSize";
+		public const string LabelsRadialLineSize = "LabelsRadialLineSize";
 
-		internal const string LabelsHorizontalLineSize = "LabelsHorizontalLineSize";
+		public const string LabelsHorizontalLineSize = "LabelsHorizontalLineSize";
 
-		internal const string PieLabelStyle = "PieLabelStyle";
+		public const string PieLabelStyle = "PieLabelStyle";
 
-		internal const string MinimumRelativePieSize = "MinimumRelativePieSize";
+		public const string MinimumRelativePieSize = "MinimumRelativePieSize";
 
-		internal const string _3DLabelLineSize = "3DLabelLineSize";
+		public const string _3DLabelLineSize = "3DLabelLineSize";
 
-		internal const string PieLineColor = "PieLineColor";
+		public const string PieLineColor = "PieLineColor";
 
-		internal const string PieAutoAxisLabels = "AutoAxisLabels";
+		public const string PieAutoAxisLabels = "AutoAxisLabels";
 
-		internal const string DoughnutRadius = "DoughnutRadius";
+		public const string DoughnutRadius = "DoughnutRadius";
 
-		internal const string LabelStyle = "LabelStyle";
+		public const string LabelStyle = "LabelStyle";
 
-		internal const string ShowMarkerLines = "ShowMarkerLines";
+		public const string ShowMarkerLines = "ShowMarkerLines";
 
-		internal const string LineTension = "LineTension";
+		public const string LineTension = "LineTension";
 
-		internal const string PixelPointDepth = "PixelPointDepth";
+		public const string PixelPointDepth = "PixelPointDepth";
 
-		internal const string PixelPointGapDepth = "PixelPointGapDepth";
+		public const string PixelPointGapDepth = "PixelPointGapDepth";
 
-		internal const string PermittedPixelError = "PermittedPixelError";
+		public const string PermittedPixelError = "PermittedPixelError";
 
-		internal const string CircularLabelsStyle = "CircularLabelsStyle";
+		public const string CircularLabelsStyle = "CircularLabelsStyle";
 
-		internal const string PolarDrawingStyle = "PolarDrawingStyle";
+		public const string PolarDrawingStyle = "PolarDrawingStyle";
 
-		internal const string AreaDrawingStyle = "AreaDrawingStyle";
+		public const string AreaDrawingStyle = "AreaDrawingStyle";
 
-		internal const string RadarDrawingStyle = "RadarDrawingStyle";
+		public const string RadarDrawingStyle = "RadarDrawingStyle";
 
-		internal const string BoxPlotPercentile = "BoxPlotPercentile";
+		public const string BoxPlotPercentile = "BoxPlotPercentile";
 
-		internal const string BoxPlotWhiskerPercentile = "BoxPlotWhiskerPercentile";
+		public const string BoxPlotWhiskerPercentile = "BoxPlotWhiskerPercentile";
 
-		internal const string BoxPlotShowAverage = "BoxPlotShowAverage";
+		public const string BoxPlotShowAverage = "BoxPlotShowAverage";
 
-		internal const string BoxPlotShowMedian = "BoxPlotShowMedian";
+		public const string BoxPlotShowMedian = "BoxPlotShowMedian";
 
-		internal const string BoxPlotShowUnusualValues = "BoxPlotShowUnusualValues";
+		public const string BoxPlotShowUnusualValues = "BoxPlotShowUnusualValues";
 
-		internal const string BoxPlotSeries = "BoxPlotSeries";
+		public const string BoxPlotSeries = "BoxPlotSeries";
 
-		internal const string ErrorBarStyle = "ErrorBarStyle";
+		public const string ErrorBarStyle = "ErrorBarStyle";
 
-		internal const string ErrorBarCenterMarkerStyle = "ErrorBarCenterMarkerStyle";
+		public const string ErrorBarCenterMarkerStyle = "ErrorBarCenterMarkerStyle";
 
-		internal const string ErrorBarSeries = "ErrorBarSeries";
+		public const string ErrorBarSeries = "ErrorBarSeries";
 
-		internal const string ErrorBarType = "ErrorBarType";
+		public const string ErrorBarType = "ErrorBarType";
 
-		internal const string UsedYValueHigh = "UsedYValueHigh";
+		public const string UsedYValueHigh = "UsedYValueHigh";
 
-		internal const string UsedYValueLow = "UsedYValueLow";
+		public const string UsedYValueLow = "UsedYValueLow";
 
-		internal const string BoxSize = "BoxSize";
+		public const string BoxSize = "BoxSize";
 
-		internal const string ProportionalSymbols = "ProportionalSymbols";
+		public const string ProportionalSymbols = "ProportionalSymbols";
 
-		internal const string ReversalAmount = "ReversalAmount";
+		public const string ReversalAmount = "ReversalAmount";
 
-		internal const string UsedYValue = "UsedYValue";
+		public const string UsedYValue = "UsedYValue";
 
-		internal const string NumberOfLinesInBreak = "NumberOfLinesInBreak";
+		public const string NumberOfLinesInBreak = "NumberOfLinesInBreak";
 
-		internal const string FunnelLabelStyle = "FunnelLabelStyle";
+		public const string FunnelLabelStyle = "FunnelLabelStyle";
 
-		internal const string FunnelNeckWidth = "FunnelNeckWidth";
+		public const string FunnelNeckWidth = "FunnelNeckWidth";
 
-		internal const string FunnelNeckHeight = "FunnelNeckHeight";
+		public const string FunnelNeckHeight = "FunnelNeckHeight";
 
-		internal const string FunnelMinPointHeight = "FunnelMinPointHeight";
+		public const string FunnelMinPointHeight = "FunnelMinPointHeight";
 
-		internal const string Funnel3DRotationAngle = "Funnel3DRotationAngle";
+		public const string Funnel3DRotationAngle = "Funnel3DRotationAngle";
 
-		internal const string FunnelPointGap = "FunnelPointGap";
+		public const string FunnelPointGap = "FunnelPointGap";
 
-		internal const string Funnel3DDrawingStyle = "Funnel3DDrawingStyle";
+		public const string Funnel3DDrawingStyle = "Funnel3DDrawingStyle";
 
-		internal const string FunnelStyle = "FunnelStyle";
+		public const string FunnelStyle = "FunnelStyle";
 
-		internal const string FunnelInsideLabelAlignment = "FunnelInsideLabelAlignment";
+		public const string FunnelInsideLabelAlignment = "FunnelInsideLabelAlignment";
 
-		internal const string FunnelOutsideLabelPlacement = "FunnelOutsideLabelPlacement";
+		public const string FunnelOutsideLabelPlacement = "FunnelOutsideLabelPlacement";
 
-		internal const string CalloutLineColor = "CalloutLineColor";
+		public const string CalloutLineColor = "CalloutLineColor";
 
-		internal const string PyramidLabelStyle = "PyramidLabelStyle";
+		public const string PyramidLabelStyle = "PyramidLabelStyle";
 
-		internal const string PyramidMinPointHeight = "PyramidMinPointHeight";
+		public const string PyramidMinPointHeight = "PyramidMinPointHeight";
 
-		internal const string Pyramid3DRotationAngle = "Pyramid3DRotationAngle";
+		public const string Pyramid3DRotationAngle = "Pyramid3DRotationAngle";
 
-		internal const string PyramidPointGap = "PyramidPointGap";
+		public const string PyramidPointGap = "PyramidPointGap";
 
-		internal const string Pyramid3DDrawingStyle = "Pyramid3DDrawingStyle";
+		public const string Pyramid3DDrawingStyle = "Pyramid3DDrawingStyle";
 
-		internal const string PyramidInsideLabelAlignment = "PyramidInsideLabelAlignment";
+		public const string PyramidInsideLabelAlignment = "PyramidInsideLabelAlignment";
 
-		internal const string PyramidOutsideLabelPlacement = "PyramidOutsideLabelPlacement";
+		public const string PyramidOutsideLabelPlacement = "PyramidOutsideLabelPlacement";
 
-		internal const string PyramidValueType = "PyramidValueType";
+		public const string PyramidValueType = "PyramidValueType";
 
-		internal const string SkipPaletteColorForEmptyPoint = "SkipPaletteColorForEmptyPoint";
+		public const string SkipPaletteColorForEmptyPoint = "SkipPaletteColorForEmptyPoint";
 
-		internal const string LabelsVisible = "LabelsVisible";
+		public const string LabelsVisible = "LabelsVisible";
 	}
 }

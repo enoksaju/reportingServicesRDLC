@@ -3,9 +3,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ImageMapArea
+	public sealed class ImageMapArea
 	{
-		internal enum ImageMapAreaShape
+		public enum ImageMapAreaShape
 		{
 			Rectangle,
 			Polygon,
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_members = new ImageMapAreaProcessing();
 		}
 
-		internal ImageMapArea(ImageMapAreaInstance mapAreaInstance, RenderingContext renderingContext)
+		public ImageMapArea(ImageMapAreaInstance mapAreaInstance, RenderingContext renderingContext)
 		{
 			this.m_members = new ImageMapAreaRendering();
 			this.Rendering.m_mapAreaInstance = mapAreaInstance;
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_coordinates = coordinates;
 		}
 
-		internal ImageMapArea DeepClone()
+		public ImageMapArea DeepClone()
 		{
 			Global.Tracer.Assert(this.IsCustomControl);
 			ImageMapArea imageMapArea = new ImageMapArea();
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return imageMapArea;
 		}
 
-		internal ImageMapAreaInstance Deconstruct(AspNetCore.ReportingServices.ReportProcessing.CustomReportItem context)
+		public ImageMapAreaInstance Deconstruct(AspNetCore.ReportingServices.ReportProcessing.CustomReportItem context)
 		{
 			Global.Tracer.Assert(null != context);
 			ImageMapAreaInstance imageMapAreaInstance = new ImageMapAreaInstance(context.ProcessingContext);

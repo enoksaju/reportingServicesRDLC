@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapColorRangeRule : MapColorRule, IPersistable
+	public sealed class MapColorRangeRule : MapColorRule, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapColorRangeRule.GetDeclaration();
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_endColor;
 
-		internal ExpressionInfo StartColor
+		public ExpressionInfo StartColor
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MiddleColor
+		public ExpressionInfo MiddleColor
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo EndColor
+		public ExpressionInfo EndColor
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapColorRangeRuleExprHost ExprHost
+		public new MapColorRangeRuleExprHost ExprHost
 		{
 			get
 			{
@@ -66,16 +66,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapColorRangeRule()
+		public MapColorRangeRule()
 		{
 		}
 
-		internal MapColorRangeRule(MapVectorLayer mapVectorLayer, Map map)
+		public MapColorRangeRule(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapColorRangeRuleStart();
 			base.Initialize(context);
@@ -97,14 +97,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapColorRangeRuleEnd();
 		}
 
-		internal override void InitializeMapMember(InitializationContext context)
+		public override void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapColorRangeRuleStart();
 			base.InitializeMapMember(context);
 			context.ExprHostBuilder.MapColorRangeRuleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapColorRangeRule mapColorRangeRule = (MapColorRangeRule)base.PublishClone(context);
 			if (this.m_startColor != null)
@@ -122,13 +122,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapColorRangeRule;
 		}
 
-		internal override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.StartColor, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -190,19 +190,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapColorRangeRule;
 		}
 
-		internal string EvaluateStartColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateStartColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorRangeRuleStartColorExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateMiddleColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMiddleColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorRangeRuleMiddleColorExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateEndColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateEndColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorRangeRuleEndColorExpression(this, base.m_map.Name);

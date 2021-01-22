@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class GaugePointerInstance : BaseInstance
+	public class GaugePointerInstance : BaseInstance
 	{
 		private GaugePointer m_defObject;
 
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePointerInstance(GaugePointer defObject)
+		public GaugePointerInstance(GaugePointer defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

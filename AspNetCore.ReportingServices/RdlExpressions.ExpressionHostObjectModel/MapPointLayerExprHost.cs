@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<MapPointExprHost> m_mapPointsHostsRemotable;
 
-		internal IList<MapPointExprHost> MapPointsHostsRemotable
+		public IList<MapPointExprHost> MapPointsHostsRemotable
 		{
 			get
 			{

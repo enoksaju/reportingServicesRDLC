@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum LookupType
+	public enum LookupType
 	{
 		Lookup,
 		LookupSet,

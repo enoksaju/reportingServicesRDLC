@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLSizes
+	public class RPLSizes
 	{
 		protected float m_left;
 

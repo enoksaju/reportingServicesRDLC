@@ -13,7 +13,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Paragraph : IDOwner, IPersistable, IStyleContainer
+	public sealed class Paragraph : IDOwner, IPersistable, IStyleContainer
 	{
 		private List<TextRun> m_textRuns;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Paragraph.GetDeclaration();
 
-		internal string IDString
+		public string IDString
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<TextRun> TextRuns
+		public List<TextRun> TextRuns
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Style StyleClass
+		public Style StyleClass
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LeftIndent
+		public ExpressionInfo LeftIndent
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo RightIndent
+		public ExpressionInfo RightIndent
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HangingIndent
+		public ExpressionInfo HangingIndent
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SpaceBefore
+		public ExpressionInfo SpaceBefore
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SpaceAfter
+		public ExpressionInfo SpaceAfter
 		{
 			get
 			{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ListStyle
+		public ExpressionInfo ListStyle
 		{
 			get
 			{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ListLevel
+		public ExpressionInfo ListLevel
 		{
 			get
 			{
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int IndexInCollection
+		public int IndexInCollection
 		{
 			get
 			{
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TextBox TextBox
+		public TextBox TextBox
 		{
 			get
 			{
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool TextRunValueReferenced
+		public bool TextRunValueReferenced
 		{
 			get
 			{
@@ -249,7 +249,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParagraphExprHost ExprHost
+		public ParagraphExprHost ExprHost
 		{
 			get
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Paragraph(TextBox textbox, int index, int id)
+		public Paragraph(TextBox textbox, int index, int id)
 			: base(id)
 		{
 			this.m_indexInCollection = index;
@@ -265,11 +265,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_textRuns = new List<TextRun>();
 		}
 
-		internal Paragraph()
+		public Paragraph()
 		{
 		}
 
-		internal bool Initialize(InitializationContext context, out bool aHasExpressionBasedValue)
+		public bool Initialize(InitializationContext context, out bool aHasExpressionBasedValue)
 		{
 			bool flag = false;
 			bool flag2 = false;
@@ -326,7 +326,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return flag;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			Paragraph paragraph = (Paragraph)base.PublishClone(context);
 			if (this.m_textRuns != null)
@@ -374,7 +374,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return paragraph;
 		}
 
-		internal bool DetermineSimplicity()
+		public bool DetermineSimplicity()
 		{
 			if (this.m_textRuns.Count == 1 && this.m_listLevel == null && this.m_listStyle == null && this.m_leftIndent == null && this.m_rightIndent == null && this.m_hangingIndent == null && this.m_spaceBefore == null && this.m_spaceAfter == null)
 			{
@@ -383,7 +383,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Style, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Style));
@@ -537,7 +537,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Paragraph;
 		}
 
-		internal void SetExprHost(TextBoxExprHost textBoxExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(TextBoxExprHost textBoxExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -567,49 +567,49 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string EvaluateSpaceAfter(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateSpaceAfter(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_textBox, instance);
 			return context.ReportRuntime.EvaluateParagraphSpaceAfterExpression(this);
 		}
 
-		internal string EvaluateSpaceBefore(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateSpaceBefore(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_textBox, instance);
 			return context.ReportRuntime.EvaluateParagraphSpaceBeforeExpression(this);
 		}
 
-		internal string EvaluateListStyle(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateListStyle(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_textBox, instance);
 			return context.ReportRuntime.EvaluateParagraphListStyleExpression(this);
 		}
 
-		internal int? EvaluateListLevel(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public int? EvaluateListLevel(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_textBox, instance);
 			return context.ReportRuntime.EvaluateParagraphListLevelExpression(this);
 		}
 
-		internal string EvaluateLeftIndent(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateLeftIndent(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_textBox, instance);
 			return context.ReportRuntime.EvaluateParagraphLeftIndentExpression(this);
 		}
 
-		internal string EvaluateRightIndent(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateRightIndent(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_textBox, instance);
 			return context.ReportRuntime.EvaluateParagraphRightIndentExpression(this);
 		}
 
-		internal string EvaluateHangingIndent(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateHangingIndent(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_textBox, instance);
 			return context.ReportRuntime.EvaluateParagraphHangingIndentExpression(this);
 		}
 
-		internal ParagraphImpl GetParagraphImpl(OnDemandProcessingContext context)
+		public ParagraphImpl GetParagraphImpl(OnDemandProcessingContext context)
 		{
 			if (this.m_paragraphImpl == null)
 			{

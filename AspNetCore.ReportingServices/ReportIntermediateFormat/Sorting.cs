@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Sorting : IPersistable
+	public sealed class Sorting : IPersistable
 	{
 		private List<ExpressionInfo> m_sortExpressions;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Sorting.GetDeclaration();
 
-		internal List<ExpressionInfo> SortExpressions
+		public List<ExpressionInfo> SortExpressions
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<bool> SortDirections
+		public List<bool> SortDirections
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<bool> NaturalSortFlags
+		public List<bool> NaturalSortFlags
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<bool> DeferredSortFlags
+		public List<bool> DeferredSortFlags
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SortExprHost ExprHost
+		public SortExprHost ExprHost
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NaturalSort
+		public bool NaturalSort
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool DeferredSort
+		public bool DeferredSort
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ShouldApplySorting
+		public bool ShouldApplySorting
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Sorting(ConstructionPhase phase)
+		public Sorting(ConstructionPhase phase)
 		{
 			if (phase == ConstructionPhase.Publishing)
 			{
@@ -128,12 +128,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ValidateNaturalSortFlags(PublishingContextStruct context)
+		public void ValidateNaturalSortFlags(PublishingContextStruct context)
 		{
 			this.m_naturalSort = Sorting.ValidateExclusiveSortFlag(context, this.m_naturalSortFlags, "NaturalSort");
 		}
 
-		internal void ValidateDeferredSortFlags(PublishingContextStruct context)
+		public void ValidateDeferredSortFlags(PublishingContextStruct context)
 		{
 			this.m_deferredSort = Sorting.ValidateExclusiveSortFlag(context, this.m_deferredSortFlags, "DeferredSort");
 		}
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.SortStart();
 			if (this.m_sortExpressions != null)
@@ -172,14 +172,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.SortEnd();
 		}
 
-		internal void SetExprHost(SortExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(SortExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			Sorting sorting = (Sorting)base.MemberwiseClone();
 			if (this.m_sortExpressions != null)
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return sorting;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.SortExpressions, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));

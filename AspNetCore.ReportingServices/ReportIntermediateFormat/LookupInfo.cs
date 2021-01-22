@@ -10,7 +10,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class LookupInfo : IPersistable
+	public class LookupInfo : IPersistable
 	{
 		private ExpressionInfo m_resultExpr;
 
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = LookupInfo.GetDeclaration();
 
-		internal ExpressionInfo ResultExpr
+		public ExpressionInfo ResultExpr
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SourceExpr
+		public ExpressionInfo SourceExpr
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int DestinationIndexInCollection
+		public int DestinationIndexInCollection
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int DataSetIndexInCollection
+		public int DataSetIndexInCollection
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupType LookupType
+		public LookupType LookupType
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupExprHost ExprHost
+		public LookupExprHost ExprHost
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupDestinationInfo DestinationInfo
+		public LookupDestinationInfo DestinationInfo
 		{
 			get
 			{
@@ -141,16 +141,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupInfo()
+		public LookupInfo()
 		{
 		}
 
-		internal bool ReturnFirstMatchOnly()
+		public bool ReturnFirstMatchOnly()
 		{
 			return this.m_lookupType != LookupType.LookupSet;
 		}
 
-		internal string GetAsString()
+		public string GetAsString()
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.Append(Enum.GetName(typeof(LookupType), this.m_lookupType));
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return stringBuilder.ToString();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			LookupInfo lookupInfo = (LookupInfo)base.MemberwiseClone();
 			lookupInfo.m_name = context.CreateLookupID(this.m_name);
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context, string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void Initialize(InitializationContext context, string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			context.ExprHostBuilder.LookupStart();
 			if (this.m_resultExpr != null)
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.ExprHostID = context.ExprHostBuilder.LookupEnd();
 		}
 
-		internal void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (this.ExprHostID >= 0)
 			{
@@ -228,12 +228,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateSourceExpr(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateSourceExpr(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
 		{
 			return runtime.EvaluateLookupSourceExpression(this);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateResultExpr(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateResultExpr(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
 		{
 			return runtime.EvaluateLookupResultExpression(this);
 		}

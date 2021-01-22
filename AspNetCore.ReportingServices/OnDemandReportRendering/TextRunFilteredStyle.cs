@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TextRunFilteredStyle : Style
+	public sealed class TextRunFilteredStyle : Style
 	{
-		internal TextRunFilteredStyle(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext, bool useRenderStyle)
+		public TextRunFilteredStyle(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext, bool useRenderStyle)
 			: base(renderReportItem, renderingContext, useRenderStyle)
 		{
 		}

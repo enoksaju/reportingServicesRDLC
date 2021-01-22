@@ -4,7 +4,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public sealed class ObjectModelImpl : ObjectModel, IConvertible
 	{
-		internal const string NamespacePrefix = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.";
+		public const string NamespacePrefix = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.";
 
 		private FieldsImpl m_fields;
 
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal FieldsImpl FieldsImpl
+		public FieldsImpl FieldsImpl
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ParametersImpl ParametersImpl
+		public ParametersImpl ParametersImpl
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal GlobalsImpl GlobalsImpl
+		public GlobalsImpl GlobalsImpl
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal UserImpl UserImpl
+		public UserImpl UserImpl
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ReportItemsImpl ReportItemsImpl
+		public ReportItemsImpl ReportItemsImpl
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal AggregatesImpl AggregatesImpl
+		public AggregatesImpl AggregatesImpl
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal DataSetsImpl DataSetsImpl
+		public DataSetsImpl DataSetsImpl
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal DataSourcesImpl DataSourcesImpl
+		public DataSourcesImpl DataSourcesImpl
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ObjectModelImpl(ReportProcessing.ProcessingContext processingContext)
+		public ObjectModelImpl(ReportProcessing.ProcessingContext processingContext)
 		{
 			this.m_fields = null;
 			this.m_parameters = null;
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_processingContext = processingContext;
 		}
 
-		internal ObjectModelImpl(ObjectModelImpl copy, ReportProcessing.ProcessingContext processingContext)
+		public ObjectModelImpl(ObjectModelImpl copy, ReportProcessing.ProcessingContext processingContext)
 		{
 			this.m_fields = null;
 			this.m_parameters = copy.m_parameters;

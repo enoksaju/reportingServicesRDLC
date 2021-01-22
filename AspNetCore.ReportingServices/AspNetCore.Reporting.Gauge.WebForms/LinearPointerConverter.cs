@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class LinearPointerConverter : CollectionItemTypeConverter
+	public class LinearPointerConverter : CollectionItemTypeConverter
 	{
 		public LinearPointerConverter()
 		{

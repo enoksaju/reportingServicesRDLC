@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class CachedSharedImageInfo
+	public sealed class CachedSharedImageInfo
 	{
 		private string m_streamName;
 
 		private ItemBoundaries m_itemBoundaries;
 
-		internal string StreamName
+		public string StreamName
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal ItemBoundaries ImageBounderies
+		public ItemBoundaries ImageBounderies
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal CachedSharedImageInfo(string streamName, ItemBoundaries itemBoundaries)
+		public CachedSharedImageInfo(string streamName, ItemBoundaries itemBoundaries)
 		{
 			this.m_streamName = streamName;
 			this.m_itemBoundaries = itemBoundaries;

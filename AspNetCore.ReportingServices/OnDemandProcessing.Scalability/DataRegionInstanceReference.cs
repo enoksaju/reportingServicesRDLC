@@ -3,9 +3,9 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class DataRegionInstanceReference : ScopeInstanceReference, IReference<DataRegionInstance>, IReference, IStorable, IPersistable
+	public class DataRegionInstanceReference : ScopeInstanceReference, IReference<DataRegionInstance>, IReference, IStorable, IPersistable
 	{
-		internal DataRegionInstanceReference()
+		public DataRegionInstanceReference()
 		{
 		}
 

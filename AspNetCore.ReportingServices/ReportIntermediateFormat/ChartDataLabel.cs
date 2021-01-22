@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartDataLabel : ChartStyleContainer, IPersistable
+	public sealed class ChartDataLabel : ChartStyleContainer, IPersistable
 	{
 		private ExpressionInfo m_visible;
 
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartDataLabelExprHost m_exprHost;
 
-		internal ExpressionInfo Visible
+		public ExpressionInfo Visible
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Label
+		public ExpressionInfo Label
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo UseValueAsLabel
+		public ExpressionInfo UseValueAsLabel
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Position
+		public ExpressionInfo Position
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Rotation
+		public ExpressionInfo Rotation
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataLabelExprHost ExprHost
+		public ChartDataLabelExprHost ExprHost
 		{
 			get
 			{
@@ -151,23 +151,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataLabel()
+		public ChartDataLabel()
 		{
 		}
 
-		internal ChartDataLabel(Chart chart, ChartDataPoint chartDataPoint)
+		public ChartDataLabel(Chart chart, ChartDataPoint chartDataPoint)
 			: base(chart)
 		{
 			this.m_chartDataPoint = chartDataPoint;
 		}
 
-		internal ChartDataLabel(Chart chart, ChartSeries chartSeries)
+		public ChartDataLabel(Chart chart, ChartSeries chartSeries)
 			: base(chart)
 		{
 			this.m_chartSeries = chartSeries;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartDataLabel chartDataLabel = (ChartDataLabel)base.PublishClone(context);
 			if (this.m_label != null)
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartDataLabel;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.DataLabelStart();
 			base.Initialize(context);
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.DataLabelEnd();
 		}
 
-		internal void SetExprHost(ChartDataLabelExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartDataLabelExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && null != reportObjectModel, "(null != exprHost && null != reportObjectModel)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Visible, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -383,37 +383,37 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartDataLabel;
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataLabelLabelExpression(this, base.Name);
 		}
 
-		internal ChartDataLabelPositions EvaluatePosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartDataLabelPositions EvaluatePosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateChartDataLabelPosition(context.ReportRuntime.EvaluateChartDataLabePositionExpression(this, base.Name), context.ReportRuntime);
 		}
 
-		internal int EvaluateRotation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateRotation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataLabelRotationExpression(this, base.Name);
 		}
 
-		internal bool EvaluateUseValueAsLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUseValueAsLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataLabelUseValueAsLabelExpression(this, base.Name);
 		}
 
-		internal bool EvaluateVisible(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateVisible(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataLabelVisibleExpression(this, base.Name);
 		}
 
-		internal string GetFormattedValue(AspNetCore.ReportingServices.RdlExpressions.VariantResult originalValue, IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string GetFormattedValue(AspNetCore.ReportingServices.RdlExpressions.VariantResult originalValue, IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			if (originalValue.ErrorOccurred)
@@ -427,7 +427,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateChartDataLabelToolTipExpression(this, base.m_chart.Name);

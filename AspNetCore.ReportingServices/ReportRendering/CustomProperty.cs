@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class CustomProperty
+	public sealed class CustomProperty
 	{
 		private string m_name;
 

@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class PlotArea2005 : ReportObject
+	public class PlotArea2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<PlotArea2005, Definition.Properties>
+		public class Definition : DefinitionStore<PlotArea2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style
 			}

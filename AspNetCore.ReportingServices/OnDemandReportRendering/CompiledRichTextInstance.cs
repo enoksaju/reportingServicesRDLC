@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CompiledRichTextInstance : BaseInstance, IRichTextInstanceCreator, IRichTextLogger
+	public sealed class CompiledRichTextInstance : BaseInstance, IRichTextInstanceCreator, IRichTextLogger
 	{
 		private bool m_multipleParagraphsAllowed;
 
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TextRun TextRunDefinition
+		public TextRun TextRunDefinition
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Paragraph ParagraphDefinition
+		public Paragraph ParagraphDefinition
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CompiledRichTextInstance(IReportScope reportScope, TextRun textRunDef, Paragraph paragraphDef, bool multipleParagraphsAllowed)
+		public CompiledRichTextInstance(IReportScope reportScope, TextRun textRunDef, Paragraph paragraphDef, bool multipleParagraphsAllowed)
 			: base(reportScope)
 		{
 			this.m_paragraphDef = paragraphDef;
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_objectCount = 0;
 		}
 
-		internal int GenerateID()
+		public int GenerateID()
 		{
 			return this.m_objectCount++;
 		}

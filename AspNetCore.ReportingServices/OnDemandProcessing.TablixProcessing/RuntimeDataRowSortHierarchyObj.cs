@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeDataRowSortHierarchyObj : IHierarchyObj, IStorable, IPersistable
+	public sealed class RuntimeDataRowSortHierarchyObj : IHierarchyObj, IStorable, IPersistable
 	{
 		private IReference<IHierarchyObj> m_hierarchyRoot;
 
@@ -93,11 +93,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeDataRowSortHierarchyObj()
+		public RuntimeDataRowSortHierarchyObj()
 		{
 		}
 
-		internal RuntimeDataRowSortHierarchyObj(IHierarchyObj outerHierarchy, int depth)
+		public RuntimeDataRowSortHierarchyObj(IHierarchyObj outerHierarchy, int depth)
 		{
 			this.m_hierarchyRoot = outerHierarchy.HierarchyRoot;
 			int num = outerHierarchy.ExpressionIndex + 1;
@@ -233,7 +233,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RuntimeDataRowSortHierarchyObj;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (RuntimeDataRowSortHierarchyObj.m_declaration == null)
 			{

@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MultiChartInstance
+	public sealed class MultiChartInstance
 	{
 		private ChartHeadingInstanceList m_columnInstances;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ChartHeadingInstanceList m_innerHeadingInstanceList;
 
-		internal ChartHeadingInstanceList ColumnInstances
+		public ChartHeadingInstanceList ColumnInstances
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceList RowInstances
+		public ChartHeadingInstanceList RowInstances
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartDataPointInstancesList DataPoints
+		public ChartDataPointInstancesList DataPoints
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceList InnerHeadingInstanceList
+		public ChartHeadingInstanceList InnerHeadingInstanceList
 		{
 			get
 			{
@@ -63,18 +63,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MultiChartInstance(Chart reportItemDef)
+		public MultiChartInstance(Chart reportItemDef)
 		{
 			this.m_columnInstances = new ChartHeadingInstanceList();
 			this.m_rowInstances = new ChartHeadingInstanceList();
 			this.m_cellDataPoints = new ChartDataPointInstancesList();
 		}
 
-		internal MultiChartInstance()
+		public MultiChartInstance()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ColumnInstances, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ChartHeadingInstanceList));

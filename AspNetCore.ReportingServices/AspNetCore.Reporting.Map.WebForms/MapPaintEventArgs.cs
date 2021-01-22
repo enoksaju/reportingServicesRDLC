@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapPaintEventArgs
+	public class MapPaintEventArgs
 	{
 		private MapControl control;
 
@@ -8,7 +8,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private MapGraphics graphics;
 
-		internal MapControl MapControl
+		public MapControl MapControl
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapPaintEventArgs(MapControl control, NamedElement mapElement, MapGraphics graphics)
+		public MapPaintEventArgs(MapControl control, NamedElement mapElement, MapGraphics graphics)
 		{
 			this.control = control;
 			this.mapElement = mapElement;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLStyleProps : IRPLStyle, IEnumerable<byte>, IEnumerable
+	public sealed class RPLStyleProps : IRPLStyle, IEnumerable<byte>, IEnumerable
 	{
 		private Dictionary<byte, object> m_styleMap;
 
@@ -28,17 +28,17 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLStyleProps()
+		public RPLStyleProps()
 		{
 			this.m_styleMap = new Dictionary<byte, object>();
 		}
 
-		internal void Add(byte name, object value)
+		public void Add(byte name, object value)
 		{
 			this.m_styleMap.Add(name, value);
 		}
 
-		internal void AddAll(RPLStyleProps styleProps)
+		public void AddAll(RPLStyleProps styleProps)
 		{
 			if (styleProps != null)
 			{

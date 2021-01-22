@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ScalePin : TickMarkStyle
+	public sealed class ScalePin : TickMarkStyle
 	{
 		private ReportDoubleProperty m_location;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ScalePin ScalePinDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ScalePin ScalePinDef
 		{
 			get
 			{
@@ -70,14 +70,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ScalePin(AspNetCore.ReportingServices.ReportIntermediateFormat.ScalePin defObject, GaugePanel gaugePanel)
+		public ScalePin(AspNetCore.ReportingServices.ReportIntermediateFormat.ScalePin defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

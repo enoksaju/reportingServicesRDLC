@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum TileSystem
+	public enum TileSystem
 	{
 		None,
 		VirtualEarthAerial,

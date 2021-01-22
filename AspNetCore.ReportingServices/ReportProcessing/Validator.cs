@@ -7,31 +7,31 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class Validator
+	public sealed class Validator
 	{
-		internal static int DecimalPrecision = 5;
+		public static int DecimalPrecision = 5;
 
-		internal static double NormalMin = 0.0;
+		public static double NormalMin = 0.0;
 
-		internal static double NegativeMin = 0.0 - Converter.Inches160;
+		public static double NegativeMin = 0.0 - Converter.Inches160;
 
-		internal static double NormalMax = Converter.Inches160;
+		public static double NormalMax = Converter.Inches160;
 
-		internal static double BorderWidthMin = Converter.PtPoint25;
+		public static double BorderWidthMin = Converter.PtPoint25;
 
-		internal static double BorderWidthMax = Converter.Pt20;
+		public static double BorderWidthMax = Converter.Pt20;
 
-		internal static double FontSizeMin = Converter.Pt1;
+		public static double FontSizeMin = Converter.Pt1;
 
-		internal static double FontSizeMax = Converter.Pt200;
+		public static double FontSizeMax = Converter.Pt200;
 
-		internal static double PaddingMin = 0.0;
+		public static double PaddingMin = 0.0;
 
-		internal static double PaddingMax = Converter.Pt1000;
+		public static double PaddingMax = Converter.Pt1000;
 
-		internal static double LineHeightMin = Converter.Pt1;
+		public static double LineHeightMin = Converter.Pt1;
 
-		internal static double LineHeightMax = Converter.Pt1000;
+		public static double LineHeightMax = Converter.Pt1000;
 
 		private static Regex m_colorRegex = new Regex("^#(\\d|a|b|c|d|e|f){6}$", RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture | RegexOptions.Compiled | RegexOptions.Singleline);
 
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 		}
 
-		internal static bool ValidateColor(string color, out string newColor, bool allowTransparency)
+		public static bool ValidateColor(string color, out string newColor, bool allowTransparency)
 		{
 			if (color != null && (color.Length != 7 || color[0] != '#' || !Validator.m_colorRegex.Match(color).Success) && (!allowTransparency || color.Length != 9 || color[0] != '#' || !Validator.m_colorRegexTransparency.Match(color).Success))
 			{
@@ -66,12 +66,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateColor(string color, out Color c)
+		public static bool ValidateColor(string color, out Color c)
 		{
 			return Validator.ValidateColor(color, out c, false);
 		}
 
-		internal static bool ValidateColor(string color, out Color c, bool allowTransparency)
+		public static bool ValidateColor(string color, out Color c, bool allowTransparency)
 		{
 			if (color == null)
 			{
@@ -102,12 +102,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static void ParseColor(string color, out Color c)
+		public static void ParseColor(string color, out Color c)
 		{
 			Validator.ParseColor(color, out c, false);
 		}
 
-		internal static void ParseColor(string color, out Color c, bool allowTransparency)
+		public static void ParseColor(string color, out Color c, bool allowTransparency)
 		{
 			if (color == null)
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool ValidateSizeString(string sizeString, out RVUnit sizeValue)
+		public static bool ValidateSizeString(string sizeString, out RVUnit sizeValue)
 		{
 			try
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool ValidateSizeUnitType(RVUnit sizeValue)
+		public static bool ValidateSizeUnitType(RVUnit sizeValue)
 		{
 			switch (sizeValue.Type)
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool ValidateSizeIsPositive(RVUnit sizeValue)
+		public static bool ValidateSizeIsPositive(RVUnit sizeValue)
 		{
 			if (sizeValue.Value >= 0.0)
 			{
@@ -247,7 +247,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static bool ValidateSizeValue(double sizeInMM, double minValue, double maxValue)
+		public static bool ValidateSizeValue(double sizeInMM, double minValue, double maxValue)
 		{
 			if (sizeInMM >= minValue && sizeInMM <= maxValue)
 			{
@@ -256,13 +256,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static void ParseSize(string size, out double sizeInMM)
+		public static void ParseSize(string size, out double sizeInMM)
 		{
 			RVUnit unit = RVUnit.Parse(size, CultureInfo.InvariantCulture);
 			sizeInMM = Converter.ConvertToMM(unit);
 		}
 
-		internal static bool ValidateEmbeddedImageName(string embeddedImageName, EmbeddedImageHashtable embeddedImages)
+		public static bool ValidateEmbeddedImageName(string embeddedImageName, EmbeddedImageHashtable embeddedImages)
 		{
 			if (embeddedImageName == null)
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return embeddedImages.ContainsKey(embeddedImageName);
 		}
 
-		internal static bool ValidateSpecificLanguage(string language, out CultureInfo culture)
+		public static bool ValidateSpecificLanguage(string language, out CultureInfo culture)
 		{
 			try
 			{
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool ValidateLanguage(string language, out CultureInfo culture)
+		public static bool ValidateLanguage(string language, out CultureInfo culture)
 		{
 			try
 			{
@@ -309,7 +309,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool CreateCalendar(string calendarName, out Calendar calendar)
+		public static bool CreateCalendar(string calendarName, out Calendar calendar)
 		{
 			calendar = null;
 			bool result = false;
@@ -369,7 +369,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal static bool CreateCalendar(Calendars calendarType, out Calendar calendar)
+		public static bool CreateCalendar(Calendars calendarType, out Calendar calendar)
 		{
 			calendar = null;
 			bool result = false;
@@ -424,7 +424,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal static bool ValidateCalendar(CultureInfo langauge, Calendars calendarType)
+		public static bool ValidateCalendar(CultureInfo langauge, Calendars calendarType)
 		{
 			if (calendarType == Calendars.Gregorian)
 			{
@@ -435,7 +435,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return Validator.ValidateCalendar(langauge, isGregorianSubType, calendar);
 		}
 
-		internal static bool ValidateCalendar(CultureInfo langauge, string calendarName)
+		public static bool ValidateCalendar(CultureInfo langauge, string calendarName)
 		{
 			if (Validator.CompareWithInvariantCulture(calendarName, "Gregorian"))
 			{
@@ -475,7 +475,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static bool ValidateNumeralVariant(CultureInfo language, int numVariant)
+		public static bool ValidateNumeralVariant(CultureInfo language, int numVariant)
 		{
 			if (numVariant >= 1 && numVariant <= 7)
 			{
@@ -519,7 +519,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static bool ValidateColumns(int columns)
+		public static bool ValidateColumns(int columns)
 		{
 			if (columns >= 1 && columns <= 1000)
 			{
@@ -528,7 +528,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static bool ValidateNumeralVariant(int numeralVariant)
+		public static bool ValidateNumeralVariant(int numeralVariant)
 		{
 			if (numeralVariant >= 1 && numeralVariant <= 7)
 			{
@@ -537,7 +537,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static bool ValidateBorderStyle(string borderStyle, out string borderStyleForLine)
+		public static bool ValidateBorderStyle(string borderStyle, out string borderStyleForLine)
 		{
 			if (!Validator.CompareWithInvariantCulture(borderStyle, "Dotted") && !Validator.CompareWithInvariantCulture(borderStyle, "Dashed"))
 			{
@@ -553,7 +553,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateMimeType(string mimeType)
+		public static bool ValidateMimeType(string mimeType)
 		{
 			if (!Validator.CompareWithInvariantCulture(mimeType, "image/bmp") && !Validator.CompareWithInvariantCulture(mimeType, "image/jpeg") && !Validator.CompareWithInvariantCulture(mimeType, "image/gif") && !Validator.CompareWithInvariantCulture(mimeType, "image/png") && !Validator.CompareWithInvariantCulture(mimeType, "image/x-png"))
 			{
@@ -562,7 +562,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateBackgroundGradientType(string gradientType)
+		public static bool ValidateBackgroundGradientType(string gradientType)
 		{
 			if (!Validator.CompareWithInvariantCulture(gradientType, "None") && !Validator.CompareWithInvariantCulture(gradientType, "LeftRight") && !Validator.CompareWithInvariantCulture(gradientType, "TopBottom") && !Validator.CompareWithInvariantCulture(gradientType, "Center") && !Validator.CompareWithInvariantCulture(gradientType, "DiagonalLeft") && !Validator.CompareWithInvariantCulture(gradientType, "DiagonalRight") && !Validator.CompareWithInvariantCulture(gradientType, "HorizontalCenter") && !Validator.CompareWithInvariantCulture(gradientType, "VerticalCenter"))
 			{
@@ -571,7 +571,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateBackgroundRepeat(string repeat)
+		public static bool ValidateBackgroundRepeat(string repeat)
 		{
 			if (!Validator.CompareWithInvariantCulture(repeat, "Repeat") && !Validator.CompareWithInvariantCulture(repeat, "NoRepeat") && !Validator.CompareWithInvariantCulture(repeat, "RepeatX") && !Validator.CompareWithInvariantCulture(repeat, "RepeatY"))
 			{
@@ -580,7 +580,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateFontStyle(string fontStyle)
+		public static bool ValidateFontStyle(string fontStyle)
 		{
 			if (!Validator.CompareWithInvariantCulture(fontStyle, "Normal") && !Validator.CompareWithInvariantCulture(fontStyle, "Italic"))
 			{
@@ -589,7 +589,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateFontWeight(string fontWeight)
+		public static bool ValidateFontWeight(string fontWeight)
 		{
 			if (!Validator.CompareWithInvariantCulture(fontWeight, "Lighter") && !Validator.CompareWithInvariantCulture(fontWeight, "Normal") && !Validator.CompareWithInvariantCulture(fontWeight, "Bold") && !Validator.CompareWithInvariantCulture(fontWeight, "Bolder") && !Validator.CompareWithInvariantCulture(fontWeight, "100") && !Validator.CompareWithInvariantCulture(fontWeight, "200") && !Validator.CompareWithInvariantCulture(fontWeight, "300") && !Validator.CompareWithInvariantCulture(fontWeight, "400") && !Validator.CompareWithInvariantCulture(fontWeight, "500") && !Validator.CompareWithInvariantCulture(fontWeight, "600") && !Validator.CompareWithInvariantCulture(fontWeight, "700") && !Validator.CompareWithInvariantCulture(fontWeight, "800") && !Validator.CompareWithInvariantCulture(fontWeight, "900"))
 			{
@@ -598,7 +598,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateTextDecoration(string textDecoration)
+		public static bool ValidateTextDecoration(string textDecoration)
 		{
 			if (!Validator.CompareWithInvariantCulture(textDecoration, "None") && !Validator.CompareWithInvariantCulture(textDecoration, "Underline") && !Validator.CompareWithInvariantCulture(textDecoration, "Overline") && !Validator.CompareWithInvariantCulture(textDecoration, "LineThrough"))
 			{
@@ -607,7 +607,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateTextAlign(string textAlign)
+		public static bool ValidateTextAlign(string textAlign)
 		{
 			if (!Validator.CompareWithInvariantCulture(textAlign, "General") && !Validator.CompareWithInvariantCulture(textAlign, "Left") && !Validator.CompareWithInvariantCulture(textAlign, "Center") && !Validator.CompareWithInvariantCulture(textAlign, "Right"))
 			{
@@ -616,7 +616,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateVerticalAlign(string verticalAlign)
+		public static bool ValidateVerticalAlign(string verticalAlign)
 		{
 			if (!Validator.CompareWithInvariantCulture(verticalAlign, "Top") && !Validator.CompareWithInvariantCulture(verticalAlign, "Middle") && !Validator.CompareWithInvariantCulture(verticalAlign, "Bottom"))
 			{
@@ -625,7 +625,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateDirection(string direction)
+		public static bool ValidateDirection(string direction)
 		{
 			if (!Validator.CompareWithInvariantCulture(direction, "LTR") && !Validator.CompareWithInvariantCulture(direction, "RTL"))
 			{
@@ -634,7 +634,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateWritingMode(string writingMode)
+		public static bool ValidateWritingMode(string writingMode)
 		{
 			if (!Validator.CompareWithInvariantCulture(writingMode, "lr-tb") && !Validator.CompareWithInvariantCulture(writingMode, "tb-rl"))
 			{
@@ -643,7 +643,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateUnicodeBiDi(string unicodeBiDi)
+		public static bool ValidateUnicodeBiDi(string unicodeBiDi)
 		{
 			if (!Validator.CompareWithInvariantCulture(unicodeBiDi, "Normal") && !Validator.CompareWithInvariantCulture(unicodeBiDi, "Embed") && !Validator.CompareWithInvariantCulture(unicodeBiDi, "BiDi-Override"))
 			{
@@ -652,7 +652,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool ValidateCalendar(string calendar)
+		public static bool ValidateCalendar(string calendar)
 		{
 			if (!Validator.CompareWithInvariantCulture(calendar, "Gregorian") && !Validator.CompareWithInvariantCulture(calendar, "Gregorian Arabic") && !Validator.CompareWithInvariantCulture(calendar, "Gregorian Middle East French") && !Validator.CompareWithInvariantCulture(calendar, "Gregorian Transliterated English") && !Validator.CompareWithInvariantCulture(calendar, "Gregorian Transliterated French") && !Validator.CompareWithInvariantCulture(calendar, "Gregorian US English") && !Validator.CompareWithInvariantCulture(calendar, "Hebrew") && !Validator.CompareWithInvariantCulture(calendar, "Hijri") && !Validator.CompareWithInvariantCulture(calendar, "Japanese") && !Validator.CompareWithInvariantCulture(calendar, "Korea") && !Validator.CompareWithInvariantCulture(calendar, "Taiwan") && !Validator.CompareWithInvariantCulture(calendar, "Thai Buddhist"))
 			{
@@ -661,7 +661,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool CompareWithInvariantCulture(string strOne, string strTwo)
+		public static bool CompareWithInvariantCulture(string strOne, string strTwo)
 		{
 			if (ReportProcessing.CompareWithInvariantCulture(strOne, strTwo, false) == 0)
 			{

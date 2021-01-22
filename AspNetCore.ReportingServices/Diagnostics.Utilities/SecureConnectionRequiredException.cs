@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class SecureConnectionRequiredException : ReportCatalogException
+	public sealed class SecureConnectionRequiredException : ReportCatalogException
 	{
 		public SecureConnectionRequiredException()
 			: base(ErrorCode.rsSecureConnectionRequired, ErrorStrings.rsSecureConnectionRequired, null, null)

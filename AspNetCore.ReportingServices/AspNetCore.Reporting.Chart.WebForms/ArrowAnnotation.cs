@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeArrowAnnotation_ArrowAnnotation")]
-	internal class ArrowAnnotation : Annotation
+	public class ArrowAnnotation : Annotation
 	{
 		private ArrowStyle arrowStyle;
 
@@ -97,7 +97,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SRDescription("DescriptionAttributeSelectionPointsStyle3")]
 		[DefaultValue(SelectionPointsStyle.Rectangle)]
 		[SRCategory("CategoryAttributeAppearance")]
-		internal override SelectionPointsStyle SelectionPointsStyle
+		public override SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.AnchorAlignment = ContentAlignment.TopLeft;
 		}
 
-		internal override void Paint(Chart chart, ChartGraphics graphics)
+		public override void Paint(Chart chart, ChartGraphics graphics)
 		{
 			this.Chart = chart;
 			PointF empty = PointF.Empty;

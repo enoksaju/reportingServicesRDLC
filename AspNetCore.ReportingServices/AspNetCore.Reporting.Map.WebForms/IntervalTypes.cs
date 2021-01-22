@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum IntervalTypes
+	public enum IntervalTypes
 	{
 		Main,
 		Minor,

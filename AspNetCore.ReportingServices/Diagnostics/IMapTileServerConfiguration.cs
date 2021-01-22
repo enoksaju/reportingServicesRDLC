@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IMapTileServerConfiguration
+	public interface IMapTileServerConfiguration
 	{
 		int MaxConnections
 		{

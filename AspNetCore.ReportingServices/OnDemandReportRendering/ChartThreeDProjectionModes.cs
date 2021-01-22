@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartThreeDProjectionModes
+	public enum ChartThreeDProjectionModes
 	{
 		Oblique,
 		Perspective

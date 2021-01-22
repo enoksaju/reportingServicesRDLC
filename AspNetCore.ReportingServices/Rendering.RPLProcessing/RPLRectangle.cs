@@ -1,19 +1,19 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLRectangle : RPLContainer
+	public sealed class RPLRectangle : RPLContainer
 	{
-		internal RPLRectangle()
+		public RPLRectangle()
 		{
 			base.m_rplElementProps = new RPLItemProps();
 			base.m_rplElementProps.Definition = new RPLRectanglePropsDef();
 		}
 
-		internal RPLRectangle(long startOffset, RPLContext context, RPLItemMeasurement[] children)
+		public RPLRectangle(long startOffset, RPLContext context, RPLItemMeasurement[] children)
 			: base(startOffset, context, children)
 		{
 		}
 
-		internal RPLRectangle(RPLItemProps rplElementProps)
+		public RPLRectangle(RPLItemProps rplElementProps)
 			: base(rplElementProps)
 		{
 		}

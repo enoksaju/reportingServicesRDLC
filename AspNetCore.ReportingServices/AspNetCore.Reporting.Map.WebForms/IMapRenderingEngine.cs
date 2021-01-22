@@ -5,7 +5,7 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface IMapRenderingEngine
+	public interface IMapRenderingEngine
 	{
 		Matrix Transform
 		{

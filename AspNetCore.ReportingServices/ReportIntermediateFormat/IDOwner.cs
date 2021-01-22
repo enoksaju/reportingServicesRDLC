@@ -8,7 +8,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal abstract class IDOwner : IInstancePath, IPersistable, IReferenceable, IGlobalIDOwner
+	public abstract class IDOwner : IInstancePath, IPersistable, IReferenceable, IGlobalIDOwner
 	{
 		protected int m_ID;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string RenderingModelID
+		public string RenderingModelID
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string SubReportDefinitionPath
+		public string SubReportDefinitionPath
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsClone
+		public bool IsClone
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new InstancePathItem();
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			IDOwner iDOwner = (IDOwner)base.MemberwiseClone();
 			iDOwner.m_ID = context.GenerateID();
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return iDOwner;
 		}
 
-		internal virtual void SetupCriRenderItemDef(ReportItem reportItem)
+		public virtual void SetupCriRenderItemDef(ReportItem reportItem)
 		{
 			reportItem.m_parentIDOwner = this.m_parentIDOwner;
 		}
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return iRIFReportDataScope;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ID, Token.Int32));

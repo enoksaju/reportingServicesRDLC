@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class ChartTitle : ChartTitleBase, IPersistable, IActionOwner
+	public class ChartTitle : ChartTitleBase, IPersistable, IActionOwner
 	{
 		private string m_name;
 
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ChartTitle.GetDeclaration();
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string TitleName
+		public string TitleName
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Position
+		public ExpressionInfo Position
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Docking
+		public ExpressionInfo Docking
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DockToChartArea
+		public string DockToChartArea
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DockOutsideChartArea
+		public ExpressionInfo DockOutsideChartArea
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DockOffset
+		public ExpressionInfo DockOffset
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TextOrientation
+		public ExpressionInfo TextOrientation
 		{
 			get
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartElementPosition ChartElementPosition
+		public ChartElementPosition ChartElementPosition
 		{
 			get
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -199,17 +199,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartTitle()
+		public ChartTitle()
 		{
 		}
 
-		internal ChartTitle(Chart chart)
+		public ChartTitle(Chart chart)
 			: base(chart)
 		{
 			base.m_chart = chart;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartTitleStart(this.m_name);
 			this.InitializeInternal(context);
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartTitle chartTitle = (ChartTitle)base.PublishClone(context);
 			if (this.m_position != null)
@@ -311,7 +311,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartTitle;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -441,7 +441,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartTitle;
 		}
 
-		internal override void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -455,43 +455,43 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return context.ReportRuntime.EvaluateEvaluateChartTitleHiddenExpression(this, base.Name, "Hidden");
 		}
 
-		internal ChartTitleDockings EvaluateDocking(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public ChartTitleDockings EvaluateDocking(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return EnumTranslator.TranslateChartTitleDocking(context.ReportRuntime.EvaluateChartTitleDockingExpression(this, base.Name, "Docking"), context.ReportRuntime);
 		}
 
-		internal ChartTitlePositions EvaluatePosition(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public ChartTitlePositions EvaluatePosition(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return EnumTranslator.TranslateChartTitlePosition(context.ReportRuntime.EvaluateChartTitlePositionExpression(this, base.Name, "Position"), context.ReportRuntime);
 		}
 
-		internal bool EvaluateDockOutsideChartArea(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluateDockOutsideChartArea(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartTitleDockOutsideChartAreaExpression(this, base.Name, "DockOutsideChartArea");
 		}
 
-		internal int EvaluateDockOffset(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public int EvaluateDockOffset(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartTitleDockOffsetExpression(this, base.Name, "DockOffset");
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartTitleToolTipExpression(this, base.Name, "ToolTip");
 		}
 
-		internal TextOrientations EvaluateTextOrientation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public TextOrientations EvaluateTextOrientation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateTextOrientations(context.ReportRuntime.EvaluateChartTitleTextOrientationExpression(this, base.m_chart.Name), context.ReportRuntime);

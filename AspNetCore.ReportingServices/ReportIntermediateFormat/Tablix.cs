@@ -13,9 +13,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class Tablix : DataRegion, ICreateSubtotals, IPersistable
+	public sealed class Tablix : DataRegion, ICreateSubtotals, IPersistable
 	{
-		internal enum MarginPosition
+		public enum MarginPosition
 		{
 			TopMargin,
 			BottomMargin,
@@ -23,33 +23,33 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			RightMargin
 		}
 
-		internal class InitData
+		public class InitData
 		{
-			internal bool HasFixedColData;
+			public bool HasFixedColData;
 
-			internal int FixedColStartIndex;
+			public int FixedColStartIndex;
 
-			internal int FixedColLength;
+			public int FixedColLength;
 
-			internal bool HasFixedRowData;
+			public bool HasFixedRowData;
 
-			internal bool IsTopLevelDataRegion;
+			public bool IsTopLevelDataRegion;
 
-			internal IList<Pair<double, int>> RowHeaderLevelSizeList;
+			public IList<Pair<double, int>> RowHeaderLevelSizeList;
 
-			internal IList<Pair<double, int>> ColumnHeaderLevelSizeList;
+			public IList<Pair<double, int>> ColumnHeaderLevelSizeList;
 		}
 
 		private class SizeCalculator
 		{
 			private Tablix m_tablix;
 
-			internal SizeCalculator(Tablix tablix)
+			public SizeCalculator(Tablix tablix)
 			{
 				this.m_tablix = tablix;
 			}
 
-			internal void CalculateSizes(InitializationContext context)
+			public void CalculateSizes(InitializationContext context)
 			{
 				if (this.m_tablix.Corner != null)
 				{
@@ -196,17 +196,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 			private Hashtable m_groupingScopes = new Hashtable();
 
-			internal void RegisterGroup(string groupName)
+			public void RegisterGroup(string groupName)
 			{
 				this.m_groupingScopes.Add(groupName, null);
 			}
 
-			internal void UnregisterGroup(string groupName)
+			public void UnregisterGroup(string groupName)
 			{
 				this.m_groupingScopes.Remove(groupName);
 			}
 
-			internal void SetIndexInCollection(TablixCell indexedInCollection)
+			public void SetIndexInCollection(TablixCell indexedInCollection)
 			{
 				Hashtable key = (Hashtable)this.m_groupingScopes.Clone();
 				int num = default(int);
@@ -297,7 +297,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private TablixExprHost m_tablixExprHost;
 
-		internal bool CanScroll
+		public bool CanScroll
 		{
 			get
 			{
@@ -309,7 +309,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ComputeHeight
+		public bool ComputeHeight
 		{
 			get
 			{
@@ -321,7 +321,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ComputeWidth
+		public bool ComputeWidth
 		{
 			get
 			{
@@ -333,7 +333,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool KeepTogether
+		public bool KeepTogether
 		{
 			get
 			{
@@ -345,7 +345,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -353,7 +353,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList ColumnMembers
+		public override HierarchyNodeList ColumnMembers
 		{
 			get
 			{
@@ -361,7 +361,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList RowMembers
+		public override HierarchyNodeList RowMembers
 		{
 			get
 			{
@@ -369,7 +369,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override RowList Rows
+		public override RowList Rows
 		{
 			get
 			{
@@ -377,7 +377,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixMemberList TablixColumnMembers
+		public TablixMemberList TablixColumnMembers
 		{
 			get
 			{
@@ -389,7 +389,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixMemberList TablixRowMembers
+		public TablixMemberList TablixRowMembers
 		{
 			get
 			{
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixRowList TablixRows
+		public TablixRowList TablixRows
 		{
 			get
 			{
@@ -413,7 +413,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<TablixColumn> TablixColumns
+		public List<TablixColumn> TablixColumns
 		{
 			get
 			{
@@ -425,7 +425,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<List<TablixCornerCell>> Corner
+		public List<List<TablixCornerCell>> Corner
 		{
 			get
 			{
@@ -437,7 +437,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PageBreakLocation PropagatedPageBreakLocation
+		public PageBreakLocation PropagatedPageBreakLocation
 		{
 			get
 			{
@@ -449,7 +449,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int InnerRowLevelWithPageBreak
+		public int InnerRowLevelWithPageBreak
 		{
 			get
 			{
@@ -461,7 +461,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int GroupsBeforeRowHeaders
+		public int GroupsBeforeRowHeaders
 		{
 			get
 			{
@@ -473,7 +473,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool LayoutDirection
+		public bool LayoutDirection
 		{
 			get
 			{
@@ -509,7 +509,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool FixedColumnHeaders
+		public bool FixedColumnHeaders
 		{
 			get
 			{
@@ -521,7 +521,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool FixedRowHeaders
+		public bool FixedRowHeaders
 		{
 			get
 			{
@@ -533,7 +533,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ColumnHeaderRowCount
+		public int ColumnHeaderRowCount
 		{
 			get
 			{
@@ -545,7 +545,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int RowHeaderColumnCount
+		public int RowHeaderColumnCount
 		{
 			get
 			{
@@ -557,7 +557,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool OmitBorderOnPageBreak
+		public bool OmitBorderOnPageBreak
 		{
 			get
 			{
@@ -569,7 +569,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HideStaticsIfNoRows
+		public bool HideStaticsIfNoRows
 		{
 			get
 			{
@@ -581,7 +581,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixExprHost TablixExprHost
+		public TablixExprHost TablixExprHost
 		{
 			get
 			{
@@ -589,7 +589,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal BandLayoutOptions BandLayout
+		public BandLayoutOptions BandLayout
 		{
 			get
 			{
@@ -601,7 +601,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TopMargin
+		public ExpressionInfo TopMargin
 		{
 			get
 			{
@@ -613,7 +613,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BottomMargin
+		public ExpressionInfo BottomMargin
 		{
 			get
 			{
@@ -625,7 +625,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LeftMargin
+		public ExpressionInfo LeftMargin
 		{
 			get
 			{
@@ -637,7 +637,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo RightMargin
+		public ExpressionInfo RightMargin
 		{
 			get
 			{
@@ -649,7 +649,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool EnableRowDrilldown
+		public bool EnableRowDrilldown
 		{
 			get
 			{
@@ -661,7 +661,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool EnableColumnDrilldown
+		public bool EnableColumnDrilldown
 		{
 			get
 			{
@@ -685,7 +685,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal InitData InitializationData
+		public InitData InitializationData
 		{
 			get
 			{
@@ -697,7 +697,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<TextBox> InScopeTextBoxes
+		public List<TextBox> InScopeTextBoxes
 		{
 			get
 			{
@@ -705,12 +705,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Tablix(ReportItem parent)
+		public Tablix(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Tablix(int id, ReportItem parent)
+		public Tablix(int id, ReportItem parent)
 			: base(id, parent)
 		{
 		}
@@ -754,7 +754,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.Location |= AspNetCore.ReportingServices.ReportPublishing.LocationFlags.InTablix;
 			context.ObjectType = this.ObjectType;
@@ -910,7 +910,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static void ValidateKeepWithGroup(TablixMemberList members, InitializationContext context)
+		public static void ValidateKeepWithGroup(TablixMemberList members, InitializationContext context)
 		{
 			if (members != null && Tablix.HasDynamic(members))
 			{
@@ -1324,7 +1324,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.UnRegisterReportItems(this.m_tablixRows);
 		}
 
-		internal bool ValidateBandReportItemReference(string reportItemName)
+		public bool ValidateBandReportItemReference(string reportItemName)
 		{
 			if (reportItemName == null)
 			{
@@ -1479,7 +1479,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			Tablix tablix = (Tablix)(context.CurrentDataRegionClone = (Tablix)base.PublishClone(context));
 			if (this.m_tablixColumnMembers != null)
@@ -1725,7 +1725,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal void ValidateBandStructure(PublishingContextStruct context)
+		public void ValidateBandStructure(PublishingContextStruct context)
 		{
 			int num = 0;
 			int num2 = 0;
@@ -1782,7 +1782,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.TablixColumnMembers, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.TablixMember));
@@ -2094,7 +2094,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -2104,7 +2104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
+		public override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
 		{
 			if (this.m_corner != null)
 			{
@@ -2153,12 +2153,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object EvaluateNoRowsMessageExpression()
+		public override object EvaluateNoRowsMessageExpression()
 		{
 			return this.m_tablixExprHost.NoRowsExpr;
 		}
 
-		internal string EvaluateTablixMargin(IReportScopeInstance reportScopeInstance, MarginPosition marginPosition, OnDemandProcessingContext context)
+		public string EvaluateTablixMargin(IReportScopeInstance reportScopeInstance, MarginPosition marginPosition, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateTablixMarginExpression(this, marginPosition);
@@ -2173,7 +2173,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_inScopeTextBoxes.Add(textbox);
 		}
 
-		internal override void ResetTextBoxImpls(OnDemandProcessingContext context)
+		public override void ResetTextBoxImpls(OnDemandProcessingContext context)
 		{
 			if (this.m_inScopeTextBoxes != null)
 			{

@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableInstanceInfo : ReportItemInstanceInfo
+	public sealed class TableInstanceInfo : ReportItemInstanceInfo
 	{
 		private TableColumnInstance[] m_columnInstances;
 
 		private string m_noRows;
 
-		internal TableColumnInstance[] ColumnInstances
+		public TableColumnInstance[] ColumnInstances
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string NoRows
+		public string NoRows
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableInstanceInfo(ReportProcessing.ProcessingContext pc, Table reportItemDef, TableInstance owner)
+		public TableInstanceInfo(ReportProcessing.ProcessingContext pc, Table reportItemDef, TableInstance owner)
 			: base(pc, reportItemDef, owner, true)
 		{
 			this.m_columnInstances = new TableColumnInstance[reportItemDef.TableColumns.Count];
@@ -47,12 +47,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_noRows = pc.ReportRuntime.EvaluateDataRegionNoRowsExpression(reportItemDef, reportItemDef.ObjectType, reportItemDef.Name, "NoRows");
 		}
 
-		internal TableInstanceInfo(Table reportItemDef)
+		public TableInstanceInfo(Table reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ColumnInstances, Token.Array, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.TableColumnInstance));

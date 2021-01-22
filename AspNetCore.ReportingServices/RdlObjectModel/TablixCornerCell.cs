@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TablixCornerCell : ReportObject
+	public class TablixCornerCell : ReportObject
 	{
-		internal class Definition : DefinitionStore<TablixCornerCell, Definition.Properties>
+		public class Definition : DefinitionStore<TablixCornerCell, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				CellContents
 			}
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TablixCornerCell(IPropertyStore propertyStore)
+		public TablixCornerCell(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

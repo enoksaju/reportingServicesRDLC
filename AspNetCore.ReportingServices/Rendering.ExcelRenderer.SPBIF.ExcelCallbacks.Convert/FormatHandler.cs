@@ -7,11 +7,11 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert
 {
-	internal static class FormatHandler
+	public static class FormatHandler
 	{
-		internal const string DEFAULTFORMATFORDATETIME = "G";
+		public const string DEFAULTFORMATFORDATETIME = "G";
 
-		internal const string DEFAULTFORMATFORNUMBER = "General";
+		public const string DEFAULTFORMATFORNUMBER = "General";
 
 		private static string GetShortNumberFormat(char type)
 		{
@@ -999,7 +999,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal static ExcelDataType GetDataType(TypeCode type)
+		public static ExcelDataType GetDataType(TypeCode type)
 		{
 			switch (type)
 			{
@@ -1026,7 +1026,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal static bool IsExcelNumberDataType(TypeCode type)
+		public static bool IsExcelNumberDataType(TypeCode type)
 		{
 			if (FormatHandler.GetDataType(type) == ExcelDataType.Number)
 			{
@@ -1035,7 +1035,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			return false;
 		}
 
-		internal static string GetExcelNumberFormat(string rsNumberFormat, string language, RPLFormat.Calendars rplCalendar, string numeralLanguage, int numeralVariant, TypeCode type, object originalValue, out string hexFormula, out bool invalidFormatCode)
+		public static string GetExcelNumberFormat(string rsNumberFormat, string language, RPLFormat.Calendars rplCalendar, string numeralLanguage, int numeralVariant, TypeCode type, object originalValue, out string hexFormula, out bool invalidFormatCode)
 		{
 			hexFormula = null;
 			string empty = string.Empty;

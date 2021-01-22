@@ -6,7 +6,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class PivotHeading : ReportHierarchyNode
+	public abstract class PivotHeading : ReportHierarchyNode
 	{
 		protected Visibility m_visibility;
 
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		protected Hashtable[] m_cellScopeNames;
 
-		internal PivotHeading SubHeading
+		public PivotHeading SubHeading
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Visibility Visibility
+		public Visibility Visibility
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Subtotal Subtotal
+		public Subtotal Subtotal
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Level
+		public int Level
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsColumn
+		public bool IsColumn
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasExprHost
+		public bool HasExprHost
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int SubtotalSpan
+		public int SubtotalSpan
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList IDs
+		public IntList IDs
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList Aggregates
+		public DataAggregateInfoList Aggregates
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList PostSortAggregates
+		public DataAggregateInfoList PostSortAggregates
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList RecursiveAggregates
+		public DataAggregateInfoList RecursiveAggregates
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NumberOfStatics
+		public int NumberOfStatics
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregatesImpl OutermostSTCellRVCol
+		public AggregatesImpl OutermostSTCellRVCol
 		{
 			get
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregatesImpl CellRVCol
+		public AggregatesImpl CellRVCol
 		{
 			get
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregatesImpl[] OutermostSTCellScopedRVCollections
+		public AggregatesImpl[] OutermostSTCellScopedRVCollections
 		{
 			get
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregatesImpl[] CellScopedRVCollections
+		public AggregatesImpl[] CellScopedRVCollections
 		{
 			get
 			{
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Hashtable[] CellScopeNames
+		public Hashtable[] CellScopeNames
 		{
 			get
 			{
@@ -253,11 +253,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PivotHeading()
+		public PivotHeading()
 		{
 		}
 
-		internal PivotHeading(int id, DataRegion matrixDef)
+		public PivotHeading(int id, DataRegion matrixDef)
 			: base(id, matrixDef)
 		{
 			this.m_aggregates = new DataAggregateInfoList();
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_recursiveAggregates = new DataAggregateInfoList();
 		}
 
-		internal void CopySubHeadingAggregates()
+		public void CopySubHeadingAggregates()
 		{
 			if (this.SubHeading != null)
 			{
@@ -276,7 +276,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void TransferHeadingAggregates()
+		public void TransferHeadingAggregates()
 		{
 			if (this.SubHeading != null)
 			{
@@ -308,7 +308,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_recursiveAggregates = null;
 		}
 
-		internal PivotHeading GetInnerStaticHeading()
+		public PivotHeading GetInnerStaticHeading()
 		{
 			PivotHeading pivotHeading = null;
 			Pivot pivot = (Pivot)base.m_dataRegionDef;
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Visibility, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.Visibility));

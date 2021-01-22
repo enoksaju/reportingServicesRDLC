@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapBucket : ReportObject
+	public class MapBucket : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapBucket, Definition.Properties>
+		public class Definition : DefinitionStore<MapBucket, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				StartValue,
 				EndValue,
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapBucket(IPropertyStore propertyStore)
+		public MapBucket(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

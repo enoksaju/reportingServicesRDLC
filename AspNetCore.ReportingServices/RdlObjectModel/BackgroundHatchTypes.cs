@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum BackgroundHatchTypes
+	public enum BackgroundHatchTypes
 	{
 		Default,
 		None,

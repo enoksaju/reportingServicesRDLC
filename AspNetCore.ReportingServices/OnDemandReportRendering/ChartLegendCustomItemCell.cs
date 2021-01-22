@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartLegendCustomItemCell : ChartObjectCollectionItem<ChartLegendCustomItemCellInstance>, IROMStyleDefinitionContainer, IROMActionOwner
+	public sealed class ChartLegendCustomItemCell : ChartObjectCollectionItem<ChartLegendCustomItemCellInstance>, IROMStyleDefinitionContainer, IROMActionOwner
 	{
 		private Chart m_chart;
 
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendCustomItemCell ChartLegendCustomItemCellDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendCustomItemCell ChartLegendCustomItemCellDef
 		{
 			get
 			{
@@ -268,13 +268,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartLegendCustomItemCell(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendCustomItemCell chartLegendCustomItemCellDef, Chart chart)
+		public ChartLegendCustomItemCell(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendCustomItemCell chartLegendCustomItemCellDef, Chart chart)
 		{
 			this.m_chartLegendCustomItemCellDef = chartLegendCustomItemCellDef;
 			this.m_chart = chart;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_style != null)

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class TablixCell : IDataRegionCell, IDefinitionPath, IReportScope
+	public abstract class TablixCell : IDataRegionCell, IDefinitionPath, IReportScope
 	{
 		private Cell m_cell;
 
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Cell Cell
+		public Cell Cell
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixCell(Cell cell, Tablix owner, int rowIndex, int colIndex)
+		public TablixCell(Cell cell, Tablix owner, int rowIndex, int colIndex)
 		{
 			this.m_cell = cell;
 			this.m_owner = owner;
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.SetNewContext();
 		}
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

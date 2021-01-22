@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapColorScaleInstance : MapDockableSubItemInstance
+	public sealed class MapColorScaleInstance : MapDockableSubItemInstance
 	{
 		private MapColorScale m_defObject;
 
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapColorScaleInstance(MapColorScale defObject)
+		public MapColorScaleInstance(MapColorScale defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

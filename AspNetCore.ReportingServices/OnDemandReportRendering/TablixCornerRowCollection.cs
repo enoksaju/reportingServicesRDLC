@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixCornerRowCollection : ReportElementCollectionBase<TablixCornerRow>
+	public sealed class TablixCornerRowCollection : ReportElementCollectionBase<TablixCornerRow>
 	{
 		private Tablix m_owner;
 
@@ -49,12 +49,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixCornerRowCollection(Tablix owner)
+		public TablixCornerRowCollection(Tablix owner)
 		{
 			this.m_owner = owner;
 		}
 
-		internal void ResetContext()
+		public void ResetContext()
 		{
 			if (this.m_owner.IsOldSnapshot && 0 < this.Count && this.m_cornerRows != null && this.m_cornerRows[0] != null)
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (!this.m_owner.IsOldSnapshot && this.m_cornerRows != null)
 			{

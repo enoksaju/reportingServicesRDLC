@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CriImageInstance : ImageInstance
+	public sealed class CriImageInstance : ImageInstance
 	{
 		private byte[] m_imageData;
 
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override string ImageDataId
+		public override string ImageDataId
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool IsNullImage
+		public override bool IsNullImage
 		{
 			get
 			{
@@ -120,13 +120,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CriImageInstance(Image reportItemDef)
+		public CriImageInstance(Image reportItemDef)
 			: base(reportItemDef)
 		{
 			Global.Tracer.Assert(base.m_reportElementDef.CriOwner != null, "Expected CRI Owner");
 		}
 
-		internal override List<string> GetFieldsUsedInValueExpression()
+		public override List<string> GetFieldsUsedInValueExpression()
 		{
 			return null;
 		}
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_actionInfoImageMapAreas = null;
 		}
 
-		internal override void Serialize(IntermediateFormatWriter writer)
+		public override void Serialize(IntermediateFormatWriter writer)
 		{
 			base.Serialize(writer);
 			writer.RegisterDeclaration(CriImageInstance.m_Declaration);
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void Deserialize(IntermediateFormatReader reader)
+		public override void Deserialize(IntermediateFormatReader reader)
 		{
 			base.Deserialize(reader);
 			reader.RegisterDeclaration(CriImageInstance.m_Declaration);
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType GetObjectType()
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType GetObjectType()
 		{
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ImageInstance;
 		}

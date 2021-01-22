@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal interface IContainedObject
+	public interface IContainedObject
 	{
 		IContainedObject Parent
 		{

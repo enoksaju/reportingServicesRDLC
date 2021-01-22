@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class AxisCrossingValueConverter : AxisMinMaxValueConverter
+	public class AxisCrossingValueConverter : AxisMinMaxValueConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ReportItemCollection
+	public sealed class ReportItemCollection
 	{
 		private ReportItem[] m_reportItems;
 
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportItemCollection(AspNetCore.ReportingServices.ReportProcessing.ReportItemCollection reportItemColDef, ReportItemColInstance reportItemColInstance, RenderingContext renderingContext, NonComputedUniqueNames[] childrenNonComputedUniqueNames)
+		public ReportItemCollection(AspNetCore.ReportingServices.ReportProcessing.ReportItemCollection reportItemColDef, ReportItemColInstance reportItemColInstance, RenderingContext renderingContext, NonComputedUniqueNames[] childrenNonComputedUniqueNames)
 		{
 			if (reportItemColInstance != null)
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			throw new RenderingObjectModelException(ProcessingErrorCode.rsInvalidParameterRange, index, 0, this.Count);
 		}
 
-		internal bool Search(SearchContext searchContext)
+		public bool Search(SearchContext searchContext)
 		{
 			if (this.m_reportItemColDef.Count == 0)
 			{

@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[Description("Legend collection.")]
-	internal class LegendCollection : NamedCollection
+	public class LegendCollection : NamedCollection
 	{
 		private Legend this[int index]
 		{
@@ -60,7 +60,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal LegendCollection(NamedElement parent, CommonElements common)
+		public LegendCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(Legend);
@@ -72,7 +72,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.Invalidate();
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (base.Common != null)
 			{
@@ -98,12 +98,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Remove(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Legend1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Legend{0}";
 		}

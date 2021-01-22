@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class FitProportionalImageElement : ComboElement
+	public sealed class FitProportionalImageElement : ComboElement
 	{
 		public FitProportionalImageElement(string url, float width, string role = null, string altText = null, string ariaLabel = null, Dictionary<string, string> customAttributes = null)
 			: base(new DivElement

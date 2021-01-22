@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<MapLineLayerExprHost> m_mapLineLayersHostsRemotable;
 
-		internal IList<MapPolygonLayerExprHost> MapPolygonLayersHostsRemotable
+		public IList<MapPolygonLayerExprHost> MapPolygonLayersHostsRemotable
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapPointLayerExprHost> MapPointLayersHostsRemotable
+		public IList<MapPointLayerExprHost> MapPointLayersHostsRemotable
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapLineLayerExprHost> MapLineLayersHostsRemotable
+		public IList<MapLineLayerExprHost> MapLineLayersHostsRemotable
 		{
 			get
 			{

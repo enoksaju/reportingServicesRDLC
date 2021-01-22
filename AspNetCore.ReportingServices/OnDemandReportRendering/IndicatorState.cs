@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class IndicatorState : GaugePanelObjectCollectionItem
+	public sealed class IndicatorState : GaugePanelObjectCollectionItem
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.IndicatorState IndicatorStateDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.IndicatorState IndicatorStateDef
 		{
 			get
 			{
@@ -137,13 +137,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IndicatorState(AspNetCore.ReportingServices.ReportIntermediateFormat.IndicatorState defObject, GaugePanel gaugePanel)
+		public IndicatorState(AspNetCore.ReportingServices.ReportIntermediateFormat.IndicatorState defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

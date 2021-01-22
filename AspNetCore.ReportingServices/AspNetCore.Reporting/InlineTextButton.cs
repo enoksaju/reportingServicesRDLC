@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class InlineTextButton 
+	public sealed class InlineTextButton 
 	{
 		
 

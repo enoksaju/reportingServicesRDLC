@@ -2,13 +2,13 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class PDFUriAction
+	public sealed class PDFUriAction
 	{
-		internal string Uri;
+		public string Uri;
 
-		internal RectangleF Rectangle;
+		public RectangleF Rectangle;
 
-		internal PDFUriAction(string uri, RectangleF rectangle)
+		public PDFUriAction(string uri, RectangleF rectangle)
 		{
 			this.Uri = uri;
 			this.Rectangle = rectangle;

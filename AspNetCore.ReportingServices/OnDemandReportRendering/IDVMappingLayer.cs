@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IDVMappingLayer : IDisposable
+	public interface IDVMappingLayer : IDisposable
 	{
 		float DpiX
 		{

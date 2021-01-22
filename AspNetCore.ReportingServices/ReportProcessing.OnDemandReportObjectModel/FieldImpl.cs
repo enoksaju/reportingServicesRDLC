@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel
 {
-	internal class FieldImpl : AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.Field, IStorable, IPersistable
+	public class FieldImpl : AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.Field, IStorable, IPersistable
 	{
 		[StaticReference]
 		private ObjectModelImpl m_reportOM;
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal DataFieldStatus FieldStatus
+		public DataFieldStatus FieldStatus
 		{
 			get
 			{
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal string ExceptionMessage
+		public string ExceptionMessage
 		{
 			get
 			{
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool IsAggregationField
+		public bool IsAggregationField
 		{
 			get
 			{
@@ -255,7 +255,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool AggregationFieldChecked
+		public bool AggregationFieldChecked
 		{
 			get
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal new Hashtable Properties
+		public new Hashtable Properties
 		{
 			get
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Field FieldDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Field FieldDef
 		{
 			get
 			{
@@ -283,7 +283,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool UsedInExpression
+		public bool UsedInExpression
 		{
 			get
 			{
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool IsCalculatedField
+		public bool IsCalculatedField
 		{
 			get
 			{
@@ -315,18 +315,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal FieldImpl()
+		public FieldImpl()
 		{
 		}
 
-		internal FieldImpl(ObjectModelImpl reportOM, object value, bool isAggregationField, AspNetCore.ReportingServices.ReportIntermediateFormat.Field fieldDef)
+		public FieldImpl(ObjectModelImpl reportOM, object value, bool isAggregationField, AspNetCore.ReportingServices.ReportIntermediateFormat.Field fieldDef)
 		{
 			this.m_reportOM = reportOM;
 			this.m_fieldDef = fieldDef;
 			this.UpdateValue(value, isAggregationField, DataFieldStatus.None, null);
 		}
 
-		internal FieldImpl(ObjectModelImpl reportOM, DataFieldStatus status, string exceptionMessage, AspNetCore.ReportingServices.ReportIntermediateFormat.Field fieldDef)
+		public FieldImpl(ObjectModelImpl reportOM, DataFieldStatus status, string exceptionMessage, AspNetCore.ReportingServices.ReportIntermediateFormat.Field fieldDef)
 		{
 			this.m_reportOM = reportOM;
 			this.m_fieldDef = fieldDef;
@@ -334,7 +334,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.UpdateValue(null, false, status, exceptionMessage);
 		}
 
-		internal void UpdateValue(object value, bool isAggregationField, DataFieldStatus status, string exceptionMessage)
+		public void UpdateValue(object value, bool isAggregationField, DataFieldStatus status, string exceptionMessage)
 		{
 			this.m_value = value;
 			this.m_isAggregationField = isAggregationField;
@@ -345,7 +345,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_properties = null;
 		}
 
-		internal bool ResetCalculatedField()
+		public bool ResetCalculatedField()
 		{
 			if (this.m_value == null)
 			{
@@ -357,12 +357,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return true;
 		}
 
-		internal void SetValue(object value)
+		public void SetValue(object value)
 		{
 			this.m_value = value;
 		}
 
-		internal void SetProperty(string propertyName, object propertyValue)
+		public void SetProperty(string propertyName, object propertyValue)
 		{
 			if (this.m_properties == null)
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_properties[propertyName] = propertyValue;
 		}
 
-		internal object GetProperty(string propertyName)
+		public object GetProperty(string propertyName)
 		{
 			if (this.m_properties == null)
 			{

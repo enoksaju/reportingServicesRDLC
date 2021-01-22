@@ -7,11 +7,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Report : ReportObject
+	public class Report : ReportObject
 	{
-		internal class Definition : DefinitionStore<Report, Definition.Properties>
+		public class Definition : DefinitionStore<Report, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Description,
 				DescriptionLocID,
@@ -407,7 +407,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Report(IPropertyStore propertyStore)
+		public Report(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

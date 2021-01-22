@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartIncludeZeroTypes
+	public enum ChartIncludeZeroTypes
 	{
 		Auto,
 		True,

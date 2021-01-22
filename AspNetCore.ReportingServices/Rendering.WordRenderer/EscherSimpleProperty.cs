@@ -2,11 +2,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherSimpleProperty : EscherProperty
+	public class EscherSimpleProperty : EscherProperty
 	{
 		protected internal int m_propertyValue;
 
-		internal virtual int PropertyValue
+		public virtual int PropertyValue
 		{
 			get
 			{
@@ -18,26 +18,26 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherSimpleProperty(ushort id, int propertyValue)
+		public EscherSimpleProperty(ushort id, int propertyValue)
 			: base(id)
 		{
 			this.m_propertyValue = propertyValue;
 		}
 
-		internal EscherSimpleProperty(ushort propertyNumber, bool isComplex, bool isBlipId, int propertyValue)
+		public EscherSimpleProperty(ushort propertyNumber, bool isComplex, bool isBlipId, int propertyValue)
 			: base(propertyNumber, isComplex, isBlipId)
 		{
 			this.m_propertyValue = propertyValue;
 		}
 
-		internal override int serializeSimplePart(BinaryWriter dataWriter)
+		public override int serializeSimplePart(BinaryWriter dataWriter)
 		{
 			dataWriter.Write(this.Id);
 			dataWriter.Write(this.m_propertyValue);
 			return 6;
 		}
 
-		internal override int serializeComplexPart(BinaryWriter dataWriter)
+		public override int serializeComplexPart(BinaryWriter dataWriter)
 		{
 			return 0;
 		}

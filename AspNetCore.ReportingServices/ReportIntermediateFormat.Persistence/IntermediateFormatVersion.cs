@@ -8,7 +8,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
 	[Serializable]
-	internal class IntermediateFormatVersion : IPersistable
+	public class IntermediateFormatVersion : IPersistable
 	{
 		private int m_major;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 		[NonSerialized]
 		private static IntermediateFormatVersion m_sql16;
 
-		internal int Major
+		public int Major
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal int Minor
+		public int Minor
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal int Build
+		public int Build
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal bool IsOldVersion
+		public bool IsOldVersion
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal static IntermediateFormatVersion Current
+		public static IntermediateFormatVersion Current
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal static IntermediateFormatVersion SQL16
+		public static IntermediateFormatVersion SQL16
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal static IntermediateFormatVersion RTM2008
+		public static IntermediateFormatVersion RTM2008
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal static IntermediateFormatVersion BIRefresh
+		public static IntermediateFormatVersion BIRefresh
 		{
 			get
 			{
@@ -123,12 +123,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal IntermediateFormatVersion()
+		public IntermediateFormatVersion()
 		{
 			this.SetCurrent();
 		}
 
-		internal IntermediateFormatVersion(int major, int minor, int build)
+		public IntermediateFormatVersion(int major, int minor, int build)
 		{
 			this.m_major = major;
 			this.m_minor = minor;
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return num + fileVersion.FilePrivatePart % 100;
 		}
 
-		internal static void DecodeFileVersion(int version, out int major, out int minor, out int build, out int buildminor)
+		public static void DecodeFileVersion(int version, out int major, out int minor, out int build, out int buildminor)
 		{
 			major = 0;
 			minor = 0;
@@ -192,14 +192,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void SetCurrent()
+		public void SetCurrent()
 		{
 			this.m_major = IntermediateFormatVersion.m_current.Major;
 			this.m_minor = IntermediateFormatVersion.m_current.Minor;
 			this.m_build = IntermediateFormatVersion.m_current.Build;
 		}
 
-		internal int CompareTo(int major, int minor, int build)
+		public int CompareTo(int major, int minor, int build)
 		{
 			int num = this.Compare(this.m_major, major);
 			if (num == 0)
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return num;
 		}
 
-		internal int CompareTo(IntermediateFormatVersion version)
+		public int CompareTo(IntermediateFormatVersion version)
 		{
 			int num = this.Compare(this.m_major, version.Major);
 			if (num == 0)
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return this.m_major.ToString(CultureInfo.InvariantCulture) + "." + this.m_minor.ToString(CultureInfo.InvariantCulture) + "." + num3.ToString(CultureInfo.InvariantCulture) + "." + num4.ToString(CultureInfo.InvariantCulture);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.IntermediateFormatVersionMajor, Token.Int32));

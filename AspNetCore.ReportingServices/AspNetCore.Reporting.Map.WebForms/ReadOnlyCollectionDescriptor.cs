@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ReadOnlyCollectionDescriptor : PropertyDescriptor
+	public class ReadOnlyCollectionDescriptor : PropertyDescriptor
 	{
 		public override Type ComponentType
 		{

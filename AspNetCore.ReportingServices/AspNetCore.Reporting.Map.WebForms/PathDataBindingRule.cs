@@ -3,7 +3,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(PathDataBindingRuleConverter))]
-	internal class PathDataBindingRule : DataBindingRuleBase
+	public class PathDataBindingRule : DataBindingRuleBase
 	{
 		[SRCategory("CategoryAttribute_Data")]
 		[SRDescription("DescriptionAttributePathDataBindingRule_BindingField")]
@@ -24,12 +24,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal PathDataBindingRule(CommonElements common)
+		public PathDataBindingRule(CommonElements common)
 			: base(common)
 		{
 		}
 
-		internal override void DataBind()
+		public override void DataBind()
 		{
 			if (this.Common != null)
 			{

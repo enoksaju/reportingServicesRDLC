@@ -4,9 +4,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ThreeDProperties
+	public sealed class ThreeDProperties
 	{
-		internal enum ShadingTypes
+		public enum ShadingTypes
 		{
 			None,
 			Simple,
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private bool m_clustered;
 
-		internal bool Enabled
+		public bool Enabled
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PerspectiveProjectionMode
+		public bool PerspectiveProjectionMode
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Rotation
+		public int Rotation
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Inclination
+		public int Inclination
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Perspective
+		public int Perspective
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int HeightRatio
+		public int HeightRatio
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int DepthRatio
+		public int DepthRatio
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ShadingTypes Shading
+		public ShadingTypes Shading
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int GapDepth
+		public int GapDepth
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int WallThickness
+		public int WallThickness
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool DrawingStyleCube
+		public bool DrawingStyleCube
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Clustered
+		public bool Clustered
 		{
 			get
 			{
@@ -181,11 +181,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Enabled, Token.Boolean));

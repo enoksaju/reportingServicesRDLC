@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class RuleMapper
+	public class RuleMapper
 	{
 		protected RuleBase m_coreRule;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RuleMapper(MapAppearanceRule mapRule, VectorLayerMapper vectorLayerMapper, CoreSpatialElementManager coreSpatialElementManager)
+		public RuleMapper(MapAppearanceRule mapRule, VectorLayerMapper vectorLayerMapper, CoreSpatialElementManager coreSpatialElementManager)
 		{
 			this.m_mapRule = mapRule;
 			this.m_mapVectorLayer = vectorLayerMapper.m_mapVectorLayer;
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_mapMapper = vectorLayerMapper.m_mapMapper;
 		}
 
-		internal bool HasDataValue(ISpatialElement element)
+		public bool HasDataValue(ISpatialElement element)
 		{
 			if (this.m_mapRule.DataValue != null)
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_endValue;
 		}
 
-		internal void SetRuleFieldValue(ISpatialElement spatialElement)
+		public void SetRuleFieldValue(ISpatialElement spatialElement)
 		{
 			if (this.m_fieldNameBased.HasValue && this.m_fieldNameBased.Value)
 			{
@@ -406,7 +406,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return "";
 		}
 
-		internal ShapeRule CreatePolygonRule()
+		public ShapeRule CreatePolygonRule()
 		{
 			ShapeRule shapeRule = (ShapeRule)(this.m_coreRule = new ShapeRule());
 			shapeRule.BorderColor = Color.Empty;
@@ -418,7 +418,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return shapeRule;
 		}
 
-		internal virtual SymbolRule CreateSymbolRule()
+		public virtual SymbolRule CreateSymbolRule()
 		{
 			SymbolRule symbolRule = (SymbolRule)(this.m_coreRule = new SymbolRule());
 			symbolRule.Category = this.m_mapVectorLayer.Name;

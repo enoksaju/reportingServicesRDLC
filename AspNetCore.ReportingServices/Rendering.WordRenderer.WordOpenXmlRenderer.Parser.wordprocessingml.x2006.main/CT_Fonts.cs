@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_Fonts : OoxmlComplexType, IOoxmlComplexType
+	public class CT_Fonts : OoxmlComplexType, IOoxmlComplexType
 	{
 		private string _ascii_attr;
 

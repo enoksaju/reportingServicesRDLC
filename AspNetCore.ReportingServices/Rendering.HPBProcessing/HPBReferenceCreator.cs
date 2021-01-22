@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class HPBReferenceCreator : IReferenceCreator
+	public class HPBReferenceCreator : IReferenceCreator
 	{
 		private static HPBReferenceCreator m_instance = new HPBReferenceCreator();
 
-		internal static HPBReferenceCreator Instance
+		public static HPBReferenceCreator Instance
 		{
 			get
 			{

@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal abstract class ReportItem : IDocumentMapEntry
+	public abstract class ReportItem : IDocumentMapEntry
 	{
 		private string m_uniqueName;
 
@@ -440,7 +440,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TextBox ToggleParent
+		public TextBox ToggleParent
 		{
 			get
 			{
@@ -597,7 +597,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportItem ReportItemDef
+		public AspNetCore.ReportingServices.ReportProcessing.ReportItem ReportItemDef
 		{
 			get
 			{
@@ -605,7 +605,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportItemInstance ReportItemInstance
+		public ReportItemInstance ReportItemInstance
 		{
 			get
 			{
@@ -613,7 +613,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportItemInstanceInfo InstanceInfo
+		public ReportItemInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -633,7 +633,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -645,7 +645,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MatrixHeadingInstance HeadingInstance
+		public MatrixHeadingInstance HeadingInstance
 		{
 			get
 			{
@@ -672,7 +672,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportItemProcessing Processing
+		public ReportItemProcessing Processing
 		{
 			get
 			{
@@ -687,7 +687,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool UseCache
+		public bool UseCache
 		{
 			get
 			{
@@ -711,7 +711,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool SkipSearch
+		public bool SkipSearch
 		{
 			get
 			{
@@ -739,7 +739,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_members = new ReportItemProcessing();
 		}
 
-		internal ReportItem(AspNetCore.ReportingServices.ReportProcessing.CustomReportItem criDef, CustomReportItemInstance criInstance, CustomReportItemInstanceInfo instanceInfo)
+		public ReportItem(AspNetCore.ReportingServices.ReportProcessing.CustomReportItem criDef, CustomReportItemInstance criInstance, CustomReportItemInstanceInfo instanceInfo)
 		{
 			this.m_members = new ReportItemRendering();
 			this.Rendering.m_reportItemDef = criDef;
@@ -748,7 +748,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_intUniqueName = criInstance.UniqueName;
 		}
 
-		internal ReportItem(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext)
+		public ReportItem(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext)
 		{
 			this.m_members = new ReportItemRendering();
 			this.m_uniqueName = uniqueName;
@@ -787,12 +787,12 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			throw new RenderingObjectModelException(ProcessingErrorCode.rsInvalidOperation);
 		}
 
-		internal virtual bool Search(SearchContext searchContext)
+		public virtual bool Search(SearchContext searchContext)
 		{
 			return false;
 		}
 
-		internal static int StringToInt(string intAsString)
+		public static int StringToInt(string intAsString)
 		{
 			int result = -1;
 			if (int.TryParse(intAsString, NumberStyles.None, (IFormatProvider)CultureInfo.InvariantCulture, out result))
@@ -802,7 +802,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return -1;
 		}
 
-		internal static ReportItem CreateItem(int indexIntoParentCollection, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext, NonComputedUniqueNames nonComputedUniqueNames)
+		public static ReportItem CreateItem(int indexIntoParentCollection, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext, NonComputedUniqueNames nonComputedUniqueNames)
 		{
 			string uniqueName = null;
 			if (renderingContext.InPageSection)
@@ -812,7 +812,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return ReportItem.CreateItem(uniqueName, reportItemDef, reportItemInstance, renderingContext, nonComputedUniqueNames);
 		}
 
-		internal static ReportItem CreateItem(string uniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext, NonComputedUniqueNames nonComputedUniqueNames)
+		public static ReportItem CreateItem(string uniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext, NonComputedUniqueNames nonComputedUniqueNames)
 		{
 			if (reportItemDef == null)
 			{

@@ -2,11 +2,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapColorRangeRule : MapColorRule
+	public class MapColorRangeRule : MapColorRule
 	{
-		internal new class Definition : DefinitionStore<MapColorRangeRule, Definition.Properties>
+		public new class Definition : DefinitionStore<MapColorRangeRule, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataValue,
 				DistributionType,
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapColorRangeRule(IPropertyStore propertyStore)
+		public MapColorRangeRule(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

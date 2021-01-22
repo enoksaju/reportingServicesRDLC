@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class TablixMemberInstance : BaseInstance
+	public class TablixMemberInstance : BaseInstance
 	{
 		protected Tablix m_owner;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixMemberInstance(Tablix owner, TablixMember memberDef)
+		public TablixMemberInstance(Tablix owner, TablixMember memberDef)
 			: base(memberDef.ReportScope)
 		{
 			this.m_owner = owner;

@@ -8,20 +8,20 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal static class RPLReader
+	public static class RPLReader
 	{
-		internal static long ReadOffset(BinaryReader reader)
+		public static long ReadOffset(BinaryReader reader)
 		{
 			return reader.ReadInt64();
 		}
 
-		internal static byte ReadItemType(long startOffset, BinaryReader reader)
+		public static byte ReadItemType(long startOffset, BinaryReader reader)
 		{
 			reader.BaseStream.Seek(startOffset, SeekOrigin.Begin);
 			return reader.ReadByte();
 		}
 
-		internal static long ResolveReportItemEnd(long offsetEnd, BinaryReader reader, ref byte itemType)
+		public static long ResolveReportItemEnd(long offsetEnd, BinaryReader reader, ref byte itemType)
 		{
 			reader.BaseStream.Seek(offsetEnd, SeekOrigin.Begin);
 			reader.ReadByte();
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return num;
 		}
 
-		internal static RPLMeasurement[] ReadMeasurements(RPLContext context, BinaryReader reader)
+		public static RPLMeasurement[] ReadMeasurements(RPLContext context, BinaryReader reader)
 		{
 			int num = reader.ReadInt32();
 			if (num > 0)
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return null;
 		}
 
-		internal static RPLItemMeasurement[] ReadItemMeasurements(RPLContext context, BinaryReader reader)
+		public static RPLItemMeasurement[] ReadItemMeasurements(RPLContext context, BinaryReader reader)
 		{
 			int num = reader.ReadInt32();
 			if (num > 0)
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal static void ReadReport(RPLReport report, RPLContext context)
+		public static void ReadReport(RPLReport report, RPLContext context)
 		{
 			BinaryReader binaryReader = context.BinaryReader;
 			Version version = null;
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal static DateTime ReadDateTimeFromBinary(long dateTime)
+		public static DateTime ReadDateTimeFromBinary(long dateTime)
 		{
 			return DateTime.FromBinary(dateTime);
 		}
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return rPLVersionEnum;
 		}
 
-		internal static RPLVersionEnum CompareRPLVersions(Version clientRPLVersion)
+		public static RPLVersionEnum CompareRPLVersions(Version clientRPLVersion)
 		{
 			int major = clientRPLVersion.Major;
 			int minor = clientRPLVersion.Minor;
@@ -298,7 +298,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			throw new ArgumentException(RPLRes.UnsupportedRPLVersion(clientRPLVersion.ToString(3), "10.6"));
 		}
 
-		internal static void ReadPageContent(RPLPageContent pageContent, long endOffset, RPLContext context)
+		public static void ReadPageContent(RPLPageContent pageContent, long endOffset, RPLContext context)
 		{
 			BinaryReader binaryReader = context.BinaryReader;
 			byte b = 0;
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal static void ReadPageContent2008(RPLPageContent pageContent, long endOffset, RPLContext context)
+		public static void ReadPageContent2008(RPLPageContent pageContent, long endOffset, RPLContext context)
 		{
 			BinaryReader binaryReader = context.BinaryReader;
 			byte b = 0;
@@ -421,7 +421,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			pageContent.AddReportSection(rPLReportSection);
 		}
 
-		internal static void ReadPageLayoutProps(RPLPageLayout pageLayout, RPLContext context, BinaryReader reader)
+		public static void ReadPageLayoutProps(RPLPageLayout pageLayout, RPLContext context, BinaryReader reader)
 		{
 			reader.ReadByte();
 			byte b = reader.ReadByte();
@@ -511,7 +511,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal static RPLReportSection ReadReportSection(long endOffset, RPLContext context)
+		public static RPLReportSection ReadReportSection(long endOffset, RPLContext context)
 		{
 			RPLReportSection rPLReportSection = null;
 			byte b = 0;
@@ -583,7 +583,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return rPLReportSection;
 		}
 
-		internal static void ReadReportSectionProps(RPLReportSection section, BinaryReader reader)
+		public static void ReadReportSectionProps(RPLReportSection section, BinaryReader reader)
 		{
 			reader.ReadByte();
 			byte b = reader.ReadByte();
@@ -635,13 +635,13 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return new RPLElementStyle(rPLStyleProps2, rPLStyleProps);
 		}
 
-		internal static RPLItemProps ReadElementProps(long startOffset, RPLContext context)
+		public static RPLItemProps ReadElementProps(long startOffset, RPLContext context)
 		{
 			byte b = 0;
 			return RPLReader.ReadElementProps(startOffset, context, out b);
 		}
 
-		internal static RPLItemProps ReadElementProps(long startOffset, RPLContext context, out byte elementType)
+		public static RPLItemProps ReadElementProps(long startOffset, RPLContext context, out byte elementType)
 		{
 			BinaryReader binaryReader = context.BinaryReader;
 			binaryReader.BaseStream.Seek(startOffset, SeekOrigin.Begin);
@@ -678,13 +678,13 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return rPLItemProps;
 		}
 
-		internal static RPLItemPropsDef ReadElementPropsDef(long startOffset, RPLContext context)
+		public static RPLItemPropsDef ReadElementPropsDef(long startOffset, RPLContext context)
 		{
 			byte b = 0;
 			return RPLReader.ReadElementPropsDef(startOffset, context, out b);
 		}
 
-		internal static RPLItemPropsDef ReadElementPropsDef(long startOffset, RPLContext context, out byte elementType)
+		public static RPLItemPropsDef ReadElementPropsDef(long startOffset, RPLContext context, out byte elementType)
 		{
 			BinaryReader binaryReader = context.BinaryReader;
 			binaryReader.BaseStream.Seek(startOffset, SeekOrigin.Begin);
@@ -953,7 +953,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return rPLImageData;
 		}
 
-		internal static RPLTextBox ReadTextBoxStructure(long startOffset, RPLContext m_context)
+		public static RPLTextBox ReadTextBoxStructure(long startOffset, RPLContext m_context)
 		{
 			RPLTextBox rPLTextBox = new RPLTextBox(startOffset, m_context);
 			rPLTextBox.ParagraphCount = m_context.BinaryReader.ReadInt32();
@@ -961,7 +961,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return rPLTextBox;
 		}
 
-		internal static RPLParagraph ReadParagraph(long paragraphOffset, RPLContext context)
+		public static RPLParagraph ReadParagraph(long paragraphOffset, RPLContext context)
 		{
 			BinaryReader binaryReader = context.BinaryReader;
 			binaryReader.BaseStream.Seek(paragraphOffset, SeekOrigin.Begin);
@@ -1047,7 +1047,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return rPLParagraphProps;
 		}
 
-		internal static RPLTextRun ReadTextRun(long textRunOffset, RPLContext context)
+		public static RPLTextRun ReadTextRun(long textRunOffset, RPLContext context)
 		{
 			BinaryReader binaryReader = context.BinaryReader;
 			binaryReader.BaseStream.Seek(textRunOffset, SeekOrigin.Begin);
@@ -1130,7 +1130,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return rPLTextRunProps;
 		}
 
-		internal static void ReadTablixStructure(RPLTablix tablix, RPLContext context, BinaryReader reader)
+		public static void ReadTablixStructure(RPLTablix tablix, RPLContext context, BinaryReader reader)
 		{
 			int num = 0;
 			bool flag = false;
@@ -1214,7 +1214,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal static RPLTablixMemberDef ReadTablixMemberDef(BinaryReader reader)
+		public static RPLTablixMemberDef ReadTablixMemberDef(BinaryReader reader)
 		{
 			reader.ReadByte();
 			RPLTablixMemberDef rPLTablixMemberDef = new RPLTablixMemberDef();
@@ -1242,7 +1242,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal static RPLTablixRow ReadTablixRow(long rowOffset, RPLContext context, RPLTablixMemberDef[] rowMembersDef, RPLTablixMemberDef[] colMembersDef, ref long nextRowStart)
+		public static RPLTablixRow ReadTablixRow(long rowOffset, RPLContext context, RPLTablixMemberDef[] rowMembersDef, RPLTablixMemberDef[] colMembersDef, ref long nextRowStart)
 		{
 			BinaryReader binaryReader = context.BinaryReader;
 			binaryReader.BaseStream.Seek(rowOffset, SeekOrigin.Begin);

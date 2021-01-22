@@ -1,8 +1,8 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal static class StringHashCodeConverter
+	public static class StringHashCodeConverter
 	{
-		internal static short[] hashCodes200 = new short[337]
+		public static short[] hashCodes200 = new short[337]
 		{
 			30842,
 			-1250,
@@ -343,7 +343,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			-8648
 		};
 
-		internal static short[] hashCodes300 = new short[337]
+		public static short[] hashCodes300 = new short[337]
 		{
 			30668,
 			22654,

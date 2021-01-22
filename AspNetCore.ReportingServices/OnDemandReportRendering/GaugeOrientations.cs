@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeOrientations
+	public enum GaugeOrientations
 	{
 		Auto,
 		Horizontal,

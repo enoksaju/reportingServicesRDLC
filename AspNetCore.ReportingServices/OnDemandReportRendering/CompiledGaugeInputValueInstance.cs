@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CompiledGaugeInputValueInstance
+	public sealed class CompiledGaugeInputValueInstance
 	{
 		private object m_value;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CompiledGaugeInputValueInstance(object value)
+		public CompiledGaugeInputValueInstance(object value)
 		{
 			this.m_value = value;
 		}

@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class CustomAttributeTypeConverter : TypeConverter
+	public class CustomAttributeTypeConverter : TypeConverter
 	{
 		protected class CustomAttributesPropertyDescriptor : SimplePropertyDescriptor
 		{
@@ -15,14 +15,14 @@ namespace AspNetCore.Reporting.Chart.WebForms.Design
 
 			private CustomAttributeInfo customAttributeInfo;
 
-			internal CustomAttributesPropertyDescriptor(Type componentType, string name, Type propertyType, Attribute[] attributes, CustomAttributeInfo customAttributeInfo)
+			public CustomAttributesPropertyDescriptor(Type componentType, string name, Type propertyType, Attribute[] attributes, CustomAttributeInfo customAttributeInfo)
 				: base(componentType, name, propertyType, attributes)
 			{
 				this.name = name;
 				this.customAttributeInfo = customAttributeInfo;
 			}
 
-			internal CustomAttributeInfo GetCustomAttributeInfo()
+			public CustomAttributeInfo GetCustomAttributeInfo()
 			{
 				return this.customAttributeInfo;
 			}

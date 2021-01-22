@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class Position
+	public class Position
 	{
 		private MapLocation location;
 
@@ -54,7 +54,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal RectangleF Rectangle
+		public RectangleF Rectangle
 		{
 			get
 			{

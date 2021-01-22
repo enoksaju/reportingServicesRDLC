@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal enum MatrixLayoutDirection
+	public enum MatrixLayoutDirection
 	{
 		LTR,
 		RTL

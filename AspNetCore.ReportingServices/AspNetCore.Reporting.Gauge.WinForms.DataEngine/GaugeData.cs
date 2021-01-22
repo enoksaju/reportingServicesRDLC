@@ -20,14 +20,14 @@ namespace AspNetCore.Reporting.Gauge.WinForms.DataEngine
 	[XmlSchemaProvider("GetTypedDataSetSchema")]
 	[GeneratedCode("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
 	[DesignerCategory("code")]
-	internal class GaugeData : DataSet
+	public class GaugeData : DataSet
 	{
 		public delegate void ValuesRowChangeEventHandler(object sender, ValuesRowChangeEvent e);
 
 		[Serializable]
 		[XmlSchemaProvider("GetTypedTableSchema")]
 		[GeneratedCode("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-		internal class ValuesDataTable : DataTable, IEnumerable
+		public class ValuesDataTable : DataTable, IEnumerable
 		{
 			private DataColumn columnDateStamp;
 
@@ -88,7 +88,7 @@ namespace AspNetCore.Reporting.Gauge.WinForms.DataEngine
 			}
 
 			[DebuggerNonUserCode]
-			internal ValuesDataTable(DataTable table)
+			public ValuesDataTable(DataTable table)
 			{
 				base.TableName = table.TableName;
 				if (table.CaseSensitive != table.DataSet.CaseSensitive)
@@ -163,7 +163,7 @@ namespace AspNetCore.Reporting.Gauge.WinForms.DataEngine
 			}
 
 			[DebuggerNonUserCode]
-			internal void InitVars()
+			public void InitVars()
 			{
 				this.columnDateStamp = base.Columns["DateStamp"];
 				this.columnValue = base.Columns["Value"];
@@ -280,7 +280,7 @@ namespace AspNetCore.Reporting.Gauge.WinForms.DataEngine
 		}
 
 		[GeneratedCode("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-		internal class ValuesRow : DataRow
+		public class ValuesRow : DataRow
 		{
 			private ValuesDataTable tableValues;
 
@@ -318,7 +318,7 @@ namespace AspNetCore.Reporting.Gauge.WinForms.DataEngine
 			}
 
 			[DebuggerNonUserCode]
-			internal ValuesRow(DataRowBuilder rb)
+			public ValuesRow(DataRowBuilder rb)
 				: base(rb)
 			{
 				this.tableValues = (ValuesDataTable)base.Table;
@@ -338,7 +338,7 @@ namespace AspNetCore.Reporting.Gauge.WinForms.DataEngine
 		}
 
 		[GeneratedCode("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-		internal class ValuesRowChangeEvent : EventArgs
+		public class ValuesRowChangeEvent : EventArgs
 		{
 			private ValuesRow eventRow;
 
@@ -540,13 +540,13 @@ namespace AspNetCore.Reporting.Gauge.WinForms.DataEngine
 		}
 
 		[DebuggerNonUserCode]
-		internal void InitVars()
+		public void InitVars()
 		{
 			this.InitVars(true);
 		}
 
 		[DebuggerNonUserCode]
-		internal void InitVars(bool initTable)
+		public void InitVars(bool initTable)
 		{
 			this.tableValues = (ValuesDataTable)base.Tables["Values"];
 			if (initTable && this.tableValues != null)

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class FrameImage : BaseGaugeImage, IPersistable
+	public sealed class FrameImage : BaseGaugeImage, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = FrameImage.GetDeclaration();
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_clipImage;
 
-		internal ExpressionInfo HueColor
+		public ExpressionInfo HueColor
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Transparency
+		public ExpressionInfo Transparency
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ClipImage
+		public ExpressionInfo ClipImage
 		{
 			get
 			{
@@ -58,16 +58,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal FrameImage()
+		public FrameImage()
 		{
 		}
 
-		internal FrameImage(GaugePanel gaugePanel)
+		public FrameImage(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.FrameImageStart();
 			base.Initialize(context);
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.FrameImageEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			FrameImage frameImage = (FrameImage)base.PublishClone(context);
 			if (this.m_hueColor != null)
@@ -107,14 +107,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return frameImage;
 		}
 
-		internal void SetExprHost(FrameImageExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(FrameImageExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
 			base.m_exprHost = exprHost;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.HueColor, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -170,19 +170,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.FrameImage;
 		}
 
-		internal string EvaluateHueColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateHueColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateFrameImageHueColorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateTransparency(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateTransparency(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateFrameImageTransparencyExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateClipImage(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateClipImage(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateFrameImageClipImageExpression(this, base.m_gaugePanel.Name);

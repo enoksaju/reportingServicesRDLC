@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CalculatedValueLinearConverter : CollectionItemTypeConverter
+	public class CalculatedValueLinearConverter : CollectionItemTypeConverter
 	{
 		public CalculatedValueLinearConverter()
 		{

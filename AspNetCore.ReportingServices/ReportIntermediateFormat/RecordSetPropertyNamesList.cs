@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class RecordSetPropertyNamesList : ArrayList
+	public sealed class RecordSetPropertyNamesList : ArrayList
 	{
-		internal new RecordSetPropertyNames this[int index]
+		public new RecordSetPropertyNames this[int index]
 		{
 			get
 			{
@@ -19,12 +19,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal RecordSetPropertyNamesList(int capacity)
+		public RecordSetPropertyNamesList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal List<string> GetPropertyNames(int aliasIndex)
+		public List<string> GetPropertyNames(int aliasIndex)
 		{
 			if (aliasIndex >= 0 && aliasIndex < this.Count)
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal string GetPropertyName(int aliasIndex, int propertyIndex)
+		public string GetPropertyName(int aliasIndex, int propertyIndex)
 		{
 			List<string> propertyNames = this.GetPropertyNames(aliasIndex);
 			if (propertyNames != null && propertyIndex >= 0 && propertyIndex < propertyNames.Count)

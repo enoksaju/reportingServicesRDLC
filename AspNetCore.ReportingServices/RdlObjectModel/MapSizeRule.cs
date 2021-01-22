@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapSizeRule : MapAppearanceRule
+	public class MapSizeRule : MapAppearanceRule
 	{
-		internal new class Definition : DefinitionStore<MapSizeRule, Definition.Properties>
+		public new class Definition : DefinitionStore<MapSizeRule, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataValue,
 				DistributionType,
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapSizeRule(IPropertyStore propertyStore)
+		public MapSizeRule(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

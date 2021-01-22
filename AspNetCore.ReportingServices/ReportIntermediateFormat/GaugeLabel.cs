@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class GaugeLabel : GaugePanelItem, IPersistable
+	public sealed class GaugeLabel : GaugePanelItem, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = GaugeLabel.GetDeclaration();
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_useFontPercent;
 
-		internal ExpressionInfo Text
+		public ExpressionInfo Text
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Angle
+		public ExpressionInfo Angle
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ResizeMode
+		public ExpressionInfo ResizeMode
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TextShadowOffset
+		public ExpressionInfo TextShadowOffset
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo UseFontPercent
+		public ExpressionInfo UseFontPercent
 		{
 			get
 			{
@@ -90,16 +90,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeLabel()
+		public GaugeLabel()
 		{
 		}
 
-		internal GaugeLabel(GaugePanel gaugePanel, int id)
+		public GaugeLabel(GaugePanel gaugePanel, int id)
 			: base(gaugePanel, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.GaugeLabelStart(base.m_name);
 			base.Initialize(context);
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.GaugeLabelEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			GaugeLabel gaugeLabel = (GaugeLabel)base.PublishClone(context);
 			if (this.m_text != null)
@@ -157,14 +157,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return gaugeLabel;
 		}
 
-		internal void SetExprHost(GaugeLabelExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(GaugeLabelExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
 			base.m_exprHost = exprHost;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Text, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -240,13 +240,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugeLabel;
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeLabelTextExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string FormatText(AspNetCore.ReportingServices.RdlExpressions.VariantResult result, OnDemandProcessingContext context)
+		public string FormatText(AspNetCore.ReportingServices.RdlExpressions.VariantResult result, OnDemandProcessingContext context)
 		{
 			string result2 = null;
 			if (result.ErrorOccurred)
@@ -260,25 +260,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result2;
 		}
 
-		internal double EvaluateAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeLabelAngleExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal GaugeResizeModes EvaluateResizeMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeResizeModes EvaluateResizeMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeResizeModes(context.ReportRuntime.EvaluateGaugeLabelResizeModeExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateTextShadowOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateTextShadowOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeLabelTextShadowOffsetExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateUseFontPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUseFontPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeLabelUseFontPercentExpression(this, base.m_gaugePanel.Name);

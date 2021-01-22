@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class RuntimeDataRegionObjReference : IScopeReference, IReference<RuntimeDataRegionObj>, IReference, IStorable, IPersistable
+	public class RuntimeDataRegionObjReference : IScopeReference, IReference<RuntimeDataRegionObj>, IReference, IStorable, IPersistable
 	{
-		internal RuntimeDataRegionObjReference()
+		public RuntimeDataRegionObjReference()
 		{
 		}
 

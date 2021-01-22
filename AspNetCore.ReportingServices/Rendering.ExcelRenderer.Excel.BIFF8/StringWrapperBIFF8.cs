@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal class StringWrapperBIFF8
+	public class StringWrapperBIFF8
 	{
 		private const byte m_fHighByte = 1;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private int m_hash;
 
-		internal int DataSize
+		public int DataSize
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int CharacterSize
+		public int CharacterSize
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int FinalDataSize
+		public int FinalDataSize
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int FormatRunsDataSize
+		public int FormatRunsDataSize
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int Size
+		public int Size
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int HeaderSize
+		public int HeaderSize
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal byte[] FinalData
+		public byte[] FinalData
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal byte[] FormatRunsData
+		public byte[] FormatRunsData
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal string String
+		public string String
 		{
 			get
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal StringChunkInfo ChunkInfo
+		public StringChunkInfo ChunkInfo
 		{
 			get
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal bool FirstChunkCompressed
+		public bool FirstChunkCompressed
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int RunCount
+		public int RunCount
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int Cch
+		public int Cch
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal StringWrapperBIFF8(string aStr)
+		public StringWrapperBIFF8(string aStr)
 		{
 			this.m_rgb = aStr;
 		}
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return this.String;
 		}
 
-		internal void SetRunsList(List<Pair<int, int>> value)
+		public void SetRunsList(List<Pair<int, int>> value)
 		{
 			this.m_hash = 0;
 			this.m_runsList = value;
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal void WriteHeaderData(Stream aOut, bool aCompressed)
+		public void WriteHeaderData(Stream aOut, bool aCompressed)
 		{
 			if (aCompressed)
 			{
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal byte[] GetCharacterData(StringChunkInfo aChunkInfo, int aBytesAvailable)
+		public byte[] GetCharacterData(StringChunkInfo aChunkInfo, int aBytesAvailable)
 		{
 			if (aBytesAvailable <= 0)
 			{
@@ -300,7 +300,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return aChunkInfo.Data;
 		}
 
-		internal void PrepareWriteCharacterData(StringChunkInfo aChunkInfo, int aBytesAvailable)
+		public void PrepareWriteCharacterData(StringChunkInfo aChunkInfo, int aBytesAvailable)
 		{
 			if (aBytesAvailable <= 0)
 			{
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int WriteCharacterData(Stream aOut, StringChunkInfo aChunkInfo, int aBytesAvailable)
+		public int WriteCharacterData(Stream aOut, StringChunkInfo aChunkInfo, int aBytesAvailable)
 		{
 			if (aBytesAvailable <= 0)
 			{
@@ -350,7 +350,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return num2 * 2;
 		}
 
-		internal int GetCharacterDataSize(StringChunkInfo aChunkInfo, int aBytesAvailable)
+		public int GetCharacterDataSize(StringChunkInfo aChunkInfo, int aBytesAvailable)
 		{
 			if (aBytesAvailable <= 0)
 			{

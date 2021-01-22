@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<ActionExprHost> m_actionItemHostsRemotable;
 
-		internal IList<ActionExprHost> ActionItemHostsRemotable
+		public IList<ActionExprHost> ActionItemHostsRemotable
 		{
 			get
 			{

@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class DataSetReference : ReportObject
+	public class DataSetReference : ReportObject
 	{
-		internal class Definition : DefinitionStore<DataSetReference, Definition.Properties>
+		public class Definition : DefinitionStore<DataSetReference, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataSetName,
 				ValueField,
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal DataSetReference(IPropertyStore propertyStore)
+		public DataSetReference(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal class SubScopeNode : ScopeTreeNode
+	public class SubScopeNode : ScopeTreeNode
 	{
 		private readonly ScopeTreeNode m_parentScope;
 
-		internal ScopeTreeNode ParentScope
+		public ScopeTreeNode ParentScope
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal override string ScopeName
+		public override string ScopeName
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal SubScopeNode(IRIFDataScope scope, ScopeTreeNode parentScope)
+		public SubScopeNode(IRIFDataScope scope, ScopeTreeNode parentScope)
 			: base(scope)
 		{
 			this.m_parentScope = parentScope;
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal override bool IsSameOrParentScope(IRIFDataScope parentScope, bool isProperParent)
+		public override bool IsSameOrParentScope(IRIFDataScope parentScope, bool isProperParent)
 		{
 			if (parentScope == base.Scope)
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return this.m_parentScope.IsSameOrParentScope(parentScope, isProperParent);
 		}
 
-		internal override void Traverse(ScopeTree.ScopeTreeVisitor visitor, IRIFDataScope outerScope, bool visitOuterScope)
+		public override void Traverse(ScopeTree.ScopeTreeVisitor visitor, IRIFDataScope outerScope, bool visitOuterScope)
 		{
 			bool flag = outerScope == base.Scope;
 			if (visitOuterScope || !flag)
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal override bool Traverse(ScopeTree.DirectedScopeTreeVisitor visitor)
+		public override bool Traverse(ScopeTree.DirectedScopeTreeVisitor visitor)
 		{
 			if (visitor(base.Scope))
 			{

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.Reporting.Common
 {
-	internal sealed class ResourceList
+	public sealed class ResourceList
 	{
 		private const string DebugTag = "_Debug";
 
@@ -24,18 +24,18 @@ namespace AspNetCore.Reporting.Common
 
 		private readonly Dictionary<string, ResourceItem> m_items = new Dictionary<string, ResourceItem>();
 
-		internal void Add(string name, string mimeType)
+		public void Add(string name, string mimeType)
 		{
 			this.Add(name, mimeType, false);
 		}
 
-		internal void Add(string name, string mimeType, bool hasDebugMode)
+		public void Add(string name, string mimeType, bool hasDebugMode)
 		{
 			ResourceItem value = hasDebugMode ? new ResourceItem(name, name + "_Debug", mimeType) : new ResourceItem(name, mimeType);
 			this.m_items.Add(name, value);
 		}
 
-		internal bool TryGetResourceItem(string name, out ResourceItem item)
+		public bool TryGetResourceItem(string name, out ResourceItem item)
 		{
 			return this.m_items.TryGetValue(name, out item);
 		}

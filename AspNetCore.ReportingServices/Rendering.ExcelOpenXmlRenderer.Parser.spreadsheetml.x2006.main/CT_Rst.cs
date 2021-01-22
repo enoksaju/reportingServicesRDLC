@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_Rst : OoxmlComplexType
+	public class CT_Rst : OoxmlComplexType
 	{
 		private string _t;
 

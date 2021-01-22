@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class CollectionByPrompt : ArrayList
+	public sealed class CollectionByPrompt : ArrayList
 	{
-		internal new PromptBucket this[int index]
+		public new PromptBucket this[int index]
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal bool NeedPrompt
+		public bool NeedPrompt
 		{
 			get
 			{
@@ -29,11 +29,11 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal CollectionByPrompt()
+		public CollectionByPrompt()
 		{
 		}
 
-		internal new CollectionByPrompt Clone()
+		public new CollectionByPrompt Clone()
 		{
 			CollectionByPrompt collectionByPrompt = new CollectionByPrompt();
 			for (int i = 0; i < this.Count; i++)
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return collectionByPrompt;
 		}
 
-		internal void CheckedAdd(DataSourceInfo dataSource)
+		public void CheckedAdd(DataSourceInfo dataSource)
 		{
 			if (dataSource.CredentialsRetrieval == DataSourceInfo.CredentialsRetrievalOption.Prompt)
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return null;
 		}
 
-		internal PromptBucket GetBucketByOriginalName(string originalName)
+		public PromptBucket GetBucketByOriginalName(string originalName)
 		{
 			for (int i = 0; i < this.Count; i++)
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return null;
 		}
 
-		internal DataSourcePromptCollection GetPromptRepresentatives(ServerDataSourceSettings serverDatasourceSettings)
+		public DataSourcePromptCollection GetPromptRepresentatives(ServerDataSourceSettings serverDatasourceSettings)
 		{
 			DataSourcePromptCollection dataSourcePromptCollection = new DataSourcePromptCollection();
 			for (int i = 0; i < this.Count; i++)

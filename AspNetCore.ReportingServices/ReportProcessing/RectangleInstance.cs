@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class RectangleInstance : ReportItemInstance, IShowHideContainer, IIndexInto, IPageItem
+	public sealed class RectangleInstance : ReportItemInstance, IShowHideContainer, IIndexInto, IPageItem
 	{
 		private ReportItemColInstance m_reportItemColInstance;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal ReportItemColInstance ReportItemColInstance
+		public ReportItemColInstance ReportItemColInstance
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RectangleInstance(ReportProcessing.ProcessingContext pc, Rectangle reportItemDef, int index)
+		public RectangleInstance(ReportProcessing.ProcessingContext pc, Rectangle reportItemDef, int index)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new RectangleInstanceInfo(pc, reportItemDef, this, index);
@@ -58,11 +58,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_reportItemColInstance = new ReportItemColInstance(pc, reportItemDef.ReportItems);
 		}
 
-		internal RectangleInstance()
+		public RectangleInstance()
 		{
 		}
 
-		internal override int GetDocumentMapUniqueName()
+		public override int GetDocumentMapUniqueName()
 		{
 			int linkToChild = ((Rectangle)base.m_reportItemDef).LinkToChild;
 			if (linkToChild >= 0)
@@ -92,14 +92,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.EndProcessContainer(base.m_uniqueName, base.m_reportItemDef.Visibility);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ReportItemColInstance, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemColInstance));
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance, memberInfoList);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadRectangleInstanceInfo((Rectangle)base.m_reportItemDef);

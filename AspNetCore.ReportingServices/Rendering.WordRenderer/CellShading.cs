@@ -3,9 +3,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class CellShading
+	public class CellShading
 	{
-		internal const int ShdSize = 10;
+		public const int ShdSize = 10;
 
 		private byte[] m_cellShading;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private byte[] m_tableShd;
 
-		internal int SprmSize
+		public int SprmSize
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal CellShading(int numColumns, byte[] tableShd)
+		public CellShading(int numColumns, byte[] tableShd)
 		{
 			this.m_cellShading = new byte[10 * Math.Min(numColumns, 22)];
 			if (numColumns > 22)
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.InitShading();
 		}
 
-		internal byte[] ToByteArray()
+		public byte[] ToByteArray()
 		{
 			byte[] array = new byte[this.SprmSize];
 			int num = 0;
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return array;
 		}
 
-		internal void SetCellShading(int index, int ico24)
+		public void SetCellShading(int index, int ico24)
 		{
 			int num = index * 10;
 			byte[] data = this.m_cellShading;
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			LittleEndian.PutInt(data, num + 4, ico24);
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			Array.Clear(this.m_cellShading, 0, this.m_cellShading.Length);
 			if (this.m_cellShading2 != null)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class CellPadding
+	public class CellPadding
 	{
 		private CellSpacingStruct m_topPadding;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private int m_adjustmentBottom;
 
-		internal int HeightAdjustment
+		public int HeightAdjustment
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int SprmSize
+		public int SprmSize
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal CellPadding(int numColumns)
+		public CellPadding(int numColumns)
 		{
 			this.m_sprms = new List<byte[]>();
 			this.m_runningSize = 0;
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.m_numColumns = numColumns;
 		}
 
-		internal void SetPaddingTop(int cellIndex, int twips)
+		public void SetPaddingTop(int cellIndex, int twips)
 		{
 			if (this.m_topPadding == null)
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void SetPaddingLeft(int cellIndex, int twips)
+		public void SetPaddingLeft(int cellIndex, int twips)
 		{
 			if (this.m_leftPadding == null)
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void SetPaddingBottom(int cellIndex, int twips)
+		public void SetPaddingBottom(int cellIndex, int twips)
 		{
 			if (this.m_bottomPadding == null)
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void SetPaddingRight(int cellIndex, int twips)
+		public void SetPaddingRight(int cellIndex, int twips)
 		{
 			if (this.m_rightPadding == null)
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal byte[] ToByteArray()
+		public byte[] ToByteArray()
 		{
 			byte[] array = new byte[this.m_runningSize];
 			int num = 0;
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.m_runningSize += array.Length;
 		}
 
-		internal void Finish()
+		public void Finish()
 		{
 			if (this.m_topPadding != null)
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.m_rightPadding = null;
 			this.m_leftPadding = null;

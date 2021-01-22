@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class RoundedFloat
+	public class RoundedFloat
 	{
-		internal float m_value;
+		public float m_value;
 
-		internal float Value
+		public float Value
 		{
 			get
 			{

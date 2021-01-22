@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class NameKey
+	public class NameKey
 	{
-		internal string ns;
+		public string ns;
 
-		internal string name;
+		public string name;
 
 		public string Name
 		{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			}
 		}
 
-		internal NameKey(string name, string ns)
+		public NameKey(string name, string ns)
 		{
 			this.name = name;
 			this.ns = ns;

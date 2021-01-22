@@ -13,7 +13,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[Bindable(true)]
 	[TypeConverter(typeof(InputValueConverter))]
-	internal class InputValue : ValueBase
+	public class InputValue : ValueBase
 	{
 		private CalculatedValueCollection calculatedValues;
 
@@ -126,7 +126,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[SerializationVisibility(SerializationVisibility.Hidden)]
 		[Bindable(true)]
 		[SRDescription("DescriptionAttributeDataSource")]
-		internal object DataSource
+		public object DataSource
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal float SpeedMultiplier
+		public float SpeedMultiplier
 		{
 			get
 			{
@@ -531,7 +531,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void AutoDataBind()
+		public void AutoDataBind()
 		{
 			if (this.DataSource != null && this.valueFieldMember != string.Empty)
 			{
@@ -539,7 +539,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void PerformDataBinding(IEnumerable data)
+		public void PerformDataBinding(IEnumerable data)
 		{
 			this.DataBind(data, this.ValueFieldMember, this.DateFieldMember, this.DataMember);
 		}
@@ -727,13 +727,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 			this.calculatedValues.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.calculatedValues.EndInit();
@@ -751,7 +751,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			base.Reset();
 		}
 
-		internal override object CloneInternals(object copy)
+		public override object CloneInternals(object copy)
 		{
 			InputValue inputValue = (InputValue)base.CloneInternals(copy);
 			inputValue.calculatedValues = new CalculatedValueCollection(inputValue, null);

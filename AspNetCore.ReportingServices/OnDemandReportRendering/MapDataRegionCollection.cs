@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapDataRegionCollection : MapObjectCollectionBase<MapDataRegion>
+	public sealed class MapDataRegionCollection : MapObjectCollectionBase<MapDataRegion>
 	{
 		private Map m_map;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapDataRegionCollection(Map map)
+		public MapDataRegionCollection(Map map)
 		{
 			this.m_map = map;
 		}

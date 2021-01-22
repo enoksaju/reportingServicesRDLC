@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum GaugeBackgroundGradients
+	public enum GaugeBackgroundGradients
 	{
 		StartToEnd,
 		None,

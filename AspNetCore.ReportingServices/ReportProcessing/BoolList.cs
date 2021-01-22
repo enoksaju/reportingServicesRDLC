@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class BoolList : ArrayList
+	public sealed class BoolList : ArrayList
 	{
-		internal new bool this[int index]
+		public new bool this[int index]
 		{
 			get
 			{
@@ -18,11 +18,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BoolList()
+		public BoolList()
 		{
 		}
 
-		internal BoolList(int capacity)
+		public BoolList(int capacity)
 			: base(capacity)
 		{
 		}

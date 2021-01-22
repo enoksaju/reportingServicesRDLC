@@ -2,13 +2,13 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class PDFPagePoint
+	public sealed class PDFPagePoint
 	{
-		internal int PageObjectId;
+		public int PageObjectId;
 
-		internal PointF Point;
+		public PointF Point;
 
-		internal PDFPagePoint(int pageObjectId, PointF point)
+		public PDFPagePoint(int pageObjectId, PointF point)
 		{
 			this.PageObjectId = pageObjectId;
 			this.Point = point;

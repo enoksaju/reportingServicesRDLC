@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DataBindEventArgs : EventArgs
+	public class DataBindEventArgs : EventArgs
 	{
 		public new static DataBindEventArgs Empty = new DataBindEventArgs();
 

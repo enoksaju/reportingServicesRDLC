@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum Docking
+	public enum Docking
 	{
 		Top,
 		Right,

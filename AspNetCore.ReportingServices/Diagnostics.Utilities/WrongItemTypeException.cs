@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class WrongItemTypeException : ReportCatalogException
+	public sealed class WrongItemTypeException : ReportCatalogException
 	{
 		public WrongItemTypeException(string itemPathOrType)
 			: base(ErrorCode.rsWrongItemType, ErrorStrings.rsWrongItemType(itemPathOrType), null, null)

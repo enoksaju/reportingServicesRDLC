@@ -5,7 +5,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Group : IPageBreakItem
+	public sealed class Group : IPageBreakItem
 	{
 		private bool m_isOldSnapshot;
 
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomPropertyCollection CustomProperties
+		public CustomPropertyCollection CustomProperties
 		{
 			get
 			{
@@ -300,7 +300,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataRegion OwnerDataRegion
+		public DataRegion OwnerDataRegion
 		{
 			get
 			{
@@ -328,7 +328,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimRenderGroups RenderGroups
+		public ShimRenderGroups RenderGroups
 		{
 			get
 			{
@@ -340,7 +340,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int CurrentRenderGroupIndex
+		public int CurrentRenderGroupIndex
 		{
 			get
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.Group CurrentShimRenderGroup
+		public AspNetCore.ReportingServices.ReportRendering.Group CurrentShimRenderGroup
 		{
 			get
 			{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -402,7 +402,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsDetailGroup
+		public bool IsDetailGroup
 		{
 			get
 			{
@@ -410,7 +410,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimTableMember TableDetailMember
+		public ShimTableMember TableDetailMember
 		{
 			get
 			{
@@ -418,7 +418,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode MemberDefinition
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode MemberDefinition
 		{
 			get
 			{
@@ -455,7 +455,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Group(DataRegion owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode memberDef, DataRegionMember dataMember)
+		public Group(DataRegion owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode memberDef, DataRegionMember dataMember)
 		{
 			this.m_isOldSnapshot = false;
 			this.m_ownerItem = owner;
@@ -463,7 +463,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_dataMember = dataMember;
 		}
 
-		internal Group(CustomReportItem owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode memberDef, DataRegionMember dataMember)
+		public Group(CustomReportItem owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode memberDef, DataRegionMember dataMember)
 		{
 			this.m_isOldSnapshot = false;
 			this.m_criOwner = owner;
@@ -471,7 +471,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_dataMember = dataMember;
 		}
 
-		internal Group(DataRegion owner, ShimRenderGroups renderGroups, ShimTablixMember dynamicMember)
+		public Group(DataRegion owner, ShimRenderGroups renderGroups, ShimTablixMember dynamicMember)
 		{
 			this.m_isOldSnapshot = true;
 			this.m_ownerItem = owner;
@@ -479,14 +479,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_dynamicMember = dynamicMember;
 		}
 
-		internal Group(DataRegion owner, ShimRenderGroups renderGroups)
+		public Group(DataRegion owner, ShimRenderGroups renderGroups)
 		{
 			this.m_isOldSnapshot = true;
 			this.m_ownerItem = owner;
 			this.m_renderGroups = renderGroups;
 		}
 
-		internal Group(DataRegion owner, ShimTableMember tableDetailMember)
+		public Group(DataRegion owner, ShimTableMember tableDetailMember)
 		{
 			this.m_isOldSnapshot = true;
 			this.m_isDetailGroup = true;
@@ -496,14 +496,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_renderGroups = null;
 		}
 
-		internal Group(CustomReportItem owner, ShimRenderGroups renderGroups)
+		public Group(CustomReportItem owner, ShimRenderGroups renderGroups)
 		{
 			this.m_isOldSnapshot = true;
 			this.m_renderGroups = renderGroups;
 			this.m_criOwner = owner;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

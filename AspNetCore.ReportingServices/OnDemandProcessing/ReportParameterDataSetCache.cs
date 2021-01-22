@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class ReportParameterDataSetCache
+	public abstract class ReportParameterDataSetCache
 	{
 		private ProcessReportParameters m_paramProcessor;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private bool m_processDefaultValues;
 
-		internal List<object> DefaultValues
+		public List<object> DefaultValues
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ReportParameterDataSetCache(ProcessReportParameters aParamProcessor, ParameterInfo aParameter, IParameterDef aParamDef, bool aProcessValidValues, bool aProcessDefaultValues)
+		public ReportParameterDataSetCache(ProcessReportParameters aParamProcessor, ParameterInfo aParameter, IParameterDef aParamDef, bool aProcessValidValues, bool aProcessDefaultValues)
 		{
 			this.m_paramProcessor = aParamProcessor;
 			this.m_parameter = aParameter;
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void NextRow(object aRow)
+		public void NextRow(object aRow)
 		{
 			if (this.m_processValidValues)
 			{
@@ -92,6 +92,6 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal abstract object GetFieldValue(object aRow, int col);
+		public abstract object GetFieldValue(object aRow, int col);
 	}
 }

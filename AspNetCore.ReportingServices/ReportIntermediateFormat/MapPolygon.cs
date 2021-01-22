@@ -12,7 +12,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapPolygon : MapSpatialElement, IPersistable
+	public sealed class MapPolygon : MapSpatialElement, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapPolygon.GetDeclaration();
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private MapPointTemplate m_mapCenterPointTemplate;
 
-		internal ExpressionInfo UseCustomPolygonTemplate
+		public ExpressionInfo UseCustomPolygonTemplate
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPolygonTemplate MapPolygonTemplate
+		public MapPolygonTemplate MapPolygonTemplate
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo UseCustomCenterPointTemplate
+		public ExpressionInfo UseCustomCenterPointTemplate
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPointTemplate MapCenterPointTemplate
+		public MapPointTemplate MapCenterPointTemplate
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapPolygonExprHost ExprHost
+		public new MapPolygonExprHost ExprHost
 		{
 			get
 			{
@@ -81,16 +81,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPolygon()
+		public MapPolygon()
 		{
 		}
 
-		internal MapPolygon(MapPolygonLayer mapPolygonLayer, Map map)
+		public MapPolygon(MapPolygonLayer mapPolygonLayer, Map map)
 			: base(mapPolygonLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context, int index)
+		public override void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.MapPolygonStart(index.ToString(CultureInfo.InvariantCulture.NumberFormat));
 			base.Initialize(context, index);
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.MapPolygonEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapPolygon mapPolygon = (MapPolygon)base.PublishClone(context);
 			if (this.m_useCustomPolygonTemplate != null)
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapPolygon;
 		}
 
-		internal void SetExprHost(MapPolygonExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapPolygonExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.UseCustomPolygonTemplate, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -220,13 +220,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapPolygon;
 		}
 
-		internal bool EvaluateUseCustomPolygonTemplate(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUseCustomPolygonTemplate(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapPolygonUseCustomPolygonTemplateExpression(this, base.m_map.Name);
 		}
 
-		internal bool EvaluateUseCustomCenterPointTemplate(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUseCustomCenterPointTemplate(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapPolygonUseCustomPointTemplateExpression(this, base.m_map.Name);

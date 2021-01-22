@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class TablixHeader : IDOwner, IPersistable
+	public sealed class TablixHeader : IDOwner, IPersistable
 	{
 		private string m_size;
 
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private List<ReportItem> m_cellContentCollection;
 
-		internal string Size
+		public string Size
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double SizeValue
+		public double SizeValue
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize SizeForRendering
+		public ReportSize SizeForRendering
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItem CellContents
+		public ReportItem CellContents
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItem AltCellContents
+		public ReportItem AltCellContents
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ReportItem> CellContentCollection
+		public List<ReportItem> CellContentCollection
 		{
 			get
 			{
@@ -135,16 +135,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixHeader()
+		public TablixHeader()
 		{
 		}
 
-		internal TablixHeader(int id)
+		public TablixHeader(int id)
 			: base(id)
 		{
 		}
 
-		internal void Initialize(InitializationContext context, bool isColumn, bool ignoreSize)
+		public void Initialize(InitializationContext context, bool isColumn, bool ignoreSize)
 		{
 			if (this.m_cellContents != null)
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context, bool isClonedDynamic)
+		public object PublishClone(AutomaticSubtotalContext context, bool isClonedDynamic)
 		{
 			TablixHeader tablixHeader = (TablixHeader)base.PublishClone(context);
 			if (this.m_size != null)
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Size, Token.String));

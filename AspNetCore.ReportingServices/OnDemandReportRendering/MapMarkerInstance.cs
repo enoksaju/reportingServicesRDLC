@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMarkerInstance : BaseInstance
+	public sealed class MapMarkerInstance : BaseInstance
 	{
 		private MapMarker m_defObject;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMarkerInstance(MapMarker defObject)
+		public MapMarkerInstance(MapMarker defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

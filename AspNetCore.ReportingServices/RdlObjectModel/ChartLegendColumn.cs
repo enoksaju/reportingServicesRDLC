@@ -2,11 +2,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartLegendColumn : ReportObject, INamedObject
+	public class ChartLegendColumn : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<ChartLegendColumn, Definition.Properties>
+		public class Definition : DefinitionStore<ChartLegendColumn, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				ColumnType,
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartLegendColumn(IPropertyStore propertyStore)
+		public ChartLegendColumn(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

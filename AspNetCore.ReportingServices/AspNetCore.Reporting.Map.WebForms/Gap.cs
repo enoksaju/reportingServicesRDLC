@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class Gap
+	public class Gap
 	{
 		public float Inside;
 

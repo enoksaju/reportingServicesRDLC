@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ScheduleDateTimeRangeException : ReportCatalogException
+	public sealed class ScheduleDateTimeRangeException : ReportCatalogException
 	{
 		public ScheduleDateTimeRangeException()
 			: base(ErrorCode.rsScheduleDateTimeRangeException, ErrorStrings.rsScheduleDateTimeRangeException, null, null)

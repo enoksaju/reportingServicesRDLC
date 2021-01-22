@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ListContent : Group, IDocumentMapEntry
+	public sealed class ListContent : Group, IDocumentMapEntry
 	{
 		private ListContentInstance m_listContentInstance;
 
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ListContentInstanceInfo InstanceInfo
+		public ListContentInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ListContent(List owner, int instanceIndex)
+		public ListContent(List owner, int instanceIndex)
 			: base(owner, ((AspNetCore.ReportingServices.ReportProcessing.List)owner.ReportItemDef).Grouping, owner.ReportItemDef.Visibility)
 		{
 			if (owner.ReportItemInstance != null)

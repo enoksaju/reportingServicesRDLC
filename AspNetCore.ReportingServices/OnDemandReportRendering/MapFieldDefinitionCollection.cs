@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapFieldDefinitionCollection : MapObjectCollectionBase<MapFieldDefinition>
+	public sealed class MapFieldDefinitionCollection : MapObjectCollectionBase<MapFieldDefinition>
 	{
 		private Map m_map;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapFieldDefinitionCollection(MapVectorLayer mapVectorLayer, Map map)
+		public MapFieldDefinitionCollection(MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_mapVectorLayer = mapVectorLayer;
 			this.m_map = map;
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return new MapFieldDefinition(this.m_mapVectorLayer.MapVectorLayerDef.MapFieldDefinitions[index], this.m_map);
 		}
 
-		internal MapFieldDefinition GetFieldDefinition(string name)
+		public MapFieldDefinition GetFieldDefinition(string name)
 		{
 			foreach (MapFieldDefinition item in this)
 			{

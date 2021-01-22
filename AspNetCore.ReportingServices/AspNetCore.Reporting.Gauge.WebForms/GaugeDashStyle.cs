@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum GaugeDashStyle
+	public enum GaugeDashStyle
 	{
 		NotSet,
 		Dash,

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class DataCellCollection
+	public sealed class DataCellCollection
 	{
 		private CustomReportItem m_owner;
 
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataCellCollection(CustomReportItem owner, int rowsCount, int columnsCount)
+		public DataCellCollection(CustomReportItem owner, int rowsCount, int columnsCount)
 		{
 			this.m_owner = owner;
 			this.m_rowsCount = rowsCount;

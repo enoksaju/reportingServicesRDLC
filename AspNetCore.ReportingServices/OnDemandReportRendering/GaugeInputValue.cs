@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeInputValue
+	public sealed class GaugeInputValue
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeInputValue GaugeInputValueDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeInputValue GaugeInputValueDef
 		{
 			get
 			{
@@ -157,13 +157,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeInputValue(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeInputValue defObject, GaugePanel gaugePanel)
+		public GaugeInputValue(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeInputValue defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

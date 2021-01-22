@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMarkerCollection : MapObjectCollectionBase<MapMarker>
+	public sealed class MapMarkerCollection : MapObjectCollectionBase<MapMarker>
 	{
 		private Map m_map;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMarkerCollection(MapMarkerRule markerRule, Map map)
+		public MapMarkerCollection(MapMarkerRule markerRule, Map map)
 		{
 			this.m_markerRule = markerRule;
 			this.m_map = map;

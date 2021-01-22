@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class LinearScale : GaugeScale
+	public class LinearScale : GaugeScale
 	{
-		internal new class Definition : DefinitionStore<LinearScale, Definition.Properties>
+		public new class Definition : DefinitionStore<LinearScale, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				GaugePointers,
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal LinearScale(IPropertyStore propertyStore)
+		public LinearScale(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

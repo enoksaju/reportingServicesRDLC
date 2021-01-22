@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ItemInfo
+	public class ItemInfo
 	{
 		public string name = "";
 

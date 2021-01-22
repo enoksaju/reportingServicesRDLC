@@ -12,13 +12,13 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class PictureDescriptor
+	public class PictureDescriptor
 	{
-		internal const string BMP_MIME = "image/bmp";
+		public const string BMP_MIME = "image/bmp";
 
-		internal const string JPEG_MIME = "image/jpeg";
+		public const string JPEG_MIME = "image/jpeg";
 
-		internal const string PNG_MIME = "image/png";
+		public const string PNG_MIME = "image/png";
 
 		private const float INCH_IN_TWIPS = 1440f;
 
@@ -36,9 +36,9 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private const string FILENAME = "..\\bl.jpg\0";
 
-		internal const ushort BASE_SHAPE_ID = 1024;
+		public const ushort BASE_SHAPE_ID = 1024;
 
-		internal const ushort IDPROP_ID = 16644;
+		public const ushort IDPROP_ID = 16644;
 
 		private const ushort FILENAMEPROP_ID = 49413;
 
@@ -54,15 +54,15 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private const int IS_NOT_RELATIVE = 1048576;
 
-		internal const int SIZE = 68;
+		public const int SIZE = 68;
 
-		internal const int TIFF = 98;
+		public const int TIFF = 98;
 
-		internal const int BMP = 99;
+		public const int BMP = 99;
 
-		internal const int ESCHER = 100;
+		public const int ESCHER = 100;
 
-		internal static byte[] INVALIDIMAGEDATA;
+		public static byte[] INVALIDIMAGEDATA;
 
 		private static readonly BitField m_fFrameEmpty;
 
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal PictureDescriptor(byte[] imgData, byte[] hash, int aWidth, int aHeight, RPLFormat.Sizings sizing, int imgIndex)
+		public PictureDescriptor(byte[] imgData, byte[] hash, int aWidth, int aHeight, RPLFormat.Sizings sizing, int imgIndex)
 		{
 			this.m_mX = 1000;
 			this.m_mY = 1000;
@@ -194,7 +194,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void Serialize(Stream data)
+		public void Serialize(Stream data)
 		{
 			this.m_totalSize = 68 + this.m_unknownData.Length;
 			for (int i = 0; i < this.m_recordList.Count; i++)

@@ -5,9 +5,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class StreamingImageCacheManager : ImageCacheManager
+	public sealed class StreamingImageCacheManager : ImageCacheManager
 	{
-		internal StreamingImageCacheManager(OnDemandMetadata odpMetadata, IChunkFactory chunkFactory)
+		public StreamingImageCacheManager(OnDemandMetadata odpMetadata, IChunkFactory chunkFactory)
 			: base(odpMetadata, chunkFactory)
 		{
 		}

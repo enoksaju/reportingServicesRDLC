@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class NavigationItem : IPersistable
+	public sealed class NavigationItem : IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = NavigationItem.GetDeclaration();
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private BandNavigationCell m_bandNavigationCell;
 
-		internal string ReportItemReference
+		public string ReportItemReference
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal BandNavigationCell BandNavigationCell
+		public BandNavigationCell BandNavigationCell
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(Tablix tablix, InitializationContext context, string NavigationType)
+		public void Initialize(Tablix tablix, InitializationContext context, string NavigationType)
 		{
 			if (this.ReportItemReference != null && !tablix.ValidateBandReportItemReference(this.ReportItemReference))
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ReportItemReference, Token.String));

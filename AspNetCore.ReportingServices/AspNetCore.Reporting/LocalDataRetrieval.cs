@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace AspNetCore.Reporting
 {
-	internal abstract class LocalDataRetrieval
+	public abstract class LocalDataRetrieval
 	{
 		public abstract bool SupportsQueries
 		{

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLPageSetupModel : IPageSetupModel
+	public class XMLPageSetupModel : IPageSetupModel
 	{
 		private readonly PageSetup _interface;
 

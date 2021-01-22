@@ -3,9 +3,9 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal static class StyleEnumConverter
+	public static class StyleEnumConverter
 	{
-		internal static byte Translate(FontStyles aValue)
+		public static byte Translate(FontStyles aValue)
 		{
 			switch (aValue)
 			{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(FontWeights aValue)
+		public static byte Translate(FontWeights aValue)
 		{
 			switch (aValue)
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(TextDecorations aValue)
+		public static byte Translate(TextDecorations aValue)
 		{
 			switch (aValue)
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(TextAlignments aValue)
+		public static byte Translate(TextAlignments aValue)
 		{
 			switch (aValue)
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(VerticalAlignments aValue)
+		public static byte Translate(VerticalAlignments aValue)
 		{
 			switch (aValue)
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(Directions aValue)
+		public static byte Translate(Directions aValue)
 		{
 			switch (aValue)
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(WritingModes aValue)
+		public static byte Translate(WritingModes aValue)
 		{
 			switch (aValue)
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(WritingModes aValue, RPLVersionEnum rplVersion)
+		public static byte Translate(WritingModes aValue, RPLVersionEnum rplVersion)
 		{
 			if ((int)rplVersion <= 3 && aValue == WritingModes.Rotate270)
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return StyleEnumConverter.Translate(aValue);
 		}
 
-		internal static byte Translate(UnicodeBiDiTypes aValue)
+		public static byte Translate(UnicodeBiDiTypes aValue)
 		{
 			switch (aValue)
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(Calendars aValue)
+		public static byte Translate(Calendars aValue)
 		{
 			switch (aValue)
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte? Translate(BorderStyles aValue)
+		public static byte? Translate(BorderStyles aValue)
 		{
 			switch (aValue)
 			{
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(BackgroundRepeatTypes aValue)
+		public static byte Translate(BackgroundRepeatTypes aValue)
 		{
 			switch (aValue)
 			{
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(ListStyle listStyle)
+		public static byte Translate(ListStyle listStyle)
 		{
 			switch (listStyle)
 			{
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static byte Translate(MarkupType markupType)
+		public static byte Translate(MarkupType markupType)
 		{
 			switch (markupType)
 			{

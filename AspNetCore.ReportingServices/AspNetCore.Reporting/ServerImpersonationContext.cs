@@ -3,7 +3,7 @@ using System.Security.Principal;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ServerImpersonationContext : IDisposable
+	public sealed class ServerImpersonationContext : IDisposable
 	{
 		private WindowsIdentity m_oldUser;
 

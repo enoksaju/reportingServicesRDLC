@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class RestartContext
+	public abstract class RestartContext
 	{
 		private readonly RestartMode m_restartMode;
 

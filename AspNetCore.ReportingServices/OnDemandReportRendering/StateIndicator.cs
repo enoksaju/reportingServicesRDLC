@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class StateIndicator : GaugePanelItem
+	public sealed class StateIndicator : GaugePanelItem
 	{
 		private GaugeInputValue m_gaugeInputValue;
 
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.StateIndicator StateIndicatorDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.StateIndicator StateIndicatorDef
 		{
 			get
 			{
@@ -199,12 +199,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StateIndicator(AspNetCore.ReportingServices.ReportIntermediateFormat.StateIndicator defObject, GaugePanel gaugePanel)
+		public StateIndicator(AspNetCore.ReportingServices.ReportIntermediateFormat.StateIndicator defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 		}
 
-		internal override BaseInstance GetInstance()
+		public override BaseInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

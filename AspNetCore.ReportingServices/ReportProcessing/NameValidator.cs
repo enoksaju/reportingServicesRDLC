@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal abstract class NameValidator
+	public abstract class NameValidator
 	{
 		private const string m_identifierStart = "\\p{Lu}\\p{Ll}\\p{Lt}\\p{Lm}\\p{Lo}\\p{Nl}";
 

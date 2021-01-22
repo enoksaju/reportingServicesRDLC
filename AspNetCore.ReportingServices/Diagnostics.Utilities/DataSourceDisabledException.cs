@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class DataSourceDisabledException : ReportCatalogException
+	public sealed class DataSourceDisabledException : ReportCatalogException
 	{
 		public DataSourceDisabledException()
 			: base(ErrorCode.rsDataSourceDisabled, ErrorStrings.rsDataSourceDisabled, null, null)

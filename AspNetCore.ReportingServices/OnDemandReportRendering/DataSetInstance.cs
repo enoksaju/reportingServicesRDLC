@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class DataSetInstance
+	public sealed class DataSetInstance
 	{
 		private readonly DataSet m_dataSetDef;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private IDataComparer m_comparer;
 
-		internal IDataComparer Comparer
+		public IDataComparer Comparer
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataSetInstance(DataSet dataSetDef)
+		public DataSetInstance(DataSet dataSetDef)
 		{
 			this.m_dataSetDef = dataSetDef;
 		}
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_dataReader = odpContext.CreateSequentialDataReader(this.m_dataSetDef.DataSetDef, out this.m_dataSetInstance);
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			this.Close();
 		}

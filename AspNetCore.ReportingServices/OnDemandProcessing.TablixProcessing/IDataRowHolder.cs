@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal interface IDataRowHolder
+	public interface IDataRowHolder
 	{
 		void ReadRows(DataActions action, ITraversalContext context);
 

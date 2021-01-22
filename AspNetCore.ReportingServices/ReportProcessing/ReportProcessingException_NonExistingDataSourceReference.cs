@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_NonExistingDataSourceReference : Exception
+	public sealed class ReportProcessingException_NonExistingDataSourceReference : Exception
 	{
-		internal ReportProcessingException_NonExistingDataSourceReference(string dataSourceName)
+		public ReportProcessingException_NonExistingDataSourceReference(string dataSourceName)
 			: base(string.Format(CultureInfo.CurrentCulture, RPRes.rsNonExistingDataSourceReference(dataSourceName)))
 		{
 		}

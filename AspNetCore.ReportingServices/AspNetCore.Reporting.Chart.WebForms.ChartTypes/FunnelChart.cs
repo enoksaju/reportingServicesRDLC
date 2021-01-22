@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class FunnelChart : IChartType
+	public class FunnelChart : IChartType
 	{
 		protected ArrayList segmentList;
 

@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Borders3D
 {
-	internal class SunkenBorder : IBorderType
+	public class SunkenBorder : IBorderType
 	{
 		protected float defaultRadiusSize = 15f;
 

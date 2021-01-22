@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal static class DefinitionPathConstants
+	public static class DefinitionPathConstants
 	{
 		public const string TablixCorner = "xT";
 
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		public const char DefinitionPathDelimiter = 'x';
 
-		internal static string GetCollectionDefinitionPath(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef)
+		public static string GetCollectionDefinitionPath(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef)
 		{
 			if (parentDefinitionPath != null && parentDefinitionPath.DefinitionPath != null)
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return indexIntoParentCollectionDef.ToString(CultureInfo.InvariantCulture);
 		}
 
-		internal static string GetTablixHierarchyDefinitionPath(IDefinitionPath parentDefinitionPath, bool isColumn)
+		public static string GetTablixHierarchyDefinitionPath(IDefinitionPath parentDefinitionPath, bool isColumn)
 		{
 			if (isColumn)
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return parentDefinitionPath.DefinitionPath + "xR";
 		}
 
-		internal static string GetTablixCellDefinitionPath(IDefinitionPath parentDefinitionPath, int rowIndex, int colIndex, bool isTablixBodyCell)
+		public static string GetTablixCellDefinitionPath(IDefinitionPath parentDefinitionPath, int rowIndex, int colIndex, bool isTablixBodyCell)
 		{
 			StringBuilder stringBuilder = new StringBuilder(parentDefinitionPath.DefinitionPath);
 			if (isTablixBodyCell)

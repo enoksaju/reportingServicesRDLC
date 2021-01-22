@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal class DataSetProcessingTransaction : IDbTransaction, IDisposable
+	public class DataSetProcessingTransaction : IDbTransaction, IDisposable
 	{
 		public void Commit()
 		{

@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class FrameImage : BaseGaugeImage
+	public sealed class FrameImage : BaseGaugeImage
 	{
 		private ReportColorProperty m_hueColor;
 
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.FrameImage FrameImageDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.FrameImage FrameImageDef
 		{
 			get
 			{
@@ -67,14 +67,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal FrameImage(AspNetCore.ReportingServices.ReportIntermediateFormat.FrameImage defObject, GaugePanel gaugePanel)
+		public FrameImage(AspNetCore.ReportingServices.ReportIntermediateFormat.FrameImage defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override BaseGaugeImageInstance GetInstance()
+		public override BaseGaugeImageInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

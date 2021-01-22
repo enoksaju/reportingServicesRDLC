@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class AngleTrackForm : Control
+	public class AngleTrackForm : Control
 	{
 		private const int size = 170;
 

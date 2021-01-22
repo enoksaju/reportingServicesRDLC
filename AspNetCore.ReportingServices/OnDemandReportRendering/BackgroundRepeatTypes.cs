@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum BackgroundRepeatTypes
+	public enum BackgroundRepeatTypes
 	{
 		Default,
 		Repeat,

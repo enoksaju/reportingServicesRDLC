@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class GaugePanelItemInstance : BaseInstance
+	public class GaugePanelItemInstance : BaseInstance
 	{
 		private GaugePanelItem m_defObject;
 
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanelItemInstance(GaugePanelItem defObject)
+		public GaugePanelItemInstance(GaugePanelItem defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

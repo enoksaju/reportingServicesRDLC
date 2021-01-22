@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DocumentMap : IEnumerator<DocumentMapNode>, IDisposable, IEnumerator
+	public abstract class DocumentMap : IEnumerator<DocumentMapNode>, IDisposable, IEnumerator
 	{
 		protected bool m_isClosed;
 
-		internal bool IsClosed
+		public bool IsClosed
 		{
 			get
 			{

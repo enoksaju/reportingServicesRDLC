@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class CustomWidthConverter : CollectionItemTypeConverter
+	public class CustomWidthConverter : CollectionItemTypeConverter
 	{
 		public CustomWidthConverter()
 		{

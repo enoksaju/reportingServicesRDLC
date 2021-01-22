@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class StyleContext
+	public class StyleContext
 	{
 		private bool m_inTablix;
 

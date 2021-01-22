@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartTickMarksInstance : BaseInstance
+	public sealed class ChartTickMarksInstance : BaseInstance
 	{
 		private ChartTickMarks m_chartTickMarksDef;
 
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartTickMarksInstance(ChartTickMarks chartTickMarksDef)
+		public ChartTickMarksInstance(ChartTickMarks chartTickMarksDef)
 			: base(chartTickMarksDef.ChartDef)
 		{
 			this.m_chartTickMarksDef = chartTickMarksDef;

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal enum PieLabelStyle
+	public enum PieLabelStyle
 	{
 		Inside,
 		Outside,

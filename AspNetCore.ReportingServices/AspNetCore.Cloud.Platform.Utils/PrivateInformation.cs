@@ -2,7 +2,7 @@ using System;
 
 namespace Microsoft.Cloud.Platform.Utils
 {
-	internal static class PrivateInformation
+	public static class PrivateInformation
 	{
 		private static readonly Type c_iContainsPrivateInformationType = typeof(IContainsPrivateInformation);
 

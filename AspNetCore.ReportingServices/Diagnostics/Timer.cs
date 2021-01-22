@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class Timer
+	public sealed class Timer
 	{
 		private static int m_valuesLessThanZero;
 

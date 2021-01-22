@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum DateRangeType
+	public enum DateRangeType
 	{
 		Year,
 		Month,

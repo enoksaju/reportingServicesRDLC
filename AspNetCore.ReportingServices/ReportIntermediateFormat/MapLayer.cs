@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapLayer : IPersistable
+	public class MapLayer : IPersistable
 	{
 		protected int m_exprHostID = -1;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_transparency;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo VisibilityMode
+		public ExpressionInfo VisibilityMode
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MinimumZoom
+		public ExpressionInfo MinimumZoom
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaximumZoom
+		public ExpressionInfo MaximumZoom
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Transparency
+		public ExpressionInfo Transparency
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLayerExprHost ExprHost
+		public MapLayerExprHost ExprHost
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -118,16 +118,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLayer()
+		public MapLayer()
 		{
 		}
 
-		internal MapLayer(Map map)
+		public MapLayer(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal virtual void Initialize(InitializationContext context)
+		public virtual void Initialize(InitializationContext context)
 		{
 			if (this.m_visibilityMode != null)
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapLayer mapLayer = (MapLayer)base.MemberwiseClone();
 			mapLayer.m_map = context.CurrentMapClone;
@@ -174,14 +174,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapLayer;
 		}
 
-		internal virtual void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -290,25 +290,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapLayer;
 		}
 
-		internal MapVisibilityMode EvaluateVisibilityMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapVisibilityMode EvaluateVisibilityMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapVisibilityMode(context.ReportRuntime.EvaluateMapLayerVisibilityModeExpression(this, this.m_map.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateMinimumZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMinimumZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLayerMinimumZoomExpression(this, this.m_map.Name);
 		}
 
-		internal double EvaluateMaximumZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMaximumZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLayerMaximumZoomExpression(this, this.m_map.Name);
 		}
 
-		internal double EvaluateTransparency(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateTransparency(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLayerTransparencyExpression(this, this.m_map.Name);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IExpressionHostAssemblyHolder
+	public interface IExpressionHostAssemblyHolder
 	{
 		ObjectType ObjectType
 		{

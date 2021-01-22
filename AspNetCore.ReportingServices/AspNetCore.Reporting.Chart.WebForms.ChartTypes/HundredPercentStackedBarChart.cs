@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class HundredPercentStackedBarChart : StackedBarChart
+	public class HundredPercentStackedBarChart : StackedBarChart
 	{
 		private Hashtable stackedGroupsTotalPerPoint;
 

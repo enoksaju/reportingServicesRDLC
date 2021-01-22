@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartCustomPaletteColorCollection : ChartObjectCollectionBase<ChartCustomPaletteColor, ChartCustomPaletteColorInstance>
+	public sealed class ChartCustomPaletteColorCollection : ChartObjectCollectionBase<ChartCustomPaletteColor, ChartCustomPaletteColorInstance>
 	{
 		private Chart m_chart;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartCustomPaletteColorCollection(Chart chart)
+		public ChartCustomPaletteColorCollection(Chart chart)
 		{
 			this.m_chart = chart;
 		}

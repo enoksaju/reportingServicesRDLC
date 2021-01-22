@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class NoNameExpandableObjectConverter : ExpandableObjectConverter
+	public class NoNameExpandableObjectConverter : ExpandableObjectConverter
 	{
 		public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
 		{

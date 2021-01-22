@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ParametersGridLayout : IPersistable
+	public sealed class ParametersGridLayout : IPersistable
 	{
 		public int NumberOfColumns;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private static Declaration m_Declaration = ParametersGridLayout.GetDeclaration();
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ParametersLayoutNumberOfColumns, Token.Int32, Lifetime.AddedIn(300)));

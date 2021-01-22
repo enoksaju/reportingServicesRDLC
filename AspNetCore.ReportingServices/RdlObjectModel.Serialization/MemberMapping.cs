@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal abstract class MemberMapping : TypeMapping
+	public abstract class MemberMapping : TypeMapping
 	{
 		public bool IsReadOnly;
 

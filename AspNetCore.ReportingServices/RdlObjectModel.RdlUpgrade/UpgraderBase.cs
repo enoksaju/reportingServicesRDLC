@@ -6,11 +6,11 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.RdlUpgrade
 {
-	internal abstract class UpgraderBase
+	public abstract class UpgraderBase
 	{
 		protected RDLUpgradeResult m_upgradeResults;
 
-		internal RDLUpgradeResult UpgradeResults
+		public RDLUpgradeResult UpgradeResults
 		{
 			get
 			{
@@ -18,11 +18,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.RdlUpgrade
 			}
 		}
 
-		internal UpgraderBase()
+		public UpgraderBase()
 		{
 		}
 
-		internal abstract Type GetReportType();
+		public abstract Type GetReportType();
 
 		public void Upgrade(XmlReader xmlReader, Stream outStream)
 		{

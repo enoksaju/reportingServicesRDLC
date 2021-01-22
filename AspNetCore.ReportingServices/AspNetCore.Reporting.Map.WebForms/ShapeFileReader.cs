@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ShapeFileReader
+	public class ShapeFileReader
 	{
 		private string fileName = string.Empty;
 
@@ -377,7 +377,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void ReadHeader(BinaryReader reader)
+		public void ReadHeader(BinaryReader reader)
 		{
 			this.FileCode = this.SwapBytes(reader.ReadInt32());
 			reader.ReadInt32();
@@ -398,7 +398,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.MMax = reader.ReadDouble();
 		}
 
-		internal void ReadShapes(BinaryReader reader)
+		public void ReadShapes(BinaryReader reader)
 		{
 			while (reader.BaseStream.Length != reader.BaseStream.Position)
 			{
@@ -545,7 +545,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return true;
 		}
 
-		internal int SwapBytes(int inputValue)
+		public int SwapBytes(int inputValue)
 		{
 			long num = inputValue & 4278190080u;
 			num >>= 24;

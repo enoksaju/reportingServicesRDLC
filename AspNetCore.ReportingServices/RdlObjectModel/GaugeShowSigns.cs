@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum GaugeShowSigns
+	public enum GaugeShowSigns
 	{
 		NegativeOnly,
 		Both,

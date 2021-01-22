@@ -13,7 +13,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapBucket : IPersistable
+	public sealed class MapBucket : IPersistable
 	{
 		private int m_exprHostID = -1;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_endValue;
 
-		internal ExpressionInfo StartValue
+		public ExpressionInfo StartValue
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo EndValue
+		public ExpressionInfo EndValue
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapBucketExprHost ExprHost
+		public MapBucketExprHost ExprHost
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -78,16 +78,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapBucket()
+		public MapBucket()
 		{
 		}
 
-		internal MapBucket(Map map)
+		public MapBucket(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal void Initialize(InitializationContext context, int index)
+		public void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.MapBucketStart(index.ToString(CultureInfo.InvariantCulture.NumberFormat));
 			if (this.m_startValue != null)
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.MapBucketEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapBucket mapBucket = (MapBucket)base.MemberwiseClone();
 			mapBucket.m_map = context.CurrentMapClone;
@@ -118,14 +118,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapBucket;
 		}
 
-		internal void SetExprHost(MapBucketExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapBucketExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.StartValue, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -213,13 +213,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapBucket;
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateStartValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateStartValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapBucketStartValueExpression(this, this.m_map.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateEndValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateEndValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapBucketEndValueExpression(this, this.m_map.Name);

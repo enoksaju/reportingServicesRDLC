@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InvalidModelDrillthroughReportException : ReportCatalogException
+	public sealed class InvalidModelDrillthroughReportException : ReportCatalogException
 	{
 		public InvalidModelDrillthroughReportException(string reportName)
 			: base(ErrorCode.rsInvalidModelDrillthroughReport, ErrorStrings.rsInvalidModelDrillthroughReport(reportName), null, null)

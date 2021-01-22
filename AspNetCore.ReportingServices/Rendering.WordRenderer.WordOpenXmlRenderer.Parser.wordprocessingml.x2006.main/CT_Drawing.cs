@@ -4,9 +4,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_Drawing : OoxmlComplexType, IEG_RunInnerContent, IOoxmlComplexType
+	public class CT_Drawing : OoxmlComplexType, IEG_RunInnerContent, IOoxmlComplexType
 	{
-		internal enum ChoiceBucket_0
+		public enum ChoiceBucket_0
 		{
 			anchor,
 			inline

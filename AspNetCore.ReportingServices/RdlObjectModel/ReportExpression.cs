@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal struct ReportExpression : IExpression, IXmlSerializable, IFormattable
+	public struct ReportExpression : IExpression, IXmlSerializable, IFormattable
 	{
 		private string m_value;
 
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			}
 		}
 
-		internal static object ParseEnum(Type type, string value)
+		public static object ParseEnum(Type type, string value)
 		{
 			int num = Array.IndexOf(Enum.GetNames(type), value);
 			if (num < 0)
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			return Enum.GetValues(type).GetValue(num);
 		}
 	}
-	internal struct ReportExpression<T> : IExpression, IXmlSerializable, IFormattable, IShouldSerialize where T : struct
+	public struct ReportExpression<T> : IExpression, IXmlSerializable, IFormattable, IShouldSerialize where T : struct
 	{
 		private T m_value;
 

@@ -3,9 +3,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.officeDocument.x2006.docPropsVTypes
 {
-	internal class CT_Vector : OoxmlComplexType
+	public class CT_Vector : OoxmlComplexType
 	{
-		internal enum ChoiceBucket_0
+		public enum ChoiceBucket_0
 		{
 			variant,
 			i1,

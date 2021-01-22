@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class HyperlinkFieldInfo : FieldInfo
+	public class HyperlinkFieldInfo : FieldInfo
 	{
 		private const byte HyperlinkCode = 88;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			128
 		};
 
-		internal override byte[] Start
+		public override byte[] Start
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override byte[] Middle
+		public override byte[] Middle
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override byte[] End
+		public override byte[] End
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal HyperlinkFieldInfo(int offset, Location location)
+		public HyperlinkFieldInfo(int offset, Location location)
 			: base(offset, location)
 		{
 		}

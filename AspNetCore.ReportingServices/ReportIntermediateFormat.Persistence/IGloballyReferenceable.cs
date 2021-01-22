@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal interface IGloballyReferenceable : IGlobalIDOwner
+	public interface IGloballyReferenceable : IGlobalIDOwner
 	{
 		ObjectType GetObjectType();
 	}

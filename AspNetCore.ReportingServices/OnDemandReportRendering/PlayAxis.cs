@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PlayAxis : Navigation
+	public sealed class PlayAxis : Navigation
 	{
 		public Slider Slider
 		{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PlayAxis(AspNetCore.ReportingServices.ReportIntermediateFormat.BandLayoutOptions bandLayout)
+		public PlayAxis(AspNetCore.ReportingServices.ReportIntermediateFormat.BandLayoutOptions bandLayout)
 			: base(bandLayout)
 		{
 		}

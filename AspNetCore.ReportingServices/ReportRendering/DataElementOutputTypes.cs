@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal enum DataElementOutputTypes
+	public enum DataElementOutputTypes
 	{
 		Output,
 		NoOutput,

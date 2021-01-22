@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class CT_Point2D : OoxmlComplexType, IOoxmlComplexType
+	public class CT_Point2D : OoxmlComplexType, IOoxmlComplexType
 	{
 		private long _x_attr;
 

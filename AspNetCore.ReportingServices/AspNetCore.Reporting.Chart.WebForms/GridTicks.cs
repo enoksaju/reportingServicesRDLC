@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum GridTicks
+	public enum GridTicks
 	{
 		None = 0,
 		TickMark = 1,

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class OperationNotSupportedSharePointModeException : ReportCatalogException
+	public sealed class OperationNotSupportedSharePointModeException : ReportCatalogException
 	{
 		public OperationNotSupportedSharePointModeException()
 			: base(ErrorCode.rsOperationNotSupportedSharePointMode, ErrorStrings.rsOperationNotSupportedSharePointMode, null, null)

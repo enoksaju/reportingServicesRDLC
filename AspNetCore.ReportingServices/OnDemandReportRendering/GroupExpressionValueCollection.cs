@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GroupExpressionValueCollection
+	public sealed class GroupExpressionValueCollection
 	{
 		private object[] m_values;
 
@@ -30,17 +30,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GroupExpressionValueCollection()
+		public GroupExpressionValueCollection()
 		{
 		}
 
-		internal void UpdateValues(object exprValue)
+		public void UpdateValues(object exprValue)
 		{
 			this.m_values = new object[1];
 			this.m_values[0] = exprValue;
 		}
 
-		internal void UpdateValues(object[] exprValues)
+		public void UpdateValues(object[] exprValues)
 		{
 			this.m_values = exprValues;
 		}

@@ -2,11 +2,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal abstract class EscherProperty
+	public abstract class EscherProperty
 	{
 		private ushort id;
 
-		internal virtual ushort Id
+		public virtual ushort Id
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort PropertyNumber
+		public virtual ushort PropertyNumber
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual bool Complex
+		public virtual bool Complex
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual bool BlipId
+		public virtual bool BlipId
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual int PropertySize
+		public virtual int PropertySize
 		{
 			get
 			{
@@ -46,18 +46,18 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherProperty(ushort id)
+		public EscherProperty(ushort id)
 		{
 			this.id = id;
 		}
 
-		internal EscherProperty(ushort propertyNumber, bool isComplex, bool isBlipId)
+		public EscherProperty(ushort propertyNumber, bool isComplex, bool isBlipId)
 		{
 			this.id = (ushort)(propertyNumber + (isComplex ? 32768 : 0) + (isBlipId ? 16384 : 0));
 		}
 
-		internal abstract int serializeSimplePart(BinaryWriter dataWriter);
+		public abstract int serializeSimplePart(BinaryWriter dataWriter);
 
-		internal abstract int serializeComplexPart(BinaryWriter dataWriter);
+		public abstract int serializeComplexPart(BinaryWriter dataWriter);
 	}
 }

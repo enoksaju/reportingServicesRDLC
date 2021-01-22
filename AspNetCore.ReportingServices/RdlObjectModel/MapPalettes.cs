@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapPalettes
+	public enum MapPalettes
 	{
 		Random,
 		Light,

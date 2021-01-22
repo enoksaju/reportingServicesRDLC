@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Drillthrough : ReportObject
+	public class Drillthrough : ReportObject
 	{
-		internal class Definition : DefinitionStore<Drillthrough, Definition.Properties>
+		public class Definition : DefinitionStore<Drillthrough, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ReportName,
 				Parameters
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Drillthrough(IPropertyStore propertyStore)
+		public Drillthrough(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

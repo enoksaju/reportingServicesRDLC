@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapPolygon : MapSpatialElement
+	public class MapPolygon : MapSpatialElement
 	{
-		internal new class Definition : DefinitionStore<MapPolygon, Definition.Properties>
+		public new class Definition : DefinitionStore<MapPolygon, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				VectorData,
 				MapFields,
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapPolygon(IPropertyStore propertyStore)
+		public MapPolygon(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

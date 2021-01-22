@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Common;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IDynamicInstance
+	public interface IDynamicInstance
 	{
 		void ResetContext();
 

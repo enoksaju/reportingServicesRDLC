@@ -3,11 +3,11 @@ using System;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class CategoryAxis2005 : ReportObject
+	public class CategoryAxis2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<CategoryAxis2005, Definition.Properties>
+		public class Definition : DefinitionStore<CategoryAxis2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Axis
 			}

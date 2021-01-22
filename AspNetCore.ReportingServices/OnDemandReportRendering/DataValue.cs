@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class DataValue
+	public sealed class DataValue
 	{
 		private bool m_isChartValue;
 
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataValue DataValueDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataValue DataValueDef
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsChart
+		public bool IsChart
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IInstancePath InstancePath
+		public IInstancePath InstancePath
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string ObjectName
+		public string ObjectName
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataValue(RenderingContext renderingContext, object chartDataValue)
+		public DataValue(RenderingContext renderingContext, object chartDataValue)
 		{
 			this.m_isChartValue = true;
 			this.m_name = new ReportStringProperty();
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_renderingContext = renderingContext;
 		}
 
-		internal DataValue(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.DataValue dataValue)
+		public DataValue(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.DataValue dataValue)
 		{
 			this.m_isChartValue = false;
 			string name = (dataValue != null) ? dataValue.Name : null;
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_renderingContext = renderingContext;
 		}
 
-		internal DataValue(IReportScope reportScope, RenderingContext renderingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.DataValue dataValue, bool isChart, IInstancePath instancePath, string objectName)
+		public DataValue(IReportScope reportScope, RenderingContext renderingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.DataValue dataValue, bool isChart, IInstancePath instancePath, string objectName)
 		{
 			this.m_isChartValue = isChart;
 			this.m_instancePath = instancePath;
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_objectName = objectName;
 		}
 
-		internal void UpdateChartDataValue(object dataValue)
+		public void UpdateChartDataValue(object dataValue)
 		{
 			if (this.m_dataValue == null && this.m_isChartValue)
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateDataCellValue(AspNetCore.ReportingServices.ReportRendering.DataValue dataValue)
+		public void UpdateDataCellValue(AspNetCore.ReportingServices.ReportRendering.DataValue dataValue)
 		{
 			if (this.m_dataValue == null && !this.m_isChartValue)
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

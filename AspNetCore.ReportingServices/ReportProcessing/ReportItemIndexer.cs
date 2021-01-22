@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal struct ReportItemIndexer
+	public struct ReportItemIndexer
 	{
-		internal bool IsComputed;
+		public bool IsComputed;
 
-		internal int Index;
+		public int Index;
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.IsComputed, Token.Boolean));

@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class IndexTable : IIndexStrategy
+	public sealed class IndexTable : IIndexStrategy
 	{
 		private const int m_valueSize = 8;
 

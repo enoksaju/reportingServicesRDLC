@@ -9,11 +9,11 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ParamValues : Hashtable
+	public sealed class ParamValues : Hashtable
 	{
 		private const string _ParameterValues = "ParameterValues";
 
-		internal Hashtable m_fields = new Hashtable();
+		public Hashtable m_fields = new Hashtable();
 
 		public ParamValueList this[string name]
 		{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void AddField(string fieldName)
+		public void AddField(string fieldName)
 		{
 			if (this.m_fields[fieldName] == null)
 			{
@@ -70,12 +70,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string GetFieldValue(string fieldName)
+		public string GetFieldValue(string fieldName)
 		{
 			return (string)this.m_fields[fieldName];
 		}
 
-		internal void AddFieldValue(string fieldName, string fieldValue)
+		public void AddFieldValue(string fieldName, string fieldValue)
 		{
 			if (this.m_fields[fieldName] != null)
 			{

@@ -4,9 +4,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_MissingAggregateDependency : Exception
+	public sealed class ReportProcessingException_MissingAggregateDependency : Exception
 	{
-		internal ReportProcessingException_MissingAggregateDependency()
+		public ReportProcessingException_MissingAggregateDependency()
 		{
 		}
 

@@ -10,9 +10,9 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LinearScale : MapObject, IToolTipProvider
+	public class LinearScale : MapObject, IToolTipProvider
 	{
-		internal const double MaxMajorTickMarks = 16.0;
+		public const double MaxMajorTickMarks = 16.0;
 
 		private LinearLabelStyle labelStyle;
 
@@ -22,23 +22,23 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private LinearMinorTickMark minorTickMark;
 
-		internal LinearSpecialPosition minimumPin;
+		public LinearSpecialPosition minimumPin;
 
-		internal LinearSpecialPosition maximumPin;
+		public LinearSpecialPosition maximumPin;
 
-		internal float _startPosition;
+		public float _startPosition;
 
-		internal float _endPosition = 100f;
+		public float _endPosition = 100f;
 
-		internal float _sweepPosition = 100f;
+		public float _sweepPosition = 100f;
 
-		internal float coordSystemRatio = 3.6f;
+		public float coordSystemRatio = 3.6f;
 
-		internal ArrayList markers = new ArrayList();
+		public ArrayList markers = new ArrayList();
 
-		internal ArrayList labels = new ArrayList();
+		public ArrayList labels = new ArrayList();
 
-		internal bool staticRendering = true;
+		public bool staticRendering = true;
 
 		private double minimum;
 
@@ -86,7 +86,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[SRCategory("CategoryAttribute_LabelsAndTickMarks")]
 		[Description("The label attributes of this scale.")]
 		[TypeConverter(typeof(NoNameExpandableObjectConverter))]
-		internal LinearLabelStyle LabelStyle
+		public LinearLabelStyle LabelStyle
 		{
 			get
 			{
@@ -234,7 +234,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ZoomPanel ParentGauge
+		public ZoomPanel ParentGauge
 		{
 			get
 			{
@@ -659,7 +659,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal double MinimumLog
+		public double MinimumLog
 		{
 			get
 			{
@@ -671,7 +671,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float StartPosition
+		public float StartPosition
 		{
 			get
 			{
@@ -697,7 +697,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float EndPosition
+		public float EndPosition
 		{
 			get
 			{
@@ -722,7 +722,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float SweepPosition
+		public float SweepPosition
 		{
 			get
 			{
@@ -818,7 +818,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal GraphicsPath GetShadowPath()
+		public GraphicsPath GetShadowPath()
 		{
 			if (this.Visible && this.ShadowOffset != 0.0 && this.Width > 0.0)
 			{
@@ -841,7 +841,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawTickMark(MapGraphics g, CustomTickMark tickMark, double value, float offset)
+		public void DrawTickMark(MapGraphics g, CustomTickMark tickMark, double value, float offset)
 		{
 			float num = this.GetPositionFromValue(value);
 			PointF absolutePoint = g.GetAbsolutePoint(this.GetPoint(num, offset));
@@ -859,7 +859,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal LinearLabelStyle GetLabelStyle()
+		public LinearLabelStyle GetLabelStyle()
 		{
 			return this.LabelStyle;
 		}
@@ -1027,7 +1027,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawSpecialPosition(MapGraphics g, SpecialPosition label, float angle)
+		public void DrawSpecialPosition(MapGraphics g, SpecialPosition label, float angle)
 		{
 			if (label.Enable)
 			{
@@ -1045,7 +1045,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderStaticElements(MapGraphics g)
+		public void RenderStaticElements(MapGraphics g)
 		{
 			if (this.Visible)
 			{
@@ -1080,7 +1080,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderDynamicElements(MapGraphics g)
+		public void RenderDynamicElements(MapGraphics g)
 		{
 			if (this.Visible && this.TickMarksOnTop)
 			{
@@ -1125,7 +1125,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return empty;
 		}
 
-		internal double GetValue(PointF c, PointF p)
+		public double GetValue(PointF c, PointF p)
 		{
 			if (this.Common != null)
 			{
@@ -1151,12 +1151,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return 0f;
 		}
 
-		internal bool GetReversed()
+		public bool GetReversed()
 		{
 			return this.Reversed;
 		}
 
-		internal Brush GetLightBrush(MapGraphics g, CustomTickMark tickMark, Color fillColor, GraphicsPath path)
+		public Brush GetLightBrush(MapGraphics g, CustomTickMark tickMark, Color fillColor, GraphicsPath path)
 		{
 			Brush brush = null;
 			if (tickMark.EnableGradient)
@@ -1215,7 +1215,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return brush;
 		}
 
-		internal void DrawTickMark(MapGraphics g, CustomTickMark tickMark, double value, float offset, Matrix matrix)
+		public void DrawTickMark(MapGraphics g, CustomTickMark tickMark, double value, float offset, Matrix matrix)
 		{
 			if (!(tickMark.Width <= 0.0) && !(tickMark.Length <= 0.0))
 			{
@@ -1269,7 +1269,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawTickMarkImage(MapGraphics g, CustomTickMark tickMark, Matrix matrix, PointF centerPoint, bool drawShadow)
+		public void DrawTickMarkImage(MapGraphics g, CustomTickMark tickMark, Matrix matrix, PointF centerPoint, bool drawShadow)
 		{
 			float absoluteDimension = g.GetAbsoluteDimension(tickMark.Length);
 			Image image = null;
@@ -1305,7 +1305,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float GetTickMarkOffset(CustomTickMark tickMark)
+		public float GetTickMarkOffset(CustomTickMark tickMark)
 		{
 			float num = 0f;
 			switch (tickMark.Placement)
@@ -1321,7 +1321,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderTicks(MapGraphics g, TickMark tickMark, double interval, double max, double min, double intOffset, bool forceLinear)
+		public void RenderTicks(MapGraphics g, TickMark tickMark, double interval, double max, double min, double intOffset, bool forceLinear)
 		{
 			float tickMarkOffset = this.GetTickMarkOffset(tickMark);
 			for (double num = min + intOffset; num <= max; num = this.GetNextPosition(num, interval, forceLinear))
@@ -1330,7 +1330,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderGrid(MapGraphics g)
+		public void RenderGrid(MapGraphics g)
 		{
 			if (this.MajorTickMark.Visible)
 			{
@@ -1360,7 +1360,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float GetOffsetLabelPos(Placement placement, float scaleOffset, float scalePosition)
+		public float GetOffsetLabelPos(Placement placement, float scaleOffset, float scalePosition)
 		{
 			Gap gap = new Gap(scalePosition);
 			gap.SetOffset(Placement.Cross, this.Width);
@@ -1388,7 +1388,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Font GetResizedFont(Font font, FontUnit fontUnit)
+		public Font GetResizedFont(Font font, FontUnit fontUnit)
 		{
 			if (fontUnit == FontUnit.Percent)
 			{
@@ -1398,7 +1398,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return font;
 		}
 
-		internal void RenderPins(MapGraphics g)
+		public void RenderPins(MapGraphics g)
 		{
 			if (!this.IsReversed())
 			{
@@ -1422,7 +1422,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this._sweepPosition = this._endPosition - this._startPosition;
 		}
 
-		internal virtual double GetValueLimit(double value, bool snapEnable, double snapInterval)
+		public virtual double GetValueLimit(double value, bool snapEnable, double snapInterval)
 		{
 			double valueLimit = this.GetValueLimit(value);
 			if (snapEnable)
@@ -1441,7 +1441,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return valueLimit;
 		}
 
-		internal virtual double GetValueLimit(double value)
+		public virtual double GetValueLimit(double value)
 		{
 			float num = this.StartPosition - this.MinimumPin.Location;
 			float num2 = this.EndPosition + this.MaximumPin.Location;
@@ -1479,7 +1479,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return value;
 		}
 
-		internal double GetIntervalOffset(IntervalTypes type)
+		public double GetIntervalOffset(IntervalTypes type)
 		{
 			double num = 0.0;
 			switch (type)
@@ -1516,7 +1516,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return num;
 		}
 
-		internal double GetInterval(IntervalTypes type)
+		public double GetInterval(IntervalTypes type)
 		{
 			double num = (this.Maximum - this.MinimumLog) / 10.0;
 			switch (type)
@@ -1627,7 +1627,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return num;
 		}
 
-		internal double GetNextPosition(double position, double interval, bool forceLinear)
+		public double GetNextPosition(double position, double interval, bool forceLinear)
 		{
 			position = ((!forceLinear && this.Logarithmic) ? Math.Pow(this.LogarithmicBase, Math.Log(position, this.LogarithmicBase) + interval) : (position + interval));
 			return position;
@@ -1677,12 +1677,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (float)((double)startPos + num * valueAgainstScaleRatio);
 		}
 
-		internal virtual float GetPositionFromValue(double value)
+		public virtual float GetPositionFromValue(double value)
 		{
 			return this.GetPositionFromValue(value, this.StartPosition / this.coordSystemRatio, this.EndPosition / this.coordSystemRatio) * this.coordSystemRatio;
 		}
 
-		internal virtual double GetValueFromPosition(float position)
+		public virtual double GetValueFromPosition(float position)
 		{
 			double num = (double)((position - this.StartPosition) / (this.EndPosition - this.StartPosition));
 			if (this.IsReversed())
@@ -1692,12 +1692,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.GetValueByRatio((float)num);
 		}
 
-		internal virtual PointF GetPointRel(double value, float offset)
+		public virtual PointF GetPointRel(double value, float offset)
 		{
 			return this.GetPoint(this.GetPositionFromValue(value), offset);
 		}
 
-		internal virtual PointF GetPointAbs(double value, float offset)
+		public virtual PointF GetPointAbs(double value, float offset)
 		{
 			if (this.Common != null)
 			{
@@ -1706,17 +1706,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			throw new ApplicationException(SR.gdi_noninitialized);
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			base.Invalidate();
 		}

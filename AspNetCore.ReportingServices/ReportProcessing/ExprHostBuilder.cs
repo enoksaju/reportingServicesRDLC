@@ -9,9 +9,9 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ExprHostBuilder
+	public sealed class ExprHostBuilder
 	{
-		internal enum ErrorSource
+		public enum ErrorSource
 		{
 			Expression,
 			CodeModuleClassInstanceDecl,
@@ -21,305 +21,305 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private static class Constants
 		{
-			internal const string ReportObjectModelNS = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel";
+			public const string ReportObjectModelNS = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel";
 
-			internal const string ExprHostObjectModelNS = "AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel";
+			public const string ExprHostObjectModelNS = "AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel";
 
-			internal const string ReportExprHost = "ReportExprHost";
+			public const string ReportExprHost = "ReportExprHost";
 
-			internal const string IndexedExprHost = "IndexedExprHost";
+			public const string IndexedExprHost = "IndexedExprHost";
 
-			internal const string ReportParamExprHost = "ReportParamExprHost";
+			public const string ReportParamExprHost = "ReportParamExprHost";
 
-			internal const string CalcFieldExprHost = "CalcFieldExprHost";
+			public const string CalcFieldExprHost = "CalcFieldExprHost";
 
-			internal const string DataSourceExprHost = "DataSourceExprHost";
+			public const string DataSourceExprHost = "DataSourceExprHost";
 
-			internal const string DataSetExprHost = "DataSetExprHost";
+			public const string DataSetExprHost = "DataSetExprHost";
 
-			internal const string ReportItemExprHost = "ReportItemExprHost";
+			public const string ReportItemExprHost = "ReportItemExprHost";
 
-			internal const string ActionExprHost = "ActionExprHost";
+			public const string ActionExprHost = "ActionExprHost";
 
-			internal const string ActionInfoExprHost = "ActionInfoExprHost";
+			public const string ActionInfoExprHost = "ActionInfoExprHost";
 
-			internal const string TextBoxExprHost = "TextBoxExprHost";
+			public const string TextBoxExprHost = "TextBoxExprHost";
 
-			internal const string ImageExprHost = "ImageExprHost";
+			public const string ImageExprHost = "ImageExprHost";
 
-			internal const string ParamExprHost = "ParamExprHost";
+			public const string ParamExprHost = "ParamExprHost";
 
-			internal const string SubreportExprHost = "SubreportExprHost";
+			public const string SubreportExprHost = "SubreportExprHost";
 
-			internal const string ActiveXControlExprHost = "ActiveXControlExprHost";
+			public const string ActiveXControlExprHost = "ActiveXControlExprHost";
 
-			internal const string SortingExprHost = "SortingExprHost";
+			public const string SortingExprHost = "SortingExprHost";
 
-			internal const string FilterExprHost = "FilterExprHost";
+			public const string FilterExprHost = "FilterExprHost";
 
-			internal const string GroupingExprHost = "GroupingExprHost";
+			public const string GroupingExprHost = "GroupingExprHost";
 
-			internal const string ListExprHost = "ListExprHost";
+			public const string ListExprHost = "ListExprHost";
 
-			internal const string TableGroupExprHost = "TableGroupExprHost";
+			public const string TableGroupExprHost = "TableGroupExprHost";
 
-			internal const string TableExprHost = "TableExprHost";
+			public const string TableExprHost = "TableExprHost";
 
-			internal const string MatrixDynamicGroupExprHost = "MatrixDynamicGroupExprHost";
+			public const string MatrixDynamicGroupExprHost = "MatrixDynamicGroupExprHost";
 
-			internal const string MatrixExprHost = "MatrixExprHost";
+			public const string MatrixExprHost = "MatrixExprHost";
 
-			internal const string ChartExprHost = "ChartExprHost";
+			public const string ChartExprHost = "ChartExprHost";
 
-			internal const string OWCChartExprHost = "OWCChartExprHost";
+			public const string OWCChartExprHost = "OWCChartExprHost";
 
-			internal const string StyleExprHost = "StyleExprHost";
+			public const string StyleExprHost = "StyleExprHost";
 
-			internal const string AggregateParamExprHost = "AggregateParamExprHost";
+			public const string AggregateParamExprHost = "AggregateParamExprHost";
 
-			internal const string MultiChartExprHost = "MultiChartExprHost";
+			public const string MultiChartExprHost = "MultiChartExprHost";
 
-			internal const string ChartDynamicGroupExprHost = "ChartDynamicGroupExprHost";
+			public const string ChartDynamicGroupExprHost = "ChartDynamicGroupExprHost";
 
-			internal const string ChartDataPointExprHost = "ChartDataPointExprHost";
+			public const string ChartDataPointExprHost = "ChartDataPointExprHost";
 
-			internal const string ChartTitleExprHost = "ChartTitleExprHost";
+			public const string ChartTitleExprHost = "ChartTitleExprHost";
 
-			internal const string AxisExprHost = "AxisExprHost";
+			public const string AxisExprHost = "AxisExprHost";
 
-			internal const string DataValueExprHost = "DataValueExprHost";
+			public const string DataValueExprHost = "DataValueExprHost";
 
-			internal const string CustomReportItemExprHost = "CustomReportItemExprHost";
+			public const string CustomReportItemExprHost = "CustomReportItemExprHost";
 
-			internal const string DataGroupingExprHost = "DataGroupingExprHost";
+			public const string DataGroupingExprHost = "DataGroupingExprHost";
 
-			internal const string DataCellExprHost = "DataCellExprHost";
+			public const string DataCellExprHost = "DataCellExprHost";
 
-			internal const string ParametersOnlyParam = "parametersOnly";
+			public const string ParametersOnlyParam = "parametersOnly";
 
-			internal const string CustomCodeProxy = "CustomCodeProxy";
+			public const string CustomCodeProxy = "CustomCodeProxy";
 
-			internal const string CustomCodeProxyBase = "CustomCodeProxyBase";
+			public const string CustomCodeProxyBase = "CustomCodeProxyBase";
 
-			internal const string ReportObjectModelParam = "reportObjectModel";
+			public const string ReportObjectModelParam = "reportObjectModel";
 
-			internal const string SetReportObjectModel = "SetReportObjectModel";
+			public const string SetReportObjectModel = "SetReportObjectModel";
 
-			internal const string Code = "Code";
+			public const string Code = "Code";
 
-			internal const string CodeProxyBase = "m_codeProxyBase";
+			public const string CodeProxyBase = "m_codeProxyBase";
 
-			internal const string CodeParam = "code";
+			public const string CodeParam = "code";
 
-			internal const string Report = "Report";
+			public const string Report = "Report";
 
-			internal const string RemoteArrayWrapper = "RemoteArrayWrapper";
+			public const string RemoteArrayWrapper = "RemoteArrayWrapper";
 
-			internal const string LabelExpr = "LabelExpr";
+			public const string LabelExpr = "LabelExpr";
 
-			internal const string ValueExpr = "ValueExpr";
+			public const string ValueExpr = "ValueExpr";
 
-			internal const string NoRowsExpr = "NoRowsExpr";
+			public const string NoRowsExpr = "NoRowsExpr";
 
-			internal const string ParameterHosts = "m_parameterHostsRemotable";
+			public const string ParameterHosts = "m_parameterHostsRemotable";
 
-			internal const string IndexParam = "index";
+			public const string IndexParam = "index";
 
-			internal const string FilterHosts = "m_filterHostsRemotable";
+			public const string FilterHosts = "m_filterHostsRemotable";
 
-			internal const string SortingHost = "SortingHost";
+			public const string SortingHost = "SortingHost";
 
-			internal const string GroupingHost = "GroupingHost";
+			public const string GroupingHost = "GroupingHost";
 
-			internal const string SubgroupHost = "SubgroupHost";
+			public const string SubgroupHost = "SubgroupHost";
 
-			internal const string VisibilityHiddenExpr = "VisibilityHiddenExpr";
+			public const string VisibilityHiddenExpr = "VisibilityHiddenExpr";
 
-			internal const string SortDirectionHosts = "SortDirectionHosts";
+			public const string SortDirectionHosts = "SortDirectionHosts";
 
-			internal const string DataValueHosts = "m_dataValueHostsRemotable";
+			public const string DataValueHosts = "m_dataValueHostsRemotable";
 
-			internal const string CustomPropertyHosts = "m_customPropertyHostsRemotable";
+			public const string CustomPropertyHosts = "m_customPropertyHostsRemotable";
 
-			internal const string ReportLanguageExpr = "ReportLanguageExpr";
+			public const string ReportLanguageExpr = "ReportLanguageExpr";
 
-			internal const string AggregateParamHosts = "m_aggregateParamHostsRemotable";
+			public const string AggregateParamHosts = "m_aggregateParamHostsRemotable";
 
-			internal const string ReportParameterHosts = "m_reportParameterHostsRemotable";
+			public const string ReportParameterHosts = "m_reportParameterHostsRemotable";
 
-			internal const string DataSourceHosts = "m_dataSourceHostsRemotable";
+			public const string DataSourceHosts = "m_dataSourceHostsRemotable";
 
-			internal const string DataSetHosts = "m_dataSetHostsRemotable";
+			public const string DataSetHosts = "m_dataSetHostsRemotable";
 
-			internal const string PageSectionHosts = "m_pageSectionHostsRemotable";
+			public const string PageSectionHosts = "m_pageSectionHostsRemotable";
 
-			internal const string LineHosts = "m_lineHostsRemotable";
+			public const string LineHosts = "m_lineHostsRemotable";
 
-			internal const string RectangleHosts = "m_rectangleHostsRemotable";
+			public const string RectangleHosts = "m_rectangleHostsRemotable";
 
-			internal const string TextBoxHosts = "m_textBoxHostsRemotable";
+			public const string TextBoxHosts = "m_textBoxHostsRemotable";
 
-			internal const string ImageHosts = "m_imageHostsRemotable";
+			public const string ImageHosts = "m_imageHostsRemotable";
 
-			internal const string SubreportHosts = "m_subreportHostsRemotable";
+			public const string SubreportHosts = "m_subreportHostsRemotable";
 
-			internal const string ActiveXControlHosts = "m_activeXControlHostsRemotable";
+			public const string ActiveXControlHosts = "m_activeXControlHostsRemotable";
 
-			internal const string ListHosts = "m_listHostsRemotable";
+			public const string ListHosts = "m_listHostsRemotable";
 
-			internal const string TableHosts = "m_tableHostsRemotable";
+			public const string TableHosts = "m_tableHostsRemotable";
 
-			internal const string MatrixHosts = "m_matrixHostsRemotable";
+			public const string MatrixHosts = "m_matrixHostsRemotable";
 
-			internal const string ChartHosts = "m_chartHostsRemotable";
+			public const string ChartHosts = "m_chartHostsRemotable";
 
-			internal const string OWCChartHosts = "m_OWCChartHostsRemotable";
+			public const string OWCChartHosts = "m_OWCChartHostsRemotable";
 
-			internal const string CustomReportItemHosts = "m_customReportItemHostsRemotable";
+			public const string CustomReportItemHosts = "m_customReportItemHostsRemotable";
 
-			internal const string ConnectStringExpr = "ConnectStringExpr";
+			public const string ConnectStringExpr = "ConnectStringExpr";
 
-			internal const string FieldHosts = "m_fieldHostsRemotable";
+			public const string FieldHosts = "m_fieldHostsRemotable";
 
-			internal const string QueryParametersHost = "QueryParametersHost";
+			public const string QueryParametersHost = "QueryParametersHost";
 
-			internal const string QueryCommandTextExpr = "QueryCommandTextExpr";
+			public const string QueryCommandTextExpr = "QueryCommandTextExpr";
 
-			internal const string ValidValuesHost = "ValidValuesHost";
+			public const string ValidValuesHost = "ValidValuesHost";
 
-			internal const string ValidValueLabelsHost = "ValidValueLabelsHost";
+			public const string ValidValueLabelsHost = "ValidValueLabelsHost";
 
-			internal const string ValidationExpressionExpr = "ValidationExpressionExpr";
+			public const string ValidationExpressionExpr = "ValidationExpressionExpr";
 
-			internal const string ActionInfoHost = "ActionInfoHost";
+			public const string ActionInfoHost = "ActionInfoHost";
 
-			internal const string ActionHost = "ActionHost";
+			public const string ActionHost = "ActionHost";
 
-			internal const string ActionItemHosts = "m_actionItemHostsRemotable";
+			public const string ActionItemHosts = "m_actionItemHostsRemotable";
 
-			internal const string BookmarkExpr = "BookmarkExpr";
+			public const string BookmarkExpr = "BookmarkExpr";
 
-			internal const string ToolTipExpr = "ToolTipExpr";
+			public const string ToolTipExpr = "ToolTipExpr";
 
-			internal const string ToggleImageInitialStateExpr = "ToggleImageInitialStateExpr";
+			public const string ToggleImageInitialStateExpr = "ToggleImageInitialStateExpr";
 
-			internal const string UserSortExpressionsHost = "UserSortExpressionsHost";
+			public const string UserSortExpressionsHost = "UserSortExpressionsHost";
 
-			internal const string MIMETypeExpr = "MIMETypeExpr";
+			public const string MIMETypeExpr = "MIMETypeExpr";
 
-			internal const string OmitExpr = "OmitExpr";
+			public const string OmitExpr = "OmitExpr";
 
-			internal const string HyperlinkExpr = "HyperlinkExpr";
+			public const string HyperlinkExpr = "HyperlinkExpr";
 
-			internal const string DrillThroughReportNameExpr = "DrillThroughReportNameExpr";
+			public const string DrillThroughReportNameExpr = "DrillThroughReportNameExpr";
 
-			internal const string DrillThroughParameterHosts = "m_drillThroughParameterHostsRemotable";
+			public const string DrillThroughParameterHosts = "m_drillThroughParameterHostsRemotable";
 
-			internal const string DrillThroughBookmakLinkExpr = "DrillThroughBookmarkLinkExpr";
+			public const string DrillThroughBookmakLinkExpr = "DrillThroughBookmarkLinkExpr";
 
-			internal const string BookmarkLinkExpr = "BookmarkLinkExpr";
+			public const string BookmarkLinkExpr = "BookmarkLinkExpr";
 
-			internal const string FilterExpressionExpr = "FilterExpressionExpr";
+			public const string FilterExpressionExpr = "FilterExpressionExpr";
 
-			internal const string ParentExpressionsHost = "ParentExpressionsHost";
+			public const string ParentExpressionsHost = "ParentExpressionsHost";
 
-			internal const string SubGroupHost = "SubGroupHost";
+			public const string SubGroupHost = "SubGroupHost";
 
-			internal const string SubtotalHost = "SubtotalHost";
+			public const string SubtotalHost = "SubtotalHost";
 
-			internal const string RowGroupingsHost = "RowGroupingsHost";
+			public const string RowGroupingsHost = "RowGroupingsHost";
 
-			internal const string ColumnGroupingsHost = "ColumnGroupingsHost";
+			public const string ColumnGroupingsHost = "ColumnGroupingsHost";
 
-			internal const string SeriesGroupingsHost = "SeriesGroupingsHost";
+			public const string SeriesGroupingsHost = "SeriesGroupingsHost";
 
-			internal const string CategoryGroupingsHost = "CategoryGroupingsHost";
+			public const string CategoryGroupingsHost = "CategoryGroupingsHost";
 
-			internal const string MultiChartHost = "MultiChartHost";
+			public const string MultiChartHost = "MultiChartHost";
 
-			internal const string HeadingLabelExpr = "HeadingLabelExpr";
+			public const string HeadingLabelExpr = "HeadingLabelExpr";
 
-			internal const string ChartDataPointHosts = "m_chartDataPointHostsRemotable";
+			public const string ChartDataPointHosts = "m_chartDataPointHostsRemotable";
 
-			internal const string DataLabelValueExpr = "DataLabelValueExpr";
+			public const string DataLabelValueExpr = "DataLabelValueExpr";
 
-			internal const string DataLabelStyleHost = "DataLabelStyleHost";
+			public const string DataLabelStyleHost = "DataLabelStyleHost";
 
-			internal const string StyleHost = "StyleHost";
+			public const string StyleHost = "StyleHost";
 
-			internal const string MarkerStyleHost = "MarkerStyleHost";
+			public const string MarkerStyleHost = "MarkerStyleHost";
 
-			internal const string TitleHost = "TitleHost";
+			public const string TitleHost = "TitleHost";
 
-			internal const string CaptionExpr = "CaptionExpr";
+			public const string CaptionExpr = "CaptionExpr";
 
-			internal const string MajorGridLinesHost = "MajorGridLinesHost";
+			public const string MajorGridLinesHost = "MajorGridLinesHost";
 
-			internal const string MinorGridLinesHost = "MinorGridLinesHost";
+			public const string MinorGridLinesHost = "MinorGridLinesHost";
 
-			internal const string StaticRowLabelsHost = "StaticRowLabelsHost";
+			public const string StaticRowLabelsHost = "StaticRowLabelsHost";
 
-			internal const string StaticColumnLabelsHost = "StaticColumnLabelsHost";
+			public const string StaticColumnLabelsHost = "StaticColumnLabelsHost";
 
-			internal const string CategoryAxisHost = "CategoryAxisHost";
+			public const string CategoryAxisHost = "CategoryAxisHost";
 
-			internal const string ValueAxisHost = "ValueAxisHost";
+			public const string ValueAxisHost = "ValueAxisHost";
 
-			internal const string LegendHost = "LegendHost";
+			public const string LegendHost = "LegendHost";
 
-			internal const string PlotAreaHost = "PlotAreaHost";
+			public const string PlotAreaHost = "PlotAreaHost";
 
-			internal const string AxisMinExpr = "AxisMinExpr";
+			public const string AxisMinExpr = "AxisMinExpr";
 
-			internal const string AxisMaxExpr = "AxisMaxExpr";
+			public const string AxisMaxExpr = "AxisMaxExpr";
 
-			internal const string AxisCrossAtExpr = "AxisCrossAtExpr";
+			public const string AxisCrossAtExpr = "AxisCrossAtExpr";
 
-			internal const string AxisMajorIntervalExpr = "AxisMajorIntervalExpr";
+			public const string AxisMajorIntervalExpr = "AxisMajorIntervalExpr";
 
-			internal const string AxisMinorIntervalExpr = "AxisMinorIntervalExpr";
+			public const string AxisMinorIntervalExpr = "AxisMinorIntervalExpr";
 
-			internal const string TableGroupsHost = "TableGroupsHost";
+			public const string TableGroupsHost = "TableGroupsHost";
 
-			internal const string TableRowVisibilityHiddenExpressions = "TableRowVisibilityHiddenExpressions";
+			public const string TableRowVisibilityHiddenExpressions = "TableRowVisibilityHiddenExpressions";
 
-			internal const string TableColumnVisibilityHiddenExpressions = "TableColumnVisibilityHiddenExpressions";
+			public const string TableColumnVisibilityHiddenExpressions = "TableColumnVisibilityHiddenExpressions";
 
-			internal const string OWCChartColumnHosts = "OWCChartColumnHosts";
+			public const string OWCChartColumnHosts = "OWCChartColumnHosts";
 
-			internal const string DataValueNameExpr = "DataValueNameExpr";
+			public const string DataValueNameExpr = "DataValueNameExpr";
 
-			internal const string DataValueValueExpr = "DataValueValueExpr";
+			public const string DataValueValueExpr = "DataValueValueExpr";
 
-			internal const string DataGroupingHosts = "m_dataGroupingHostsRemotable";
+			public const string DataGroupingHosts = "m_dataGroupingHostsRemotable";
 
-			internal const string DataCellHosts = "m_dataCellHostsRemotable";
+			public const string DataCellHosts = "m_dataCellHostsRemotable";
 		}
 
 		private abstract class TypeDecl
 		{
-			internal CodeTypeDeclaration Type;
+			public CodeTypeDeclaration Type;
 
-			internal string BaseTypeName;
+			public string BaseTypeName;
 
-			internal TypeDecl Parent;
+			public TypeDecl Parent;
 
-			internal CodeConstructor Constructor;
+			public CodeConstructor Constructor;
 
-			internal bool HasExpressions;
+			public bool HasExpressions;
 
-			internal CodeExpressionCollection DataValues;
+			public CodeExpressionCollection DataValues;
 
 			protected bool m_setCode;
 
-			internal void NestedTypeAdd(string name, CodeTypeDeclaration nestedType)
+			public void NestedTypeAdd(string name, CodeTypeDeclaration nestedType)
 			{
 				this.ConstructorCreate();
 				this.Type.Members.Add(nestedType);
 				this.Constructor.Statements.Add(new CodeAssignStatement(new CodePropertyReferenceExpression(new CodeThisReferenceExpression(), name), this.CreateTypeCreateExpression(nestedType.Name)));
 			}
 
-			internal int NestedTypeColAdd(string name, string baseTypeName, ref CodeExpressionCollection initializers, CodeTypeDeclaration nestedType)
+			public int NestedTypeColAdd(string name, string baseTypeName, ref CodeExpressionCollection initializers, CodeTypeDeclaration nestedType)
 			{
 				this.Type.Members.Add(nestedType);
 				this.TypeColInit(name, baseTypeName, ref initializers);
@@ -395,41 +395,41 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class RootTypeDecl : TypeDecl
 		{
-			internal CodeExpressionCollection Aggregates;
+			public CodeExpressionCollection Aggregates;
 
-			internal CodeExpressionCollection PageSections;
+			public CodeExpressionCollection PageSections;
 
-			internal CodeExpressionCollection ReportParameters;
+			public CodeExpressionCollection ReportParameters;
 
-			internal CodeExpressionCollection DataSources;
+			public CodeExpressionCollection DataSources;
 
-			internal CodeExpressionCollection DataSets;
+			public CodeExpressionCollection DataSets;
 
-			internal CodeExpressionCollection Lines;
+			public CodeExpressionCollection Lines;
 
-			internal CodeExpressionCollection Rectangles;
+			public CodeExpressionCollection Rectangles;
 
-			internal CodeExpressionCollection TextBoxes;
+			public CodeExpressionCollection TextBoxes;
 
-			internal CodeExpressionCollection Images;
+			public CodeExpressionCollection Images;
 
-			internal CodeExpressionCollection Subreports;
+			public CodeExpressionCollection Subreports;
 
-			internal CodeExpressionCollection ActiveXControls;
+			public CodeExpressionCollection ActiveXControls;
 
-			internal CodeExpressionCollection Lists;
+			public CodeExpressionCollection Lists;
 
-			internal CodeExpressionCollection Tables;
+			public CodeExpressionCollection Tables;
 
-			internal CodeExpressionCollection Matrices;
+			public CodeExpressionCollection Matrices;
 
-			internal CodeExpressionCollection Charts;
+			public CodeExpressionCollection Charts;
 
-			internal CodeExpressionCollection OWCCharts;
+			public CodeExpressionCollection OWCCharts;
 
-			internal CodeExpressionCollection CustomReportItems;
+			public CodeExpressionCollection CustomReportItems;
 
-			internal RootTypeDecl(bool setCode)
+			public RootTypeDecl(bool setCode)
 				: base("ReportExprHostImpl", "ReportExprHost", null, setCode)
 			{
 			}
@@ -459,7 +459,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return codeTypeDeclaration;
 			}
 
-			internal void CompleteConstructorCreation()
+			public void CompleteConstructorCreation()
 			{
 				if (base.HasExpressions)
 				{
@@ -497,23 +497,23 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class NonRootTypeDecl : TypeDecl
 		{
-			internal CodeExpressionCollection Parameters;
+			public CodeExpressionCollection Parameters;
 
-			internal CodeExpressionCollection Filters;
+			public CodeExpressionCollection Filters;
 
-			internal CodeExpressionCollection Actions;
+			public CodeExpressionCollection Actions;
 
-			internal CodeExpressionCollection Fields;
+			public CodeExpressionCollection Fields;
 
-			internal CodeExpressionCollection DataPoints;
+			public CodeExpressionCollection DataPoints;
 
-			internal CodeExpressionCollection DataGroupings;
+			public CodeExpressionCollection DataGroupings;
 
-			internal CodeExpressionCollection DataCells;
+			public CodeExpressionCollection DataCells;
 
-			internal ReturnStatementList IndexedExpressions;
+			public ReturnStatementList IndexedExpressions;
 
-			internal NonRootTypeDecl(string typeName, string baseTypeName, TypeDecl parent, bool setCode)
+			public NonRootTypeDecl(string typeName, string baseTypeName, TypeDecl parent, bool setCode)
 				: base(typeName, baseTypeName, parent, setCode)
 			{
 				if (setCode)
@@ -548,7 +548,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class CustomCodeProxyDecl : TypeDecl
 		{
-			internal CustomCodeProxyDecl(TypeDecl parent)
+			public CustomCodeProxyDecl(TypeDecl parent)
 				: base("CustomCodeProxy", "CustomCodeProxyBase", parent, false)
 			{
 				base.ConstructorCreate();
@@ -562,7 +562,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return codeConstructor;
 			}
 
-			internal void AddClassInstance(string className, string instanceName, int id)
+			public void AddClassInstance(string className, string instanceName, int id)
 			{
 				string fileName = "CMCID" + id.ToString(CultureInfo.InvariantCulture) + "end";
 				CodeMemberField codeMemberField = new CodeMemberField(className, "m_" + instanceName);
@@ -579,7 +579,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.Type.Members.Add(codeMemberProperty);
 			}
 
-			internal void AddCode(string code)
+			public void AddCode(string code)
 			{
 				CodeTypeMember codeTypeMember = new CodeSnippetTypeMember(code);
 				codeTypeMember.LinePragma = new CodeLinePragma("CustomCode", 0);
@@ -591,7 +591,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 			private ArrayList m_list = new ArrayList();
 
-			internal CodeMethodReturnStatement this[int index]
+			public CodeMethodReturnStatement this[int index]
 			{
 				get
 				{
@@ -599,7 +599,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int Count
+			public int Count
 			{
 				get
 				{
@@ -607,13 +607,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int Add(CodeMethodReturnStatement retStatement)
+			public int Add(CodeMethodReturnStatement retStatement)
 			{
 				return this.m_list.Add(retStatement);
 			}
 		}
 
-		internal const string RootType = "ReportExprHostImpl";
+		public const string RootType = "ReportExprHostImpl";
 
 		private const string EndSrcMarker = "end";
 
@@ -633,7 +633,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private static readonly Regex m_findCodeModuleClassInstanceDeclNumber = new Regex("^CMCID([0-9]+)end", RegexOptions.Compiled);
 
-		internal bool HasExpressions
+		public bool HasExpressions
 		{
 			get
 			{
@@ -645,7 +645,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool CustomCode
+		public bool CustomCode
 		{
 			get
 			{
@@ -653,16 +653,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExprHostBuilder()
+		public ExprHostBuilder()
 		{
 		}
 
-		internal void SetCustomCode()
+		public void SetCustomCode()
 		{
 			this.m_setCode = true;
 		}
 
-		internal CodeCompileUnit GetExprHost(IntermediateFormatVersion version, bool refusePermissions)
+		public CodeCompileUnit GetExprHost(IntermediateFormatVersion version, bool refusePermissions)
 		{
 			Global.Tracer.Assert(this.m_rootTypeDecl != null && this.m_currentTypeDecl.Parent == null, "(m_rootTypeDecl != null && m_currentTypeDecl.Parent == null)");
 			CodeCompileUnit codeCompileUnit = null;
@@ -689,7 +689,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return codeCompileUnit;
 		}
 
-		internal ErrorSource ParseErrorSource(CompilerError error, out int id)
+		public ErrorSource ParseErrorSource(CompilerError error, out int id)
 		{
 			Global.Tracer.Assert(error.FileName != null, "(error.FileName != null)");
 			id = -1;
@@ -710,466 +710,466 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ErrorSource.Unknown;
 		}
 
-		internal void ReportStart()
+		public void ReportStart()
 		{
 			this.m_currentTypeDecl = (this.m_rootTypeDecl = new RootTypeDecl(this.m_setCode));
 		}
 
-		internal void ReportEnd()
+		public void ReportEnd()
 		{
 			this.m_rootTypeDecl.CompleteConstructorCreation();
 		}
 
-		internal void ReportLanguage(ExpressionInfo expression)
+		public void ReportLanguage(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ReportLanguageExpr", expression);
 		}
 
-		internal void GenericLabel(ExpressionInfo expression)
+		public void GenericLabel(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelExpr", expression);
 		}
 
-		internal void GenericValue(ExpressionInfo expression)
+		public void GenericValue(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal void GenericNoRows(ExpressionInfo expression)
+		public void GenericNoRows(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("NoRowsExpr", expression);
 		}
 
-		internal void GenericVisibilityHidden(ExpressionInfo expression)
+		public void GenericVisibilityHidden(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("VisibilityHiddenExpr", expression);
 		}
 
-		internal void AggregateParamExprAdd(ExpressionInfo expression)
+		public void AggregateParamExprAdd(ExpressionInfo expression)
 		{
 			this.AggregateStart();
 			this.GenericValue(expression);
 			expression.ExprHostID = this.AggregateEnd();
 		}
 
-		internal void CustomCodeProxyStart()
+		public void CustomCodeProxyStart()
 		{
 			Global.Tracer.Assert(this.m_setCode, "(m_setCode)");
 			this.m_currentTypeDecl = new CustomCodeProxyDecl(this.m_currentTypeDecl);
 		}
 
-		internal void CustomCodeProxyEnd()
+		public void CustomCodeProxyEnd()
 		{
 			this.m_rootTypeDecl.Type.Members.Add(this.m_currentTypeDecl.Type);
 			this.TypeEnd(this.m_rootTypeDecl);
 		}
 
-		internal void CustomCodeClassInstance(string className, string instanceName, int id)
+		public void CustomCodeClassInstance(string className, string instanceName, int id)
 		{
 			((CustomCodeProxyDecl)this.m_currentTypeDecl).AddClassInstance(className, instanceName, id);
 		}
 
-		internal void ReportCode(string code)
+		public void ReportCode(string code)
 		{
 			((CustomCodeProxyDecl)this.m_currentTypeDecl).AddCode(code);
 		}
 
-		internal void ReportParameterStart(string name)
+		public void ReportParameterStart(string name)
 		{
 			this.TypeStart(name, "ReportParamExprHost");
 		}
 
-		internal int ReportParameterEnd()
+		public int ReportParameterEnd()
 		{
 			this.ExprIndexerCreate();
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_reportParameterHostsRemotable", ref this.m_rootTypeDecl.ReportParameters);
 		}
 
-		internal void ReportParameterValidationExpression(ExpressionInfo expression)
+		public void ReportParameterValidationExpression(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValidationExpressionExpr", expression);
 		}
 
-		internal void ReportParameterDefaultValue(ExpressionInfo expression)
+		public void ReportParameterDefaultValue(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void ReportParameterValidValuesStart()
+		public void ReportParameterValidValuesStart()
 		{
 			this.TypeStart("ReportParameterValidValues", "IndexedExprHost");
 		}
 
-		internal void ReportParameterValidValuesEnd()
+		public void ReportParameterValidValuesEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ValidValuesHost");
 		}
 
-		internal void ReportParameterValidValue(ExpressionInfo expression)
+		public void ReportParameterValidValue(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void ReportParameterValidValueLabelsStart()
+		public void ReportParameterValidValueLabelsStart()
 		{
 			this.TypeStart("ReportParameterValidValueLabels", "IndexedExprHost");
 		}
 
-		internal void ReportParameterValidValueLabelsEnd()
+		public void ReportParameterValidValueLabelsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ValidValueLabelsHost");
 		}
 
-		internal void ReportParameterValidValueLabel(ExpressionInfo expression)
+		public void ReportParameterValidValueLabel(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void CalcFieldStart(string name)
+		public void CalcFieldStart(string name)
 		{
 			this.TypeStart(name, "CalcFieldExprHost");
 		}
 
-		internal int CalcFieldEnd()
+		public int CalcFieldEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_fieldHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).Fields);
 		}
 
-		internal void QueryParametersStart()
+		public void QueryParametersStart()
 		{
 			this.TypeStart("QueryParameters", "IndexedExprHost");
 		}
 
-		internal void QueryParametersEnd()
+		public void QueryParametersEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "QueryParametersHost");
 		}
 
-		internal void QueryParameterValue(ExpressionInfo expression)
+		public void QueryParameterValue(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void DataSourceStart(string name)
+		public void DataSourceStart(string name)
 		{
 			this.TypeStart(name, "DataSourceExprHost");
 		}
 
-		internal int DataSourceEnd()
+		public int DataSourceEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_dataSourceHostsRemotable", ref this.m_rootTypeDecl.DataSources);
 		}
 
-		internal void DataSourceConnectString(ExpressionInfo expression)
+		public void DataSourceConnectString(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ConnectStringExpr", expression);
 		}
 
-		internal void DataSetStart(string name)
+		public void DataSetStart(string name)
 		{
 			this.TypeStart(name, "DataSetExprHost");
 		}
 
-		internal int DataSetEnd()
+		public int DataSetEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_dataSetHostsRemotable", ref this.m_rootTypeDecl.DataSets);
 		}
 
-		internal void DataSetQueryCommandText(ExpressionInfo expression)
+		public void DataSetQueryCommandText(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("QueryCommandTextExpr", expression);
 		}
 
-		internal void PageSectionStart()
+		public void PageSectionStart()
 		{
 			this.TypeStart(this.CreateTypeName("PageSection", this.m_rootTypeDecl.PageSections), "StyleExprHost");
 		}
 
-		internal int PageSectionEnd()
+		public int PageSectionEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_pageSectionHostsRemotable", ref this.m_rootTypeDecl.PageSections);
 		}
 
-		internal void ParameterOmit(ExpressionInfo expression)
+		public void ParameterOmit(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OmitExpr", expression);
 		}
 
-		internal void StyleAttribute(string name, ExpressionInfo expression)
+		public void StyleAttribute(string name, ExpressionInfo expression)
 		{
 			this.ExpressionAdd(name + "Expr", expression);
 		}
 
-		internal void ActionInfoStart()
+		public void ActionInfoStart()
 		{
 			this.TypeStart("ActionInfo", "ActionInfoExprHost");
 		}
 
-		internal void ActionInfoEnd()
+		public void ActionInfoEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ActionInfoHost");
 		}
 
-		internal void ActionStart()
+		public void ActionStart()
 		{
 			this.TypeStart(this.CreateTypeName("Action", ((NonRootTypeDecl)this.m_currentTypeDecl).Actions), "ActionExprHost");
 		}
 
-		internal int ActionEnd()
+		public int ActionEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_actionItemHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).Actions);
 		}
 
-		internal void ActionHyperlink(ExpressionInfo expression)
+		public void ActionHyperlink(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HyperlinkExpr", expression);
 		}
 
-		internal void ActionDrillThroughReportName(ExpressionInfo expression)
+		public void ActionDrillThroughReportName(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DrillThroughReportNameExpr", expression);
 		}
 
-		internal void ActionDrillThroughBookmarkLink(ExpressionInfo expression)
+		public void ActionDrillThroughBookmarkLink(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DrillThroughBookmarkLinkExpr", expression);
 		}
 
-		internal void ActionBookmarkLink(ExpressionInfo expression)
+		public void ActionBookmarkLink(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BookmarkLinkExpr", expression);
 		}
 
-		internal void ActionDrillThroughParameterStart()
+		public void ActionDrillThroughParameterStart()
 		{
 			this.ParameterStart();
 		}
 
-		internal int ActionDrillThroughParameterEnd()
+		public int ActionDrillThroughParameterEnd()
 		{
 			return this.ParameterEnd("m_drillThroughParameterHostsRemotable");
 		}
 
-		internal void ReportItemBookmark(ExpressionInfo expression)
+		public void ReportItemBookmark(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BookmarkExpr", expression);
 		}
 
-		internal void ReportItemToolTip(ExpressionInfo expression)
+		public void ReportItemToolTip(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void LineStart(string name)
+		public void LineStart(string name)
 		{
 			this.TypeStart(name, "ReportItemExprHost");
 		}
 
-		internal int LineEnd()
+		public int LineEnd()
 		{
 			return this.ReportItemEnd("m_lineHostsRemotable", ref this.m_rootTypeDecl.Lines);
 		}
 
-		internal void RectangleStart(string name)
+		public void RectangleStart(string name)
 		{
 			this.TypeStart(name, "ReportItemExprHost");
 		}
 
-		internal int RectangleEnd()
+		public int RectangleEnd()
 		{
 			return this.ReportItemEnd("m_rectangleHostsRemotable", ref this.m_rootTypeDecl.Rectangles);
 		}
 
-		internal void TextBoxStart(string name)
+		public void TextBoxStart(string name)
 		{
 			this.TypeStart(name, "TextBoxExprHost");
 		}
 
-		internal int TextBoxEnd()
+		public int TextBoxEnd()
 		{
 			return this.ReportItemEnd("m_textBoxHostsRemotable", ref this.m_rootTypeDecl.TextBoxes);
 		}
 
-		internal void TextBoxToggleImageInitialState(ExpressionInfo expression)
+		public void TextBoxToggleImageInitialState(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToggleImageInitialStateExpr", expression);
 		}
 
-		internal void UserSortExpressionsStart()
+		public void UserSortExpressionsStart()
 		{
 			this.TypeStart("UserSort", "IndexedExprHost");
 		}
 
-		internal void UserSortExpressionsEnd()
+		public void UserSortExpressionsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "UserSortExpressionsHost");
 		}
 
-		internal void UserSortExpression(ExpressionInfo expression)
+		public void UserSortExpression(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void ImageStart(string name)
+		public void ImageStart(string name)
 		{
 			this.TypeStart(name, "ImageExprHost");
 		}
 
-		internal int ImageEnd()
+		public int ImageEnd()
 		{
 			return this.ReportItemEnd("m_imageHostsRemotable", ref this.m_rootTypeDecl.Images);
 		}
 
-		internal void ImageMIMEType(ExpressionInfo expression)
+		public void ImageMIMEType(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MIMETypeExpr", expression);
 		}
 
-		internal void SubreportStart(string name)
+		public void SubreportStart(string name)
 		{
 			this.TypeStart(name, "SubreportExprHost");
 		}
 
-		internal int SubreportEnd()
+		public int SubreportEnd()
 		{
 			return this.ReportItemEnd("m_subreportHostsRemotable", ref this.m_rootTypeDecl.Subreports);
 		}
 
-		internal void SubreportParameterStart()
+		public void SubreportParameterStart()
 		{
 			this.ParameterStart();
 		}
 
-		internal int SubreportParameterEnd()
+		public int SubreportParameterEnd()
 		{
 			return this.ParameterEnd("m_parameterHostsRemotable");
 		}
 
-		internal void ActiveXControlStart(string name)
+		public void ActiveXControlStart(string name)
 		{
 			this.TypeStart(name, "ActiveXControlExprHost");
 		}
 
-		internal int ActiveXControlEnd()
+		public int ActiveXControlEnd()
 		{
 			return this.ReportItemEnd("m_activeXControlHostsRemotable", ref this.m_rootTypeDecl.ActiveXControls);
 		}
 
-		internal void ActiveXControlParameterStart()
+		public void ActiveXControlParameterStart()
 		{
 			this.ParameterStart();
 		}
 
-		internal int ActiveXControlParameterEnd()
+		public int ActiveXControlParameterEnd()
 		{
 			return this.ParameterEnd("m_parameterHostsRemotable");
 		}
 
-		internal void SortingStart()
+		public void SortingStart()
 		{
 			this.TypeStart("Sorting", "SortingExprHost");
 		}
 
-		internal void SortingEnd()
+		public void SortingEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "SortingHost");
 		}
 
-		internal void SortingExpression(ExpressionInfo expression)
+		public void SortingExpression(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void SortDirectionsStart()
+		public void SortDirectionsStart()
 		{
 			this.TypeStart("SortDirections", "IndexedExprHost");
 		}
 
-		internal void SortDirectionsEnd()
+		public void SortDirectionsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "SortDirectionHosts");
 		}
 
-		internal void SortDirection(ExpressionInfo expression)
+		public void SortDirection(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void FilterStart()
+		public void FilterStart()
 		{
 			this.TypeStart(this.CreateTypeName("Filter", ((NonRootTypeDecl)this.m_currentTypeDecl).Filters), "FilterExprHost");
 		}
 
-		internal int FilterEnd()
+		public int FilterEnd()
 		{
 			this.ExprIndexerCreate();
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_filterHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).Filters);
 		}
 
-		internal void FilterExpression(ExpressionInfo expression)
+		public void FilterExpression(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FilterExpressionExpr", expression);
 		}
 
-		internal void FilterValue(ExpressionInfo expression)
+		public void FilterValue(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void GroupingStart(string typeName)
+		public void GroupingStart(string typeName)
 		{
 			this.TypeStart(typeName, "GroupingExprHost");
 		}
 
-		internal void GroupingEnd()
+		public void GroupingEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "GroupingHost");
 		}
 
-		internal void GroupingExpression(ExpressionInfo expression)
+		public void GroupingExpression(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void GroupingParentExpressionsStart()
+		public void GroupingParentExpressionsStart()
 		{
 			this.TypeStart("Parent", "IndexedExprHost");
 		}
 
-		internal void GroupingParentExpressionsEnd()
+		public void GroupingParentExpressionsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ParentExpressionsHost");
 		}
 
-		internal void GroupingParentExpression(ExpressionInfo expression)
+		public void GroupingParentExpression(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void ListStart(string name)
+		public void ListStart(string name)
 		{
 			this.TypeStart(name, "ListExprHost");
 		}
 
-		internal int ListEnd()
+		public int ListEnd()
 		{
 			return this.ReportItemEnd("m_listHostsRemotable", ref this.m_rootTypeDecl.Lists);
 		}
 
-		internal void MatrixDynamicGroupStart(string name)
+		public void MatrixDynamicGroupStart(string name)
 		{
 			this.TypeStart("MatrixDynamicGroup_" + name, "MatrixDynamicGroupExprHost");
 		}
 
-		internal bool MatrixDynamicGroupEnd(bool column)
+		public bool MatrixDynamicGroupEnd(bool column)
 		{
 			switch (this.m_currentTypeDecl.Parent.BaseTypeName)
 			{
@@ -1187,42 +1187,42 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SubtotalStart()
+		public void SubtotalStart()
 		{
 			this.TypeStart("Subtotal", "StyleExprHost");
 		}
 
-		internal void SubtotalEnd()
+		public void SubtotalEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "SubtotalHost");
 		}
 
-		internal void MatrixStart(string name)
+		public void MatrixStart(string name)
 		{
 			this.TypeStart(name, "MatrixExprHost");
 		}
 
-		internal int MatrixEnd()
+		public int MatrixEnd()
 		{
 			return this.ReportItemEnd("m_matrixHostsRemotable", ref this.m_rootTypeDecl.Matrices);
 		}
 
-		internal void MultiChartStart()
+		public void MultiChartStart()
 		{
 			this.TypeStart("MultiChart", "MultiChartExprHost");
 		}
 
-		internal void MultiChartEnd()
+		public void MultiChartEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MultiChartHost");
 		}
 
-		internal void ChartDynamicGroupStart(string name)
+		public void ChartDynamicGroupStart(string name)
 		{
 			this.TypeStart("ChartDynamicGroup_" + name, "ChartDynamicGroupExprHost");
 		}
 
-		internal bool ChartDynamicGroupEnd(bool column)
+		public bool ChartDynamicGroupEnd(bool column)
 		{
 			switch (this.m_currentTypeDecl.Parent.BaseTypeName)
 			{
@@ -1240,205 +1240,205 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void ChartHeadingLabel(ExpressionInfo expression)
+		public void ChartHeadingLabel(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HeadingLabelExpr", expression);
 		}
 
-		internal void ChartDataPointStart()
+		public void ChartDataPointStart()
 		{
 			this.TypeStart(this.CreateTypeName("DataPoint", ((NonRootTypeDecl)this.m_currentTypeDecl).DataPoints), "ChartDataPointExprHost");
 		}
 
-		internal int ChartDataPointEnd()
+		public int ChartDataPointEnd()
 		{
 			this.ExprIndexerCreate();
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_chartDataPointHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).DataPoints);
 		}
 
-		internal void ChartDataPointDataValue(ExpressionInfo expression)
+		public void ChartDataPointDataValue(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void DataLabelValue(ExpressionInfo expression)
+		public void DataLabelValue(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataLabelValueExpr", expression);
 		}
 
-		internal void DataLabelStyleStart()
+		public void DataLabelStyleStart()
 		{
 			this.StyleStart("DataLabelStyle");
 		}
 
-		internal void DataLabelStyleEnd()
+		public void DataLabelStyleEnd()
 		{
 			this.StyleEnd("DataLabelStyleHost");
 		}
 
-		internal void DataPointStyleStart()
+		public void DataPointStyleStart()
 		{
 			this.StyleStart("Style");
 		}
 
-		internal void DataPointStyleEnd()
+		public void DataPointStyleEnd()
 		{
 			this.StyleEnd("StyleHost");
 		}
 
-		internal void DataPointMarkerStyleStart()
+		public void DataPointMarkerStyleStart()
 		{
 			this.StyleStart("DataPointMarkerStyle");
 		}
 
-		internal void DataPointMarkerStyleEnd()
+		public void DataPointMarkerStyleEnd()
 		{
 			this.StyleEnd("MarkerStyleHost");
 		}
 
-		internal void ChartTitleStart()
+		public void ChartTitleStart()
 		{
 			this.TypeStart("Title", "ChartTitleExprHost");
 		}
 
-		internal void ChartTitleEnd()
+		public void ChartTitleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "TitleHost");
 		}
 
-		internal void ChartCaption(ExpressionInfo expression)
+		public void ChartCaption(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CaptionExpr", expression);
 		}
 
-		internal void MajorGridLinesStyleStart()
+		public void MajorGridLinesStyleStart()
 		{
 			this.StyleStart("MajorGridLinesStyle");
 		}
 
-		internal void MajorGridLinesStyleEnd()
+		public void MajorGridLinesStyleEnd()
 		{
 			this.StyleEnd("MajorGridLinesHost");
 		}
 
-		internal void MinorGridLinesStyleStart()
+		public void MinorGridLinesStyleStart()
 		{
 			this.StyleStart("MinorGridLinesStyle");
 		}
 
-		internal void MinorGridLinesStyleEnd()
+		public void MinorGridLinesStyleEnd()
 		{
 			this.StyleEnd("MinorGridLinesHost");
 		}
 
-		internal void AxisMin(ExpressionInfo expression)
+		public void AxisMin(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisMinExpr", expression);
 		}
 
-		internal void AxisMax(ExpressionInfo expression)
+		public void AxisMax(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisMaxExpr", expression);
 		}
 
-		internal void AxisCrossAt(ExpressionInfo expression)
+		public void AxisCrossAt(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisCrossAtExpr", expression);
 		}
 
-		internal void AxisMajorInterval(ExpressionInfo expression)
+		public void AxisMajorInterval(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisMajorIntervalExpr", expression);
 		}
 
-		internal void AxisMinorInterval(ExpressionInfo expression)
+		public void AxisMinorInterval(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisMinorIntervalExpr", expression);
 		}
 
-		internal void ChartStaticRowLabelsStart()
+		public void ChartStaticRowLabelsStart()
 		{
 			this.TypeStart("ChartStaticRowLabels", "IndexedExprHost");
 		}
 
-		internal void ChartStaticRowLabelsEnd()
+		public void ChartStaticRowLabelsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "StaticRowLabelsHost");
 		}
 
-		internal void ChartStaticColumnLabelsStart()
+		public void ChartStaticColumnLabelsStart()
 		{
 			this.TypeStart("ChartStaticColumnLabels", "IndexedExprHost");
 		}
 
-		internal void ChartStaticColumnLabelsEnd()
+		public void ChartStaticColumnLabelsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "StaticColumnLabelsHost");
 		}
 
-		internal void ChartStaticColumnRowLabel(ExpressionInfo expression)
+		public void ChartStaticColumnRowLabel(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void ChartStart(string name)
+		public void ChartStart(string name)
 		{
 			this.TypeStart(name, "ChartExprHost");
 		}
 
-		internal int ChartEnd()
+		public int ChartEnd()
 		{
 			return this.ReportItemEnd("m_chartHostsRemotable", ref this.m_rootTypeDecl.Charts);
 		}
 
-		internal void ChartCategoryAxisStart()
+		public void ChartCategoryAxisStart()
 		{
 			this.AxisStart("CategoryAxis");
 		}
 
-		internal void ChartCategoryAxisEnd()
+		public void ChartCategoryAxisEnd()
 		{
 			this.AxisEnd("CategoryAxisHost");
 		}
 
-		internal void ChartValueAxisStart()
+		public void ChartValueAxisStart()
 		{
 			this.AxisStart("ValueAxis");
 		}
 
-		internal void ChartValueAxisEnd()
+		public void ChartValueAxisEnd()
 		{
 			this.AxisEnd("ValueAxisHost");
 		}
 
-		internal void ChartLegendStart()
+		public void ChartLegendStart()
 		{
 			this.StyleStart("Legend");
 		}
 
-		internal void ChartLegendEnd()
+		public void ChartLegendEnd()
 		{
 			this.StyleEnd("LegendHost");
 		}
 
-		internal void ChartPlotAreaStart()
+		public void ChartPlotAreaStart()
 		{
 			this.StyleStart("PlotArea");
 		}
 
-		internal void ChartPlotAreaEnd()
+		public void ChartPlotAreaEnd()
 		{
 			this.StyleEnd("PlotAreaHost");
 		}
 
-		internal void TableGroupStart(string name)
+		public void TableGroupStart(string name)
 		{
 			this.TypeStart("TableGroup_" + name, "TableGroupExprHost");
 		}
 
-		internal bool TableGroupEnd()
+		public bool TableGroupEnd()
 		{
 			switch (this.m_currentTypeDecl.Parent.BaseTypeName)
 			{
@@ -1452,117 +1452,117 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void TableRowVisibilityHiddenExpressionsStart()
+		public void TableRowVisibilityHiddenExpressionsStart()
 		{
 			this.TypeStart("TableRowVisibilityHiddenExpressionsClass", "IndexedExprHost");
 		}
 
-		internal void TableRowVisibilityHiddenExpressionsEnd()
+		public void TableRowVisibilityHiddenExpressionsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "TableRowVisibilityHiddenExpressions");
 		}
 
-		internal void TableRowColVisibilityHiddenExpressionsExpr(ExpressionInfo expression)
+		public void TableRowColVisibilityHiddenExpressionsExpr(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void TableStart(string name)
+		public void TableStart(string name)
 		{
 			this.TypeStart(name, "TableExprHost");
 		}
 
-		internal int TableEnd()
+		public int TableEnd()
 		{
 			return this.ReportItemEnd("m_tableHostsRemotable", ref this.m_rootTypeDecl.Tables);
 		}
 
-		internal void TableColumnVisibilityHiddenExpressionsStart()
+		public void TableColumnVisibilityHiddenExpressionsStart()
 		{
 			this.TypeStart("TableColumnVisibilityHiddenExpressions", "IndexedExprHost");
 		}
 
-		internal void TableColumnVisibilityHiddenExpressionsEnd()
+		public void TableColumnVisibilityHiddenExpressionsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "TableColumnVisibilityHiddenExpressions");
 		}
 
-		internal void OWCChartStart(string name)
+		public void OWCChartStart(string name)
 		{
 			this.TypeStart(name, "OWCChartExprHost");
 		}
 
-		internal int OWCChartEnd()
+		public int OWCChartEnd()
 		{
 			return this.ReportItemEnd("m_OWCChartHostsRemotable", ref this.m_rootTypeDecl.OWCCharts);
 		}
 
-		internal void OWCChartColumnsStart()
+		public void OWCChartColumnsStart()
 		{
 			this.TypeStart("OWCChartColumns", "IndexedExprHost");
 		}
 
-		internal void OWCChartColumnsEnd()
+		public void OWCChartColumnsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "OWCChartColumnHosts");
 		}
 
-		internal void OWCChartColumnsValue(ExpressionInfo expression)
+		public void OWCChartColumnsValue(ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void DataValueStart()
+		public void DataValueStart()
 		{
 			this.TypeStart(this.CreateTypeName("DataValue", this.m_currentTypeDecl.DataValues), "DataValueExprHost");
 		}
 
-		internal int DataValueEnd(bool isCustomProperty)
+		public int DataValueEnd(bool isCustomProperty)
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, isCustomProperty ? "m_customPropertyHostsRemotable" : "m_dataValueHostsRemotable", ref this.m_currentTypeDecl.Parent.DataValues);
 		}
 
-		internal void DataValueName(ExpressionInfo expression)
+		public void DataValueName(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataValueNameExpr", expression);
 		}
 
-		internal void DataValueValue(ExpressionInfo expression)
+		public void DataValueValue(ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataValueValueExpr", expression);
 		}
 
-		internal void CustomReportItemStart(string name)
+		public void CustomReportItemStart(string name)
 		{
 			this.TypeStart(name, "CustomReportItemExprHost");
 		}
 
-		internal int CustomReportItemEnd()
+		public int CustomReportItemEnd()
 		{
 			return this.ReportItemEnd("m_customReportItemHostsRemotable", ref this.m_rootTypeDecl.CustomReportItems);
 		}
 
-		internal void DataGroupingStart(bool column)
+		public void DataGroupingStart(bool column)
 		{
 			string template = "DataGrouping" + (column ? "Column" : "Row");
 			this.TypeStart(this.CreateTypeName(template, ((NonRootTypeDecl)this.m_currentTypeDecl).DataGroupings), "DataGroupingExprHost");
 		}
 
-		internal int DataGroupingEnd(bool column)
+		public int DataGroupingEnd(bool column)
 		{
 			Global.Tracer.Assert("CustomReportItemExprHost" == this.m_currentTypeDecl.Parent.BaseTypeName || "DataGroupingExprHost" == this.m_currentTypeDecl.Parent.BaseTypeName);
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_dataGroupingHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).DataGroupings);
 		}
 
-		internal void DataCellStart()
+		public void DataCellStart()
 		{
 			this.TypeStart(this.CreateTypeName("DataCell", ((NonRootTypeDecl)this.m_currentTypeDecl).DataCells), "DataCellExprHost");
 		}
 
-		internal int DataCellEnd()
+		public int DataCellEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_dataCellHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).DataCells);
 		}

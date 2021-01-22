@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface ICounter : IDisposable
+	public interface ICounter : IDisposable
 	{
 		void Increment();
 

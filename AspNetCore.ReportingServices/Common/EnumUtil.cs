@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class EnumUtil
+	public static class EnumUtil
 	{
 		public static bool IsDefined<T>(T value)
 		{

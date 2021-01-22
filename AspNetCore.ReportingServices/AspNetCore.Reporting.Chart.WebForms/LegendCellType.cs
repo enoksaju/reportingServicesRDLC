@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum LegendCellType
+	public enum LegendCellType
 	{
 		Text,
 		SeriesSymbol,

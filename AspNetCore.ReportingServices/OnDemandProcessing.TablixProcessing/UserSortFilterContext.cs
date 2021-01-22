@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class UserSortFilterContext
+	public sealed class UserSortFilterContext
 	{
 		private IInScopeEventSource m_currentSortFilterEventSource;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private int[] m_inProcessUserSortPhase;
 
-		internal IInScopeEventSource CurrentSortFilterEventSource
+		public IInScopeEventSource CurrentSortFilterEventSource
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<IReference<RuntimeSortFilterEventInfo>> RuntimeSortFilterInfo
+		public List<IReference<RuntimeSortFilterEventInfo>> RuntimeSortFilterInfo
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal int DataSetGlobalId
+		public int DataSetGlobalId
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal IReference<IScope> CurrentContainingScope
+		public IReference<IScope> CurrentContainingScope
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GroupingList ContainingScopes
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GroupingList ContainingScopes
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport> DetailScopeSubReports
+		public List<AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport> DetailScopeSubReports
 		{
 			get
 			{
@@ -93,11 +93,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal UserSortFilterContext()
+		public UserSortFilterContext()
 		{
 		}
 
-		internal UserSortFilterContext(UserSortFilterContext parentContext, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
+		public UserSortFilterContext(UserSortFilterContext parentContext, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
 		{
 			this.m_runtimeSortFilterInfo = parentContext.RuntimeSortFilterInfo;
 			this.m_dataSetGlobalID = parentContext.DataSetGlobalId;
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_detailScopeSubReports = subReport.DetailScopeSubReports;
 		}
 
-		internal List<AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport> CloneDetailScopeSubReports()
+		public List<AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport> CloneDetailScopeSubReports()
 		{
 			if (this.m_detailScopeSubReports == null)
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return list;
 		}
 
-		internal void ResetContextForTopLevelDataSet()
+		public void ResetContextForTopLevelDataSet()
 		{
 			this.m_dataSetGlobalID = -1;
 			this.m_currentSortFilterEventSource = null;
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_inProcessUserSortPhase = null;
 		}
 
-		internal void UpdateContextForFirstSubreportInstance(UserSortFilterContext parentContext)
+		public void UpdateContextForFirstSubreportInstance(UserSortFilterContext parentContext)
 		{
 			if (-1 == this.m_dataSetGlobalID)
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static void ProcessEventSources(OnDemandProcessingContext odpContext, IScope containingScope, List<IInScopeEventSource> inScopeEventSources)
+		public static void ProcessEventSources(OnDemandProcessingContext odpContext, IScope containingScope, List<IInScopeEventSource> inScopeEventSources)
 		{
 			if (inScopeEventSources != null && inScopeEventSources.Count != 0)
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool PopulateRuntimeSortFilterEventInfo(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet myDataSet)
+		public bool PopulateRuntimeSortFilterEventInfo(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet myDataSet)
 		{
 			if (odpContext.TopLevelContext.UserSortFilterInfo != null && odpContext.TopLevelContext.UserSortFilterInfo.OdpSortInfo != null && odpContext.TopLevelContext.OldSortFilterEventInfo != null)
 			{
@@ -332,7 +332,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return array;
 		}
 
-		internal bool IsSortFilterTarget(bool[] isSortFilterTarget, IReference<IScope> outerScope, IReference<IHierarchyObj> target, ref RuntimeUserSortTargetInfo userSortTargetInfo)
+		public bool IsSortFilterTarget(bool[] isSortFilterTarget, IReference<IScope> outerScope, IReference<IHierarchyObj> target, ref RuntimeUserSortTargetInfo userSortTargetInfo)
 		{
 			bool result = false;
 			if (this.m_runtimeSortFilterInfo != null && isSortFilterTarget != null && (outerScope == null || !outerScope.Value().TargetForNonDetailSort))
@@ -363,7 +363,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return result;
 		}
 
-		internal void RegisterSortFilterExpressionScope(IReference<IScope> containerRef, IReference<RuntimeDataRegionObj> scopeRef, bool[] isSortFilterExpressionScope)
+		public void RegisterSortFilterExpressionScope(IReference<IScope> containerRef, IReference<RuntimeDataRegionObj> scopeRef, bool[] isSortFilterExpressionScope)
 		{
 			List<IReference<RuntimeSortFilterEventInfo>> runtimeSortFilterInfo = this.m_runtimeSortFilterInfo;
 			if (runtimeSortFilterInfo != null && isSortFilterExpressionScope != null && scopeRef != null)
@@ -398,7 +398,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool ProcessUserSort(OnDemandProcessingContext odpContext)
+		public bool ProcessUserSort(OnDemandProcessingContext odpContext)
 		{
 			bool result = false;
 			bool flag = false;
@@ -463,7 +463,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void ProcessUserSortForTarget(ObjectModelImpl reportObjectModel, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRuntime, IReference<IHierarchyObj> target, ref ScalableList<DataFieldRow> dataRows, bool targetForNonDetailSort)
+		public void ProcessUserSortForTarget(ObjectModelImpl reportObjectModel, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRuntime, IReference<IHierarchyObj> target, ref ScalableList<DataFieldRow> dataRows, bool targetForNonDetailSort)
 		{
 			using (target.PinValue())
 			{
@@ -513,7 +513,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void EnterProcessUserSortPhase(int index)
+		public void EnterProcessUserSortPhase(int index)
 		{
 			if (this.m_inProcessUserSortPhase == null)
 			{
@@ -530,7 +530,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_inProcessUserSortPhase[index]++;
 		}
 
-		internal void LeaveProcessUserSortPhase(int index)
+		public void LeaveProcessUserSortPhase(int index)
 		{
 			if (this.m_inProcessUserSortPhase != null)
 			{
@@ -539,7 +539,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool InProcessUserSortPhase(int index)
+		public bool InProcessUserSortPhase(int index)
 		{
 			if (this.m_inProcessUserSortPhase == null)
 			{

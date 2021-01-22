@@ -22,21 +22,21 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class RenderErrors {
+    public class RenderErrors {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal RenderErrors() {
+        public RenderErrors() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AspNetCore.ReportingServices.OnDemandReportRendering.RenderErrors", typeof(RenderErrors).Assembly);
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The HTML tag of a control cannot be null or the empty string..
         /// </summary>
-        internal static string rrControlInvalidTag {
+        public static string rrControlInvalidTag {
             get {
                 return ResourceManager.GetString("rrControlInvalidTag", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The closing tag for the element &apos;{0}&apos; was expected. The device information is invalid..
         /// </summary>
-        internal static string rrExpectedEndElement {
+        public static string rrExpectedEndElement {
             get {
                 return ResourceManager.GetString("rrExpectedEndElement", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The top level element in the device information XML structure has to be &apos;{0}&apos;..
         /// </summary>
-        internal static string rrExpectedTopLevelElement {
+        public static string rrExpectedTopLevelElement {
             get {
                 return ResourceManager.GetString("rrExpectedTopLevelElement", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The action label is only optional when using a single action. Adding multiple actions requires labels for each action..
         /// </summary>
-        internal static string rrInvalidActionLabel {
+        public static string rrInvalidActionLabel {
             get {
                 return ResourceManager.GetString("rrInvalidActionLabel", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The name of an HTML attribute cannot be null or the empty string..
         /// </summary>
-        internal static string rrInvalidAttribute {
+        public static string rrInvalidAttribute {
             get {
                 return ResourceManager.GetString("rrInvalidAttribute", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The border style &apos;{0}&apos; is not supported..
         /// </summary>
-        internal static string rrInvalidBorderStyle {
+        public static string rrInvalidBorderStyle {
             get {
                 return ResourceManager.GetString("rrInvalidBorderStyle", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The color &apos;{0}&apos; is not supported..
         /// </summary>
-        internal static string rrInvalidColor {
+        public static string rrInvalidColor {
             get {
                 return ResourceManager.GetString("rrInvalidColor", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A null control cannot be added to a list..
         /// </summary>
-        internal static string rrInvalidControl {
+        public static string rrInvalidControl {
             get {
                 return ResourceManager.GetString("rrInvalidControl", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An unexpected error has occurred trying to parse the device information XML structure. Details: {0}.
         /// </summary>
-        internal static string rrInvalidDeviceInfo {
+        public static string rrInvalidDeviceInfo {
             get {
                 return ResourceManager.GetString("rrInvalidDeviceInfo", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The measurement unit of &apos;{0}&apos; is not supported..
         /// </summary>
-        internal static string rrInvalidMeasurementUnit {
+        public static string rrInvalidMeasurementUnit {
             get {
                 return ResourceManager.GetString("rrInvalidMeasurementUnit", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The image mime type &apos;{0}&apos; is not supported..
         /// </summary>
-        internal static string rrInvalidMimeType {
+        public static string rrInvalidMimeType {
             get {
                 return ResourceManager.GetString("rrInvalidMimeType", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Please turn on ActiveXControls and Script in your Internet Explorer browser..
         /// </summary>
-        internal static string rrInvalidOWCRequest {
+        public static string rrInvalidOWCRequest {
             get {
                 return ResourceManager.GetString("rrInvalidOWCRequest", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The page number has to be an integer between 1 and {0}..
         /// </summary>
-        internal static string rrInvalidPageNumber {
+        public static string rrInvalidPageNumber {
             get {
                 return ResourceManager.GetString("rrInvalidPageNumber", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the parameter &apos;{0}&apos; is invalid..
         /// </summary>
-        internal static string rrInvalidParamValue {
+        public static string rrInvalidParamValue {
             get {
                 return ResourceManager.GetString("rrInvalidParamValue", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The name of an inline CSS style property cannot be null or the empty string..
         /// </summary>
-        internal static string rrInvalidProperty {
+        public static string rrInvalidProperty {
             get {
                 return ResourceManager.GetString("rrInvalidProperty", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The size &apos;{0}&apos; is not supported..
         /// </summary>
-        internal static string rrInvalidSize {
+        public static string rrInvalidSize {
             get {
                 return ResourceManager.GetString("rrInvalidSize", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The style argument has to be of type &apos;{0}&apos;..
         /// </summary>
-        internal static string rrInvalidStyleArgumentType {
+        public static string rrInvalidStyleArgumentType {
             get {
                 return ResourceManager.GetString("rrInvalidStyleArgumentType", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The name of a CSS style cannot be null or the empty string..
         /// </summary>
-        internal static string rrInvalidStyleName {
+        public static string rrInvalidStyleName {
             get {
                 return ResourceManager.GetString("rrInvalidStyleName", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The specified unique name contains invalid characters. Only a-z, A-Z and 0-9 are allowed..
         /// </summary>
-        internal static string rrInvalidUniqueName {
+        public static string rrInvalidUniqueName {
             get {
                 return ResourceManager.GetString("rrInvalidUniqueName", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Measurement unit unsupported..
         /// </summary>
-        internal static string rrMeasurementUnitError {
+        public static string rrMeasurementUnitError {
             get {
                 return ResourceManager.GetString("rrMeasurementUnitError", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The negative size &apos;{0}&apos; is not supported..
         /// </summary>
-        internal static string rrNegativeSize {
+        public static string rrNegativeSize {
             get {
                 return ResourceManager.GetString("rrNegativeSize", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The size &apos;{0}&apos; is out of range..
         /// </summary>
-        internal static string rrOutOfRange {
+        public static string rrOutOfRange {
             get {
                 return ResourceManager.GetString("rrOutOfRange", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The name of a namespace cannot be null or the empty string..
         /// </summary>
-        internal static string rrPageNamespaceInvalid {
+        public static string rrPageNamespaceInvalid {
             get {
                 return ResourceManager.GetString("rrPageNamespaceInvalid", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The opening tag for a parameter was expected. The device information is invalid..
         /// </summary>
-        internal static string rrParameterExpected {
+        public static string rrParameterExpected {
             get {
                 return ResourceManager.GetString("rrParameterExpected", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to HTML Rendering:  Invalid Argument:  Device Info is null..
         /// </summary>
-        internal static string rrRenderDeviceNull {
+        public static string rrRenderDeviceNull {
             get {
                 return ResourceManager.GetString("rrRenderDeviceNull", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report viewer cannot be displayed if the renderer parameters have not been specified..
         /// </summary>
-        internal static string rrRendererParamsNull {
+        public static string rrRendererParamsNull {
             get {
                 return ResourceManager.GetString("rrRendererParamsNull", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error occurred during rendering of the report..
         /// </summary>
-        internal static string rrRenderingError {
+        public static string rrRenderingError {
             get {
                 return ResourceManager.GetString("rrRenderingError", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to HTML Rendering:  Invalid Argument:  Report Name is null or empty..
         /// </summary>
-        internal static string rrRenderReportNameNull {
+        public static string rrRenderReportNameNull {
             get {
                 return ResourceManager.GetString("rrRenderReportNameNull", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to HTML Rendering:  Invalid Argument:  Report is null..
         /// </summary>
-        internal static string rrRenderReportNull {
+        public static string rrRenderReportNull {
             get {
                 return ResourceManager.GetString("rrRenderReportNull", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to HTML Renderer: Invalid Argument: Render Result is null..
         /// </summary>
-        internal static string rrRenderResultNull {
+        public static string rrRenderResultNull {
             get {
                 return ResourceManager.GetString("rrRenderResultNull", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Error rendering section instance..
         /// </summary>
-        internal static string rrRenderSectionInstanceError {
+        public static string rrRenderSectionInstanceError {
             get {
                 return ResourceManager.GetString("rrRenderSectionInstanceError", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to HTML Rendering:  Invalid Argument:  Result Stream is null..
         /// </summary>
-        internal static string rrRenderStreamNull {
+        public static string rrRenderStreamNull {
             get {
                 return ResourceManager.GetString("rrRenderStreamNull", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Error rendering the styles..
         /// </summary>
-        internal static string rrRenderStyleError {
+        public static string rrRenderStyleError {
             get {
                 return ResourceManager.GetString("rrRenderStyleError", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Style missing style name..
         /// </summary>
-        internal static string rrRenderStyleName {
+        public static string rrRenderStyleName {
             get {
                 return ResourceManager.GetString("rrRenderStyleName", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Couldn&apos;t convert TextBox value to string..
         /// </summary>
-        internal static string rrRenderTextBox {
+        public static string rrRenderTextBox {
             get {
                 return ResourceManager.GetString("rrRenderTextBox", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Unknown Report Item Type in Renderer..
         /// </summary>
-        internal static string rrRenderUnknownReportItem {
+        public static string rrRenderUnknownReportItem {
             get {
                 return ResourceManager.GetString("rrRenderUnknownReportItem", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report viewer cannot be displayed if the report name has not been specified..
         /// </summary>
-        internal static string rrReportNameNull {
+        public static string rrReportNameNull {
             get {
                 return ResourceManager.GetString("rrReportNameNull", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report viewer cannot be displayed if the report parameters have not been specified..
         /// </summary>
-        internal static string rrReportParamsNull {
+        public static string rrReportParamsNull {
             get {
                 return ResourceManager.GetString("rrReportParamsNull", resourceCulture);
             }
@@ -405,7 +405,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An unexpected error occurred in Report Rendering..
         /// </summary>
-        internal static string rrUnexpectedError {
+        public static string rrUnexpectedError {
             get {
                 return ResourceManager.GetString("rrUnexpectedError", resourceCulture);
             }

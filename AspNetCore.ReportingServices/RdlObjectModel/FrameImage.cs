@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class FrameImage : BaseGaugeImage
+	public class FrameImage : BaseGaugeImage
 	{
-		internal new class Definition : DefinitionStore<FrameImage, Definition.Properties>
+		public new class Definition : DefinitionStore<FrameImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Source,
 				Value,
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal FrameImage(IPropertyStore propertyStore)
+		public FrameImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

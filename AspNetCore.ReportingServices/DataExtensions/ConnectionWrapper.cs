@@ -6,7 +6,7 @@ using System.Data;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal class ConnectionWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDbConnection, IDisposable, IExtension
+	public class ConnectionWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDbConnection, IDisposable, IExtension
 	{
 		protected bool m_wrappedManagedProvider;
 

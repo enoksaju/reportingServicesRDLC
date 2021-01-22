@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal abstract class ProcessingContext
+	public abstract class ProcessingContext
 	{
 		private ICatalogItemContext m_reportContext;
 
@@ -44,12 +44,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private ReportProcessing.CreateReportChunk m_createReportChunkCallback;
 
-		internal abstract bool EnableDataBackedParameters
+		public abstract bool EnableDataBackedParameters
 		{
 			get;
 		}
 
-		internal ICatalogItemContext ReportContext
+		public ICatalogItemContext ReportContext
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string RequestUserName
+		public string RequestUserName
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.OnDemandSubReportCallback OnDemandSubReportCallback
+		public ReportProcessing.OnDemandSubReportCallback OnDemandSubReportCallback
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.CreateReportChunk CreateReportChunkCallback
+		public ReportProcessing.CreateReportChunk CreateReportChunkCallback
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IGetResource GetResourceCallback
+		public IGetResource GetResourceCallback
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.ExecutionType InteractiveExecution
+		public ReportProcessing.ExecutionType InteractiveExecution
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CultureInfo UserLanguage
+		public CultureInfo UserLanguage
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal UserProfileState AllowUserProfileState
+		public UserProfileState AllowUserProfileState
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal UserProfileState InitialUserProfileState
+		public UserProfileState InitialUserProfileState
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportRuntimeSetup ReportRuntimeSetup
+		public ReportRuntimeSetup ReportRuntimeSetup
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsHistorySnapshot
+		public bool IsHistorySnapshot
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessingFlags ReportProcessingFlags
+		public ReportProcessingFlags ReportProcessingFlags
 		{
 			get
 			{
@@ -175,17 +175,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract IProcessingDataExtensionConnection CreateAndSetupDataExtensionFunction
+		public abstract IProcessingDataExtensionConnection CreateAndSetupDataExtensionFunction
 		{
 			get;
 		}
 
-		internal abstract RuntimeDataSourceInfoCollection DataSources
+		public abstract RuntimeDataSourceInfoCollection DataSources
 		{
 			get;
 		}
 
-		internal virtual RuntimeDataSetInfoCollection SharedDataSetReferences
+		public virtual RuntimeDataSetInfoCollection SharedDataSetReferences
 		{
 			get
 			{
@@ -193,12 +193,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract bool CanShareDataSets
+		public abstract bool CanShareDataSets
 		{
 			get;
 		}
 
-		internal CreateAndRegisterStream CreateStreamCallback
+		public CreateAndRegisterStream CreateStreamCallback
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ProcessingContext(ICatalogItemContext reportContext, string requestUserName, ParameterInfoCollection parameters, ReportProcessing.OnDemandSubReportCallback subReportCallback, IGetResource getResourceFunction, IChunkFactory createChunkFactory, ReportProcessing.ExecutionType interactiveExecution, CultureInfo culture, UserProfileState allowUserProfileState, UserProfileState initialUserProfileState, ReportRuntimeSetup reportRuntimeSetup, CreateAndRegisterStream createStreamCallback, bool isHistorySnapshot, IJobContext jobContext, IExtensionFactory extFactory, IDataProtection dataProtection)
+		public ProcessingContext(ICatalogItemContext reportContext, string requestUserName, ParameterInfoCollection parameters, ReportProcessing.OnDemandSubReportCallback subReportCallback, IGetResource getResourceFunction, IChunkFactory createChunkFactory, ReportProcessing.ExecutionType interactiveExecution, CultureInfo culture, UserProfileState allowUserProfileState, UserProfileState initialUserProfileState, ReportRuntimeSetup reportRuntimeSetup, CreateAndRegisterStream createStreamCallback, bool isHistorySnapshot, IJobContext jobContext, IExtensionFactory extFactory, IDataProtection dataProtection)
 		{
 			Global.Tracer.Assert(null != reportContext, "(null != reportContext)");
 			this.m_reportContext = reportContext;
@@ -262,8 +262,8 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_dataProtection = dataProtection;
 		}
 
-		internal abstract ReportProcessing.ProcessingContext CreateInternalProcessingContext(string chartName, Report report, ErrorContext errorContext, DateTime executionTime, UserProfileState allowUserProfileState, bool isHistorySnapshot, bool snapshotProcessing, bool processWithCachedData, ReportProcessing.GetReportChunk getChunkCallback, ReportProcessing.CreateReportChunk cacheDataCallback);
+		public abstract ReportProcessing.ProcessingContext CreateInternalProcessingContext(string chartName, Report report, ErrorContext errorContext, DateTime executionTime, UserProfileState allowUserProfileState, bool isHistorySnapshot, bool snapshotProcessing, bool processWithCachedData, ReportProcessing.GetReportChunk getChunkCallback, ReportProcessing.CreateReportChunk cacheDataCallback);
 
-		internal abstract ReportProcessing.ProcessingContext ParametersInternalProcessingContext(ErrorContext errorContext, DateTime executionTimeStamp, bool isSnapshot);
+		public abstract ReportProcessing.ProcessingContext ParametersInternalProcessingContext(ErrorContext errorContext, DateTime executionTimeStamp, bool isSnapshot);
 	}
 }

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IImageInstance
+	public interface IImageInstance
 	{
 		byte[] ImageData
 		{

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalTablixMemberCollection : TablixMemberCollection
+	public sealed class InternalTablixMemberCollection : TablixMemberCollection
 	{
 		private TablixMember m_parent;
 
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixMemberList MemberDefs
+		public TablixMemberList MemberDefs
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalTablixMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, TablixMember parent, TablixMemberList memberDefs)
+		public InternalTablixMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, TablixMember parent, TablixMemberList memberDefs)
 			: base(parentDefinitionPath, owner)
 		{
 			this.m_parent = parent;

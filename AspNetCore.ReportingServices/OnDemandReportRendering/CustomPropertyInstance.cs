@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CustomPropertyInstance
+	public sealed class CustomPropertyInstance
 	{
 		private CustomProperty m_customPropertyDef;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TypeCode TypeCode
+		public TypeCode TypeCode
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomPropertyInstance(CustomProperty customPropertyDef, string name, object value, TypeCode typeCode)
+		public CustomPropertyInstance(CustomProperty customPropertyDef, string name, object value, TypeCode typeCode)
 		{
 			this.m_customPropertyDef = customPropertyDef;
 			this.m_name = name;
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_typeCode = typeCode;
 		}
 
-		internal void Update(string name, object value, TypeCode typeCode)
+		public void Update(string name, object value, TypeCode typeCode)
 		{
 			this.m_name = name;
 			this.m_value = value;

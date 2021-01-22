@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class DataSourceMetrics
+	public sealed class DataSourceMetrics
 	{
 		private readonly string m_dataSourceName;
 
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_connectionFromPool = connectionFromPool;
 		}
 
-		internal Connection ToAdditionalInfoConnection(IJobContext jobContext)
+		public Connection ToAdditionalInfoConnection(IJobContext jobContext)
 		{
 			if (jobContext == null)
 			{

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class RuntimeAggregationIncrementalDataSet : RuntimeIncrementalDataSetWithProcessingController
+	public sealed class RuntimeAggregationIncrementalDataSet : RuntimeIncrementalDataSetWithProcessingController
 	{
 		protected override bool ShouldCancelCommandDuringCleanup
 		{

@@ -6,21 +6,21 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class TablixCornerCell : TablixCellBase, IPersistable
+	public sealed class TablixCornerCell : TablixCellBase, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = TablixCornerCell.GetDeclaration();
 
-		internal TablixCornerCell()
+		public TablixCornerCell()
 		{
 		}
 
-		internal TablixCornerCell(int id, DataRegion dataRegion)
+		public TablixCornerCell(int id, DataRegion dataRegion)
 			: base(id, dataRegion)
 		{
 		}
 
-		internal override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
+		public override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
 		{
 			base.InternalInitialize(parentRowID, parentColumnID, rowindex, colIndex, context);
 			base.m_hasInnerGroupTreeHierarchy = (Cell.ContainsInnerGroupTreeHierarchy(base.m_cellContents) | Cell.ContainsInnerGroupTreeHierarchy(base.m_altCellContents));
@@ -34,12 +34,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			return (TablixCornerCell)base.PublishClone(context);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.TablixCornerCell, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.TablixCellBase, memberInfoList);

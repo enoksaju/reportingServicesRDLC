@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class RSAddinVersionMismatchException : ReportCatalogException
+	public sealed class RSAddinVersionMismatchException : ReportCatalogException
 	{
 		public RSAddinVersionMismatchException()
 			: base(ErrorCode.rsVersionMismatch, ErrorStrings.rsVersionMismatch, null, null)

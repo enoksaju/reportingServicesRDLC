@@ -5,11 +5,11 @@ using System.Collections;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeCustomLabelsCollection_CustomLabelsCollection")]
-	internal class CustomLabelsCollection : IList, ICollection, IEnumerable
+	public class CustomLabelsCollection : IList, ICollection, IEnumerable
 	{
 		private ArrayList array = new ArrayList();
 
-		internal Axis axis;
+		public Axis axis;
 
 		public CustomLabel this[int index]
 		{
@@ -93,7 +93,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.array.Add(customLabel);
 		}
 
-		internal int Add(double fromPosition, double toPosition, string text, bool customLabel)
+		public int Add(double fromPosition, double toPosition, string text, bool customLabel)
 		{
 			CustomLabel customLabel2 = new CustomLabel(fromPosition, toPosition, text, 0, LabelMark.None);
 			customLabel2.customLabel = customLabel;

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal enum ErrorCode
+	public enum ErrorCode
 	{
 		rsSuccess,
 		rsMissingParameter,

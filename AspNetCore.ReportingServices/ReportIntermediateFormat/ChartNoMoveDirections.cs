@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartNoMoveDirections : IPersistable
+	public sealed class ChartNoMoveDirections : IPersistable
 	{
 		[Reference]
 		private Chart m_chart;
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartNoMoveDirectionsExprHost m_exprHost;
 
-		internal ChartNoMoveDirectionsExprHost ExprHost
+		public ChartNoMoveDirectionsExprHost ExprHost
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Up
+		public ExpressionInfo Up
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Down
+		public ExpressionInfo Down
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Left
+		public ExpressionInfo Left
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Right
+		public ExpressionInfo Right
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo UpLeft
+		public ExpressionInfo UpLeft
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo UpRight
+		public ExpressionInfo UpRight
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DownLeft
+		public ExpressionInfo DownLeft
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DownRight
+		public ExpressionInfo DownRight
 		{
 			get
 			{
@@ -145,24 +145,24 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartNoMoveDirections()
+		public ChartNoMoveDirections()
 		{
 		}
 
-		internal ChartNoMoveDirections(Chart chart, ChartSeries chartSeries)
+		public ChartNoMoveDirections(Chart chart, ChartSeries chartSeries)
 		{
 			this.m_chart = chart;
 			this.m_chartSeries = chartSeries;
 		}
 
-		internal void SetExprHost(ChartNoMoveDirectionsExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartNoMoveDirectionsExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartNoMoveDirectionsStart();
 			if (this.m_up != null)
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartNoMoveDirectionsEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartNoMoveDirections chartNoMoveDirections = (ChartNoMoveDirections)base.MemberwiseClone();
 			chartNoMoveDirections.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -247,7 +247,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartNoMoveDirections;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Up, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -263,49 +263,49 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartNoMoveDirections, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.None, list);
 		}
 
-		internal bool EvaluateUp(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUp(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chartSeries, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartNoMoveDirectionsUpExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateDown(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateDown(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chartSeries, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartNoMoveDirectionsDownExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateLeft(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateLeft(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chartSeries, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartNoMoveDirectionsLeftExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateRight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateRight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chartSeries, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartNoMoveDirectionsRightExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateUpLeft(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUpLeft(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chartSeries, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartNoMoveDirectionsUpLeftExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateUpRight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUpRight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chartSeries, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartNoMoveDirectionsUpRightExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateDownLeft(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateDownLeft(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chartSeries, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartNoMoveDirectionsDownLeftExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateDownRight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateDownRight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chartSeries, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartNoMoveDirectionsDownRightExpression(this, this.m_chart.Name);

@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class RecordSetPropertyNames
+	public sealed class RecordSetPropertyNames
 	{
 		private StringList m_propertyNames;
 
-		internal StringList PropertyNames
+		public StringList PropertyNames
 		{
 			get
 			{
@@ -20,11 +20,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RecordSetPropertyNames()
+		public RecordSetPropertyNames()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.PropertyNames, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.StringList));

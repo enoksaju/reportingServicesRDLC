@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class OmittedHeaderData
+	public class OmittedHeaderData
 	{
 		public string[] IDs;
 

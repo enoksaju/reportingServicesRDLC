@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CustomLabelConverter : CollectionItemTypeConverter
+	public class CustomLabelConverter : CollectionItemTypeConverter
 	{
 		public CustomLabelConverter()
 		{

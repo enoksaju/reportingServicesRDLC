@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser
 {
-	internal abstract class OoxmlComplexType : IOoxmlComplexType
+	public abstract class OoxmlComplexType : IOoxmlComplexType
 	{
 		public virtual GeneratedType GroupInterfaceType
 		{

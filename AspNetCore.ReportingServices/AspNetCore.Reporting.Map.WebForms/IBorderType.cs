@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface IBorderType
+	public interface IBorderType
 	{
 		string Name
 		{

@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal static class ImageRequestMessageWriter
+	public static class ImageRequestMessageWriter
 	{
 		public static void WriteElementsToStream(IEnumerable<ImageRequestMessageElement> messageElements, Stream s)
 		{

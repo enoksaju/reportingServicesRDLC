@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum CustomPropertyTag
+	public enum CustomPropertyTag
 	{
 		ImageError = 45326,
 		ImageProviders

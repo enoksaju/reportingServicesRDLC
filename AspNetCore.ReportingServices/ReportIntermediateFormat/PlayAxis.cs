@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class PlayAxis : Navigation
+	public sealed class PlayAxis : Navigation
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = PlayAxis.GetDeclaration();
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private DockingOption m_dockingOption;
 
-		internal Slider Slider
+		public Slider Slider
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DockingOption DockingOption
+		public DockingOption DockingOption
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void Initialize(Tablix tablix, InitializationContext context)
+		public override void Initialize(Tablix tablix, InitializationContext context)
 		{
 			if (this.m_slider != null)
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Slider, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Slider));

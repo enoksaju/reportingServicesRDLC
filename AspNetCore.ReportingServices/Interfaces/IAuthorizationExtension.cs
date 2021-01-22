@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 namespace AspNetCore.ReportingServices.Interfaces
 {
 	[CLSCompliant(false)]
-	internal interface IAuthorizationExtension : IExtension
+	public interface IAuthorizationExtension : IExtension
 	{
 		byte[] CreateSecurityDescriptor(AceCollection acl, SecurityItemType itemType, out string stringSecDesc);
 

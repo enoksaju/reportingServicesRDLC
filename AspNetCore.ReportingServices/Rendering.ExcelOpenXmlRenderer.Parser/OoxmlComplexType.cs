@@ -6,7 +6,7 @@ using System.Security;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser
 {
-	internal abstract class OoxmlComplexType
+	public abstract class OoxmlComplexType
 	{
 		protected OoxmlComplexType()
 		{

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal class BorderInfo
+	public class BorderInfo
 	{
 		private IColor m_backgroundColor;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 
 		private bool m_omitBorderBottom;
 
-		internal BorderProperties RightBorder
+		public BorderProperties RightBorder
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal BorderProperties BottomBorder
+		public BorderProperties BottomBorder
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal IColor BackgroundColor
+		public IColor BackgroundColor
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal BorderProperties LeftBorder
+		public BorderProperties LeftBorder
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal BorderProperties TopBorder
+		public BorderProperties TopBorder
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal BorderProperties Diagonal
+		public BorderProperties Diagonal
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal bool OmitBorderTop
+		public bool OmitBorderTop
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal bool OmitBorderBottom
+		public bool OmitBorderBottom
 		{
 			get
 			{
@@ -93,18 +93,18 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal BorderInfo()
+		public BorderInfo()
 		{
 		}
 
-		internal BorderInfo(RPLStyleProps style, bool omitBorderTop, bool omitBorderBottom, IExcelGenerator excel)
+		public BorderInfo(RPLStyleProps style, bool omitBorderTop, bool omitBorderBottom, IExcelGenerator excel)
 		{
 			this.m_omitBorderTop = omitBorderTop;
 			this.m_omitBorderBottom = omitBorderBottom;
 			BorderInfo.FillAllBorders(style, ref this.m_leftBorder, ref this.m_rightBorder, ref this.m_topBorder, ref this.m_bottomBorder, ref this.m_backgroundColor, excel);
 		}
 
-		internal BorderInfo(RPLElementStyle style, int width, int height, bool slant, bool omitBorderTop, bool omitBorderBottom, bool defaultLine, IExcelGenerator excel)
+		public BorderInfo(RPLElementStyle style, int width, int height, bool slant, bool omitBorderTop, bool omitBorderBottom, bool defaultLine, IExcelGenerator excel)
 		{
 			this.m_omitBorderTop = omitBorderTop;
 			this.m_omitBorderBottom = omitBorderBottom;
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal static void FillAllBorders(RPLStyleProps style, ref BorderProperties leftBorder, ref BorderProperties rightBorder, ref BorderProperties topBorder, ref BorderProperties bottomBorder, ref IColor backgroundColor, IExcelGenerator excel)
+		public static void FillAllBorders(RPLStyleProps style, ref BorderProperties leftBorder, ref BorderProperties rightBorder, ref BorderProperties topBorder, ref BorderProperties bottomBorder, ref IColor backgroundColor, IExcelGenerator excel)
 		{
 			if (style[34] != null && !style[34].Equals("Transparent"))
 			{
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal void RenderBorders(IExcelGenerator excel)
+		public void RenderBorders(IExcelGenerator excel)
 		{
 			IStyle cellStyle = excel.GetCellStyle();
 			if (this.m_backgroundColor != null)

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPointCollection : MapObjectCollectionBase<MapPoint>, ISpatialElementCollection
+	public sealed class MapPointCollection : MapObjectCollectionBase<MapPoint>, ISpatialElementCollection
 	{
 		private Map m_map;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapPointCollection(MapPointLayer mapPointLayer, Map map)
+		public MapPointCollection(MapPointLayer mapPointLayer, Map map)
 		{
 			this.m_mapPointLayer = mapPointLayer;
 			this.m_map = map;

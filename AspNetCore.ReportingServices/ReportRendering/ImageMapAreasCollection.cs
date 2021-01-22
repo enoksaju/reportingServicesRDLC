@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ImageMapAreasCollection
+	public sealed class ImageMapAreasCollection
 	{
 		private RenderingContext m_renderingContext;
 
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_list = new ArrayList(capacity);
 		}
 
-		internal ImageMapAreasCollection(ImageMapAreaInstanceList mapAreasInstances, RenderingContext renderingContext)
+		public ImageMapAreasCollection(ImageMapAreaInstanceList mapAreasInstances, RenderingContext renderingContext)
 		{
 			Global.Tracer.Assert(null != renderingContext);
 			this.m_renderingContext = renderingContext;
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_list.Add(mapArea);
 		}
 
-		internal ImageMapAreasCollection DeepClone()
+		public ImageMapAreasCollection DeepClone()
 		{
 			Global.Tracer.Assert(this.IsChartOrCustomControlImageMap);
 			if (this.m_list != null && this.m_list.Count != 0)
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return null;
 		}
 
-		internal ImageMapAreaInstanceList Deconstruct(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ProcessingContext processingContext, AspNetCore.ReportingServices.ReportProcessing.CustomReportItem context)
+		public ImageMapAreaInstanceList Deconstruct(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ProcessingContext processingContext, AspNetCore.ReportingServices.ReportProcessing.CustomReportItem context)
 		{
 			Global.Tracer.Assert(context != null && null != processingContext);
 			if (this.m_list != null && this.m_list.Count != 0)

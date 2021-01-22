@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Action
+	public sealed class Action
 	{
 		private ActionItemList m_actionItemList;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_noNonSharedStyleProps;
 
-		internal Style StyleClass
+		public Style StyleClass
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActionItemList ActionItems
+		public ActionItemList ActionItems
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ComputedActionItemsCount
+		public int ComputedActionItemsCount
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal StyleProperties SharedStyleProperties
+		public StyleProperties SharedStyleProperties
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool NoNonSharedStyleProps
+		public bool NoNonSharedStyleProps
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Action(ActionItem actionItem, bool computed)
+		public Action(ActionItem actionItem, bool computed)
 		{
 			this.m_actionItemList = new ActionItemList();
 			this.m_actionItemList.Add(actionItem);
@@ -95,12 +95,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Action()
+		public Action()
 		{
 			this.m_actionItemList = new ActionItemList();
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			ExprHostBuilder exprHostBuilder = context.ExprHostBuilder;
 			exprHostBuilder.ActionInfoStart();
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			exprHostBuilder.ActionInfoEnd();
 		}
 
-		internal void SetExprHost(ActionInfoExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ActionInfoExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && null != reportObjectModel);
 			this.m_exprHost = exprHost;
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(ActionExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ActionExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (exprHost != null)
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ActionItemList, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ActionItemList));
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.None, memberInfoList);
 		}
 
-		internal void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, int uniqueName)
+		public void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, int uniqueName)
 		{
 			if (this.m_actionItemList != null && this.m_actionItemList.Count != 0)
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ResetObjectModelForDrillthroughContext(ObjectModelImpl objectModel, IActionOwner actionOwner)
+		public bool ResetObjectModelForDrillthroughContext(ObjectModelImpl objectModel, IActionOwner actionOwner)
 		{
 			if (actionOwner.FieldsUsedInValueExpression == null)
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal void GetSelectedItemsForDrillthroughContext(ObjectModelImpl objectModel, IActionOwner actionOwner)
+		public void GetSelectedItemsForDrillthroughContext(ObjectModelImpl objectModel, IActionOwner actionOwner)
 		{
 			if (actionOwner.FieldsUsedInValueExpression == null)
 			{

@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class PromoteLocalitySpaceManager : ISpaceManager
+	public sealed class PromoteLocalitySpaceManager : ISpaceManager
 	{
 		private long m_blockSize;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal PromoteLocalitySpaceManager(long blockSize)
+		public PromoteLocalitySpaceManager(long blockSize)
 		{
 			this.m_blockSize = blockSize;
 			this.m_position = 0L;

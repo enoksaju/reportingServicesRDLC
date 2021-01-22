@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class StateIndicator : GaugePanelItem
+	public class StateIndicator : GaugePanelItem
 	{
-		internal new class Definition : DefinitionStore<StateIndicator, Definition.Properties>
+		public new class Definition : DefinitionStore<StateIndicator, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal StateIndicator(IPropertyStore propertyStore)
+		public StateIndicator(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -8,7 +8,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeLegendItem_LegendItem")]
 	[DefaultProperty("Name")]
-	internal class LegendItem : IMapAreaAttributes
+	public class LegendItem : IMapAreaAttributes
 	{
 		private string name = "Legend Item";
 
@@ -28,45 +28,45 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private string attributes = "";
 
-		internal LegendImageStyle style;
+		public LegendImageStyle style;
 
-		internal GradientType backGradientType;
+		public GradientType backGradientType;
 
-		internal Color backGradientEndColor = Color.Empty;
+		public Color backGradientEndColor = Color.Empty;
 
-		internal Color backImageTranspColor = Color.Empty;
+		public Color backImageTranspColor = Color.Empty;
 
-		internal Color borderColor = Color.Black;
+		public Color borderColor = Color.Black;
 
-		internal int borderWidth = 1;
+		public int borderWidth = 1;
 
-		internal ChartDashStyle borderStyle = ChartDashStyle.Solid;
+		public ChartDashStyle borderStyle = ChartDashStyle.Solid;
 
-		internal ChartHatchStyle backHatchStyle;
+		public ChartHatchStyle backHatchStyle;
 
-		internal int shadowOffset;
+		public int shadowOffset;
 
-		internal Color shadowColor = Color.FromArgb(128, 0, 0, 0);
+		public Color shadowColor = Color.FromArgb(128, 0, 0, 0);
 
-		internal string backImage = "";
+		public string backImage = "";
 
-		internal ChartImageWrapMode backImageMode;
+		public ChartImageWrapMode backImageMode;
 
-		internal ChartImageAlign backImageAlign;
+		public ChartImageAlign backImageAlign;
 
-		internal MarkerStyle markerStyle;
+		public MarkerStyle markerStyle;
 
-		internal int markerSize = 5;
+		public int markerSize = 5;
 
-		internal string markerImage = "";
+		public string markerImage = "";
 
-		internal Color markerImageTranspColor = Color.Empty;
+		public Color markerImageTranspColor = Color.Empty;
 
-		internal Color markerColor = Color.Empty;
+		public Color markerColor = Color.Empty;
 
-		internal Color markerBorderColor = Color.Empty;
+		public Color markerBorderColor = Color.Empty;
 
-		internal CommonElements common;
+		public CommonElements common;
 
 		private Legend m_legend;
 
@@ -82,7 +82,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private object tag;
 
-		internal bool clearTempCells;
+		public bool clearTempCells;
 
 		[Browsable(false)]
 		[Bindable(false)]
@@ -644,7 +644,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.cells = new LegendCellCollection(this);
 		}
 
-		internal void AddAutomaticCells(Legend legend)
+		public void AddAutomaticCells(Legend legend)
 		{
 			if (this.Cells.Count == 0)
 			{
@@ -680,7 +680,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetAttributes(CommonElements common, Series series)
+		public void SetAttributes(CommonElements common, Series series)
 		{
 			IChartType chartType = common.ChartTypeRegistry.GetChartType(series.ChartTypeName);
 			this.style = chartType.GetLegendImageStyle(series);
@@ -691,7 +691,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.SetAttributes(series, enable3D);
 		}
 
-		internal void SetAttributes(DataPointAttributes attrib, bool area3D)
+		public void SetAttributes(DataPointAttributes attrib, bool area3D)
 		{
 			this.borderColor = attrib.BorderColor;
 			this.borderWidth = attrib.BorderWidth;

@@ -1,16 +1,16 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal struct VariantResult
+	public struct VariantResult
 	{
-		internal bool ErrorOccurred;
+		public bool ErrorOccurred;
 
-		internal DataFieldStatus FieldStatus;
+		public DataFieldStatus FieldStatus;
 
-		internal string ExceptionMessage;
+		public string ExceptionMessage;
 
-		internal object Value;
+		public object Value;
 
-		internal VariantResult(bool errorOccurred, object v)
+		public VariantResult(bool errorOccurred, object v)
 		{
 			this.ErrorOccurred = errorOccurred;
 			this.Value = v;

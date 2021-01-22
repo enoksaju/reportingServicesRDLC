@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class Block
+	public sealed class Block
 	{
 		private long m_offset;
 

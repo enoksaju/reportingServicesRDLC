@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum FontWeights
+	public enum FontWeights
 	{
 		Default,
 		Normal,

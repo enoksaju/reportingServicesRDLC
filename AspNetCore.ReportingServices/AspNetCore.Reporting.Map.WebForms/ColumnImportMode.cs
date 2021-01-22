@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum ColumnImportMode
+	public enum ColumnImportMode
 	{
 		FirstValue,
 		Sum,

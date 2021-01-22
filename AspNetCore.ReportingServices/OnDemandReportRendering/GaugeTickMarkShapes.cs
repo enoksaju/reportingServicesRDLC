@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeTickMarkShapes
+	public enum GaugeTickMarkShapes
 	{
 		Rectangle,
 		None,

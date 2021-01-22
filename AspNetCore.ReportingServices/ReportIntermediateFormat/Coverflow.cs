@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Coverflow : Navigation
+	public sealed class Coverflow : Navigation
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Coverflow.GetDeclaration();
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private Slider m_slider;
 
-		internal Slider Slider
+		public Slider Slider
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal NavigationItem NavigationItem
+		public NavigationItem NavigationItem
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void Initialize(Tablix tablix, InitializationContext context)
+		public override void Initialize(Tablix tablix, InitializationContext context)
 		{
 			if (this.m_slider != null)
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.NavigationItem, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.NavigationItem));

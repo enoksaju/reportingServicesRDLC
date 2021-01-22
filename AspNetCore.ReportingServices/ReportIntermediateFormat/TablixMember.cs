@@ -13,25 +13,25 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class TablixMember : ReportHierarchyNode, IPersistable, IVisibilityOwner, IReferenceable
+	public class TablixMember : ReportHierarchyNode, IPersistable, IVisibilityOwner, IReferenceable
 	{
 		private class VisibilityState
 		{
-			internal DataRegionMemberInstance MemberInstance;
+			public DataRegionMemberInstance MemberInstance;
 
-			internal bool CachedHiddenValue;
+			public bool CachedHiddenValue;
 
-			internal bool HasCachedHidden;
+			public bool HasCachedHidden;
 
-			internal bool CachedDeepHiddenValue;
+			public bool CachedDeepHiddenValue;
 
-			internal bool HasCachedDeepHidden;
+			public bool HasCachedDeepHidden;
 
-			internal bool CachedStartHiddenValue;
+			public bool CachedStartHiddenValue;
 
-			internal bool HasCachedStartHidden;
+			public bool HasCachedStartHidden;
 
-			internal void Reset()
+			public void Reset()
 			{
 				this.CachedHiddenValue = false;
 				this.HasCachedHidden = false;
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private VisibilityState m_nonRecursiveVisibilityCache;
 
-		internal override string RdlElementName
+		public override string RdlElementName
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList InnerHierarchy
+		public override HierarchyNodeList InnerHierarchy
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixMemberList SubMembers
+		public TablixMemberList SubMembers
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixMember ParentMember
+		public TablixMember ParentMember
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasStaticPeerWithHeader
+		public bool HasStaticPeerWithHeader
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PageBreakLocation PropagatedPageBreakLocation
+		public PageBreakLocation PropagatedPageBreakLocation
 		{
 			get
 			{
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixHeader TablixHeader
+		public TablixHeader TablixHeader
 		{
 			get
 			{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool FixedData
+		public bool FixedData
 		{
 			get
 			{
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool RepeatOnNewPage
+		public bool RepeatOnNewPage
 		{
 			get
 			{
@@ -246,7 +246,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal KeepWithGroup KeepWithGroup
+		public KeepWithGroup KeepWithGroup
 		{
 			get
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool KeepTogether
+		public bool KeepTogether
 		{
 			get
 			{
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool KeepTogetherSpecified
+		public bool KeepTogetherSpecified
 		{
 			get
 			{
@@ -282,7 +282,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HideIfNoRows
+		public bool HideIfNoRows
 		{
 			get
 			{
@@ -294,7 +294,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -318,7 +318,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override bool IsNonToggleableHiddenMember
+		public override bool IsNonToggleableHiddenMember
 		{
 			get
 			{
@@ -338,7 +338,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool CanHaveSpanDecreased
+		public bool CanHaveSpanDecreased
 		{
 			get
 			{
@@ -350,7 +350,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasToggleableVisibility
+		public bool HasToggleableVisibility
 		{
 			get
 			{
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasConditionalOrToggleableVisibility
+		public bool HasConditionalOrToggleableVisibility
 		{
 			get
 			{
@@ -382,7 +382,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool[] HeaderLevelHasStaticArray
+		public bool[] HeaderLevelHasStaticArray
 		{
 			get
 			{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int HeaderLevel
+		public int HeaderLevel
 		{
 			get
 			{
@@ -406,7 +406,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsInnerMostMemberWithHeader
+		public bool IsInnerMostMemberWithHeader
 		{
 			get
 			{
@@ -418,7 +418,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override bool IsTablixMember
+		public override bool IsTablixMember
 		{
 			get
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<TextBox> InScopeTextBoxes
+		public List<TextBox> InScopeTextBoxes
 		{
 			get
 			{
@@ -509,7 +509,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ConsecutiveZeroHeightDescendentCount
+		public int ConsecutiveZeroHeightDescendentCount
 		{
 			get
 			{
@@ -521,7 +521,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ConsecutiveZeroHeightAncestorCount
+		public int ConsecutiveZeroHeightAncestorCount
 		{
 			get
 			{
@@ -533,7 +533,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InstanceHasRecursiveChildren
+		public bool InstanceHasRecursiveChildren
 		{
 			get
 			{
@@ -545,7 +545,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override List<ReportItem> MemberContentCollection
+		public override List<ReportItem> MemberContentCollection
 		{
 			get
 			{
@@ -575,16 +575,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixMember()
+		public TablixMember()
 		{
 		}
 
-		internal TablixMember(int id, Tablix tablixDef)
+		public TablixMember(int id, Tablix tablixDef)
 			: base(id, tablixDef)
 		{
 		}
 
-		internal override void TraverseMemberScopes(IRIFScopeVisitor visitor)
+		public override void TraverseMemberScopes(IRIFScopeVisitor visitor)
 		{
 			if (this.m_tablixHeader != null)
 			{
@@ -698,7 +698,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return cachedVisibilityState.CachedStartHiddenValue;
 		}
 
-		internal void ResetVisibilityComputationCache()
+		public void ResetVisibilityComputationCache()
 		{
 			if (this.m_nonRecursiveVisibilityCache != null)
 			{
@@ -718,7 +718,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return builder.DataGroupEnd(AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder.DataRegionMode.Tablix, base.m_isColumn);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context, DataRegion newContainingRegion)
+		public override object PublishClone(AutomaticSubtotalContext context, DataRegion newContainingRegion)
 		{
 			TablixMember tablixMember = (TablixMember)base.PublishClone(context, newContainingRegion);
 			if (this.m_tablixHeader != null)
@@ -742,7 +742,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return tablixMember;
 		}
 
-		internal TablixMember CreateAutomaticSubtotalClone(AutomaticSubtotalContext context, TablixMember parent, bool isDynamicTarget, out int aDynamicsRemoved, ref bool aAllWereDynamic)
+		public TablixMember CreateAutomaticSubtotalClone(AutomaticSubtotalContext context, TablixMember parent, bool isDynamicTarget, out int aDynamicsRemoved, ref bool aAllWereDynamic)
 		{
 			TablixMember tablixMember = null;
 			TablixMember tablixMember2 = null;
@@ -987,7 +987,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal override bool InnerInitialize(InitializationContext context, bool restrictive)
+		public override bool InnerInitialize(InitializationContext context, bool restrictive)
 		{
 			context.RegisterMemberReportItems(this, true, restrictive);
 			if (this.m_visibility != null)
@@ -1003,7 +1003,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal override bool Initialize(InitializationContext context, bool restrictive)
+		public override bool Initialize(InitializationContext context, bool restrictive)
 		{
 			if (this.m_visibility != null)
 			{
@@ -1054,7 +1054,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return flag2;
 		}
 
-		internal void DataRendererInitialize(InitializationContext context)
+		public void DataRendererInitialize(InitializationContext context)
 		{
 			if (this.m_dataElementOutput == DataElementOutputTypes.Auto)
 			{
@@ -1079,7 +1079,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			AspNetCore.ReportingServices.ReportPublishing.CLSNameValidator.ValidateDataElementName(ref this.m_dataElementName, defaultName, context.ObjectType, context.ObjectName, "DataElementName", context.ErrorContext);
 		}
 
-		internal override bool PreInitializeDataMember(InitializationContext context)
+		public override bool PreInitializeDataMember(InitializationContext context)
 		{
 			if (this.m_tablixHeader != null)
 			{
@@ -1099,7 +1099,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal override void PostInitializeDataMember(InitializationContext context, bool registeredVisibility)
+		public override void PostInitializeDataMember(InitializationContext context, bool registeredVisibility)
 		{
 			context.UnRegisterMemberReportItems(this, false);
 			if (registeredVisibility)
@@ -1109,7 +1109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.PostInitializeDataMember(context, registeredVisibility);
 		}
 
-		internal override void InitializeRVDirectionDependentItems(InitializationContext context)
+		public override void InitializeRVDirectionDependentItems(InitializationContext context)
 		{
 			if (this.m_tablixHeader != null)
 			{
@@ -1124,7 +1124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
+		public override void DetermineGroupingExprValueCount(InitializationContext context, int groupingExprCount)
 		{
 			if (this.m_tablixHeader != null)
 			{
@@ -1139,7 +1139,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ValidateTablixMemberForBanding(PublishingContextStruct context, out bool isdynamic)
+		public void ValidateTablixMemberForBanding(PublishingContextStruct context, out bool isdynamic)
 		{
 			isdynamic = false;
 			this.SetIgnoredPropertiesForBandingToDefault(context);
@@ -1157,7 +1157,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetIgnoredPropertiesForBandingToDefault(PublishingContextStruct context)
+		public void SetIgnoredPropertiesForBandingToDefault(PublishingContextStruct context)
 		{
 			if (base.CustomProperties != null)
 			{
@@ -1194,7 +1194,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.TablixHeader, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.TablixHeader));
@@ -1394,7 +1394,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.TablixMember;
 		}
 
-		internal override void SetExprHost(IMemberNode memberExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(IMemberNode memberExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -1405,7 +1405,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void MemberContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
+		public override void MemberContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
 		{
 			if (this.m_tablixHeader != null && this.m_tablixHeader.CellContents != null)
 			{
@@ -1417,7 +1417,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void MoveNextForUserSort(OnDemandProcessingContext odpContext)
+		public override void MoveNextForUserSort(OnDemandProcessingContext odpContext)
 		{
 			base.MoveNextForUserSort(odpContext);
 			this.ResetTextBoxImpls(odpContext);
@@ -1432,7 +1432,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_inScopeTextBoxes.Add(textbox);
 		}
 
-		internal override void ResetTextBoxImpls(OnDemandProcessingContext context)
+		public override void ResetTextBoxImpls(OnDemandProcessingContext context)
 		{
 			if (this.m_inScopeTextBoxes != null)
 			{
@@ -1443,19 +1443,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool EvaluateStartHidden(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public bool EvaluateStartHidden(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, romInstance);
 			string objectName = base.IsStatic ? base.m_dataRegionDef.Name : base.m_grouping.Name;
 			return context.ReportRuntime.EvaluateStartHiddenExpression(this.m_visibility, this.m_exprHost, AspNetCore.ReportingServices.ReportProcessing.ObjectType.Tablix, objectName);
 		}
 
-		internal override void SetMemberInstances(IList<DataRegionMemberInstance> memberInstances)
+		public override void SetMemberInstances(IList<DataRegionMemberInstance> memberInstances)
 		{
 			this.m_memberInstances = memberInstances;
 		}
 
-		internal override void SetRecursiveParentIndex(int parentInstanceIndex)
+		public override void SetRecursiveParentIndex(int parentInstanceIndex)
 		{
 			if (this.m_parentInstanceIndex.HasValue && parentInstanceIndex == this.m_parentInstanceIndex)
 			{
@@ -1465,7 +1465,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_parentInstanceIndex = parentInstanceIndex;
 		}
 
-		internal override void SetInstanceHasRecursiveChildren(bool? hasRecursiveChildren)
+		public override void SetInstanceHasRecursiveChildren(bool? hasRecursiveChildren)
 		{
 			this.m_instanceHasRecursiveChildren = hasRecursiveChildren;
 		}

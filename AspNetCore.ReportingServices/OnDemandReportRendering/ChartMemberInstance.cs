@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class ChartMemberInstance : BaseInstance
+	public class ChartMemberInstance : BaseInstance
 	{
 		protected Chart m_owner;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TypeCode LabelTypeCode
+		public TypeCode LabelTypeCode
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartMemberInstance(Chart owner, ChartMember memberDef)
+		public ChartMemberInstance(Chart owner, ChartMember memberDef)
 			: base(memberDef.ReportScope)
 		{
 			this.m_owner = owner;

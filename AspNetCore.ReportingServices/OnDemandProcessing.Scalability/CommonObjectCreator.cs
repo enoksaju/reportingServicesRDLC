@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class CommonObjectCreator : IScalabilityObjectCreator
+	public sealed class CommonObjectCreator : IScalabilityObjectCreator
 	{
 		private static List<Declaration> m_declarations = CommonObjectCreator.BuildDeclarations();
 
 		private static CommonObjectCreator m_instance = null;
 
-		internal static CommonObjectCreator Instance
+		public static CommonObjectCreator Instance
 		{
 			get
 			{

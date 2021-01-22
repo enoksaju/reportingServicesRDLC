@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CalculatedValueNameConverter : StringConverter
+	public class CalculatedValueNameConverter : StringConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

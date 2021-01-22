@@ -8,16 +8,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeTablixCell : RuntimeCellWithContents
+	public sealed class RuntimeTablixCell : RuntimeCellWithContents
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeTablixCell.GetDeclaration();
 
-		internal RuntimeTablixCell()
+		public RuntimeTablixCell()
 		{
 		}
 
-		internal RuntimeTablixCell(RuntimeTablixGroupLeafObjReference owner, TablixMember outerGroupingMember, TablixMember innerGroupingMember, bool innermost)
+		public RuntimeTablixCell(RuntimeTablixGroupLeafObjReference owner, TablixMember outerGroupingMember, TablixMember innerGroupingMember, bool innermost)
 			: base(owner, outerGroupingMember, innerGroupingMember, innermost)
 		{
 		}

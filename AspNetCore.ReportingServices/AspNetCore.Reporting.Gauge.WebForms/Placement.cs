@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum Placement
+	public enum Placement
 	{
 		Inside,
 		Outside,

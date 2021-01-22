@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class IDOwner
+	public abstract class IDOwner
 	{
 		protected int m_ID;
 
-		internal int ID
+		public int ID
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_ID = id;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ID, Token.Int32));

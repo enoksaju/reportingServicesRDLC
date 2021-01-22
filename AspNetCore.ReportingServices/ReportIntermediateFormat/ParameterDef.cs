@@ -11,7 +11,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ParameterDef : ParameterBase, IPersistable, IParameterDef, IReferenceable
+	public sealed class ParameterDef : ParameterBase, IPersistable, IParameterDef, IReferenceable
 	{
 		private ParameterDataSource m_validValuesDataSource;
 
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> DefaultExpressions
+		public List<ExpressionInfo> DefaultExpressions
 		{
 			get
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParameterDataSource ValidValuesDataSource
+		public ParameterDataSource ValidValuesDataSource
 		{
 			get
 			{
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> ValidValuesValueExpressions
+		public List<ExpressionInfo> ValidValuesValueExpressions
 		{
 			get
 			{
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> ValidValuesLabelExpressions
+		public List<ExpressionInfo> ValidValuesLabelExpressions
 		{
 			get
 			{
@@ -194,7 +194,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParameterDataSource DefaultDataSource
+		public ParameterDataSource DefaultDataSource
 		{
 			get
 			{
@@ -206,7 +206,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ParameterDef> DependencyList
+		public List<ParameterDef> DependencyList
 		{
 			get
 			{
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportParamExprHost ExprHost
+		public ReportParamExprHost ExprHost
 		{
 			get
 			{
@@ -246,11 +246,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParameterDef()
+		public ParameterDef()
 		{
 		}
 
-		internal ParameterDef(int referenceId)
+		public ParameterDef(int referenceId)
 		{
 			this.m_referenceId = referenceId;
 		}
@@ -290,7 +290,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return base.ValidateValueForBlank(newValue, errorContext, parameterValueProperty);
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.Location |= AspNetCore.ReportingServices.ReportPublishing.LocationFlags.InParameter;
 			context.ExprHostBuilder.ReportParameterStart(base.Name);
@@ -334,7 +334,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.ExprHostID = context.ExprHostBuilder.ReportParameterEnd();
 		}
 
-		internal void SetExprHost(ReportExprHost reportExprHost, OnDemandObjectModel reportObjectModel)
+		public void SetExprHost(ReportExprHost reportExprHost, OnDemandObjectModel reportObjectModel)
 		{
 			Global.Tracer.Assert(reportExprHost != null && reportObjectModel != null, "(reportExprHost != null && reportObjectModel != null)");
 			if (this.ExprHostID >= 0)
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Parse(string name, List<string> defaultValues, string type, string nullable, ExpressionInfo prompt, string promptUser, string allowBlank, string multiValue, string usedInQuery, bool hidden, ErrorContext errorContext, CultureInfo language)
+		public void Parse(string name, List<string> defaultValues, string type, string nullable, ExpressionInfo prompt, string promptUser, string allowBlank, string multiValue, string usedInQuery, bool hidden, ErrorContext errorContext, CultureInfo language)
 		{
 			base.Parse(name, defaultValues, type, nullable, prompt, promptUser, allowBlank, multiValue, usedInQuery, hidden, errorContext, language);
 			if (hidden)

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Table : DataRegion
+	public sealed class Table : DataRegion
 	{
 		private TableGroupCollection m_tableGroups;
 
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override string InstanceInfoNoRowMessage
+		public override string InstanceInfoNoRowMessage
 		{
 			get
 			{
@@ -237,7 +237,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool HasFixedColumnHeaders
+		public bool HasFixedColumnHeaders
 		{
 			get
 			{
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.Table TableDefinition
+		public AspNetCore.ReportingServices.ReportProcessing.Table TableDefinition
 		{
 			get
 			{
@@ -268,12 +268,12 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Table(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Table reportItemDef, TableInstance reportItemInstance, RenderingContext renderingContext)
+		public Table(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Table reportItemDef, TableInstance reportItemInstance, RenderingContext renderingContext)
 			: base(intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 		}
 
-		internal override bool Search(SearchContext searchContext)
+		public override bool Search(SearchContext searchContext)
 		{
 			if (base.SkipSearch)
 			{

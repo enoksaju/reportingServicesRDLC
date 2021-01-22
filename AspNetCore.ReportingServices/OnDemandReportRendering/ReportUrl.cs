@@ -8,7 +8,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportUrl
+	public sealed class ReportUrl
 	{
 		private AspNetCore.ReportingServices.ReportRendering.ReportUrl m_renderUrl;
 
@@ -22,17 +22,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportUrl(AspNetCore.ReportingServices.ReportRendering.ReportUrl renderUrl)
+		public ReportUrl(AspNetCore.ReportingServices.ReportRendering.ReportUrl renderUrl)
 		{
 			this.m_renderUrl = renderUrl;
 		}
 
-		internal ReportUrl(ICatalogItemContext itemContext, string initialUrl)
+		public ReportUrl(ICatalogItemContext itemContext, string initialUrl)
 		{
 			this.m_pathUri = new Uri(ReportUrl.BuildPathUri(itemContext, initialUrl, null));
 		}
 
-		internal ReportUrl(ICatalogItemContext itemContext, string initialUrl, bool checkProtocol, NameValueCollection unparsedParameters)
+		public ReportUrl(ICatalogItemContext itemContext, string initialUrl, bool checkProtocol, NameValueCollection unparsedParameters)
 		{
 			ICatalogItemContext catalogItemContext = default(ICatalogItemContext);
 			this.m_pathUri = new Uri(ReportUrl.BuildPathUri(itemContext, checkProtocol, initialUrl, unparsedParameters, out catalogItemContext));
@@ -42,13 +42,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static string BuildPathUri(ICatalogItemContext currentICatalogItemContext, string initialUrl, NameValueCollection unparsedParameters)
+		public static string BuildPathUri(ICatalogItemContext currentICatalogItemContext, string initialUrl, NameValueCollection unparsedParameters)
 		{
 			ICatalogItemContext catalogItemContext = default(ICatalogItemContext);
 			return ReportUrl.BuildPathUri(currentICatalogItemContext, true, initialUrl, unparsedParameters, out catalogItemContext);
 		}
 
-		internal static string BuildPathUri(ICatalogItemContext currentICatalogItemContext, bool checkProtocol, string initialUrl, NameValueCollection unparsedParameters, out ICatalogItemContext newContext)
+		public static string BuildPathUri(ICatalogItemContext currentICatalogItemContext, bool checkProtocol, string initialUrl, NameValueCollection unparsedParameters, out ICatalogItemContext newContext)
 		{
 			newContext = null;
 			if (currentICatalogItemContext == null)
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return text;
 		}
 
-		internal static string BuildDrillthroughUrl(ICatalogItemContext currentCatalogItemContext, string initialUrl, NameValueCollection parameters)
+		public static string BuildDrillthroughUrl(ICatalogItemContext currentCatalogItemContext, string initialUrl, NameValueCollection parameters)
 		{
 			ICatalogItemContext catalogItemContext = default(ICatalogItemContext);
 			string text = ReportUrl.BuildPathUri(currentCatalogItemContext, true, initialUrl, parameters, out catalogItemContext);
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal static ReportUrl BuildHyperlinkUrl(RenderingContext renderingContext, ObjectType objectType, string objectName, string propertyName, ICatalogItemContext itemContext, string initialUrl)
+		public static ReportUrl BuildHyperlinkUrl(RenderingContext renderingContext, ObjectType objectType, string objectName, string propertyName, ICatalogItemContext itemContext, string initialUrl)
 		{
 			ReportUrl result = null;
 			if (initialUrl == null)

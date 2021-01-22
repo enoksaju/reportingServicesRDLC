@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal sealed class LengthEncodedWritableStream : Stream
+	public sealed class LengthEncodedWritableStream : Stream
 	{
 		private MemoryStream m_bufferStream;
 
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			}
 		}
 
-		internal bool Closed
+		public bool Closed
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			}
 		}
 
-		internal LengthEncodedWritableStream(BinaryWriter writer, string name)
+		public LengthEncodedWritableStream(BinaryWriter writer, string name)
 		{
 			if (writer == null)
 			{

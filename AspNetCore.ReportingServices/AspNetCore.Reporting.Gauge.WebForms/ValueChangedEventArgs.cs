@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class ValueChangedEventArgs : EventArgs
+	public class ValueChangedEventArgs : EventArgs
 	{
 		private double value;
 

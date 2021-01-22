@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ChartMemberCollection : DataRegionMemberCollection<ChartMember>
+	public abstract class ChartMemberCollection : DataRegionMemberCollection<ChartMember>
 	{
 		public override string DefinitionPath
 		{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart OwnerChart
+		public Chart OwnerChart
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartMemberCollection(IDefinitionPath parentDefinitionPath, Chart owner)
+		public ChartMemberCollection(IDefinitionPath parentDefinitionPath, Chart owner)
 			: base(parentDefinitionPath, (ReportItem)owner)
 		{
 		}

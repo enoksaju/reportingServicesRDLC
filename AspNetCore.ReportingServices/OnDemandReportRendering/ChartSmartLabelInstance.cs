@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartSmartLabelInstance : BaseInstance
+	public sealed class ChartSmartLabelInstance : BaseInstance
 	{
 		private ChartSmartLabel m_chartSmartLabelDef;
 
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartSmartLabelInstance(ChartSmartLabel chartSmartLabelDef)
+		public ChartSmartLabelInstance(ChartSmartLabel chartSmartLabelDef)
 			: base(chartSmartLabelDef.ReportScope)
 		{
 			this.m_chartSmartLabelDef = chartSmartLabelDef;

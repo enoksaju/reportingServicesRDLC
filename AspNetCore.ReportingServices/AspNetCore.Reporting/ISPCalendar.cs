@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal interface ISPCalendar
+	public interface ISPCalendar
 	{
 		bool IsSupportedYear(int year);
 

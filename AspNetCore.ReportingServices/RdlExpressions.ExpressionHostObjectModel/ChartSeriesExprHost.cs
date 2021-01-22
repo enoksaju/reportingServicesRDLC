@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<DataValueExprHost> CustomPropertyHostsRemotable
+		public IList<DataValueExprHost> CustomPropertyHostsRemotable
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartDerivedSeriesExprHost> ChartDerivedSeriesCollectionHostsRemotable
+		public IList<ChartDerivedSeriesExprHost> ChartDerivedSeriesCollectionHostsRemotable
 		{
 			get
 			{

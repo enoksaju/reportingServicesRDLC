@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportColor
+	public sealed class ReportColor
 	{
 		private string m_color;
 
@@ -25,14 +25,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_parsed = true;
 		}
 
-		internal ReportColor(string color, Color gdiColor, bool parsed)
+		public ReportColor(string color, Color gdiColor, bool parsed)
 		{
 			this.m_color = color;
 			this.m_parsed = parsed;
 			this.m_GDIColor = gdiColor;
 		}
 
-		internal ReportColor(AspNetCore.ReportingServices.ReportRendering.ReportColor oldColor)
+		public ReportColor(AspNetCore.ReportingServices.ReportRendering.ReportColor oldColor)
 		{
 			this.m_color = oldColor.ToString();
 			this.m_parsed = oldColor.Parsed;
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_GDIColor;
 		}
 
-		internal void Validate(bool allowTransparency)
+		public void Validate(bool allowTransparency)
 		{
 			if (Validator.ValidateColor(this.m_color, out this.m_GDIColor, allowTransparency))
 			{

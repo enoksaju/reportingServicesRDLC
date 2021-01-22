@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapSize : ReportObject
+	public class MapSize : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapSize, Definition.Properties>
+		public class Definition : DefinitionStore<MapSize, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Width,
 				Height,
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapSize(IPropertyStore propertyStore)
+		public MapSize(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

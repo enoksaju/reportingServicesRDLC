@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IShapeModel
+	public interface IShapeModel
 	{
 		string Hyperlink
 		{

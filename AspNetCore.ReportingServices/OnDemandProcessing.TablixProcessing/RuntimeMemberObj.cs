@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeMemberObj : IStorable, IPersistable
+	public abstract class RuntimeMemberObj : IStorable, IPersistable
 	{
 		protected IReference<IScope> m_owner;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private static Declaration m_declaration = RuntimeMemberObj.GetDeclaration();
 
-		internal RuntimeDataTablixGroupRootObjReference GroupRoot
+		public RuntimeDataTablixGroupRootObjReference GroupRoot
 		{
 			get
 			{
@@ -31,16 +31,16 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeMemberObj()
+		public RuntimeMemberObj()
 		{
 		}
 
-		internal RuntimeMemberObj(IReference<IScope> owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode dynamicMember)
+		public RuntimeMemberObj(IReference<IScope> owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode dynamicMember)
 		{
 			this.m_owner = owner;
 		}
 
-		internal virtual void NextRow(bool isOuterGrouping, OnDemandProcessingContext odpContext)
+		public virtual void NextRow(bool isOuterGrouping, OnDemandProcessingContext odpContext)
 		{
 			if ((BaseReference)null != (object)this.m_groupRoot)
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual bool SortAndFilter(AggregateUpdateContext aggContext)
+		public virtual bool SortAndFilter(AggregateUpdateContext aggContext)
 		{
 			if ((BaseReference)null != (object)this.m_groupRoot)
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return true;
 		}
 
-		internal virtual void UpdateAggregates(AggregateUpdateContext aggContext)
+		public virtual void UpdateAggregates(AggregateUpdateContext aggContext)
 		{
 			if ((BaseReference)null != (object)this.m_groupRoot)
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
+		public virtual void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
 		{
 			if ((BaseReference)null != (object)this.m_groupRoot)
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual void PrepareCalculateRunningValues()
+		public virtual void PrepareCalculateRunningValues()
 		{
 			if ((BaseReference)null != (object)this.m_groupRoot)
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal abstract void CreateInstances(IReference<RuntimeDataRegionObj> outerGroupRef, OnDemandProcessingContext odpContext, DataRegionInstance dataRegionInstance, bool outerGroupings, IReference<RuntimeDataTablixGroupRootObj> currOuterGroupRoot, ScopeInstance parentInstance, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeafRef);
+		public abstract void CreateInstances(IReference<RuntimeDataRegionObj> outerGroupRef, OnDemandProcessingContext odpContext, DataRegionInstance dataRegionInstance, bool outerGroupings, IReference<RuntimeDataTablixGroupRootObj> currOuterGroupRoot, ScopeInstance parentInstance, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeafRef);
 
 		public virtual void Serialize(IntermediateFormatWriter writer)
 		{

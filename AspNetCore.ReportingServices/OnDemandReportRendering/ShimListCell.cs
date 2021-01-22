@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimListCell : ShimCell
+	public sealed class ShimListCell : ShimCell
 	{
 		private ListContent m_currentListContents;
 
@@ -21,13 +21,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimListCell(Tablix owner)
+		public ShimListCell(Tablix owner)
 			: base(owner, 0, 0, owner.InSubtotal)
 		{
 			this.m_currentListContents = owner.RenderList.Contents[0];
 		}
 
-		internal void SetCellContents(ListContent renderContents)
+		public void SetCellContents(ListContent renderContents)
 		{
 			if (base.m_instance != null)
 			{

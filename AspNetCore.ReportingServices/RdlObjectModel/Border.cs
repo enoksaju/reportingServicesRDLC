@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.RdlObjectModel.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Border : ReportObject, IShouldSerialize
+	public class Border : ReportObject, IShouldSerialize
 	{
-		internal class Definition : DefinitionStore<Border, Definition.Properties>
+		public class Definition : DefinitionStore<Border, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Color,
 				Style,
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Border(IPropertyStore propertyStore)
+		public Border(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

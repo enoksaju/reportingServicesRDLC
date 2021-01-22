@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class PageTablixHelper : PageItemHelper
+	public class PageTablixHelper : PageItemHelper
 	{
 		private int m_levelForRepeat;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private bool m_ignoreTotalsOnLastLevel;
 
-		internal int LevelForRepeat
+		public int LevelForRepeat
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool IgnoreTotalsOnLastLevel
+		public bool IgnoreTotalsOnLastLevel
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal List<int> TablixCreateState
+		public List<int> TablixCreateState
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal List<int> MembersInstanceIndex
+		public List<int> MembersInstanceIndex
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageTablixHelper(byte type)
+		public PageTablixHelper(byte type)
 			: base(type)
 		{
 		}

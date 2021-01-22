@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.package.x2006.metadata.core_properties
 {
-	internal class CorePropertiesPart : OoxmlPart
+	public class CorePropertiesPart : OoxmlPart
 	{
 		private CT_CoreProperties _root;
 

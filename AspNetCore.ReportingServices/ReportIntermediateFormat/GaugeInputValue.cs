@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class GaugeInputValue : IPersistable
+	public class GaugeInputValue : IPersistable
 	{
 		[NonSerialized]
 		private GaugeInputValueExprHost m_exprHost;
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private int m_exprHostID = -1;
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Formula
+		public ExpressionInfo Formula
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MinPercent
+		public ExpressionInfo MinPercent
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaxPercent
+		public ExpressionInfo MaxPercent
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Multiplier
+		public ExpressionInfo Multiplier
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AddConstant
+		public ExpressionInfo AddConstant
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValueExprHost ExprHost
+		public GaugeInputValueExprHost ExprHost
 		{
 			get
 			{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -161,16 +161,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue()
+		public GaugeInputValue()
 		{
 		}
 
-		internal GaugeInputValue(GaugePanel gaugePanel)
+		public GaugeInputValue(GaugePanel gaugePanel)
 		{
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal void Initialize(InitializationContext context, int index)
+		public void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.GaugeInputValueStart(index);
 			if (this.m_value != null)
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.GaugeInputValueValue(this.m_value);
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			GaugeInputValue gaugeInputValue = (GaugeInputValue)base.MemberwiseClone();
 			gaugeInputValue.m_gaugePanel = (GaugePanel)context.CurrentDataRegionClone;
@@ -242,14 +242,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return gaugeInputValue;
 		}
 
-		internal void SetExprHost(GaugeInputValueExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(GaugeInputValueExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Value, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -379,42 +379,42 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			Global.Tracer.Assert(this.m_gaugePanel.GaugeRow != null && this.m_gaugePanel.GaugeRow.GaugeCell != null);
 			context.SetupContext(this.m_gaugePanel.GaugeRow.GaugeCell, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeInputValueValueExpression(this, this.m_gaugePanel.Name);
 		}
 
-		internal GaugeInputValueFormulas EvaluateFormula(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeInputValueFormulas EvaluateFormula(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			Global.Tracer.Assert(this.m_gaugePanel.GaugeRow != null && this.m_gaugePanel.GaugeRow.GaugeCell != null);
 			context.SetupContext(this.m_gaugePanel.GaugeRow.GaugeCell, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeInputValueFormulas(context.ReportRuntime.EvaluateGaugeInputValueFormulaExpression(this, this.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateMinPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMinPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			Global.Tracer.Assert(this.m_gaugePanel.GaugeRow != null && this.m_gaugePanel.GaugeRow.GaugeCell != null);
 			context.SetupContext(this.m_gaugePanel.GaugeRow.GaugeCell, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeInputValueMinPercentExpression(this, this.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateMaxPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMaxPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			Global.Tracer.Assert(this.m_gaugePanel.GaugeRow != null && this.m_gaugePanel.GaugeRow.GaugeCell != null);
 			context.SetupContext(this.m_gaugePanel.GaugeRow.GaugeCell, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeInputValueMaxPercentExpression(this, this.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateMultiplier(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMultiplier(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			Global.Tracer.Assert(this.m_gaugePanel.GaugeRow != null && this.m_gaugePanel.GaugeRow.GaugeCell != null);
 			context.SetupContext(this.m_gaugePanel.GaugeRow.GaugeCell, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugeInputValueMultiplierExpression(this, this.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateAddConstant(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateAddConstant(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			Global.Tracer.Assert(this.m_gaugePanel.GaugeRow != null && this.m_gaugePanel.GaugeRow.GaugeCell != null);
 			context.SetupContext(this.m_gaugePanel.GaugeRow.GaugeCell, reportScopeInstance);

@@ -5,7 +5,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class RecordRow
+	public sealed class RecordRow
 	{
 		private RecordField[] m_recordFields;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private int m_aggregationFieldCount;
 
-		internal RecordField[] RecordFields
+		public RecordField[] RecordFields
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsAggregateRow
+		public bool IsAggregateRow
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int AggregationFieldCount
+		public int AggregationFieldCount
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RecordRow(FieldsImpl fields, int fieldCount)
+		public RecordRow(FieldsImpl fields, int fieldCount)
 		{
 			this.m_recordFields = new RecordField[fieldCount];
 			for (int i = 0; i < fieldCount; i++)
@@ -63,11 +63,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_aggregationFieldCount = fields.AggregationFieldCount;
 		}
 
-		internal RecordRow()
+		public RecordRow()
 		{
 		}
 
-		internal object GetFieldValue(int aliasIndex)
+		public object GetFieldValue(int aliasIndex)
 		{
 			RecordField recordField = this.m_recordFields[aliasIndex];
 			Global.Tracer.Assert(null != recordField);
@@ -78,12 +78,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return recordField.FieldValue;
 		}
 
-		internal bool IsAggregationField(int aliasIndex)
+		public bool IsAggregationField(int aliasIndex)
 		{
 			return this.m_recordFields[aliasIndex].IsAggregationField;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.RecordFields, Token.Array, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.RecordField));

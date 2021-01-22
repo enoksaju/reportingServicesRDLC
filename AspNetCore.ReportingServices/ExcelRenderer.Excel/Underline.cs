@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum Underline
+	public enum Underline
 	{
 		None,
 		Single,

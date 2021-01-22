@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartFormulas
+	public enum ChartFormulas
 	{
 		BollingerBands,
 		MovingAverage,

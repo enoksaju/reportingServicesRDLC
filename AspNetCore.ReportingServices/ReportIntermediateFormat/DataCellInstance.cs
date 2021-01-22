@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class DataCellInstance : ScopeInstance
+	public sealed class DataCellInstance : ScopeInstance
 	{
 		[NonSerialized]
 		private Cell m_cellDef;
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DataCellInstance.GetDeclaration();
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Cell CellDef
+		public Cell CellDef
 		{
 			get
 			{
@@ -89,23 +89,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataCellInstance()
+		public DataCellInstance()
 		{
 		}
 
-		internal static DataCellInstance CreateInstance(IMemberHierarchy dataRegionOrRowMemberInstance, OnDemandProcessingContext odpContext, Cell cellDef, long firstRowOffset, int columnMemberSequenceId)
+		public static DataCellInstance CreateInstance(IMemberHierarchy dataRegionOrRowMemberInstance, OnDemandProcessingContext odpContext, Cell cellDef, long firstRowOffset, int columnMemberSequenceId)
 		{
 			return DataCellInstance.CreateInstance(dataRegionOrRowMemberInstance, odpContext, cellDef, null, null, firstRowOffset, columnMemberSequenceId);
 		}
 
-		internal static DataCellInstance CreateInstance(IMemberHierarchy dataRegionOrRowMemberInstance, OnDemandProcessingContext odpContext, Cell cellDef, DataAggregateObjResult[] runningValueValues, DataAggregateObjResult[] runningValueOfAggregateValues, long firstRowOffset, int columnMemberSequenceId)
+		public static DataCellInstance CreateInstance(IMemberHierarchy dataRegionOrRowMemberInstance, OnDemandProcessingContext odpContext, Cell cellDef, DataAggregateObjResult[] runningValueValues, DataAggregateObjResult[] runningValueOfAggregateValues, long firstRowOffset, int columnMemberSequenceId)
 		{
 			DataCellInstance dataCellInstance = new DataCellInstance(odpContext, cellDef, runningValueValues, runningValueOfAggregateValues, firstRowOffset);
 			dataCellInstance.m_cleanupRef = dataRegionOrRowMemberInstance.AddCellInstance(columnMemberSequenceId, cellDef.IndexInCollection, dataCellInstance, odpContext.OdpMetadata.GroupTreeScalabilityCache);
 			return dataCellInstance;
 		}
 
-		internal void SetupEnvironment(OnDemandProcessingContext odpContext, int dataSetIndex)
+		public void SetupEnvironment(OnDemandProcessingContext odpContext, int dataSetIndex)
 		{
 			base.SetupFields(odpContext, dataSetIndex);
 			DataRegion dataRegionDef = this.m_cellDef.DataRegionDef;
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ID, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Cell, Token.GlobalReference));

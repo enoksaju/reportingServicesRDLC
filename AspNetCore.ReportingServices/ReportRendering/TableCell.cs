@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableCell
+	public sealed class TableCell
 	{
 		private AspNetCore.ReportingServices.ReportProcessing.Table m_tableDef;
 
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableCell(AspNetCore.ReportingServices.ReportProcessing.Table tableDef, int index, TableCellCollection cells)
+		public TableCell(AspNetCore.ReportingServices.ReportProcessing.Table tableDef, int index, TableCellCollection cells)
 		{
 			this.m_tableDef = tableDef;
 			this.m_index = index;

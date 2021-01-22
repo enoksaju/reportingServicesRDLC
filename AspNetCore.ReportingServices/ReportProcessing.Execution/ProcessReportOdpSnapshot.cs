@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class ProcessReportOdpSnapshot : ProcessReportOdp
+	public class ProcessReportOdpSnapshot : ProcessReportOdp
 	{
 		private readonly OnDemandMetadata m_odpMetadataFromSnapshot;
 

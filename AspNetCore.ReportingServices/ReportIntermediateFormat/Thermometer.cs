@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Thermometer : GaugePanelStyleContainer, IPersistable
+	public sealed class Thermometer : GaugePanelStyleContainer, IPersistable
 	{
 		[NonSerialized]
 		private ThermometerExprHost m_exprHost;
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_thermometerStyle;
 
-		internal ExpressionInfo BulbOffset
+		public ExpressionInfo BulbOffset
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BulbSize
+		public ExpressionInfo BulbSize
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ThermometerStyle
+		public ExpressionInfo ThermometerStyle
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ThermometerExprHost ExprHost
+		public ThermometerExprHost ExprHost
 		{
 			get
 			{
@@ -77,16 +77,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Thermometer()
+		public Thermometer()
 		{
 		}
 
-		internal Thermometer(GaugePanel gaugePanel)
+		public Thermometer(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ThermometerStart();
 			base.Initialize(context);
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ThermometerEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			Thermometer thermometer = (Thermometer)base.PublishClone(context);
 			if (this.m_bulbOffset != null)
@@ -126,14 +126,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return thermometer;
 		}
 
-		internal void SetExprHost(ThermometerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ThermometerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = exprHost;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.BulbOffset, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -195,19 +195,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Thermometer;
 		}
 
-		internal double EvaluateBulbOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateBulbOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateThermometerBulbOffsetExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateBulbSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateBulbSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateThermometerBulbSizeExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal GaugeThermometerStyles EvaluateThermometerStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeThermometerStyles EvaluateThermometerStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeThermometerStyles(context.ReportRuntime.EvaluateThermometerThermometerStyleExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);

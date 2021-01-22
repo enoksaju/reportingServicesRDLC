@@ -3,15 +3,15 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class Global
+	public sealed class Global
 	{
-		internal static readonly string ReportProcessingNamespace = "AspNetCore.ReportingServices.ReportProcessing";
+		public static readonly string ReportProcessingNamespace = "AspNetCore.ReportingServices.ReportProcessing";
 
-		internal static RSTrace Tracer = RSTrace.ProcessingTracer;
+		public static RSTrace Tracer = RSTrace.ProcessingTracer;
 
-		internal static RSTrace RenderingTracer = RSTrace.RenderingTracer;
+		public static RSTrace RenderingTracer = RSTrace.RenderingTracer;
 
-		internal static string ReportProcessingLocation = Assembly.GetExecutingAssembly().Location;
+		public static string ReportProcessingLocation = Assembly.GetExecutingAssembly().Location;
 
 		private Global()
 		{

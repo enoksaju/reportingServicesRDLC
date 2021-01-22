@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapElementView : MapView
+	public class MapElementView : MapView
 	{
-		internal new class Definition : DefinitionStore<MapElementView, Definition.Properties>
+		public new class Definition : DefinitionStore<MapElementView, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Zoom,
 				LayerName,
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapElementView(IPropertyStore propertyStore)
+		public MapElementView(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

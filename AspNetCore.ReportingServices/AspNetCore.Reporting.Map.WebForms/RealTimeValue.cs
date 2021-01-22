@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class RealTimeValue
+	public class RealTimeValue
 	{
 		private string inputValueName = "Default";
 

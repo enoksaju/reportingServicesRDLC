@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CompiledGaugePointerInstance
+	public sealed class CompiledGaugePointerInstance
 	{
 		private CompiledGaugeInputValueInstance m_gaugeInputValue;
 

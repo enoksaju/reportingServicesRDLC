@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 {
-	internal class PriceIndicators : IFormula
+	public class PriceIndicators : IFormula
 	{
 		public virtual string Name
 		{
@@ -13,7 +13,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 			}
 		}
 
-		internal void MovingAverage(double[] inputValues, out double[] outputValues, int period, bool FromFirst)
+		public void MovingAverage(double[] inputValues, out double[] outputValues, int period, bool FromFirst)
 		{
 			double[][] array = new double[2][];
 			double[][] array2 = new double[2][];
@@ -108,7 +108,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 			}
 		}
 
-		internal void ExponentialMovingAverage(double[] inputValues, out double[] outputValues, int period, bool startFromFirst)
+		public void ExponentialMovingAverage(double[] inputValues, out double[] outputValues, int period, bool startFromFirst)
 		{
 			double[][] array = new double[2][];
 			double[][] array2 = new double[2][];
@@ -541,7 +541,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 			}
 		}
 
-		internal void StandardDeviation(double[] inputValues, out double[] outputValues, int period, bool startFromFirst)
+		public void StandardDeviation(double[] inputValues, out double[] outputValues, int period, bool startFromFirst)
 		{
 			double[] array = default(double[]);
 			if (startFromFirst)

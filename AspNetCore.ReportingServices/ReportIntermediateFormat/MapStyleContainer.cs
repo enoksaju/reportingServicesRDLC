@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class MapStyleContainer : IStyleContainer, IPersistable
+	public abstract class MapStyleContainer : IStyleContainer, IPersistable
 	{
 		[Reference]
 		protected Map m_map;
@@ -54,16 +54,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapStyleContainer()
+		public MapStyleContainer()
 		{
 		}
 
-		internal MapStyleContainer(Map map)
+		public MapStyleContainer(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal virtual void Initialize(InitializationContext context)
+		public virtual void Initialize(InitializationContext context)
 		{
 			if (this.m_styleClass != null)
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapStyleContainer mapStyleContainer = (MapStyleContainer)base.MemberwiseClone();
 			mapStyleContainer.m_map = context.CurrentMapClone;
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapStyleContainer;
 		}
 
-		internal virtual void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && null != reportObjectModel);
 			exprHost.SetReportObjectModel(reportObjectModel);
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Map, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Map, Token.Reference));

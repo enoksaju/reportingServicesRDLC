@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreads
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLDefinedNamesManager
+	public class XMLDefinedNamesManager
 	{
 		private readonly CT_Workbook _workbook;
 

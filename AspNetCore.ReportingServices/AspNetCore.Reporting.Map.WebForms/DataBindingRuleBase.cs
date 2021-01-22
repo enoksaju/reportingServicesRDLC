@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DataBindingRuleBase : NamedElement
+	public class DataBindingRuleBase : NamedElement
 	{
 		private string dataMember = string.Empty;
 
@@ -55,7 +55,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal object DataSource
+		public object DataSource
 		{
 			get
 			{
@@ -72,16 +72,16 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal DataBindingRuleBase(CommonElements common)
+		public DataBindingRuleBase(CommonElements common)
 			: base(common)
 		{
 		}
 
-		internal virtual void DataBind()
+		public virtual void DataBind()
 		{
 		}
 
-		internal virtual void Reset()
+		public virtual void Reset()
 		{
 			if (this.DataSource != null)
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.BindingField = "";
 		}
 
-		internal virtual void UpdateDataMember(StringCollection dataMembers)
+		public virtual void UpdateDataMember(StringCollection dataMembers)
 		{
 			if (!string.IsNullOrEmpty(this.DataMember) && !dataMembers.Contains(this.DataMember))
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void UpdateDataFields(string dataMember, int dataMemberIndex, StringCollection dataFields)
+		public virtual void UpdateDataFields(string dataMember, int dataMemberIndex, StringCollection dataFields)
 		{
 			if (!(this.DataMember == dataMember))
 			{

@@ -17,7 +17,7 @@ namespace System.Web.Services.Protocols
 {
     /// <summary>Represents the exception that is thrown when an XML Web service method is called over SOAP and an exception occurs.</summary>
     [Serializable]
-    internal class SoapException : SystemException
+    public class SoapException : SystemException
     {
         /// <summary>Returns a value that indicates whether the SOAP fault code is equivalent to the Server SOAP fault code regardless of the version of the SOAP protocol used.</summary>
         /// <returns>true if <paramref name="code" /> is equivalent to the Server SOAP fault code; otherwise, false.</returns>
@@ -268,7 +268,7 @@ namespace System.Web.Services.Protocols
             }
         }
 
-        internal void ClearSubCode()
+        public void ClearSubCode()
         {
             if (this.subCode != null)
             {
@@ -296,7 +296,7 @@ namespace System.Web.Services.Protocols
             return new SoapException("Res.GetString('WebSuppressedExceptionMessage')", (soapVersion == SoapProtocolVersion.Soap12) ? new XmlQualifiedName("Receiver", "http://www.w3.org/2003/05/soap-envelope") : new XmlQualifiedName("Server", "http://schemas.xmlsoap.org/soap/envelope/"));
         }
 
-        internal static SoapException Create(SoapProtocolVersion soapVersion, string message, XmlQualifiedName code, string actor, string role, XmlNode detail, SoapFaultSubCode subCode, Exception innerException)
+        public static SoapException Create(SoapProtocolVersion soapVersion, string message, XmlQualifiedName code, string actor, string role, XmlNode detail, SoapFaultSubCode subCode, Exception innerException)
         {
             //if (WebServicesSection.Current.Diagnostics.SuppressReturningExceptions)
             //{
@@ -305,7 +305,7 @@ namespace System.Web.Services.Protocols
             return new SoapException(message, code, actor, role, detail, subCode, innerException);
         }
 
-        internal static SoapException Create(SoapProtocolVersion soapVersion, string message, XmlQualifiedName code, Exception innerException)
+        public static SoapException Create(SoapProtocolVersion soapVersion, string message, XmlQualifiedName code, Exception innerException)
         {
             //if (WebServicesSection.Current.Diagnostics.SuppressReturningExceptions)
             //{

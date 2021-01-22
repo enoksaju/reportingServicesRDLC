@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IModelDataExtension
+	public interface IModelDataExtension
 	{
 		string GetModelMetadata(string perspectiveName, string supportedVersion);
 

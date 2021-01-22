@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RuntimeDataSourcePrefetch : RuntimeAtomicDataSource
+	public sealed class RuntimeDataSourcePrefetch : RuntimeAtomicDataSource
 	{
 		private readonly ReportInstance m_reportInstance;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override bool NoRows
+		public override bool NoRows
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeDataSourcePrefetch(Report report, ReportInstance reportInstance, DataSource dataSource, OnDemandProcessingContext processingContext, bool mergeTransactions)
+		public RuntimeDataSourcePrefetch(Report report, ReportInstance reportInstance, DataSource dataSource, OnDemandProcessingContext processingContext, bool mergeTransactions)
 			: base(report, dataSource, processingContext, mergeTransactions)
 		{
 			this.m_reportInstance = reportInstance;

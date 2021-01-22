@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ParamExprHost> DrillThroughParameterHostsRemotable
+		public IList<ParamExprHost> DrillThroughParameterHostsRemotable
 		{
 			get
 			{

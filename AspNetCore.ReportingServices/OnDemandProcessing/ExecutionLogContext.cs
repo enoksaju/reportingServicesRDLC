@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class ExecutionLogContext
+	public sealed class ExecutionLogContext
 	{
 		private enum TimeMetricType
 		{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private readonly Stack<ScaleCacheInfo> m_activeScaleCaches = new Stack<ScaleCacheInfo>();
 
-		internal bool IsProcessingTimerRunning
+		public bool IsProcessingTimerRunning
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool IsRenderingTimerRunning
+		public bool IsRenderingTimerRunning
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long PeakTablixProcessingMemoryUsageKB
+		public long PeakTablixProcessingMemoryUsageKB
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long PeakGroupTreeMemoryUsageKB
+		public long PeakGroupTreeMemoryUsageKB
 		{
 			get
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long PeakProcesssingMemoryUsage
+		public long PeakProcesssingMemoryUsage
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long DataProcessingDurationMsNormalized
+		public long DataProcessingDurationMsNormalized
 		{
 			get
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long ProcessingScalabilityDurationMsNormalized
+		public long ProcessingScalabilityDurationMsNormalized
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long ReportRenderingDurationMsNormalized
+		public long ReportRenderingDurationMsNormalized
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long ReportProcessingDurationMsNormalized
+		public long ReportProcessingDurationMsNormalized
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long ExternalImageDurationMs
+		public long ExternalImageDurationMs
 		{
 			get
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long ExternalImageCount
+		public long ExternalImageCount
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long ExternalImageBytes
+		public long ExternalImageBytes
 		{
 			get
 			{
@@ -192,7 +192,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<Pair<string, DataProcessingMetrics>> DataSetMetrics
+		public List<Pair<string, DataProcessingMetrics>> DataSetMetrics
 		{
 			get
 			{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<DataSourceMetrics> DataSourceConnectionMetrics
+		public List<DataSourceMetrics> DataSourceConnectionMetrics
 		{
 			get
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ExecutionLogContext(IJobContext jobContext)
+		public ExecutionLogContext(IJobContext jobContext)
 		{
 			this.m_activeScaleCaches.Push(new ScaleCacheInfo(-2147483648));
 			this.m_jobContext = jobContext;
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return Math.Max(-1L, durationMs);
 		}
 
-		internal List<Connection> GetConnectionMetrics()
+		public List<Connection> GetConnectionMetrics()
 		{
 			if (this.DataSourceConnectionMetrics != null)
 			{
@@ -262,7 +262,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_peakGroupTreeMemoryUsageKB += peakGroupTreeMemoryUsageKB;
 		}
 
-		internal void AddLegacyDataProcessingTime(long durationMs)
+		public void AddLegacyDataProcessingTime(long durationMs)
 		{
 			if (this.m_metricManager != null)
 			{
@@ -271,7 +271,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void AddDataProcessingTime(TimeMetric childMetric)
+		public void AddDataProcessingTime(TimeMetric childMetric)
 		{
 			if (this.m_metricManager != null && childMetric != null)
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void AddDataSetMetrics(string dataSetName, DataProcessingMetrics metrics)
+		public void AddDataSetMetrics(string dataSetName, DataProcessingMetrics metrics)
 		{
 			lock (this.m_dataSetMetrics)
 			{
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void AddDataSourceParallelExecutionMetrics(string dataSourceName, string dataSourceReference, string dataSourceType, DataProcessingMetrics parallelDataSetMetrics)
+		public void AddDataSourceParallelExecutionMetrics(string dataSourceName, string dataSourceReference, string dataSourceType, DataProcessingMetrics parallelDataSetMetrics)
 		{
 			lock (this.m_dataSourceConnectionMetrics)
 			{
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void AddDataSourceMetrics(string dataSourceName, string dataSourceReference, string dataSourceType, DataProcessingMetrics aggregatedMetrics, DataProcessingMetrics[] dataSetsMetrics)
+		public void AddDataSourceMetrics(string dataSourceName, string dataSourceReference, string dataSourceType, DataProcessingMetrics aggregatedMetrics, DataProcessingMetrics[] dataSetsMetrics)
 		{
 			lock (this.m_dataSourceConnectionMetrics)
 			{
@@ -304,42 +304,42 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void StartProcessingTimer()
+		public void StartProcessingTimer()
 		{
 			this.StartTimer(TimeMetricType.Processing);
 		}
 
-		internal void StopProcessingTimer()
+		public void StopProcessingTimer()
 		{
 			this.StopTimer(TimeMetricType.Processing);
 		}
 
-		internal void StartRenderingTimer()
+		public void StartRenderingTimer()
 		{
 			this.StartTimer(TimeMetricType.Rendering);
 		}
 
-		internal void StopRenderingTimer()
+		public void StopRenderingTimer()
 		{
 			this.StopTimer(TimeMetricType.Rendering);
 		}
 
-		internal void StartTablixProcessingTimer()
+		public void StartTablixProcessingTimer()
 		{
 			this.StartTimer(TimeMetricType.TablixProcessing);
 		}
 
-		internal bool TryStartTablixProcessingTimer()
+		public bool TryStartTablixProcessingTimer()
 		{
 			return this.TryStartTimer(TimeMetricType.TablixProcessing);
 		}
 
-		internal void StopTablixProcessingTimer()
+		public void StopTablixProcessingTimer()
 		{
 			this.StopTimer(TimeMetricType.TablixProcessing);
 		}
 
-		internal void StartExternalImageTimer()
+		public void StartExternalImageTimer()
 		{
 			if (this.m_jobContext != null)
 			{
@@ -348,7 +348,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void StopExternalImageTimer()
+		public void StopExternalImageTimer()
 		{
 			if (this.m_externalImageTimer != null)
 			{
@@ -396,12 +396,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return this.m_metricManager.GetNormalizedAdjustedMetric((int)metricType);
 		}
 
-		internal void RegisterTablixProcessingScaleCache(int reportId)
+		public void RegisterTablixProcessingScaleCache(int reportId)
 		{
 			this.m_activeScaleCaches.Push(new ScaleCacheInfo(reportId));
 		}
 
-		internal void UnRegisterTablixProcessingScaleCache(int reportId, IScalabilityCache tablixProcessingCache)
+		public void UnRegisterTablixProcessingScaleCache(int reportId, IScalabilityCache tablixProcessingCache)
 		{
 			this.m_processingScalabilityDurationMs += tablixProcessingCache.ScalabilityDurationMs;
 			long num = tablixProcessingCache.PeakMemoryUsageKBytes;

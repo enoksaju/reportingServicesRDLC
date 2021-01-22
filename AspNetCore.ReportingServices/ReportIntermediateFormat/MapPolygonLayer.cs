@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapPolygonLayer : MapVectorLayer, IPersistable
+	public sealed class MapPolygonLayer : MapVectorLayer, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapPolygonLayer.GetDeclaration();
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private List<MapPolygon> m_mapPolygons;
 
-		internal MapPolygonTemplate MapPolygonTemplate
+		public MapPolygonTemplate MapPolygonTemplate
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPolygonRules MapPolygonRules
+		public MapPolygonRules MapPolygonRules
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPointTemplate MapCenterPointTemplate
+		public MapPointTemplate MapCenterPointTemplate
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPointRules MapCenterPointRules
+		public MapPointRules MapCenterPointRules
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapPolygon> MapPolygons
+		public List<MapPolygon> MapPolygons
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapPolygonLayerExprHost ExprHost
+		public new MapPolygonLayerExprHost ExprHost
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapPolygonLayerExprHost ExprHostMapMember
+		public new MapPolygonLayerExprHost ExprHostMapMember
 		{
 			get
 			{
@@ -108,16 +108,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPolygonLayer()
+		public MapPolygonLayer()
 		{
 		}
 
-		internal MapPolygonLayer(int ID, Map map)
+		public MapPolygonLayer(int ID, Map map)
 			: base(ID, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapPolygonLayerStart(base.Name);
 			base.Initialize(context);
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.MapPolygonLayerEnd();
 		}
 
-		internal override void InitializeMapMember(InitializationContext context)
+		public override void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapPolygonLayerStart(base.Name);
 			base.InitializeMapMember(context);
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostMapMemberID = context.ExprHostBuilder.MapPolygonLayerEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapPolygonLayer mapPolygonLayer = (MapPolygonLayer)(context.CurrentMapVectorLayerClone = (MapPolygonLayer)base.PublishClone(context));
 			if (this.m_mapPolygonTemplate != null)
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapPolygonLayer;
 		}
 
-		internal override void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void SetExprHostMapMember(MapVectorLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHostMapMember(MapVectorLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHostMapMember(exprHost, reportObjectModel);
@@ -290,7 +290,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapPolygonTemplate, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapPolygonTemplate));

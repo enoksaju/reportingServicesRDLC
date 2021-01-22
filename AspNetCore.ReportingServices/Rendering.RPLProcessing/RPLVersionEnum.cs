@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal enum RPLVersionEnum : byte
+	public enum RPLVersionEnum : byte
 	{
 		RPL2008,
 		RPL2008WithImageConsolidation,

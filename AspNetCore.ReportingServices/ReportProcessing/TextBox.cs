@@ -9,7 +9,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TextBox : ReportItem, IActionOwner
+	public sealed class TextBox : ReportItem, IActionOwner
 	{
 		private ExpressionInfo m_value;
 
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private List<string> m_fieldsUsedInValueExpression;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool CanGrow
+		public bool CanGrow
 		{
 			get
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool CanShrink
+		public bool CanShrink
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string HideDuplicates
+		public string HideDuplicates
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsToggle
+		public bool IsToggle
 		{
 			get
 			{
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo InitialToggleState
+		public ExpressionInfo InitialToggleState
 		{
 			get
 			{
@@ -178,7 +178,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool RecursiveSender
+		public bool RecursiveSender
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TypeCode ValueType
+		public TypeCode ValueType
 		{
 			get
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal VariantResult OldResult
+		public VariantResult OldResult
 		{
 			get
 			{
@@ -215,7 +215,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsSubReportTopLevelScope
+		public bool IsSubReportTopLevelScope
 		{
 			get
 			{
@@ -227,7 +227,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasOldResult
+		public bool HasOldResult
 		{
 			get
 			{
@@ -239,7 +239,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SharedFormatSettings
+		public bool SharedFormatSettings
 		{
 			get
 			{
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string FormattedValue
+		public string FormattedValue
 		{
 			get
 			{
@@ -263,7 +263,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Formula
+		public string Formula
 		{
 			get
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ValueReferenced
+		public bool ValueReferenced
 		{
 			get
 			{
@@ -287,7 +287,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool CalendarValidated
+		public bool CalendarValidated
 		{
 			get
 			{
@@ -299,7 +299,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Calendar Calendar
+		public Calendar Calendar
 		{
 			get
 			{
@@ -311,7 +311,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal uint LanguageInstanceId
+		public uint LanguageInstanceId
 		{
 			get
 			{
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TextBoxExprHost TextBoxExprHost
+		public TextBoxExprHost TextBoxExprHost
 		{
 			get
 			{
@@ -331,7 +331,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool DataElementStyleAttribute
+		public bool DataElementStyleAttribute
 		{
 			get
 			{
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal GroupingList ContainingScopes
+		public GroupingList ContainingScopes
 		{
 			get
 			{
@@ -355,7 +355,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal EndUserSort UserSort
+		public EndUserSort UserSort
 		{
 			get
 			{
@@ -367,7 +367,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsMatrixCellScope
+		public bool IsMatrixCellScope
 		{
 			get
 			{
@@ -379,7 +379,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool OverrideReportDataElementStyle
+		public bool OverrideReportDataElementStyle
 		{
 			get
 			{
@@ -391,7 +391,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override DataElementOutputTypes DataElementOutputDefault
+		public override DataElementOutputTypes DataElementOutputDefault
 		{
 			get
 			{
@@ -403,7 +403,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string TextBoxScope
+		public string TextBoxScope
 		{
 			get
 			{
@@ -415,7 +415,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsDetailScope
+		public bool IsDetailScope
 		{
 			get
 			{
@@ -427,7 +427,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int TableColumnPosition
+		public int TableColumnPosition
 		{
 			get
 			{
@@ -459,17 +459,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TextBox(ReportItem parent)
+		public TextBox(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal TextBox(int id, ReportItem parent)
+		public TextBox(int id, ReportItem parent)
 			: base(id, parent)
 		{
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -560,7 +560,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal void InitializeSortExpression(InitializationContext context, bool needsExplicitAggregateScope)
+		public void InitializeSortExpression(InitializationContext context, bool needsExplicitAggregateScope)
 		{
 			if (this.m_userSort != null && this.m_userSort.SortExpression != null)
 			{
@@ -585,14 +585,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void AddToScopeSortFilterList()
+		public void AddToScopeSortFilterList()
 		{
 			IntList peerSortFilters = this.GetPeerSortFilters(true);
 			Global.Tracer.Assert(null != peerSortFilters);
 			peerSortFilters.Add(base.m_ID);
 		}
 
-		internal IntList GetPeerSortFilters(bool create)
+		public IntList GetPeerSortFilters(bool create)
 		{
 			if (this.m_userSort == null)
 			{
@@ -695,7 +695,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetValueType(object textBoxValue)
+		public void SetValueType(object textBoxValue)
 		{
 			if (textBoxValue != null && DBNull.Value != textBoxValue && (!this.m_valueTypeSet || TypeCode.Object != this.m_valueType))
 			{
@@ -716,7 +716,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -737,7 +737,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, NonComputedUniqueNames nonCompNames)
+		public override void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, NonComputedUniqueNames nonCompNames)
 		{
 			if (this.m_action != null && nonCompNames != null)
 			{
@@ -745,7 +745,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsSimpleTextBox()
+		public bool IsSimpleTextBox()
 		{
 			if (base.m_styleClass != null && base.m_styleClass.ExpressionList != null && 0 < base.m_styleClass.ExpressionList.Count)
 			{
@@ -774,7 +774,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal bool IsSimpleTextBox(IntermediateFormatVersion intermediateFormatVersion)
+		public bool IsSimpleTextBox(IntermediateFormatVersion intermediateFormatVersion)
 		{
 			Global.Tracer.Assert(null != intermediateFormatVersion);
 			if (intermediateFormatVersion.IsRS2005_WithSimpleTextBoxOptimizations)
@@ -784,7 +784,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Value, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ExpressionInfo));

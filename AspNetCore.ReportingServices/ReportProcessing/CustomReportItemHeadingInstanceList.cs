@@ -4,12 +4,12 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CustomReportItemHeadingInstanceList : ArrayList
+	public sealed class CustomReportItemHeadingInstanceList : ArrayList
 	{
 		[NonSerialized]
 		private CustomReportItemHeadingInstance m_lastHeadingInstance;
 
-		internal new CustomReportItemHeadingInstance this[int index]
+		public new CustomReportItemHeadingInstance this[int index]
 		{
 			get
 			{
@@ -17,16 +17,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingInstanceList()
+		public CustomReportItemHeadingInstanceList()
 		{
 		}
 
-		internal CustomReportItemHeadingInstanceList(int capacity)
+		public CustomReportItemHeadingInstanceList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(CustomReportItemHeadingInstance headingInstance, ReportProcessing.ProcessingContext pc)
+		public void Add(CustomReportItemHeadingInstance headingInstance, ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_lastHeadingInstance != null)
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_lastHeadingInstance = headingInstance;
 		}
 
-		internal void SetLastHeadingSpan(int currentCellIndex, ReportProcessing.ProcessingContext pc)
+		public void SetLastHeadingSpan(int currentCellIndex, ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_lastHeadingInstance != null)
 			{

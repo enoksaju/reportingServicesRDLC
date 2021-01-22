@@ -2,18 +2,18 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal abstract class ElementStyleWriter
+	public abstract class ElementStyleWriter
 	{
 		protected IHtmlReportWriter m_renderer;
 
-		internal ElementStyleWriter(IHtmlReportWriter renderer)
+		public ElementStyleWriter(IHtmlReportWriter renderer)
 		{
 			this.m_renderer = renderer;
 		}
 
-		internal abstract bool NeedsToWriteNullStyle(StyleWriterMode mode);
+		public abstract bool NeedsToWriteNullStyle(StyleWriterMode mode);
 
-		internal abstract void WriteStyles(StyleWriterMode mode, IRPLStyle style);
+		public abstract void WriteStyles(StyleWriterMode mode, IRPLStyle style);
 
 		protected void WriteStream(string s)
 		{

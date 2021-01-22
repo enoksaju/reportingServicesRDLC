@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ChartObjectCollectionBase<T, U> : IEnumerable<T>, IEnumerable where T : ChartObjectCollectionItem<U> where U : BaseInstance
+	public abstract class ChartObjectCollectionBase<T, U> : IEnumerable<T>, IEnumerable where T : ChartObjectCollectionItem<U> where U : BaseInstance
 	{
 		private T[] m_collection;
 
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetEnumerator();
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_collection != null)
 			{

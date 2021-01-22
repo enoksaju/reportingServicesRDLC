@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal interface IRPLStyle
+	public interface IRPLStyle
 	{
 		object this[byte styleName]
 		{

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CustomReportItemInstance : ReportItemInstance
+	public sealed class CustomReportItemInstance : ReportItemInstance
 	{
 		public bool NoRows
 		{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomReportItemInstance(CustomReportItem reportItemDef)
+		public CustomReportItemInstance(CustomReportItem reportItemDef)
 			: base(reportItemDef)
 		{
 		}

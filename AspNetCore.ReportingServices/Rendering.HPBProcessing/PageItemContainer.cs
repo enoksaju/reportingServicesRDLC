@@ -10,7 +10,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal abstract class PageItemContainer : PageItem, IComparer, IStorable, IPersistable
+	public abstract class PageItemContainer : PageItem, IComparer, IStorable, IPersistable
 	{
 		protected PageItem[] m_children;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private static Declaration m_declaration = PageItemContainer.GetDeclaration();
 
-		internal abstract byte RPLFormatType
+		public abstract byte RPLFormatType
 		{
 			get;
 		}
@@ -37,19 +37,19 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal PageItemContainer()
+		public PageItemContainer()
 		{
 		}
 
-		internal PageItemContainer(ReportItem source)
+		public PageItemContainer(ReportItem source)
 			: base(source)
 		{
 			base.FullyCreated = false;
 		}
 
-		internal abstract RPLElement CreateRPLElement();
+		public abstract RPLElement CreateRPLElement();
 
-		internal abstract RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext);
+		public abstract RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext);
 
 		public override void Serialize(IntermediateFormatWriter writer)
 		{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.PageItemContainer;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (PageItemContainer.m_declaration == null)
 			{
@@ -297,7 +297,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override bool ResolveDuplicates(PageContext pageContext, double topInParentSystem, PageItem[] siblings, bool recalculate)
+		public override bool ResolveDuplicates(PageContext pageContext, double topInParentSystem, PageItem[] siblings, bool recalculate)
 		{
 			base.ResolveDuplicates(pageContext, topInParentSystem, siblings, recalculate);
 			if (this.m_children == null)
@@ -541,7 +541,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			goto IL_004a;
 		}
 
-		internal override bool AddToPage(RPLWriter rplWriter, PageContext pageContext, double pageLeft, double pageTop, double pageRight, double pageBottom, RepeatState repeatState)
+		public override bool AddToPage(RPLWriter rplWriter, PageContext pageContext, double pageLeft, double pageTop, double pageRight, double pageBottom, RepeatState repeatState)
 		{
 			if (this.HitsCurrentPage(pageLeft, pageTop, pageRight, pageBottom))
 			{
@@ -593,13 +593,13 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return false;
 		}
 
-		internal override void ResetHorizontal(bool spanPages, double? width)
+		public override void ResetHorizontal(bool spanPages, double? width)
 		{
 			base.ResetHorizontal(spanPages, width);
 			this.m_rightPadding = this.m_definitionRightPadding;
 		}
 
-		internal override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (rplWriter != null)
 			{
@@ -623,7 +623,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual void WriteEndItemToStream(RPLWriter rplWriter, List<PageItem> itemsOnPage)
+		public virtual void WriteEndItemToStream(RPLWriter rplWriter, List<PageItem> itemsOnPage)
 		{
 			if (rplWriter != null)
 			{
@@ -671,19 +671,19 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BackgroundColor, 34);
 			base.WriteBackgroundImage(style, true, spbifWriter, pageContext);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			PageItem.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BackgroundColor, 34);
 			base.WriteBackgroundImage(style, true, rplStyleProps, pageContext);
 		}
 
-		internal override void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -696,7 +696,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{

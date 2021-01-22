@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum VerticalAlignments
+	public enum VerticalAlignments
 	{
 		Default,
 		Top,

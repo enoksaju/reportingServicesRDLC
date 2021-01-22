@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class CannotPrepareQueryException : ReportCatalogException
+	public sealed class CannotPrepareQueryException : ReportCatalogException
 	{
 		public CannotPrepareQueryException(Exception innerException, string additionalTraceMessage)
 			: base(ErrorCode.rsCannotPrepareQuery, ErrorStrings.rsCannotPrepareQuery, innerException, additionalTraceMessage)

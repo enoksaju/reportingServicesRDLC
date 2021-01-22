@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ActionInfo : ReportObject
+	public class ActionInfo : ReportObject
 	{
-		internal class Definition : DefinitionStore<ActionInfo, Definition.Properties>
+		public class Definition : DefinitionStore<ActionInfo, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Actions,
 				LayoutDirection,
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ActionInfo(IPropertyStore propertyStore)
+		public ActionInfo(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

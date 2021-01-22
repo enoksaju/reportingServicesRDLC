@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IDataRegionMemberCollection
+	public interface IDataRegionMemberCollection
 	{
 		void SetNewContext();
 	}

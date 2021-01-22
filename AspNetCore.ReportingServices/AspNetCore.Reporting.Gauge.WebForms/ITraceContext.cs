@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface ITraceContext
+	public interface ITraceContext
 	{
 		bool TraceEnabled
 		{

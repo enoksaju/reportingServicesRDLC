@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class ObjectLinker : GaugeObject
+	public class ObjectLinker : GaugeObject
 	{
 		private bool invalidated = true;
 
@@ -23,12 +23,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal ObjectLinker(object parent)
+		public ObjectLinker(object parent)
 			: base(parent)
 		{
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			this.invalidated = true;
 		}
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return hashtable;
 		}
 
-		internal ArrayList GetObjectNames(object thisObject)
+		public ArrayList GetObjectNames(object thisObject)
 		{
 			ArrayList arrayList = new ArrayList();
 			if (this.Common != null)
@@ -78,7 +78,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return arrayList;
 		}
 
-		internal NamedElement GetElement(string name)
+		public NamedElement GetElement(string name)
 		{
 			if (name != string.Empty && this.Elements.ContainsKey(name))
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return null;
 		}
 
-		internal bool IsParentElementValid(IRenderable r, object startObject, bool raiseException)
+		public bool IsParentElementValid(IRenderable r, object startObject, bool raiseException)
 		{
 			string parentRenderableName = r.GetParentRenderableName();
 			if (parentRenderableName != string.Empty && parentRenderableName != "(none)")

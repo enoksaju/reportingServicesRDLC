@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal enum ScalabilityCacheType
+	public enum ScalabilityCacheType
 	{
 		Standard,
 		GroupTree,

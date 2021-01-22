@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
 	[AttributeUsage(AttributeTargets.All)]
-	internal sealed class SerializationVisibilityAttribute : Attribute
+	public sealed class SerializationVisibilityAttribute : Attribute
 	{
 		private SerializationVisibility visibility = SerializationVisibility.Attribute;
 

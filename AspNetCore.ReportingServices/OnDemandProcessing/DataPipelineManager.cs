@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class DataPipelineManager
+	public abstract class DataPipelineManager
 	{
 		protected readonly OnDemandProcessingContext m_odpContext;
 

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class GaugePointer : GaugePanelStyleContainer, IPersistable, IActionOwner
+	public class GaugePointer : GaugePanelStyleContainer, IPersistable, IActionOwner
 	{
 		private Action m_action;
 
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private int m_id;
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ID
+		public int ID
 		{
 			get
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue GaugeInputValue
+		public GaugeInputValue GaugeInputValue
 		{
 			get
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BarStart
+		public ExpressionInfo BarStart
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DistanceFromScale
+		public ExpressionInfo DistanceFromScale
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PointerImage PointerImage
+		public PointerImage PointerImage
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MarkerLength
+		public ExpressionInfo MarkerLength
 		{
 			get
 			{
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MarkerStyle
+		public ExpressionInfo MarkerStyle
 		{
 			get
 			{
@@ -178,7 +178,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Placement
+		public ExpressionInfo Placement
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SnappingEnabled
+		public ExpressionInfo SnappingEnabled
 		{
 			get
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SnappingInterval
+		public ExpressionInfo SnappingInterval
 		{
 			get
 			{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Width
+		public ExpressionInfo Width
 		{
 			get
 			{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugePointerExprHost ExprHost
+		public GaugePointerExprHost ExprHost
 		{
 			get
 			{
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -274,17 +274,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugePointer()
+		public GaugePointer()
 		{
 		}
 
-		internal GaugePointer(GaugePanel gaugePanel, int id)
+		public GaugePointer(GaugePanel gaugePanel, int id)
 			: base(gaugePanel)
 		{
 			this.m_id = id;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_action != null)
@@ -347,7 +347,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			GaugePointer gaugePointer = (GaugePointer)base.PublishClone(context);
 			if (this.m_action != null)
@@ -405,7 +405,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return gaugePointer;
 		}
 
-		internal void SetExprHost(GaugePointerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(GaugePointerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -420,7 +420,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -582,61 +582,61 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugePointer;
 		}
 
-		internal GaugeBarStarts EvaluateBarStart(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeBarStarts EvaluateBarStart(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeBarStarts(context.ReportRuntime.EvaluateGaugePointerBarStartExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateDistanceFromScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateDistanceFromScale(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugePointerDistanceFromScaleExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateMarkerLength(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMarkerLength(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugePointerMarkerLengthExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal GaugeMarkerStyles EvaluateMarkerStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeMarkerStyles EvaluateMarkerStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeMarkerStyles(context.ReportRuntime.EvaluateGaugePointerMarkerStyleExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal GaugePointerPlacements EvaluatePlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugePointerPlacements EvaluatePlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugePointerPlacements(context.ReportRuntime.EvaluateGaugePointerPlacementExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateSnappingEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateSnappingEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugePointerSnappingEnabledExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateSnappingInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateSnappingInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugePointerSnappingIntervalExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugePointerToolTipExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugePointerHiddenExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateGaugePointerWidthExpression(this, base.m_gaugePanel.Name);

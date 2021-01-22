@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting
 {
-	internal interface IReportViewerStyles
+	public interface IReportViewerStyles
 	{
 		bool GetFontFromCss
 		{

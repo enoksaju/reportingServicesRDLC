@@ -4,13 +4,13 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal static class DigitalSegment
+	public static class DigitalSegment
 	{
-		internal const float widthRatio = 0.618034f;
+		public const float widthRatio = 0.618034f;
 
-		internal const float shearFactor = 0.0618034f;
+		public const float shearFactor = 0.0618034f;
 
-		internal const float sgmntWidth7 = 0.142857149f;
+		public const float sgmntWidth7 = 0.142857149f;
 
 		private static PointF[] GetSegment7(PointF p, SizeF s)
 		{
@@ -266,7 +266,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal static GraphicsPath GetSegments(LEDSegment7 segments, PointF point, float size)
+		public static GraphicsPath GetSegments(LEDSegment7 segments, PointF point, float size)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			PointF p = new PointF(0f, 0f);
@@ -365,7 +365,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal static GraphicsPath GetOrientedSegments(LEDSegment7 segments, PointF point, float size, SegmentsCache cache)
+		public static GraphicsPath GetOrientedSegments(LEDSegment7 segments, PointF point, float size, SegmentsCache cache)
 		{
 			GraphicsPath graphicsPath = cache.GetSegment((Enum)(object)segments, point, size);
 			if (graphicsPath == null)
@@ -385,7 +385,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal static GraphicsPath GetSegments(LEDSegment14 segments, PointF point, float size)
+		public static GraphicsPath GetSegments(LEDSegment14 segments, PointF point, float size)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			PointF p = new PointF(0f, 0f);
@@ -554,7 +554,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal static GraphicsPath GetOrientedSegments(LEDSegment14 segments, PointF point, float size, SegmentsCache cache)
+		public static GraphicsPath GetOrientedSegments(LEDSegment14 segments, PointF point, float size, SegmentsCache cache)
 		{
 			GraphicsPath graphicsPath = cache.GetSegment((Enum)(object)segments, point, size);
 			if (graphicsPath == null)
@@ -574,7 +574,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal static GraphicsPath GetSymbol7(char symbol, PointF point, float size, bool decDot, bool comma, bool sepDots, SegmentsCache cache)
+		public static GraphicsPath GetSymbol7(char symbol, PointF point, float size, bool decDot, bool comma, bool sepDots, SegmentsCache cache)
 		{
 			LEDSegment7 lEDSegment = LEDSegment7.Empty;
 			if (char.IsDigit(symbol))
@@ -617,7 +617,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return DigitalSegment.GetOrientedSegments(lEDSegment, point, size, cache);
 		}
 
-		internal static GraphicsPath GetSymbol14(char symbol, PointF point, float size, bool decDot, bool comma, bool sepDots, SegmentsCache cache)
+		public static GraphicsPath GetSymbol14(char symbol, PointF point, float size, bool decDot, bool comma, bool sepDots, SegmentsCache cache)
 		{
 			LEDSegment14 lEDSegment = LEDSegment14.Empty;
 			if (char.IsDigit(symbol))

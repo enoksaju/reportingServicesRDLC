@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum MarkerStyle
+	public enum MarkerStyle
 	{
 		None,
 		Rectangle,

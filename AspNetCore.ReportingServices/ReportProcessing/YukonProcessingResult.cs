@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class YukonProcessingResult : OnDemandProcessingResult
+	public sealed class YukonProcessingResult : OnDemandProcessingResult
 	{
 		private ReportSnapshot m_newSnapshot;
 
@@ -23,19 +23,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal YukonProcessingResult(ReportSnapshot newSnapshot, ChunkManager.ProcessingChunkManager chunkManager, IChunkFactory createChunkFactory, ParameterInfoCollection parameters, int autoRefresh, int numberOfPages, ProcessingMessageList warnings, bool renderingInfoChanged, RenderingInfoManager renderingInfoManager, bool eventInfoChanged, EventInformation newEventInfo, PaginationMode updatedPaginationMode, ReportProcessingFlags updatedProcessingFlags, UserProfileState usedUserProfileState, ExecutionLogContext executionLogContext)
+		public YukonProcessingResult(ReportSnapshot newSnapshot, ChunkManager.ProcessingChunkManager chunkManager, IChunkFactory createChunkFactory, ParameterInfoCollection parameters, int autoRefresh, int numberOfPages, ProcessingMessageList warnings, bool renderingInfoChanged, RenderingInfoManager renderingInfoManager, bool eventInfoChanged, EventInformation newEventInfo, PaginationMode updatedPaginationMode, ReportProcessingFlags updatedProcessingFlags, UserProfileState usedUserProfileState, ExecutionLogContext executionLogContext)
 			: base(createChunkFactory, newSnapshot.HasDocumentMap, newSnapshot.HasShowHide, parameters, autoRefresh, numberOfPages, warnings, eventInfoChanged, newEventInfo, updatedPaginationMode, updatedProcessingFlags, usedUserProfileState, executionLogContext)
 		{
 			this.m_snapshotChanged = this.Initialize(newSnapshot, chunkManager, renderingInfoChanged, renderingInfoManager);
 		}
 
-		internal YukonProcessingResult(bool renderingInfoChanged, IChunkFactory createChunkFactory, bool hasInteractivity, RenderingInfoManager renderingInfoManager, bool eventInfoChanged, EventInformation newEventInfo, ParameterInfoCollection parameters, ProcessingMessageList warnings, int autoRefresh, int numberOfPages, PaginationMode updatedPaginationMode, ReportProcessingFlags updatedProcessingFlags, UserProfileState usedUserProfileState, ExecutionLogContext executionLogContext)
+		public YukonProcessingResult(bool renderingInfoChanged, IChunkFactory createChunkFactory, bool hasInteractivity, RenderingInfoManager renderingInfoManager, bool eventInfoChanged, EventInformation newEventInfo, ParameterInfoCollection parameters, ProcessingMessageList warnings, int autoRefresh, int numberOfPages, PaginationMode updatedPaginationMode, ReportProcessingFlags updatedProcessingFlags, UserProfileState usedUserProfileState, ExecutionLogContext executionLogContext)
 			: base(createChunkFactory, false, hasInteractivity, parameters, autoRefresh, numberOfPages, warnings, eventInfoChanged, newEventInfo, updatedPaginationMode, updatedProcessingFlags, usedUserProfileState, executionLogContext)
 		{
 			this.m_snapshotChanged = this.Initialize(null, null, renderingInfoChanged, renderingInfoManager);
 		}
 
-		internal YukonProcessingResult(ReportSnapshot newSnapshot, ChunkManager.ProcessingChunkManager chunkManager, ParameterInfoCollection parameters, int autoRefresh, int numberOfPages, ProcessingMessageList warnings, ReportProcessingFlags updatedProcessingFlags, UserProfileState usedUserProfileState, ExecutionLogContext executionLogContext)
+		public YukonProcessingResult(ReportSnapshot newSnapshot, ChunkManager.ProcessingChunkManager chunkManager, ParameterInfoCollection parameters, int autoRefresh, int numberOfPages, ProcessingMessageList warnings, ReportProcessingFlags updatedProcessingFlags, UserProfileState usedUserProfileState, ExecutionLogContext executionLogContext)
 			: base(null, newSnapshot.HasDocumentMap, newSnapshot.HasShowHide, parameters, autoRefresh, numberOfPages, warnings, false, null, PaginationMode.Progressive, updatedProcessingFlags, usedUserProfileState, executionLogContext)
 		{
 			this.m_snapshotChanged = this.Initialize(newSnapshot, chunkManager, false, null);

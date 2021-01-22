@@ -5,11 +5,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Upgrade
 {
-	internal sealed class Upgrader
+	public sealed class Upgrader
 	{
 		private sealed class DataSetUpgrader
 		{
-			internal void Upgrade(Report report)
+			public void Upgrade(Report report)
 			{
 				List<DataSet> list = new List<DataSet>();
 				int num = 0;
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Upgrade
 
 			private ReportDrillthroughInfo m_drillthroughs;
 
-			internal void Upgrade(ReportSnapshot reportSnapshot, ChunkManager.RenderingChunkManager chunkManager, ChunkManager.UpgradeManager upgradeManager)
+			public void Upgrade(ReportSnapshot reportSnapshot, ChunkManager.RenderingChunkManager chunkManager, ChunkManager.UpgradeManager upgradeManager)
 			{
 				Global.Tracer.Assert(chunkManager != null && upgradeManager != null && null != reportSnapshot, "(null != chunkManager && null != upgradeManager && null != reportSnapshot)");
 				this.m_chunkManager = chunkManager;
@@ -680,7 +680,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Upgrade
 
 			private ReportInstanceInfo m_reportInstanceInfo;
 
-			internal void Upgrade(ReportSnapshot reportSnapshot, ICatalogItemContext reportContext, ChunkManager.RenderingChunkManager chunkManager, ReportProcessing.CreateReportChunk createChunkCallback, IGetResource getResourceCallback, RenderingContext renderingContext, IDataProtection dataProtection)
+			public void Upgrade(ReportSnapshot reportSnapshot, ICatalogItemContext reportContext, ChunkManager.RenderingChunkManager chunkManager, ReportProcessing.CreateReportChunk createChunkCallback, IGetResource getResourceCallback, RenderingContext renderingContext, IDataProtection dataProtection)
 			{
 				this.m_chunkManager = chunkManager;
 				this.m_createChunkCallback = createChunkCallback;
@@ -1211,13 +1211,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Upgrade
 
 			private bool m_hasDocMap;
 
-			internal void Upgrade(Report report)
+			public void Upgrade(Report report)
 			{
 				ReportPublishing.CalculateChildrenPostions(report);
 				ReportPublishing.CalculateChildrenDependencies(report);
 			}
 
-			internal void Upgrade(ReportSnapshot reportSnapshot, ChunkManager.RenderingChunkManager chunkManager, ReportProcessing.CreateReportChunk createChunkCallback)
+			public void Upgrade(ReportSnapshot reportSnapshot, ChunkManager.RenderingChunkManager chunkManager, ReportProcessing.CreateReportChunk createChunkCallback)
 			{
 				Report report = reportSnapshot.Report;
 				ReportInstance reportInstance = reportSnapshot.ReportInstance;
@@ -1829,7 +1829,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Upgrade
 			}
 		}
 
-		internal static void UpgradeToCurrent(Report report)
+		public static void UpgradeToCurrent(Report report)
 		{
 			if (report.IntermediateFormatVersion.IsRS2000_Beta2_orOlder)
 			{
@@ -1838,7 +1838,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Upgrade
 			}
 		}
 
-		internal static bool UpgradeToCurrent(ReportSnapshot reportSnapshot, ChunkManager.RenderingChunkManager chunkManager, ReportProcessing.CreateReportChunk createChunkCallback)
+		public static bool UpgradeToCurrent(ReportSnapshot reportSnapshot, ChunkManager.RenderingChunkManager chunkManager, ReportProcessing.CreateReportChunk createChunkCallback)
 		{
 			if (reportSnapshot.Report.IntermediateFormatVersion.IsRS2000_Beta2_orOlder)
 			{
@@ -1849,7 +1849,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Upgrade
 			return false;
 		}
 
-		internal static void UpgradeDatasetIDs(Report report)
+		public static void UpgradeDatasetIDs(Report report)
 		{
 			if (!report.IntermediateFormatVersion.Is_WithUserSort)
 			{
@@ -1858,7 +1858,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Upgrade
 			}
 		}
 
-		internal static bool CreateBookmarkDrillthroughChunks(ReportSnapshot reportSnapshot, ChunkManager.RenderingChunkManager chunkManager, ChunkManager.UpgradeManager upgradeManager)
+		public static bool CreateBookmarkDrillthroughChunks(ReportSnapshot reportSnapshot, ChunkManager.RenderingChunkManager chunkManager, ChunkManager.UpgradeManager upgradeManager)
 		{
 			if (!reportSnapshot.Report.IntermediateFormatVersion.IsRS2005_WithSpecialChunkSplit)
 			{
@@ -1869,7 +1869,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Upgrade
 			return false;
 		}
 
-		internal static void UpgradeToPageSectionsChunk(ReportSnapshot reportSnapshot, ICatalogItemContext reportContext, ChunkManager.RenderingChunkManager chunkManager, ReportProcessing.CreateReportChunk createChunkCallback, IGetResource getResourceCallback, RenderingContext renderingContext, IDataProtection dataProtection)
+		public static void UpgradeToPageSectionsChunk(ReportSnapshot reportSnapshot, ICatalogItemContext reportContext, ChunkManager.RenderingChunkManager chunkManager, ReportProcessing.CreateReportChunk createChunkCallback, IGetResource getResourceCallback, RenderingContext renderingContext, IDataProtection dataProtection)
 		{
 			if (reportSnapshot.PageSectionOffsets == null)
 			{

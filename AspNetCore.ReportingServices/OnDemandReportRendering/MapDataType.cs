@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapDataType
+	public enum MapDataType
 	{
 		String,
 		Boolean,

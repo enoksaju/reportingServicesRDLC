@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal abstract class BaseReference : IReference, IStorable, IPersistable, IDisposable
+	public abstract class BaseReference : IReference, IStorable, IPersistable, IDisposable
 	{
 		private ReferenceID m_id;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 		protected BaseScalabilityCache m_scalabilityCache;
 
 		[NonSerialized]
-		internal ItemHolder Item;
+		public ItemHolder Item;
 
 		[NonSerialized]
 		private int m_pinCount;
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal int PinCount
+		public int PinCount
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal BaseScalabilityCache ScalabilityCache
+		public BaseScalabilityCache ScalabilityCache
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal InQueueState InQueue
+		public InQueueState InQueue
 		{
 			get
 			{
@@ -83,12 +83,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal void Init(BaseScalabilityCache storageManager)
+		public void Init(BaseScalabilityCache storageManager)
 		{
 			this.SetScalabilityCache(storageManager);
 		}
 
-		internal void Init(BaseScalabilityCache storageManager, ReferenceID id)
+		public void Init(BaseScalabilityCache storageManager, ReferenceID id)
 		{
 			this.SetScalabilityCache(storageManager);
 			this.m_id = id;
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 		}
 
 		[DebuggerStepThrough]
-		internal IStorable InternalValue()
+		public IStorable InternalValue()
 		{
 			IStorable result;
 			if (this.Item != null)
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 
 		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType GetObjectType();
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ID, Token.Int64));

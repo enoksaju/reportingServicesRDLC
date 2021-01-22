@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartLegendCustomItemCell : ChartStyleContainer, IPersistable, IActionOwner
+	public sealed class ChartLegendCustomItemCell : ChartStyleContainer, IPersistable, IActionOwner
 	{
 		private string m_name;
 
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private List<string> m_fieldsUsedInValueExpression;
 
-		internal string LegendCustomItemCellName
+		public string LegendCustomItemCellName
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendCustomItemCellExprHost ExprHost
+		public ChartLegendCustomItemCellExprHost ExprHost
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ID
+		public int ID
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CellType
+		public ExpressionInfo CellType
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Text
+		public ExpressionInfo Text
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CellSpan
+		public ExpressionInfo CellSpan
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ImageWidth
+		public ExpressionInfo ImageWidth
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ImageHeight
+		public ExpressionInfo ImageHeight
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SymbolHeight
+		public ExpressionInfo SymbolHeight
 		{
 			get
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SymbolWidth
+		public ExpressionInfo SymbolWidth
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Alignment
+		public ExpressionInfo Alignment
 		{
 			get
 			{
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TopMargin
+		public ExpressionInfo TopMargin
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BottomMargin
+		public ExpressionInfo BottomMargin
 		{
 			get
 			{
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LeftMargin
+		public ExpressionInfo LeftMargin
 		{
 			get
 			{
@@ -268,7 +268,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo RightMargin
+		public ExpressionInfo RightMargin
 		{
 			get
 			{
@@ -280,17 +280,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendCustomItemCell()
+		public ChartLegendCustomItemCell()
 		{
 		}
 
-		internal ChartLegendCustomItemCell(Chart chart, int id)
+		public ChartLegendCustomItemCell(Chart chart, int id)
 			: base(chart)
 		{
 			this.m_id = id;
 		}
 
-		internal void SetExprHost(ChartLegendCustomItemCellExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartLegendCustomItemCellExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context, int index)
+		public void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.ChartLegendCustomItemCellStart(this.m_name);
 			base.Initialize(context);
@@ -377,7 +377,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ChartLegendCustomItemCellEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartLegendCustomItemCell chartLegendCustomItemCell = (ChartLegendCustomItemCell)base.PublishClone(context);
 			if (this.m_action != null)
@@ -439,7 +439,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartLegendCustomItemCell;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -462,79 +462,79 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartLegendCustomItemCell, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartStyleContainer, list);
 		}
 
-		internal ChartCellType EvaluateCellType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartCellType EvaluateCellType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartCellType(context.ReportRuntime.EvaluateChartLegendCustomItemCellCellTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellTextExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateCellSpan(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateCellSpan(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellCellSpanExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellToolTipExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateImageWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateImageWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellImageWidthExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateImageHeight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateImageHeight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellImageHeightExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateSymbolHeight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateSymbolHeight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellSymbolHeightExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateSymbolWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateSymbolWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellSymbolWidthExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartCellAlignment EvaluateAlignment(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartCellAlignment EvaluateAlignment(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartCellAlignment(context.ReportRuntime.EvaluateChartLegendCustomItemCellAlignmentExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal int EvaluateTopMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateTopMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellTopMarginExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateBottomMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateBottomMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellBottomMarginExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateLeftMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateLeftMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellLeftMarginExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateRightMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateRightMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemCellRightMarginExpression(this, base.m_chart.Name);

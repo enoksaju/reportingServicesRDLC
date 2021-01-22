@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal class UserSortFilterTraversalContext : ITraversalContext
+	public class UserSortFilterTraversalContext : ITraversalContext
 	{
 		private RuntimeSortFilterEventInfo m_eventInfo;
 

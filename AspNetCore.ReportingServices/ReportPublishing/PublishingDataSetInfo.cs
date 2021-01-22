@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class PublishingDataSetInfo
+	public sealed class PublishingDataSetInfo
 	{
 		private string m_dataSetName;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private int m_calculatedFieldIndex;
 
-		internal int DataSourceIndex
+		public int DataSourceIndex
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int DataSetIndex
+		public int DataSetIndex
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal string DataSetName
+		public string DataSetName
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int DataSetDefIndex
+		public int DataSetDefIndex
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool IsComplex
+		public bool IsComplex
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal Dictionary<string, bool> ParameterNames
+		public Dictionary<string, bool> ParameterNames
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int CalculatedFieldIndex
+		public int CalculatedFieldIndex
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal PublishingDataSetInfo(string dataSetName, int dataSetDefIndex, bool isComplex, Dictionary<string, bool> parameterNames)
+		public PublishingDataSetInfo(string dataSetName, int dataSetDefIndex, bool isComplex, Dictionary<string, bool> parameterNames)
 		{
 			this.m_dataSetName = dataSetName;
 			this.m_dataSetDefIndex = dataSetDefIndex;
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_parameterNames = parameterNames;
 		}
 
-		internal void MergeFlagsFromDataSource(bool isComplex, Dictionary<string, bool> datasourceParameterNames)
+		public void MergeFlagsFromDataSource(bool isComplex, Dictionary<string, bool> datasourceParameterNames)
 		{
 			this.m_isComplex |= isComplex;
 			if (datasourceParameterNames != null)

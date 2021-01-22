@@ -1,8 +1,8 @@
 namespace AspNetCore.Reporting
 {
-	internal class SPCalendarUtil
+	public class SPCalendarUtil
 	{
-		internal static bool IsYearInRange(int year, int yearL, int yearH)
+		public static bool IsYearInRange(int year, int yearL, int yearH)
 		{
 			if (year >= yearL)
 			{
@@ -11,7 +11,7 @@ namespace AspNetCore.Reporting
 			return false;
 		}
 
-		internal static bool IsYearMonthInRange(int year, int month, int yearL, int monthL, int yearH, int monthH)
+		public static bool IsYearMonthInRange(int year, int month, int yearL, int monthL, int yearH, int monthH)
 		{
 			if (year <= yearL && (year != yearL || month < monthL))
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.Reporting
 			return true;
 		}
 
-		internal static bool IsDateInRange(int year, int month, int day, int yearL, int monthL, int dayL, int yearH, int monthH, int dayH)
+		public static bool IsDateInRange(int year, int month, int day, int yearL, int monthL, int dayL, int yearH, int monthH, int dayH)
 		{
 			if (year <= yearL && (year != yearL || (month <= monthL && (month != monthL || day < dayL))))
 			{

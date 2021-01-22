@@ -33,7 +33,6 @@
     <WarningsAsErrors>NU1605;CS0108</WarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AspNetCore.ReportingServices" Version="2.1.0" />
     <PackageReference Include="System.CodeDom" Version="4.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />

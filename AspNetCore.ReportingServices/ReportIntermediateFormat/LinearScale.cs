@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class LinearScale : GaugeScale, IPersistable
+	public sealed class LinearScale : GaugeScale, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = LinearScale.GetDeclaration();
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_position;
 
-		internal List<LinearPointer> GaugePointers
+		public List<LinearPointer> GaugePointers
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo StartMargin
+		public ExpressionInfo StartMargin
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo EndMargin
+		public ExpressionInfo EndMargin
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Position
+		public ExpressionInfo Position
 		{
 			get
 			{
@@ -72,16 +72,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LinearScale()
+		public LinearScale()
 		{
 		}
 
-		internal LinearScale(GaugePanel gaugePanel, int id)
+		public LinearScale(GaugePanel gaugePanel, int id)
 			: base(gaugePanel, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.LinearScaleStart(base.m_name);
 			base.Initialize(context);
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.LinearScaleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			LinearScale linearScale = (LinearScale)base.PublishClone(context);
 			if (this.m_gaugePointers != null)
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return linearScale;
 		}
 
-		internal void SetExprHost(LinearScaleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(LinearScaleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.GaugePointers, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.LinearPointer));
@@ -224,19 +224,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.LinearScale;
 		}
 
-		internal double EvaluateStartMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateStartMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateLinearScaleStartMarginExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateEndMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateEndMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateLinearScaleEndMarginExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluatePosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluatePosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateLinearScalePositionExpression(this, base.m_gaugePanel.Name);

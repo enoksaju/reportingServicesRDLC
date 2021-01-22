@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class PageSection : ReportItem
+	public sealed class PageSection : ReportItem
 	{
-		internal const string PageHeaderUniqueNamePrefix = "ph";
+		public const string PageHeaderUniqueNamePrefix = "ph";
 
-		internal const string PageFooterUniqueNamePrefix = "pf";
+		public const string PageFooterUniqueNamePrefix = "pf";
 
 		private ReportItemCollection m_reportItems;
 
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal PageSection(string uniqueName, AspNetCore.ReportingServices.ReportProcessing.PageSection pageSectionDef, PageSectionInstance pageSectionInstance, Report report, RenderingContext renderingContext, bool pageDef)
+		public PageSection(string uniqueName, AspNetCore.ReportingServices.ReportProcessing.PageSection pageSectionDef, PageSectionInstance pageSectionInstance, Report report, RenderingContext renderingContext, bool pageDef)
 			: base(uniqueName, 0, pageSectionDef, pageSectionInstance, renderingContext)
 		{
 			this.m_pageSectionDef = pageSectionDef;
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return null;
 		}
 
-		internal override bool Search(SearchContext searchContext)
+		public override bool Search(SearchContext searchContext)
 		{
 			ReportItemCollection reportItemCollection = this.ReportItemCollection;
 			if (reportItemCollection == null)

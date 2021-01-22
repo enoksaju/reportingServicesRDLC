@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.spreadsheetDrawing
 {
-	internal class CT_NonVisualPictureProperties : OoxmlComplexType
+	public class CT_NonVisualPictureProperties : OoxmlComplexType
 	{
 		private OoxmlBool _preferRelativeResize_attr;
 

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Pa
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models.Relationships
 {
-	internal class XmlPart : RelPart
+	public class XmlPart : RelPart
 	{
 		private OoxmlPart _hydratedPart;
 

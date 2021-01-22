@@ -7,7 +7,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Matrix : Pivot, IPageBreakItem
+	public sealed class Matrix : Pivot, IPageBreakItem
 	{
 		private sealed class OWCFlagsCalculator
 		{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			{
 			}
 
-			internal static void Calculate(Matrix matrix)
+			public static void Calculate(Matrix matrix)
 			{
 				Global.Tracer.Assert(null != matrix);
 				OWCFlagsCalculator oWCFlagsCalculator = new OWCFlagsCalculator();
@@ -277,7 +277,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_context = context;
 			}
 
-			internal static void Calculate(Matrix matrix, double cornerWidth, double cornerHeight, double colsWidth, double rowsHeight, InitializationContext context)
+			public static void Calculate(Matrix matrix, double cornerWidth, double cornerHeight, double colsWidth, double rowsHeight, InitializationContext context)
 			{
 				TopLevelItemsSizes topLevelItemsSizes = new TopLevelItemsSizes(matrix.MatrixColumns, matrix.MatrixRows, context);
 				topLevelItemsSizes.CalculateSizes(matrix, cornerWidth, cornerHeight, colsWidth, rowsHeight);
@@ -462,7 +462,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private string[] m_cellIDsForRendering;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -470,7 +470,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection CornerReportItems
+		public ReportItemCollection CornerReportItems
 		{
 			get
 			{
@@ -482,7 +482,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItem CornerReportItem
+		public ReportItem CornerReportItem
 		{
 			get
 			{
@@ -494,7 +494,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override PivotHeading PivotColumns
+		public override PivotHeading PivotColumns
 		{
 			get
 			{
@@ -502,7 +502,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override PivotHeading PivotRows
+		public override PivotHeading PivotRows
 		{
 			get
 			{
@@ -510,7 +510,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeading Columns
+		public MatrixHeading Columns
 		{
 			get
 			{
@@ -522,7 +522,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeading Rows
+		public MatrixHeading Rows
 		{
 			get
 			{
@@ -534,7 +534,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection CellReportItems
+		public ReportItemCollection CellReportItems
 		{
 			get
 			{
@@ -546,7 +546,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override RunningValueInfoList PivotCellRunningValues
+		public override RunningValueInfoList PivotCellRunningValues
 		{
 			get
 			{
@@ -554,7 +554,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList CellIDs
+		public IntList CellIDs
 		{
 			get
 			{
@@ -566,7 +566,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PropagatedPageBreakAtStart
+		public bool PropagatedPageBreakAtStart
 		{
 			get
 			{
@@ -578,7 +578,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PropagatedPageBreakAtEnd
+		public bool PropagatedPageBreakAtEnd
 		{
 			get
 			{
@@ -590,7 +590,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int InnerRowLevelWithPageBreak
+		public int InnerRowLevelWithPageBreak
 		{
 			get
 			{
@@ -602,7 +602,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixRowList MatrixRows
+		public MatrixRowList MatrixRows
 		{
 			get
 			{
@@ -614,7 +614,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixColumnList MatrixColumns
+		public MatrixColumnList MatrixColumns
 		{
 			get
 			{
@@ -626,7 +626,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int GroupsBeforeRowHeaders
+		public int GroupsBeforeRowHeaders
 		{
 			get
 			{
@@ -638,7 +638,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool LayoutDirection
+		public bool LayoutDirection
 		{
 			get
 			{
@@ -650,7 +650,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override PivotHeading PivotStaticColumns
+		public override PivotHeading PivotStaticColumns
 		{
 			get
 			{
@@ -658,7 +658,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override PivotHeading PivotStaticRows
+		public override PivotHeading PivotStaticRows
 		{
 			get
 			{
@@ -666,7 +666,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeading StaticColumns
+		public MatrixHeading StaticColumns
 		{
 			get
 			{
@@ -678,7 +678,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeading StaticRows
+		public MatrixHeading StaticRows
 		{
 			get
 			{
@@ -690,7 +690,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool UseOWC
+		public bool UseOWC
 		{
 			get
 			{
@@ -702,7 +702,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal StringList OwcCellNames
+		public StringList OwcCellNames
 		{
 			get
 			{
@@ -714,7 +714,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string CellDataElementName
+		public string CellDataElementName
 		{
 			get
 			{
@@ -726,7 +726,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FirstInstance
+		public bool FirstInstance
 		{
 			get
 			{
@@ -738,7 +738,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BoolList FirstCellInstances
+		public BoolList FirstCellInstances
 		{
 			get
 			{
@@ -750,7 +750,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixExprHost MatrixExprHost
+		public MatrixExprHost MatrixExprHost
 		{
 			get
 			{
@@ -766,7 +766,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentPage
+		public int CurrentPage
 		{
 			get
 			{
@@ -778,7 +778,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal NonComputedUniqueNames CornerNonComputedUniqueNames
+		public NonComputedUniqueNames CornerNonComputedUniqueNames
 		{
 			get
 			{
@@ -790,7 +790,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InOutermostSubtotalCell
+		public bool InOutermostSubtotalCell
 		{
 			get
 			{
@@ -802,7 +802,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSizeCollection CellHeightsForRendering
+		public ReportSizeCollection CellHeightsForRendering
 		{
 			get
 			{
@@ -819,7 +819,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSizeCollection CellWidthsForRendering
+		public ReportSizeCollection CellWidthsForRendering
 		{
 			get
 			{
@@ -836,7 +836,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string[] CellIDsForRendering
+		public string[] CellIDsForRendering
 		{
 			get
 			{
@@ -848,7 +848,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ColumnGroupingFixedHeader
+		public bool ColumnGroupingFixedHeader
 		{
 			get
 			{
@@ -860,7 +860,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool RowGroupingFixedHeader
+		public bool RowGroupingFixedHeader
 		{
 			get
 			{
@@ -872,7 +872,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.PageTextboxes CellPageTextboxes
+		public ReportProcessing.PageTextboxes CellPageTextboxes
 		{
 			get
 			{
@@ -880,7 +880,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.PageTextboxes ColumnHeaderPageTextboxes
+		public ReportProcessing.PageTextboxes ColumnHeaderPageTextboxes
 		{
 			get
 			{
@@ -888,7 +888,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.PageTextboxes RowHeaderPageTextboxes
+		public ReportProcessing.PageTextboxes RowHeaderPageTextboxes
 		{
 			get
 			{
@@ -896,7 +896,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CellPage
+		public int CellPage
 		{
 			get
 			{
@@ -912,19 +912,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Matrix(ReportItem parent)
+		public Matrix(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Matrix(int id, int idForCornerReportItems, int idForCellReportItems, ReportItem parent)
+		public Matrix(int id, int idForCornerReportItems, int idForCellReportItems, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_cornerReportItems = new ReportItemCollection(idForCornerReportItems, false);
 			this.m_cellReportItems = new ReportItemCollection(idForCellReportItems, false);
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.Location |= LocationFlags.InMatrixOrTable;
 			context.ObjectType = this.ObjectType;
@@ -985,7 +985,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			base.ExprHostID = context.ExprHostBuilder.MatrixEnd();
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -1001,7 +1001,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			CLSNameValidator.ValidateDataElementName(ref this.m_cellDataElementName, "Cell", context.ObjectType, context.ObjectName, "CellDataElementName", context.ErrorContext);
 		}
 
-		internal override void RegisterReceiver(InitializationContext context)
+		public override void RegisterReceiver(InitializationContext context)
 		{
 			context.RegisterReportItems(this.m_cornerReportItems);
 			if (base.m_visibility != null)
@@ -1019,7 +1019,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.UnRegisterReportItems(this.m_cornerReportItems);
 		}
 
-		internal void CalculatePropagatedFlags()
+		public void CalculatePropagatedFlags()
 		{
 			MatrixHeading matrixHeading = this.m_rows;
 			int num = 0;
@@ -1264,20 +1264,20 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal ReportItem GetCellReportItem(int rowIndex, int columnIndex)
+		public ReportItem GetCellReportItem(int rowIndex, int columnIndex)
 		{
 			int index = rowIndex * this.m_matrixColumns.Count + columnIndex;
 			return this.m_cellReportItems[index];
 		}
 
-		internal void InitializePageSectionProcessing()
+		public void InitializePageSectionProcessing()
 		{
 			this.m_cellPageTextboxes = new ReportProcessing.PageTextboxes();
 			this.m_columnHeaderPageTextboxes = new ReportProcessing.PageTextboxes();
 			this.m_rowHeaderPageTextboxes = new ReportProcessing.PageTextboxes();
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Columns, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.MatrixHeading));

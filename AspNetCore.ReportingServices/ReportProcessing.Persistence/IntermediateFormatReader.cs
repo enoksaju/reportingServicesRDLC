@@ -10,9 +10,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 {
-	internal sealed class IntermediateFormatReader
+	public sealed class IntermediateFormatReader
 	{
-		internal sealed class State
+		public sealed class State
 		{
 			private DeclarationList m_oldDeclarations;
 
@@ -20,9 +20,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 
 			private bool[][] m_isInOldDeclaration;
 
-			internal static readonly State Current = new State(DeclarationList.Current);
+			public static readonly State Current = new State(DeclarationList.Current);
 
-			internal DeclarationList OldDeclarations
+			public DeclarationList OldDeclarations
 			{
 				get
 				{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal IntList[][] OldIndexesToSkip
+			public IntList[][] OldIndexesToSkip
 			{
 				get
 				{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal bool[][] IsInOldDeclaration
+			public bool[][] IsInOldDeclaration
 			{
 				get
 				{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal State()
+			public State()
 			{
 				this.m_oldDeclarations = new DeclarationList();
 				this.Initialize();
@@ -67,19 +67,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 
 		private sealed class Indexes
 		{
-			internal int CurrentIndex;
+			public int CurrentIndex;
 		}
 
 		private sealed class ReportServerBinaryReader
 		{
 			private sealed class BinaryReaderWrapper : BinaryReader
 			{
-				internal BinaryReaderWrapper(Stream stream)
+				public BinaryReaderWrapper(Stream stream)
 					: base(stream, Encoding.Unicode)
 				{
 				}
 
-				internal new int Read7BitEncodedInt()
+				public new int Read7BitEncodedInt()
 				{
 					return base.Read7BitEncodedInt();
 				}
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal delegate void DeclarationCallback(ObjectType objectType, Declaration declaration);
+			public delegate void DeclarationCallback(ObjectType objectType, Declaration declaration);
 
 			private BinaryReaderWrapper m_binaryReader;
 
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 
 			private static readonly float[] FloatsDefault = null;
 
-			internal Token Token
+			public Token Token
 			{
 				get
 				{
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal ObjectType ObjectType
+			public ObjectType ObjectType
 			{
 				get
 				{
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal Token ArrayType
+			public Token ArrayType
 			{
 				get
 				{
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal int ArrayLength
+			public int ArrayLength
 			{
 				get
 				{
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal int ReferenceValue
+			public int ReferenceValue
 			{
 				get
 				{
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal string StringValue
+			public string StringValue
 			{
 				get
 				{
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal char CharValue
+			public char CharValue
 			{
 				get
 				{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal char[] CharsValue
+			public char[] CharsValue
 			{
 				get
 				{
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal bool BooleanValue
+			public bool BooleanValue
 			{
 				get
 				{
@@ -274,7 +274,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal short Int16Value
+			public short Int16Value
 			{
 				get
 				{
@@ -282,7 +282,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal int Int32Value
+			public int Int32Value
 			{
 				get
 				{
@@ -290,7 +290,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal int[] Int32sValue
+			public int[] Int32sValue
 			{
 				get
 				{
@@ -298,7 +298,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal long Int64Value
+			public long Int64Value
 			{
 				get
 				{
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal ushort UInt16Value
+			public ushort UInt16Value
 			{
 				get
 				{
@@ -314,7 +314,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal uint UInt32Value
+			public uint UInt32Value
 			{
 				get
 				{
@@ -322,7 +322,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal ulong UInt64Value
+			public ulong UInt64Value
 			{
 				get
 				{
@@ -330,7 +330,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal byte ByteValue
+			public byte ByteValue
 			{
 				get
 				{
@@ -338,7 +338,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal byte[] BytesValue
+			public byte[] BytesValue
 			{
 				get
 				{
@@ -346,7 +346,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal sbyte SByteValue
+			public sbyte SByteValue
 			{
 				get
 				{
@@ -354,7 +354,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal float SingleValue
+			public float SingleValue
 			{
 				get
 				{
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal double DoubleValue
+			public double DoubleValue
 			{
 				get
 				{
@@ -370,7 +370,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal decimal DecimalValue
+			public decimal DecimalValue
 			{
 				get
 				{
@@ -378,7 +378,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal DateTime DateTimeValue
+			public DateTime DateTimeValue
 			{
 				get
 				{
@@ -386,7 +386,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal TimeSpan TimeSpanValue
+			public TimeSpan TimeSpanValue
 			{
 				get
 				{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal Guid GuidValue
+			public Guid GuidValue
 			{
 				get
 				{
@@ -402,7 +402,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal DataFieldStatus DataFieldInfo
+			public DataFieldStatus DataFieldInfo
 			{
 				get
 				{
@@ -410,14 +410,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal ReportServerBinaryReader(Stream stream, DeclarationCallback declarationCallback)
+			public ReportServerBinaryReader(Stream stream, DeclarationCallback declarationCallback)
 			{
 				IntermediateFormatReader.Assert(null != declarationCallback);
 				this.m_binaryReader = new BinaryReaderWrapper(stream);
 				this.m_declarationCallback = declarationCallback;
 			}
 
-			internal bool Read()
+			public bool Read()
 			{
 				bool flag;
 				for (flag = this.Advance(); flag && Token.Declaration == this.m_token; flag = this.Advance())
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				return flag;
 			}
 
-			internal bool ReadNoTypeReference()
+			public bool ReadNoTypeReference()
 			{
 				bool flag;
 				for (flag = this.ReadNoTypeReferenceAdvance(); flag && Token.Declaration == this.m_token; flag = this.ReadNoTypeReferenceAdvance())
@@ -435,7 +435,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				return flag;
 			}
 
-			internal void ReadDeclaration()
+			public void ReadDeclaration()
 			{
 				IntermediateFormatReader.Assert(this.Advance());
 				IntermediateFormatReader.Assert(Token.Declaration == this.m_token);
@@ -581,7 +581,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal bool ReadNoTypeReferenceAdvance()
+			public bool ReadNoTypeReferenceAdvance()
 			{
 				try
 				{
@@ -599,7 +599,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				}
 			}
 
-			internal byte[] ReadBytes()
+			public byte[] ReadBytes()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				if (this.m_token == Token.Null)
@@ -611,7 +611,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				return this.m_bytesValue;
 			}
 
-			internal int[] ReadInt32s()
+			public int[] ReadInt32s()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				if (this.m_token == Token.Null)
@@ -623,7 +623,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				return this.m_int32sValue;
 			}
 
-			internal float[] ReadFloatArray()
+			public float[] ReadFloatArray()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				if (this.m_token == Token.Null)
@@ -635,14 +635,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				return this.m_floatsValue;
 			}
 
-			internal Guid ReadGuid()
+			public Guid ReadGuid()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.Guid == this.m_token);
 				return this.m_guidValue;
 			}
 
-			internal string ReadString()
+			public string ReadString()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				if (this.m_token == Token.Null)
@@ -653,62 +653,62 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 				return this.m_stringValue;
 			}
 
-			internal int ReadInt32()
+			public int ReadInt32()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.Int32 == this.m_token);
 				return this.m_int32Value;
 			}
 
-			internal long ReadInt64()
+			public long ReadInt64()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.Int64 == this.m_token);
 				return this.m_int64Value;
 			}
 
-			internal double ReadDouble()
+			public double ReadDouble()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.Double == this.m_token);
 				return this.m_doubleValue;
 			}
 
-			internal bool ReadBoolean()
+			public bool ReadBoolean()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.Boolean == this.m_token);
 				return this.m_booleanValue;
 			}
 
-			internal DateTime ReadDateTime()
+			public DateTime ReadDateTime()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.DateTime == this.m_token);
 				return this.m_dateTimeValue;
 			}
 
-			internal int ReadEnum()
+			public int ReadEnum()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.Enum == this.m_token);
 				return this.m_enumValue;
 			}
 
-			internal ObjectType ReadObject()
+			public ObjectType ReadObject()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.Object == this.m_token);
 				return this.m_objectType;
 			}
 
-			internal void ReadEndObject()
+			public void ReadEndObject()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.EndObject == this.m_token);
 			}
 
-			internal int ReadArray()
+			public int ReadArray()
 			{
 				IntermediateFormatReader.Assert(this.Read());
 				IntermediateFormatReader.Assert(Token.Array == this.m_token);
@@ -765,7 +765,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 
 		private int m_currentUniqueName = -1;
 
-		internal IntermediateFormatVersion IntermediateFormatVersion
+		public IntermediateFormatVersion IntermediateFormatVersion
 		{
 			get
 			{
@@ -773,7 +773,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal Hashtable DefinitionObjects
+		public Hashtable DefinitionObjects
 		{
 			get
 			{
@@ -781,7 +781,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal Hashtable InstanceObjects
+		public Hashtable InstanceObjects
 		{
 			get
 			{
@@ -789,7 +789,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal Hashtable MatrixHeadingInstanceObjects
+		public Hashtable MatrixHeadingInstanceObjects
 		{
 			get
 			{
@@ -797,7 +797,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal State ReaderState
+		public State ReaderState
 		{
 			get
 			{
@@ -805,7 +805,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal IntermediateFormatReader(Stream stream)
+		public IntermediateFormatReader(Stream stream)
 		{
 			this.Initialize(stream);
 			this.m_definitionObjects = null;
@@ -815,7 +815,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_expectDeclarations = true;
 		}
 
-		internal IntermediateFormatReader(Stream stream, Hashtable instanceObjects)
+		public IntermediateFormatReader(Stream stream, Hashtable instanceObjects)
 		{
 			this.Initialize(stream);
 			this.m_definitionObjects = null;
@@ -825,7 +825,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_expectDeclarations = true;
 		}
 
-		internal IntermediateFormatReader(Stream stream, Hashtable instanceObjects, Hashtable definitionObjects, IntermediateFormatVersion intermediateFormatVersion)
+		public IntermediateFormatReader(Stream stream, Hashtable instanceObjects, Hashtable definitionObjects, IntermediateFormatVersion intermediateFormatVersion)
 		{
 			this.Initialize(stream);
 			this.m_intermediateFormatVersion = intermediateFormatVersion;
@@ -836,7 +836,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_expectDeclarations = true;
 		}
 
-		internal IntermediateFormatReader(Stream stream, Hashtable instanceObjects, IntermediateFormatVersion intermediateFormatVersion)
+		public IntermediateFormatReader(Stream stream, Hashtable instanceObjects, IntermediateFormatVersion intermediateFormatVersion)
 		{
 			this.Initialize(stream);
 			this.m_definitionObjects = null;
@@ -847,7 +847,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_expectDeclarations = true;
 		}
 
-		internal IntermediateFormatReader(Stream stream, IntermediateFormatVersion intermediateFormatVersion)
+		public IntermediateFormatReader(Stream stream, IntermediateFormatVersion intermediateFormatVersion)
 		{
 			this.Initialize(stream);
 			this.m_definitionObjects = null;
@@ -858,7 +858,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_expectDeclarations = true;
 		}
 
-		internal IntermediateFormatReader(Stream stream, State state, Hashtable definitionObjects, IntermediateFormatVersion intermediateFormatVersion)
+		public IntermediateFormatReader(Stream stream, State state, Hashtable definitionObjects, IntermediateFormatVersion intermediateFormatVersion)
 		{
 			this.Initialize(stream);
 			this.m_definitionObjects = definitionObjects;
@@ -876,7 +876,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_expectDeclarations = false;
 		}
 
-		internal IntermediateFormatReader(Stream stream, State state, IntermediateFormatVersion intermediateFormatVersion)
+		public IntermediateFormatReader(Stream stream, State state, IntermediateFormatVersion intermediateFormatVersion)
 		{
 			this.Initialize(stream);
 			this.m_definitionObjects = null;
@@ -901,7 +901,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			IntermediateFormatReader.Assert(VersionStamp.Validate(this.m_reader.ReadBytes()));
 		}
 
-		internal IntermediateFormatVersion ReadIntermediateFormatVersion()
+		public IntermediateFormatVersion ReadIntermediateFormatVersion()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -930,7 +930,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return intermediateFormatVersion;
 		}
 
-		internal Report ReadReport(ReportItem parent)
+		public Report ReadReport(ReportItem parent)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1273,7 +1273,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_textboxesWithUserSort.RemoveAt(this.m_textboxesWithUserSort.Count - 1);
 		}
 
-		internal ReportSnapshot ReadReportSnapshot()
+		public ReportSnapshot ReadReportSnapshot()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1368,7 +1368,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return reportSnapshot;
 		}
 
-		internal Report ReadReportFromSnapshot(out DateTime executionTime)
+		public Report ReadReportFromSnapshot(out DateTime executionTime)
 		{
 			executionTime = DateTime.Now;
 			IntermediateFormatReader.Assert(this.m_reader.Read());
@@ -1392,7 +1392,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return result;
 		}
 
-		internal ParameterInfoCollection ReadSnapshotParameters()
+		public ParameterInfoCollection ReadSnapshotParameters()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1419,7 +1419,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return result;
 		}
 
-		internal DocumentMapNode ReadDocumentMapNode()
+		public DocumentMapNode ReadDocumentMapNode()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1458,7 +1458,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return documentMapNode;
 		}
 
-		internal DocumentMapNodeInfo ReadDocumentMapNodeInfo()
+		public DocumentMapNodeInfo ReadDocumentMapNodeInfo()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1493,7 +1493,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return new DocumentMapNodeInfo(documentMapNode, children);
 		}
 
-		internal bool FindDocumentMapNodePage(string documentMapId, ref int page)
+		public bool FindDocumentMapNodePage(string documentMapId, ref int page)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1537,7 +1537,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return flag;
 		}
 
-		internal TokensHashtable ReadTokensHashtable()
+		public TokensHashtable ReadTokensHashtable()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1558,7 +1558,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return tokensHashtable;
 		}
 
-		internal BookmarksHashtable ReadBookmarksHashtable()
+		public BookmarksHashtable ReadBookmarksHashtable()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1579,7 +1579,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return bookmarksHashtable;
 		}
 
-		internal BookmarkInformation FindBookmarkIdInfo(string bookmarkId)
+		public BookmarkInformation FindBookmarkIdInfo(string bookmarkId)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1601,7 +1601,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return null;
 		}
 
-		internal DrillthroughInformation FindDrillthroughIdInfo(string drillthroughId)
+		public DrillthroughInformation FindDrillthroughIdInfo(string drillthroughId)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1639,7 +1639,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return null;
 		}
 
-		internal SenderInformationHashtable ReadSenderInformationHashtable()
+		public SenderInformationHashtable ReadSenderInformationHashtable()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1660,7 +1660,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return senderInformationHashtable;
 		}
 
-		internal ReceiverInformationHashtable ReadReceiverInformationHashtable()
+		public ReceiverInformationHashtable ReadReceiverInformationHashtable()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1681,7 +1681,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return receiverInformationHashtable;
 		}
 
-		internal QuickFindHashtable ReadQuickFindHashtable()
+		public QuickFindHashtable ReadQuickFindHashtable()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1702,7 +1702,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return quickFindHashtable;
 		}
 
-		internal SortFilterEventInfoHashtable ReadSortFilterEventInfoHashtable()
+		public SortFilterEventInfoHashtable ReadSortFilterEventInfoHashtable()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1723,7 +1723,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return sortFilterEventInfoHashtable;
 		}
 
-		internal List<PageSectionInstance> ReadPageSections(int requestedPageNumber, int startPage, PageSection headerDef, PageSection footerDef)
+		public List<PageSectionInstance> ReadPageSections(int requestedPageNumber, int startPage, PageSection headerDef, PageSection footerDef)
 		{
 			IntermediateFormatReader.Assert(startPage >= 0);
 			List<PageSectionInstance> list = null;
@@ -1762,7 +1762,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return list;
 		}
 
-		internal ActionInstance ReadActionInstance(Action action)
+		public ActionInstance ReadActionInstance(Action action)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1821,7 +1821,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return actionItemInstanceList;
 		}
 
-		internal ActionItemInstance ReadActionItemInstance(ActionItem actionItemDef)
+		public ActionItemInstance ReadActionItemInstance(ActionItem actionItemDef)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1897,7 +1897,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return actionItemInstance;
 		}
 
-		internal ReportItemColInstanceInfo ReadReportItemColInstanceInfo()
+		public ReportItemColInstanceInfo ReadReportItemColInstanceInfo()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1919,7 +1919,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return reportItemColInstanceInfo;
 		}
 
-		internal ListContentInstanceInfo ReadListContentInstanceInfo()
+		public ListContentInstanceInfo ReadListContentInstanceInfo()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1949,7 +1949,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return listContentInstanceInfo;
 		}
 
-		internal MatrixHeadingInstanceInfo ReadMatrixHeadingInstanceInfoBase()
+		public MatrixHeadingInstanceInfo ReadMatrixHeadingInstanceInfoBase()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -1969,7 +1969,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return matrixSubtotalHeadingInstanceInfo;
 		}
 
-		internal void ReadMatrixHeadingInstanceInfo(MatrixHeadingInstanceInfo instanceInfo)
+		public void ReadMatrixHeadingInstanceInfo(MatrixHeadingInstanceInfo instanceInfo)
 		{
 			IntermediateFormatReader.Assert(Token.Null != this.m_reader.Token);
 			ObjectType objectType = ObjectType.MatrixHeadingInstanceInfo;
@@ -2013,7 +2013,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_reader.ReadEndObject();
 		}
 
-		internal void ReadMatrixSubtotalHeadingInstanceInfo(MatrixSubtotalHeadingInstanceInfo instanceInfo)
+		public void ReadMatrixSubtotalHeadingInstanceInfo(MatrixSubtotalHeadingInstanceInfo instanceInfo)
 		{
 			IntermediateFormatReader.Assert(Token.Null != this.m_reader.Token);
 			ObjectType objectType = ObjectType.MatrixSubtotalHeadingInstanceInfo;
@@ -2026,7 +2026,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_reader.ReadEndObject();
 		}
 
-		internal MatrixCellInstanceInfo ReadMatrixCellInstanceInfo()
+		public MatrixCellInstanceInfo ReadMatrixCellInstanceInfo()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2056,7 +2056,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return matrixCellInstanceInfo;
 		}
 
-		internal ChartHeadingInstanceInfo ReadChartHeadingInstanceInfo()
+		public ChartHeadingInstanceInfo ReadChartHeadingInstanceInfo()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2098,7 +2098,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return chartHeadingInstanceInfo;
 		}
 
-		internal ChartDataPointInstanceInfo ReadChartDataPointInstanceInfo(ChartDataPointList chartDataPoints)
+		public ChartDataPointInstanceInfo ReadChartDataPointInstanceInfo(ChartDataPointList chartDataPoints)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2160,7 +2160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return chartDataPointInstanceInfo;
 		}
 
-		internal TableGroupInstanceInfo ReadTableGroupInstanceInfo()
+		public TableGroupInstanceInfo ReadTableGroupInstanceInfo()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2190,7 +2190,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return tableGroupInstanceInfo;
 		}
 
-		internal TableRowInstanceInfo ReadTableRowInstanceInfo()
+		public TableRowInstanceInfo ReadTableRowInstanceInfo()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2212,7 +2212,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return tableRowInstanceInfo;
 		}
 
-		internal LineInstanceInfo ReadLineInstanceInfo(Line line)
+		public LineInstanceInfo ReadLineInstanceInfo(Line line)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2230,7 +2230,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return lineInstanceInfo;
 		}
 
-		internal TextBoxInstanceInfo ReadTextBoxInstanceInfo(TextBox textBox)
+		public TextBoxInstanceInfo ReadTextBoxInstanceInfo(TextBox textBox)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2284,7 +2284,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return textBoxInstanceInfo;
 		}
 
-		internal SimpleTextBoxInstanceInfo ReadSimpleTextBoxInstanceInfo(TextBox textBox)
+		public SimpleTextBoxInstanceInfo ReadSimpleTextBoxInstanceInfo(TextBox textBox)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2310,7 +2310,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return simpleTextBoxInstanceInfo;
 		}
 
-		internal RectangleInstanceInfo ReadRectangleInstanceInfo(Rectangle rectangle)
+		public RectangleInstanceInfo ReadRectangleInstanceInfo(Rectangle rectangle)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2328,7 +2328,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return rectangleInstanceInfo;
 		}
 
-		internal CheckBoxInstanceInfo ReadCheckBoxInstanceInfo(CheckBox checkBox)
+		public CheckBoxInstanceInfo ReadCheckBoxInstanceInfo(CheckBox checkBox)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2354,7 +2354,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return checkBoxInstanceInfo;
 		}
 
-		internal ImageInstanceInfo ReadImageInstanceInfo(Image image)
+		public ImageInstanceInfo ReadImageInstanceInfo(Image image)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2399,7 +2399,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return imageInstanceInfo;
 		}
 
-		internal SubReportInstanceInfo ReadSubReportInstanceInfo(SubReport subReport)
+		public SubReportInstanceInfo ReadSubReportInstanceInfo(SubReport subReport)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2421,7 +2421,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return subReportInstanceInfo;
 		}
 
-		internal ActiveXControlInstanceInfo ReadActiveXControlInstanceInfo(ActiveXControl activeXControl)
+		public ActiveXControlInstanceInfo ReadActiveXControlInstanceInfo(ActiveXControl activeXControl)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2443,7 +2443,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return activeXControlInstanceInfo;
 		}
 
-		internal ListInstanceInfo ReadListInstanceInfo(List list)
+		public ListInstanceInfo ReadListInstanceInfo(List list)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2465,7 +2465,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return listInstanceInfo;
 		}
 
-		internal MatrixInstanceInfo ReadMatrixInstanceInfo(Matrix matrix)
+		public MatrixInstanceInfo ReadMatrixInstanceInfo(Matrix matrix)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2491,7 +2491,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return matrixInstanceInfo;
 		}
 
-		internal TableInstanceInfo ReadTableInstanceInfo(Table table)
+		public TableInstanceInfo ReadTableInstanceInfo(Table table)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2517,7 +2517,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return tableInstanceInfo;
 		}
 
-		internal OWCChartInstanceInfo ReadOWCChartInstanceInfo(OWCChart chart)
+		public OWCChartInstanceInfo ReadOWCChartInstanceInfo(OWCChart chart)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2543,7 +2543,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return oWCChartInstanceInfo;
 		}
 
-		internal ChartInstanceInfo ReadChartInstanceInfo(Chart chart)
+		public ChartInstanceInfo ReadChartInstanceInfo(Chart chart)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2589,7 +2589,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return chartInstanceInfo;
 		}
 
-		internal CustomReportItemInstanceInfo ReadCustomReportItemInstanceInfo(CustomReportItem cri)
+		public CustomReportItemInstanceInfo ReadCustomReportItemInstanceInfo(CustomReportItem cri)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2607,7 +2607,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return customReportItemInstanceInfo;
 		}
 
-		internal PageSectionInstanceInfo ReadPageSectionInstanceInfo(PageSection pageSectionDef)
+		public PageSectionInstanceInfo ReadPageSectionInstanceInfo(PageSection pageSectionDef)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2625,7 +2625,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return pageSectionInstanceInfo;
 		}
 
-		internal ReportInstanceInfo ReadReportInstanceInfo(Report report)
+		public ReportInstanceInfo ReadReportInstanceInfo(Report report)
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2659,7 +2659,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return reportInstanceInfo;
 		}
 
-		internal RecordSetInfo ReadRecordSetInfo()
+		public RecordSetInfo ReadRecordSetInfo()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2713,7 +2713,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return recordSetPropertyNamesList;
 		}
 
-		internal RecordSetPropertyNames ReadRecordSetPropertyNames()
+		public RecordSetPropertyNames ReadRecordSetPropertyNames()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -2734,7 +2734,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return recordSetPropertyNames;
 		}
 
-		internal RecordRow ReadRecordRow()
+		public RecordRow ReadRecordRow()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -5251,7 +5251,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return field;
 		}
 
-		internal FieldPropertyHashtable ReadFieldPropertyHashtable()
+		public FieldPropertyHashtable ReadFieldPropertyHashtable()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -8846,7 +8846,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			goto IL_008c;
 		}
 
-		internal MatrixCellInstance ReadMatrixCellInstanceBase()
+		public MatrixCellInstance ReadMatrixCellInstanceBase()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -8886,7 +8886,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			this.m_reader.ReadEndObject();
 		}
 
-		internal void ReadMatrixSubtotalCellInstance(MatrixSubtotalCellInstance instance)
+		public void ReadMatrixSubtotalCellInstance(MatrixSubtotalCellInstance instance)
 		{
 			ObjectType objectType = ObjectType.MatrixSubtotalCellInstance;
 			IntermediateFormatReader.Assert(Token.Object == this.m_reader.Token);
@@ -9219,7 +9219,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return tableDetailInstance;
 		}
 
-		internal TableDetailInstanceInfo ReadTableDetailInstanceInfo()
+		public TableDetailInstanceInfo ReadTableDetailInstanceInfo()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)
@@ -9395,7 +9395,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			return customReportItemHeadingInstance;
 		}
 
-		internal CustomReportItemCellInstance ReadCustomReportItemCellInstance()
+		public CustomReportItemCellInstance ReadCustomReportItemCellInstance()
 		{
 			IntermediateFormatReader.Assert(this.m_reader.Read());
 			if (this.m_reader.Token == Token.Null)

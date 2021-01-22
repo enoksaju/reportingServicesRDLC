@@ -5,7 +5,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class RecordSetInfo
+	public sealed class RecordSetInfo
 	{
 		private bool m_readerExtensionsSupported;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_validCompareOptions;
 
-		internal bool ReaderExtensionsSupported
+		public bool ReaderExtensionsSupported
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RecordSetPropertyNamesList FieldPropertyNames
+		public RecordSetPropertyNamesList FieldPropertyNames
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CompareOptions CompareOptions
+		public CompareOptions CompareOptions
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ValidCompareOptions
+		public bool ValidCompareOptions
 		{
 			get
 			{
@@ -64,17 +64,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RecordSetInfo(bool readerExtensionsSupported, CompareOptions compareOptions)
+		public RecordSetInfo(bool readerExtensionsSupported, CompareOptions compareOptions)
 		{
 			this.m_readerExtensionsSupported = readerExtensionsSupported;
 			this.m_compareOptions = compareOptions;
 		}
 
-		internal RecordSetInfo()
+		public RecordSetInfo()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ReaderExtensionsSupported, Token.Boolean));

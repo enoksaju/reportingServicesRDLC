@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum SortDirection
+	public enum SortDirection
 	{
 		Ascending,
 		Descending

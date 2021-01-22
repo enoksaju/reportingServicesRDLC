@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ActionCollection : ReportElementCollectionBase<Action>
+	public sealed class ActionCollection : ReportElementCollectionBase<Action>
 	{
 		private List<Action> m_list;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionCollection(ActionInfo actionInfo, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem> actions)
+		public ActionCollection(ActionInfo actionInfo, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem> actions)
 		{
 			int count = actions.Count;
 			this.m_list = new List<Action>(count);
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionCollection(ActionInfo actionInfo, AspNetCore.ReportingServices.ReportRendering.ActionCollection actions)
+		public ActionCollection(ActionInfo actionInfo, AspNetCore.ReportingServices.ReportRendering.ActionCollection actions)
 		{
 			int count = actions.Count;
 			this.m_list = new List<Action>(count);
@@ -49,14 +49,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Action Add(ActionInfo owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem actionItem)
+		public Action Add(ActionInfo owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem actionItem)
 		{
 			Action action = new Action(owner, actionItem, this.m_list.Count);
 			this.m_list.Add(action);
 			return action;
 		}
 
-		internal void Update(AspNetCore.ReportingServices.ReportRendering.ActionInfo newCollection)
+		public void Update(AspNetCore.ReportingServices.ReportRendering.ActionInfo newCollection)
 		{
 			int count = this.m_list.Count;
 			for (int i = 0; i < count; i++)
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_list != null)
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ConstructActionDefinitions()
+		public void ConstructActionDefinitions()
 		{
 			foreach (Action item in this.m_list)
 			{

@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapFieldNameExprHost> MapFieldNamesHostsRemotable
+		public IList<MapFieldNameExprHost> MapFieldNamesHostsRemotable
 		{
 			get
 			{

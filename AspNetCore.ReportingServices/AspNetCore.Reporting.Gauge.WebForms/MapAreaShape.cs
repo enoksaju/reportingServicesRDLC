@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum MapAreaShape
+	public enum MapAreaShape
 	{
 		Rectangle,
 		Circle,

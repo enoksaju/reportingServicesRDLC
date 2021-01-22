@@ -4,7 +4,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.Interfaces
 {
 	[Serializable]
-	internal sealed class FolderOperationsCollection : CollectionBase
+	public sealed class FolderOperationsCollection : CollectionBase
 	{
 		public FolderOperation this[int index]
 		{

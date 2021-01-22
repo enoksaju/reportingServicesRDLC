@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeCells : IStorable, IPersistable
+	public sealed class RuntimeCells : IStorable, IPersistable
 	{
 		private int m_firstCellKey = -1;
 
@@ -34,21 +34,21 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeCells()
+		public RuntimeCells()
 		{
 		}
 
-		internal RuntimeCells(int priority, IScalabilityCache cache)
+		public RuntimeCells(int priority, IScalabilityCache cache)
 		{
 			this.m_collection = new ScalableList<IStorable>(priority, cache, 200, 10);
 		}
 
-		internal void AddCell(int key, RuntimeCell cell)
+		public void AddCell(int key, RuntimeCell cell)
 		{
 			this.InternalAdd(key, cell);
 		}
 
-		internal void AddCell(int key, IReference<RuntimeCell> cellRef)
+		public void AddCell(int key, IReference<RuntimeCell> cellRef)
 		{
 			this.InternalAdd(key, cellRef);
 		}
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_collection.SetValueWithExtension(key, cell);
 		}
 
-		internal RuntimeCell GetCell(int key, out RuntimeCellReference cellRef)
+		public RuntimeCell GetCell(int key, out RuntimeCellReference cellRef)
 		{
 			RuntimeCell result = null;
 			cellRef = null;
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return result;
 		}
 
-		internal RuntimeCell GetAndPinCell(int key, out IDisposable cleanupRef)
+		public RuntimeCell GetAndPinCell(int key, out IDisposable cleanupRef)
 		{
 			cleanupRef = null;
 			IStorable storable = default(IStorable);
@@ -149,14 +149,14 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeCell GetOrCreateCell(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, IReference<RuntimeDataTablixGroupLeafObj> ownerRef, IReference<RuntimeDataTablixGroupRootObj> currOuterGroupRootRef, out IDisposable cleanupRef)
+		public RuntimeCell GetOrCreateCell(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, IReference<RuntimeDataTablixGroupLeafObj> ownerRef, IReference<RuntimeDataTablixGroupRootObj> currOuterGroupRootRef, out IDisposable cleanupRef)
 		{
 			RuntimeDataTablixGroupRootObj runtimeDataTablixGroupRootObj = currOuterGroupRootRef.Value();
 			int groupLeafIndex = dataRegionDef.OuterGroupingIndexes[runtimeDataTablixGroupRootObj.HierarchyDef.HierarchyDynamicIndex];
 			return this.GetOrCreateCellByIndex(groupLeafIndex, dataRegionDef, ownerRef, runtimeDataTablixGroupRootObj, out cleanupRef);
 		}
 
-		internal RuntimeCell GetOrCreateCell(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, IReference<RuntimeDataTablixGroupLeafObj> ownerRef, IReference<RuntimeDataTablixGroupRootObj> currOuterGroupRootRef, int groupLeafIndex, out IDisposable cleanupRef)
+		public RuntimeCell GetOrCreateCell(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, IReference<RuntimeDataTablixGroupLeafObj> ownerRef, IReference<RuntimeDataTablixGroupRootObj> currOuterGroupRootRef, int groupLeafIndex, out IDisposable cleanupRef)
 		{
 			RuntimeDataTablixGroupRootObj currOuterGroupRoot = currOuterGroupRootRef.Value();
 			return this.GetOrCreateCellByIndex(groupLeafIndex, dataRegionDef, ownerRef, currOuterGroupRoot, out cleanupRef);
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return andPinCell;
 		}
 
-		internal void SortAndFilter(AggregateUpdateContext aggContext)
+		public void SortAndFilter(AggregateUpdateContext aggContext)
 		{
 			this.Traverse(ProcessingStages.SortAndFilter, aggContext);
 		}
@@ -218,12 +218,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void UpdateAggregates(AggregateUpdateContext aggContext)
+		public void UpdateAggregates(AggregateUpdateContext aggContext)
 		{
 			this.Traverse(ProcessingStages.UpdateAggregates, aggContext);
 		}
 
-		internal void CalculateRunningValues(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, IReference<RuntimeDataTablixGroupLeafObj> owner, AggregateUpdateContext aggContext)
+		public void CalculateRunningValues(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, IReference<RuntimeDataTablixGroupLeafObj> owner, AggregateUpdateContext aggContext)
 		{
 			IDisposable disposable = default(IDisposable);
 			RuntimeCell orCreateCell = this.GetOrCreateCell(dataRegionDef, owner, dataRegionDef.CurrentOuterGroupRoot, out disposable);

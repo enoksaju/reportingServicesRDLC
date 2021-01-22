@@ -6,7 +6,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Style
+	public sealed class Style
 	{
 		private StyleAttributeHashtable m_styleAttributes;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_customSharedStyleCount = -1;
 
-		internal StyleAttributeHashtable StyleAttributes
+		public StyleAttributeHashtable StyleAttributes
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList ExpressionList
+		public ExpressionInfoList ExpressionList
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal StyleExprHost ExprHost
+		public StyleExprHost ExprHost
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CustomSharedStyleCount
+		public int CustomSharedStyleCount
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Style(ConstructionPhase phase)
+		public Style(ConstructionPhase phase)
 		{
 			if (phase == ConstructionPhase.Publishing)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void AddAttribute(string name, ExpressionInfo expressionInfo)
+		public void AddAttribute(string name, ExpressionInfo expressionInfo)
 		{
 			AttributeInfo attributeInfo = new AttributeInfo();
 			attributeInfo.IsExpression = (ExpressionInfo.Types.Constant != expressionInfo.Type);
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_styleAttributes.Add(name, attributeInfo);
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			Global.Tracer.Assert(null != this.m_styleAttributes);
 			IDictionaryEnumerator enumerator = this.m_styleAttributes.GetEnumerator();
@@ -156,13 +156,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.CheckInternationalSettings(this.m_styleAttributes);
 		}
 
-		internal void SetStyleExprHost(StyleExprHost exprHost)
+		public void SetStyleExprHost(StyleExprHost exprHost)
 		{
 			Global.Tracer.Assert(null != exprHost);
 			this.m_exprHost = exprHost;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.StyleAttributes, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.StyleAttributeHashtable));

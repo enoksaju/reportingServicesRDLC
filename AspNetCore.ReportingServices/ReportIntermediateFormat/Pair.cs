@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal struct Pair<T, U>
+	public struct Pair<T, U>
 	{
-		internal T First;
+		public T First;
 
-		internal U Second;
+		public U Second;
 
-		internal Pair(T first, U second)
+		public Pair(T first, U second)
 		{
 			this.First = first;
 			this.Second = second;

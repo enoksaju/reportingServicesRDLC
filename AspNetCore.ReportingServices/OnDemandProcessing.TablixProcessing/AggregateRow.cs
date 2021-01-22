@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class AggregateRow : DataFieldRow
+	public sealed class AggregateRow : DataFieldRow
 	{
 		[NonSerialized]
 		private AggregateRowInfo m_aggregateInfo;
@@ -28,11 +28,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal AggregateRow()
+		public AggregateRow()
 		{
 		}
 
-		internal AggregateRow(FieldsImpl fields, bool getAndSave)
+		public AggregateRow(FieldsImpl fields, bool getAndSave)
 			: base(fields, getAndSave)
 		{
 			this.m_isAggregateRow = fields.IsAggregateRow;
@@ -40,12 +40,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_validAggregateRow = fields.ValidAggregateRow;
 		}
 
-		internal override void SetFields(FieldsImpl fields)
+		public override void SetFields(FieldsImpl fields)
 		{
 			fields.SetFields(base.m_fields, base.m_streamOffset, this.m_isAggregateRow, this.m_aggregationFieldCount, this.m_validAggregateRow);
 		}
 
-		internal override void RestoreDataSetAndSetFields(OnDemandProcessingContext odpContext, FieldsContext fieldsContext)
+		public override void RestoreDataSetAndSetFields(OnDemandProcessingContext odpContext, FieldsContext fieldsContext)
 		{
 			base.RestoreDataSetAndSetFields(odpContext, fieldsContext);
 			if (this.m_aggregateInfo != null)
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void SaveAggregateInfo(OnDemandProcessingContext odpContext)
+		public override void SaveAggregateInfo(OnDemandProcessingContext odpContext)
 		{
 			this.m_aggregateInfo = new AggregateRowInfo();
 			this.m_aggregateInfo.SaveAggregateInfo(odpContext);

@@ -2,23 +2,23 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlTableCellPropertiesModel : IHaveABorderAndShading
+	public sealed class OpenXmlTableCellPropertiesModel : IHaveABorderAndShading
 	{
-		internal enum MergeState : byte
+		public enum MergeState : byte
 		{
 			None,
 			Continue,
 			Start
 		}
 
-		internal enum VerticalAlign : byte
+		public enum VerticalAlign : byte
 		{
 			Top,
 			Bottom,
 			Middle
 		}
 
-		internal enum TextOrientationEnum : byte
+		public enum TextOrientationEnum : byte
 		{
 			Horizontal,
 			Rotate270,

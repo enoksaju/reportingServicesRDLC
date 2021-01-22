@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
 	[SkipStaticValidation]
-	internal abstract class SyntheticReferenceBase<T> : IReference<T>, IReference, IStorable, IPersistable
+	public abstract class SyntheticReferenceBase<T> : IReference<T>, IReference, IStorable, IPersistable
 	{
 		public ReferenceID Id
 		{

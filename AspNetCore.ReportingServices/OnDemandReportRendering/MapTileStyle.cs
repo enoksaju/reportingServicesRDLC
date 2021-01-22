@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapTileStyle
+	public enum MapTileStyle
 	{
 		Road,
 		Aerial,

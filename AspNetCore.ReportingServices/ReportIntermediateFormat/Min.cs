@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class Min : DataAggregate
+	public sealed class Min : DataAggregate
 	{
 		private AspNetCore.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode m_expressionType;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private static Declaration m_declaration = Min.GetDeclaration();
 
-		internal override DataAggregateInfo.AggregateTypes AggregateType
+		public override DataAggregateInfo.AggregateTypes AggregateType
 		{
 			get
 			{
@@ -34,22 +34,22 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Min()
+		public Min()
 		{
 		}
 
-		internal Min(IDataComparer comparer)
+		public Min(IDataComparer comparer)
 		{
 			this.m_currentMin = null;
 			this.m_comparer = comparer;
 		}
 
-		internal override void Init()
+		public override void Init()
 		{
 			this.m_currentMin = null;
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			object obj = expressions[0];
 			AspNetCore.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode typeCode = DataAggregate.GetTypeCode(obj);
@@ -87,12 +87,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			return this.m_currentMin;
 		}
 
-		internal override DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef)
+		public override DataAggregate ConstructAggregator(OnDemandProcessingContext odpContext, DataAggregateInfo aggregateDef)
 		{
 			return new Min(odpContext.ProcessingComparer);
 		}

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Diagnostics;
 
 namespace AspNetCore.Reporting
 {
-	internal abstract class BaseLocalProcessingConfiguration : IConfiguration
+	public abstract class BaseLocalProcessingConfiguration : IConfiguration
 	{
 		private bool m_showSubReportErrorDetails;
 

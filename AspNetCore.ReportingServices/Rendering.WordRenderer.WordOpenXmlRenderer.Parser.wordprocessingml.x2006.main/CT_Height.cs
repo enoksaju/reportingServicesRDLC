@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_Height : OoxmlComplexType, IOoxmlComplexType
+	public class CT_Height : OoxmlComplexType, IOoxmlComplexType
 	{
 		private string _val_attr;
 

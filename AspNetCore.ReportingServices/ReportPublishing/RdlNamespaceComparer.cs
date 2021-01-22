@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class RdlNamespaceComparer : IComparer<string>
+	public sealed class RdlNamespaceComparer : IComparer<string>
 	{
 		private static readonly RdlNamespaceComparer m_instance = new RdlNamespaceComparer();
 

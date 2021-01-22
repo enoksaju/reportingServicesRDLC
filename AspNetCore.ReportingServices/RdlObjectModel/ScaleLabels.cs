@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ScaleLabels : ReportObject
+	public class ScaleLabels : ReportObject
 	{
-		internal class Definition : DefinitionStore<ScaleLabels, Definition.Properties>
+		public class Definition : DefinitionStore<ScaleLabels, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Interval,
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ScaleLabels(IPropertyStore propertyStore)
+		public ScaleLabels(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

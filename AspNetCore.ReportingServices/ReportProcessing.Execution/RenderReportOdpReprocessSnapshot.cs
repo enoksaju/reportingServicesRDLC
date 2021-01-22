@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class RenderReportOdpReprocessSnapshot : RenderReportOdp
+	public class RenderReportOdpReprocessSnapshot : RenderReportOdp
 	{
 		private readonly IChunkFactory m_originalSnapshotChunks;
 

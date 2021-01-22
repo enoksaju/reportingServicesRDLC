@@ -2,7 +2,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
-    internal sealed class ScaleTimeCategory
+    public sealed class ScaleTimeCategory
 	{
 		public long? Pagination
 		{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Internal
 			}
 		}
 
-		internal ScaleTimeCategory()
+		public ScaleTimeCategory()
 		{
 		}
 	}

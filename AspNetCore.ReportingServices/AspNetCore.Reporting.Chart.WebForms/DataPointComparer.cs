@@ -5,7 +5,7 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeDataPointComparer_DataPointComparer")]
-	internal class DataPointComparer : IComparer
+	public class DataPointComparer : IComparer
 	{
 		private Series series;
 

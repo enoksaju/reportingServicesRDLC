@@ -2,13 +2,13 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GaugePaintEventArgs : EventArgs
+	public class GaugePaintEventArgs : EventArgs
 	{
 		private GaugeContainer gauge;
 
 		private GaugeGraphics graphics;
 
-		internal GaugeContainer Gauge
+		public GaugeContainer Gauge
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GaugePaintEventArgs(GaugeContainer gauge, GaugeGraphics graphics)
+		public GaugePaintEventArgs(GaugeContainer gauge, GaugeGraphics graphics)
 		{
 			this.gauge = gauge;
 			this.graphics = graphics;

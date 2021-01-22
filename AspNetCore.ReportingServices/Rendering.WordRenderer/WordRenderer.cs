@@ -11,7 +11,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal abstract class WordRenderer
+	public abstract class WordRenderer
 	{
 		private delegate void RenderSize(float points);
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 		{
 			private SplitTablixRow[] m_rows;
 
-			internal SplitTablixRow this[int index]
+			public SplitTablixRow this[int index]
 			{
 				get
 				{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 				}
 			}
 
-			internal SplitTablix(int numRows)
+			public SplitTablix(int numRows)
 			{
 				this.m_rows = new SplitTablixRow[numRows];
 			}
@@ -39,23 +39,23 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private class SplitTablixRow
 		{
-			internal TablixGhostCell FirstCell;
+			public TablixGhostCell FirstCell;
 
-			internal List<RPLTablixCell> Cells = new List<RPLTablixCell>();
+			public List<RPLTablixCell> Cells = new List<RPLTablixCell>();
 		}
 
 		protected class TablixGhostCell
 		{
-			internal int RowSpan;
+			public int RowSpan;
 
-			internal BorderContext Context;
+			public BorderContext Context;
 
-			internal RPLTablixCell Cell;
+			public RPLTablixCell Cell;
 
-			internal int ColSpan;
+			public int ColSpan;
 		}
 
-		internal const int MaximumListLevel = 9;
+		public const int MaximumListLevel = 9;
 
 		protected AspNetCore.ReportingServices.Rendering.SPBProcessing.SPBProcessing m_spbProcessing;
 
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		protected bool m_needsToResetTextboxes;
 
-		internal WordRenderer(CreateAndRegisterStream createAndRegisterStream, AspNetCore.ReportingServices.Rendering.SPBProcessing.SPBProcessing spbProcessing, IWordWriter writer, DeviceInfo deviceInfo, string reportName)
+		public WordRenderer(CreateAndRegisterStream createAndRegisterStream, AspNetCore.ReportingServices.Rendering.SPBProcessing.SPBProcessing spbProcessing, IWordWriter writer, DeviceInfo deviceInfo, string reportName)
 		{
 			this.m_spbProcessing = spbProcessing;
 			writer.Init(createAndRegisterStream, deviceInfo.AutoFit, reportName);
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.m_deviceInfo = deviceInfo;
 		}
 
-		internal abstract bool Render();
+		public abstract bool Render();
 
 		protected abstract void RenderTablixCell(RPLTablix tablix, float left, float[] widths, TablixGhostCell[] ghostCells, BorderContext borderContext, int nextCell, RPLTablixCell cell, List<RPLTablixMemberCell>.Enumerator omittedCells, bool lastCell);
 

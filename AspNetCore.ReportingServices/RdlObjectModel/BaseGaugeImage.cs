@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class BaseGaugeImage : ReportObject
+	public class BaseGaugeImage : ReportObject
 	{
-		internal class Definition : DefinitionStore<BaseGaugeImage, Definition.Properties>
+		public class Definition : DefinitionStore<BaseGaugeImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Source,
 				Value,
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal BaseGaugeImage(IPropertyStore propertyStore)
+		public BaseGaugeImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

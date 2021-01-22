@@ -6,7 +6,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class RecordField
+	public sealed class RecordField
 	{
 		private object m_fieldValue;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private Hashtable m_properties;
 
-		internal object FieldValue
+		public object FieldValue
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsAggregationField
+		public bool IsAggregationField
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal VariantList FieldPropertyValues
+		public VariantList FieldPropertyValues
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsOverflow
+		public bool IsOverflow
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsUnSupportedDataType
+		public bool IsUnSupportedDataType
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsError
+		public bool IsError
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataFieldStatus FieldStatus
+		public DataFieldStatus FieldStatus
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RecordField(FieldImpl field)
+		public RecordField(FieldImpl field)
 		{
 			this.m_fieldStatus = field.FieldStatus;
 			this.m_properties = field.Properties;
@@ -104,11 +104,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RecordField()
+		public RecordField()
 		{
 		}
 
-		internal void SetProperty(string propertyName, object propertyValue)
+		public void SetProperty(string propertyName, object propertyValue)
 		{
 			if (this.m_properties == null)
 			{
@@ -117,13 +117,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_properties[propertyName] = propertyValue;
 		}
 
-		internal object GetProperty(string propertyName)
+		public object GetProperty(string propertyName)
 		{
 			Global.Tracer.Assert(this.m_properties != null);
 			return this.m_properties[propertyName];
 		}
 
-		internal void PopulateFieldPropertyValues(StringList propertyNames)
+		public void PopulateFieldPropertyValues(StringList propertyNames)
 		{
 			if (propertyNames != null)
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.FieldValue, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.Variant));

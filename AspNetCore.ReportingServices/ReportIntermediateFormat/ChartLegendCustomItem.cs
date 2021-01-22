@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartLegendCustomItem : ChartStyleContainer, IPersistable, IActionOwner
+	public sealed class ChartLegendCustomItem : ChartStyleContainer, IPersistable, IActionOwner
 	{
 		private string m_name;
 
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartLegendCustomItemExprHost m_exprHost;
 
-		internal string LegendCustomItemName
+		public string LegendCustomItemName
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendCustomItemExprHost ExprHost
+		public ChartLegendCustomItemExprHost ExprHost
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ID
+		public int ID
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMarker Marker
+		public ChartMarker Marker
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Separator
+		public ExpressionInfo Separator
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SeparatorColor
+		public ExpressionInfo SeparatorColor
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartLegendCustomItemCell> LegendCustomItemCells
+		public List<ChartLegendCustomItemCell> LegendCustomItemCells
 		{
 			get
 			{
@@ -168,17 +168,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendCustomItem()
+		public ChartLegendCustomItem()
 		{
 		}
 
-		internal ChartLegendCustomItem(Chart chart, int id)
+		public ChartLegendCustomItem(Chart chart, int id)
 			: base(chart)
 		{
 			this.m_id = id;
 		}
 
-		internal void SetExprHost(ChartLegendCustomItemExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartLegendCustomItemExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartLegendCustomItemStart(this.m_name);
 			base.Initialize(context);
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ChartLegendCustomItemEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartLegendCustomItem chartLegendCustomItem = (ChartLegendCustomItem)base.PublishClone(context);
 			if (this.m_action != null)
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartLegendCustomItem;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -294,19 +294,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartLegendCustomItem, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartStyleContainer, list);
 		}
 
-		internal ChartSeparators EvaluateSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartSeparators EvaluateSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartSeparator(context.ReportRuntime.EvaluateChartLegendCustomItemSeparatorExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemSeparatorColorExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendCustomItemToolTipExpression(this, base.m_chart.Name);

@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class GroupTreeReferenceCreator : IReferenceCreator
+	public class GroupTreeReferenceCreator : IReferenceCreator
 	{
 		private static GroupTreeReferenceCreator m_instance;
 
-		internal static GroupTreeReferenceCreator Instance
+		public static GroupTreeReferenceCreator Instance
 		{
 			get
 			{

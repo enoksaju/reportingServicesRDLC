@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal struct CodeClass
+	public struct CodeClass
 	{
-		internal string ClassName;
+		public string ClassName;
 
-		internal string InstanceName;
+		public string InstanceName;
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ClassName, Token.String));

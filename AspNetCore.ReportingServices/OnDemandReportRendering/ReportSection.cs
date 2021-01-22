@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportSection : IDefinitionPath, IReportScope
+	public sealed class ReportSection : IDefinitionPath, IReportScope
 	{
 		private AspNetCore.ReportingServices.ReportRendering.Report m_renderReport;
 
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSection SectionDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSection SectionDef
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportItemsImpl BodyItemsForHeadFoot
+		public ReportItemsImpl BodyItemsForHeadFoot
 		{
 			get
 			{
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportItemsImpl PageSectionItemsForHeadFoot
+		public ReportItemsImpl PageSectionItemsForHeadFoot
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Dictionary<string, AggregatesImpl> PageAggregatesOverReportItems
+		public Dictionary<string, AggregatesImpl> PageAggregatesOverReportItems
 		{
 			get
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Report Report
+		public Report Report
 		{
 			get
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int SectionIndex
+		public int SectionIndex
 		{
 			get
 			{
@@ -295,13 +295,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSection(Report reportDef, AspNetCore.ReportingServices.ReportRendering.Report renderReport, int indexInCollection)
+		public ReportSection(Report reportDef, AspNetCore.ReportingServices.ReportRendering.Report renderReport, int indexInCollection)
 			: this(reportDef, indexInCollection)
 		{
 			this.m_renderReport = renderReport;
 		}
 
-		internal ReportSection(Report reportDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSection sectionDef, int indexInCollection)
+		public ReportSection(Report reportDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSection sectionDef, int indexInCollection)
 			: this(reportDef, indexInCollection)
 		{
 			this.m_sectionDef = sectionDef;
@@ -314,7 +314,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_definitionPath = DefinitionPathConstants.GetCollectionDefinitionPath(reportDef, indexInCollection);
 		}
 
-		internal void UpdateSubReportContents(AspNetCore.ReportingServices.ReportRendering.Report newRenderSubreport)
+		public void UpdateSubReportContents(AspNetCore.ReportingServices.ReportRendering.Report newRenderSubreport)
 		{
 			this.m_renderReport = newRenderSubreport;
 			if (this.m_body != null)
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_body != null)
 			{

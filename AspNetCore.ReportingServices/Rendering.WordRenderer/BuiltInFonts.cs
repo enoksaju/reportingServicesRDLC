@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class BuiltInFonts
+	public class BuiltInFonts
 	{
 		private static Ffn Times_New_Roman;
 
@@ -299,7 +299,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private static readonly int BaseFontSize;
 
-		internal static Ffn GetFont(string name)
+		public static Ffn GetFont(string name)
 		{
 			Ffn ffn = (Ffn)BuiltInFonts.m_fontMap[name];
 			if (ffn == null)

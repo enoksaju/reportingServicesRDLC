@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class TablixHeadingList : ArrayList
+	public abstract class TablixHeadingList : ArrayList
 	{
-		internal new TablixHeading this[int index]
+		public new TablixHeading this[int index]
 		{
 			get
 			{
@@ -14,15 +14,15 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TablixHeadingList()
+		public TablixHeadingList()
 		{
 		}
 
-		internal TablixHeadingList(int capacity)
+		public TablixHeadingList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal abstract TablixHeadingList InnerHeadings();
+		public abstract TablixHeadingList InnerHeadings();
 	}
 }

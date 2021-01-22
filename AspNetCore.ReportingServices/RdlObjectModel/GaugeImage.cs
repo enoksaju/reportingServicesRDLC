@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class GaugeImage : GaugePanelItem
+	public class GaugeImage : GaugePanelItem
 	{
-		internal new class Definition : DefinitionStore<GaugeImage, Definition.Properties>
+		public new class Definition : DefinitionStore<GaugeImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal GaugeImage(IPropertyStore propertyStore)
+		public GaugeImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

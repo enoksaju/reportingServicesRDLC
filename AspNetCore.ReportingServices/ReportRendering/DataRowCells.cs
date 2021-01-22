@@ -2,13 +2,13 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class DataRowCells
+	public sealed class DataRowCells
 	{
 		private int m_count;
 
 		private DataCell[] m_rowCells;
 
-		internal DataCell this[int index]
+		public DataCell this[int index]
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataRowCells(int count)
+		public DataRowCells(int count)
 		{
 			this.m_count = count;
 		}

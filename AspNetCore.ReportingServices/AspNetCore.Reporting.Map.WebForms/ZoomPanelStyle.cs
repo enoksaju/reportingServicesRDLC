@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum ZoomPanelStyle
+	public enum ZoomPanelStyle
 	{
 		RectangularButtons,
 		CircularButtons

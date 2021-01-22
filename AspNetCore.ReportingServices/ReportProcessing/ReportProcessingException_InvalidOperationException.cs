@@ -4,9 +4,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_InvalidOperationException : Exception
+	public sealed class ReportProcessingException_InvalidOperationException : Exception
 	{
-		internal ReportProcessingException_InvalidOperationException()
+		public ReportProcessingException_InvalidOperationException()
 		{
 		}
 

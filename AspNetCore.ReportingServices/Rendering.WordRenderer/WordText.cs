@@ -3,13 +3,13 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class WordText
+	public class WordText
 	{
 		private int m_currentCp;
 
 		private Stream m_textPiece;
 
-		internal int CurrentCp
+		public int CurrentCp
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal Stream Stream
+		public Stream Stream
 		{
 			get
 			{
@@ -25,12 +25,12 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal WordText(Stream textPiece)
+		public WordText(Stream textPiece)
 		{
 			this.m_textPiece = textPiece;
 		}
 
-		internal static char[] EscapeText(string text, out int length)
+		public static char[] EscapeText(string text, out int length)
 		{
 			length = 0;
 			char[] array = new char[text.Length];
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return array;
 		}
 
-		internal void WriteText(string text)
+		public void WriteText(string text)
 		{
 			if (text != null)
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void WriteSpecialText(string text)
+		public void WriteSpecialText(string text)
 		{
 			if (text != null)
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void WriteClxTo(BinaryWriter tableWriter, int fcStart)
+		public void WriteClxTo(BinaryWriter tableWriter, int fcStart)
 		{
 			tableWriter.Write((byte)2);
 			tableWriter.Write(16);

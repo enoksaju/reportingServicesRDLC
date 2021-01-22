@@ -7,16 +7,16 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class Word97Renderer : WordRenderer
+	public class Word97Renderer : WordRenderer
 	{
 		protected List<SectionEntry> m_sections = new List<SectionEntry>();
 
-		internal Word97Renderer(CreateAndRegisterStream createAndRegisterStream, AspNetCore.ReportingServices.Rendering.SPBProcessing.SPBProcessing spbProcessing, IWordWriter writer, DeviceInfo deviceInfo, string reportName)
+		public Word97Renderer(CreateAndRegisterStream createAndRegisterStream, AspNetCore.ReportingServices.Rendering.SPBProcessing.SPBProcessing spbProcessing, IWordWriter writer, DeviceInfo deviceInfo, string reportName)
 			: base(createAndRegisterStream, spbProcessing, writer, deviceInfo, reportName)
 		{
 		}
 
-		internal override bool Render()
+		public override bool Render()
 		{
 			RPLItemMeasurement rPLItemMeasurement = null;
 			bool flag = true;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface ISortFilterScope : IPersistable, IReferenceable
+	public interface ISortFilterScope : IPersistable, IReferenceable
 	{
 		new int ID
 		{

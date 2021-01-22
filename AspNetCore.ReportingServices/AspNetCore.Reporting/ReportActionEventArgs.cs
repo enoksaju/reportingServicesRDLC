@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal class ReportActionEventArgs : EventArgs
+	public class ReportActionEventArgs : EventArgs
 	{
 		private string m_actionType;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal ReportActionEventArgs(string actionType, string actionParam)
+		public ReportActionEventArgs(string actionType, string actionParam)
 		{
 			this.m_actionType = actionType;
 			this.m_actionParam = actionParam;

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal static class Constants
+	public static class Constants
 	{
 		public const string DefaultName = "Default";
 

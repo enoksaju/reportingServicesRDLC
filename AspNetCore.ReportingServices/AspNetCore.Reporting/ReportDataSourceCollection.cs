@@ -9,7 +9,7 @@ namespace AspNetCore.Reporting
 {
 	[Serializable]
 	[ComVisible(false)]
-	internal sealed class ReportDataSourceCollection : SyncList<ReportDataSource>, ISerializable
+	public sealed class ReportDataSourceCollection : SyncList<ReportDataSource>, ISerializable
 	{
 		private EventHandler m_onChangeEventHandler;
 
@@ -28,15 +28,15 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal event EventHandler Change;
+		public event EventHandler Change;
 
-		internal ReportDataSourceCollection(object syncObject)
+		public ReportDataSourceCollection(object syncObject)
 			: base(syncObject)
 		{
 			this.m_onChangeEventHandler = this.OnChange;
 		}
 
-		internal ReportDataSourceCollection(SerializationInfo info, StreamingContext context)
+		public ReportDataSourceCollection(SerializationInfo info, StreamingContext context)
 			: this(new object())
 		{
 			int @int = info.GetInt32("Count");

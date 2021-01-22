@@ -8,69 +8,69 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class VBExpressionParser : ExpressionParser
+	public sealed class VBExpressionParser : ExpressionParser
 	{
 		private sealed class ReportRegularExpressions
 		{
-			internal Regex NonConstant;
+			public Regex NonConstant;
 
-			internal Regex FieldDetection;
+			public Regex FieldDetection;
 
-			internal Regex ReportItemsDetection;
+			public Regex ReportItemsDetection;
 
-			internal Regex ParametersDetection;
+			public Regex ParametersDetection;
 
-			internal Regex PageGlobalsDetection;
+			public Regex PageGlobalsDetection;
 
-			internal Regex AggregatesDetection;
+			public Regex AggregatesDetection;
 
-			internal Regex UserDetection;
+			public Regex UserDetection;
 
-			internal Regex DataSetsDetection;
+			public Regex DataSetsDetection;
 
-			internal Regex DataSourcesDetection;
+			public Regex DataSourcesDetection;
 
-			internal Regex MeDotValueDetection;
+			public Regex MeDotValueDetection;
 
-			internal Regex IllegalCharacterDetection;
+			public Regex IllegalCharacterDetection;
 
-			internal Regex LineTerminatorDetection;
+			public Regex LineTerminatorDetection;
 
-			internal Regex FieldOnly;
+			public Regex FieldOnly;
 
-			internal Regex ParameterOnly;
+			public Regex ParameterOnly;
 
-			internal Regex StringLiteralOnly;
+			public Regex StringLiteralOnly;
 
-			internal Regex NothingOnly;
+			public Regex NothingOnly;
 
-			internal Regex ReportItemName;
+			public Regex ReportItemName;
 
-			internal Regex FieldName;
+			public Regex FieldName;
 
-			internal Regex ParameterName;
+			public Regex ParameterName;
 
-			internal Regex DataSetName;
+			public Regex DataSetName;
 
-			internal Regex DataSourceName;
+			public Regex DataSourceName;
 
-			internal Regex SpecialFunction;
+			public Regex SpecialFunction;
 
-			internal Regex Arguments;
+			public Regex Arguments;
 
-			internal Regex DynamicFieldReference;
+			public Regex DynamicFieldReference;
 
-			internal Regex DynamicFieldPropertyReference;
+			public Regex DynamicFieldPropertyReference;
 
-			internal Regex StaticFieldPropertyReference;
+			public Regex StaticFieldPropertyReference;
 
-			internal Regex RewrittenCommandText;
+			public Regex RewrittenCommandText;
 
-			internal Regex ExtendedPropertyName;
+			public Regex ExtendedPropertyName;
 
-			internal Regex FieldWithExtendedProperty;
+			public Regex FieldWithExtendedProperty;
 
-			internal static readonly ReportRegularExpressions Value = new ReportRegularExpressions();
+			public static readonly ReportRegularExpressions Value = new ReportRegularExpressions();
 
 			private ReportRegularExpressions()
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private ExpressionContext m_context;
 
-		internal override bool BodyRefersToReportItems
+		public override bool BodyRefersToReportItems
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override bool PageSectionRefersToReportItems
+		public override bool PageSectionRefersToReportItems
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override int NumberOfAggregates
+		public override int NumberOfAggregates
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override int LastID
+		public override int LastID
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal VBExpressionParser(ErrorContext errorContext)
+		public VBExpressionParser(ErrorContext errorContext)
 			: base(errorContext)
 		{
 			this.m_regexes = ReportRegularExpressions.Value;
@@ -190,25 +190,25 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_pageSectionRefersToReportItems = false;
 		}
 
-		internal override CodeDomProvider GetCodeCompiler()
+		public override CodeDomProvider GetCodeCompiler()
 		{
            
 			return new VBCodeProvider();
 		}
 
-		internal override string GetCompilerArguments()
+		public override string GetCompilerArguments()
 		{
 			return "/optimize+";
 		}
 
-		internal override ExpressionInfo ParseExpression(string expression, ExpressionContext context)
+		public override ExpressionInfo ParseExpression(string expression, ExpressionContext context)
 		{
 			Global.Tracer.Assert(null != expression);
 			string text = default(string);
 			return this.Lex(expression, context, out text);
 		}
 
-		internal override ExpressionInfo ParseExpression(string expression, ExpressionContext context, DetectionFlags flag, out bool reportParameterReferenced, out string reportParameterName, out bool userCollectionReferenced)
+		public override ExpressionInfo ParseExpression(string expression, ExpressionContext context, DetectionFlags flag, out bool reportParameterReferenced, out string reportParameterName, out bool userCollectionReferenced)
 		{
 			string expression2 = default(string);
 			ExpressionInfo expressionInfo = this.Lex(expression, context, out expression2);
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return expressionInfo;
 		}
 
-		internal override ExpressionInfo ParseExpression(string expression, ExpressionContext context, out bool userCollectionReferenced)
+		public override ExpressionInfo ParseExpression(string expression, ExpressionContext context, out bool userCollectionReferenced)
 		{
 			string expression2 = default(string);
 			ExpressionInfo expressionInfo = this.Lex(expression, context, out expression2);
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return expressionInfo;
 		}
 
-		internal override void ConvertField2ComplexExpr(ref ExpressionInfo info)
+		public override void ConvertField2ComplexExpr(ref ExpressionInfo info)
 		{
 			Global.Tracer.Assert(info.Type == ExpressionInfo.Types.Field);
 			info.Type = ExpressionInfo.Types.Expression;

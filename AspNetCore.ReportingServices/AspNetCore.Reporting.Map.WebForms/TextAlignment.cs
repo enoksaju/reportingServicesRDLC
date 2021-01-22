@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum TextAlignment
+	public enum TextAlignment
 	{
 		Left,
 		Right,

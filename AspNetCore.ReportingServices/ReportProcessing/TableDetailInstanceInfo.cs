@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableDetailInstanceInfo : InstanceInfo
+	public sealed class TableDetailInstanceInfo : InstanceInfo
 	{
 		private bool m_startHidden;
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableDetailInstanceInfo(ReportProcessing.ProcessingContext pc, TableDetail tableDetailDef, TableDetailInstance owner, Table tableDef)
+		public TableDetailInstanceInfo(ReportProcessing.ProcessingContext pc, TableDetail tableDetailDef, TableDetailInstance owner, Table tableDef)
 		{
 			if (pc.ShowHideType != 0)
 			{
@@ -30,11 +30,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			pc.ChunkManager.AddInstance(this, owner, pc.InPageSection);
 		}
 
-		internal TableDetailInstanceInfo()
+		public TableDetailInstanceInfo()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.StartHidden, Token.Boolean));

@@ -3,9 +3,9 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimTableMemberVisibility : ShimMemberVisibility
+	public sealed class ShimTableMemberVisibility : ShimMemberVisibility
 	{
-		internal enum Mode
+		public enum Mode
 		{
 			StaticColumn,
 			StaticRow,
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool GetInstanceHidden()
+		public override bool GetInstanceHidden()
 		{
 			switch (this.m_mode)
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool GetInstanceStartHidden()
+		public override bool GetInstanceStartHidden()
 		{
 			switch (this.m_mode)
 			{

@@ -4,49 +4,49 @@ using System.Collections;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartAreaAxes : ChartElement
+	public class ChartAreaAxes : ChartElement
 	{
-		internal Axis axisY;
+		public Axis axisY;
 
-		internal Axis axisX;
+		public Axis axisX;
 
-		internal Axis axisX2;
+		public Axis axisX2;
 
-		internal Axis axisY2;
+		public Axis axisY2;
 
-		internal ArrayList series = new ArrayList();
+		public ArrayList series = new ArrayList();
 
-		internal ArrayList chartTypes = new ArrayList();
+		public ArrayList chartTypes = new ArrayList();
 
-		internal string name = "";
+		public string name = "";
 
 		private string intervalSeriesList = "";
 
-		internal double intervalData = double.NaN;
+		public double intervalData = double.NaN;
 
-		internal double intervalLogData = double.NaN;
+		public double intervalLogData = double.NaN;
 
-		internal Series intervalSeries;
+		public Series intervalSeries;
 
-		internal bool intervalSameSize;
+		public bool intervalSameSize;
 
-		internal bool diffIntervalAlignmentChecked;
+		public bool diffIntervalAlignmentChecked;
 
-		internal bool stacked;
+		public bool stacked;
 
-		internal bool secondYScale;
+		public bool secondYScale;
 
-		internal bool switchValueAxes;
+		public bool switchValueAxes;
 
-		internal bool requireAxes = true;
+		public bool requireAxes = true;
 
-		internal bool chartAreaIsCurcular;
+		public bool chartAreaIsCurcular;
 
-		internal bool hundredPercent;
+		public bool hundredPercent;
 
-		internal bool hundredPercentNegative;
+		public bool hundredPercentNegative;
 
-		internal bool IsSubAxesSupported
+		public bool IsSubAxesSupported
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ArrayList Series
+		public ArrayList Series
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ArrayList ChartTypes
+		public ArrayList ChartTypes
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Axis GetAxis(AxisName axisName, AxisType axisType, string subAxisName)
+		public Axis GetAxis(AxisName axisName, AxisType axisType, string subAxisName)
 		{
 			if (((ChartArea)this).Area3DStyle.Enable3D)
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return ((ChartArea)this).AxisX2.GetSubAxis(subAxisName);
 		}
 
-		internal void SetDefaultAxesValues()
+		public void SetDefaultAxesValues()
 		{
 			if (this.switchValueAxes)
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal bool SeriesIntegerType(AxisName axisName, string subAxisName)
+		public bool SeriesIntegerType(AxisName axisName, string subAxisName)
 		{
 			foreach (string item in this.series)
 			{
@@ -478,7 +478,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal bool SeriesDateTimeType(AxisName axisName, string subAxisName)
+		public bool SeriesDateTimeType(AxisName axisName, string subAxisName)
 		{
 			foreach (string item in this.series)
 			{
@@ -761,12 +761,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetData()
+		public void SetData()
 		{
 			this.SetData(true);
 		}
 
-		internal void SetData(bool initializeAxes)
+		public void SetData(bool initializeAxes)
 		{
 			this.stacked = false;
 			this.switchValueAxes = false;
@@ -879,7 +879,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ArrayList GetSeriesFromChartType(string chartType)
+		public ArrayList GetSeriesFromChartType(string chartType)
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (string item in this.series)
@@ -892,7 +892,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return arrayList;
 		}
 
-		internal ArrayList GetSeries()
+		public ArrayList GetSeries()
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (string item in this.series)
@@ -902,7 +902,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return arrayList;
 		}
 
-		internal ArrayList GetXAxesSeries(AxisType type, string subAxisName)
+		public ArrayList GetXAxesSeries(AxisType type, string subAxisName)
 		{
 			ArrayList arrayList = new ArrayList();
 			if (this.series.Count == 0)
@@ -931,7 +931,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return arrayList;
 		}
 
-		internal ArrayList GetYAxesSeries(AxisType type, string subAxisName)
+		public ArrayList GetYAxesSeries(AxisType type, string subAxisName)
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (string item in this.series)
@@ -954,7 +954,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return arrayList;
 		}
 
-		internal Series GetFirstSeries()
+		public Series GetFirstSeries()
 		{
 			if (this.series.Count == 0)
 			{
@@ -963,19 +963,19 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return base.Common.DataManager.Series[this.series[0]];
 		}
 
-		internal double GetPointsInterval(bool logarithmic, double logarithmBase)
+		public double GetPointsInterval(bool logarithmic, double logarithmBase)
 		{
 			bool flag = default(bool);
 			return this.GetPointsInterval(this.series, logarithmic, logarithmBase, false, out flag);
 		}
 
-		internal double GetPointsInterval(ArrayList seriesList, bool logarithmic, double logarithmBase, bool checkSameInterval, out bool sameInterval)
+		public double GetPointsInterval(ArrayList seriesList, bool logarithmic, double logarithmBase, bool checkSameInterval, out bool sameInterval)
 		{
 			Series series = null;
 			return this.GetPointsInterval(seriesList, logarithmic, logarithmBase, checkSameInterval, out sameInterval, out series);
 		}
 
-		internal double GetPointsInterval(ArrayList seriesList, bool logarithmic, double logarithmicBase, bool checkSameInterval, out bool sameInterval, out Series series)
+		public double GetPointsInterval(ArrayList seriesList, bool logarithmic, double logarithmicBase, bool checkSameInterval, out bool sameInterval, out Series series)
 		{
 			long num = 9223372036854775807L;
 			int num2 = 0;

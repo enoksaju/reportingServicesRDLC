@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class SPIntlCal
+	public sealed class SPIntlCal
 	{
 		public const int DaysInWeek = 7;
 
@@ -10,7 +10,7 @@ namespace AspNetCore.Reporting
 
 		private static SPGregorianCalendar _GregorianCalendar = new SPGregorianCalendar();
 
-		internal static SPGregorianCalendar GregorianCalendar
+		public static SPGregorianCalendar GregorianCalendar
 		{
 			get
 			{

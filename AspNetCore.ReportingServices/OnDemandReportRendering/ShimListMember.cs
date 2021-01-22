@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimListMember : ShimTablixMember
+	public sealed class ShimListMember : ShimTablixMember
 	{
 		public override string ID
 		{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override int RowSpan
+		public override int RowSpan
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override int ColSpan
+		public override int ColSpan
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override PageBreakLocation PropagatedGroupBreak
+		public override PageBreakLocation PropagatedGroupBreak
 		{
 			get
 			{
@@ -137,13 +137,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimListMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimRenderGroups renderGroups, int parentCollectionIndex, bool isColumn)
+		public ShimListMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimRenderGroups renderGroups, int parentCollectionIndex, bool isColumn)
 			: base(parentDefinitionPath, owner, null, parentCollectionIndex, isColumn)
 		{
 			base.m_group = new Group(owner, renderGroups, this);
 		}
 
-		internal override bool SetNewContext(int index)
+		public override bool SetNewContext(int index)
 		{
 			base.ResetContext();
 			if (base.m_instance != null)
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return index <= 1;
 		}
 
-		internal override void ResetContext()
+		public override void ResetContext()
 		{
 			base.ResetContext();
 			if (base.m_group.CurrentRenderGroupIndex >= 0)
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ResetContext(ShimRenderGroups renderGroups)
+		public void ResetContext(ShimRenderGroups renderGroups)
 		{
 			if (base.m_group != null)
 			{

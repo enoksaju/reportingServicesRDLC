@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LayerCollection : NamedCollection
+	public class LayerCollection : NamedCollection
 	{
 		private Layer this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal LayerCollection(NamedElement parent, CommonElements common)
+		public LayerCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(Layer);
@@ -82,17 +82,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Remove(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Layer1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Layer{0}";
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (base.Common != null)
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.Invalidate();
 		}
 
-		internal bool HasVisibleLayer()
+		public bool HasVisibleLayer()
 		{
 			foreach (Layer item in this)
 			{

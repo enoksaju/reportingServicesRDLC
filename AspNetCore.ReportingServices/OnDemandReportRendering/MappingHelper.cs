@@ -6,17 +6,17 @@ using System.Windows.Forms;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal static class MappingHelper
+	public static class MappingHelper
 	{
-		internal struct MapAreaInfo
+		public struct MapAreaInfo
 		{
-			internal string ToolTip;
+			public string ToolTip;
 
-			internal ImageMapArea.ImageMapAreaShape MapAreaShape;
+			public ImageMapArea.ImageMapAreaShape MapAreaShape;
 
-			internal object Tag;
+			public object Tag;
 
-			internal float[] Coordinates;
+			public float[] Coordinates;
 
 			public MapAreaInfo(string toolTip, object tag, ImageMapArea.ImageMapAreaShape mapAreaShape, float[] coordinates)
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal struct ActionParameterInfo
+		public struct ActionParameterInfo
 		{
 			public string Name;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			public bool Omit;
 		}
 
-		internal class ActionTag
+		public class ActionTag
 		{
 			public Action Action;
 
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private static Color m_defaultShadowColor = Color.FromArgb(0, 0, 0, 127);
 
-		internal static Color DefaultBackgroundColor
+		public static Color DefaultBackgroundColor
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static Color DefaultBorderColor
+		public static Color DefaultBorderColor
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static Color DefaultColor
+		public static Color DefaultColor
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static string DefaultFontFamily
+		public static string DefaultFontFamily
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static float DefaultFontSize
+		public static float DefaultFontSize
 		{
 			get
 			{
@@ -85,13 +85,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static double ConvertToDouble(object value, bool checkForMaxMinValue, bool checkForStringDate)
+		public static double ConvertToDouble(object value, bool checkForMaxMinValue, bool checkForStringDate)
 		{
 			bool flag = false;
 			return MappingHelper.ConvertToDouble(value, checkForMaxMinValue, checkForStringDate, ref flag);
 		}
 
-		internal static double ConvertToDouble(object value, bool checkForMaxMinValue, bool checkForStringDate, ref bool isDateTime)
+		public static double ConvertToDouble(object value, bool checkForMaxMinValue, bool checkForStringDate, ref bool isDateTime)
 		{
 			if (value == null)
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return double.NaN;
 		}
 
-		internal static float[] ConvertCoordinatesToRelative(float[] pixelCoordinates, float width, float height)
+		public static float[] ConvertCoordinatesToRelative(float[] pixelCoordinates, float width, float height)
 		{
 			float[] array = new float[pixelCoordinates.Length];
 			for (int i = 0; i < array.Length; i += 2)
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return array;
 		}
 
-		internal static float[] ConvertCoordinatesToRelative(int[] pixelCoordinates, float width, float height)
+		public static float[] ConvertCoordinatesToRelative(int[] pixelCoordinates, float width, float height)
 		{
 			float[] array = new float[pixelCoordinates.Length];
 			for (int i = 0; i < array.Length; i += 2)
@@ -293,12 +293,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static ActionInfoWithDynamicImageMap CreateActionInfoDynamic(ReportItem reportItem, ActionInfo actionInfo, string toolTip, out string href)
+		public static ActionInfoWithDynamicImageMap CreateActionInfoDynamic(ReportItem reportItem, ActionInfo actionInfo, string toolTip, out string href)
 		{
 			return MappingHelper.CreateActionInfoDynamic(reportItem, actionInfo, toolTip, out href, true);
 		}
 
-		internal static ActionInfoWithDynamicImageMap CreateActionInfoDynamic(ReportItem reportItem, ActionInfo actionInfo, string toolTip, out string href, bool applyExpression)
+		public static ActionInfoWithDynamicImageMap CreateActionInfoDynamic(ReportItem reportItem, ActionInfo actionInfo, string toolTip, out string href, bool applyExpression)
 		{
 			Action actionFromActionInfo = MappingHelper.GetActionFromActionInfo(actionInfo);
 			if (actionFromActionInfo == null)
@@ -349,7 +349,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return actionInfoWithDynamicImageMap;
 		}
 
-		internal static ActionInfoWithDynamicImageMapCollection GetImageMaps(IEnumerable<MapAreaInfo> mapAreaInfoList, ActionInfoWithDynamicImageMapCollection actions, ReportItem reportItem)
+		public static ActionInfoWithDynamicImageMapCollection GetImageMaps(IEnumerable<MapAreaInfo> mapAreaInfoList, ActionInfoWithDynamicImageMapCollection actions, ReportItem reportItem)
 		{
 			List<ActionInfoWithDynamicImageMap> list = new List<ActionInfoWithDynamicImageMap>();
 			bool[] array = new bool[actions.Count];
@@ -398,7 +398,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return num;
 		}
 
-		internal static Color GetStyleColor(Style style, StyleInstance styleInstance)
+		public static Color GetStyleColor(Style style, StyleInstance styleInstance)
 		{
 			ReportColorProperty color = style.Color;
 			Color result = Color.Black;
@@ -413,7 +413,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal static Color GetStyleBackgroundColor(Style style, StyleInstance styleInstance)
+		public static Color GetStyleBackgroundColor(Style style, StyleInstance styleInstance)
 		{
 			ReportColorProperty backgroundColor = style.BackgroundColor;
 			Color result = Color.Empty;
@@ -428,7 +428,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal static Color GetStyleBackGradientEndColor(Style style, StyleInstance styleInstance)
+		public static Color GetStyleBackGradientEndColor(Style style, StyleInstance styleInstance)
 		{
 			ReportColorProperty backgroundGradientEndColor = style.BackgroundGradientEndColor;
 			Color result = Color.Empty;
@@ -443,7 +443,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal static Color GetStyleShadowColor(Style style, StyleInstance styleInstance)
+		public static Color GetStyleShadowColor(Style style, StyleInstance styleInstance)
 		{
 			ReportColorProperty shadowColor = style.ShadowColor;
 			Color result = MappingHelper.m_defaultShadowColor;
@@ -458,7 +458,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal static BackgroundGradients GetStyleBackGradientType(Style style, StyleInstance styleInstance)
+		public static BackgroundGradients GetStyleBackGradientType(Style style, StyleInstance styleInstance)
 		{
 			ReportEnumProperty<BackgroundGradients> backgroundGradientType = style.BackgroundGradientType;
 			if (!backgroundGradientType.IsExpression)
@@ -468,7 +468,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return styleInstance.BackgroundGradientType;
 		}
 
-		internal static BackgroundHatchTypes GetStyleBackgroundHatchType(Style style, StyleInstance styleInstance)
+		public static BackgroundHatchTypes GetStyleBackgroundHatchType(Style style, StyleInstance styleInstance)
 		{
 			ReportEnumProperty<BackgroundHatchTypes> backgroundHatchType = style.BackgroundHatchType;
 			if (!backgroundHatchType.IsExpression)
@@ -478,7 +478,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return styleInstance.BackgroundHatchType;
 		}
 
-		internal static int GetStyleShadowOffset(Style style, StyleInstance styleInstance, float dpi)
+		public static int GetStyleShadowOffset(Style style, StyleInstance styleInstance, float dpi)
 		{
 			ReportSizeProperty shadowOffset = style.ShadowOffset;
 			if (!shadowOffset.IsExpression)
@@ -493,12 +493,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return 0;
 		}
 
-		internal static Font GetDefaultFont()
+		public static Font GetDefaultFont()
 		{
 			return new Font(MappingHelper.DefaultFontFamily, MappingHelper.DefaultFontSize, MappingHelper.GetStyleFontStyle(FontStyles.Normal, FontWeights.Normal, TextDecorations.None));
 		}
 
-		internal static TextDecorations GetStyleFontTextDecoration(Style style, StyleInstance styleInstance)
+		public static TextDecorations GetStyleFontTextDecoration(Style style, StyleInstance styleInstance)
 		{
 			ReportEnumProperty<TextDecorations> textDecoration = style.TextDecoration;
 			if (MappingHelper.IsStylePropertyDefined(textDecoration))
@@ -512,7 +512,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return TextDecorations.None;
 		}
 
-		internal static FontWeights GetStyleFontWeight(Style style, StyleInstance styleInstance)
+		public static FontWeights GetStyleFontWeight(Style style, StyleInstance styleInstance)
 		{
 			ReportEnumProperty<FontWeights> fontWeight = style.FontWeight;
 			if (MappingHelper.IsStylePropertyDefined(fontWeight))
@@ -526,7 +526,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return FontWeights.Normal;
 		}
 
-		internal static FontStyles GetStyleFontStyle(Style style, StyleInstance styleInstance)
+		public static FontStyles GetStyleFontStyle(Style style, StyleInstance styleInstance)
 		{
 			ReportEnumProperty<FontStyles> fontStyle = style.FontStyle;
 			if (MappingHelper.IsStylePropertyDefined(fontStyle))
@@ -540,7 +540,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return FontStyles.Normal;
 		}
 
-		internal static float GetStyleFontSize(Style style, StyleInstance styleInstance)
+		public static float GetStyleFontSize(Style style, StyleInstance styleInstance)
 		{
 			ReportSizeProperty fontSize = style.FontSize;
 			if (MappingHelper.IsStylePropertyDefined(fontSize))
@@ -561,7 +561,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MappingHelper.DefaultFontSize;
 		}
 
-		internal static string GetStyleFontFamily(Style style, StyleInstance styleInstance, string fallbackFont)
+		public static string GetStyleFontFamily(Style style, StyleInstance styleInstance, string fallbackFont)
 		{
 			ReportStringProperty fontFamily = style.FontFamily;
 			if (MappingHelper.IsStylePropertyDefined(fontFamily))
@@ -581,7 +581,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return fallbackFont;
 		}
 
-		internal static FontStyle GetStyleFontStyle(FontStyles style, FontWeights weight, TextDecorations textDecoration)
+		public static FontStyle GetStyleFontStyle(FontStyles style, FontWeights weight, TextDecorations textDecoration)
 		{
 			FontStyle fontStyle = FontStyle.Regular;
 			if (style == FontStyles.Italic)
@@ -609,7 +609,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return fontStyle;
 		}
 
-		internal static Color GetStyleBorderColor(Border border)
+		public static Color GetStyleBorderColor(Border border)
 		{
 			ReportColorProperty color = border.Color;
 			Color result = Color.Black;
@@ -624,7 +624,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal static int GetStyleBorderWidth(Border border, float dpi)
+		public static int GetStyleBorderWidth(Border border, float dpi)
 		{
 			ReportSizeProperty width = border.Width;
 			int result = MappingHelper.GetDefaultBorderWidth(dpi);
@@ -646,7 +646,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal static BorderStyles GetStyleBorderStyle(Border border)
+		public static BorderStyles GetStyleBorderStyle(Border border)
 		{
 			ReportEnumProperty<BorderStyles> style = border.Style;
 			if (!style.IsExpression)
@@ -656,7 +656,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return border.Instance.Style;
 		}
 
-		internal static TextAlignments GetStyleTextAlign(Style style, StyleInstance styleInstance)
+		public static TextAlignments GetStyleTextAlign(Style style, StyleInstance styleInstance)
 		{
 			ReportEnumProperty<TextAlignments> textAlign = style.TextAlign;
 			if (!textAlign.IsExpression)
@@ -666,7 +666,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return styleInstance.TextAlign;
 		}
 
-		internal static VerticalAlignments GetStyleVerticalAlignment(Style style, StyleInstance styleInstance)
+		public static VerticalAlignments GetStyleVerticalAlignment(Style style, StyleInstance styleInstance)
 		{
 			ReportEnumProperty<VerticalAlignments> verticalAlign = style.VerticalAlign;
 			if (!verticalAlign.IsExpression)
@@ -676,7 +676,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return styleInstance.VerticalAlign;
 		}
 
-		internal static TextEffects GetStyleTextEffect(Style style, StyleInstance styleInstance)
+		public static TextEffects GetStyleTextEffect(Style style, StyleInstance styleInstance)
 		{
 			ReportEnumProperty<TextEffects> textEffect = style.TextEffect;
 			if (!textEffect.IsExpression)
@@ -686,7 +686,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return styleInstance.TextEffect;
 		}
 
-		internal static string GetStyleFormat(Style style, StyleInstance styleInstance)
+		public static string GetStyleFormat(Style style, StyleInstance styleInstance)
 		{
 			ReportStringProperty format = style.Format;
 			string text = null;
@@ -708,7 +708,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return text;
 		}
 
-		internal static ContentAlignment GetStyleContentAlignment(Style style, StyleInstance styleInstance)
+		public static ContentAlignment GetStyleContentAlignment(Style style, StyleInstance styleInstance)
 		{
 			TextAlignments styleTextAlign = MappingHelper.GetStyleTextAlign(style, styleInstance);
 			VerticalAlignments styleVerticalAlignment = MappingHelper.GetStyleVerticalAlignment(style, styleInstance);
@@ -758,7 +758,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal static bool IsStylePropertyDefined(ReportProperty property)
+		public static bool IsStylePropertyDefined(ReportProperty property)
 		{
 			if (property != null)
 			{
@@ -767,7 +767,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal static bool IsPropertyExpression(ReportProperty property)
+		public static bool IsPropertyExpression(ReportProperty property)
 		{
 			if (property == null)
 			{
@@ -776,7 +776,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return property.IsExpression;
 		}
 
-		internal static bool GetColorFromReportColorProperty(ReportColorProperty reportColorProperty, ref Color color)
+		public static bool GetColorFromReportColorProperty(ReportColorProperty reportColorProperty, ref Color color)
 		{
 			if (!reportColorProperty.IsExpression && reportColorProperty.Value != null)
 			{
@@ -786,7 +786,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal static RightToLeft GetStyleDirection(Style style, StyleInstance styleInstance)
+		public static RightToLeft GetStyleDirection(Style style, StyleInstance styleInstance)
 		{
 			Directions directions = style.Direction.IsExpression ? styleInstance.Direction : style.Direction.Value;
 			if (directions == Directions.RTL)
@@ -796,17 +796,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return RightToLeft.No;
 		}
 
-		internal static double ToPixels(ReportSize size, float dpi)
+		public static double ToPixels(ReportSize size, float dpi)
 		{
 			return size.ToInches() * (double)dpi;
 		}
 
-		internal static int ToIntPixels(ReportSize size, float dpi)
+		public static int ToIntPixels(ReportSize size, float dpi)
 		{
 			return Convert.ToInt32(MappingHelper.ToPixels(size, dpi));
 		}
 
-		internal static double ToPixels(double value, Unit unit, float dpi)
+		public static double ToPixels(double value, Unit unit, float dpi)
 		{
 			switch (unit)
 			{
@@ -826,12 +826,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return value * (double)dpi;
 		}
 
-		internal static int ToIntPixels(double value, Unit unit, float dpi)
+		public static int ToIntPixels(double value, Unit unit, float dpi)
 		{
 			return Convert.ToInt32(MappingHelper.ToPixels(value, unit, dpi));
 		}
 
-		internal static int GetDefaultBorderWidth(float dpi)
+		public static int GetDefaultBorderWidth(float dpi)
 		{
 			return (int)Math.Round(0.013888888888888888 * (double)dpi);
 		}

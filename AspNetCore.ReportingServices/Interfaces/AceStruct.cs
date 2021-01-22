@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.Interfaces
 {
 	[Serializable]
-	internal class AceStruct
+	public class AceStruct
 	{
 		public string PrincipalName;
 

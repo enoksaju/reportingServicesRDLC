@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal interface IReportServerConnectionProvider
+	public interface IReportServerConnectionProvider
 	{
 		IReportServerConnection Create();
 	}

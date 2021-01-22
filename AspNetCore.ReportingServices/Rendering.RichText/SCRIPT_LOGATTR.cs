@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal struct SCRIPT_LOGATTR
+	public struct SCRIPT_LOGATTR
 	{
 		private byte m_value;
 
-		internal bool IsWhiteSpace
+		public bool IsWhiteSpace
 		{
 			get
 			{
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool IsSoftBreak
+		public bool IsSoftBreak
 		{
 			get
 			{

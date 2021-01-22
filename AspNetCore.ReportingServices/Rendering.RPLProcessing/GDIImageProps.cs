@@ -3,7 +3,7 @@ using System.Drawing.Imaging;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class GDIImageProps
+	public sealed class GDIImageProps
 	{
 		private int m_width;
 
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal GDIImageProps()
+		public GDIImageProps()
 		{
 		}
 

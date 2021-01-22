@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class CapImage : BaseGaugeImage, IPersistable
+	public sealed class CapImage : BaseGaugeImage, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = CapImage.GetDeclaration();
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_offsetY;
 
-		internal ExpressionInfo HueColor
+		public ExpressionInfo HueColor
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo OffsetX
+		public ExpressionInfo OffsetX
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo OffsetY
+		public ExpressionInfo OffsetY
 		{
 			get
 			{
@@ -58,16 +58,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CapImage()
+		public CapImage()
 		{
 		}
 
-		internal CapImage(GaugePanel gaugePanel)
+		public CapImage(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.CapImageStart();
 			base.Initialize(context);
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.CapImageEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			CapImage capImage = (CapImage)base.PublishClone(context);
 			if (this.m_hueColor != null)
@@ -107,14 +107,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return capImage;
 		}
 
-		internal void SetExprHost(CapImageExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(CapImageExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
 			base.m_exprHost = exprHost;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.HueColor, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -170,19 +170,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.CapImage;
 		}
 
-		internal string EvaluateHueColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateHueColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateCapImageHueColorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateOffsetX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateOffsetX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateCapImageOffsetXExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateOffsetY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateOffsetY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateCapImageOffsetYExpression(this, base.m_gaugePanel.Name);

@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class LineInstance : ReportItemInstance
+	public sealed class LineInstance : ReportItemInstance
 	{
-		internal LineInstance(Line reportItemDef)
+		public LineInstance(Line reportItemDef)
 			: base(reportItemDef)
 		{
 		}

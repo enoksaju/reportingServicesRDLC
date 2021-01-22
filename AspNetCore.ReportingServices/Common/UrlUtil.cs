@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class UrlUtil
+	public static class UrlUtil
 	{
 		public static string UrlEncode(string input)
 		{

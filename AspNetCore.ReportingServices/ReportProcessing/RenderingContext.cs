@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class RenderingContext
+	public sealed class RenderingContext
 	{
 		private ICatalogItemContext m_reportContext;
 
@@ -12,9 +12,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private EventInformation m_eventInfo;
 
-		internal ReportProcessing.GetReportChunk m_getReportChunkCallback;
+		public ReportProcessing.GetReportChunk m_getReportChunkCallback;
 
-		internal ReportProcessing.GetChunkMimeType m_getChunkMimeType;
+		public ReportProcessing.GetChunkMimeType m_getChunkMimeType;
 
 		private ReportProcessing.StoreServerParameters m_storeServerParameters;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private int m_previousTotalPages;
 
-		internal string Format
+		public string Format
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Uri ReportUri
+		public Uri ReportUri
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ShowHideToggle
+		public string ShowHideToggle
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ICatalogItemContext ReportContext
+		public ICatalogItemContext ReportContext
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ReportDescription
+		public string ReportDescription
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal EventInformation EventInfo
+		public EventInformation EventInfo
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.StoreServerParameters StoreServerParametersCallback
+		public ReportProcessing.StoreServerParameters StoreServerParametersCallback
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal UserProfileState AllowUserProfileState
+		public UserProfileState AllowUserProfileState
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportRuntimeSetup ReportRuntimeSetup
+		public ReportRuntimeSetup ReportRuntimeSetup
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PaginationMode ClientPaginationMode
+		public PaginationMode ClientPaginationMode
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int PreviousTotalPages
+		public int PreviousTotalPages
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RenderingContext(ICatalogItemContext reportContext, string reportDescription, EventInformation eventInfo, ReportRuntimeSetup reportRuntimeSetup, ReportProcessing.StoreServerParameters storeServerParameters, UserProfileState allowUserProfileState, PaginationMode clientPaginationMode, int previousTotalPages)
+		public RenderingContext(ICatalogItemContext reportContext, string reportDescription, EventInformation eventInfo, ReportRuntimeSetup reportRuntimeSetup, ReportProcessing.StoreServerParameters storeServerParameters, UserProfileState allowUserProfileState, PaginationMode clientPaginationMode, int previousTotalPages)
 		{
 			Global.Tracer.Assert(null != reportContext, "(null != reportContext)");
 			this.m_reportContext = reportContext;
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_previousTotalPages = previousTotalPages;
 		}
 
-		internal Hashtable GetRenderProperties(bool reprocessSnapshot)
+		public Hashtable GetRenderProperties(bool reprocessSnapshot)
 		{
 			Hashtable hashtable = new Hashtable(4);
 			if (reprocessSnapshot)

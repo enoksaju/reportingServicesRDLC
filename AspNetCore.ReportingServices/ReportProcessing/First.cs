@@ -1,18 +1,18 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class First : DataAggregate
+	public sealed class First : DataAggregate
 	{
 		private object m_value;
 
 		private bool m_updated;
 
-		internal override void Init()
+		public override void Init()
 		{
 			this.m_value = null;
 			this.m_updated = false;
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			Global.Tracer.Assert(null != expressions);
 			Global.Tracer.Assert(1 == expressions.Length);
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			return this.m_value;
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IWorkbookModel
+	public interface IWorkbookModel
 	{
 		IWorksheetsModel Worksheets
 		{

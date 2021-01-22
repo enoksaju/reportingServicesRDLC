@@ -5,26 +5,26 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class StorageItem : ItemHolder, IStorable, IPersistable
+	public class StorageItem : ItemHolder, IStorable, IPersistable
 	{
-		internal int Priority;
+		public int Priority;
 
-		internal ReferenceID Id;
+		public ReferenceID Id;
 
 		[NonSerialized]
-		internal long PersistedSize;
+		public long PersistedSize;
 
 		[NonSerialized]
 		private int m_size;
 
 		[NonSerialized]
-		internal int PinCount;
+		public int PinCount;
 
 		[NonSerialized]
-		internal bool HasBeenUnPinned;
+		public bool HasBeenUnPinned;
 
 		[NonSerialized]
-		internal long Offset = -1L;
+		public long Offset = -1L;
 
 		[NonSerialized]
 		private LinkedBucketedQueue<BaseReference> m_otherReferences;
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal int ActiveReferenceCount
+		public int ActiveReferenceCount
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return base.BaseSize() + itemSize + 8 + 8 + 4 + 4 + 1 + 8 + ItemSizes.ReferenceSize;
 		}
 
-		internal override int ComputeSizeForReference()
+		public override int ComputeSizeForReference()
 		{
 			return 0;
 		}
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal void UnlinkReferences(bool updateId)
+		public void UnlinkReferences(bool updateId)
 		{
 			if (base.Reference != (object)null)
 			{
@@ -215,7 +215,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 		}
 
 		[SkipMemberStaticValidation(MemberName.Item)]
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Priority, Token.Int32));

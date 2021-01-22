@@ -7,9 +7,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public sealed class AggregatesImpl : Aggregates
 	{
-		internal const string Name = "Aggregates";
+		public const string Name = "Aggregates";
 
-		internal const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.Aggregates";
+		public const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.Aggregates";
 
 		private bool m_lockAdd;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ICollection Objects
+		public ICollection Objects
 		{
 			get
 			{
@@ -65,12 +65,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal AggregatesImpl(IErrorContext iErrorContext)
+		public AggregatesImpl(IErrorContext iErrorContext)
 			: this(false, iErrorContext)
 		{
 		}
 
-		internal AggregatesImpl(bool lockAdd, IErrorContext iErrorContext)
+		public AggregatesImpl(bool lockAdd, IErrorContext iErrorContext)
 		{
 			this.m_lockAdd = lockAdd;
 			this.m_collection = new Hashtable();
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_iErrorContext = iErrorContext;
 		}
 
-		internal void Add(DataAggregateObj newObject)
+		public void Add(DataAggregateObj newObject)
 		{
 			Global.Tracer.Assert(!newObject.NonAggregateMode, "( !newObject.NonAggregateMode )");
 			try
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal void Set(string name, DataAggregateInfo aggregateDef, StringList duplicateNames, DataAggregateObjResult aggregateResult)
+		public void Set(string name, DataAggregateInfo aggregateDef, StringList duplicateNames, DataAggregateObjResult aggregateResult)
 		{
 			DataAggregateObj aggregateObj = this.GetAggregateObj(name);
 			if (aggregateObj == null)
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal DataAggregateObj GetAggregateObj(string name)
+		public DataAggregateObj GetAggregateObj(string name)
 		{
 			return (DataAggregateObj)this.m_collection[name];
 		}
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal void ResetUsedInExpression()
+		public void ResetUsedInExpression()
 		{
 			foreach (DataAggregateObj value in this.m_collection.Values)
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal void AddFieldsUsedInExpression(List<string> fieldsUsedInValueExpression)
+		public void AddFieldsUsedInExpression(List<string> fieldsUsedInValueExpression)
 		{
 			foreach (DataAggregateObj value in this.m_collection.Values)
 			{

@@ -9,7 +9,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(GaugeImageConverter))]
-	internal class GaugeImage : NamedElement, IRenderable, IToolTipProvider, ISelectable, IImageMapProvider
+	public class GaugeImage : NamedElement, IRenderable, IToolTipProvider, ISelectable, IImageMapProvider
 	{
 		private string parent = string.Empty;
 
@@ -350,7 +350,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal Position Position
+		public Position Position
 		{
 			get
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool DefaultParent
+		public bool DefaultParent
 		{
 			get
 			{
@@ -408,7 +408,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.Name;
 		}
 
-		internal void DrawImage(GaugeGraphics g, string imageName, bool drawShadow)
+		public void DrawImage(GaugeGraphics g, string imageName, bool drawShadow)
 		{
 			if (drawShadow && this.ShadowOffset == 0.0)
 			{
@@ -503,7 +503,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GraphicsPath GetTextPath(GaugeGraphics g)
+		public GraphicsPath GetTextPath(GaugeGraphics g)
 		{
 			if (!this.Visible)
 			{
@@ -535,7 +535,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal GraphicsPath GetBackPath(GaugeGraphics g)
+		public GraphicsPath GetBackPath(GaugeGraphics g)
 		{
 			if (!this.Visible)
 			{
@@ -557,7 +557,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.ConnectToParent(true);
@@ -579,7 +579,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			base.Notify(msg, element, param);
 			switch (msg)
@@ -599,7 +599,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.ConnectToParent(true);

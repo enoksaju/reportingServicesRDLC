@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<RadialPointerExprHost> m_radialPointersHostsRemotable;
 
-		internal IList<RadialPointerExprHost> RadialPointersHostsRemotable
+		public IList<RadialPointerExprHost> RadialPointersHostsRemotable
 		{
 			get
 			{

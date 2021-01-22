@@ -5,7 +5,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ImageMapAreaInstance
+	public sealed class ImageMapAreaInstance
 	{
 		private string m_id;
 
@@ -91,16 +91,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageMapAreaInstance()
+		public ImageMapAreaInstance()
 		{
 		}
 
-		internal ImageMapAreaInstance(ReportProcessing.ProcessingContext processingContext)
+		public ImageMapAreaInstance(ReportProcessing.ProcessingContext processingContext)
 		{
 			this.m_uniqueName = processingContext.CreateUniqueName();
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Id, Token.String));

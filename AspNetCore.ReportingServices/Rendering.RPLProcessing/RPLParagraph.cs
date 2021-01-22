@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLParagraph : RPLElement
+	public sealed class RPLParagraph : RPLElement
 	{
 		private int m_textRunCount;
 
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal Queue<RPLTextRun> TextRuns
+		public Queue<RPLTextRun> TextRuns
 		{
 			set
 			{
@@ -49,25 +49,25 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLParagraph()
+		public RPLParagraph()
 		{
 			base.m_rplElementProps = new RPLParagraphProps();
 			base.m_rplElementProps.Definition = new RPLParagraphPropsDef();
 		}
 
-		internal RPLParagraph(long textRunOffsets, RPLContext context)
+		public RPLParagraph(long textRunOffsets, RPLContext context)
 			: base(context)
 		{
 			this.m_textRunOffsets = textRunOffsets;
 		}
 
-		internal RPLParagraph(Queue<RPLTextRun> textRuns, RPLParagraphProps rplElementProps)
+		public RPLParagraph(Queue<RPLTextRun> textRuns, RPLParagraphProps rplElementProps)
 			: base(rplElementProps)
 		{
 			this.m_textRuns = textRuns;
 		}
 
-		internal void AddTextRun(RPLTextRun textRun)
+		public void AddTextRun(RPLTextRun textRun)
 		{
 			if (this.m_textRuns == null)
 			{

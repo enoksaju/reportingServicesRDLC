@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal struct SimpleDate
+	public struct SimpleDate
 	{
 		private int m_Year;
 

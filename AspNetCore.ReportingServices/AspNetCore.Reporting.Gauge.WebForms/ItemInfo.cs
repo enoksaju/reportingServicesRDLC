@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class ItemInfo
+	public class ItemInfo
 	{
 		public string name = "";
 

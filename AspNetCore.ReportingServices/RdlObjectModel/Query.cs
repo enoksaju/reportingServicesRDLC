@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Query : QueryBase
+	public class Query : QueryBase
 	{
-		internal new class Definition : DefinitionStore<Query, Definition.Properties>
+		public new class Definition : DefinitionStore<Query, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				CommandType,
 				CommandText,
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Query(IPropertyStore propertyStore)
+		public Query(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

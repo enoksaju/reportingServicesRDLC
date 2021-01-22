@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class Chart : DynamicImage
+	public sealed class Chart : DynamicImage
 	{
 		protected override PaginationInfoItems PaginationInfoEnum
 		{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override double SourceWidthInMM
+		public override double SourceWidthInMM
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Chart(AspNetCore.ReportingServices.OnDemandReportRendering.Chart source, PageContext pageContext, bool createForRepeat)
+		public Chart(AspNetCore.ReportingServices.OnDemandReportRendering.Chart source, PageContext pageContext, bool createForRepeat)
 			: base(source, pageContext, createForRepeat)
 		{
 			ChartInstance chartInstance = (ChartInstance)base.m_source.Instance;

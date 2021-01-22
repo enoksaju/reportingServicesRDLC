@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CircularMajorTickMark : TickMark
+	public class CircularMajorTickMark : TickMark
 	{
 		[SRCategory("CategoryAppearance")]
 		[DefaultValue(MarkerStyle.Trapezoid)]

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal interface ITraceContext
+	public interface ITraceContext
 	{
 		bool TraceEnabled
 		{

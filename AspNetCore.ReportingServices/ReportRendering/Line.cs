@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Line : ReportItem
+	public sealed class Line : ReportItem
 	{
 		public bool Slant
 		{
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Line(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Line reportItemDef, LineInstance reportItemInstance, RenderingContext renderingContext)
+		public Line(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Line reportItemDef, LineInstance reportItemInstance, RenderingContext renderingContext)
 			: base(uniqueName, intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 		}

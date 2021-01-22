@@ -2,17 +2,17 @@ using AspNetCore.ReportingServices.Diagnostics.Utilities;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class Avg : Sum
+	public sealed class Avg : Sum
 	{
 		private uint m_currentCount;
 
-		internal override void Init()
+		public override void Init()
 		{
 			base.Init();
 			this.m_currentCount = 0u;
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			Global.Tracer.Assert(null != expressions);
 			Global.Tracer.Assert(1 == expressions.Length);
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			switch (base.m_currentTotalType)
 			{

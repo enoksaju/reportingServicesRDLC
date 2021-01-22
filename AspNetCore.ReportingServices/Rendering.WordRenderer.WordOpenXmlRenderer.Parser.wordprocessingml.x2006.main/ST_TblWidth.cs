@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class ST_TblWidth
+	public class ST_TblWidth
 	{
 		private string _ooxmlEnumerationValue;
 

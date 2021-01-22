@@ -7,17 +7,17 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal class DataFieldRow : IStorable, IPersistable
+	public class DataFieldRow : IStorable, IPersistable
 	{
 		protected FieldImpl[] m_fields;
 
 		protected long m_streamOffset = DataFieldRow.UnInitializedStreamOffset;
 
-		internal static readonly long UnInitializedStreamOffset = -1L;
+		public static readonly long UnInitializedStreamOffset = -1L;
 
 		private static readonly Declaration m_declaration = DataFieldRow.GetDeclaration();
 
-		internal FieldImpl this[int index]
+		public FieldImpl this[int index]
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal long StreamOffset
+		public long StreamOffset
 		{
 			get
 			{
@@ -41,11 +41,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal DataFieldRow()
+		public DataFieldRow()
 		{
 		}
 
-		internal DataFieldRow(FieldsImpl fields, bool getAndSave)
+		public DataFieldRow(FieldsImpl fields, bool getAndSave)
 		{
 			if (getAndSave)
 			{
@@ -58,18 +58,18 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_streamOffset = fields.StreamOffset;
 		}
 
-		internal virtual void SetFields(FieldsImpl fields)
+		public virtual void SetFields(FieldsImpl fields)
 		{
 			fields.SetFields(this.m_fields, this.m_streamOffset);
 		}
 
-		internal virtual void RestoreDataSetAndSetFields(OnDemandProcessingContext odpContext, FieldsContext fieldsContext)
+		public virtual void RestoreDataSetAndSetFields(OnDemandProcessingContext odpContext, FieldsContext fieldsContext)
 		{
 			odpContext.ReportObjectModel.RestoreFields(fieldsContext);
 			this.SetFields(odpContext.ReportObjectModel.FieldsImpl);
 		}
 
-		internal virtual void SaveAggregateInfo(OnDemandProcessingContext odpContext)
+		public virtual void SaveAggregateInfo(OnDemandProcessingContext odpContext)
 		{
 		}
 

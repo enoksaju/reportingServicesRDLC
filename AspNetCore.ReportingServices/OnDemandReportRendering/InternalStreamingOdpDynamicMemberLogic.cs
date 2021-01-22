@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalStreamingOdpDynamicMemberLogic : InternalStreamingOdpDynamicMemberLogicBase
+	public sealed class InternalStreamingOdpDynamicMemberLogic : InternalStreamingOdpDynamicMemberLogicBase
 	{
 		public InternalStreamingOdpDynamicMemberLogic(DataRegionMember memberDef, OnDemandProcessingContext odpContext)
 			: base(memberDef, odpContext)
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.MoveNextCore(null);
 		}
 
-		internal bool RomBasedRestart(ScopeID targetScopeID)
+		public bool RomBasedRestart(ScopeID targetScopeID)
 		{
 			if (targetScopeID == (ScopeID)null)
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void SetScopeID(ScopeID scopeID)
+		public override void SetScopeID(ScopeID scopeID)
 		{
 			if (base.m_grouping.IsDetail)
 			{

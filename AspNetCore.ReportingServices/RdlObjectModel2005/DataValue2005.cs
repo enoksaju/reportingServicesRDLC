@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class DataValue2005 : ChartDataPointValues
+	public class DataValue2005 : ChartDataPointValues
 	{
-		internal new class Definition : DefinitionStore<DataValue2005, Definition.Properties>
+		public new class Definition : DefinitionStore<DataValue2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name = 9,
 				Value

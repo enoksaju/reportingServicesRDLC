@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DataValueCRIList : DataValueList
+	public sealed class DataValueCRIList : DataValueList
 	{
 		private int m_rdlRowIndex = -1;
 
 		private int m_rdlColumnIndex = -1;
 
-		internal int RDLRowIndex
+		public int RDLRowIndex
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int RDLColumnIndex
+		public int RDLColumnIndex
 		{
 			get
 			{
@@ -34,16 +34,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueCRIList()
+		public DataValueCRIList()
 		{
 		}
 
-		internal DataValueCRIList(int capacity)
+		public DataValueCRIList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal new DataValueCRIList DeepClone(InitializationContext context)
+		public new DataValueCRIList DeepClone(InitializationContext context)
 		{
 			int count = this.Count;
 			DataValueCRIList dataValueCRIList = new DataValueCRIList(count);
@@ -56,12 +56,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return dataValueCRIList;
 		}
 
-		internal void Initialize(string prefix, InitializationContext context)
+		public void Initialize(string prefix, InitializationContext context)
 		{
 			base.Initialize(prefix, this.m_rdlRowIndex, this.m_rdlColumnIndex, false, context);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.RDLRowIndex, Token.Int32));

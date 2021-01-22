@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeMarkerStyles
+	public enum GaugeMarkerStyles
 	{
 		Triangle,
 		None,

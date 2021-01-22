@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class KnobStyleAttrib
+	public class KnobStyleAttrib
 	{
 		public GraphicsPath[] paths;
 

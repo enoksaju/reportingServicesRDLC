@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser
 {
-	internal class OpcCorePropertiesPart : OoxmlPart
+	public class OpcCorePropertiesPart : OoxmlPart
 	{
 		private OpcCoreProperties _root;
 

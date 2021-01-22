@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[AttributeUsage(AttributeTargets.All)]
-	internal sealed class SRDescriptionAttribute : DescriptionAttribute
+	public sealed class SRDescriptionAttribute : DescriptionAttribute
 	{
 		private bool replaced;
 

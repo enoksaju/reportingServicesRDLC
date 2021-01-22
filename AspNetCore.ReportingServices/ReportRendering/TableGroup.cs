@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableGroup : Group, IDocumentMapEntry
+	public sealed class TableGroup : Group, IDocumentMapEntry
 	{
 		private AspNetCore.ReportingServices.ReportProcessing.TableGroup m_groupDef;
 
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableGroupInstanceInfo InstanceInfo
+		public TableGroupInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.TableGroup GroupDefinition
+		public AspNetCore.ReportingServices.ReportProcessing.TableGroup GroupDefinition
 		{
 			get
 			{
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableGroup(Table owner, TableGroup parent, AspNetCore.ReportingServices.ReportProcessing.TableGroup groupDef, TableGroupInstance groupInstance)
+		public TableGroup(Table owner, TableGroup parent, AspNetCore.ReportingServices.ReportProcessing.TableGroup groupDef, TableGroupInstance groupInstance)
 			: base(owner, groupDef.Grouping, groupDef.Visibility)
 		{
 			this.m_parent = parent;

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum TextStyle
+	public enum TextStyle
 	{
 		Default,
 		Shadow,

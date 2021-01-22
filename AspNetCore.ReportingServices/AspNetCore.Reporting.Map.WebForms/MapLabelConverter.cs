@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapLabelConverter : CollectionItemTypeConverter
+	public class MapLabelConverter : CollectionItemTypeConverter
 	{
 		public MapLabelConverter()
 		{

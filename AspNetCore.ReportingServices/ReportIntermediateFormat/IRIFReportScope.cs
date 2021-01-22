@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.OnDemandProcessing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IRIFReportScope : IInstancePath
+	public interface IRIFReportScope : IInstancePath
 	{
 		bool NeedToCacheDataRows
 		{

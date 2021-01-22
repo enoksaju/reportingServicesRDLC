@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal static class LayoutConvert
+	public static class LayoutConvert
 	{
 		private const double MM_PER_INCH = 25.4;
 
@@ -21,27 +21,27 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 
 		private const int ThreePixelsInTwips = 45;
 
-		internal static double ToMillimeters(string val)
+		public static double ToMillimeters(string val)
 		{
 			return new ReportSize(val).ToMillimeters();
 		}
 
-		internal static double ToInches(string val)
+		public static double ToInches(string val)
 		{
 			return new ReportSize(val).ToInches();
 		}
 
-		internal static double ToPoints(string val)
+		public static double ToPoints(string val)
 		{
 			return new ReportSize(val).ToPoints();
 		}
 
-		internal static Color ToColor(string val)
+		public static Color ToColor(string val)
 		{
 			return new ReportColor(val).ToColor();
 		}
 
-		internal static ExcelBorderStyle ToBorderLineStyle(ExcelBorderStyle excelBorderStyle, double borderWidth)
+		public static ExcelBorderStyle ToBorderLineStyle(ExcelBorderStyle excelBorderStyle, double borderWidth)
 		{
 			switch (excelBorderStyle)
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal static ExcelBorderStyle ToBorderLineStyle(RPLFormat.BorderStyles val)
+		public static ExcelBorderStyle ToBorderLineStyle(RPLFormat.BorderStyles val)
 		{
 			switch (val)
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal static int GetBorderWidth(ExcelBorderStyle borderStyle, double borderWidthInPts, bool rightOrBottom)
+		public static int GetBorderWidth(ExcelBorderStyle borderStyle, double borderWidthInPts, bool rightOrBottom)
 		{
 			if (borderStyle != 0)
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			return 0;
 		}
 
-		internal static int ToFontWeight(RPLFormat.FontWeights val)
+		public static int ToFontWeight(RPLFormat.FontWeights val)
 		{
 			switch (val)
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal static HorizontalAlignment ToHorizontalAlignEnum(RPLFormat.TextAlignments val)
+		public static HorizontalAlignment ToHorizontalAlignEnum(RPLFormat.TextAlignments val)
 		{
 			switch (val)
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal static HorizontalAlignment RotateVerticalToHorizontalAlign(VerticalAlignment val, bool isClockwise)
+		public static HorizontalAlignment RotateVerticalToHorizontalAlign(VerticalAlignment val, bool isClockwise)
 		{
 			switch (val)
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal static VerticalAlignment RotateHorizontalToVerticalAlign(HorizontalAlignment val, bool isClockwise)
+		public static VerticalAlignment RotateHorizontalToVerticalAlign(HorizontalAlignment val, bool isClockwise)
 		{
 			switch (val)
 			{
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal static VerticalAlignment ToVerticalAlignEnum(RPLFormat.VerticalAlignments val)
+		public static VerticalAlignment ToVerticalAlignEnum(RPLFormat.VerticalAlignments val)
 		{
 			switch (val)
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal static Calendar GetCalendarInstance(RPLFormat.Calendars val)
+		public static Calendar GetCalendarInstance(RPLFormat.Calendars val)
 		{
 			switch (val)
 			{
@@ -255,37 +255,37 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal static int ConvertMMTo20thPoints(double aMm)
+		public static int ConvertMMTo20thPoints(double aMm)
 		{
 			return (int)Math.Round(LayoutConvert.ConvertMMToPoints(aMm) * 20.0 + 0.00051, 3);
 		}
 
-		internal static double ConvertMMTo20thPointsUnrounded(double aMm)
+		public static double ConvertMMTo20thPointsUnrounded(double aMm)
 		{
 			return LayoutConvert.ConvertMMToPoints(aMm) * 20.0;
 		}
 
-		internal static double ConvertMMToInches(double aMm)
+		public static double ConvertMMToInches(double aMm)
 		{
 			return aMm / 25.4;
 		}
 
-		internal static double ConvertFloatToDouble(float floatValue)
+		public static double ConvertFloatToDouble(float floatValue)
 		{
 			return Convert.ToDouble((decimal)floatValue);
 		}
 
-		internal static double ConvertMMToPoints(double aMm)
+		public static double ConvertMMToPoints(double aMm)
 		{
 			return aMm / 25.4 * 72.0;
 		}
 
-		internal static double ConvertPointsToMM(double aPoints)
+		public static double ConvertPointsToMM(double aPoints)
 		{
 			return aPoints / 72.0 * 25.4;
 		}
 
-		internal static bool ParseBool(string boolValue, bool defaultValue)
+		public static bool ParseBool(string boolValue, bool defaultValue)
 		{
 			bool result = defaultValue;
 			if (boolValue != null && boolValue.Length > 0)
@@ -303,7 +303,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			return result;
 		}
 
-		internal static double ParseDouble(string doubleValue, double defaultValue)
+		public static double ParseDouble(string doubleValue, double defaultValue)
 		{
 			double result = defaultValue;
 			if (doubleValue != null && doubleValue.Length > 0)

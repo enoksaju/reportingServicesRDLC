@@ -4,9 +4,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartSeriesList : RowList
+	public sealed class ChartSeriesList : RowList
 	{
-		internal new ChartSeries this[int index]
+		public new ChartSeries this[int index]
 		{
 			get
 			{
@@ -18,12 +18,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal ChartSeriesList(int capacity)
+		public ChartSeriesList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal ChartSeries GetByName(string seriesName)
+		public ChartSeries GetByName(string seriesName)
 		{
 			for (int i = 0; i < this.Count; i++)
 			{

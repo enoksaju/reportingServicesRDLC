@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class Html5OutputStream : IOutputStream
+	public class Html5OutputStream : IOutputStream
 	{
 		private HTML5Renderer Renderer
 		{

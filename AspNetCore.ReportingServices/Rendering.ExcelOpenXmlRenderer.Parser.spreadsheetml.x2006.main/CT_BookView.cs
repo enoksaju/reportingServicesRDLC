@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_BookView : OoxmlComplexType
+	public class CT_BookView : OoxmlComplexType
 	{
 		private ST_Visibility _visibility_attr;
 

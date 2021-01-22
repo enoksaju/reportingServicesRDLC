@@ -12,7 +12,7 @@ using System.Text;
 namespace System.Web.Services.Protocols
 {
     /// <summary>Specifies the version of the SOAP protocol used to communicate with an XML Web service.</summary>
-    internal enum SoapProtocolVersion
+    public enum SoapProtocolVersion
     {
         /// <summary>The default value for this enumeration.</summary>
         Default,

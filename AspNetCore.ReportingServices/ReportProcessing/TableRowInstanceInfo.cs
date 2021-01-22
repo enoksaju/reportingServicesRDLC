@@ -5,11 +5,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableRowInstanceInfo : InstanceInfo
+	public sealed class TableRowInstanceInfo : InstanceInfo
 	{
 		private bool m_startHidden;
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowInstanceInfo(ReportProcessing.ProcessingContext pc, TableRow rowDef, TableRowInstance owner, Table tableDef, IndexedExprHost rowVisibilityHiddenExprHost)
+		public TableRowInstanceInfo(ReportProcessing.ProcessingContext pc, TableRow rowDef, TableRowInstance owner, Table tableDef, IndexedExprHost rowVisibilityHiddenExprHost)
 		{
 			if (pc.ShowHideType != 0)
 			{
@@ -31,11 +31,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			pc.ChunkManager.AddInstance(this, owner, pc.InPageSection);
 		}
 
-		internal TableRowInstanceInfo()
+		public TableRowInstanceInfo()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.StartHidden, Token.Boolean));

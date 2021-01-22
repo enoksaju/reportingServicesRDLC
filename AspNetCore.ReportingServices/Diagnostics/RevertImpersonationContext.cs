@@ -5,7 +5,7 @@ using System.Security.Principal;
 using Microsoft.Win32.SafeHandles;
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class RevertImpersonationContext
+	public static class RevertImpersonationContext
 	{
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.Infrastructure)]
         public static void Run(ContextBody callback)
@@ -99,6 +99,6 @@ namespace AspNetCore.ReportingServices.Diagnostics
             
         }
 
-        internal const int SkipStackFrames = 8;
+        public const int SkipStackFrames = 8;
     }
 }

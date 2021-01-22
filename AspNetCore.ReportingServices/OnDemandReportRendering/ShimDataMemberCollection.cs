@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimDataMemberCollection : DataMemberCollection
+	public sealed class ShimDataMemberCollection : DataMemberCollection
 	{
 		private bool m_isStatic;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimDataMemberCollection(IDefinitionPath parentDefinitionPath, CustomReportItem owner, bool isColumnMember, ShimDataMember parent, DataGroupingCollection definitionGroups)
+		public ShimDataMemberCollection(IDefinitionPath parentDefinitionPath, CustomReportItem owner, bool isColumnMember, ShimDataMember parent, DataGroupingCollection definitionGroups)
 			: base(parentDefinitionPath, owner)
 		{
 			this.m_isColumnMember = isColumnMember;
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_definitionEndIndex = owner.GetCurrentMemberCellDefinitionIndex();
 		}
 
-		internal void UpdateContext()
+		public void UpdateContext()
 		{
 			if (base.m_children != null)
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ResetContext(DataGroupingCollection definitionGroups)
+		public void ResetContext(DataGroupingCollection definitionGroups)
 		{
 			if (base.m_children != null)
 			{

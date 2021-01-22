@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_Workbook : OoxmlComplexType
+	public class CT_Workbook : OoxmlComplexType
 	{
 		private CT_FileVersion _fileVersion;
 

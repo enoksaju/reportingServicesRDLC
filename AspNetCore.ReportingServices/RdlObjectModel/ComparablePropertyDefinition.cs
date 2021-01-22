@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ComparablePropertyDefinition<T> : PropertyDefinition<T>, IPropertyDefinition where T : struct, IComparable
+	public class ComparablePropertyDefinition<T> : PropertyDefinition<T>, IPropertyDefinition where T : struct, IComparable
 	{
 		private T? m_minimum;
 

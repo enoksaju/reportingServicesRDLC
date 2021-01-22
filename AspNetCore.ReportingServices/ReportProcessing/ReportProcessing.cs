@@ -33,7 +33,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ReportProcessing
+	public sealed class ReportProcessing
 	{
 		private sealed class ShowHideProcessing
 		{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private Hashtable m_overrideHiddenInfo;
 
-			internal void Process(string showHideToggle, ReportSnapshot reportSnapshot, EventInformation oldOverrideInformation, ChunkManager.RenderingChunkManager chunkManager, out bool showHideInformationChanged, out EventInformation newOverrideInformation)
+			public void Process(string showHideToggle, ReportSnapshot reportSnapshot, EventInformation oldOverrideInformation, ChunkManager.RenderingChunkManager chunkManager, out bool showHideInformationChanged, out EventInformation newOverrideInformation)
 			{
 				try
 				{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool Process(string showHideToggle, EventInformation oldOverrideInformation, ChunkManager.EventsChunkManager eventsChunkManager, out bool showHideInformationChanged, out EventInformation newOverrideInformation)
+			public bool Process(string showHideToggle, EventInformation oldOverrideInformation, ChunkManager.EventsChunkManager eventsChunkManager, out bool showHideInformationChanged, out EventInformation newOverrideInformation)
 			{
 				try
 				{
@@ -196,22 +196,22 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		public delegate bool NeedsUpgrade(ReportProcessingFlags processingFlags);
 
-		internal delegate void SubReportCallback(ICatalogItemContext reportContext, string subreportPath, out ICatalogItemContext subreportContext, out string description, out GetReportChunk getCompiledDefinitionCallback, out ParameterInfoCollection parameters);
+		public delegate void SubReportCallback(ICatalogItemContext reportContext, string subreportPath, out ICatalogItemContext subreportContext, out string description, out GetReportChunk getCompiledDefinitionCallback, out ParameterInfoCollection parameters);
 
-		internal delegate void SubReportDataSourcesCallback(ICatalogItemContext reportContext, string subreportPath, out ICatalogItemContext subreportContext, out GetReportChunk getCompiledDefinitionCallback, out DataSourceInfoCollection dataSources);
+		public delegate void SubReportDataSourcesCallback(ICatalogItemContext reportContext, string subreportPath, out ICatalogItemContext subreportContext, out GetReportChunk getCompiledDefinitionCallback, out DataSourceInfoCollection dataSources);
 
-		internal interface IErasable
+		public interface IErasable
 		{
 			bool Erase();
 		}
 
 		public delegate AspNetCore.ReportingServices.DataExtensions.DataSourceInfo CheckSharedDataSource(string dataSourcePath, out Guid catalogItemId);
 
-		internal delegate Stream CreateReportChunk(string name, ReportChunkTypes type, string mimeType);
+		public delegate Stream CreateReportChunk(string name, ReportChunkTypes type, string mimeType);
 
-		internal delegate Stream GetReportChunk(string name, ReportChunkTypes type, out string mimeType);
+		public delegate Stream GetReportChunk(string name, ReportChunkTypes type, out string mimeType);
 
-		internal delegate string GetChunkMimeType(string name, ReportChunkTypes type);
+		public delegate string GetChunkMimeType(string name, ReportChunkTypes type);
 
 		public delegate NameValueCollection StoreServerParameters(ICatalogItemContext item, NameValueCollection reportParameters, bool[] sharedParameters, out bool replaced);
 
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		public delegate void ResolveTemporaryDataSource(AspNetCore.ReportingServices.DataExtensions.DataSourceInfo dataSourceInfo, DataSourceInfoCollection originalDataSources);
 
 		[Serializable]
-		internal sealed class DataCacheUnavailableException : Exception
+		public sealed class DataCacheUnavailableException : Exception
 		{
 			public DataCacheUnavailableException()
 			{
@@ -239,7 +239,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal enum ReportChunkTypes
+		public enum ReportChunkTypes
 		{
 			Main,
 			Image,
@@ -256,14 +256,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			Shapefile
 		}
 
-		internal enum ExecutionType
+		public enum ExecutionType
 		{
 			Live,
 			ServiceAccount,
 			SurrogateAccount
 		}
 
-		internal class ProcessingComparer : IDataComparer, IEqualityComparer, IEqualityComparer<object>, IComparer, IComparer<object>, IStaticReferenceable
+		public class ProcessingComparer : IDataComparer, IEqualityComparer, IEqualityComparer<object>, IComparer, IComparer<object>, IStaticReferenceable
 		{
 			private readonly CompareInfo m_compareInfo;
 
@@ -285,12 +285,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ProcessingComparer(CompareInfo compareInfo, CompareOptions compareOptions, bool nullsAsBlanks)
+			public ProcessingComparer(CompareInfo compareInfo, CompareOptions compareOptions, bool nullsAsBlanks)
 				: this(compareInfo, compareOptions, nullsAsBlanks, true)
 			{
 			}
 
-			internal ProcessingComparer(CompareInfo compareInfo, CompareOptions compareOptions, bool nullsAsBlanks, bool defaultThrowExceptionOnComparisonFailure)
+			public ProcessingComparer(CompareInfo compareInfo, CompareOptions compareOptions, bool nullsAsBlanks, bool defaultThrowExceptionOnComparisonFailure)
 			{
 				this.m_compareInfo = compareInfo;
 				this.m_compareOptions = compareOptions;
@@ -505,7 +505,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal enum ProcessingStages
+		public enum ProcessingStages
 		{
 			Grouping = 1,
 			SortAndFilter,
@@ -515,7 +515,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		}
 
 		[Flags]
-		internal enum DataActions
+		public enum DataActions
 		{
 			None = 0,
 			RecursiveAggregates = 1,
@@ -523,9 +523,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			UserSort = 4
 		}
 
-		internal sealed class DataSourceInfoHashtable : Hashtable
+		public sealed class DataSourceInfoHashtable : Hashtable
 		{
-			internal DataSourceInfo this[string dataSourceName]
+			public DataSourceInfo this[string dataSourceName]
 			{
 				get
 				{
@@ -533,20 +533,20 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Add(IProcessingDataSource procDataSource, IDbConnection connection, TransactionInfo transInfo, AspNetCore.ReportingServices.DataExtensions.DataSourceInfo dataExtDataSourceInfo)
+			public void Add(IProcessingDataSource procDataSource, IDbConnection connection, TransactionInfo transInfo, AspNetCore.ReportingServices.DataExtensions.DataSourceInfo dataExtDataSourceInfo)
 			{
 				DataSourceInfo value = new DataSourceInfo(procDataSource, connection, transInfo, dataExtDataSourceInfo);
 				this.Add(procDataSource.Name, value);
 			}
 		}
 
-		internal sealed class TransactionInfo
+		public sealed class TransactionInfo
 		{
-			internal bool RollbackRequired;
+			public bool RollbackRequired;
 
 			private IDbTransaction m_transaction;
 
-			internal IDbTransaction Transaction
+			public IDbTransaction Transaction
 			{
 				get
 				{
@@ -554,21 +554,21 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal TransactionInfo(IDbTransaction transaction)
+			public TransactionInfo(IDbTransaction transaction)
 			{
 				Global.Tracer.Assert(transaction != null, "A transaction information object cannot have a null transaction.");
 				this.m_transaction = transaction;
 			}
 		}
 
-		internal struct TableColumnInfo
+		public struct TableColumnInfo
 		{
-			internal int StartIndex;
+			public int StartIndex;
 
-			internal int Span;
+			public int Span;
 		}
 
-		internal sealed class DataSourceInfo
+		public sealed class DataSourceInfo
 		{
 			private IDbConnection m_connection;
 
@@ -578,7 +578,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private IProcessingDataSource m_procDataSourceInfo;
 
-			internal string DataSourceName
+			public string DataSourceName
 			{
 				get
 				{
@@ -586,7 +586,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AspNetCore.ReportingServices.DataExtensions.DataSourceInfo DataExtDataSourceInfo
+			public AspNetCore.ReportingServices.DataExtensions.DataSourceInfo DataExtDataSourceInfo
 			{
 				get
 				{
@@ -594,7 +594,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IProcessingDataSource ProcDataSourceInfo
+			public IProcessingDataSource ProcDataSourceInfo
 			{
 				get
 				{
@@ -602,7 +602,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IDbConnection Connection
+			public IDbConnection Connection
 			{
 				get
 				{
@@ -610,7 +610,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal TransactionInfo TransactionInfo
+			public TransactionInfo TransactionInfo
 			{
 				get
 				{
@@ -618,7 +618,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal DataSourceInfo(IProcessingDataSource procDataSourceInfo, IDbConnection connection, TransactionInfo ti, AspNetCore.ReportingServices.DataExtensions.DataSourceInfo dataExtDataSourceInfo)
+			public DataSourceInfo(IProcessingDataSource procDataSourceInfo, IDbConnection connection, TransactionInfo ti, AspNetCore.ReportingServices.DataExtensions.DataSourceInfo dataExtDataSourceInfo)
 			{
 				this.m_procDataSourceInfo = procDataSourceInfo;
 				this.m_connection = connection;
@@ -627,11 +627,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class ProcessingAbortEventArgs : EventArgs
+		public sealed class ProcessingAbortEventArgs : EventArgs
 		{
 			private int m_reportUniqueName;
 
-			internal int ReportUniqueName
+			public int ReportUniqueName
 			{
 				get
 				{
@@ -639,19 +639,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ProcessingAbortEventArgs(int reportUniqueName)
+			public ProcessingAbortEventArgs(int reportUniqueName)
 			{
 				this.m_reportUniqueName = reportUniqueName;
 			}
 		}
 
-		internal sealed class ThreadSet
+		public sealed class ThreadSet
 		{
 			private int m_threadsRemaining;
 
 			private ManualResetEvent m_allThreadsDone;
 
-			internal ThreadSet(int threadCount)
+			public ThreadSet(int threadCount)
 			{
 				if (Global.Tracer.TraceVerbose)
 				{
@@ -661,7 +661,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_allThreadsDone = new ManualResetEvent(threadCount <= 0);
 			}
 
-			internal void ThreadCompleted()
+			public void ThreadCompleted()
 			{
 				int num = Interlocked.Decrement(ref this.m_threadsRemaining);
 				if (Global.Tracer.TraceVerbose)
@@ -674,7 +674,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void WaitForCompletion()
+			public void WaitForCompletion()
 			{
 				this.m_allThreadsDone.WaitOne();
 				if (Global.Tracer.TraceVerbose)
@@ -684,16 +684,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal class ProcessingContext : IInternalProcessingContext
+		public class ProcessingContext : IInternalProcessingContext
 		{
 			[Flags]
-			internal enum SecondPassOperations
+			public enum SecondPassOperations
 			{
 				Sorting = 1,
 				Filtering = 2
 			}
 
-			internal sealed class AbortHelper : IAbortHelper, IDisposable
+			public sealed class AbortHelper : IAbortHelper, IDisposable
 			{
 				private ProcessingStatus m_overallStatus;
 
@@ -703,9 +703,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 				private IJobContext m_jobContext;
 
-				internal event EventHandler ProcessingAbortEvent;
+				public event EventHandler ProcessingAbortEvent;
 
-				internal AbortHelper(IJobContext jobContext)
+				public AbortHelper(IJobContext jobContext)
 				{
 					this.m_reportStatus = new Hashtable();
 					if (jobContext != null)
@@ -715,7 +715,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal void ThrowAbortException(int reportUniqueName)
+				public void ThrowAbortException(int reportUniqueName)
 				{
 					if (this.GetStatus(reportUniqueName) == ProcessingStatus.AbnormalTermination)
 					{
@@ -729,7 +729,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					return this.Abort(-1, status);
 				}
 
-				internal bool Abort(int reportUniqueName, ProcessingStatus status)
+				public bool Abort(int reportUniqueName, ProcessingStatus status)
 				{
 					if (!Monitor.TryEnter(this))
 					{
@@ -788,14 +788,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal void AddSubreportInstance(int subreportInstanceUniqueName)
+				public void AddSubreportInstance(int subreportInstanceUniqueName)
 				{
 					Hashtable hashtable = Hashtable.Synchronized(this.m_reportStatus);
 					Global.Tracer.Assert(!hashtable.ContainsKey(subreportInstanceUniqueName), "(false == reportStatus.ContainsKey(subreportInstanceUniqueName))");
 					hashtable.Add(subreportInstanceUniqueName, ProcessingStatus.Success);
 				}
 
-				internal ProcessingStatus GetStatus(int uniqueName)
+				public ProcessingStatus GetStatus(int uniqueName)
 				{
 					if (-1 == uniqueName)
 					{
@@ -819,7 +819,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool SetError(int reportUniqueName, Exception e)
+				public bool SetError(int reportUniqueName, Exception e)
 				{
 					if (Global.Tracer.TraceVerbose)
 					{
@@ -920,7 +920,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 				private ReportRuntimeSetup m_reportRuntimeSetup;
 
-				internal IGetResource GetResourceCallback
+				public IGetResource GetResourceCallback
 				{
 					get
 					{
@@ -928,7 +928,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal CreateReportChunk CreateReportChunkCallback
+				public CreateReportChunk CreateReportChunkCallback
 				{
 					get
 					{
@@ -936,7 +936,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal IChunkFactory CreateReportChunkFactory
+				public IChunkFactory CreateReportChunkFactory
 				{
 					get
 					{
@@ -948,7 +948,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool IsOnePass
+				public bool IsOnePass
 				{
 					get
 					{
@@ -956,7 +956,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal long DataProcessingDurationMs
+				public long DataProcessingDurationMs
 				{
 					get
 					{
@@ -968,7 +968,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal string OWCChartName
+				public string OWCChartName
 				{
 					get
 					{
@@ -976,7 +976,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal OWCChartInstanceInfo OWCChartInstance
+				public OWCChartInstanceInfo OWCChartInstance
 				{
 					get
 					{
@@ -988,7 +988,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal string RequestUserName
+				public string RequestUserName
 				{
 					get
 					{
@@ -996,7 +996,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal DateTime ExecutionTime
+				public DateTime ExecutionTime
 				{
 					get
 					{
@@ -1004,7 +1004,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal CultureInfo UserLanguage
+				public CultureInfo UserLanguage
 				{
 					get
 					{
@@ -1012,7 +1012,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal SubReportCallback SubReportCallback
+				public SubReportCallback SubReportCallback
 				{
 					get
 					{
@@ -1020,7 +1020,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal ChunkManager.ProcessingChunkManager ChunkManager
+				public ChunkManager.ProcessingChunkManager ChunkManager
 				{
 					get
 					{
@@ -1028,7 +1028,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal QuickFindHashtable QuickFind
+				public QuickFindHashtable QuickFind
 				{
 					get
 					{
@@ -1036,7 +1036,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal ReportDrillthroughInfo DrillthroughInfo
+				public ReportDrillthroughInfo DrillthroughInfo
 				{
 					get
 					{
@@ -1048,7 +1048,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal int UniqueNameCounter
+				public int UniqueNameCounter
 				{
 					get
 					{
@@ -1056,7 +1056,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal ExecutionType InteractiveExecution
+				public ExecutionType InteractiveExecution
 				{
 					get
 					{
@@ -1064,7 +1064,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool HasImageStreams
+				public bool HasImageStreams
 				{
 					get
 					{
@@ -1076,7 +1076,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal UserProfileState AllowUserProfileState
+				public UserProfileState AllowUserProfileState
 				{
 					get
 					{
@@ -1084,7 +1084,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool IsHistorySnapshot
+				public bool IsHistorySnapshot
 				{
 					get
 					{
@@ -1092,7 +1092,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool SnapshotProcessing
+				public bool SnapshotProcessing
 				{
 					get
 					{
@@ -1104,7 +1104,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool UserSortFilterProcessing
+				public bool UserSortFilterProcessing
 				{
 					get
 					{
@@ -1116,7 +1116,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool ResetForSubreportDataPrefetch
+				public bool ResetForSubreportDataPrefetch
 				{
 					get
 					{
@@ -1128,7 +1128,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool ProcessWithCachedData
+				public bool ProcessWithCachedData
 				{
 					get
 					{
@@ -1136,7 +1136,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal GetReportChunk GetReportChunkCallback
+				public GetReportChunk GetReportChunkCallback
 				{
 					get
 					{
@@ -1144,7 +1144,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal CreateReportChunk CacheDataCallback
+				public CreateReportChunk CacheDataCallback
 				{
 					get
 					{
@@ -1152,7 +1152,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool HasUserSortFilter
+				public bool HasUserSortFilter
 				{
 					get
 					{
@@ -1164,7 +1164,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool SaveSnapshotData
+				public bool SaveSnapshotData
 				{
 					get
 					{
@@ -1176,7 +1176,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool StopSaveSnapshotDataOnError
+				public bool StopSaveSnapshotDataOnError
 				{
 					get
 					{
@@ -1188,7 +1188,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool ErrorSavingSnapshotData
+				public bool ErrorSavingSnapshotData
 				{
 					get
 					{
@@ -1203,7 +1203,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool DataCached
+				public bool DataCached
 				{
 					get
 					{
@@ -1218,7 +1218,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal Hashtable CachedDataChunkMapping
+				public Hashtable CachedDataChunkMapping
 				{
 					get
 					{
@@ -1233,7 +1233,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal CustomReportItemControls CriProcessingControls
+				public CustomReportItemControls CriProcessingControls
 				{
 					get
 					{
@@ -1248,7 +1248,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal EventInformation UserSortFilterInfo
+				public EventInformation UserSortFilterInfo
 				{
 					get
 					{
@@ -1260,7 +1260,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal SortFilterEventInfoHashtable OldSortFilterEventInfo
+				public SortFilterEventInfoHashtable OldSortFilterEventInfo
 				{
 					get
 					{
@@ -1272,7 +1272,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal SortFilterEventInfoHashtable NewSortFilterEventInfo
+				public SortFilterEventInfoHashtable NewSortFilterEventInfo
 				{
 					get
 					{
@@ -1284,7 +1284,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal RuntimeSortFilterEventInfoList ReportRuntimeUserSortFilterInfo
+				public RuntimeSortFilterEventInfoList ReportRuntimeUserSortFilterInfo
 				{
 					get
 					{
@@ -1296,7 +1296,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal ReportRuntimeSetup ReportRuntimeSetup
+				public ReportRuntimeSetup ReportRuntimeSetup
 				{
 					get
 					{
@@ -1304,7 +1304,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal CommonInfo(string owcChartName, string requestUserName, CultureInfo userLanguage, SubReportCallback subReportCallback, Report report, CreateReportChunk createReportChunkCallback, IGetResource getResourceCallback, ExecutionType interactiveExecution, DateTime executionTime, UserProfileState allowUserProfileState, bool isHistorySnapshot, bool snapshotProcessing, bool processWithCachedData, GetReportChunk getChunkCallback, CreateReportChunk cacheDataCallback, ReportRuntimeSetup reportRuntimeSetup)
+				public CommonInfo(string owcChartName, string requestUserName, CultureInfo userLanguage, SubReportCallback subReportCallback, Report report, CreateReportChunk createReportChunkCallback, IGetResource getResourceCallback, ExecutionType interactiveExecution, DateTime executionTime, UserProfileState allowUserProfileState, bool isHistorySnapshot, bool snapshotProcessing, bool processWithCachedData, GetReportChunk getChunkCallback, CreateReportChunk cacheDataCallback, ReportRuntimeSetup reportRuntimeSetup)
 				{
 					this.m_uniqueNameCounter = 0;
 					this.m_dataProcessingDurationMs = 0L;
@@ -1338,7 +1338,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					this.m_reportRuntimeSetup = reportRuntimeSetup;
 				}
 
-				internal CommonInfo(IGetResource getResourceCallback, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup)
+				public CommonInfo(IGetResource getResourceCallback, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup)
 				{
 					this.m_uniqueNameCounter = 0;
 					this.m_dataProcessingDurationMs = 0L;
@@ -1367,7 +1367,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					this.m_reportRuntimeSetup = reportRuntimeSetup;
 				}
 
-				internal CommonInfo(IGetResource getResourceCallback, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, CreateReportChunk createChunkCallback, ChunkManager.ProcessingChunkManager processingChunkManager, int uniqueNameCounter, ref ReportDrillthroughInfo drillthroughInfo)
+				public CommonInfo(IGetResource getResourceCallback, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, CreateReportChunk createChunkCallback, ChunkManager.ProcessingChunkManager processingChunkManager, int uniqueNameCounter, ref ReportDrillthroughInfo drillthroughInfo)
 				{
 					this.m_uniqueNameCounter = uniqueNameCounter;
 					this.m_dataProcessingDurationMs = 0L;
@@ -1400,7 +1400,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					this.m_drillthroughInfo = drillthroughInfo;
 				}
 
-				internal int CreateUniqueName()
+				public int CreateUniqueName()
 				{
 					if (this.m_isOnePass)
 					{
@@ -1409,7 +1409,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					return ++this.m_uniqueNameCounter;
 				}
 
-				internal int CreateIDForSubreport()
+				public int CreateIDForSubreport()
 				{
 					if (this.m_isOnePass)
 					{
@@ -1418,12 +1418,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					return ++this.m_idCounterForSubreports;
 				}
 
-				internal int GetLastIDForReport()
+				public int GetLastIDForReport()
 				{
 					return this.m_idCounterForSubreports;
 				}
 
-				internal EventInformation GetUserSortFilterInformation(ref int sourceUniqueName, ref int page)
+				public EventInformation GetUserSortFilterInformation(ref int sourceUniqueName, ref int page)
 				{
 					if (this.m_reportRuntimeUserSortFilterInfo != null && this.m_reportRuntimeUserSortFilterInfo.Count != 0)
 					{
@@ -1467,13 +1467,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			{
 				private sealed class SenderInfo
 				{
-					internal int UniqueName;
+					public int UniqueName;
 
-					internal bool StartHidden;
+					public bool StartHidden;
 
-					internal int[] Containers;
+					public int[] Containers;
 
-					internal SenderInfo(int uniqueName, bool startHidden, int[] containers)
+					public SenderInfo(int uniqueName, bool startHidden, int[] containers)
 					{
 						this.UniqueName = uniqueName;
 						this.StartHidden = startHidden;
@@ -1483,11 +1483,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 				private sealed class ReceiverInfo
 				{
-					internal int UniqueName;
+					public int UniqueName;
 
-					internal bool StartHidden;
+					public bool StartHidden;
 
-					internal ReceiverInfo(int uniqueName, bool startHidden)
+					public ReceiverInfo(int uniqueName, bool startHidden)
 					{
 						this.UniqueName = uniqueName;
 						this.StartHidden = startHidden;
@@ -1496,7 +1496,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 				private sealed class ReceiverInfoList : ArrayList
 				{
-					internal new ReceiverInfo this[int index]
+					public new ReceiverInfo this[int index]
 					{
 						get
 						{
@@ -1515,7 +1515,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 					private bool m_ignoreFromStart;
 
-					internal bool IgnoreAllFromStart
+					public bool IgnoreAllFromStart
 					{
 						set
 						{
@@ -1523,7 +1523,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 						}
 					}
 
-					internal bool UseAllContainers
+					public bool UseAllContainers
 					{
 						set
 						{
@@ -1531,7 +1531,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 						}
 					}
 
-					internal int EndIgnoreRange
+					public int EndIgnoreRange
 					{
 						set
 						{
@@ -1541,12 +1541,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 						}
 					}
 
-					internal IgnoreRange(int startIgnoreRange)
+					public IgnoreRange(int startIgnoreRange)
 					{
 						this.m_startIgnoreRangeIndex = startIgnoreRange;
 					}
 
-					internal int[] GetContainerUniqueNames(IntList containerUniqueNames)
+					public int[] GetContainerUniqueNames(IntList containerUniqueNames)
 					{
 						if (containerUniqueNames.Count == 0)
 						{
@@ -1582,7 +1582,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 				private sealed class IgnoreRangeList : ArrayList
 				{
-					internal new IgnoreRange this[int index]
+					public new IgnoreRange this[int index]
 					{
 						get
 						{
@@ -1597,7 +1597,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 					private ReceiverInformationHashtable m_receiverInformation;
 
-					internal void UpdateSenderAndReceiverInfo(SenderInfo sender, ReceiverInfo receiver)
+					public void UpdateSenderAndReceiverInfo(SenderInfo sender, ReceiverInfo receiver)
 					{
 						SenderInformation senderInformation = null;
 						if (this.m_senderInformation == null)
@@ -1621,7 +1621,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 						this.m_receiverInformation[receiver.UniqueName] = new ReceiverInformation(receiver.StartHidden, sender.UniqueName);
 					}
 
-					internal void GetSenderAndReceiverInfo(out SenderInformationHashtable senderInformation, out ReceiverInformationHashtable receiverInformation)
+					public void GetSenderAndReceiverInfo(out SenderInformationHashtable senderInformation, out ReceiverInformationHashtable receiverInformation)
 					{
 						senderInformation = this.m_senderInformation;
 						receiverInformation = this.m_receiverInformation;
@@ -1644,7 +1644,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 				private IgnoreRange m_currentIgnoreRange;
 
-				internal bool IgnoreAllFromStart
+				public bool IgnoreAllFromStart
 				{
 					set
 					{
@@ -1652,7 +1652,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal bool UseAllContainers
+				public bool UseAllContainers
 				{
 					set
 					{
@@ -1660,7 +1660,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal ShowHideInfo()
+				public ShowHideInfo()
 				{
 					this.m_commonInfo = new CommonInfo();
 					this.m_recursiveSenders = new ArrayList();
@@ -1670,7 +1670,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					this.m_containerUniqueNames = new IntList();
 				}
 
-				internal ShowHideInfo(ShowHideInfo copy)
+				public ShowHideInfo(ShowHideInfo copy)
 				{
 					this.m_commonInfo = copy.m_commonInfo;
 					this.m_recursiveSenders = new ArrayList();
@@ -1680,27 +1680,27 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					this.m_containerUniqueNames = new IntList();
 				}
 
-				internal void EnterGrouping()
+				public void EnterGrouping()
 				{
 					this.m_localSenders.Add(null);
 				}
 
-				internal void ExitGrouping()
+				public void ExitGrouping()
 				{
 					this.m_localSenders.RemoveAt(this.m_localSenders.Count - 1);
 				}
 
-				internal void EnterChildGroupings()
+				public void EnterChildGroupings()
 				{
 					this.m_recursiveSenders.Add(null);
 				}
 
-				internal void ExitChildGroupings()
+				public void ExitChildGroupings()
 				{
 					this.m_recursiveSenders.RemoveAt(this.m_recursiveSenders.Count - 1);
 				}
 
-				internal void RegisterSender(string senderName, int senderUniqueName, bool startHidden, bool recursiveSender)
+				public void RegisterSender(string senderName, int senderUniqueName, bool startHidden, bool recursiveSender)
 				{
 					int[] containerUniqueNames = this.GetContainerUniqueNames();
 					SenderInfo sender = new SenderInfo(senderUniqueName, startHidden, containerUniqueNames);
@@ -1719,7 +1719,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal void RegisterReceiver(string senderName, int receiverUniqueName, bool startHidden, bool recursiveReceiver)
+				public void RegisterReceiver(string senderName, int receiverUniqueName, bool startHidden, bool recursiveReceiver)
 				{
 					ReceiverInfo receiver = new ReceiverInfo(receiverUniqueName, startHidden);
 					if (!recursiveReceiver)
@@ -1744,18 +1744,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal void RegisterContainer(int containerUniqueName)
+				public void RegisterContainer(int containerUniqueName)
 				{
 					this.m_containerUniqueNames.Add(containerUniqueName);
 				}
 
-				internal void UnRegisterContainer(int containerUniqueName)
+				public void UnRegisterContainer(int containerUniqueName)
 				{
 					Global.Tracer.Assert(containerUniqueName == this.m_containerUniqueNames[this.m_containerUniqueNames.Count - 1]);
 					this.m_containerUniqueNames.RemoveAt(this.m_containerUniqueNames.Count - 1);
 				}
 
-				internal void GetSenderAndReceiverInfo(out SenderInformationHashtable senderInfo, out ReceiverInformationHashtable receiverInfo)
+				public void GetSenderAndReceiverInfo(out SenderInformationHashtable senderInfo, out ReceiverInformationHashtable receiverInfo)
 				{
 					this.m_commonInfo.GetSenderAndReceiverInfo(out senderInfo, out receiverInfo);
 					this.m_commonInfo = null;
@@ -1861,12 +1861,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					return array;
 				}
 
-				internal void EndIgnoreRange()
+				public void EndIgnoreRange()
 				{
 					this.m_currentIgnoreRange.EndIgnoreRange = this.m_containerUniqueNames.Count - 1;
 				}
 
-				internal void RegisterIgnoreRange()
+				public void RegisterIgnoreRange()
 				{
 					if (this.m_ignoreRangeList == null)
 					{
@@ -1876,7 +1876,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					this.m_ignoreRangeList.Add(this.m_currentIgnoreRange);
 				}
 
-				internal void UnRegisterIgnoreRange()
+				public void UnRegisterIgnoreRange()
 				{
 					this.m_ignoreRangeList.RemoveAt(this.m_ignoreRangeList.Count - 1);
 					if (this.m_ignoreRangeList.Count > 0)
@@ -1976,7 +1976,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal CreateReportChunk CreateReportChunkCallback
+			public CreateReportChunk CreateReportChunkCallback
 			{
 				get
 				{
@@ -1984,7 +1984,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IChunkFactory CreateReportChunkFactory
+			public IChunkFactory CreateReportChunkFactory
 			{
 				get
 				{
@@ -1996,7 +1996,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool IsOnePass
+			public bool IsOnePass
 			{
 				get
 				{
@@ -2004,7 +2004,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal long DataProcessingDurationMs
+			public long DataProcessingDurationMs
 			{
 				get
 				{
@@ -2016,7 +2016,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal string OWCChartName
+			public string OWCChartName
 			{
 				get
 				{
@@ -2024,7 +2024,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal OWCChartInstanceInfo OWCChartInstance
+			public OWCChartInstanceInfo OWCChartInstance
 			{
 				get
 				{
@@ -2036,7 +2036,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal string RequestUserName
+			public string RequestUserName
 			{
 				get
 				{
@@ -2052,7 +2052,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal CultureInfo UserLanguage
+			public CultureInfo UserLanguage
 			{
 				get
 				{
@@ -2060,7 +2060,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal SubReportCallback SubReportCallback
+			public SubReportCallback SubReportCallback
 			{
 				get
 				{
@@ -2068,7 +2068,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal UserProfileState HasUserProfileState
+			public UserProfileState HasUserProfileState
 			{
 				get
 				{
@@ -2080,7 +2080,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ChunkManager.ProcessingChunkManager ChunkManager
+			public ChunkManager.ProcessingChunkManager ChunkManager
 			{
 				get
 				{
@@ -2088,7 +2088,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal QuickFindHashtable QuickFind
+			public QuickFindHashtable QuickFind
 			{
 				get
 				{
@@ -2096,7 +2096,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ReportDrillthroughInfo DrillthroughInfo
+			public ReportDrillthroughInfo DrillthroughInfo
 			{
 				get
 				{
@@ -2108,7 +2108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int UniqueNameCounter
+			public int UniqueNameCounter
 			{
 				get
 				{
@@ -2116,7 +2116,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ExecutionType InteractiveExecution
+			public ExecutionType InteractiveExecution
 			{
 				get
 				{
@@ -2124,7 +2124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool HasImageStreams
+			public bool HasImageStreams
 			{
 				get
 				{
@@ -2136,7 +2136,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal UserProfileState AllowUserProfileState
+			public UserProfileState AllowUserProfileState
 			{
 				get
 				{
@@ -2144,7 +2144,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool HasUserSortFilter
+			public bool HasUserSortFilter
 			{
 				get
 				{
@@ -2156,7 +2156,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool SaveSnapshotData
+			public bool SaveSnapshotData
 			{
 				get
 				{
@@ -2168,7 +2168,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool StopSaveSnapshotDataOnError
+			public bool StopSaveSnapshotDataOnError
 			{
 				get
 				{
@@ -2180,7 +2180,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ErrorSavingSnapshotData
+			public bool ErrorSavingSnapshotData
 			{
 				get
 				{
@@ -2192,7 +2192,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool IsHistorySnapshot
+			public bool IsHistorySnapshot
 			{
 				get
 				{
@@ -2212,7 +2212,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool UserSortFilterProcessing
+			public bool UserSortFilterProcessing
 			{
 				get
 				{
@@ -2224,7 +2224,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ResetForSubreportDataPrefetch
+			public bool ResetForSubreportDataPrefetch
 			{
 				get
 				{
@@ -2236,7 +2236,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ProcessWithCachedData
+			public bool ProcessWithCachedData
 			{
 				get
 				{
@@ -2244,7 +2244,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal GetReportChunk GetReportChunkCallback
+			public GetReportChunk GetReportChunkCallback
 			{
 				get
 				{
@@ -2252,7 +2252,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal CreateReportChunk CacheDataCallback
+			public CreateReportChunk CacheDataCallback
 			{
 				get
 				{
@@ -2260,7 +2260,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool DataCached
+			public bool DataCached
 			{
 				get
 				{
@@ -2272,7 +2272,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Hashtable CachedDataChunkMapping
+			public Hashtable CachedDataChunkMapping
 			{
 				get
 				{
@@ -2284,7 +2284,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal CustomReportItemControls CriProcessingControls
+			public CustomReportItemControls CriProcessingControls
 			{
 				get
 				{
@@ -2296,7 +2296,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal EventInformation UserSortFilterInfo
+			public EventInformation UserSortFilterInfo
 			{
 				get
 				{
@@ -2308,7 +2308,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal SortFilterEventInfoHashtable OldSortFilterEventInfo
+			public SortFilterEventInfoHashtable OldSortFilterEventInfo
 			{
 				get
 				{
@@ -2320,7 +2320,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal SortFilterEventInfoHashtable NewSortFilterEventInfo
+			public SortFilterEventInfoHashtable NewSortFilterEventInfo
 			{
 				get
 				{
@@ -2332,7 +2332,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeSortFilterEventInfoList ReportRuntimeUserSortFilterInfo
+			public RuntimeSortFilterEventInfoList ReportRuntimeUserSortFilterInfo
 			{
 				get
 				{
@@ -2344,7 +2344,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ReportRuntimeSetup ReportRuntimeSetup
+			public ReportRuntimeSetup ReportRuntimeSetup
 			{
 				get
 				{
@@ -2352,7 +2352,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal CultureInfo ThreadCulture
+			public CultureInfo ThreadCulture
 			{
 				get
 				{
@@ -2364,7 +2364,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal uint LanguageInstanceId
+			public uint LanguageInstanceId
 			{
 				get
 				{
@@ -2376,7 +2376,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal uint SubReportLevel
+			public uint SubReportLevel
 			{
 				get
 				{
@@ -2384,7 +2384,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ICatalogItemContext ReportContext
+			public ICatalogItemContext ReportContext
 			{
 				get
 				{
@@ -2392,7 +2392,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ReportRuntime ReportRuntime
+			public ReportRuntime ReportRuntime
 			{
 				get
 				{
@@ -2404,7 +2404,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ObjectModelImpl ReportObjectModel
+			public ObjectModelImpl ReportObjectModel
 			{
 				get
 				{
@@ -2416,7 +2416,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ReportItemsReferenced
+			public bool ReportItemsReferenced
 			{
 				get
 				{
@@ -2424,7 +2424,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ReportItemThisDotValueReferenced
+			public bool ReportItemThisDotValueReferenced
 			{
 				get
 				{
@@ -2432,7 +2432,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal DataSourceInfoHashtable GlobalDataSourceInfo
+			public DataSourceInfoHashtable GlobalDataSourceInfo
 			{
 				get
 				{
@@ -2440,7 +2440,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Report.ShowHideTypes ShowHideType
+			public Report.ShowHideTypes ShowHideType
 			{
 				get
 				{
@@ -2448,7 +2448,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal EmbeddedImageHashtable EmbeddedImages
+			public EmbeddedImageHashtable EmbeddedImages
 			{
 				get
 				{
@@ -2456,7 +2456,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ImageStreamNames ImageStreamNames
+			public ImageStreamNames ImageStreamNames
 			{
 				get
 				{
@@ -2468,7 +2468,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool InPageSection
+			public bool InPageSection
 			{
 				get
 				{
@@ -2476,7 +2476,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AbortHelper AbortInfo
+			public AbortHelper AbortInfo
 			{
 				get
 				{
@@ -2496,7 +2496,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ProcessReportParameters
+			public bool ProcessReportParameters
 			{
 				get
 				{
@@ -2504,7 +2504,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal MatrixHeadingInstance HeadingInstance
+			public MatrixHeadingInstance HeadingInstance
 			{
 				get
 				{
@@ -2516,7 +2516,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal MatrixHeadingInstance HeadingInstanceOld
+			public MatrixHeadingInstance HeadingInstanceOld
 			{
 				get
 				{
@@ -2528,7 +2528,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool DelayAddingInstanceInfo
+			public bool DelayAddingInstanceInfo
 			{
 				get
 				{
@@ -2540,7 +2540,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool SpecialRecursiveAggregates
+			public bool SpecialRecursiveAggregates
 			{
 				get
 				{
@@ -2548,7 +2548,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal SecondPassOperations SecondPassOperation
+			public SecondPassOperations SecondPassOperation
 			{
 				get
 				{
@@ -2560,7 +2560,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl GlobalRVCollection
+			public AggregatesImpl GlobalRVCollection
 			{
 				get
 				{
@@ -2572,7 +2572,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal string TransparentImageGuid
+			public string TransparentImageGuid
 			{
 				get
 				{
@@ -2584,7 +2584,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Pagination Pagination
+			public Pagination Pagination
 			{
 				get
 				{
@@ -2596,7 +2596,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal NavigationInfo NavigationInfo
+			public NavigationInfo NavigationInfo
 			{
 				get
 				{
@@ -2608,7 +2608,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal CompareInfo CompareInfo
+			public CompareInfo CompareInfo
 			{
 				get
 				{
@@ -2620,7 +2620,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal CompareOptions ClrCompareOptions
+			public CompareOptions ClrCompareOptions
 			{
 				get
 				{
@@ -2632,7 +2632,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int DataSetUniqueName
+			public int DataSetUniqueName
 			{
 				get
 				{
@@ -2640,7 +2640,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool CreatePageSectionImageChunks
+			public bool CreatePageSectionImageChunks
 			{
 				get
 				{
@@ -2648,7 +2648,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal PageSectionContext PageSectionContext
+			public PageSectionContext PageSectionContext
 			{
 				get
 				{
@@ -2660,7 +2660,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal UserSortFilterContext UserSortFilterContext
+			public UserSortFilterContext UserSortFilterContext
 			{
 				get
 				{
@@ -2672,7 +2672,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeSortFilterEventInfoList RuntimeSortFilterInfo
+			public RuntimeSortFilterEventInfoList RuntimeSortFilterInfo
 			{
 				get
 				{
@@ -2684,7 +2684,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IJobContext JobContext
+			public IJobContext JobContext
 			{
 				get
 				{
@@ -2692,7 +2692,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IExtensionFactory ExtFactory
+			public IExtensionFactory ExtFactory
 			{
 				get
 				{
@@ -2700,7 +2700,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IProcessingDataExtensionConnection DataExtensionConnection
+			public IProcessingDataExtensionConnection DataExtensionConnection
 			{
 				get
 				{
@@ -2708,7 +2708,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IDataProtection DataProtection
+			public IDataProtection DataProtection
 			{
 				get
 				{
@@ -2716,7 +2716,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool IgnoreAllFromStart
+			public bool IgnoreAllFromStart
 			{
 				set
 				{
@@ -2725,7 +2725,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool UseAllContainers
+			public bool UseAllContainers
 			{
 				set
 				{
@@ -2839,7 +2839,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_dataProtection = copy.DataProtection;
 			}
 
-			internal ProcessingContext(ICatalogItemContext reportContext, Report.ShowHideTypes showHideType, IGetResource getResourceCallback, EmbeddedImageHashtable embeddedImages, ImageStreamNames imageStreamNames, ErrorContext errorContext, bool reportItemsReferenced, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, IDataProtection dataProtection)
+			public ProcessingContext(ICatalogItemContext reportContext, Report.ShowHideTypes showHideType, IGetResource getResourceCallback, EmbeddedImageHashtable embeddedImages, ImageStreamNames imageStreamNames, ErrorContext errorContext, bool reportItemsReferenced, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, IDataProtection dataProtection)
 			{
 				this.m_commonInfo = new CommonInfo(getResourceCallback, allowUserProfileState, reportRuntimeSetup);
 				this.m_subReportLevel = 0u;
@@ -2868,7 +2868,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_dataProtection = dataProtection;
 			}
 
-			internal ProcessingContext(ICatalogItemContext reportContext, Report.ShowHideTypes showHideType, IGetResource getResourceCallback, EmbeddedImageHashtable embeddedImages, ImageStreamNames imageStreamNames, ErrorContext errorContext, bool reportItemsReferenced, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, CreateReportChunk createChunkCallback, ChunkManager.ProcessingChunkManager processingChunkManager, int uniqueNameCounter, IDataProtection dataProtection, ref ReportDrillthroughInfo drillthroughInfo)
+			public ProcessingContext(ICatalogItemContext reportContext, Report.ShowHideTypes showHideType, IGetResource getResourceCallback, EmbeddedImageHashtable embeddedImages, ImageStreamNames imageStreamNames, ErrorContext errorContext, bool reportItemsReferenced, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, CreateReportChunk createChunkCallback, ChunkManager.ProcessingChunkManager processingChunkManager, int uniqueNameCounter, IDataProtection dataProtection, ref ReportDrillthroughInfo drillthroughInfo)
 			{
 				this.m_commonInfo = new CommonInfo(getResourceCallback, allowUserProfileState, reportRuntimeSetup, createChunkCallback, processingChunkManager, uniqueNameCounter, ref drillthroughInfo);
 				this.m_inPageSection = true;
@@ -2932,22 +2932,22 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_dataProtection = copy.m_dataProtection;
 			}
 
-			internal virtual ProcessingContext ParametersContext(ICatalogItemContext reportContext, ProcessingErrorContext subReportErrorContext)
+			public virtual ProcessingContext ParametersContext(ICatalogItemContext reportContext, ProcessingErrorContext subReportErrorContext)
 			{
 				return null;
 			}
 
-			internal virtual ProcessingContext SubReportContext(SubReport subReport, int subReportDataSetUniqueName, ProcessingErrorContext subReportErrorContext)
+			public virtual ProcessingContext SubReportContext(SubReport subReport, int subReportDataSetUniqueName, ProcessingErrorContext subReportErrorContext)
 			{
 				return null;
 			}
 
-			internal virtual ProcessingContext CloneContext(ProcessingContext context)
+			public virtual ProcessingContext CloneContext(ProcessingContext context)
 			{
 				return null;
 			}
 
-			internal void CheckAndThrowIfAborted()
+			public void CheckAndThrowIfAborted()
 			{
 				if (this.m_abortHelper.GetStatus(this.DataSetUniqueName) != 0)
 				{
@@ -2955,7 +2955,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void RuntimeInitializeReportItemObjs(ReportItemCollection reportItems, bool traverseDataRegions, bool setValue)
+			public void RuntimeInitializeReportItemObjs(ReportItemCollection reportItems, bool traverseDataRegions, bool setValue)
 			{
 				for (int i = 0; i < reportItems.Count; i++)
 				{
@@ -2963,7 +2963,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void RuntimeInitializeReportItemObjs(ReportItem reportItem, bool traverseDataRegions, bool setValue)
+			public void RuntimeInitializeReportItemObjs(ReportItem reportItem, bool traverseDataRegions, bool setValue)
 			{
 				ReportItemImpl reportItemImpl = null;
 				if (reportItem != null)
@@ -3072,7 +3072,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void InitializeMatrixHeadingRuntimeObjs(MatrixHeading heading, MatrixDynamicGroupExprHost headingExprHost, bool traverseDataRegions, bool setValue)
+			public void InitializeMatrixHeadingRuntimeObjs(MatrixHeading heading, MatrixDynamicGroupExprHost headingExprHost, bool traverseDataRegions, bool setValue)
 			{
 				while (heading != null)
 				{
@@ -3094,7 +3094,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void InitializeChartHeadingRuntimeObjs(ChartHeading heading, ChartDynamicGroupExprHost headingExprHost)
+			public void InitializeChartHeadingRuntimeObjs(ChartHeading heading, ChartDynamicGroupExprHost headingExprHost)
 			{
 				while (heading != null)
 				{
@@ -3107,7 +3107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static void InitializeTableGroupRuntimeObjs(Table table, TableGroup group, TableGroupExprHost groupExprHost, ProcessingContext processingContext, ObjectModelImpl reportObjectModel, bool traverseDataRegions, bool setValue)
+			public static void InitializeTableGroupRuntimeObjs(Table table, TableGroup group, TableGroupExprHost groupExprHost, ProcessingContext processingContext, ObjectModelImpl reportObjectModel, bool traverseDataRegions, bool setValue)
 			{
 				while (group != null)
 				{
@@ -3141,7 +3141,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void InitializeCRIHeadingRuntimeObjs(CustomReportItemHeadingList headings, IList<DataGroupingExprHost> headingExprHosts)
+			public void InitializeCRIHeadingRuntimeObjs(CustomReportItemHeadingList headings, IList<DataGroupingExprHost> headingExprHosts)
 			{
 				if (headings != null)
 				{
@@ -3160,25 +3160,25 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void EndIgnoreRange()
+			public void EndIgnoreRange()
 			{
 				Global.Tracer.Assert(null != this.m_showHideInfo, "(null != m_showHideInfo)");
 				this.m_showHideInfo.EndIgnoreRange();
 			}
 
-			internal void RegisterIgnoreRange()
+			public void RegisterIgnoreRange()
 			{
 				Global.Tracer.Assert(null != this.m_showHideInfo, "(null != m_showHideInfo)");
 				this.m_showHideInfo.RegisterIgnoreRange();
 			}
 
-			internal void UnRegisterIgnoreRange()
+			public void UnRegisterIgnoreRange()
 			{
 				Global.Tracer.Assert(null != this.m_showHideInfo, "(null != m_showHideInfo)");
 				this.m_showHideInfo.UnRegisterIgnoreRange();
 			}
 
-			internal void BeginProcessContainer(int uniqueName, Visibility visibility)
+			public void BeginProcessContainer(int uniqueName, Visibility visibility)
 			{
 				if (visibility != null && visibility.Toggle != null)
 				{
@@ -3187,7 +3187,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void EndProcessContainer(int uniqueName, Visibility visibility)
+			public void EndProcessContainer(int uniqueName, Visibility visibility)
 			{
 				if (visibility != null && visibility.Toggle != null)
 				{
@@ -3196,7 +3196,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ProcessSender(int uniqueName, bool startHidden, TextBox textBox)
+			public bool ProcessSender(int uniqueName, bool startHidden, TextBox textBox)
 			{
 				bool result = false;
 				if (textBox.InitialToggleState != null)
@@ -3211,7 +3211,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal bool ProcessReceiver(int uniqueName, Visibility visibility, IVisibilityHiddenExprHost visibilityExprHostRI, ObjectType objectType, string objectName)
+			public bool ProcessReceiver(int uniqueName, Visibility visibility, IVisibilityHiddenExprHost visibilityExprHostRI, ObjectType objectType, string objectName)
 			{
 				bool flag = false;
 				if (visibility != null)
@@ -3226,7 +3226,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return flag;
 			}
 
-			internal bool ProcessReceiver(int uniqueName, Visibility visibility, IndexedExprHost visibilityExprHostIdx, ObjectType objectType, string objectName)
+			public bool ProcessReceiver(int uniqueName, Visibility visibility, IndexedExprHost visibilityExprHostIdx, ObjectType objectType, string objectName)
 			{
 				bool flag = false;
 				if (visibility != null)
@@ -3241,37 +3241,37 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return flag;
 			}
 
-			internal void EnterGrouping()
+			public void EnterGrouping()
 			{
 				Global.Tracer.Assert(null != this.m_showHideInfo, "(null != m_showHideInfo)");
 				this.m_showHideInfo.EnterGrouping();
 			}
 
-			internal void EnterChildGroupings()
+			public void EnterChildGroupings()
 			{
 				Global.Tracer.Assert(null != this.m_showHideInfo, "(null != m_showHideInfo)");
 				this.m_showHideInfo.EnterChildGroupings();
 			}
 
-			internal void ExitGrouping()
+			public void ExitGrouping()
 			{
 				Global.Tracer.Assert(null != this.m_showHideInfo, "(null != m_showHideInfo)");
 				this.m_showHideInfo.ExitGrouping();
 			}
 
-			internal void ExitChildGroupings()
+			public void ExitChildGroupings()
 			{
 				Global.Tracer.Assert(null != this.m_showHideInfo, "(null != m_showHideInfo)");
 				this.m_showHideInfo.ExitChildGroupings();
 			}
 
-			internal void GetSenderAndReceiverInfo(out SenderInformationHashtable senderInfo, out ReceiverInformationHashtable receiverInfo)
+			public void GetSenderAndReceiverInfo(out SenderInformationHashtable senderInfo, out ReceiverInformationHashtable receiverInfo)
 			{
 				Global.Tracer.Assert(null != this.m_showHideInfo, "(null != m_showHideInfo)");
 				this.m_showHideInfo.GetSenderAndReceiverInfo(out senderInfo, out receiverInfo);
 			}
 
-			internal void AddSpecialDataRegionFilters(Filters filters)
+			public void AddSpecialDataRegionFilters(Filters filters)
 			{
 				if (this.m_specialDataRegionFilters == null)
 				{
@@ -3294,7 +3294,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void EnterPivotCell(bool escalateScope)
+			public void EnterPivotCell(bool escalateScope)
 			{
 				if (this.m_pivotRunningValueScopes == null)
 				{
@@ -3303,13 +3303,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_pivotRunningValueScopes.Add(escalateScope);
 			}
 
-			internal void ExitPivotCell()
+			public void ExitPivotCell()
 			{
 				Global.Tracer.Assert(null != this.m_pivotRunningValueScopes, "(null != m_pivotRunningValueScopes)");
 				this.m_pivotRunningValueScopes.RemoveAt(this.m_pivotRunningValueScopes.Count - 1);
 			}
 
-			internal bool PivotEscalateScope()
+			public bool PivotEscalateScope()
 			{
 				if (this.m_pivotRunningValueScopes != null && 0 < this.m_pivotRunningValueScopes.Count)
 				{
@@ -3318,39 +3318,39 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal bool PopulateRuntimeSortFilterEventInfo(DataSet myDataSet)
+			public bool PopulateRuntimeSortFilterEventInfo(DataSet myDataSet)
 			{
 				return this.m_userSortFilterContext.PopulateRuntimeSortFilterEventInfo(this, myDataSet);
 			}
 
-			internal bool IsSortFilterTarget(bool[] isSortFilterTarget, IScope outerScope, IHierarchyObj target, ref RuntimeUserSortTargetInfo userSortTargetInfo)
+			public bool IsSortFilterTarget(bool[] isSortFilterTarget, IScope outerScope, IHierarchyObj target, ref RuntimeUserSortTargetInfo userSortTargetInfo)
 			{
 				return this.m_userSortFilterContext.IsSortFilterTarget(isSortFilterTarget, outerScope, target, ref userSortTargetInfo);
 			}
 
-			internal EventInformation GetUserSortFilterInformation(ref int oldUniqueName, ref int page)
+			public EventInformation GetUserSortFilterInformation(ref int oldUniqueName, ref int page)
 			{
 				return this.m_commonInfo.GetUserSortFilterInformation(ref oldUniqueName, ref page);
 			}
 
-			internal void RegisterSortFilterExpressionScope(IScope container, RuntimeDataRegionObj scopeObj, bool[] isSortFilterExpressionScope)
+			public void RegisterSortFilterExpressionScope(IScope container, RuntimeDataRegionObj scopeObj, bool[] isSortFilterExpressionScope)
 			{
 				this.m_userSortFilterContext.RegisterSortFilterExpressionScope(container, scopeObj, isSortFilterExpressionScope);
 			}
 
-			internal void ProcessUserSortForTarget(IHierarchyObj target, ref DataRowList dataRows, bool targetForNonDetailSort)
+			public void ProcessUserSortForTarget(IHierarchyObj target, ref DataRowList dataRows, bool targetForNonDetailSort)
 			{
 				this.m_userSortFilterContext.ProcessUserSortForTarget(this.m_reportObjectModel, this.m_reportRuntime, target, ref dataRows, targetForNonDetailSort);
 			}
 
-			internal ProcessingMessageList RegisterComparisonErrorForSortFilterEvent(string propertyName)
+			public ProcessingMessageList RegisterComparisonErrorForSortFilterEvent(string propertyName)
 			{
 				Global.Tracer.Assert(null != this.m_userSortFilterContext.CurrentSortFilterEventSource, "(null != m_userSortFilterContext.CurrentSortFilterEventSource)");
 				this.m_errorContext.Register(ProcessingErrorCode.rsComparisonError, Severity.Error, this.m_userSortFilterContext.CurrentSortFilterEventSource.ObjectType, this.m_userSortFilterContext.CurrentSortFilterEventSource.Name, propertyName);
 				return this.m_errorContext.Messages;
 			}
 
-			internal void FirstPassPostProcess()
+			public void FirstPassPostProcess()
 			{
 				do
 				{
@@ -3359,7 +3359,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				while (this.m_userSortFilterContext.ProcessUserSort(this));
 			}
 
-			internal VariantList[] GetScopeValues(GroupingList containingScopes, IScope containingScope)
+			public VariantList[] GetScopeValues(GroupingList containingScopes, IScope containingScope)
 			{
 				VariantList[] array = null;
 				if (containingScopes != null && 0 < containingScopes.Count)
@@ -3371,22 +3371,22 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return array;
 			}
 
-			internal int CreateUniqueName()
+			public int CreateUniqueName()
 			{
 				return this.m_commonInfo.CreateUniqueName();
 			}
 
-			internal int CreateIDForSubreport()
+			public int CreateIDForSubreport()
 			{
 				return this.m_commonInfo.CreateIDForSubreport();
 			}
 
-			internal int GetLastIDForReport()
+			public int GetLastIDForReport()
 			{
 				return this.m_commonInfo.GetLastIDForReport();
 			}
 
-			internal bool GetResource(string path, out byte[] resource, out string mimeType)
+			public bool GetResource(string path, out byte[] resource, out string mimeType)
 			{
 				if (this.m_commonInfo.GetResourceCallback != null)
 				{
@@ -3405,11 +3405,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class ReportProcessingContext : ProcessingContext
+		public sealed class ReportProcessingContext : ProcessingContext
 		{
 			private RuntimeDataSourceInfoCollection m_dataSourceInfos;
 
-			internal RuntimeDataSourceInfoCollection DataSourceInfos
+			public RuntimeDataSourceInfoCollection DataSourceInfos
 			{
 				get
 				{
@@ -3417,13 +3417,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ReportProcessingContext(string chartName, RuntimeDataSourceInfoCollection dataSourceInfos, string requestUserName, CultureInfo userLanguage, SubReportCallback subReportCallback, ICatalogItemContext reportContext, Report report, ErrorContext errorContext, CreateReportChunk createReportChunkCallback, IGetResource getResourceCallback, ExecutionType interactiveExecution, DateTime executionTime, UserProfileState allowUserProfileState, bool isHistorySnapshot, bool snapshotProcessing, bool processWithCachedData, GetReportChunk getChunkCallback, CreateReportChunk cacheDataCallback, IProcessingDataExtensionConnection dataExtensionConnection, ReportRuntimeSetup reportRuntimeSetup, IJobContext jobContext, IExtensionFactory extFactory, IDataProtection dataProtection)
+			public ReportProcessingContext(string chartName, RuntimeDataSourceInfoCollection dataSourceInfos, string requestUserName, CultureInfo userLanguage, SubReportCallback subReportCallback, ICatalogItemContext reportContext, Report report, ErrorContext errorContext, CreateReportChunk createReportChunkCallback, IGetResource getResourceCallback, ExecutionType interactiveExecution, DateTime executionTime, UserProfileState allowUserProfileState, bool isHistorySnapshot, bool snapshotProcessing, bool processWithCachedData, GetReportChunk getChunkCallback, CreateReportChunk cacheDataCallback, IProcessingDataExtensionConnection dataExtensionConnection, ReportRuntimeSetup reportRuntimeSetup, IJobContext jobContext, IExtensionFactory extFactory, IDataProtection dataProtection)
 				: base(chartName, requestUserName, userLanguage, subReportCallback, reportContext, report, errorContext, createReportChunkCallback, getResourceCallback, interactiveExecution, executionTime, allowUserProfileState, isHistorySnapshot, snapshotProcessing, processWithCachedData, getChunkCallback, cacheDataCallback, reportRuntimeSetup, jobContext, extFactory, dataExtensionConnection, dataProtection)
 			{
 				this.m_dataSourceInfos = dataSourceInfos;
 			}
 
-			internal ReportProcessingContext(ProcessingContext parentContext, RuntimeDataSourceInfoCollection dataSourceInfos, string requestUserName, CultureInfo userlanguage, ICatalogItemContext reportContext, ErrorContext errorContext, ExecutionType interactiveExecution, DateTime executionTime, UserProfileState allowUserProfileState, bool snapshotProcessing, IProcessingDataExtensionConnection dataExtensionConnection, ReportRuntimeSetup reportRuntimeSetup, IJobContext jobContext, IExtensionFactory extFactory, IDataProtection dataProtection)
+			public ReportProcessingContext(ProcessingContext parentContext, RuntimeDataSourceInfoCollection dataSourceInfos, string requestUserName, CultureInfo userlanguage, ICatalogItemContext reportContext, ErrorContext errorContext, ExecutionType interactiveExecution, DateTime executionTime, UserProfileState allowUserProfileState, bool snapshotProcessing, IProcessingDataExtensionConnection dataExtensionConnection, ReportRuntimeSetup reportRuntimeSetup, IJobContext jobContext, IExtensionFactory extFactory, IDataProtection dataProtection)
 				: base(parentContext, requestUserName, userlanguage, reportContext, errorContext, interactiveExecution, executionTime, allowUserProfileState, snapshotProcessing, reportRuntimeSetup, jobContext, extFactory, dataExtensionConnection, dataProtection)
 			{
 				this.m_dataSourceInfos = dataSourceInfos;
@@ -3441,23 +3441,23 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_dataSourceInfos = copy.DataSourceInfos;
 			}
 
-			internal override ProcessingContext ParametersContext(ICatalogItemContext reportContext, ProcessingErrorContext errorContext)
+			public override ProcessingContext ParametersContext(ICatalogItemContext reportContext, ProcessingErrorContext errorContext)
 			{
 				return new ReportProcessingContext(this, this.DataSourceInfos, base.RequestUserName, base.UserLanguage, reportContext, errorContext, base.InteractiveExecution, base.ExecutionTime, base.AllowUserProfileState, base.SnapshotProcessing, base.DataExtensionConnection, base.ReportRuntimeSetup, base.JobContext, base.ExtFactory, base.DataProtection);
 			}
 
-			internal override ProcessingContext SubReportContext(SubReport subReport, int subReportDataSetUniqueName, ProcessingErrorContext subReportErrorContext)
+			public override ProcessingContext SubReportContext(SubReport subReport, int subReportDataSetUniqueName, ProcessingErrorContext subReportErrorContext)
 			{
 				return new ReportProcessingContext(subReport, subReportErrorContext, this, subReportDataSetUniqueName);
 			}
 
-			internal override ProcessingContext CloneContext(ProcessingContext context)
+			public override ProcessingContext CloneContext(ProcessingContext context)
 			{
 				return new ReportProcessingContext((ReportProcessingContext)context);
 			}
 		}
 
-		internal sealed class Pagination
+		public sealed class Pagination
 		{
 			private const double MINIMUM_START_ON_PAGE = 12.7;
 
@@ -3469,7 +3469,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private int m_ignoreHeight;
 
-			internal double PageHeight
+			public double PageHeight
 			{
 				get
 				{
@@ -3477,7 +3477,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal double CurrentPageHeight
+			public double CurrentPageHeight
 			{
 				get
 				{
@@ -3485,7 +3485,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool IgnorePageBreak
+			public bool IgnorePageBreak
 			{
 				get
 				{
@@ -3493,7 +3493,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool IgnoreHeight
+			public bool IgnoreHeight
 			{
 				get
 				{
@@ -3501,12 +3501,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Pagination(double pageMaxHeight)
+			public Pagination(double pageMaxHeight)
 			{
 				this.m_pageMaxHeight = pageMaxHeight;
 			}
 
-			internal void EnterIgnorePageBreak(Visibility visibility, bool ignoreAlways)
+			public void EnterIgnorePageBreak(Visibility visibility, bool ignoreAlways)
 			{
 				if (!ignoreAlways && AspNetCore.ReportingServices.ReportRendering.SharedHiddenState.Never == Visibility.GetSharedHidden(visibility))
 				{
@@ -3515,7 +3515,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_ignorePageBreak++;
 			}
 
-			internal void LeaveIgnorePageBreak(Visibility visibility, bool ignoreAlways)
+			public void LeaveIgnorePageBreak(Visibility visibility, bool ignoreAlways)
 			{
 				if (ignoreAlways || AspNetCore.ReportingServices.ReportRendering.SharedHiddenState.Never != Visibility.GetSharedHidden(visibility))
 				{
@@ -3524,7 +3524,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				Global.Tracer.Assert(0 <= this.m_ignorePageBreak, "(0 <= m_ignorePageBreak)");
 			}
 
-			internal void EnterIgnoreHeight(bool startHidden)
+			public void EnterIgnoreHeight(bool startHidden)
 			{
 				if (startHidden)
 				{
@@ -3532,7 +3532,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void LeaveIgnoreHeight(bool startHidden)
+			public void LeaveIgnoreHeight(bool startHidden)
 			{
 				if (startHidden)
 				{
@@ -3541,18 +3541,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				Global.Tracer.Assert(0 <= this.m_ignoreHeight, "(0 <= m_ignoreHeight)");
 			}
 
-			internal void CopyPaginationInfo(Pagination pagination)
+			public void CopyPaginationInfo(Pagination pagination)
 			{
 				this.m_ignoreHeight = pagination.m_ignoreHeight;
 				this.m_ignorePageBreak = pagination.m_ignorePageBreak;
 			}
 
-			internal bool CalculateSoftPageBreak(ReportItem reportItem, double itemHeight, double distanceBeforeOrAfter, bool ignoreSoftPageBreak)
+			public bool CalculateSoftPageBreak(ReportItem reportItem, double itemHeight, double distanceBeforeOrAfter, bool ignoreSoftPageBreak)
 			{
 				return this.CalculateSoftPageBreak(reportItem, itemHeight, distanceBeforeOrAfter, ignoreSoftPageBreak, this.PageBreakAtStart(reportItem));
 			}
 
-			internal bool CalculateSoftPageBreak(ReportItem reportItem, double itemHeight, double distanceBeforeOrAfter, bool ignoreSoftPageBreak, bool logicalPageBreak)
+			public bool CalculateSoftPageBreak(ReportItem reportItem, double itemHeight, double distanceBeforeOrAfter, bool ignoreSoftPageBreak, bool logicalPageBreak)
 			{
 				if (!this.IgnorePageBreak && logicalPageBreak)
 				{
@@ -3580,7 +3580,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal void ProcessEndPage(IPageItem riInstance, ReportItem reportItem, bool pageBreakAtEnd, bool childrenOnThisPage)
+			public void ProcessEndPage(IPageItem riInstance, ReportItem reportItem, bool pageBreakAtEnd, bool childrenOnThisPage)
 			{
 				riInstance.StartPage = reportItem.StartPage;
 				riInstance.EndPage = reportItem.EndPage;
@@ -3612,7 +3612,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void ProcessEndGroupPage(double distance, bool pageBreakAtEnd, ReportItem parent, bool childrenOnThisPage, bool startHidden)
+			public void ProcessEndGroupPage(double distance, bool pageBreakAtEnd, ReportItem parent, bool childrenOnThisPage, bool startHidden)
 			{
 				this.LeaveIgnoreHeight(startHidden);
 				if (!this.IgnoreHeight)
@@ -3640,7 +3640,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void SetReportItemStartPage(ReportItem reportItem, bool softPageAtStart)
+			public void SetReportItemStartPage(ReportItem reportItem, bool softPageAtStart)
 			{
 				ReportItemCollection reportItemCollection = null;
 				int num = reportItem.StartPage;
@@ -3737,7 +3737,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				reportItem.BottomInEndPage = this.m_currentPageHeight;
 			}
 
-			internal bool PageBreakAtEnd(ReportItem reportItem)
+			public bool PageBreakAtEnd(ReportItem reportItem)
 			{
 				if (reportItem.SoftPageBreak)
 				{
@@ -3758,7 +3758,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.CheckPageBreak(reportItem, false);
 			}
 
-			internal bool PageBreakAtStart(ReportItem reportItem)
+			public bool PageBreakAtStart(ReportItem reportItem)
 			{
 				if (reportItem is List && ((List)reportItem).PropagatedPageBreakAtStart)
 				{
@@ -3797,7 +3797,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal bool CanMoveToNextPage(bool pageBreakAtStart)
+			public bool CanMoveToNextPage(bool pageBreakAtStart)
 			{
 				if (this.IgnorePageBreak)
 				{
@@ -3810,7 +3810,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal void ProcessListRenderingPages(ListInstance listInstance, List listDef)
+			public void ProcessListRenderingPages(ListInstance listInstance, List listDef)
 			{
 				RenderingPagesRangesList childrenStartAndEndPages = listInstance.ChildrenStartAndEndPages;
 				Global.Tracer.Assert(null != childrenStartAndEndPages, "(null != listPagesList)");
@@ -3847,7 +3847,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.ProcessEndPage(listInstance, listDef, this.PageBreakAtEnd(listDef), childrenOnThisPage);
 			}
 
-			internal void InitProcessTableRenderingPages(TableInstance tableInstance, Table table)
+			public void InitProcessTableRenderingPages(TableInstance tableInstance, Table table)
 			{
 				double headerHeightValue = table.HeaderHeightValue;
 				if (!this.IgnorePageBreak && headerHeightValue < this.m_pageMaxHeight && headerHeightValue + this.m_currentPageHeight > this.m_pageMaxHeight)
@@ -3864,7 +3864,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void InitProcessingTableGroup(TableInstance tableInstance, Table table, TableGroupInstance tableGroupInstance, TableGroup tableGroup, ref RenderingPagesRanges renderingPagesRanges, bool ignorePageBreakAtStart)
+			public void InitProcessingTableGroup(TableInstance tableInstance, Table table, TableGroupInstance tableGroupInstance, TableGroup tableGroup, ref RenderingPagesRanges renderingPagesRanges, bool ignorePageBreakAtStart)
 			{
 				this.EnterIgnorePageBreak(tableGroup.Visibility, false);
 				tableGroup.StartPage = tableInstance.CurrentPage;
@@ -3896,7 +3896,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				renderingPagesRanges.StartPage = tableInstance.CurrentPage;
 			}
 
-			internal void ProcessTableDetails(Table tableDef, TableDetailInstance detailInstance, IList detailInstances, ref double detailHeightValue, TableRowList rowDefs, RenderingPagesRangesList pagesList, ref int numberOfChildrenOnThisPage)
+			public void ProcessTableDetails(Table tableDef, TableDetailInstance detailInstance, IList detailInstances, ref double detailHeightValue, TableRowList rowDefs, RenderingPagesRangesList pagesList, ref int numberOfChildrenOnThisPage)
 			{
 				if (-1.0 == detailHeightValue)
 				{
@@ -3922,14 +3922,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void ProcessTableRenderingPages(TableInstance tableInstance, Table reportItem)
+			public void ProcessTableRenderingPages(TableInstance tableInstance, Table reportItem)
 			{
 				this.ProcessEndPage(tableInstance, reportItem, this.PageBreakAtEnd(reportItem), tableInstance.NumberOfChildrenOnThisPage > 0);
 				reportItem.EndPage = tableInstance.CurrentPage;
 				reportItem.CurrentPage = tableInstance.CurrentPage;
 			}
 
-			internal void ComputeReportItemTrueTop(ReportItem reportItem)
+			public void ComputeReportItemTrueTop(ReportItem reportItem)
 			{
 				ReportItemCollection reportItemCollection = null;
 				int num = reportItem.StartPage;
@@ -3996,7 +3996,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				reportItem.TopInStartPage = num2;
 			}
 
-			internal void AddToCurrentPageHeight(ReportItem reportItem, double distance)
+			public void AddToCurrentPageHeight(ReportItem reportItem, double distance)
 			{
 				this.m_currentPageHeight += distance;
 				if (reportItem != null)
@@ -4005,7 +4005,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void SetCurrentPageHeight(ReportItem reportItem, double distance)
+			public void SetCurrentPageHeight(ReportItem reportItem, double distance)
 			{
 				this.m_currentPageHeight = distance;
 				if (reportItem != null)
@@ -4014,7 +4014,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ShouldItemMoveToChildStartPage(ReportItem reportItem)
+			public bool ShouldItemMoveToChildStartPage(ReportItem reportItem)
 			{
 				List list = reportItem as List;
 				if (list == null)
@@ -4050,7 +4050,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal int GetTextBoxStartPage(TextBox textBox)
+			public int GetTextBoxStartPage(TextBox textBox)
 			{
 				if (-1 == textBox.StartPage)
 				{
@@ -4068,11 +4068,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class NavigationInfo
+		public sealed class NavigationInfo
 		{
-			internal sealed class DocumentMapNodeList : ArrayList
+			public sealed class DocumentMapNodeList : ArrayList
 			{
-				internal new DocumentMapNode this[int index]
+				public new DocumentMapNode this[int index]
 				{
 					get
 					{
@@ -4084,14 +4084,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal DocumentMapNodeList()
+				public DocumentMapNodeList()
 				{
 				}
 			}
 
-			internal sealed class DocumentMapNodeLists : ArrayList
+			public sealed class DocumentMapNodeLists : ArrayList
 			{
-				internal new DocumentMapNodeList this[int index]
+				public new DocumentMapNodeList this[int index]
 				{
 					get
 					{
@@ -4103,7 +4103,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal DocumentMapNodeLists()
+				public DocumentMapNodeLists()
 				{
 				}
 			}
@@ -4118,7 +4118,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private BookmarksHashtable m_bookmarksInfo;
 
-			internal DocumentMapNodeLists DocumentMapChildren
+			public DocumentMapNodeLists DocumentMapChildren
 			{
 				get
 				{
@@ -4126,7 +4126,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal DocumentMapNodeList CurrentDocumentMapSiblings
+			public DocumentMapNodeList CurrentDocumentMapSiblings
 			{
 				get
 				{
@@ -4139,7 +4139,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal string CurrentLabel
+			public string CurrentLabel
 			{
 				get
 				{
@@ -4147,7 +4147,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal BookmarksHashtable BookmarksInfo
+			public BookmarksHashtable BookmarksInfo
 			{
 				get
 				{
@@ -4212,7 +4212,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void GetCurrentDocumentMapPosition(out int siblingIndex, out int nodeIndex)
+			public void GetCurrentDocumentMapPosition(out int siblingIndex, out int nodeIndex)
 			{
 				siblingIndex = 0;
 				nodeIndex = 0;
@@ -4228,7 +4228,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void EnterMatrixColumn()
+			public void EnterMatrixColumn()
 			{
 				this.m_inMatrixColumn++;
 				if (this.m_matrixColumnDocumentMaps == null)
@@ -4242,13 +4242,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void LeaveMatrixColumn()
+			public void LeaveMatrixColumn()
 			{
 				this.m_inMatrixColumn--;
 				Global.Tracer.Assert(-1 <= this.m_inMatrixColumn, "(-1 <= m_inMatrixColumn)");
 			}
 
-			internal void InsertMatrixColumnDocumentMap(int siblingIndex, int nodeIndex)
+			public void InsertMatrixColumnDocumentMap(int siblingIndex, int nodeIndex)
 			{
 				DocumentMapNodeLists currentMatrixColumnDocumentMapChildren = this.CurrentMatrixColumnDocumentMapChildren;
 				if (currentMatrixColumnDocumentMapChildren != null && 0 < currentMatrixColumnDocumentMapChildren.Count)
@@ -4282,7 +4282,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void AppendNavigationInfo(string label, NavigationInfo navigationInfo, int startPage)
+			public void AppendNavigationInfo(string label, NavigationInfo navigationInfo, int startPage)
 			{
 				DocumentMapNodeLists currentDocumentMapChildren = this.CurrentDocumentMapChildren;
 				DocumentMapNodeLists currentDocumentMapChildren2 = navigationInfo.CurrentDocumentMapChildren;
@@ -4354,7 +4354,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void EnterDocumentMapChildren()
+			public void EnterDocumentMapChildren()
 			{
 				DocumentMapNodeLists documentMapNodeLists = this.CurrentDocumentMapChildren;
 				if (documentMapNodeLists == null)
@@ -4366,7 +4366,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				documentMapNodeLists.Add(null);
 			}
 
-			internal void AddToDocumentMap(int uniqueName, bool isContainer, int startPage, string label)
+			public void AddToDocumentMap(int uniqueName, bool isContainer, int startPage, string label)
 			{
 				if (label != null)
 				{
@@ -4400,7 +4400,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal string RegisterLabel(VariantResult labelResult)
+			public string RegisterLabel(VariantResult labelResult)
 			{
 				string text = null;
 				if (labelResult.ErrorOccurred)
@@ -4433,13 +4433,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return text;
 			}
 
-			internal void ProcessBookmark(ProcessingContext processingContext, ReportItem reportItem, ReportItemInstance riInstance, ReportItemInstanceInfo riInstanceInfo)
+			public void ProcessBookmark(ProcessingContext processingContext, ReportItem reportItem, ReportItemInstance riInstance, ReportItemInstanceInfo riInstanceInfo)
 			{
 				string bookmark = processingContext.ReportRuntime.EvaluateReportItemBookmarkExpression(reportItem);
 				this.ProcessBookmark(reportItem, riInstance, riInstanceInfo, bookmark);
 			}
 
-			internal void ProcessBookmark(ReportItem reportItem, ReportItemInstance riInstance, ReportItemInstanceInfo riInstanceInfo, string bookmark)
+			public void ProcessBookmark(ReportItem reportItem, ReportItemInstance riInstance, ReportItemInstanceInfo riInstanceInfo, string bookmark)
 			{
 				if (bookmark != null)
 				{
@@ -4452,7 +4452,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void ProcessBookmark(string bookmark, int startPage, int uniqueName)
+			public void ProcessBookmark(string bookmark, int startPage, int uniqueName)
 			{
 				if (bookmark != null)
 				{
@@ -4465,9 +4465,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class RuntimeGroupingObj
+		public sealed class RuntimeGroupingObj
 		{
-			internal enum GroupingTypes
+			public enum GroupingTypes
 			{
 				None,
 				Hash,
@@ -4484,7 +4484,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private ParentInformation m_parentInfo;
 
-			internal BTreeNode Tree
+			public BTreeNode Tree
 			{
 				get
 				{
@@ -4496,7 +4496,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal GroupingTypes GroupingType
+			public GroupingTypes GroupingType
 			{
 				set
 				{
@@ -4507,7 +4507,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeGroupingObj(RuntimeHierarchyObj owner, GroupingTypes type)
+			public RuntimeGroupingObj(RuntimeHierarchyObj owner, GroupingTypes type)
 			{
 				this.m_type = type;
 				this.m_owner = owner;
@@ -4521,12 +4521,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void NextRow(object keyValue)
+			public void NextRow(object keyValue)
 			{
 				this.NextRow(keyValue, false, null);
 			}
 
-			internal void NextRow(object keyValue, bool hasParent, object parentKey)
+			public void NextRow(object keyValue, bool hasParent, object parentKey)
 			{
 				if (GroupingTypes.Sort == this.m_type)
 				{
@@ -4594,7 +4594,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Traverse(ProcessingStages operation, bool ascending)
+			public void Traverse(ProcessingStages operation, bool ascending)
 			{
 				if (GroupingTypes.Sort == this.m_type)
 				{
@@ -4669,7 +4669,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class BTreeNode
+		public sealed class BTreeNode
 		{
 			private const int BTreeOrder = 3;
 
@@ -4681,7 +4681,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private IHierarchyObj m_owner;
 
-			internal BTreeNode Parent
+			public BTreeNode Parent
 			{
 				set
 				{
@@ -4689,7 +4689,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int IndexInParent
+			public int IndexInParent
 			{
 				set
 				{
@@ -4697,7 +4697,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal BTreeNode(IHierarchyObj owner)
+			public BTreeNode(IHierarchyObj owner)
 			{
 				this.m_owner = owner;
 				this.m_tuples = new BTreeNodeTupleList(this, 3);
@@ -4705,7 +4705,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_tuples.Add(tuple);
 			}
 
-			internal void NextRow(object keyValue)
+			public void NextRow(object keyValue)
 			{
 				try
 				{
@@ -4721,7 +4721,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Traverse(ProcessingStages operation, bool ascending)
+			public void Traverse(ProcessingStages operation, bool ascending)
 			{
 				if (ascending)
 				{
@@ -4851,13 +4851,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class BTreeNodeTuple
+		public sealed class BTreeNodeTuple
 		{
 			private BTreeNodeValue m_value;
 
 			private BTreeNode m_child;
 
-			internal BTreeNodeValue Value
+			public BTreeNodeValue Value
 			{
 				get
 				{
@@ -4865,7 +4865,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal BTreeNode Child
+			public BTreeNode Child
 			{
 				get
 				{
@@ -4877,13 +4877,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal BTreeNodeTuple(BTreeNodeValue value, BTreeNode child)
+			public BTreeNodeTuple(BTreeNodeValue value, BTreeNode child)
 			{
 				this.m_value = value;
 				this.m_child = child;
 			}
 
-			internal void Traverse(ProcessingStages operation, bool ascending)
+			public void Traverse(ProcessingStages operation, bool ascending)
 			{
 				if (ascending)
 				{
@@ -4910,13 +4910,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class BTreeNodeValue
+		public sealed class BTreeNodeValue
 		{
 			private object m_key;
 
 			private IHierarchyObj m_hierarchyNode;
 
-			internal BTreeNodeValue(object key, IHierarchyObj owner)
+			public BTreeNodeValue(object key, IHierarchyObj owner)
 			{
 				this.m_key = key;
 				if (key != null)
@@ -4926,12 +4926,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void AddRow()
+			public void AddRow()
 			{
 				this.m_hierarchyNode.NextRow();
 			}
 
-			internal void Traverse(ProcessingStages operation)
+			public void Traverse(ProcessingStages operation)
 			{
 				if (this.m_hierarchyNode != null)
 				{
@@ -4939,7 +4939,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int CompareTo(object keyValue)
+			public int CompareTo(object keyValue)
 			{
 				return ReportProcessing.CompareTo(this.m_key, keyValue, this.m_hierarchyNode.ProcessingContext.CompareInfo, this.m_hierarchyNode.ProcessingContext.ClrCompareOptions);
 			}
@@ -4953,7 +4953,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private BTreeNode m_owner;
 
-			internal BTreeNodeTuple this[int index]
+			public BTreeNodeTuple this[int index]
 			{
 				get
 				{
@@ -4961,7 +4961,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int Count
+			public int Count
 			{
 				get
 				{
@@ -4969,14 +4969,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal BTreeNodeTupleList(BTreeNode owner, int capacity)
+			public BTreeNodeTupleList(BTreeNode owner, int capacity)
 			{
 				this.m_owner = owner;
 				this.m_list = new ArrayList(capacity);
 				this.m_capacity = capacity;
 			}
 
-			internal void Add(BTreeNodeTuple tuple)
+			public void Add(BTreeNodeTuple tuple)
 			{
 				if (this.m_list.Count == this.m_capacity)
 				{
@@ -4990,7 +4990,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Insert(int index, BTreeNodeTuple tuple)
+			public void Insert(int index, BTreeNodeTuple tuple)
 			{
 				if (this.m_list.Count == this.m_capacity)
 				{
@@ -5011,15 +5011,15 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void RemoveAtEnd()
+			public void RemoveAtEnd()
 			{
 				this.m_list.RemoveAt(this.m_list.Count - 1);
 			}
 		}
 
-		internal sealed class RuntimeHierarchyObjList : ArrayList
+		public sealed class RuntimeHierarchyObjList : ArrayList
 		{
-			internal new RuntimeHierarchyObj this[int index]
+			public new RuntimeHierarchyObj this[int index]
 			{
 				get
 				{
@@ -5028,9 +5028,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class DataRowList : ArrayList
+		public sealed class DataRowList : ArrayList
 		{
-			internal new FieldImpl[] this[int index]
+			public new FieldImpl[] this[int index]
 			{
 				get
 				{
@@ -5039,21 +5039,21 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class PageTextboxes
+		public sealed class PageTextboxes
 		{
 			private ArrayList m_pages;
 
-			internal PageTextboxes()
+			public PageTextboxes()
 			{
 				this.m_pages = new ArrayList();
 			}
 
-			internal int GetPageCount()
+			public int GetPageCount()
 			{
 				return this.m_pages.Count;
 			}
 
-			internal void IntegrateRepeatingTextboxValues(PageTextboxes source, int targetStartPage, int targetEndPage)
+			public void IntegrateRepeatingTextboxValues(PageTextboxes source, int targetStartPage, int targetEndPage)
 			{
 				if (source != null && targetStartPage <= targetEndPage)
 				{
@@ -5076,7 +5076,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void IntegrateNonRepeatingTextboxValues(PageTextboxes source)
+			public void IntegrateNonRepeatingTextboxValues(PageTextboxes source)
 			{
 				if (source != null)
 				{
@@ -5096,14 +5096,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void AddTextboxValue(int page, string name, object value)
+			public void AddTextboxValue(int page, string name, object value)
 			{
 				ArrayList arrayList = new ArrayList();
 				arrayList.Add(value);
 				this.AddTextboxValue(page, name, arrayList);
 			}
 
-			internal void AddTextboxValue(int page, string name, ArrayList values)
+			public void AddTextboxValue(int page, string name, ArrayList values)
 			{
 				Global.Tracer.Assert(0 <= page && name != null && null != values, "(0 <= page && null != name && null != values)");
 				if (0 <= page)
@@ -5132,7 +5132,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Hashtable GetTextboxesOnPage(int page)
+			public Hashtable GetTextboxesOnPage(int page)
 			{
 				Global.Tracer.Assert(0 <= page, "(0 <= page)");
 				if (page >= this.m_pages.Count)
@@ -5142,7 +5142,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.m_pages[page] as Hashtable;
 			}
 
-			internal ArrayList GetTextboxValues(int page, string name)
+			public ArrayList GetTextboxValues(int page, string name)
 			{
 				Global.Tracer.Assert(0 <= page && null != name, "(0 <= page && null != name)");
 				Hashtable textboxesOnPage = this.GetTextboxesOnPage(page);
@@ -5154,7 +5154,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class PageSectionContext
+		public sealed class PageSectionContext
 		{
 			private bool m_needPageSectionEvaluation;
 
@@ -5184,7 +5184,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private int m_subreportLevel;
 
-			internal PageTextboxes PageTextboxes
+			public PageTextboxes PageTextboxes
 			{
 				get
 				{
@@ -5196,7 +5196,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool InMatrixSubtotal
+			public bool InMatrixSubtotal
 			{
 				get
 				{
@@ -5208,7 +5208,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool InMatrixCell
+			public bool InMatrixCell
 			{
 				get
 				{
@@ -5220,7 +5220,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool InSubreport
+			public bool InSubreport
 			{
 				get
 				{
@@ -5228,7 +5228,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool InRepeatingItem
+			public bool InRepeatingItem
 			{
 				get
 				{
@@ -5240,7 +5240,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IntList TableColumnSpans
+			public IntList TableColumnSpans
 			{
 				get
 				{
@@ -5252,7 +5252,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool HasPageSections
+			public bool HasPageSections
 			{
 				get
 				{
@@ -5260,12 +5260,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal PageSectionContext(bool hasPageSections, bool isOnePass)
+			public PageSectionContext(bool hasPageSections, bool isOnePass)
 			{
 				this.ConstructorHelper(hasPageSections, isOnePass, true, false, false, 0);
 			}
 
-			internal PageSectionContext(PageSectionContext copy)
+			public PageSectionContext(PageSectionContext copy)
 			{
 				this.ConstructorHelper(copy.m_needPageSectionEvaluation, copy.m_isOnePass, copy.IsParentVisible(), copy.InMatrixSubtotal, copy.InMatrixCell, copy.m_subreportLevel);
 			}
@@ -5294,7 +5294,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void EnterSubreport()
+			public void EnterSubreport()
 			{
 				if (!this.m_needPageSectionEvaluation && !this.m_isOnePass)
 				{
@@ -5303,7 +5303,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_subreportLevel++;
 			}
 
-			internal void ExitSubreport()
+			public void ExitSubreport()
 			{
 				if (!this.m_needPageSectionEvaluation && !this.m_isOnePass)
 				{
@@ -5312,7 +5312,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_subreportLevel--;
 			}
 
-			internal void EnterRepeatingItem()
+			public void EnterRepeatingItem()
 			{
 				if (this.m_needPageSectionEvaluation)
 				{
@@ -5321,7 +5321,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal PageTextboxes ExitRepeatingItem()
+			public PageTextboxes ExitRepeatingItem()
 			{
 				if (!this.m_needPageSectionEvaluation)
 				{
@@ -5333,7 +5333,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return pageTextboxes;
 			}
 
-			internal void RegisterTableColumnVisibility(bool isOnePass, TableColumnList columns, bool[] columnsStartHidden)
+			public void RegisterTableColumnVisibility(bool isOnePass, TableColumnList columns, bool[] columnsStartHidden)
 			{
 				if (!this.m_isOnePass)
 				{
@@ -5370,7 +5370,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_tableColumnPosition.Insert(0, -1);
 			}
 
-			internal void UnregisterTableColumnVisibility()
+			public void UnregisterTableColumnVisibility()
 			{
 				if (!this.m_isOnePass)
 				{
@@ -5393,7 +5393,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void SetTableCellIndex(bool isOnePass, int position)
+			public void SetTableCellIndex(bool isOnePass, int position)
 			{
 				if (!this.m_isOnePass)
 				{
@@ -5417,7 +5417,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_tableColumnPosition[0] = position;
 			}
 
-			internal TableColumnInfo GetOnePassTableCellProperties()
+			public TableColumnInfo GetOnePassTableCellProperties()
 			{
 				if (!this.m_isOnePass && (!this.m_needPageSectionEvaluation || this.InSubreport))
 				{
@@ -5427,7 +5427,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.GetTableCellProperties(this.m_tableColumnPosition[0]);
 			}
 
-			internal bool IsTableColumnVisible(TableColumnInfo columnInfo)
+			public bool IsTableColumnVisible(TableColumnInfo columnInfo)
 			{
 				if (!this.m_isOnePass && (!this.m_needPageSectionEvaluation || this.InSubreport))
 				{
@@ -5437,7 +5437,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return Visibility.IsTableCellVisible(this.m_tableColumnVisibility[0] as bool[], columnInfo.StartIndex, columnInfo.Span);
 			}
 
-			internal void EnterVisibilityScope(Visibility visibility, bool startHidden)
+			public void EnterVisibilityScope(Visibility visibility, bool startHidden)
 			{
 				if (!this.m_isOnePass && !this.m_needPageSectionEvaluation)
 				{
@@ -5462,7 +5462,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void ExitVisibilityScope()
+			public void ExitVisibilityScope()
 			{
 				if (!this.m_isOnePass && !this.m_needPageSectionEvaluation)
 				{
@@ -5530,7 +5530,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal void EnterMatrixSubtotalScope(bool isColumn)
+			public void EnterMatrixSubtotalScope(bool isColumn)
 			{
 				if (this.m_needPageSectionEvaluation)
 				{
@@ -5552,7 +5552,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void EnterMatrixHeadingScope(bool currentHeadingIsVisible, bool isColumn)
+			public void EnterMatrixHeadingScope(bool currentHeadingIsVisible, bool isColumn)
 			{
 				if (this.m_needPageSectionEvaluation && !this.InSubreport)
 				{
@@ -5575,7 +5575,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void ExitMatrixHeadingScope(bool isColumn)
+			public void ExitMatrixHeadingScope(bool isColumn)
 			{
 				if (this.m_needPageSectionEvaluation && !this.InSubreport)
 				{
@@ -5598,7 +5598,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool IsParentVisible()
+			public bool IsParentVisible()
 			{
 				if (!this.m_isOnePass && !this.m_needPageSectionEvaluation)
 				{
@@ -5632,7 +5632,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal TableColumnInfo GetTableCellProperties(int cellIndex)
+			public TableColumnInfo GetTableCellProperties(int cellIndex)
 			{
 				if (cellIndex >= 0 && this.m_tableColumnSpans != null)
 				{
@@ -5650,7 +5650,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class AggregateRow
+		public sealed class AggregateRow
 		{
 			private FieldImpl[] m_fields;
 
@@ -5660,7 +5660,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private bool m_validAggregateRow;
 
-			internal AggregateRow(ProcessingContext processingContext)
+			public AggregateRow(ProcessingContext processingContext)
 			{
 				FieldsImpl fieldsImpl = processingContext.ReportObjectModel.FieldsImpl;
 				this.m_fields = fieldsImpl.GetAndSaveFields();
@@ -5669,15 +5669,15 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_validAggregateRow = fieldsImpl.ValidAggregateRow;
 			}
 
-			internal void SetFields(ProcessingContext processingContext)
+			public void SetFields(ProcessingContext processingContext)
 			{
 				processingContext.ReportObjectModel.FieldsImpl.SetFields(this.m_fields, this.m_isAggregateRow, this.m_aggregationFieldCount, this.m_validAggregateRow);
 			}
 		}
 
-		internal sealed class AggregateRowList : ArrayList
+		public sealed class AggregateRowList : ArrayList
 		{
-			internal new AggregateRow this[int index]
+			public new AggregateRow this[int index]
 			{
 				get
 				{
@@ -5686,7 +5686,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class AggregateRowInfo
+		public sealed class AggregateRowInfo
 		{
 			private bool[] m_aggregationFieldChecked;
 
@@ -5694,7 +5694,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private bool m_validAggregateRow;
 
-			internal void SaveAggregateInfo(ProcessingContext processingContext)
+			public void SaveAggregateInfo(ProcessingContext processingContext)
 			{
 				FieldsImpl fieldsImpl = processingContext.ReportObjectModel.FieldsImpl;
 				this.m_aggregationFieldCount = fieldsImpl.AggregationFieldCount;
@@ -5709,7 +5709,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_validAggregateRow = fieldsImpl.ValidAggregateRow;
 			}
 
-			internal void RestoreAggregateInfo(ProcessingContext processingContext)
+			public void RestoreAggregateInfo(ProcessingContext processingContext)
 			{
 				FieldsImpl fieldsImpl = processingContext.ReportObjectModel.FieldsImpl;
 				fieldsImpl.AggregationFieldCount = this.m_aggregationFieldCount;
@@ -5721,7 +5721,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				fieldsImpl.ValidAggregateRow = this.m_validAggregateRow;
 			}
 
-			internal void CombineAggregateInfo(ProcessingContext processingContext, AggregateRowInfo updated)
+			public void CombineAggregateInfo(ProcessingContext processingContext, AggregateRowInfo updated)
 			{
 				FieldsImpl fieldsImpl = processingContext.ReportObjectModel.FieldsImpl;
 				if (updated == null)
@@ -5748,7 +5748,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class RuntimeRICollectionList : ArrayList
 		{
-			internal new RuntimeRICollection this[int index]
+			public new RuntimeRICollection this[int index]
 			{
 				get
 				{
@@ -5756,16 +5756,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeRICollectionList()
+			public RuntimeRICollectionList()
 			{
 			}
 
-			internal RuntimeRICollectionList(int capacity)
+			public RuntimeRICollectionList(int capacity)
 				: base(capacity)
 			{
 			}
 
-			internal void FirstPassNextDataRow()
+			public void FirstPassNextDataRow()
 			{
 				for (int i = 0; i < this.Count; i++)
 				{
@@ -5773,7 +5773,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				for (int i = 0; i < this.Count; i++)
 				{
@@ -5781,7 +5781,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CalculatePreviousAggregates(AggregatesImpl globalRVCol)
+			public void CalculatePreviousAggregates(AggregatesImpl globalRVCol)
 			{
 				for (int i = 0; i < this.Count; i++)
 				{
@@ -5789,7 +5789,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void ResetReportItemObjs()
+			public void ResetReportItemObjs()
 			{
 				for (int i = 0; i < this.Count; i++)
 				{
@@ -5798,12 +5798,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal interface IFilterOwner
+		public interface IFilterOwner
 		{
 			void PostFilterNextRow();
 		}
 
-		internal interface IScope
+		public interface IScope
 		{
 			bool TargetForNonDetailSort
 			{
@@ -5834,7 +5834,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			void GetGroupNameValuePairs(Dictionary<string, object> pairs);
 		}
 
-		internal interface IHierarchyObj
+		public interface IHierarchyObj
 		{
 			IHierarchyObj HierarchyRoot
 			{
@@ -5884,7 +5884,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			void AddSortInfoIndex(int sortInfoIndex, RuntimeSortFilterEventInfo sortInfo);
 		}
 
-		internal interface ISortDataHolder
+		public interface ISortDataHolder
 		{
 			void NextRow();
 
@@ -5897,7 +5897,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private ProcessingContext m_processingContext;
 
-			internal RuntimeDRCollection(IScope outerScope, DataRegionList dataRegionDefs, ProcessingContext processingContext, bool onePass)
+			public RuntimeDRCollection(IScope outerScope, DataRegionList dataRegionDefs, ProcessingContext processingContext, bool onePass)
 			{
 				this.m_processingContext = processingContext;
 				this.m_dataRegionObjs = new RuntimeDataRegionObjList();
@@ -5959,7 +5959,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void FirstPassNextDataRow()
+			public void FirstPassNextDataRow()
 			{
 				AggregateRowInfo aggregateRowInfo = new AggregateRowInfo();
 				aggregateRowInfo.SaveAggregateInfo(this.m_processingContext);
@@ -5970,7 +5970,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void SortAndFilter()
+			public void SortAndFilter()
 			{
 				for (int i = 0; i < this.m_dataRegionObjs.Count; i++)
 				{
@@ -5982,7 +5982,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CalculateRunningValues(AggregatesImpl globalRunningValueCollection, RuntimeGroupRootObjList groupCollection)
+			public void CalculateRunningValues(AggregatesImpl globalRunningValueCollection, RuntimeGroupRootObjList groupCollection)
 			{
 				for (int i = 0; i < this.m_dataRegionObjs.Count; i++)
 				{
@@ -5991,9 +5991,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class RuntimeRICollection
+		public sealed class RuntimeRICollection
 		{
-			internal enum SubReportInitialization
+			public enum SubReportInitialization
 			{
 				AssignIDsOnly,
 				RuntimeOnly,
@@ -6012,7 +6012,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private int m_currDataRegion;
 
-			internal ReportItemCollection ReportItemsDef
+			public ReportItemCollection ReportItemsDef
 			{
 				get
 				{
@@ -6020,7 +6020,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeRICollection(IScope owner, ReportItemCollection RIColDef, ref DataActions dataAction, ProcessingContext processingContext, bool createDataRegions)
+			public RuntimeRICollection(IScope owner, ReportItemCollection RIColDef, ref DataActions dataAction, ProcessingContext processingContext, bool createDataRegions)
 			{
 				this.m_owner = owner;
 				this.m_reportItemsDef = RIColDef;
@@ -6031,7 +6031,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeRICollection(IScope owner, ReportItemCollection RIColDef, ProcessingContext processingContext, bool createDataRegions)
+			public RuntimeRICollection(IScope owner, ReportItemCollection RIColDef, ProcessingContext processingContext, bool createDataRegions)
 			{
 				this.m_owner = owner;
 				this.m_reportItemsDef = RIColDef;
@@ -6158,7 +6158,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void FirstPassNextDataRow()
+			public void FirstPassNextDataRow()
 			{
 				if (this.m_dataRegionObjs != null)
 				{
@@ -6172,7 +6172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void SortAndFilter()
+			public void SortAndFilter()
 			{
 				if (this.m_dataRegionObjs != null)
 				{
@@ -6187,18 +6187,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CalculatePreviousAggregates(AggregatesImpl globalRunningValueCollection)
+			public void CalculatePreviousAggregates(AggregatesImpl globalRunningValueCollection)
 			{
 				RuntimeRICollection.DoneReadingRows(globalRunningValueCollection, this.m_reportItemsDef.RunningValues, ref this.m_runningValueValues, true);
 			}
 
-			internal void CalculateRunningValues(AggregatesImpl globalRunningValueCollection, RuntimeGroupRootObjList groupCollection, RuntimeGroupRootObj lastGroup)
+			public void CalculateRunningValues(AggregatesImpl globalRunningValueCollection, RuntimeGroupRootObjList groupCollection, RuntimeGroupRootObj lastGroup)
 			{
 				this.CalculateInnerRunningValues(globalRunningValueCollection, groupCollection, lastGroup);
 				RuntimeRICollection.DoneReadingRows(globalRunningValueCollection, this.m_reportItemsDef.RunningValues, ref this.m_runningValueValues, false);
 			}
 
-			internal void CalculateInnerRunningValues(AggregatesImpl globalRunningValueCollection, RuntimeGroupRootObjList groupCollection, RuntimeGroupRootObj lastGroup)
+			public void CalculateInnerRunningValues(AggregatesImpl globalRunningValueCollection, RuntimeGroupRootObjList groupCollection, RuntimeGroupRootObj lastGroup)
 			{
 				if (this.m_dataRegionObjs != null)
 				{
@@ -6209,7 +6209,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static void DoneReadingRows(AggregatesImpl globalRVCol, RunningValueInfoList runningValues, ref DataAggregateObjResult[] runningValueValues, bool processPreviousAggregates)
+			public static void DoneReadingRows(AggregatesImpl globalRVCol, RunningValueInfoList runningValues, ref DataAggregateObjResult[] runningValueValues, bool processPreviousAggregates)
 			{
 				if (runningValues != null && 0 < runningValues.Count)
 				{
@@ -6270,7 +6270,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateInstances(ReportItemColInstance collectionInstance, bool ignorePageBreaks, bool ignoreInstances)
+			public void CreateInstances(ReportItemColInstance collectionInstance, bool ignorePageBreaks, bool ignoreInstances)
 			{
 				if (ignorePageBreaks)
 				{
@@ -6291,7 +6291,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateInstances(ReportItemColInstance collectionInstance)
+			public void CreateInstances(ReportItemColInstance collectionInstance)
 			{
 				this.SetupEnvironment(this.m_reportItemsDef);
 				this.m_currDataRegion = 0;
@@ -6388,7 +6388,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static void AddNonComputedPageTextboxes(ReportItem reportItem, int startPage, ProcessingContext processingContext)
+			public static void AddNonComputedPageTextboxes(ReportItem reportItem, int startPage, ProcessingContext processingContext)
 			{
 				if (processingContext.PageSectionContext.IsParentVisible() && Visibility.IsVisible(reportItem))
 				{
@@ -6420,7 +6420,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ReportItemInstance CreateInstance(ReportItem reportItem, bool setupEnvironment, bool ignorePageBreaks, bool ignoreInstances)
+			public ReportItemInstance CreateInstance(ReportItem reportItem, bool setupEnvironment, bool ignorePageBreaks, bool ignoreInstances)
 			{
 				if (ignorePageBreaks)
 				{
@@ -6811,7 +6811,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return reportItemInstance;
 			}
 
-			internal void ResetReportItemObjs()
+			public void ResetReportItemObjs()
 			{
 				if (!this.m_processingContext.ReportItemsReferenced && !this.m_processingContext.ReportItemThisDotValueReferenced)
 				{
@@ -6820,7 +6820,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				RuntimeRICollection.TraverseReportItemObjs(this.m_reportItemsDef, this.m_processingContext, true, this.m_owner);
 			}
 
-			internal static void ResetReportItemObjs(ReportItemCollection reportItems, ProcessingContext processingContext)
+			public static void ResetReportItemObjs(ReportItemCollection reportItems, ProcessingContext processingContext)
 			{
 				if (!processingContext.ReportItemsReferenced && !processingContext.ReportItemThisDotValueReferenced)
 				{
@@ -6829,7 +6829,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				RuntimeRICollection.TraverseReportItemObjs(reportItems, processingContext, true, null);
 			}
 
-			internal void SetReportItemObjScope()
+			public void SetReportItemObjScope()
 			{
 				if (!this.m_processingContext.ReportItemsReferenced && !this.m_processingContext.ReportItemThisDotValueReferenced)
 				{
@@ -6910,7 +6910,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static bool GetExternalImage(ProcessingContext processingContext, string currentPath, ObjectType objectType, string objectName, out byte[] imageData, out string mimeType)
+			public static bool GetExternalImage(ProcessingContext processingContext, string currentPath, ObjectType objectType, string objectName, out byte[] imageData, out string mimeType)
 			{
 				imageData = null;
 				mimeType = null;
@@ -6939,7 +6939,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal static ActionInstance CreateActionInstance(ProcessingContext processingContext, IActionOwner actionOwner, int ownerUniqueName, ObjectType objectType, string objectName)
+			public static ActionInstance CreateActionInstance(ProcessingContext processingContext, IActionOwner actionOwner, int ownerUniqueName, ObjectType objectType, string objectName)
 			{
 				Action action = actionOwner.Action;
 				if (action == null)
@@ -6991,7 +6991,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return actionInstance;
 			}
 
-			internal static ActionItemInstance CreateActionItemInstance(ProcessingContext processingContext, ActionItem actionItemDef, int ownerUniqueName, ObjectType objectType, string objectName, int index)
+			public static ActionItemInstance CreateActionItemInstance(ProcessingContext processingContext, ActionItem actionItemDef, int ownerUniqueName, ObjectType objectType, string objectName, int index)
 			{
 				if (actionItemDef == null)
 				{
@@ -7054,7 +7054,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return actionItemInstance;
 			}
 
-			internal static TextBoxInstance CreateTextBoxInstance(TextBox textBox, ProcessingContext processingContext, int index, IScope containingScope)
+			public static TextBoxInstance CreateTextBoxInstance(TextBox textBox, ProcessingContext processingContext, int index, IScope containingScope)
 			{
 				TextBoxInstance textBoxInstance = new TextBoxInstance(processingContext, textBox, index);
 				bool flag = textBox.IsSimpleTextBox();
@@ -7188,12 +7188,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static LineInstance CreateLineInstance(Line line, ProcessingContext processingContext, int index)
+			public static LineInstance CreateLineInstance(Line line, ProcessingContext processingContext, int index)
 			{
 				return new LineInstance(processingContext, line, index);
 			}
 
-			internal static ReportItemInstance CreateImageInstance(Image image, ProcessingContext processingContext, int index)
+			public static ReportItemInstance CreateImageInstance(Image image, ProcessingContext processingContext, int index)
 			{
 				ImageInstance imageInstance = new ImageInstance(processingContext, image, index);
 				ImageInstanceInfo instanceInfo = imageInstance.InstanceInfo;
@@ -7315,13 +7315,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return imageInstance;
 			}
 
-			internal static void FetchTransparentImage(Stream outputStream)
+			public static void FetchTransparentImage(Stream outputStream)
 			{
 				byte[] transparentImageBytes = AspNetCore.ReportingServices.ReportIntermediateFormat.Image.TransparentImageBytes;
 				outputStream.Write(transparentImageBytes, 0, transparentImageBytes.Length);
 			}
 
-			internal static ActiveXControlInstance CreateActiveXControlInstance(ActiveXControl activeXControl, ProcessingContext processingContext, int index)
+			public static ActiveXControlInstance CreateActiveXControlInstance(ActiveXControl activeXControl, ProcessingContext processingContext, int index)
 			{
 				ActiveXControlInstance activeXControlInstance = new ActiveXControlInstance(processingContext, activeXControl, index);
 				ActiveXControlInstanceInfo instanceInfo = activeXControlInstance.InstanceInfo;
@@ -7337,7 +7337,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return activeXControlInstance;
 			}
 
-			internal static void RetrieveSubReport(SubReport subReport, ProcessingContext processingContext, ProcessingErrorContext subReportErrorContext, bool isProcessingPrefetch)
+			public static void RetrieveSubReport(SubReport subReport, ProcessingContext processingContext, ProcessingErrorContext subReportErrorContext, bool isProcessingPrefetch)
 			{
 				Global.Tracer.Assert(isProcessingPrefetch || null != subReportErrorContext, "(isProcessingPrefetch || (null != subReportErrorContext))");
 				try
@@ -8299,7 +8299,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return text3;
 			}
 
-			internal static void EvalReportItemAttr(ReportItem reportItem, ReportItemInstance riInstance, ReportItemInstanceInfo riInstanceInfo, ProcessingContext processingContext)
+			public static void EvalReportItemAttr(ReportItem reportItem, ReportItemInstance riInstance, ReportItemInstanceInfo riInstanceInfo, ProcessingContext processingContext)
 			{
 				if (processingContext.ShowHideType != 0)
 				{
@@ -8332,7 +8332,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static void ResetSubtotalReferences(ProcessingContext processingContext)
+			public static void ResetSubtotalReferences(ProcessingContext processingContext)
 			{
 				if (processingContext.HeadingInstance != null)
 				{
@@ -8350,7 +8350,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static void EvaluateStyleAttributes(ObjectType objectType, string objectName, Style style, int itemUniqueName, object[] values, ProcessingContext processingContext)
+			public static void EvaluateStyleAttributes(ObjectType objectType, string objectName, Style style, int itemUniqueName, object[] values, ProcessingContext processingContext)
 			{
 				if (style != null && style.ExpressionList != null)
 				{
@@ -8650,13 +8650,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimeDataRegionObj : IScope
+		public abstract class RuntimeDataRegionObj : IScope
 		{
 			protected ProcessingContext m_processingContext;
 
 			protected bool m_processedPreviousAggregates;
 
-			internal ProcessingContext ProcessingContext
+			public ProcessingContext ProcessingContext
 			{
 				get
 				{
@@ -8677,7 +8677,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual bool TargetForNonDetailSort
+			public virtual bool TargetForNonDetailSort
 			{
 				get
 				{
@@ -8724,7 +8724,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_processingContext = outerDataRegion.ProcessingContext;
 			}
 
-			internal virtual bool IsTargetForSort(int index, bool detailSort)
+			public virtual bool IsTargetForSort(int index, bool detailSort)
 			{
 				if (this.OuterScope != null)
 				{
@@ -8733,15 +8733,15 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal abstract void NextRow();
+			public abstract void NextRow();
 
-			internal abstract bool SortAndFilter();
+			public abstract bool SortAndFilter();
 
-			internal abstract void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup);
+			public abstract void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup);
 
-			internal abstract void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList);
+			public abstract void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList);
 
-			internal abstract void SetupEnvironment();
+			public abstract void SetupEnvironment();
 
 			bool IScope.IsTargetForSort(int index, bool detailSort)
 			{
@@ -8788,7 +8788,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.GetGroupNameValuePairs(pairs);
 			}
 
-			internal static void AddAggregate(ref DataAggregateObjList aggregates, DataAggregateObj aggregate)
+			public static void AddAggregate(ref DataAggregateObjList aggregates, DataAggregateObj aggregate)
 			{
 				if (aggregates == null)
 				{
@@ -8797,7 +8797,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				aggregates.Add(aggregate);
 			}
 
-			internal static void CreateAggregates(ProcessingContext processingContext, DataAggregateInfoList aggDefs, ref DataAggregateObjList nonCustomAggregates, ref DataAggregateObjList customAggregates)
+			public static void CreateAggregates(ProcessingContext processingContext, DataAggregateInfoList aggDefs, ref DataAggregateObjList nonCustomAggregates, ref DataAggregateObjList customAggregates)
 			{
 				if (aggDefs != null && 0 < aggDefs.Count)
 				{
@@ -8816,7 +8816,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static void CreateAggregates(ProcessingContext processingContext, DataAggregateInfoList aggDefs, ref DataAggregateObjList aggregates)
+			public static void CreateAggregates(ProcessingContext processingContext, DataAggregateInfoList aggDefs, ref DataAggregateObjList aggregates)
 			{
 				if (aggDefs != null && 0 < aggDefs.Count)
 				{
@@ -8828,7 +8828,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static void CreateAggregates(ProcessingContext processingContext, RunningValueInfoList aggDefs, ref DataAggregateObjList aggregates)
+			public static void CreateAggregates(ProcessingContext processingContext, RunningValueInfoList aggDefs, ref DataAggregateObjList aggregates)
 			{
 				if (aggDefs != null && 0 < aggDefs.Count)
 				{
@@ -8840,7 +8840,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static void UpdateAggregates(ProcessingContext processingContext, DataAggregateObjList aggregates, bool updateAndSetup)
+			public static void UpdateAggregates(ProcessingContext processingContext, DataAggregateObjList aggregates, bool updateAndSetup)
 			{
 				if (aggregates != null)
 				{
@@ -8881,7 +8881,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_processingContext.ReportObjectModel.FieldsImpl.SetFields(dataRow);
 			}
 
-			internal static void SetupRunningValues(ProcessingContext processingContext, RunningValueInfoList rvDefs, DataAggregateObjResult[] rvValues)
+			public static void SetupRunningValues(ProcessingContext processingContext, RunningValueInfoList rvDefs, DataAggregateObjResult[] rvValues)
 			{
 				int num = 0;
 				RuntimeDataRegionObj.SetupRunningValues(processingContext, ref num, rvDefs, rvValues);
@@ -8910,9 +8910,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal abstract void ReadRow(DataActions dataAction);
+			public abstract void ReadRow(DataActions dataAction);
 
-			internal abstract bool InScope(string scope);
+			public abstract bool InScope(string scope);
 
 			protected Hashtable GetScopeNames(RuntimeDataRegionObj currentScope, string targetScope, ref bool inPivotCell, out bool inScope)
 			{
@@ -9041,7 +9041,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return hashtable;
 			}
 
-			internal static void AddGroupNameValuePair(ProcessingContext processingContext, Grouping grouping, Dictionary<string, object> nameValuePairs)
+			public static void AddGroupNameValuePair(ProcessingContext processingContext, Grouping grouping, Dictionary<string, object> nameValuePairs)
 			{
 				if (grouping != null)
 				{
@@ -9137,7 +9137,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.CommonNextRow(dataRows);
 			}
 
-			internal static void CommonFirstRow(FieldsImpl fields, ref bool firstRowIsAggregate, ref FieldImpl[] firstRow)
+			public static void CommonFirstRow(FieldsImpl fields, ref bool firstRowIsAggregate, ref FieldImpl[] firstRow)
 			{
 				if (!firstRowIsAggregate && firstRow != null)
 				{
@@ -9196,13 +9196,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual bool TargetScopeMatched(int index, bool detailSort)
+			public virtual bool TargetScopeMatched(int index, bool detailSort)
 			{
 				Global.Tracer.Assert(false);
 				return false;
 			}
 
-			internal virtual void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
+			public virtual void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
 			{
 				Global.Tracer.Assert(false);
 			}
@@ -9291,17 +9291,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal class RuntimeSortHierarchyObj : IHierarchyObj
+		public class RuntimeSortHierarchyObj : IHierarchyObj
 		{
 			private class SortHierarchyStructure
 			{
-				internal RuntimeSortFilterEventInfo SortInfo;
+				public RuntimeSortFilterEventInfo SortInfo;
 
-				internal int SortIndex;
+				public int SortIndex;
 
-				internal BTreeNode SortTree;
+				public BTreeNode SortTree;
 
-				internal SortHierarchyStructure(IHierarchyObj owner, int sortIndex, RuntimeSortFilterEventInfoList sortInfoList, IntList sortInfoIndices)
+				public SortHierarchyStructure(IHierarchyObj owner, int sortIndex, RuntimeSortFilterEventInfoList sortInfoList, IntList sortInfoIndices)
 				{
 					this.SortIndex = sortIndex;
 					this.SortInfo = sortInfoList[sortInfoIndices[sortIndex]];
@@ -9382,7 +9382,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeSortHierarchyObj(IHierarchyObj outerHierarchy)
+			public RuntimeSortHierarchyObj(IHierarchyObj outerHierarchy)
 			{
 				this.m_hierarchyRoot = outerHierarchy.HierarchyRoot;
 				ProcessingContext processingContext = this.m_hierarchyRoot.ProcessingContext;
@@ -9470,7 +9470,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal class RuntimeHierarchyObj : RuntimeDataRegionObj, IHierarchyObj
+		public class RuntimeHierarchyObj : RuntimeDataRegionObj, IHierarchyObj
 		{
 			protected RuntimeGroupingObj m_grouping;
 
@@ -9480,7 +9480,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected RuntimeHierarchyObjList m_hierarchyObjs;
 
-			internal RuntimeHierarchyObjList HierarchyObjs
+			public RuntimeHierarchyObjList HierarchyObjs
 			{
 				get
 				{
@@ -9613,7 +9613,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			{
 			}
 
-			internal RuntimeHierarchyObj(RuntimeHierarchyObj outerHierarchy)
+			public RuntimeHierarchyObj(RuntimeHierarchyObj outerHierarchy)
 				: base(outerHierarchy)
 			{
 				this.ConstructorHelper(outerHierarchy.m_expression.ExpressionIndex + 1, outerHierarchy.m_hierarchyRoot);
@@ -9772,12 +9772,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ProcessingMessageList RegisterComparisonError(string propertyName)
+			public ProcessingMessageList RegisterComparisonError(string propertyName)
 			{
 				return this.RegisterComparisonError(propertyName, null);
 			}
 
-			internal ProcessingMessageList RegisterComparisonError(string propertyName, ReportProcessingException_ComparisonError e)
+			public ProcessingMessageList RegisterComparisonError(string propertyName, ReportProcessingException_ComparisonError e)
 			{
 				ObjectType objectType;
 				string name;
@@ -9805,7 +9805,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return base.m_processingContext.ErrorContext.Messages;
 			}
 
-			internal ProcessingMessageList RegisterSpatialTypeComparisonError(string type)
+			public ProcessingMessageList RegisterSpatialTypeComparisonError(string type)
 			{
 				ObjectType objectType;
 				string name;
@@ -9826,7 +9826,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return base.m_processingContext.ErrorContext.Messages;
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				bool flag = true;
 				RuntimeGroupRootObj runtimeGroupRootObj = null;
@@ -9884,7 +9884,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				if (this.m_grouping != null)
 				{
@@ -9900,7 +9900,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal virtual void CalculateRunningValues()
+			public virtual void CalculateRunningValues()
 			{
 				if (this.m_grouping != null)
 				{
@@ -9925,17 +9925,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				Global.Tracer.Assert(false);
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				Global.Tracer.Assert(false);
 			}
 
-			internal void CreateInstances()
+			public void CreateInstances()
 			{
 				if (this.m_grouping != null)
 				{
@@ -9960,21 +9960,21 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual void CreateInstance()
+			public virtual void CreateInstance()
 			{
 				Global.Tracer.Assert(false);
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				Global.Tracer.Assert(false);
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				Global.Tracer.Assert(false);
 				return false;
@@ -10033,13 +10033,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimeGroupObj : RuntimeHierarchyObj
+		public abstract class RuntimeGroupObj : RuntimeHierarchyObj
 		{
 			protected RuntimeGroupLeafObj m_lastChild;
 
 			protected RuntimeGroupLeafObj m_firstChild;
 
-			internal RuntimeGroupLeafObj LastChild
+			public RuntimeGroupLeafObj LastChild
 			{
 				get
 				{
@@ -10051,7 +10051,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeGroupLeafObj FirstChild
+			public RuntimeGroupLeafObj FirstChild
 			{
 				get
 				{
@@ -10063,7 +10063,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual int RecursiveLevel
+			public virtual int RecursiveLevel
 			{
 				get
 				{
@@ -10076,7 +10076,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			{
 			}
 
-			internal void AddChild(RuntimeGroupLeafObj child)
+			public void AddChild(RuntimeGroupLeafObj child)
 			{
 				if (this.m_lastChild != null)
 				{
@@ -10092,7 +10092,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_lastChild = child;
 			}
 
-			internal void InsertToSortTree(RuntimeGroupLeafObj groupLeaf)
+			public void InsertToSortTree(RuntimeGroupLeafObj groupLeaf)
 			{
 				RuntimeGroupRootObj runtimeGroupRootObj = (RuntimeGroupRootObj)base.m_hierarchyRoot;
 				Grouping grouping = runtimeGroupRootObj.HierarchyDef.Grouping;
@@ -10111,7 +10111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimeGroupRootObj : RuntimeGroupObj, IFilterOwner
+		public abstract class RuntimeGroupRootObj : RuntimeGroupObj, IFilterOwner
 		{
 			protected ReportHierarchyNode m_hierarchyDef;
 
@@ -10149,7 +10149,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private bool[] m_builtinSortOverridden;
 
-			internal ReportHierarchyNode HierarchyDef
+			public ReportHierarchyNode HierarchyDef
 			{
 				get
 				{
@@ -10157,7 +10157,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ExpressionInfoList GroupExpressions
+			public ExpressionInfoList GroupExpressions
 			{
 				get
 				{
@@ -10165,7 +10165,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal GroupingExprHost GroupExpressionHost
+			public GroupingExprHost GroupExpressionHost
 			{
 				get
 				{
@@ -10173,7 +10173,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ExpressionInfoList SortExpressions
+			public ExpressionInfoList SortExpressions
 			{
 				get
 				{
@@ -10181,7 +10181,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal SortingExprHost SortExpressionHost
+			public SortingExprHost SortExpressionHost
 			{
 				get
 				{
@@ -10189,7 +10189,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal BoolList GroupDirections
+			public BoolList GroupDirections
 			{
 				get
 				{
@@ -10197,7 +10197,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal BoolList SortDirections
+			public BoolList SortDirections
 			{
 				get
 				{
@@ -10205,7 +10205,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeExpressionInfo Expression
+			public RuntimeExpressionInfo Expression
 			{
 				get
 				{
@@ -10213,7 +10213,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl ScopedRunningValues
+			public AggregatesImpl ScopedRunningValues
 			{
 				get
 				{
@@ -10221,7 +10221,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl GlobalRunningValueCollection
+			public AggregatesImpl GlobalRunningValueCollection
 			{
 				get
 				{
@@ -10229,7 +10229,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeGroupRootObjList GroupCollection
+			public RuntimeGroupRootObjList GroupCollection
 			{
 				get
 				{
@@ -10237,7 +10237,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal DataActions DataAction
+			public DataActions DataAction
 			{
 				get
 				{
@@ -10245,7 +10245,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ProcessingStages ProcessingStage
+			public ProcessingStages ProcessingStage
 			{
 				get
 				{
@@ -10257,7 +10257,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ReportItemInstance ReportItemInstance
+			public ReportItemInstance ReportItemInstance
 			{
 				get
 				{
@@ -10265,7 +10265,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IList InstanceList
+			public IList InstanceList
 			{
 				get
 				{
@@ -10273,7 +10273,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RenderingPagesRangesList PagesList
+			public RenderingPagesRangesList PagesList
 			{
 				get
 				{
@@ -10281,7 +10281,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeGroupingObj.GroupingTypes GroupingType
+			public RuntimeGroupingObj.GroupingTypes GroupingType
 			{
 				get
 				{
@@ -10289,7 +10289,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Filters GroupFilters
+			public Filters GroupFilters
 			{
 				get
 				{
@@ -10297,7 +10297,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool HasParent
+			public bool HasParent
 			{
 				get
 				{
@@ -10313,7 +10313,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool SaveGroupExprValues
+			public bool SaveGroupExprValues
 			{
 				get
 				{
@@ -10337,7 +10337,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool BuiltinSortOverridden
+			public bool BuiltinSortOverridden
 			{
 				get
 				{
@@ -10427,7 +10427,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
+			public override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
 			{
 				if (this != targetScopeObj)
 				{
@@ -10435,12 +10435,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool TargetScopeMatched(int index, bool detailSort)
+			public override bool TargetScopeMatched(int index, bool detailSort)
 			{
 				return this.m_outerScope.TargetScopeMatched(index, detailSort);
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (this.ProcessThisRow())
 				{
@@ -10498,7 +10498,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal void AddChildWithNoParent(RuntimeGroupLeafObj child)
+			public void AddChildWithNoParent(RuntimeGroupLeafObj child)
 			{
 				if (RuntimeGroupingObj.GroupingTypes.Sort == this.m_groupingType)
 				{
@@ -10510,7 +10510,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				RuntimeGroupingObj grouping = base.m_grouping;
 				bool direction = base.m_expression.Direction;
@@ -10552,7 +10552,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				Global.Tracer.Assert(false);
 			}
 
-			internal virtual void AddScopedRunningValue(DataAggregateObj runningValueObj, bool escalate)
+			public virtual void AddScopedRunningValue(DataAggregateObj runningValueObj, bool escalate)
 			{
 				if (this.m_scopedRunningValues == null)
 				{
@@ -10564,7 +10564,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				this.SetupRunningValues(globalRVCol, groupCol);
 			}
@@ -10618,7 +10618,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				if (DataActions.PostSortAggregates == dataAction && this.m_runningValuesInGroup != null)
 				{
@@ -10633,7 +10633,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				this.m_reportItemInstance = riInstance;
 				this.m_instanceList = instanceList;
@@ -10650,7 +10650,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimeGroupLeafObj : RuntimeGroupObj
+		public abstract class RuntimeGroupLeafObj : RuntimeGroupObj
 		{
 			protected DataAggregateObjList m_nonCustomAggregates;
 
@@ -10684,7 +10684,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected int[] m_sortFilterExpressionScopeInfoIndices;
 
-			internal RuntimeGroupLeafObj NextLeaf
+			public RuntimeGroupLeafObj NextLeaf
 			{
 				set
 				{
@@ -10692,7 +10692,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeGroupLeafObj PrevLeaf
+			public RuntimeGroupLeafObj PrevLeaf
 			{
 				set
 				{
@@ -10700,7 +10700,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeGroupObj Parent
+			public RuntimeGroupObj Parent
 			{
 				get
 				{
@@ -10728,7 +10728,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override int RecursiveLevel
+			public override int RecursiveLevel
 			{
 				get
 				{
@@ -10736,7 +10736,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Grouping GroupingDef
+			public Grouping GroupingDef
 			{
 				get
 				{
@@ -10815,7 +10815,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool TargetForNonDetailSort
+			public override bool TargetForNonDetailSort
 			{
 				get
 				{
@@ -10858,7 +10858,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool IsTargetForSort(int index, bool detailSort)
+			public override bool IsTargetForSort(int index, bool detailSort)
 			{
 				if (this.m_userSortTargetInfo != null && this.m_userSortTargetInfo.IsTargetForSort(index, detailSort))
 				{
@@ -10940,7 +10940,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
+			public override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
 			{
 				if (this != targetScopeObj)
 				{
@@ -10951,7 +10951,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool TargetScopeMatched(int index, bool detailSort)
+			public override bool TargetScopeMatched(int index, bool detailSort)
 			{
 				if (detailSort && this.GroupingDef.SortFilterScopeInfo == null)
 				{
@@ -10964,7 +10964,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				this.UpdateAggregateInfo();
 				this.InternalNextRow();
@@ -11020,7 +11020,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				((RuntimeGroupRootObj)base.m_hierarchyRoot).ProcessingStage = ProcessingStages.Grouping;
 			}
 
-			internal void RemoveFromParent(RuntimeGroupObj parent)
+			public void RemoveFromParent(RuntimeGroupObj parent)
 			{
 				if (this.m_prevLeaf == null)
 				{
@@ -11072,7 +11072,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return nextLeaf;
 			}
 
-			internal void TraverseAllLeafNodes(ProcessingStages operation)
+			public void TraverseAllLeafNodes(ProcessingStages operation)
 			{
 				for (RuntimeGroupLeafObj runtimeGroupLeafObj = this; runtimeGroupLeafObj != null; runtimeGroupLeafObj = runtimeGroupLeafObj.Traverse(operation))
 				{
@@ -11130,7 +11130,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				bool flag = true;
 				bool flag2 = false;
@@ -11172,7 +11172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return flag;
 			}
 
-			internal void FailFilter()
+			public void FailFilter()
 			{
 				RuntimeGroupLeafObj runtimeGroupLeafObj = null;
 				bool flag = false;
@@ -11191,7 +11191,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void PostFilterNextRow()
+			public void PostFilterNextRow()
 			{
 				RuntimeGroupRootObj runtimeGroupRootObj = (RuntimeGroupRootObj)base.m_hierarchyRoot;
 				if ((ProcessingContext.SecondPassOperations.Filtering & base.m_processingContext.SecondPassOperation) != 0 && this.m_dataRows != null && (this.m_dataAction & DataActions.RecursiveAggregates) != 0)
@@ -11218,12 +11218,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_parent.InsertToSortTree(this);
 			}
 
-			internal override void CalculateRunningValues()
+			public override void CalculateRunningValues()
 			{
 				this.ResetScopedRunningValues();
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				Global.Tracer.Assert(DataActions.UserSort != dataAction, "(DataActions.UserSort != dataAction)");
 				if (DataActions.PostSortAggregates == dataAction)
@@ -11259,7 +11259,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				Global.Tracer.Assert(false);
 			}
@@ -11268,7 +11268,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			{
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 				base.SetupEnvironment(this.m_nonCustomAggregates, this.m_customAggregates, this.m_firstRow);
 				base.SetupAggregates(this.m_recursiveAggregates);
@@ -11330,7 +11330,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				Grouping grouping = ((RuntimeGroupRootObj)base.m_hierarchyRoot).HierarchyDef.Grouping;
 				if (grouping.ScopeNames == null)
@@ -11437,7 +11437,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimeDetailObj : RuntimeHierarchyObj
+		public abstract class RuntimeDetailObj : RuntimeHierarchyObj
 		{
 			protected IScope m_outerScope;
 
@@ -11463,7 +11463,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected int m_numberOfChildrenOnThisPage;
 
-			internal DataRegion DataRegionDef
+			public DataRegion DataRegionDef
 			{
 				get
 				{
@@ -11471,7 +11471,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual ExpressionInfoList SortExpressions
+			public virtual ExpressionInfoList SortExpressions
 			{
 				get
 				{
@@ -11479,7 +11479,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual SortingExprHost SortExpressionHost
+			public virtual SortingExprHost SortExpressionHost
 			{
 				get
 				{
@@ -11487,7 +11487,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual BoolList SortDirections
+			public virtual BoolList SortDirections
 			{
 				get
 				{
@@ -11520,7 +11520,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_outerDataAction = dataAction;
 			}
 
-			internal RuntimeDetailObj(RuntimeDetailObj detailRoot)
+			public RuntimeDetailObj(RuntimeDetailObj detailRoot)
 				: base(detailRoot.ProcessingContext)
 			{
 				base.m_hierarchyRoot = detailRoot;
@@ -11566,7 +11566,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (!base.m_processingContext.ReportObjectModel.FieldsImpl.IsAggregateRow)
 				{
@@ -11587,7 +11587,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				if ((ProcessingContext.SecondPassOperations.Filtering & base.m_processingContext.SecondPassOperation) != 0 && this.m_dataRows != null && (this.m_outerDataAction & DataActions.RecursiveAggregates) != 0)
 				{
@@ -11596,7 +11596,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (base.m_grouping != null)
 				{
@@ -11609,7 +11609,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void ReadRows(DataActions dataAction)
+			public void ReadRows(DataActions dataAction)
 			{
 				if (this.m_dataRows != null)
 				{
@@ -11667,7 +11667,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				if (DataActions.PostSortAggregates == dataAction && this.m_runningValuesInGroup != null && 0 < this.m_runningValuesInGroup.Count)
 				{
@@ -11685,14 +11685,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList, out int numberOfChildrenOnThisPage)
+			public void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList, out int numberOfChildrenOnThisPage)
 			{
 				this.m_numberOfChildrenOnThisPage = 0;
 				this.CreateInstances(riInstance, instanceList, pagesList);
 				numberOfChildrenOnThisPage = this.m_numberOfChildrenOnThisPage;
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				this.m_reportItemInstance = riInstance;
 				this.m_instanceList = instanceList;
@@ -11707,12 +11707,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CreateInstance()
+			public override void CreateInstance()
 			{
 				Global.Tracer.Assert(false);
 			}
 
-			internal static void SaveData(DataRowList dataRows, ProcessingContext processingContext)
+			public static void SaveData(DataRowList dataRows, ProcessingContext processingContext)
 			{
 				Global.Tracer.Assert(null != dataRows, "(null != dataRows)");
 				FieldImpl[] andSaveFields = processingContext.ReportObjectModel.FieldsImpl.GetAndSaveFields();
@@ -11724,7 +11724,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				RuntimeDetailObj.AddRunningValues(base.m_processingContext, runningValues, ref this.m_runningValuesInGroup, this.m_globalRunningValueCollection, this.m_groupCollection, lastGroup);
 			}
 
-			internal static void AddRunningValues(ProcessingContext processingContext, RunningValueInfoList runningValues, ref DataAggregateObjList runningValuesInGroup, AggregatesImpl globalRunningValueCollection, RuntimeGroupRootObjList groupCollection, RuntimeGroupRootObj lastGroup)
+			public static void AddRunningValues(ProcessingContext processingContext, RunningValueInfoList runningValues, ref DataAggregateObjList runningValuesInGroup, AggregatesImpl globalRunningValueCollection, RuntimeGroupRootObjList groupCollection, RuntimeGroupRootObj lastGroup)
 			{
 				if (runningValues != null && 0 < runningValues.Count)
 				{
@@ -11781,7 +11781,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				Global.Tracer.Assert(null != this.m_outerScope, "(null != m_outerScope)");
 				return this.m_outerScope.InScope(scope);
@@ -11793,12 +11793,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.m_outerScope.RecursiveLevel(scope);
 			}
 
-			internal override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
+			public override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
 			{
 				base.DetailGetScopeValues(this.m_outerScope, targetScopeObj, scopeValues, ref index);
 			}
 
-			internal override bool TargetScopeMatched(int index, bool detailSort)
+			public override bool TargetScopeMatched(int index, bool detailSort)
 			{
 				return base.DetailTargetScopeMatched(this.m_dataRegionDef, this.m_outerScope, index);
 			}
@@ -11810,7 +11810,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimeOnePassDetailObj : RuntimeDataRegionObj
+		public abstract class RuntimeOnePassDetailObj : RuntimeDataRegionObj
 		{
 			protected IScope m_outerScope;
 
@@ -11836,7 +11836,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Pagination Pagination
+			public Pagination Pagination
 			{
 				get
 				{
@@ -11844,7 +11844,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int NumberOfContentsOnThisPage
+			public int NumberOfContentsOnThisPage
 			{
 				get
 				{
@@ -11856,7 +11856,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RenderingPagesRangesList ChildrenStartAndEndPages
+			public RenderingPagesRangesList ChildrenStartAndEndPages
 			{
 				get
 				{
@@ -11864,7 +11864,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal NavigationInfo NavigationInfo
+			public NavigationInfo NavigationInfo
 			{
 				get
 				{
@@ -11872,7 +11872,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal PageTextboxes OnePassTextboxes
+			public PageTextboxes OnePassTextboxes
 			{
 				get
 				{
@@ -11880,7 +11880,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal DataRegion DataRegionDef
+			public DataRegion DataRegionDef
 			{
 				get
 				{
@@ -11899,9 +11899,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_onePassTextboxes = new PageTextboxes();
 			}
 
-			internal abstract int GetDetailPage();
+			public abstract int GetDetailPage();
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				FieldsImpl fieldsImpl = base.m_processingContext.ReportObjectModel.FieldsImpl;
 				if (!fieldsImpl.IsAggregateRow)
@@ -11922,18 +11922,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				return true;
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 			}
 
 			protected abstract void CreateInstance();
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 			}
 
@@ -11954,26 +11954,26 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				Global.Tracer.Assert(null != this.m_outerScope, "(null != m_outerScope)");
 				return this.m_outerScope.InScope(scope);
 			}
 
-			internal virtual bool IsVisible(string textboxName)
+			public virtual bool IsVisible(string textboxName)
 			{
 				return true;
 			}
 
-			internal void MoveAllToFirstPage()
+			public void MoveAllToFirstPage()
 			{
 				int pageCount = this.m_onePassTextboxes.GetPageCount();
 				for (int i = 1; i < pageCount; i++)
@@ -11993,7 +11993,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual void ProcessOnePassDetailTextboxes(int sourcePage, int targetPage)
+			public virtual void ProcessOnePassDetailTextboxes(int sourcePage, int targetPage)
 			{
 				Hashtable textboxesOnPage = this.m_onePassTextboxes.GetTextboxesOnPage(sourcePage);
 				if (textboxesOnPage != null)
@@ -12012,12 +12012,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
+			public override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
 			{
 				base.DetailGetScopeValues(this.m_outerScope, targetScopeObj, scopeValues, ref index);
 			}
 
-			internal override bool TargetScopeMatched(int index, bool detailSort)
+			public override bool TargetScopeMatched(int index, bool detailSort)
 			{
 				return base.DetailTargetScopeMatched(this.m_dataRegionDef, this.m_outerScope, index);
 			}
@@ -12043,7 +12043,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private RuntimeUserSortTargetInfo m_userSortTargetInfo;
 
-			internal ReportItemCollection ReportItemsDef
+			public ReportItemCollection ReportItemsDef
 			{
 				get
 				{
@@ -12113,7 +12113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool TargetForNonDetailSort
+			public override bool TargetForNonDetailSort
 			{
 				get
 				{
@@ -12125,7 +12125,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeListGroupRootObj(IScope outerScope, List listDef, ref DataActions dataAction, ProcessingContext processingContext)
+			public RuntimeListGroupRootObj(IScope outerScope, List listDef, ref DataActions dataAction, ProcessingContext processingContext)
 				: base(outerScope, listDef.HierarchyDef, (listDef.PostSortAggregates == null && listDef.Filters == null) ? dataAction : DataActions.None, processingContext)
 			{
 				this.m_listDef = listDef;
@@ -12160,7 +12160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool IsTargetForSort(int index, bool detailSort)
+			public override bool IsTargetForSort(int index, bool detailSort)
 			{
 				if (this.m_userSortTargetInfo != null && this.m_userSortTargetInfo.IsTargetForSort(index, detailSort))
 				{
@@ -12169,7 +12169,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return base.m_outerScope.IsTargetForSort(index, detailSort);
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (base.m_processingContext.ReportObjectModel.FieldsImpl.AggregationFieldCount == 0)
 				{
@@ -12213,7 +12213,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.NextRow();
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				this.SetupEnvironment();
 				if (this.m_userSortTargetInfo != null)
@@ -12249,7 +12249,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				if (DataActions.UserSort == dataAction)
 				{
@@ -12269,13 +12269,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 				base.SetupEnvironment(this.m_nonCustomAggregates, this.m_customAggregates, this.m_firstRow);
 				base.SetupAggregates(this.m_postSortAggregates);
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				if (this.m_listDef.ReportItems != null)
@@ -12290,7 +12290,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.m_grouping.Traverse(ProcessingStages.RunningValues, base.m_expression.Direction);
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				return base.DataRegionInScope(this.m_listDef, scope);
 			}
@@ -12300,7 +12300,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return base.DataRegionRecursiveLevel(this.m_listDef, scope);
 			}
 
-			internal override bool TargetScopeMatched(int index, bool detailSort)
+			public override bool TargetScopeMatched(int index, bool detailSort)
 			{
 				return base.m_outerScope.TargetScopeMatched(index, detailSort);
 			}
@@ -12357,7 +12357,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
         private sealed class RuntimeListGroupLeafObj : ReportProcessing.RuntimeGroupLeafObj
         {
-            internal RuntimeListGroupLeafObj(ReportProcessing.RuntimeListGroupRootObj groupRoot) : base(groupRoot)
+            public RuntimeListGroupLeafObj(ReportProcessing.RuntimeListGroupRootObj groupRoot) : base(groupRoot)
             {
                 this.m_dataAction = groupRoot.DataAction;
                 bool flag = false;
@@ -12378,7 +12378,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal int StartPage
+            public int StartPage
             {
                 get
                 {
@@ -12398,7 +12398,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 this.m_reportItemCol.FirstPassNextDataRow();
             }
 
-            internal override bool SortAndFilter()
+            public override bool SortAndFilter()
             {
                 this.SetupEnvironment();
                 if (this.m_userSortTargetInfo != null)
@@ -12414,7 +12414,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 return result;
             }
 
-            internal override void ReadRow(ReportProcessing.DataActions dataAction)
+            public override void ReadRow(ReportProcessing.DataActions dataAction)
             {
                 if (ReportProcessing.DataActions.UserSort == dataAction)
                 {
@@ -12441,7 +12441,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal override void CalculateRunningValues()
+            public override void CalculateRunningValues()
             {
                 ReportProcessing.RuntimeGroupRootObj runtimeGroupRootObj = (ReportProcessing.RuntimeGroupRootObj)this.m_hierarchyRoot;
                 AggregatesImpl globalRunningValueCollection = runtimeGroupRootObj.GlobalRunningValueCollection;
@@ -12458,7 +12458,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 base.CalculateRunningValues();
             }
 
-            internal override void CreateInstance()
+            public override void CreateInstance()
             {
                 this.SetupEnvironment();
                 ReportProcessing.RuntimeListGroupRootObj runtimeListGroupRootObj = (ReportProcessing.RuntimeListGroupRootObj)this.m_hierarchyRoot;
@@ -12556,7 +12556,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private RuntimeUserSortTargetInfo m_userSortTargetInfo;
 
-			internal override ExpressionInfoList SortExpressions
+			public override ExpressionInfoList SortExpressions
 			{
 				get
 				{
@@ -12569,7 +12569,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override SortingExprHost SortExpressionHost
+			public override SortingExprHost SortExpressionHost
 			{
 				get
 				{
@@ -12582,7 +12582,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override BoolList SortDirections
+			public override BoolList SortDirections
 			{
 				get
 				{
@@ -12654,7 +12654,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool TargetForNonDetailSort
+			public override bool TargetForNonDetailSort
 			{
 				get
 				{
@@ -12666,7 +12666,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeListDetailObj(IScope outerScope, List listDef, ref DataActions dataAction, ProcessingContext processingContext)
+			public RuntimeListDetailObj(IScope outerScope, List listDef, ref DataActions dataAction, ProcessingContext processingContext)
 				: base(outerScope, listDef, (listDef.Filters == null) ? dataAction : DataActions.None, processingContext)
 			{
 				RuntimeDataRegionObj.CreateAggregates(base.m_processingContext, listDef.Aggregates, ref this.m_nonCustomAggregates, ref this.m_customAggregates);
@@ -12701,12 +12701,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.m_processingContext.RegisterSortFilterExpressionScope(base.m_outerScope, this, listDef.IsSortFilterExpressionScope);
 			}
 
-			internal RuntimeListDetailObj(RuntimeListDetailObj detailRoot)
+			public RuntimeListDetailObj(RuntimeListDetailObj detailRoot)
 				: base(detailRoot)
 			{
 			}
 
-			internal override bool IsTargetForSort(int index, bool detailSort)
+			public override bool IsTargetForSort(int index, bool detailSort)
 			{
 				if (this.m_userSortTargetInfo != null && this.m_userSortTargetInfo.IsTargetForSort(index, detailSort))
 				{
@@ -12739,7 +12739,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (base.m_processingContext.ReportObjectModel.FieldsImpl.IsAggregateRow)
 				{
@@ -12789,7 +12789,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			{
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (base.m_rvValueList == null && this.m_postSortAggregates == null && (base.m_outerDataAction & DataActions.PostSortAggregates) == DataActions.None)
 				{
@@ -12820,7 +12820,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				if (DataActions.PostSortAggregates == dataAction && this.m_postSortAggregates != null)
 				{
@@ -12829,7 +12829,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.ReadRow(dataAction);
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				if (this.m_userSortTargetInfo != null)
 				{
@@ -12846,7 +12846,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CreateInstance()
+			public override void CreateInstance()
 			{
 				RuntimeListDetailObj runtimeListDetailObj = (RuntimeListDetailObj)base.m_hierarchyRoot;
 				ListInstance listInstance = (ListInstance)runtimeListDetailObj.m_reportItemInstance;
@@ -12913,13 +12913,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 				base.SetupEnvironment(this.m_nonCustomAggregates, this.m_customAggregates, (base.m_dataRows == null) ? null : base.m_dataRows[0]);
 				base.SetupAggregates(this.m_postSortAggregates);
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				return base.DataRegionInScope(base.m_dataRegionDef, scope);
 			}
@@ -12959,12 +12959,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool TargetScopeMatched(int index, bool detailSort)
+			public override bool TargetScopeMatched(int index, bool detailSort)
 			{
 				return base.m_outerScope.TargetScopeMatched(index, detailSort);
 			}
 
-			internal override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
+			public override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
 			{
 				if (targetScopeObj == null)
 				{
@@ -12990,7 +12990,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private ListContentInstanceList m_listContentInstances;
 
-			internal ListContentInstanceList ListContentInstances
+			public ListContentInstanceList ListContentInstances
 			{
 				get
 				{
@@ -13006,7 +13006,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeOnePassListDetailObj(IScope outerScope, List listDef, ProcessingContext processingContext)
+			public RuntimeOnePassListDetailObj(IScope outerScope, List listDef, ProcessingContext processingContext)
 				: base(outerScope, listDef, processingContext)
 			{
 				Global.Tracer.Assert(null == listDef.Sorting, "(null == listDef.Sorting)");
@@ -13024,12 +13024,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				listDef.ContentStartPage = 0;
 			}
 
-			internal override int GetDetailPage()
+			public override int GetDetailPage()
 			{
 				return ((List)base.m_dataRegionDef).ContentStartPage;
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (!base.m_processingContext.ReportObjectModel.FieldsImpl.IsAggregateRow)
 				{
@@ -13115,13 +13115,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_listContentInstances.Add(listContentInstance);
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				return base.DataRegionInScope(base.m_dataRegionDef, scope);
 			}
 		}
 
-		internal abstract class RuntimeRDLDataRegionObj : RuntimeDataRegionObj, IFilterOwner, IHierarchyObj
+		public abstract class RuntimeRDLDataRegionObj : RuntimeDataRegionObj, IFilterOwner, IHierarchyObj
 		{
 			protected IScope m_outerScope;
 
@@ -13166,7 +13166,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				get;
 			}
 
-			internal override bool TargetForNonDetailSort
+			public override bool TargetForNonDetailSort
 			{
 				get
 				{
@@ -13261,7 +13261,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeRDLDataRegionObj(IScope outerScope, DataRegion dataRegionDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess, RunningValueInfoList runningValues)
+			public RuntimeRDLDataRegionObj(IScope outerScope, DataRegion dataRegionDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess, RunningValueInfoList runningValues)
 				: base(processingContext)
 			{
 				this.m_outerScope = outerScope;
@@ -13289,7 +13289,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool IsTargetForSort(int index, bool detailSort)
+			public override bool IsTargetForSort(int index, bool detailSort)
 			{
 				if (this.m_userSortTargetInfo != null && this.m_userSortTargetInfo.IsTargetForSort(index, detailSort))
 				{
@@ -13371,12 +13371,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal override bool TargetScopeMatched(int index, bool detailSort)
+			public override bool TargetScopeMatched(int index, bool detailSort)
 			{
 				return this.m_outerScope.TargetScopeMatched(index, detailSort);
 			}
 
-			internal override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
+			public override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
 			{
 				if (this != targetScopeObj)
 				{
@@ -13384,7 +13384,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (base.m_processingContext.ReportObjectModel.FieldsImpl.AggregationFieldCount == 0)
 				{
@@ -13419,7 +13419,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.ScopeNextNonAggregateRow(this.m_nonCustomAggregates, this.m_dataRows);
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				if ((ProcessingContext.SecondPassOperations.Filtering & base.m_processingContext.SecondPassOperation) != 0 && this.m_dataRows != null && (this.m_outerDataAction & DataActions.RecursiveAggregates) != 0)
 				{
@@ -13446,7 +13446,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.SetupRunningValues(runningValues, this.m_runningValueValues);
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				return base.DataRegionInScope(this.DataRegionDef, scope);
 			}
@@ -13474,7 +13474,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private RuntimeRICollectionList m_footerReportItemCols;
 
-			internal TableDetailInstanceList TableDetailInstances
+			public TableDetailInstanceList TableDetailInstances
 			{
 				get
 				{
@@ -13486,7 +13486,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RenderingPagesRangesList ChildrenStartAndEndPages
+			public RenderingPagesRangesList ChildrenStartAndEndPages
 			{
 				get
 				{
@@ -13514,7 +13514,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeTableObj(IScope outerScope, Table tableDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
+			public RuntimeTableObj(IScope outerScope, Table tableDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
 				: base(outerScope, (DataRegion)tableDef, ref dataAction, processingContext, onePassProcess, tableDef.RunningValues)
 			{
 				this.m_tableDef = tableDef;
@@ -13624,7 +13624,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				this.SetupEnvironment();
 				if (base.m_userSortTargetInfo != null)
@@ -13647,7 +13647,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				if (DataActions.UserSort == dataAction)
 				{
@@ -13700,7 +13700,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (this.m_tableDef.RunningValues != null)
 				{
@@ -13730,7 +13730,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				RuntimeRICollection.DoneReadingRows(globalRVCol, this.m_tableDef.RunningValues, ref base.m_runningValueValues, false);
 			}
 
-			internal static void CreateRowInstances(ProcessingContext processingContext, RuntimeRICollectionList rowRICols, TableRowInstance[] rowInstances, bool repeatOnNewPages, bool enterGrouping)
+			public static void CreateRowInstances(ProcessingContext processingContext, RuntimeRICollectionList rowRICols, TableRowInstance[] rowInstances, bool repeatOnNewPages, bool enterGrouping)
 			{
 				if (rowRICols != null)
 				{
@@ -13766,7 +13766,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				this.SetupEnvironment();
 				TableInstance tableInstance = (TableInstance)riInstance;
@@ -13869,12 +13869,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.m_processingContext.DelayAddingInstanceInfo = delayAddingInstanceInfo;
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 				base.SetupEnvironment(this.m_tableDef.RunningValues);
 			}
 
-			internal void ResetReportItems()
+			public void ResetReportItems()
 			{
 				if (this.m_headerReportItemCols != null)
 				{
@@ -13891,7 +13891,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class RuntimeTableGroupRootObj : RuntimeGroupRootObj
 		{
-			internal RuntimeTableGroupRootObj(IScope outerScope, TableGroup tableGroupDef, ref DataActions dataAction, ProcessingContext processingContext)
+			public RuntimeTableGroupRootObj(IScope outerScope, TableGroup tableGroupDef, ref DataActions dataAction, ProcessingContext processingContext)
 				: base(outerScope, tableGroupDef, dataAction, processingContext)
 			{
 				if (tableGroupDef.RunningValues != null && 0 < tableGroupDef.RunningValues.Count)
@@ -13932,7 +13932,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				TableGroup tableGroup = (TableGroup)base.m_hierarchyDef;
@@ -13957,7 +13957,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
         private sealed class RuntimeTableGroupLeafObj : ReportProcessing.RuntimeGroupLeafObj
         {
-            internal RuntimeTableGroupLeafObj(ReportProcessing.RuntimeTableGroupRootObj groupRoot) : base(groupRoot)
+            public RuntimeTableGroupLeafObj(ReportProcessing.RuntimeTableGroupRootObj groupRoot) : base(groupRoot)
             {
                 this.m_dataAction = groupRoot.DataAction;
                 bool flag = false;
@@ -14029,7 +14029,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal override bool SortAndFilter()
+            public override bool SortAndFilter()
             {
                 this.SetupEnvironment();
                 if (this.m_userSortTargetInfo != null)
@@ -14062,7 +14062,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 return result;
             }
 
-            internal override void ReadRow(ReportProcessing.DataActions dataAction)
+            public override void ReadRow(ReportProcessing.DataActions dataAction)
             {
                 if (ReportProcessing.DataActions.UserSort == dataAction)
                 {
@@ -14100,7 +14100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal override void CalculateRunningValues()
+            public override void CalculateRunningValues()
             {
                 ReportProcessing.RuntimeGroupRootObj runtimeGroupRootObj = (ReportProcessing.RuntimeGroupRootObj)this.m_hierarchyRoot;
                 AggregatesImpl globalRunningValueCollection = runtimeGroupRootObj.GlobalRunningValueCollection;
@@ -14130,7 +14130,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 base.CalculateRunningValues();
             }
 
-            internal override void CreateInstance()
+            public override void CreateInstance()
             {
                 this.SetupEnvironment();
                 ReportProcessing.RuntimeGroupRootObj runtimeGroupRootObj = (ReportProcessing.RuntimeGroupRootObj)this.m_hierarchyRoot;
@@ -14244,7 +14244,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private RuntimeUserSortTargetInfo m_userSortTargetInfo;
 
-			internal override ExpressionInfoList SortExpressions
+			public override ExpressionInfoList SortExpressions
 			{
 				get
 				{
@@ -14257,7 +14257,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override SortingExprHost SortExpressionHost
+			public override SortingExprHost SortExpressionHost
 			{
 				get
 				{
@@ -14270,7 +14270,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override BoolList SortDirections
+			public override BoolList SortDirections
 			{
 				get
 				{
@@ -14334,7 +14334,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeTableDetailObj(IScope outerScope, Table tableDef, ref DataActions dataAction, ProcessingContext processingContext)
+			public RuntimeTableDetailObj(IScope outerScope, Table tableDef, ref DataActions dataAction, ProcessingContext processingContext)
 				: base(outerScope, tableDef, dataAction, processingContext)
 			{
 				bool flag = false;
@@ -14370,7 +14370,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				dataAction = DataActions.None;
 			}
 
-			internal RuntimeTableDetailObj(RuntimeTableDetailObj detailRoot)
+			public RuntimeTableDetailObj(RuntimeTableDetailObj detailRoot)
 				: base(detailRoot)
 			{
 				this.m_detailDef = detailRoot.m_detailDef;
@@ -14400,7 +14400,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (this.m_userSortTargetInfo != null)
 				{
@@ -14412,7 +14412,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (base.m_rvValueList == null && (base.m_outerDataAction & DataActions.PostSortAggregates) == DataActions.None)
 				{
@@ -14449,7 +14449,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				if (this.m_userSortTargetInfo != null)
 				{
@@ -14466,7 +14466,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CreateInstance()
+			public override void CreateInstance()
 			{
 				if (this.m_detailDef != null)
 				{
@@ -14576,7 +14576,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private Hashtable m_textboxColumnPositions;
 
-			internal TableDetailInstanceList TableDetailInstances
+			public TableDetailInstanceList TableDetailInstances
 			{
 				get
 				{
@@ -14584,7 +14584,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Hashtable TextboxColumnPositions
+			public Hashtable TextboxColumnPositions
 			{
 				get
 				{
@@ -14592,7 +14592,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeOnePassTableDetailObj(IScope outerScope, Table tableDef, ProcessingContext processingContext)
+			public RuntimeOnePassTableDetailObj(IScope outerScope, Table tableDef, ProcessingContext processingContext)
 				: base(outerScope, tableDef, processingContext)
 			{
 				TableDetail tableDetail = tableDef.TableDetail;
@@ -14618,7 +14618,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				tableDef.CurrentPage = 0;
 			}
 
-			internal override int GetDetailPage()
+			public override int GetDetailPage()
 			{
 				return ((Table)base.m_dataRegionDef).CurrentPage;
 			}
@@ -14653,7 +14653,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_tableDetailInstances.Add(tableDetailInstance);
 			}
 
-			internal override bool IsVisible(string textboxName)
+			public override bool IsVisible(string textboxName)
 			{
 				Global.Tracer.Assert(null != this.m_textboxColumnPositions, "(null != m_textboxColumnPositions)");
 				object obj = this.m_textboxColumnPositions[textboxName];
@@ -14687,7 +14687,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeOWCChartDetailObj(IScope outerScope, OWCChart chartDef, ref DataActions dataAction, ProcessingContext processingContext)
+			public RuntimeOWCChartDetailObj(IScope outerScope, OWCChart chartDef, ref DataActions dataAction, ProcessingContext processingContext)
 				: base(outerScope, chartDef, (chartDef.Filters == null) ? dataAction : DataActions.None, processingContext)
 			{
 				RuntimeDataRegionObj.CreateAggregates(base.m_processingContext, chartDef.Aggregates, ref this.m_nonCustomAggregates, ref this.m_customAggregates);
@@ -14707,12 +14707,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeOWCChartDetailObj(RuntimeOWCChartDetailObj detailRoot)
+			public RuntimeOWCChartDetailObj(RuntimeOWCChartDetailObj detailRoot)
 				: base(detailRoot)
 			{
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (base.m_processingContext.ReportObjectModel.FieldsImpl.IsAggregateRow)
 				{
@@ -14751,7 +14751,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.NextRow();
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				OWCChart oWCChart = (OWCChart)base.m_dataRegionDef;
 				RunningValueInfoList runningValues = oWCChart.RunningValues;
@@ -14781,7 +14781,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				RuntimeRICollection.DoneReadingRows(globalRVCol, oWCChart.RunningValues, ref this.m_runningValueValues, false);
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				if (DataActions.PostSortAggregates == dataAction)
 				{
@@ -14800,7 +14800,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.ReadRow(dataAction);
 			}
 
-			internal override void CreateInstance()
+			public override void CreateInstance()
 			{
 				if (base.m_dataRows != null)
 				{
@@ -14818,14 +14818,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 				base.SetupEnvironment(this.m_nonCustomAggregates, this.m_customAggregates, (base.m_dataRows == null) ? null : base.m_dataRows[0]);
 				base.SetupAggregates(this.m_postSortAggregates);
 				base.SetupRunningValues(((OWCChart)base.m_dataRegionDef).RunningValues, this.m_runningValueValues);
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				return base.DataRegionInScope(base.m_dataRegionDef, scope);
 			}
@@ -14836,7 +14836,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimePivotObj : RuntimeRDLDataRegionObj
+		public abstract class RuntimePivotObj : RuntimeRDLDataRegionObj
 		{
 			protected Pivot m_pivotDef;
 
@@ -14866,7 +14866,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int[] OuterGroupingCounters
+			public int[] OuterGroupingCounters
 			{
 				get
 				{
@@ -14874,7 +14874,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimePivotObj(IScope outerScope, Pivot pivotDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
+			public RuntimePivotObj(IScope outerScope, Pivot pivotDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
 				: base(outerScope, (DataRegion)pivotDef, ref dataAction, processingContext, onePassProcess, pivotDef.RunningValues)
 			{
 				this.m_pivotDef = pivotDef;
@@ -14982,7 +14982,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				if (this.m_pivotRows != null)
 				{
@@ -14995,7 +14995,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return base.SortAndFilter();
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (this.m_pivotDef.RunningValues != null && base.m_runningValues == null)
 				{
@@ -15040,7 +15040,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				if (DataActions.UserSort == dataAction)
 				{
@@ -15071,13 +15071,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 				base.SetupEnvironment(this.m_pivotDef.RunningValues);
 			}
 		}
 
-		internal abstract class RuntimePivotHeadingsObj
+		public abstract class RuntimePivotHeadingsObj
 		{
 			protected IScope m_owner;
 
@@ -15085,7 +15085,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected PivotHeading m_staticHeadingDef;
 
-			internal RuntimePivotGroupRootObj Headings
+			public RuntimePivotGroupRootObj Headings
 			{
 				get
 				{
@@ -15093,7 +15093,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimePivotHeadingsObj(IScope owner, PivotHeading headingDef, ref DataActions dataAction, ProcessingContext processingContext, PivotHeading staticHeadingDef, RuntimePivotHeadingsObj innerGroupings, bool outermostHeadingSubtotal, int headingLevel)
+			public RuntimePivotHeadingsObj(IScope owner, PivotHeading headingDef, ref DataActions dataAction, ProcessingContext processingContext, PivotHeading staticHeadingDef, RuntimePivotHeadingsObj innerGroupings, bool outermostHeadingSubtotal, int headingLevel)
 			{
 				this.m_owner = owner;
 				if (staticHeadingDef != null)
@@ -15102,7 +15102,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual void NextRow()
+			public virtual void NextRow()
 			{
 				if (this.m_pivotHeadings != null)
 				{
@@ -15110,7 +15110,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual bool SortAndFilter()
+			public virtual bool SortAndFilter()
 			{
 				if (this.m_pivotHeadings != null)
 				{
@@ -15119,7 +15119,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal virtual void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public virtual void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (this.m_pivotHeadings != null)
 				{
@@ -15127,14 +15127,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal abstract void CalculatePreviousAggregates(AggregatesImpl globalRVCol);
+			public abstract void CalculatePreviousAggregates(AggregatesImpl globalRVCol);
 		}
 
 		private sealed class RuntimeChartObj : RuntimePivotObj
 		{
 			private bool m_subtotalCorner;
 
-			internal RuntimeChartObj(IScope outerScope, Chart chartDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
+			public RuntimeChartObj(IScope outerScope, Chart chartDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
 				: base(outerScope, (Pivot)chartDef, ref dataAction, processingContext, onePassProcess)
 			{
 				bool handleMyDataAction = default(bool);
@@ -15183,7 +15183,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				this.SetupEnvironment();
 				if (base.m_userSortTargetInfo != null)
@@ -15198,13 +15198,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				RuntimeRICollection.DoneReadingRows(globalRVCol, base.m_pivotDef.RunningValues, ref base.m_runningValueValues, false);
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				if (base.m_firstRow != null)
 				{
@@ -15223,7 +15223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateOutermostSubtotalCells(ChartInstance chartInstance, bool outerGroupings)
+			public void CreateOutermostSubtotalCells(ChartInstance chartInstance, bool outerGroupings)
 			{
 				if (outerGroupings)
 				{
@@ -15242,7 +15242,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 			private DataAggregateObjResult[] m_runningValueValues;
 
-			internal RuntimeChartHeadingsObj(IScope owner, ChartHeading headingDef, ref DataActions dataAction, ProcessingContext processingContext, ChartHeading staticHeadingDef, RuntimeChartHeadingsObj innerGroupings, bool outermostHeadingSubtotal, int headingLevel)
+			public RuntimeChartHeadingsObj(IScope owner, ChartHeading headingDef, ref DataActions dataAction, ProcessingContext processingContext, ChartHeading staticHeadingDef, RuntimeChartHeadingsObj innerGroupings, bool outermostHeadingSubtotal, int headingLevel)
 				: base(owner, (PivotHeading)headingDef, ref dataAction, processingContext, (PivotHeading)staticHeadingDef, (RuntimePivotHeadingsObj)innerGroupings, outermostHeadingSubtotal, headingLevel)
 			{
 				if (headingDef != null)
@@ -15251,7 +15251,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculatePreviousAggregates(AggregatesImpl globalRVCol)
+			public override void CalculatePreviousAggregates(AggregatesImpl globalRVCol)
 			{
 				if (base.m_staticHeadingDef != null)
 				{
@@ -15259,7 +15259,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				if (base.m_staticHeadingDef != null && base.m_owner is RuntimeChartGroupLeafObj)
@@ -15276,7 +15276,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateInstances(RuntimeDataRegionObj outerGroup, ProcessingContext processingContext, ChartInstance chartInstance, bool outerGroupings, RuntimePivotGroupRootObj currOuterHeadingGroupRoot, ChartHeadingInstanceList headingInstances)
+			public void CreateInstances(RuntimeDataRegionObj outerGroup, ProcessingContext processingContext, ChartInstance chartInstance, bool outerGroupings, RuntimePivotGroupRootObj currOuterHeadingGroupRoot, ChartHeadingInstanceList headingInstances)
 			{
 				bool flag = outerGroupings || 0 == chartInstance.CurrentCellOuterIndex;
 				int num = 1;
@@ -15361,7 +15361,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimePivotGroupRootObj : RuntimeGroupRootObj
+		public abstract class RuntimePivotGroupRootObj : RuntimeGroupRootObj
 		{
 			protected RuntimePivotHeadingsObj m_innerGroupings;
 
@@ -15383,7 +15383,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected int m_headingLevel;
 
-			internal RuntimePivotHeadingsObj InnerGroupings
+			public RuntimePivotHeadingsObj InnerGroupings
 			{
 				get
 				{
@@ -15391,7 +15391,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal PivotHeading StaticHeadingDef
+			public PivotHeading StaticHeadingDef
 			{
 				get
 				{
@@ -15399,7 +15399,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool OutermostSubtotal
+			public bool OutermostSubtotal
 			{
 				get
 				{
@@ -15407,7 +15407,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal PivotHeading InnerHeading
+			public PivotHeading InnerHeading
 			{
 				get
 				{
@@ -15415,7 +15415,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ProcessOutermostSTCells
+			public bool ProcessOutermostSTCells
 			{
 				get
 				{
@@ -15423,7 +15423,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl OutermostSTCellRVCol
+			public AggregatesImpl OutermostSTCellRVCol
 			{
 				get
 				{
@@ -15431,7 +15431,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl[] OutermostSTScopedCellRVCollections
+			public AggregatesImpl[] OutermostSTScopedCellRVCollections
 			{
 				get
 				{
@@ -15439,7 +15439,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl CellRVCol
+			public AggregatesImpl CellRVCol
 			{
 				get
 				{
@@ -15447,7 +15447,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl[] CellScopedRVCollections
+			public AggregatesImpl[] CellScopedRVCollections
 			{
 				get
 				{
@@ -15455,7 +15455,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int HeadingLevel
+			public int HeadingLevel
 			{
 				get
 				{
@@ -15463,7 +15463,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimePivotGroupRootObj(IScope outerScope, PivotHeading pivotHeadingDef, ref DataActions dataAction, ProcessingContext processingContext, RuntimePivotHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
+			public RuntimePivotGroupRootObj(IScope outerScope, PivotHeading pivotHeadingDef, ref DataActions dataAction, ProcessingContext processingContext, RuntimePivotHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
 				: base(outerScope, pivotHeadingDef, dataAction, processingContext)
 			{
 				Pivot pivot = (Pivot)pivotHeadingDef.DataRegionDef;
@@ -15511,7 +15511,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				Pivot pivot = (Pivot)base.m_hierarchyDef.DataRegionDef;
 				PivotHeading pivotHeading = (PivotHeading)base.m_hierarchyDef;
@@ -15536,7 +15536,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				Pivot pivot = (Pivot)base.m_hierarchyDef.DataRegionDef;
@@ -15598,7 +15598,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected abstract void AddCellRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, ref DataAggregateObjList runningValues);
 
-			internal override void AddScopedRunningValue(DataAggregateObj runningValueObj, bool escalate)
+			public override void AddScopedRunningValue(DataAggregateObj runningValueObj, bool escalate)
 			{
 				Pivot pivot = (Pivot)base.m_hierarchyDef.DataRegionDef;
 				if (pivot.ProcessOutermostSTCellRunningValues || pivot.ProcessCellRunningValues)
@@ -15637,7 +15637,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				Pivot pivot = (Pivot)base.m_hierarchyDef.DataRegionDef;
 				if (pivot.ProcessCellRunningValues)
@@ -15679,7 +15679,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return null;
 			}
 
-			internal bool GetCellTargetForNonDetailSort()
+			public bool GetCellTargetForNonDetailSort()
 			{
 				if (base.m_outerScope is RuntimePivotObj)
 				{
@@ -15688,7 +15688,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return ((RuntimePivotGroupLeafObj)base.m_outerScope).GetCellTargetForNonDetailSort();
 			}
 
-			internal bool GetCellTargetForSort(int index, bool detailSort)
+			public bool GetCellTargetForSort(int index, bool detailSort)
 			{
 				if (base.m_outerScope is RuntimePivotObj)
 				{
@@ -15700,7 +15700,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class RuntimeChartGroupRootObj : RuntimePivotGroupRootObj
 		{
-			internal RuntimeChartGroupRootObj(IScope outerScope, ChartHeading chartHeadingDef, ref DataActions dataAction, ProcessingContext processingContext, RuntimeChartHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
+			public RuntimeChartGroupRootObj(IScope outerScope, ChartHeading chartHeadingDef, ref DataActions dataAction, ProcessingContext processingContext, RuntimeChartHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
 				: base(outerScope, (PivotHeading)chartHeadingDef, ref dataAction, processingContext, (RuntimePivotHeadingsObj)innerGroupings, outermostSubtotal, headingLevel)
 			{
 				if (base.m_processOutermostSTCells)
@@ -15726,7 +15726,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				base.AddRunningValues(((ChartHeading)base.m_hierarchyDef).RunningValues);
@@ -15755,7 +15755,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimePivotCell : IScope
+		public abstract class RuntimePivotCell : IScope
 		{
 			protected RuntimePivotGroupLeafObj m_owner;
 
@@ -15779,7 +15779,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected int[] m_sortFilterExpressionScopeInfoIndices;
 
-			internal RuntimePivotCell NextCell
+			public RuntimePivotCell NextCell
 			{
 				get
 				{
@@ -15815,7 +15815,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimePivotCell(RuntimePivotGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, bool innermost)
+			public RuntimePivotCell(RuntimePivotGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, bool innermost)
 			{
 				this.m_owner = owner;
 				this.m_cellLevel = cellLevel;
@@ -15828,7 +15828,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_innermost = innermost;
 			}
 
-			internal virtual void NextRow()
+			public virtual void NextRow()
 			{
 				RuntimeDataRegionObj.CommonFirstRow(this.m_owner.ProcessingContext.ReportObjectModel.FieldsImpl, ref this.m_firstRowIsAggregate, ref this.m_firstRow);
 				this.NextAggregateRow();
@@ -15856,11 +15856,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual void SortAndFilter()
+			public virtual void SortAndFilter()
 			{
 			}
 
-			internal virtual void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public virtual void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (this.m_dataRows != null)
 				{
@@ -16090,7 +16090,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 			private DataAggregateObjResult[] m_runningValueValues;
 
-			internal RuntimeChartCell(RuntimeChartGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, ChartDataPointList cellDef, bool innermost)
+			public RuntimeChartCell(RuntimeChartGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, ChartDataPointList cellDef, bool innermost)
 				: base(owner, cellLevel, aggDefs, innermost)
 			{
 				Chart chart = (Chart)owner.PivotDef;
@@ -16106,13 +16106,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				RuntimeRICollection.DoneReadingRows(globalRVCol, ((Chart)base.m_owner.PivotDef).CellRunningValues, ref this.m_runningValueValues, false);
 			}
 
-			internal void CreateInstance(ChartInstance chartInstance)
+			public void CreateInstance(ChartInstance chartInstance)
 			{
 				int currentCellDPIndex = chartInstance.GetCurrentCellDPIndex();
 				base.SetupEnvironment();
@@ -16121,13 +16121,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-        internal abstract class RuntimePivotGroupLeafObj : ReportProcessing.RuntimeGroupLeafObj
+        public abstract class RuntimePivotGroupLeafObj : ReportProcessing.RuntimeGroupLeafObj
         {
-            internal RuntimePivotGroupLeafObj(ReportProcessing.RuntimePivotGroupRootObj groupRoot) : base(groupRoot)
+            public RuntimePivotGroupLeafObj(ReportProcessing.RuntimePivotGroupRootObj groupRoot) : base(groupRoot)
             {
             }
 
-            internal PivotHeading PivotHeadingDef
+            public PivotHeading PivotHeadingDef
             {
                 get
                 {
@@ -16136,7 +16136,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal DataAggregateObjList CellPostSortAggregates
+            public DataAggregateObjList CellPostSortAggregates
             {
                 get
                 {
@@ -16144,7 +16144,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal Pivot PivotDef
+            public Pivot PivotDef
             {
                 get
                 {
@@ -16152,7 +16152,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal int HeadingLevel
+            public int HeadingLevel
             {
                 get
                 {
@@ -16233,9 +16233,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal abstract ReportProcessing.RuntimePivotCell CreateCell(int index, Pivot pivotDef);
+            public abstract ReportProcessing.RuntimePivotCell CreateCell(int index, Pivot pivotDef);
 
-            internal override void NextRow()
+            public override void NextRow()
             {
                 Pivot pivotDef = this.PivotDef;
                 int headingLevel = this.HeadingLevel;
@@ -16295,7 +16295,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal override bool SortAndFilter()
+            public override bool SortAndFilter()
             {
                 ReportProcessing.RuntimePivotGroupRootObj runtimePivotGroupRootObj = (ReportProcessing.RuntimePivotGroupRootObj)this.m_hierarchyRoot;
                 bool flag = false;
@@ -16324,7 +16324,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 return flag2;
             }
 
-            internal override void CalculateRunningValues()
+            public override void CalculateRunningValues()
             {
                 Pivot pivotDef = this.PivotDef;
                 ReportProcessing.RuntimePivotGroupRootObj runtimePivotGroupRootObj = (ReportProcessing.RuntimePivotGroupRootObj)this.m_hierarchyRoot;
@@ -16372,13 +16372,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 this.ResetScopedCellRunningValues();
             }
 
-            internal bool IsOuterGrouping()
+            public bool IsOuterGrouping()
             {
                 ReportProcessing.RuntimePivotGroupRootObj runtimePivotGroupRootObj = (ReportProcessing.RuntimePivotGroupRootObj)this.m_hierarchyRoot;
                 return null != runtimePivotGroupRootObj.InnerGroupings;
             }
 
-            internal override void ReadRow(ReportProcessing.DataActions dataAction)
+            public override void ReadRow(ReportProcessing.DataActions dataAction)
             {
                 if (ReportProcessing.DataActions.UserSort == dataAction)
                 {
@@ -16451,7 +16451,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 }
             }
 
-            internal override void SetupEnvironment()
+            public override void SetupEnvironment()
             {
                 base.SetupEnvironment();
                 this.SetupAggregateValues(this.m_firstPassCellNonCustomAggs, this.m_firstPassCellCustomAggs);
@@ -16463,22 +16463,22 @@ namespace AspNetCore.ReportingServices.ReportProcessing
                 base.SetupAggregates(customAggCollection);
             }
 
-            internal bool GetCellTargetForNonDetailSort()
+            public bool GetCellTargetForNonDetailSort()
             {
                 return ((ReportProcessing.RuntimePivotGroupRootObj)this.m_hierarchyRoot).GetCellTargetForNonDetailSort();
             }
 
-            internal bool GetCellTargetForSort(int index, bool detailSort)
+            public bool GetCellTargetForSort(int index, bool detailSort)
             {
                 return ((ReportProcessing.RuntimePivotGroupRootObj)this.m_hierarchyRoot).GetCellTargetForSort(index, detailSort);
             }
 
-            internal bool NeedHandleCellSortFilterEvent()
+            public bool NeedHandleCellSortFilterEvent()
             {
                 return base.GroupingDef.SortFilterScopeMatched != null || null != base.GroupingDef.NeedScopeInfoForSortFilterExpression;
             }
 
-            internal ReportProcessing.RuntimePivotObj GetOwnerPivot()
+            public ReportProcessing.RuntimePivotObj GetOwnerPivot()
             {
                 ReportProcessing.IScope outerScope = this.OuterScope;
                 while (!(outerScope is ReportProcessing.RuntimePivotObj))
@@ -16512,7 +16512,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private DataAggregateObjResult[] m_cellRunningValueValues;
 
-			internal RuntimeChartGroupLeafObj(RuntimeChartGroupRootObj groupRoot)
+			public RuntimeChartGroupLeafObj(RuntimeChartGroupRootObj groupRoot)
 				: base(groupRoot)
 			{
 				ChartHeading chartHeading = (ChartHeading)groupRoot.HierarchyDef;
@@ -16538,12 +16538,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override RuntimePivotCell CreateCell(int index, Pivot pivotDef)
+			public override RuntimePivotCell CreateCell(int index, Pivot pivotDef)
 			{
 				return new RuntimeChartCell(this, index, pivotDef.CellAggregates, ((Chart)pivotDef).ChartDataPoints, null == base.m_innerHierarchy);
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				this.SetupEnvironment();
 				if (base.m_userSortTargetInfo != null)
@@ -16558,7 +16558,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal override void CalculateRunningValues()
+			public override void CalculateRunningValues()
 			{
 				base.CalculateRunningValues();
 				if (base.m_processHeading)
@@ -16576,7 +16576,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.ResetScopedRunningValues();
 			}
 
-			internal override void CreateInstance()
+			public override void CreateInstance()
 			{
 				this.SetupEnvironment();
 				RuntimeChartGroupRootObj runtimeChartGroupRootObj = (RuntimeChartGroupRootObj)base.m_hierarchyRoot;
@@ -16613,7 +16613,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				((RuntimeChartHeadingsObj)base.m_pivotHeadings).CreateInstances(this, base.m_processingContext, chartInstance, flag, currOuterHeadingGroupRoot, chartHeadingInstanceList);
 			}
 
-			internal void CreateInnerGroupingsOrCells(ChartInstance chartInstance, RuntimePivotGroupRootObj currOuterHeadingGroupRoot)
+			public void CreateInnerGroupingsOrCells(ChartInstance chartInstance, RuntimePivotGroupRootObj currOuterHeadingGroupRoot)
 			{
 				this.SetupEnvironment();
 				if (base.IsOuterGrouping())
@@ -16645,7 +16645,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				chartInstance.AddCell(base.m_processingContext, -1);
 			}
 
-			internal void CreateSubtotalOrStaticCells(ChartInstance chartInstance, RuntimePivotGroupRootObj currOuterHeadingGroupRoot, bool outerGroupingSubtotal)
+			public void CreateSubtotalOrStaticCells(ChartInstance chartInstance, RuntimePivotGroupRootObj currOuterHeadingGroupRoot, bool outerGroupingSubtotal)
 			{
 				RuntimeChartHeadingsObj runtimeChartHeadingsObj = (RuntimeChartHeadingsObj)((RuntimeChartGroupRootObj)base.m_hierarchyRoot).InnerGroupings;
 				if (base.IsOuterGrouping() && !outerGroupingSubtotal)
@@ -16671,7 +16671,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private FieldImpl[] m_firstRow;
 
-			internal VariantList[] OWCChartData
+			public VariantList[] OWCChartData
 			{
 				get
 				{
@@ -16687,7 +16687,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeOnePassOWCChartDetailObj(IScope outerScope, OWCChart chartDef, ProcessingContext processingContext)
+			public RuntimeOnePassOWCChartDetailObj(IScope outerScope, OWCChart chartDef, ProcessingContext processingContext)
 				: base(outerScope, chartDef, processingContext)
 			{
 				RuntimeDataRegionObj.CreateAggregates(base.m_processingContext, chartDef.Aggregates, ref this.m_nonCustomAggregates, ref this.m_customAggregates);
@@ -16708,12 +16708,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override int GetDetailPage()
+			public override int GetDetailPage()
 			{
 				return 0;
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (base.m_processingContext.ReportObjectModel.FieldsImpl.IsAggregateRow)
 				{
@@ -16764,12 +16764,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 				base.SetupEnvironment(this.m_nonCustomAggregates, this.m_customAggregates, this.m_firstRow);
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				return base.DataRegionInScope(base.m_dataRegionDef, scope);
 			}
@@ -16789,7 +16789,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private MatrixHeadingInstance[] m_subtotalHeadingInstances;
 
-			internal RuntimeMatrixHeadingsObj(IScope owner, MatrixHeading headingDef, ref DataActions dataAction, ProcessingContext processingContext, MatrixHeading staticHeadingDef, RuntimeMatrixHeadingsObj innerGroupings, bool outermostHeadingSubtotal, int headingLevel)
+			public RuntimeMatrixHeadingsObj(IScope owner, MatrixHeading headingDef, ref DataActions dataAction, ProcessingContext processingContext, MatrixHeading staticHeadingDef, RuntimeMatrixHeadingsObj innerGroupings, bool outermostHeadingSubtotal, int headingLevel)
 				: base(owner, (PivotHeading)headingDef, ref dataAction, processingContext, (PivotHeading)staticHeadingDef, (RuntimePivotHeadingsObj)innerGroupings, outermostHeadingSubtotal, headingLevel)
 			{
 				if (headingDef != null)
@@ -16813,7 +16813,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				base.NextRow();
 				if (this.m_subtotal != null)
@@ -16830,7 +16830,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				bool flag = base.SortAndFilter();
 				if (flag)
@@ -16851,7 +16851,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return flag;
 			}
 
-			internal override void CalculatePreviousAggregates(AggregatesImpl globalRVCol)
+			public override void CalculatePreviousAggregates(AggregatesImpl globalRVCol)
 			{
 				if (base.m_pivotHeadings != null && this.m_subtotal != null)
 				{
@@ -16867,7 +16867,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				if (base.m_owner is RuntimeMatrixObj)
@@ -16902,7 +16902,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateInstances(RuntimeDataRegionObj outerGroup, ProcessingContext processingContext, MatrixInstance matrixInstance, bool outerGroupings, RuntimePivotGroupRootObj currOuterHeadingGroupRoot, MatrixHeadingInstanceList headingInstances, RenderingPagesRangesList pagesList)
+			public void CreateInstances(RuntimeDataRegionObj outerGroup, ProcessingContext processingContext, MatrixInstance matrixInstance, bool outerGroupings, RuntimePivotGroupRootObj currOuterHeadingGroupRoot, MatrixHeadingInstanceList headingInstances, RenderingPagesRangesList pagesList)
 			{
 				bool flag = outerGroupings || 0 == matrixInstance.CurrentCellOuterIndex;
 				int num = 1;
@@ -17228,7 +17228,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return matrixHeadingInstance.SubHeadingInstances;
 			}
 
-			internal void ResetReportItemObjs(ProcessingContext processingContext)
+			public void ResetReportItemObjs(ProcessingContext processingContext)
 			{
 				if (this.m_subtotal != null)
 				{
@@ -17258,7 +17258,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private RuntimeRICollection m_subtotalCorner;
 
-			internal RuntimeMatrixObj(IScope outerScope, Matrix matrixDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
+			public RuntimeMatrixObj(IScope outerScope, Matrix matrixDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
 				: base(outerScope, (Pivot)matrixDef, ref dataAction, processingContext, onePassProcess)
 			{
 				bool handleMyDataAction = default(bool);
@@ -17386,7 +17386,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal override bool TargetScopeMatched(int index, bool detailSort)
+			public override bool TargetScopeMatched(int index, bool detailSort)
 			{
 				if (((Matrix)base.m_pivotDef).InOutermostSubtotalCell && !this.OutermostSTCellTargetScopeMatched(index, base.m_processingContext.RuntimeSortFilterInfo[index]))
 				{
@@ -17411,7 +17411,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
+			public override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
 			{
 				base.GetScopeValues(targetScopeObj, scopeValues, ref index);
 				if (((Matrix)base.m_pivotDef).InOutermostSubtotalCell)
@@ -17435,7 +17435,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				this.SetupEnvironment();
 				if (base.m_userSortTargetInfo != null)
@@ -17458,7 +17458,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				if (this.m_matrixCorner != null)
@@ -17484,7 +17484,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				if (base.m_firstRow != null)
 				{
@@ -17579,7 +17579,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void ResetReportItems()
+			public void ResetReportItems()
 			{
 				if (this.m_matrixCorner != null)
 				{
@@ -17595,7 +17595,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateOutermostSubtotalCells(MatrixInstance matrixInstance, bool outerGroupings)
+			public void CreateOutermostSubtotalCells(MatrixInstance matrixInstance, bool outerGroupings)
 			{
 				if (outerGroupings)
 				{
@@ -17728,7 +17728,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 			private ReportItemCollection m_cellRIs;
 
-			internal ReportItemCollection CellRIs
+			public ReportItemCollection CellRIs
 			{
 				get
 				{
@@ -17736,7 +17736,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeMatrixGroupRootObj(IScope outerScope, MatrixHeading matrixHeadingDef, ref DataActions dataAction, ProcessingContext processingContext, RuntimeMatrixHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
+			public RuntimeMatrixGroupRootObj(IScope outerScope, MatrixHeading matrixHeadingDef, ref DataActions dataAction, ProcessingContext processingContext, RuntimeMatrixHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
 				: base(outerScope, (PivotHeading)matrixHeadingDef, ref dataAction, processingContext, (RuntimePivotHeadingsObj)innerGroupings, outermostSubtotal, headingLevel)
 			{
 				if (base.m_processOutermostSTCells)
@@ -17763,7 +17763,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				ReportItemCollection reportItems = ((MatrixHeading)base.m_hierarchyDef).ReportItems;
@@ -17811,7 +17811,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private RuntimeRICollection m_cellReportItems;
 
-			internal RuntimeMatrixCell(RuntimeMatrixGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, ReportItemCollection cellDef, bool innermost)
+			public RuntimeMatrixCell(RuntimeMatrixGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, ReportItemCollection cellDef, bool innermost)
 				: base(owner, cellLevel, aggDefs, innermost)
 			{
 				this.m_cellDef = cellDef;
@@ -17853,24 +17853,24 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				base.NextRow();
 				this.m_cellReportItems.FirstPassNextDataRow();
 			}
 
-			internal override void SortAndFilter()
+			public override void SortAndFilter()
 			{
 				this.m_cellReportItems.SortAndFilter();
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				this.m_cellReportItems.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 			}
 
-			internal void CreateInstance(MatrixInstance matrixInstance, ReportItem reportItemDef, MatrixCellInstance cellInstance)
+			public void CreateInstance(MatrixInstance matrixInstance, ReportItem reportItemDef, MatrixCellInstance cellInstance)
 			{
 				base.SetupEnvironment();
 				base.m_owner.ProcessingContext.Pagination.EnterIgnorePageBreak(null, true);
@@ -17896,7 +17896,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private bool m_startHidden;
 
-			internal RuntimeMatrixGroupLeafObj(RuntimeMatrixGroupRootObj groupRoot)
+			public RuntimeMatrixGroupLeafObj(RuntimeMatrixGroupRootObj groupRoot)
 				: base(groupRoot)
 			{
 				MatrixHeading matrixHeading = (MatrixHeading)groupRoot.HierarchyDef;
@@ -18049,7 +18049,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal override bool TargetScopeMatched(int index, bool detailSort)
+			public override bool TargetScopeMatched(int index, bool detailSort)
 			{
 				if (detailSort && base.GroupingDef.SortFilterScopeInfo == null)
 				{
@@ -18066,7 +18066,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal override RuntimePivotCell CreateCell(int index, Pivot pivotDef)
+			public override RuntimePivotCell CreateCell(int index, Pivot pivotDef)
 			{
 				return new RuntimeMatrixCell(this, index, pivotDef.CellAggregates, ((Matrix)pivotDef).CellReportItems, null == base.m_innerHierarchy);
 			}
@@ -18086,7 +18086,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				this.SetupEnvironment();
 				if (base.m_userSortTargetInfo != null)
@@ -18109,7 +18109,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal override void CalculateRunningValues()
+			public override void CalculateRunningValues()
 			{
 				base.CalculateRunningValues();
 				if (base.m_processHeading)
@@ -18143,7 +18143,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal void SetContentsPage()
+			public void SetContentsPage()
 			{
 				RuntimeMatrixGroupRootObj runtimeMatrixGroupRootObj = (RuntimeMatrixGroupRootObj)base.m_hierarchyRoot;
 				MatrixHeading matrixHeading = (MatrixHeading)runtimeMatrixGroupRootObj.HierarchyDef;
@@ -18153,7 +18153,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CreateInstance()
+			public override void CreateInstance()
 			{
 				this.SetupEnvironment();
 				RuntimeMatrixGroupRootObj runtimeMatrixGroupRootObj = (RuntimeMatrixGroupRootObj)base.m_hierarchyRoot;
@@ -18348,7 +18348,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateInnerGroupingsOrCells(MatrixInstance matrixInstance, RuntimePivotGroupRootObj currOuterHeadingGroupRoot)
+			public void CreateInnerGroupingsOrCells(MatrixInstance matrixInstance, RuntimePivotGroupRootObj currOuterHeadingGroupRoot)
 			{
 				this.SetupEnvironment();
 				if (base.IsOuterGrouping())
@@ -18482,7 +18482,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateSubtotalOrStaticCells(MatrixInstance matrixInstance, RuntimePivotGroupRootObj currOuterHeadingGroupRoot, bool outerGroupingSubtotal)
+			public void CreateSubtotalOrStaticCells(MatrixInstance matrixInstance, RuntimePivotGroupRootObj currOuterHeadingGroupRoot, bool outerGroupingSubtotal)
 			{
 				RuntimeMatrixHeadingsObj runtimeMatrixHeadingsObj = (RuntimeMatrixHeadingsObj)((RuntimeMatrixGroupRootObj)base.m_hierarchyRoot).InnerGroupings;
 				if (base.IsOuterGrouping() && !outerGroupingSubtotal)
@@ -18495,7 +18495,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void SetReportItemObjs(ReportItemColInstance reportItemColInstance)
+			public void SetReportItemObjs(ReportItemColInstance reportItemColInstance)
 			{
 				if (reportItemColInstance.ReportItemInstances != null)
 				{
@@ -18591,7 +18591,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
+			public override void GetScopeValues(IHierarchyObj targetScopeObj, VariantList[] scopeValues, ref int index)
 			{
 				if (((MatrixHeading)base.PivotHeadingDef).InOutermostSubtotalCell)
 				{
@@ -18604,7 +18604,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class RuntimeExpressionInfo
+		public sealed class RuntimeExpressionInfo
 		{
 			private ExpressionInfo m_expression;
 
@@ -18614,7 +18614,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private int m_expressionIndex;
 
-			internal ExpressionInfo Expression
+			public ExpressionInfo Expression
 			{
 				get
 				{
@@ -18622,7 +18622,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool Direction
+			public bool Direction
 			{
 				get
 				{
@@ -18630,7 +18630,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IndexedExprHost ExpressionsHost
+			public IndexedExprHost ExpressionsHost
 			{
 				get
 				{
@@ -18638,7 +18638,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int ExpressionIndex
+			public int ExpressionIndex
 			{
 				get
 				{
@@ -18646,7 +18646,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeExpressionInfo(ExpressionInfoList expressions, IndexedExprHost expressionsHost, BoolList directions, int expressionIndex)
+			public RuntimeExpressionInfo(ExpressionInfoList expressions, IndexedExprHost expressionsHost, BoolList directions, int expressionIndex)
 			{
 				this.m_expressionsHost = expressionsHost;
 				this.m_expressionIndex = expressionIndex;
@@ -18658,9 +18658,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class RuntimeExpressionInfoList : ArrayList
+		public sealed class RuntimeExpressionInfoList : ArrayList
 		{
-			internal new RuntimeExpressionInfo this[int index]
+			public new RuntimeExpressionInfo this[int index]
 			{
 				get
 				{
@@ -18668,14 +18668,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeExpressionInfoList()
+			public RuntimeExpressionInfoList()
 			{
 			}
 		}
 
-		internal sealed class RuntimeDataRegionObjList : ArrayList
+		public sealed class RuntimeDataRegionObjList : ArrayList
 		{
-			internal new RuntimeDataRegionObj this[int index]
+			public new RuntimeDataRegionObj this[int index]
 			{
 				get
 				{
@@ -18688,9 +18688,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class RuntimeGroupRootObjList : Hashtable
+		public sealed class RuntimeGroupRootObjList : Hashtable
 		{
-			internal RuntimeGroupRootObj this[string index]
+			public RuntimeGroupRootObj this[string index]
 			{
 				get
 				{
@@ -18705,7 +18705,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class RuntimeGroupLeafObjList : ArrayList
 		{
-			internal new RuntimeGroupLeafObj this[int index]
+			public new RuntimeGroupLeafObj this[int index]
 			{
 				get
 				{
@@ -18716,7 +18716,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class ParentInformation : Hashtable
 		{
-			internal new RuntimeGroupLeafObjList this[object parentKey]
+			public new RuntimeGroupLeafObjList this[object parentKey]
 			{
 				get
 				{
@@ -18724,18 +18724,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ParentInformation()
+			public ParentInformation()
 			{
 			}
 		}
 
-		internal sealed class RuntimePivotCells : Hashtable
+		public sealed class RuntimePivotCells : Hashtable
 		{
 			private RuntimePivotCell m_firstCell;
 
 			private RuntimePivotCell m_lastCell;
 
-			internal RuntimePivotCell this[int index]
+			public RuntimePivotCell this[int index]
 			{
 				get
 				{
@@ -18751,7 +18751,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Add(int key, RuntimePivotCell cell)
+			public void Add(int key, RuntimePivotCell cell)
 			{
 				if (this.m_lastCell != null)
 				{
@@ -18765,7 +18765,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.Add(key, cell);
 			}
 
-			internal RuntimePivotCell GetCell(Pivot pivotDef, RuntimePivotGroupLeafObj owner, int cellLevel)
+			public RuntimePivotCell GetCell(Pivot pivotDef, RuntimePivotGroupLeafObj owner, int cellLevel)
 			{
 				RuntimePivotGroupRootObj currentOuterHeadingGroupRoot = pivotDef.CurrentOuterHeadingGroupRoot;
 				int index = pivotDef.OuterGroupingIndexes[currentOuterHeadingGroupRoot.HeadingLevel];
@@ -18777,7 +18777,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return runtimePivotCell;
 			}
 
-			internal void SortAndFilter()
+			public void SortAndFilter()
 			{
 				for (RuntimePivotCell runtimePivotCell = this.m_firstCell; runtimePivotCell != null; runtimePivotCell = runtimePivotCell.NextCell)
 				{
@@ -18785,7 +18785,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CalculateRunningValues(Pivot pivotDef, AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup, RuntimePivotGroupLeafObj owner, int cellLevel)
+			public void CalculateRunningValues(Pivot pivotDef, AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup, RuntimePivotGroupLeafObj owner, int cellLevel)
 			{
 				RuntimePivotCell cell = this.GetCell(pivotDef, owner, cellLevel);
 				Global.Tracer.Assert(null != cell, "(null != cell)");
@@ -18809,21 +18809,21 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private bool m_initialized;
 
-			internal Merge(Report report, ProcessingContext context)
+			public Merge(Report report, ProcessingContext context)
 			{
 				this.m_report = report;
 				this.m_processingContext = context;
 				this.m_fetchImageStreams = true;
 			}
 
-			internal Merge(Report report, ProcessingContext context, bool firstSubreportInstance)
+			public Merge(Report report, ProcessingContext context, bool firstSubreportInstance)
 			{
 				this.m_report = report;
 				this.m_processingContext = context;
 				this.m_fetchImageStreams = firstSubreportInstance;
 			}
 
-			internal bool PrefetchData(ParameterInfoCollection parameters, bool mergeTran)
+			public bool PrefetchData(ParameterInfoCollection parameters, bool mergeTran)
 			{
 				EventHandler eventHandler = null;
 				try
@@ -18906,7 +18906,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal ReportInstance Process(ParameterInfoCollection parameters, bool mergeTran)
+			public ReportInstance Process(ParameterInfoCollection parameters, bool mergeTran)
 			{
 				EventHandler eventHandler = null;
 				try
@@ -19040,7 +19040,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CleanupDataChunk(UserProfileState userProfileState)
+			public void CleanupDataChunk(UserProfileState userProfileState)
 			{
 				if (!this.m_processingContext.IsHistorySnapshot && this.m_processingContext.SaveSnapshotData && (!this.m_processingContext.ErrorSavingSnapshotData || (this.m_processingContext.ErrorSavingSnapshotData && !this.m_processingContext.StopSaveSnapshotDataOnError)) && !this.m_report.ParametersNotUsedInQuery && !this.m_processingContext.HasUserSortFilter && (userProfileState & UserProfileState.InReport) == UserProfileState.None)
 				{
@@ -19068,7 +19068,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Init(ParameterInfoCollection parameters, bool prefetchDataOnly)
+			public void Init(ParameterInfoCollection parameters, bool prefetchDataOnly)
 			{
 				if (this.m_processingContext.ReportObjectModel == null && this.m_processingContext.ReportRuntime == null)
 				{
@@ -19238,7 +19238,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class RuntimeDataSourceNodeList : ArrayList
 		{
-			internal new RuntimeDataSourceNode this[int index]
+			public new RuntimeDataSourceNode this[int index]
 			{
 				get
 				{
@@ -19247,7 +19247,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimeDataSourceNode
+		public abstract class RuntimeDataSourceNode
 		{
 			protected bool m_noRows = true;
 
@@ -19265,7 +19265,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected int m_dataSetIndex = -1;
 
-			internal long DataProcessingDurationMs
+			public long DataProcessingDurationMs
 			{
 				get
 				{
@@ -19273,7 +19273,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool NoRows
+			public bool NoRows
 			{
 				get
 				{
@@ -19281,7 +19281,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeDataSetNodeList RuntimeDataSetNodes
+			public RuntimeDataSetNodeList RuntimeDataSetNodes
 			{
 				get
 				{
@@ -19289,14 +19289,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeDataSourceNode(Report report, DataSource dataSource, ProcessingContext processingContext)
+			public RuntimeDataSourceNode(Report report, DataSource dataSource, ProcessingContext processingContext)
 			{
 				this.m_report = report;
 				this.m_dataSource = dataSource;
 				this.m_processingContext = processingContext;
 			}
 
-			internal RuntimeDataSourceNode(Report report, DataSource dataSource, int dataSetIndex, ProcessingContext processingContext)
+			public RuntimeDataSourceNode(Report report, DataSource dataSource, int dataSetIndex, ProcessingContext processingContext)
 			{
 				this.m_report = report;
 				this.m_dataSource = dataSource;
@@ -19304,7 +19304,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_dataSetIndex = dataSetIndex;
 			}
 
-			internal void Abort()
+			public void Abort()
 			{
 				if (Global.Tracer.TraceVerbose)
 				{
@@ -19320,7 +19320,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Cleanup()
+			public void Cleanup()
 			{
 				for (int i = 0; i < this.m_runtimeDataSetNodes.Count; i++)
 				{
@@ -19328,11 +19328,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual void InitProcessingParams(bool mergeTran, bool prefetchDataOnly)
+			public virtual void InitProcessingParams(bool mergeTran, bool prefetchDataOnly)
 			{
 			}
 
-			internal void ProcessConcurrent(object threadSet)
+			public void ProcessConcurrent(object threadSet)
 			{
 				CultureInfo cultureInfo = null;
 				Global.Tracer.Assert(this.m_dataSource.Name != null, "The name of a data source cannot be null.");
@@ -19387,7 +19387,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected abstract void Process();
 
-			internal void EraseDataChunk()
+			public void EraseDataChunk()
 			{
 				for (int i = 0; i < this.m_runtimeDataSetNodes.Count; i++)
 				{
@@ -19396,7 +19396,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class ReportRuntimeDataSourceNode : RuntimeDataSourceNode
+		public sealed class ReportRuntimeDataSourceNode : RuntimeDataSourceNode
 		{
 			private enum ConnectionSecurity
 			{
@@ -19412,18 +19412,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private LegacyReportParameterDataSetCache m_cache;
 
-			internal ReportRuntimeDataSourceNode(Report report, DataSource dataSource, ProcessingContext processingContext)
+			public ReportRuntimeDataSourceNode(Report report, DataSource dataSource, ProcessingContext processingContext)
 				: base(report, dataSource, processingContext)
 			{
 			}
 
-			internal ReportRuntimeDataSourceNode(Report report, DataSource dataSource, int dataSetIndex, ProcessingContext processingContext, LegacyReportParameterDataSetCache aCache)
+			public ReportRuntimeDataSourceNode(Report report, DataSource dataSource, int dataSetIndex, ProcessingContext processingContext, LegacyReportParameterDataSetCache aCache)
 				: base(report, dataSource, dataSetIndex, processingContext)
 			{
 				this.m_cache = aCache;
 			}
 
-			internal override void InitProcessingParams(bool mergeTran, bool prefetchDataOnly)
+			public override void InitProcessingParams(bool mergeTran, bool prefetchDataOnly)
 			{
 				this.m_mergeTran = mergeTran;
 				this.m_prefetchDataOnly = prefetchDataOnly;
@@ -19721,9 +19721,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class RuntimeDataSetNodeList : ArrayList
+		public sealed class RuntimeDataSetNodeList : ArrayList
 		{
-			internal new RuntimeDataSetNode this[int index]
+			public new RuntimeDataSetNode this[int index]
 			{
 				get
 				{
@@ -19732,7 +19732,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimeDataSetNode : IFilterOwner
+		public abstract class RuntimeDataSetNode : IFilterOwner
 		{
 			protected DataSource m_dataSource;
 
@@ -19762,7 +19762,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected bool m_hasSortFilterInfo;
 
-			internal DataSet DataSet
+			public DataSet DataSet
 			{
 				get
 				{
@@ -19770,7 +19770,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool NoRows
+			public bool NoRows
 			{
 				get
 				{
@@ -19778,7 +19778,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int NumRowsRead
+			public int NumRowsRead
 			{
 				get
 				{
@@ -19786,7 +19786,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal long DataProcessingDurationMs
+			public long DataProcessingDurationMs
 			{
 				get
 				{
@@ -19794,7 +19794,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal FieldsImpl Fields
+			public FieldsImpl Fields
 			{
 				get
 				{
@@ -19806,7 +19806,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ProcessingContext ProcessingContext
+			public ProcessingContext ProcessingContext
 			{
 				get
 				{
@@ -19814,14 +19814,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeDataSetNode(Report report, DataSet dataSet, ProcessingContext processingContext)
+			public RuntimeDataSetNode(Report report, DataSet dataSet, ProcessingContext processingContext)
 			{
 				this.m_report = report;
 				this.m_dataSet = dataSet;
 				this.m_processingContext = processingContext.CloneContext(processingContext);
 			}
 
-			internal void Abort()
+			public void Abort()
 			{
 				IDbCommand command = this.m_command;
 				if (command != null)
@@ -19834,7 +19834,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Cleanup()
+			public void Cleanup()
 			{
 				if (this.m_processingContext.ReportRuntime != null)
 				{
@@ -19842,14 +19842,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void InitProcessingParams(DataSource dataSource, IDbConnection conn, TransactionInfo transInfo)
+			public void InitProcessingParams(DataSource dataSource, IDbConnection conn, TransactionInfo transInfo)
 			{
 				this.m_dataSource = dataSource;
 				this.m_dataSourceConnection = conn;
 				this.m_transInfo = transInfo;
 			}
 
-			internal void ProcessConcurrent(object threadSet)
+			public void ProcessConcurrent(object threadSet)
 			{
 				CultureInfo cultureInfo = null;
 				Global.Tracer.Assert(this.m_dataSet.Name != null, "The name of a data set cannot be null.");
@@ -19956,11 +19956,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected abstract void NextNonAggregateRow();
 
-			internal virtual void RuntimeInitializeReportItemObjs()
+			public virtual void RuntimeInitializeReportItemObjs()
 			{
 			}
 
-			internal virtual void EraseDataChunk()
+			public virtual void EraseDataChunk()
 			{
 			}
 
@@ -20460,7 +20460,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private int[] m_sortFilterExpressionScopeInfoIndices;
 
-			internal bool HasSortFilterInfo
+			public bool HasSortFilterInfo
 			{
 				get
 				{
@@ -20563,7 +20563,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeReportDataSetNode(Report report, DataSet dataSet, ProcessingContext processingContext)
+			public RuntimeReportDataSetNode(Report report, DataSet dataSet, ProcessingContext processingContext)
 				: base(report, dataSet, processingContext)
 			{
 				base.m_hasSortFilterInfo = base.m_processingContext.PopulateRuntimeSortFilterEventInfo(base.m_dataSet);
@@ -20712,7 +20712,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void RuntimeInitializeReportItemObjs()
+			public override void RuntimeInitializeReportItemObjs()
 			{
 				for (int i = 0; i < base.m_dataSet.DataRegions.Count; i++)
 				{
@@ -20720,7 +20720,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void EraseDataChunk()
+			public override void EraseDataChunk()
 			{
 				if (this.m_dataChunkSaved)
 				{
@@ -21022,7 +21022,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private DataRowList m_dataRows;
 
-			internal RuntimeSortDataHolder(IHierarchyObj owner)
+			public RuntimeSortDataHolder(IHierarchyObj owner)
 			{
 				this.m_owner = owner;
 				this.m_dataRows = new DataRowList();
@@ -21053,7 +21053,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 			private ChunkManager.DataChunkWriter m_dataChunkWriter;
 
-			internal RuntimePrefetchDataSetNode(Report report, DataSet dataSet, ProcessingContext processingContext)
+			public RuntimePrefetchDataSetNode(Report report, DataSet dataSet, ProcessingContext processingContext)
 				: base(report, dataSet, processingContext)
 			{
 			}
@@ -21153,7 +21153,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 			private LegacyReportParameterDataSetCache m_reportParameterDataSetObj;
 
-			internal RuntimeReportParametersDataSetNode(Report report, DataSet dataSet, ProcessingContext processingContext, LegacyReportParameterDataSetCache aCache)
+			public RuntimeReportParametersDataSetNode(Report report, DataSet dataSet, ProcessingContext processingContext, LegacyReportParameterDataSetCache aCache)
 				: base(report, dataSet, processingContext)
 			{
 				this.m_reportParameterDataSetObj = aCache;
@@ -21223,13 +21223,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class RuntimeReportParameterDataSetObj
+		public sealed class RuntimeReportParameterDataSetObj
 		{
 			private ProcessingContext m_processingContext;
 
 			private DataRowList m_dataRows;
 
-			internal int Count
+			public int Count
 			{
 				get
 				{
@@ -21241,12 +21241,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeReportParameterDataSetObj(ProcessingContext processingContext)
+			public RuntimeReportParameterDataSetObj(ProcessingContext processingContext)
 			{
 				this.m_processingContext = processingContext;
 			}
 
-			internal void NextRow()
+			public void NextRow()
 			{
 				if (this.m_dataRows == null)
 				{
@@ -21256,7 +21256,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_dataRows.Add(andSaveFields);
 			}
 
-			internal object GetFieldValue(int row, int col)
+			public object GetFieldValue(int row, int col)
 			{
 				if (this.Count == 0)
 				{
@@ -21272,13 +21272,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class ProcessingDataReader : IDisposable
+		public sealed class ProcessingDataReader : IDisposable
 		{
 			private MappingDataReader m_dataSourceDataReader;
 
 			private ChunkManager.DataChunkReader m_snapshotDataReader;
 
-			internal bool ReaderExtensionsSupported
+			public bool ReaderExtensionsSupported
 			{
 				get
 				{
@@ -21290,7 +21290,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ReaderFieldProperties
+			public bool ReaderFieldProperties
 			{
 				get
 				{
@@ -21326,12 +21326,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ProcessingDataReader(string dataSetName, IDataReader sourceReader, string[] aliases, string[] names)
+			public ProcessingDataReader(string dataSetName, IDataReader sourceReader, string[] aliases, string[] names)
 			{
 				this.m_dataSourceDataReader = new MappingDataReader(dataSetName, sourceReader, aliases, names, null);
 			}
 
-			internal ProcessingDataReader(DataSet dataSet, ProcessingContext context)
+			public ProcessingDataReader(DataSet dataSet, ProcessingContext context)
 			{
 				this.m_snapshotDataReader = new ChunkManager.DataChunkReader(dataSet, context);
 			}
@@ -21348,7 +21348,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void OverrideDataCacheCompareOptions(ref ProcessingContext context)
+			public void OverrideDataCacheCompareOptions(ref ProcessingContext context)
 			{
 				if (this.m_snapshotDataReader != null && context.ProcessWithCachedData && this.m_snapshotDataReader.ValidCompareOptions)
 				{
@@ -21365,7 +21365,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.m_snapshotDataReader.GetNextRow();
 			}
 
-			internal object GetColumn(int aliasIndex)
+			public object GetColumn(int aliasIndex)
 			{
 				object obj = null;
 				obj = ((this.m_dataSourceDataReader == null) ? this.m_snapshotDataReader.GetFieldValue(aliasIndex) : this.m_dataSourceDataReader.GetFieldValue(aliasIndex));
@@ -21376,7 +21376,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return obj;
 			}
 
-			internal bool IsAggregationField(int aliasIndex)
+			public bool IsAggregationField(int aliasIndex)
 			{
 				if (this.m_dataSourceDataReader != null)
 				{
@@ -21385,7 +21385,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.m_snapshotDataReader.IsAggregationField(aliasIndex);
 			}
 
-			internal int GetPropertyCount(int aliasIndex)
+			public int GetPropertyCount(int aliasIndex)
 			{
 				if (this.m_dataSourceDataReader != null)
 				{
@@ -21402,7 +21402,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return 0;
 			}
 
-			internal string GetPropertyName(int aliasIndex, int propertyIndex)
+			public string GetPropertyName(int aliasIndex, int propertyIndex)
 			{
 				if (this.m_dataSourceDataReader != null)
 				{
@@ -21415,7 +21415,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return null;
 			}
 
-			internal object GetPropertyValue(int aliasIndex, int propertyIndex)
+			public object GetPropertyValue(int aliasIndex, int propertyIndex)
 			{
 				object obj = null;
 				if (this.m_dataSourceDataReader != null)
@@ -21434,7 +21434,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class PageMergeInteractive
+		public sealed class PageMergeInteractive
 		{
 			private PageTextboxes m_pageTextboxes;
 
@@ -21452,7 +21452,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private Hashtable m_aggregatesOverReportItems;
 
-			internal UserProfileState Process(PageTextboxes pageTextboxes, ReportSnapshot reportSnapshot, ICatalogItemContext reportContext, string reportName, ParameterInfoCollection parameters, ChunkManager.ProcessingChunkManager pageSectionManager, CreateReportChunk createChunkCallback, IGetResource getResourceCallback, ErrorContext errorContext, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, int uniqueNameCounter, IDataProtection dataProtection, ref ReportDrillthroughInfo drillthroughInfo)
+			public UserProfileState Process(PageTextboxes pageTextboxes, ReportSnapshot reportSnapshot, ICatalogItemContext reportContext, string reportName, ParameterInfoCollection parameters, ChunkManager.ProcessingChunkManager pageSectionManager, CreateReportChunk createChunkCallback, IGetResource getResourceCallback, ErrorContext errorContext, UserProfileState allowUserProfileState, ReportRuntimeSetup reportRuntimeSetup, int uniqueNameCounter, IDataProtection dataProtection, ref ReportDrillthroughInfo drillthroughInfo)
 			{
 				UserProfileState result = UserProfileState.None;
 				try
@@ -21713,7 +21713,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class PageMerge
+		public sealed class PageMerge
 		{
 			private int m_pageNumber;
 
@@ -21737,7 +21737,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private Hashtable m_aggregatesOverReportItems;
 
-			internal void Process(int pageNumber, int totalPages, AspNetCore.ReportingServices.ReportRendering.Report report, PageReportItems pageReportItems, ErrorContext errorContext, out AspNetCore.ReportingServices.ReportRendering.PageSection pageHeader, out AspNetCore.ReportingServices.ReportRendering.PageSection pageFooter)
+			public void Process(int pageNumber, int totalPages, AspNetCore.ReportingServices.ReportRendering.Report report, PageReportItems pageReportItems, ErrorContext errorContext, out AspNetCore.ReportingServices.ReportRendering.PageSection pageHeader, out AspNetCore.ReportingServices.ReportRendering.PageSection pageFooter)
 			{
 				if (!report.NeedsHeaderFooterEvaluation)
 				{
@@ -22126,7 +22126,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal static void CreateInstances(ProcessingContext processingContext, ReportItemColInstance collectionInstance, ReportItemCollection reportItemsDef)
+			public static void CreateInstances(ProcessingContext processingContext, ReportItemColInstance collectionInstance, ReportItemCollection reportItemsDef)
 			{
 				if (reportItemsDef.ComputedReportItems != null)
 				{
@@ -22170,7 +22170,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		public delegate void ResolveTemporaryDataSet(DataSetInfo dataSetInfo, DataSetInfoCollection originalDataSets);
 
-		internal sealed class CustomReportItemControls
+		public sealed class CustomReportItemControls
 		{
 			private class CustomControlInfo
 			{
@@ -22178,7 +22178,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 				private AspNetCore.ReportingServices.ReportRendering.ICustomReportItem m_instance;
 
-				internal bool IsValid
+				public bool IsValid
 				{
 					get
 					{
@@ -22190,7 +22190,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal AspNetCore.ReportingServices.ReportRendering.ICustomReportItem Instance
+				public AspNetCore.ReportingServices.ReportRendering.ICustomReportItem Instance
 				{
 					get
 					{
@@ -22205,12 +22205,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private Hashtable m_controls;
 
-			internal CustomReportItemControls()
+			public CustomReportItemControls()
 			{
 				this.m_controls = new Hashtable();
 			}
 
-			internal AspNetCore.ReportingServices.ReportRendering.ICustomReportItem GetControlInstance(string name, IExtensionFactory extFactory)
+			public AspNetCore.ReportingServices.ReportRendering.ICustomReportItem GetControlInstance(string name, IExtensionFactory extFactory)
 			{
 				lock (this)
 				{
@@ -22273,7 +22273,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int[] OuterGroupingCounters
+			public int[] OuterGroupingCounters
 			{
 				get
 				{
@@ -22281,7 +22281,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeTablixObj(IScope outerScope, Tablix tablixDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
+			public RuntimeTablixObj(IScope outerScope, Tablix tablixDef, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
 				: base(outerScope, (DataRegion)tablixDef, ref dataAction, processingContext, onePassProcess, tablixDef.RunningValues)
 			{
 				base.m_outerScope = outerScope;
@@ -22398,7 +22398,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				this.SetupEnvironment();
 				if (this.m_tablixRows != null)
@@ -22412,7 +22412,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return base.SortAndFilter();
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (this.m_tablixDef.RunningValues != null && base.m_runningValues == null)
 				{
@@ -22457,7 +22457,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				if (!this.m_tablixDef.ProcessCellRunningValues)
 				{
@@ -22491,12 +22491,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 				base.SetupEnvironment(this.m_tablixDef.RunningValues);
 			}
 
-			internal override bool InScope(string scope)
+			public override bool InScope(string scope)
 			{
 				return base.DataRegionInScope(this.m_tablixDef, scope);
 			}
@@ -22507,7 +22507,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class RuntimeTablixHeadingsObj
+		public abstract class RuntimeTablixHeadingsObj
 		{
 			protected IScope m_owner;
 
@@ -22515,7 +22515,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected TablixHeadingList m_staticHeadingDef;
 
-			internal RuntimeTablixGroupRootObj Headings
+			public RuntimeTablixGroupRootObj Headings
 			{
 				get
 				{
@@ -22523,7 +22523,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeTablixHeadingsObj(IScope owner, TablixHeadingList headingDef, ref DataActions dataAction, ProcessingContext processingContext, TablixHeadingList staticHeadingDef, RuntimeTablixHeadingsObj innerGroupings, int headingLevel)
+			public RuntimeTablixHeadingsObj(IScope owner, TablixHeadingList headingDef, ref DataActions dataAction, ProcessingContext processingContext, TablixHeadingList staticHeadingDef, RuntimeTablixHeadingsObj innerGroupings, int headingLevel)
 			{
 				this.m_owner = owner;
 				if (staticHeadingDef != null)
@@ -22532,7 +22532,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual void NextRow()
+			public virtual void NextRow()
 			{
 				if (this.m_tablixHeadings != null)
 				{
@@ -22540,7 +22540,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual bool SortAndFilter()
+			public virtual bool SortAndFilter()
 			{
 				if (this.m_tablixHeadings != null)
 				{
@@ -22549,7 +22549,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal virtual void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public virtual void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (this.m_tablixHeadings != null)
 				{
@@ -22557,10 +22557,10 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal abstract void CalculatePreviousAggregates(AggregatesImpl globalRVCol);
+			public abstract void CalculatePreviousAggregates(AggregatesImpl globalRVCol);
 		}
 
-		internal abstract class RuntimeTablixGroupRootObj : RuntimeGroupRootObj
+		public abstract class RuntimeTablixGroupRootObj : RuntimeGroupRootObj
 		{
 			protected RuntimeTablixHeadingsObj m_innerGroupings;
 
@@ -22582,7 +22582,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected object m_currentGroupExprValue;
 
-			internal RuntimeTablixHeadingsObj InnerGroupings
+			public RuntimeTablixHeadingsObj InnerGroupings
 			{
 				get
 				{
@@ -22590,7 +22590,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal TablixHeadingList StaticHeadingDef
+			public TablixHeadingList StaticHeadingDef
 			{
 				get
 				{
@@ -22598,7 +22598,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool OutermostSubtotal
+			public bool OutermostSubtotal
 			{
 				get
 				{
@@ -22606,7 +22606,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal TablixHeadingList InnerHeading
+			public TablixHeadingList InnerHeading
 			{
 				get
 				{
@@ -22614,7 +22614,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ProcessOutermostSTCells
+			public bool ProcessOutermostSTCells
 			{
 				get
 				{
@@ -22622,7 +22622,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl OutermostSTCellRVCol
+			public AggregatesImpl OutermostSTCellRVCol
 			{
 				get
 				{
@@ -22630,7 +22630,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl[] OutermostSTScopedCellRVCollections
+			public AggregatesImpl[] OutermostSTScopedCellRVCollections
 			{
 				get
 				{
@@ -22638,7 +22638,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl CellRVCol
+			public AggregatesImpl CellRVCol
 			{
 				get
 				{
@@ -22646,7 +22646,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal AggregatesImpl[] CellScopedRVCollections
+			public AggregatesImpl[] CellScopedRVCollections
 			{
 				get
 				{
@@ -22654,7 +22654,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int HeadingLevel
+			public int HeadingLevel
 			{
 				get
 				{
@@ -22662,7 +22662,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal object CurrentGroupExpressionValue
+			public object CurrentGroupExpressionValue
 			{
 				get
 				{
@@ -22670,7 +22670,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeTablixGroupRootObj(IScope outerScope, TablixHeadingList tablixHeadingDef, int headingIndex, ref DataActions dataAction, ProcessingContext processingContext, RuntimeTablixHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
+			public RuntimeTablixGroupRootObj(IScope outerScope, TablixHeadingList tablixHeadingDef, int headingIndex, ref DataActions dataAction, ProcessingContext processingContext, RuntimeTablixHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
 				: base(outerScope, tablixHeadingDef[headingIndex], dataAction, processingContext)
 			{
 				Tablix tablix = (Tablix)tablixHeadingDef[headingIndex].DataRegionDef;
@@ -22707,7 +22707,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				if (base.ProcessThisRow())
 				{
@@ -22729,7 +22729,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				Tablix tablix = (Tablix)base.m_hierarchyDef.DataRegionDef;
 				TablixHeading tablixHeading = (TablixHeading)base.m_hierarchyDef;
@@ -22755,7 +22755,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				Tablix tablix = (Tablix)base.m_hierarchyDef.DataRegionDef;
@@ -22817,7 +22817,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected abstract void AddCellRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, ref DataAggregateObjList runningValues);
 
-			internal override void AddScopedRunningValue(DataAggregateObj runningValueObj, bool escalate)
+			public override void AddScopedRunningValue(DataAggregateObj runningValueObj, bool escalate)
 			{
 				Tablix tablix = (Tablix)base.m_hierarchyDef.DataRegionDef;
 				if (tablix.ProcessOutermostSTCellRunningValues || tablix.ProcessCellRunningValues)
@@ -22856,7 +22856,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				Tablix tablix = (Tablix)base.m_hierarchyDef.DataRegionDef;
 				if (tablix.ProcessCellRunningValues)
@@ -22898,7 +22898,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return null;
 			}
 
-			internal bool GetCellTargetForNonDetailSort()
+			public bool GetCellTargetForNonDetailSort()
 			{
 				if (base.m_outerScope is RuntimeTablixObj)
 				{
@@ -22908,7 +22908,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return ((RuntimeTablixGroupLeafObj)base.m_outerScope).GetCellTargetForNonDetailSort();
 			}
 
-			internal bool GetCellTargetForSort(int index, bool detailSort)
+			public bool GetCellTargetForSort(int index, bool detailSort)
 			{
 				if (base.m_outerScope is RuntimeTablixObj)
 				{
@@ -22937,7 +22937,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected bool m_processHeading = true;
 
-			internal TablixHeading TablixHeadingDef
+			public TablixHeading TablixHeadingDef
 			{
 				get
 				{
@@ -22946,7 +22946,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal DataAggregateObjList CellPostSortAggregates
+			public DataAggregateObjList CellPostSortAggregates
 			{
 				get
 				{
@@ -22954,7 +22954,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Tablix TablixDef
+			public Tablix TablixDef
 			{
 				get
 				{
@@ -22962,7 +22962,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal int HeadingLevel
+			public int HeadingLevel
 			{
 				get
 				{
@@ -22971,7 +22971,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeTablixGroupLeafObj(RuntimeTablixGroupRootObj groupRoot)
+			public RuntimeTablixGroupLeafObj(RuntimeTablixGroupRootObj groupRoot)
 				: base(groupRoot)
 			{
 			}
@@ -23051,9 +23051,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal abstract RuntimeTablixCell CreateCell(int index, Tablix tablixDef);
+			public abstract RuntimeTablixCell CreateCell(int index, Tablix tablixDef);
 
-			internal override void NextRow()
+			public override void NextRow()
 			{
 				Tablix tablixDef = this.TablixDef;
 				int headingLevel = this.HeadingLevel;
@@ -23112,7 +23112,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override bool SortAndFilter()
+			public override bool SortAndFilter()
 			{
 				this.SetupEnvironment();
 				RuntimeTablixGroupRootObj runtimeTablixGroupRootObj = (RuntimeTablixGroupRootObj)base.m_hierarchyRoot;
@@ -23142,7 +23142,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return flag2;
 			}
 
-			internal override void CalculateRunningValues()
+			public override void CalculateRunningValues()
 			{
 				Tablix tablixDef = this.TablixDef;
 				RuntimeTablixGroupRootObj runtimeTablixGroupRootObj = (RuntimeTablixGroupRootObj)base.m_hierarchyRoot;
@@ -23189,13 +23189,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.ResetScopedCellRunningValues();
 			}
 
-			internal bool IsOuterGrouping()
+			public bool IsOuterGrouping()
 			{
 				RuntimeTablixGroupRootObj runtimeTablixGroupRootObj = (RuntimeTablixGroupRootObj)base.m_hierarchyRoot;
 				return null != runtimeTablixGroupRootObj.InnerGroupings;
 			}
 
-			internal override void ReadRow(DataActions dataAction)
+			public override void ReadRow(DataActions dataAction)
 			{
 				if (DataActions.UserSort == dataAction)
 				{
@@ -23267,7 +23267,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void SetupEnvironment()
+			public override void SetupEnvironment()
 			{
 				base.SetupEnvironment();
 				this.SetupAggregateValues(this.m_firstPassCellNonCustomAggs, this.m_firstPassCellCustomAggs);
@@ -23279,12 +23279,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.SetupAggregates(customAggCollection);
 			}
 
-			internal bool GetCellTargetForNonDetailSort()
+			public bool GetCellTargetForNonDetailSort()
 			{
 				return ((RuntimeTablixGroupRootObj)base.m_hierarchyRoot).GetCellTargetForNonDetailSort();
 			}
 
-			internal bool GetCellTargetForSort(int index, bool detailSort)
+			public bool GetCellTargetForSort(int index, bool detailSort)
 			{
 				return ((RuntimeTablixGroupRootObj)base.m_hierarchyRoot).GetCellTargetForSort(index, detailSort);
 			}
@@ -23296,7 +23296,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private RuntimeTablixCell m_lastCell;
 
-			internal RuntimeTablixCell this[int index]
+			public RuntimeTablixCell this[int index]
 			{
 				get
 				{
@@ -23312,7 +23312,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Add(int key, RuntimeTablixCell cell)
+			public void Add(int key, RuntimeTablixCell cell)
 			{
 				if (this.m_lastCell != null)
 				{
@@ -23326,7 +23326,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				base.Add(key, cell);
 			}
 
-			internal RuntimeTablixCell GetCell(Tablix tablixDef, RuntimeTablixGroupLeafObj owner, int cellLevel)
+			public RuntimeTablixCell GetCell(Tablix tablixDef, RuntimeTablixGroupLeafObj owner, int cellLevel)
 			{
 				RuntimeTablixGroupRootObj currentOuterHeadingGroupRoot = tablixDef.CurrentOuterHeadingGroupRoot;
 				int index = tablixDef.OuterGroupingIndexes[currentOuterHeadingGroupRoot.HeadingLevel];
@@ -23338,7 +23338,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return runtimeTablixCell;
 			}
 
-			internal void SortAndFilter()
+			public void SortAndFilter()
 			{
 				for (RuntimeTablixCell runtimeTablixCell = this.m_firstCell; runtimeTablixCell != null; runtimeTablixCell = runtimeTablixCell.NextCell)
 				{
@@ -23346,7 +23346,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CalculateRunningValues(Tablix tablixDef, AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup, RuntimeTablixGroupLeafObj owner, int cellLevel)
+			public void CalculateRunningValues(Tablix tablixDef, AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup, RuntimeTablixGroupLeafObj owner, int cellLevel)
 			{
 				RuntimeTablixCell cell = this.GetCell(tablixDef, owner, cellLevel);
 				Global.Tracer.Assert(null != cell);
@@ -23376,7 +23376,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			protected RuntimeTablixCell m_nextCell;
 
-			internal RuntimeTablixCell NextCell
+			public RuntimeTablixCell NextCell
 			{
 				get
 				{
@@ -23405,7 +23405,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RuntimeTablixCell(RuntimeTablixGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, bool innermost)
+			public RuntimeTablixCell(RuntimeTablixGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, bool innermost)
 			{
 				this.m_owner = owner;
 				this.m_cellLevel = cellLevel;
@@ -23418,7 +23418,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_innermost = innermost;
 			}
 
-			internal virtual void NextRow()
+			public virtual void NextRow()
 			{
 				RuntimeDataRegionObj.CommonFirstRow(this.m_owner.ProcessingContext.ReportObjectModel.FieldsImpl, ref this.m_firstRowIsAggregate, ref this.m_firstRow);
 				this.NextAggregateRow();
@@ -23446,11 +23446,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal virtual void SortAndFilter()
+			public virtual void SortAndFilter()
 			{
 			}
 
-			internal virtual void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public virtual void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				if (this.m_dataRows != null)
 				{
@@ -23629,7 +23629,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 			private DataAggregateObjResult[] m_runningValueValues;
 
-			internal RuntimeCustomReportItemCell(RuntimeCustomReportItemGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, DataCellsList dataRowCells, bool innermost)
+			public RuntimeCustomReportItemCell(RuntimeCustomReportItemGroupLeafObj owner, int cellLevel, DataAggregateInfoList aggDefs, DataCellsList dataRowCells, bool innermost)
 				: base(owner, cellLevel, aggDefs, innermost)
 			{
 				CustomReportItem customReportItem = (CustomReportItem)owner.TablixDef;
@@ -23645,13 +23645,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				RuntimeRICollection.DoneReadingRows(globalRVCol, base.m_owner.TablixDef.TablixCellRunningValues, ref this.m_runningValueValues, false);
 			}
 
-			internal void CreateInstance(CustomReportItemInstance criInstance)
+			public void CreateInstance(CustomReportItemInstance criInstance)
 			{
 				base.SetupEnvironment();
 				RuntimeDataRegionObj.SetupRunningValues(base.m_owner.ProcessingContext, base.m_owner.TablixDef.TablixCellRunningValues, this.m_runningValueValues);
@@ -23663,7 +23663,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 			private bool m_subtotalCorner;
 
-			internal RuntimeCustomReportItemObj(IScope outerScope, CustomReportItem crItem, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
+			public RuntimeCustomReportItemObj(IScope outerScope, CustomReportItem crItem, ref DataActions dataAction, ProcessingContext processingContext, bool onePassProcess)
 				: base(outerScope, (Tablix)crItem, ref dataAction, processingContext, onePassProcess)
 			{
 				bool handleMyDataAction = default(bool);
@@ -23707,13 +23707,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				RuntimeRICollection.DoneReadingRows(globalRVCol, base.m_tablixDef.RunningValues, ref base.m_runningValueValues, false);
 			}
 
-			internal override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
+			public override void CreateInstances(ReportItemInstance riInstance, IList instanceList, RenderingPagesRangesList pagesList)
 			{
 				if (base.m_firstRow != null)
 				{
@@ -23732,7 +23732,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateOutermostSubtotalCells(CustomReportItemInstance criInstance, bool outerGroupings)
+			public void CreateOutermostSubtotalCells(CustomReportItemInstance criInstance, bool outerGroupings)
 			{
 				if (outerGroupings)
 				{
@@ -23751,7 +23751,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 			private DataAggregateObjResult[] m_runningValueValues;
 
-			internal RuntimeCustomReportItemHeadingsObj(IScope owner, CustomReportItemHeadingList headingDef, ref DataActions dataAction, ProcessingContext processingContext, CustomReportItemHeadingList staticHeadingDef, RuntimeCustomReportItemHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
+			public RuntimeCustomReportItemHeadingsObj(IScope owner, CustomReportItemHeadingList headingDef, ref DataActions dataAction, ProcessingContext processingContext, CustomReportItemHeadingList staticHeadingDef, RuntimeCustomReportItemHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
 				: base(owner, (TablixHeadingList)headingDef, ref dataAction, processingContext, (TablixHeadingList)staticHeadingDef, (RuntimeTablixHeadingsObj)innerGroupings, headingLevel)
 			{
 				if (headingDef != null)
@@ -23760,7 +23760,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculatePreviousAggregates(AggregatesImpl globalRVCol)
+			public override void CalculatePreviousAggregates(AggregatesImpl globalRVCol)
 			{
 				if (base.m_staticHeadingDef != null)
 				{
@@ -23771,7 +23771,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				if (base.m_staticHeadingDef != null && base.m_owner is RuntimeCustomReportItemGroupLeafObj)
@@ -23794,7 +23794,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CreateInstances(RuntimeDataRegionObj outerGroup, ProcessingContext processingContext, CustomReportItemInstance criInstance, bool outerGroupings, RuntimeTablixGroupRootObj currOuterHeadingGroupRoot, CustomReportItemHeadingInstanceList headingInstances)
+			public void CreateInstances(RuntimeDataRegionObj outerGroup, ProcessingContext processingContext, CustomReportItemInstance criInstance, bool outerGroupings, RuntimeTablixGroupRootObj currOuterHeadingGroupRoot, CustomReportItemHeadingInstanceList headingInstances)
 			{
 				bool flag = outerGroupings || 0 == criInstance.CurrentCellOuterIndex;
 				CustomReportItemHeadingList customReportItemHeadingList = base.m_staticHeadingDef as CustomReportItemHeadingList;
@@ -23878,7 +23878,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class RuntimeCustomReportItemGroupRootObj : RuntimeTablixGroupRootObj
 		{
-			internal RuntimeCustomReportItemGroupRootObj(IScope outerScope, CustomReportItemHeadingList headingDef, int headingIndex, ref DataActions dataAction, ProcessingContext processingContext, RuntimeCustomReportItemHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
+			public RuntimeCustomReportItemGroupRootObj(IScope outerScope, CustomReportItemHeadingList headingDef, int headingIndex, ref DataActions dataAction, ProcessingContext processingContext, RuntimeCustomReportItemHeadingsObj innerGroupings, bool outermostSubtotal, int headingLevel)
 				: base(outerScope, (TablixHeadingList)headingDef, headingIndex, ref dataAction, processingContext, (RuntimeTablixHeadingsObj)innerGroupings, outermostSubtotal, headingLevel)
 			{
 				Global.Tracer.Assert(0 == headingIndex);
@@ -23902,7 +23902,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
+			public override void CalculateRunningValues(AggregatesImpl globalRVCol, RuntimeGroupRootObjList groupCol, RuntimeGroupRootObj lastGroup)
 			{
 				base.CalculateRunningValues(globalRVCol, groupCol, lastGroup);
 				base.AddRunningValues(((CustomReportItemHeading)base.m_hierarchyDef).RunningValues);
@@ -23940,7 +23940,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private DataAggregateObjResult[] m_cellRunningValueValues;
 
-			internal RuntimeCustomReportItemGroupLeafObj(RuntimeCustomReportItemGroupRootObj groupRoot)
+			public RuntimeCustomReportItemGroupLeafObj(RuntimeCustomReportItemGroupRootObj groupRoot)
 				: base(groupRoot)
 			{
 				CustomReportItemHeading customReportItemHeading = (CustomReportItemHeading)groupRoot.HierarchyDef;
@@ -23966,12 +23966,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal override RuntimeTablixCell CreateCell(int index, Tablix tablixDef)
+			public override RuntimeTablixCell CreateCell(int index, Tablix tablixDef)
 			{
 				return new RuntimeCustomReportItemCell(this, index, tablixDef.CellAggregates, ((CustomReportItem)tablixDef).DataRowCells, null == base.m_innerHeadingList);
 			}
 
-			internal override void CalculateRunningValues()
+			public override void CalculateRunningValues()
 			{
 				base.CalculateRunningValues();
 				if (base.m_processHeading)
@@ -23989,7 +23989,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.ResetScopedRunningValues();
 			}
 
-			internal override void CreateInstance()
+			public override void CreateInstance()
 			{
 				this.SetupEnvironment();
 				RuntimeCustomReportItemGroupRootObj runtimeCustomReportItemGroupRootObj = (RuntimeCustomReportItemGroupRootObj)base.m_hierarchyRoot;
@@ -24026,7 +24026,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				((RuntimeCustomReportItemHeadingsObj)base.m_tablixHeadings).CreateInstances(this, base.m_processingContext, customReportItemInstance, flag, currOuterHeadingGroupRoot, customReportItemHeadingInstanceList);
 			}
 
-			internal void CreateInnerGroupingsOrCells(CustomReportItemInstance criInstance, RuntimeTablixGroupRootObj currOuterHeadingGroupRoot)
+			public void CreateInnerGroupingsOrCells(CustomReportItemInstance criInstance, RuntimeTablixGroupRootObj currOuterHeadingGroupRoot)
 			{
 				this.SetupEnvironment();
 				if (base.IsOuterGrouping())
@@ -24058,7 +24058,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				criInstance.AddCell(base.m_processingContext);
 			}
 
-			internal void CreateSubtotalOrStaticCells(CustomReportItemInstance criInstance, RuntimeTablixGroupRootObj currOuterHeadingGroupRoot, bool outerGroupingSubtotal)
+			public void CreateSubtotalOrStaticCells(CustomReportItemInstance criInstance, RuntimeTablixGroupRootObj currOuterHeadingGroupRoot, bool outerGroupingSubtotal)
 			{
 				RuntimeCustomReportItemHeadingsObj runtimeCustomReportItemHeadingsObj = (RuntimeCustomReportItemHeadingsObj)((RuntimeCustomReportItemGroupRootObj)base.m_hierarchyRoot).InnerGroupings;
 				if (base.IsOuterGrouping() && !outerGroupingSubtotal)
@@ -24072,11 +24072,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal const int MaximumChartThreads = 5;
+		public const int MaximumChartThreads = 5;
 
 		private IConfiguration m_configuration;
 
-		internal IConfiguration Configuration
+		public IConfiguration Configuration
 		{
 			get
 			{
@@ -24108,7 +24108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.ProcessYukonToggleEvent(showHideToggle, (GetReportChunk)@object.GetReportChunk, oldShowHideInfo, out newShowHideInfo, out showHideInfoChanged);
 		}
 
-		internal static bool ProcessOdpToggleEvent(string showHideToggle, IChunkFactory getReportChunkFactory, EventInformation oldShowHideInfo, out EventInformation newShowHideInfo, out bool showHideInfoChanged)
+		public static bool ProcessOdpToggleEvent(string showHideToggle, IChunkFactory getReportChunkFactory, EventInformation oldShowHideInfo, out EventInformation newShowHideInfo, out bool showHideInfoChanged)
 		{
 			newShowHideInfo = null;
 			showHideInfoChanged = false;
@@ -24865,7 +24865,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			reportToRender = new AspNetCore.ReportingServices.OnDemandReportRendering.Report(reportSnapshot.Report, reportSnapshot.ReportInstance, oldRenderingContext, renderingContext, null, null);
 		}
 
-		internal void ProcessShowHideToggle(string showHideToggle, ReportSnapshot reportSnapshot, EventInformation oldOverrideInformation, ChunkManager.RenderingChunkManager chunkManager, out bool showHideInformationChanged, out EventInformation newOverrideInformation)
+		public void ProcessShowHideToggle(string showHideToggle, ReportSnapshot reportSnapshot, EventInformation oldOverrideInformation, ChunkManager.RenderingChunkManager chunkManager, out bool showHideInformationChanged, out EventInformation newOverrideInformation)
 		{
 			ShowHideProcessing showHideProcessing = new ShowHideProcessing();
 			showHideProcessing.Process(showHideToggle, reportSnapshot, oldOverrideInformation, chunkManager, out showHideInformationChanged, out newOverrideInformation);
@@ -25010,7 +25010,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return flag;
 		}
 
-		internal ReportProcessing()
+		public ReportProcessing()
 		{
 		}
 
@@ -25028,7 +25028,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ReportChunkTypes.Image;
 		}
 
-		internal static void CheckReportCredentialsAndConnectionUserDependency(AspNetCore.ReportingServices.ReportProcessing.ProcessingContext pc)
+		public static void CheckReportCredentialsAndConnectionUserDependency(AspNetCore.ReportingServices.ReportProcessing.ProcessingContext pc)
 		{
 			if (pc != null)
 			{
@@ -25037,7 +25037,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static void CheckReportCredentialsAndConnectionUserDependency(RuntimeDataSourceInfoCollection dataSources, UserProfileState allowUserProfileState, string itemName)
+		public static void CheckReportCredentialsAndConnectionUserDependency(RuntimeDataSourceInfoCollection dataSources, UserProfileState allowUserProfileState, string itemName)
 		{
 			if (dataSources != null)
 			{
@@ -25510,12 +25510,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool ContainsFlag(ReportProcessingFlags processingFlags, ReportProcessingFlags flag)
+		public static bool ContainsFlag(ReportProcessingFlags processingFlags, ReportProcessingFlags flag)
 		{
 			return (processingFlags & flag) == flag;
 		}
 
-		internal static bool IsYukonProcessingEngine(ReportProcessingFlags processingFlags)
+		public static bool IsYukonProcessingEngine(ReportProcessingFlags processingFlags)
 		{
 			if (processingFlags != 0)
 			{
@@ -25524,7 +25524,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static void RequestErrorGroupTreeCleanup(OnDemandProcessingContext odpContext)
+		public static void RequestErrorGroupTreeCleanup(OnDemandProcessingContext odpContext)
 		{
 			if (odpContext != null && odpContext.OdpMetadata != null)
 			{
@@ -25532,7 +25532,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static void CleanupOnDemandProcessing(OnDemandProcessingContext topLevelOdpContext, bool resetGroupTreeStorage)
+		public static void CleanupOnDemandProcessing(OnDemandProcessingContext topLevelOdpContext, bool resetGroupTreeStorage)
 		{
 			if (topLevelOdpContext != null)
 			{
@@ -25571,12 +25571,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			executionLogContext.UpdateForTreeScaleCache(num, cache.PeakMemoryUsageKBytes);
 		}
 
-		internal static void UpdateHostingEnvironment(ErrorContext errorContext, ICatalogItemContext itemContext, ExecutionLogContext executionLogContext, ProcessingEngine processingEngine, IJobContext jobContext)
+		public static void UpdateHostingEnvironment(ErrorContext errorContext, ICatalogItemContext itemContext, ExecutionLogContext executionLogContext, ProcessingEngine processingEngine, IJobContext jobContext)
 		{
 			ReportProcessing.UpdateHostingEnvironment(errorContext, itemContext, executionLogContext, processingEngine, jobContext, null);
 		}
 
-		internal static void UpdateHostingEnvironment(ErrorContext errorContext, ICatalogItemContext itemContext, ExecutionLogContext executionLogContext, ProcessingEngine processingEngine, IJobContext jobContext, string sharedDataSetMessage)
+		public static void UpdateHostingEnvironment(ErrorContext errorContext, ICatalogItemContext itemContext, ExecutionLogContext executionLogContext, ProcessingEngine processingEngine, IJobContext jobContext, string sharedDataSetMessage)
 		{
 			if (jobContext != null)
 			{
@@ -25634,7 +25634,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			ReportProcessing.TraceProcessingMessages(errorContext, itemContext);
 		}
 
-		internal static void TraceProcessingMessages(ErrorContext errorContext, ICatalogItemContext itemContext)
+		public static void TraceProcessingMessages(ErrorContext errorContext, ICatalogItemContext itemContext)
 		{
 			if (errorContext != null && errorContext.Messages != null)
 			{
@@ -25655,7 +25655,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static void UpdateEventInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot odpReportSnapshot, OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext odpRenderingContext, ref bool eventInfoChanged)
+		public static void UpdateEventInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot odpReportSnapshot, OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext odpRenderingContext, ref bool eventInfoChanged)
 		{
 			if (odpReportSnapshot != null)
 			{
@@ -25671,7 +25671,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			eventInfoChanged |= odpRenderingContext.EventInfoChanged;
 		}
 
-		internal static void UpdateEventInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot odpReportSnapshot, OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext odpRenderingContext, RenderingContext rc, ref bool eventInfoChanged)
+		public static void UpdateEventInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot odpReportSnapshot, OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext odpRenderingContext, RenderingContext rc, ref bool eventInfoChanged)
 		{
 			ReportProcessing.UpdateEventInfo(odpReportSnapshot, odpContext, odpRenderingContext, ref eventInfoChanged);
 			if (eventInfoChanged)
@@ -25680,7 +25680,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static void HandleRenderingException(ReportRenderingException rex)
+		public static void HandleRenderingException(ReportRenderingException rex)
 		{
 			if (rex.InnerException != null && (rex.InnerException is RSException || rex.InnerException is DataCacheUnavailableException))
 			{
@@ -25708,7 +25708,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return report;
 		}
 
-		internal ReportSnapshot ProcessReport(Report report, AspNetCore.ReportingServices.ReportProcessing.ProcessingContext pc, bool snapshotProcessing, bool processWithCachedData, GetReportChunk getChunkCallback, ErrorContext errorContext, DateTime executionTime, CreateReportChunk cacheDataCallback, out ProcessingContext context, out UserProfileState userProfileState)
+		public ReportSnapshot ProcessReport(Report report, AspNetCore.ReportingServices.ReportProcessing.ProcessingContext pc, bool snapshotProcessing, bool processWithCachedData, GetReportChunk getChunkCallback, ErrorContext errorContext, DateTime executionTime, CreateReportChunk cacheDataCallback, out ProcessingContext context, out UserProfileState userProfileState)
 		{
 			context = pc.CreateInternalProcessingContext(null, report, errorContext, executionTime, pc.AllowUserProfileState, pc.IsHistorySnapshot, snapshotProcessing, processWithCachedData, getChunkCallback, cacheDataCallback);
 			context.CreateReportChunkFactory = pc.ChunkFactory;
@@ -25748,7 +25748,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static void FetchSubReports(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, IChunkFactory getReportChunks, ErrorContext errorContext, OnDemandMetadata odpMetadata, ICatalogItemContext parentReportContext, OnDemandSubReportCallback subReportCallback, int subReportLevel, bool snapshotProcessing, bool processWithCachedData, GlobalIDOwnerCollection globalIDOwnerCollection, ParameterInfoCollection parentQueryParameters)
+		public static void FetchSubReports(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, IChunkFactory getReportChunks, ErrorContext errorContext, OnDemandMetadata odpMetadata, ICatalogItemContext parentReportContext, OnDemandSubReportCallback subReportCallback, int subReportLevel, bool snapshotProcessing, bool processWithCachedData, GlobalIDOwnerCollection globalIDOwnerCollection, ParameterInfoCollection parentQueryParameters)
 		{
 			if ((long)subReportLevel > 20L)
 			{
@@ -25890,7 +25890,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal static void HandleSubReportProcessingError(ErrorContext errorContext, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport, string instanceID, ErrorContext subReportErrorContext, Exception e)
+		public static void HandleSubReportProcessingError(ErrorContext errorContext, AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport, string instanceID, ErrorContext subReportErrorContext, Exception e)
 		{
 			if (!(e is DataCacheUnavailableException) && !(e.InnerException is DataCacheUnavailableException))
 			{
@@ -26065,13 +26065,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static ProcessingMessageList ProcessReportParameters(Report report, ProcessingContext mergeContext, ParameterInfoCollection parameters)
+		public static ProcessingMessageList ProcessReportParameters(Report report, ProcessingContext mergeContext, ParameterInfoCollection parameters)
 		{
 			LegacyProcessReportParameters legacyProcessReportParameters = new LegacyProcessReportParameters(report, (ReportProcessingContext)mergeContext);
 			return legacyProcessReportParameters.Process(parameters);
 		}
 
-		internal static ProcessingMessageList ProcessReportParameters(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext context, ParameterInfoCollection parameters)
+		public static ProcessingMessageList ProcessReportParameters(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext context, ParameterInfoCollection parameters)
 		{
 			OnDemandProcessReportParameters onDemandProcessReportParameters = new OnDemandProcessReportParameters(report, context);
 			return onDemandProcessReportParameters.Process(parameters);
@@ -26082,7 +26082,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ReportProcessing.DeserializeKatmaiReport(chunkFactory, "CompiledDefinition", false, null, null, null);
 		}
 
-		internal static AspNetCore.ReportingServices.ReportIntermediateFormat.Report DeserializeKatmaiReport(IChunkFactory chunkFactory, bool keepReferences, GlobalIDOwnerCollection globalIDOwnerCollection)
+		public static AspNetCore.ReportingServices.ReportIntermediateFormat.Report DeserializeKatmaiReport(IChunkFactory chunkFactory, bool keepReferences, GlobalIDOwnerCollection globalIDOwnerCollection)
 		{
 			return ReportProcessing.DeserializeKatmaiReport(chunkFactory, "CompiledDefinition", keepReferences, globalIDOwnerCollection, null, null);
 		}
@@ -26110,7 +26110,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ReportProcessing.DeserializeReport(getChunkCallback, null);
 		}
 
-		internal static Report DeserializeReport(GetReportChunk getChunkCallback, out Hashtable definitionObjects)
+		public static Report DeserializeReport(GetReportChunk getChunkCallback, out Hashtable definitionObjects)
 		{
 			return ReportProcessing.DeserializeReport(getChunkCallback, (ReportItem)null, out definitionObjects);
 		}
@@ -26154,7 +26154,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ReportProcessing.DeserializeReportFromSnapshot(getChunkCallback, out executionTime, out hashtable, out intermediateFormatVersion);
 		}
 
-		internal static Report DeserializeReportFromSnapshot(GetReportChunk getChunkCallback, out DateTime executionTime, out Hashtable definitionObjects)
+		public static Report DeserializeReportFromSnapshot(GetReportChunk getChunkCallback, out DateTime executionTime, out Hashtable definitionObjects)
 		{
 			IntermediateFormatVersion intermediateFormatVersion = default(IntermediateFormatVersion);
 			return ReportProcessing.DeserializeReportFromSnapshot(getChunkCallback, out executionTime, out definitionObjects, out intermediateFormatVersion);
@@ -26223,7 +26223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static ReportSnapshot DeserializeReportSnapshot(GetReportChunk getChunkCallback, CreateReportChunk createChunkCallback, IGetResource getResourceCallback, RenderingContext renderingContext, IDataProtection dataProtection, out Hashtable instanceObjects, out Hashtable definitionObjects, out AspNetCore.ReportingServices.ReportProcessing.Persistence.IntermediateFormatReader.State declarationsRead, out bool isOldSnapshot)
+		public static ReportSnapshot DeserializeReportSnapshot(GetReportChunk getChunkCallback, CreateReportChunk createChunkCallback, IGetResource getResourceCallback, RenderingContext renderingContext, IDataProtection dataProtection, out Hashtable instanceObjects, out Hashtable definitionObjects, out AspNetCore.ReportingServices.ReportProcessing.Persistence.IntermediateFormatReader.State declarationsRead, out bool isOldSnapshot)
 		{
 			Stream stream = null;
 			ChunkManager.RenderingChunkManager renderingChunkManager = null;
@@ -26261,13 +26261,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static int CompareTo(object x, object y, CompareInfo compareInfo, CompareOptions compareOptions)
+		public static int CompareTo(object x, object y, CompareInfo compareInfo, CompareOptions compareOptions)
 		{
 			bool flag = default(bool);
 			return ReportProcessing.CompareTo(x, y, false, compareInfo, compareOptions, true, false, out flag);
 		}
 
-		internal static int CompareTo(object x, object y, bool nullsAsBlanks, CompareInfo compareInfo, CompareOptions compareOptions, bool throwExceptionOnComparisonFailure, bool extendedTypeComparisons, out bool validComparisonResult)
+		public static int CompareTo(object x, object y, bool nullsAsBlanks, CompareInfo compareInfo, CompareOptions compareOptions, bool throwExceptionOnComparisonFailure, bool extendedTypeComparisons, out bool validComparisonResult)
 		{
 			validComparisonResult = true;
 			if (x == null && y == null)
@@ -26487,7 +26487,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return -1;
 		}
 
-		internal static int CompareWithInvariantCulture(string x, string y, bool ignoreCase)
+		public static int CompareWithInvariantCulture(string x, string y, bool ignoreCase)
 		{
 			return string.Compare(x, y, (StringComparison)(ignoreCase ? 5 : 4));
 		}
@@ -26544,7 +26544,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal static void EvaluateHeaderFooterExpressions(int pageNumber, int totalPages, AspNetCore.ReportingServices.ReportRendering.Report report, PageReportItems pageReportItems, out AspNetCore.ReportingServices.ReportRendering.PageSection pageHeader, out AspNetCore.ReportingServices.ReportRendering.PageSection pageFooter)
+		public static void EvaluateHeaderFooterExpressions(int pageNumber, int totalPages, AspNetCore.ReportingServices.ReportRendering.Report report, PageReportItems pageReportItems, out AspNetCore.ReportingServices.ReportRendering.PageSection pageHeader, out AspNetCore.ReportingServices.ReportRendering.PageSection pageFooter)
 		{
 			if (report == null)
 			{
@@ -26582,7 +26582,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static void CheckAndConvertDataSources(ICatalogItemContext itemContext, DataSourceInfoCollection dataSources, DataSetInfoCollection dataSetReferences, bool checkIfUsable, ServerDataSourceSettings serverDatasourceSettings, RuntimeDataSourceInfoCollection allDataSources, RuntimeDataSetInfoCollection allDataSetReferences)
+		public static void CheckAndConvertDataSources(ICatalogItemContext itemContext, DataSourceInfoCollection dataSources, DataSetInfoCollection dataSetReferences, bool checkIfUsable, ServerDataSourceSettings serverDatasourceSettings, RuntimeDataSourceInfoCollection allDataSources, RuntimeDataSetInfoCollection allDataSetReferences)
 		{
 			if (dataSetReferences != null)
 			{

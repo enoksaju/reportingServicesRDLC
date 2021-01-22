@@ -3,16 +3,16 @@ using System.CodeDom.Compiler;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal abstract class ExpressionParser
+	public abstract class ExpressionParser
 	{
 		[Flags]
-		internal enum DetectionFlags
+		public enum DetectionFlags
 		{
 			ParameterReference = 1,
 			UserReference = 2
 		}
 
-		internal enum ExpressionType
+		public enum ExpressionType
 		{
 			General,
 			ReportParameter,
@@ -26,20 +26,20 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			FieldValue
 		}
 
-		internal enum ConstantType
+		public enum ConstantType
 		{
 			String,
 			Boolean,
 			Integer
 		}
 
-		internal enum RecursiveFlags
+		public enum RecursiveFlags
 		{
 			Simple,
 			Recursive
 		}
 
-		internal struct ExpressionContext
+		public struct ExpressionContext
 		{
 			private ExpressionType m_expressionType;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private bool m_parseExtended;
 
-			internal ExpressionType ExpressionType
+			public ExpressionType ExpressionType
 			{
 				get
 				{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ConstantType ConstantType
+			public ConstantType ConstantType
 			{
 				get
 				{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal LocationFlags Location
+			public LocationFlags Location
 			{
 				get
 				{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ObjectType ObjectType
+			public ObjectType ObjectType
 			{
 				get
 				{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal string ObjectName
+			public string ObjectName
 			{
 				get
 				{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal string PropertyName
+			public string PropertyName
 			{
 				get
 				{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal string DataSetName
+			public string DataSetName
 			{
 				get
 				{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ParseExtended
+			public bool ParseExtended
 			{
 				get
 				{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ExpressionContext(ExpressionType expressionType, ConstantType constantType, LocationFlags location, ObjectType objectType, string objectName, string propertyName, string dataSetName, bool parseExtended)
+			public ExpressionContext(ExpressionType expressionType, ConstantType constantType, LocationFlags location, ObjectType objectType, string objectName, string propertyName, string dataSetName, bool parseExtended)
 			{
 				this.m_expressionType = expressionType;
 				this.m_constantType = constantType;
@@ -174,27 +174,27 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private bool m_valueReferencedGlobal;
 
-		internal abstract bool BodyRefersToReportItems
+		public abstract bool BodyRefersToReportItems
 		{
 			get;
 		}
 
-		internal abstract bool PageSectionRefersToReportItems
+		public abstract bool PageSectionRefersToReportItems
 		{
 			get;
 		}
 
-		internal abstract int NumberOfAggregates
+		public abstract int NumberOfAggregates
 		{
 			get;
 		}
 
-		internal abstract int LastID
+		public abstract int LastID
 		{
 			get;
 		}
 
-		internal bool ValueReferenced
+		public bool ValueReferenced
 		{
 			get
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ValueReferencedGlobal
+		public bool ValueReferencedGlobal
 		{
 			get
 			{
@@ -210,24 +210,24 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionParser(ErrorContext errorContext)
+		public ExpressionParser(ErrorContext errorContext)
 		{
 			this.m_errorContext = errorContext;
 		}
 
-		internal abstract CodeDomProvider GetCodeCompiler();
+		public abstract CodeDomProvider GetCodeCompiler();
 
-		internal abstract string GetCompilerArguments();
+		public abstract string GetCompilerArguments();
 
-		internal abstract ExpressionInfo ParseExpression(string expression, ExpressionContext context);
+		public abstract ExpressionInfo ParseExpression(string expression, ExpressionContext context);
 
-		internal abstract ExpressionInfo ParseExpression(string expression, ExpressionContext context, DetectionFlags flag, out bool reportParameterReferenced, out string reportParameterName, out bool userCollectionReferenced);
+		public abstract ExpressionInfo ParseExpression(string expression, ExpressionContext context, DetectionFlags flag, out bool reportParameterReferenced, out string reportParameterName, out bool userCollectionReferenced);
 
-		internal abstract ExpressionInfo ParseExpression(string expression, ExpressionContext context, out bool userCollectionReferenced);
+		public abstract ExpressionInfo ParseExpression(string expression, ExpressionContext context, out bool userCollectionReferenced);
 
-		internal abstract void ConvertField2ComplexExpr(ref ExpressionInfo expression);
+		public abstract void ConvertField2ComplexExpr(ref ExpressionInfo expression);
 
-		internal void ResetValueReferencedFlag()
+		public void ResetValueReferencedFlag()
 		{
 			this.m_valueReferenced = false;
 		}

@@ -4,9 +4,9 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class Underline
+	public class Underline
 	{
-		internal const double UnderlineScale = 0.085;
+		public const double UnderlineScale = 0.085;
 
 		private Point m_startPoint;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 		{
 		}
 
-		internal Underline(TextRun run, Win32DCSafeHandle hdc, FontCache fontCache, Rectangle layoutRectangle, int x, int baselineY, RPLFormat.WritingModes writingMode)
+		public Underline(TextRun run, Win32DCSafeHandle hdc, FontCache fontCache, Rectangle layoutRectangle, int x, int baselineY, RPLFormat.WritingModes writingMode)
 		{
 			int width = run.GetWidth(hdc, fontCache);
 			int num = (int)((double)(int)((double)run.UnderlineHeight * 0.085) * 1.5);
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal void Draw(Win32DCSafeHandle hdc, int lineThickness, uint rgbColor)
+		public void Draw(Win32DCSafeHandle hdc, int lineThickness, uint rgbColor)
 		{
 			if (lineThickness < 1)
 			{

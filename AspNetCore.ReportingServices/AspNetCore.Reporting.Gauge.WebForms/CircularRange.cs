@@ -8,7 +8,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CircularRangeConverter))]
-	internal sealed class CircularRange : RangeBase, ISelectable
+	public sealed class CircularRange : RangeBase, ISelectable
 	{
 		[Browsable(false)]
 		[SRDescription("DescriptionAttributeStartValue")]
@@ -166,7 +166,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.GetGauge().Scales[base.ScaleName];
 		}
 
-		internal override void Render(GaugeGraphics g)
+		public override void Render(GaugeGraphics g)
 		{
 			if (this.Common != null && base.Visible && this.GetScale() != null)
 			{
@@ -253,7 +253,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal RectangleF CalculateRangeRectangle()
+		public RectangleF CalculateRangeRectangle()
 		{
 			CircularScale scale = this.GetScale();
 			PointF pivotPoint = this.GetScale().GetPivotPoint();
@@ -276,7 +276,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return result;
 		}
 
-		internal GraphicsPath GetPath(GaugeGraphics g, bool getShadowPath)
+		public GraphicsPath GetPath(GaugeGraphics g, bool getShadowPath)
 		{
 			if (getShadowPath && (!base.Visible || base.ShadowOffset == 0.0))
 			{

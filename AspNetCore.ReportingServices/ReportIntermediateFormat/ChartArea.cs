@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartArea : ChartStyleContainer, IPersistable
+	public sealed class ChartArea : ChartStyleContainer, IPersistable
 	{
 		private string m_name;
 
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartAreaExprHost m_exprHost;
 
-		internal string ChartAreaName
+		public string ChartAreaName
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartAxis> CategoryAxes
+		public List<ChartAxis> CategoryAxes
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartAxis> ValueAxes
+		public List<ChartAxis> ValueAxes
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartThreeDProperties ThreeDProperties
+		public ChartThreeDProperties ThreeDProperties
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAreaExprHost ExprHost
+		public ChartAreaExprHost ExprHost
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AlignOrientation
+		public ExpressionInfo AlignOrientation
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAlignType ChartAlignType
+		public ChartAlignType ChartAlignType
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string AlignWithChartArea
+		public string AlignWithChartArea
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo EquallySizedAxesFont
+		public ExpressionInfo EquallySizedAxesFont
 		{
 			get
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartElementPosition ChartElementPosition
+		public ChartElementPosition ChartElementPosition
 		{
 			get
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartElementPosition ChartInnerPlotPosition
+		public ChartElementPosition ChartInnerPlotPosition
 		{
 			get
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Chart Chart
+		public Chart Chart
 		{
 			get
 			{
@@ -203,16 +203,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartArea()
+		public ChartArea()
 		{
 		}
 
-		internal ChartArea(Chart chart)
+		public ChartArea(Chart chart)
 			: base(chart)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartAreaStart(this.m_name);
 			base.Initialize(context);
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ChartAreaEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartArea chartArea = (ChartArea)base.PublishClone(context);
 			if (this.m_categoryAxes != null)
@@ -314,7 +314,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartArea;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -444,7 +444,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartArea;
 		}
 
-		internal void SetExprHost(ChartAreaExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartAreaExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -491,19 +491,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartAreaHiddenExpression(this, base.Name, "Hidden");
 		}
 
-		internal ChartAreaAlignOrientations EvaluateAlignOrientation(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public ChartAreaAlignOrientations EvaluateAlignOrientation(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return EnumTranslator.TranslateChartAreaAlignOrientation(context.ReportRuntime.EvaluateChartAreaAlignOrientationExpression(this, base.Name, "AlignOrientation"), context.ReportRuntime);
 		}
 
-		internal bool EvaluateEquallySizedAxesFont(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluateEquallySizedAxesFont(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartAreaEquallySizedAxesFontExpression(this, base.Name, "EquallySizedAxesFont");

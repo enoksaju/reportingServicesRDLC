@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class TreePartitionManager : IPersistable
+	public sealed class TreePartitionManager : IPersistable
 	{
 		private List<long> m_treePartitionOffsets;
 
@@ -14,15 +14,15 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 		private bool m_treeChanged;
 
 		[NonSerialized]
-		internal static readonly long EmptyTreePartitionOffset = -1L;
+		public static readonly long EmptyTreePartitionOffset = -1L;
 
 		[NonSerialized]
-		internal static readonly ReferenceID EmptyTreePartitionID = new ReferenceID(true, false, -1);
+		public static readonly ReferenceID EmptyTreePartitionID = new ReferenceID(true, false, -1);
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = TreePartitionManager.GetDeclaration();
 
-		internal bool TreeHasChanged
+		public bool TreeHasChanged
 		{
 			get
 			{
@@ -34,16 +34,16 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal TreePartitionManager()
+		public TreePartitionManager()
 		{
 		}
 
-		internal TreePartitionManager(List<long> partitionTable)
+		public TreePartitionManager(List<long> partitionTable)
 		{
 			this.m_treePartitionOffsets = partitionTable;
 		}
 
-		internal ReferenceID AllocateNewTreePartition()
+		public ReferenceID AllocateNewTreePartition()
 		{
 			this.m_treeChanged = true;
 			if (this.m_treePartitionOffsets == null)
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return result;
 		}
 
-		internal void UpdateTreePartitionOffset(ReferenceID id, long offset)
+		public void UpdateTreePartitionOffset(ReferenceID id, long offset)
 		{
 			int partitionIndex = this.GetPartitionIndex(id);
 			Global.Tracer.Assert(offset >= 0, "Invalid offset for Tree partition. ID: {0} Offset: {1}", id, offset);
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_treePartitionOffsets[partitionIndex] = offset;
 		}
 
-		internal long GetTreePartitionOffset(ReferenceID id)
+		public long GetTreePartitionOffset(ReferenceID id)
 		{
 			int partitionIndex = this.GetPartitionIndex(id);
 			return this.m_treePartitionOffsets[partitionIndex];

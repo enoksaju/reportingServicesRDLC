@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartCustomPaletteColor : IPersistable
+	public sealed class ChartCustomPaletteColor : IPersistable
 	{
 		private int m_exprHostID;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartCustomPaletteColorExprHost m_exprHost;
 
-		internal ChartCustomPaletteColorExprHost ExprHost
+		public ChartCustomPaletteColorExprHost ExprHost
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Color
+		public ExpressionInfo Color
 		{
 			get
 			{
@@ -54,23 +54,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartCustomPaletteColor()
+		public ChartCustomPaletteColor()
 		{
 		}
 
-		internal ChartCustomPaletteColor(Chart chart)
+		public ChartCustomPaletteColor(Chart chart)
 		{
 			this.m_chart = chart;
 		}
 
-		internal void SetExprHost(ChartCustomPaletteColorExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartCustomPaletteColorExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal void Initialize(InitializationContext context, int index)
+		public void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.ChartCustomPaletteColorStart(index);
 			if (this.m_color != null)
@@ -81,13 +81,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ChartCustomPaletteColorEnd();
 		}
 
-		internal string EvaluateColor(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateColor(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartCustomPaletteColorExpression(this, this.m_chart.Name);
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartCustomPaletteColor chartCustomPaletteColor = (ChartCustomPaletteColor)base.MemberwiseClone();
 			chartCustomPaletteColor.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartCustomPaletteColor;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Color, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));

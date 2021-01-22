@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class StackedAreaChart : AreaChart
+	public class StackedAreaChart : AreaChart
 	{
 		private ArrayList stackedData = new ArrayList();
 

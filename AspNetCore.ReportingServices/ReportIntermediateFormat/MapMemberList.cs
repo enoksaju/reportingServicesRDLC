@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class MapMemberList : HierarchyNodeList
+	public sealed class MapMemberList : HierarchyNodeList
 	{
-		internal new MapMember this[int index]
+		public new MapMember this[int index]
 		{
 			get
 			{

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeDataTablixObj : RuntimeRDLDataRegionObj, IOnDemandMemberOwnerInstance, IOnDemandScopeInstance, IStorable, IPersistable
+	public abstract class RuntimeDataTablixObj : RuntimeRDLDataRegionObj, IOnDemandMemberOwnerInstance, IOnDemandScopeInstance, IStorable, IPersistable
 	{
 		protected int[] m_outerGroupingCounters;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeDataTablixObj.GetDeclaration();
 
-		internal int[] OuterGroupingCounters
+		public int[] OuterGroupingCounters
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<IReference<RuntimeDataTablixGroupLeafObj>> InnerGroupsWithCellsForOuterPeerGroupProcessing
+		public List<IReference<RuntimeDataTablixGroupLeafObj>> InnerGroupsWithCellsForOuterPeerGroupProcessing
 		{
 			get
 			{
@@ -76,11 +76,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeDataTablixObj()
+		public RuntimeDataTablixObj()
 		{
 		}
 
-		internal RuntimeDataTablixObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataTablixDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeDataTablixObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataTablixDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(outerScope, dataTablixDef, ref dataAction, odpContext, onePassProcess, dataTablixDef.RunningValues, objectType, outerScope.Value().Depth + 1)
 		{
 			bool handleMyDataAction = default(bool);
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			aggregateRowInfo.RestoreAggregateInfo(base.m_odpContext);
 		}
 
-		internal override bool SortAndFilter(AggregateUpdateContext aggContext)
+		public override bool SortAndFilter(AggregateUpdateContext aggContext)
 		{
 			this.SetupEnvironment();
 			if (base.m_userSortTargetInfo != null)
@@ -419,7 +419,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
+		public override void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
 		{
 			if (base.m_dataRegionDef.RunningValues != null && base.m_runningValues == null && base.m_previousValues == null)
 			{
@@ -499,7 +499,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		{
 		}
 
-		internal static void AddRunningValues(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.RunningValueInfo> runningValues, ref List<string> runningValuesInGroup, ref List<string> previousValuesInGroup, Dictionary<string, IReference<RuntimeGroupRootObj>> groupCollection, IReference<RuntimeGroupRootObj> lastGroup)
+		public static void AddRunningValues(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.RunningValueInfo> runningValues, ref List<string> runningValuesInGroup, ref List<string> previousValuesInGroup, Dictionary<string, IReference<RuntimeGroupRootObj>> groupCollection, IReference<RuntimeGroupRootObj> lastGroup)
 		{
 			if (runningValues != null && 0 < runningValues.Count)
 			{
@@ -548,7 +548,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static void UpdateRunningValues(OnDemandProcessingContext odpContext, List<string> runningValueNames)
+		public static void UpdateRunningValues(OnDemandProcessingContext odpContext, List<string> runningValueNames)
 		{
 			AggregatesImpl aggregatesImpl = odpContext.ReportObjectModel.AggregatesImpl;
 			for (int i = 0; i < runningValueNames.Count; i++)
@@ -559,18 +559,18 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static void SaveData(ScalableList<DataFieldRow> dataRows, OnDemandProcessingContext odpContext)
+		public static void SaveData(ScalableList<DataFieldRow> dataRows, OnDemandProcessingContext odpContext)
 		{
 			Global.Tracer.Assert(null != dataRows, "(null != dataRows)");
 			dataRows.Add(RuntimeDataTablixObj.SaveData(odpContext));
 		}
 
-		internal static DataFieldRow SaveData(OnDemandProcessingContext odpContext)
+		public static DataFieldRow SaveData(OnDemandProcessingContext odpContext)
 		{
 			return new DataFieldRow(odpContext.ReportObjectModel.FieldsImpl, true);
 		}
 
-		internal override void CalculatePreviousAggregates()
+		public override void CalculatePreviousAggregates()
 		{
 			if (base.m_outerScope != null && (DataActions.PostSortAggregates & base.m_outerDataAction) != 0)
 			{
@@ -649,7 +649,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			base.SetupEnvironment(base.m_dataRegionDef.RunningValues);
 		}
 
-		internal void CreateOutermostStaticCells(DataRegionInstance dataRegionInstance, bool outerGroupings, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeafRef)
+		public void CreateOutermostStaticCells(DataRegionInstance dataRegionInstance, bool outerGroupings, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeafRef)
 		{
 			if (innerMembers != null)
 			{
@@ -673,7 +673,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return true;
 		}
 
-		internal override bool TargetScopeMatched(int index, bool detailSort)
+		public override bool TargetScopeMatched(int index, bool detailSort)
 		{
 			if (base.m_dataRegionDef.InOutermostStaticCells && !this.OutermostSTCellTargetScopeMatched(index, base.m_odpContext.RuntimeSortFilterInfo[index]))
 			{
@@ -682,7 +682,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return base.TargetScopeMatched(index, detailSort);
 		}
 
-		internal void CreateInstances(DataRegionInstance dataRegionInstance)
+		public void CreateInstances(DataRegionInstance dataRegionInstance)
 		{
 			base.m_dataRegionDef.ResetInstanceIndexes();
 			this.m_innerGroupsWithCellsForOuterPeerGroupProcessing = null;
@@ -766,7 +766,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return this.GetNestedDataRegion(rifDataRegion);
 		}
 
-		internal abstract RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion);
+		public abstract RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion);
 
 		public IReference<IDataCorrelation> GetIdcReceiver(IRIFReportDataScope scope)
 		{

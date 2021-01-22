@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class GroupDataBindingRuleConverter : CollectionItemTypeConverter
+	public class GroupDataBindingRuleConverter : CollectionItemTypeConverter
 	{
 		public GroupDataBindingRuleConverter()
 		{

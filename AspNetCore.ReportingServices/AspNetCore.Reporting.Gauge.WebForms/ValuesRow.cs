@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[DebuggerStepThrough]
-	internal class ValuesRow : DataRow
+	public class ValuesRow : DataRow
 	{
 		private ValuesDataTable tableValues;
 
@@ -40,7 +40,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal ValuesRow(DataRowBuilder rb)
+		public ValuesRow(DataRowBuilder rb)
 			: base(rb)
 		{
 			this.tableValues = (ValuesDataTable)base.Table;

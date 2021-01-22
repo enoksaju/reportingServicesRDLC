@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_MergeCells : OoxmlComplexType
+	public class CT_MergeCells : OoxmlComplexType
 	{
 		private uint _count_attr;
 

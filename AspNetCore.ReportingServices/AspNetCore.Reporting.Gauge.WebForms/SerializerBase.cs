@@ -12,7 +12,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal abstract class SerializerBase
+	public abstract class SerializerBase
 	{
 		private bool ignoreUnknown;
 
@@ -24,13 +24,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private string nonSerializableContent = "";
 
-		internal static FontConverter fontConverter = new FontConverter();
+		public static FontConverter fontConverter = new FontConverter();
 
-		internal static CursorConverter cursorConverter = new CursorConverter();
+		public static CursorConverter cursorConverter = new CursorConverter();
 
-		internal static ColorConverter colorConverter = new ColorConverter();
+		public static ColorConverter colorConverter = new ColorConverter();
 
-		internal static SizeConverter sizeConverter = new SizeConverter();
+		public static SizeConverter sizeConverter = new SizeConverter();
 
 		private ArrayList serializableContentList;
 

@@ -7,16 +7,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeSortHierarchyObj : IHierarchyObj, IStorable, IPersistable
+	public sealed class RuntimeSortHierarchyObj : IHierarchyObj, IStorable, IPersistable
 	{
 		[PersistedWithinRequestOnly]
-		internal class SortHierarchyStructure : IStorable, IPersistable
+		public class SortHierarchyStructure : IStorable, IPersistable
 		{
-			internal IReference<RuntimeSortFilterEventInfo> SortInfo;
+			public IReference<RuntimeSortFilterEventInfo> SortInfo;
 
-			internal int SortIndex;
+			public int SortIndex;
 
-			internal BTree SortTree;
+			public BTree SortTree;
 
 			[NonSerialized]
 			private static Declaration m_declaration = SortHierarchyStructure.GetDeclaration();
@@ -29,11 +29,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				}
 			}
 
-			internal SortHierarchyStructure()
+			public SortHierarchyStructure()
 			{
 			}
 
-			internal SortHierarchyStructure(IHierarchyObj owner, int sortIndex, List<IReference<RuntimeSortFilterEventInfo>> sortInfoList, List<int> sortInfoIndices)
+			public SortHierarchyStructure(IHierarchyObj owner, int sortIndex, List<IReference<RuntimeSortFilterEventInfo>> sortInfoList, List<int> sortInfoIndices)
 			{
 				this.SortIndex = sortIndex;
 				this.SortInfo = sortInfoList[sortInfoIndices[sortIndex]];
@@ -201,11 +201,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeSortHierarchyObj()
+		public RuntimeSortHierarchyObj()
 		{
 		}
 
-		internal RuntimeSortHierarchyObj(IHierarchyObj outerHierarchy, int depth)
+		public RuntimeSortHierarchyObj(IHierarchyObj outerHierarchy, int depth)
 		{
 			this.m_hierarchyRoot = outerHierarchy.HierarchyRoot;
 			this.m_odpContext = this.m_hierarchyRoot.Value().OdpContext;
@@ -395,7 +395,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RuntimeSortHierarchyObj;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (RuntimeSortHierarchyObj.m_declaration == null)
 			{

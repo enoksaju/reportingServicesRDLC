@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IConnectionUserIdentity
+	public interface IConnectionUserIdentity
 	{
 		void SetUserIdentity(UserIdentity userIdentity);
 	}

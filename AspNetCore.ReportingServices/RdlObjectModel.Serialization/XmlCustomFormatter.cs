@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class XmlCustomFormatter
+	public class XmlCustomFormatter
 	{
 		private static string[] allDateTimeFormats = new string[37]
 		{
@@ -73,32 +73,32 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			"HH:mm:ss.fffffffzzzzzz"
 		};
 
-		internal static string FromDate(DateTime value)
+		public static string FromDate(DateTime value)
 		{
 			return XmlConvert.ToString(value, "yyyy-MM-dd");
 		}
 
-		internal static string FromTime(DateTime value)
+		public static string FromTime(DateTime value)
 		{
 			return XmlConvert.ToString(value, "HH:mm:ss.fffffffzzzzzz");
 		}
 
-		internal static string FromDateTime(DateTime value)
+		public static string FromDateTime(DateTime value)
 		{
 			return XmlConvert.ToString(value, "yyyy-MM-ddTHH:mm:ss.fffffffzzzzzz");
 		}
 
-		internal static string FromChar(char value)
+		public static string FromChar(char value)
 		{
 			return XmlConvert.ToString((ushort)value);
 		}
 
-		internal static string FromXmlNmToken(string nmToken)
+		public static string FromXmlNmToken(string nmToken)
 		{
 			return XmlConvert.DecodeName(nmToken);
 		}
 
-		internal static string FromByteArrayBase64(byte[] value)
+		public static string FromByteArrayBase64(byte[] value)
 		{
 			if (value == null)
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			return Convert.ToBase64String(value);
 		}
 
-		internal static string FromEnum(long val, string[] vals, long[] ids)
+		public static string FromEnum(long val, string[] vals, long[] ids)
 		{
 			long num = val;
 			StringBuilder stringBuilder = new StringBuilder();
@@ -146,37 +146,37 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			return stringBuilder.ToString();
 		}
 
-		internal static DateTime ToDateTime(string value)
+		public static DateTime ToDateTime(string value)
 		{
 			return XmlCustomFormatter.ToDateTime(value, XmlCustomFormatter.allDateTimeFormats);
 		}
 
-		internal static DateTime ToDateTime(string value, string[] formats)
+		public static DateTime ToDateTime(string value, string[] formats)
 		{
 			return XmlConvert.ToDateTime(value, formats);
 		}
 
-		internal static DateTime ToDate(string value)
+		public static DateTime ToDate(string value)
 		{
 			return XmlCustomFormatter.ToDateTime(value, XmlCustomFormatter.allDateFormats);
 		}
 
-		internal static DateTime ToTime(string value)
+		public static DateTime ToTime(string value)
 		{
 			return XmlCustomFormatter.ToDateTime(value, XmlCustomFormatter.allTimeFormats);
 		}
 
-		internal static char ToChar(string value)
+		public static char ToChar(string value)
 		{
 			return (char)XmlConvert.ToUInt16(value);
 		}
 
-		internal static string ToXmlNmToken(string value)
+		public static string ToXmlNmToken(string value)
 		{
 			return XmlConvert.EncodeNmToken(value);
 		}
 
-		internal static byte[] ToByteArrayBase64(string value)
+		public static byte[] ToByteArrayBase64(string value)
 		{
 			if (value == null)
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			return Convert.FromBase64String(value);
 		}
 
-		internal static long ToEnum(string val, Hashtable vals, string typeName)
+		public static long ToEnum(string val, Hashtable vals, string typeName)
 		{
 			long num = 0L;
 			string[] array = val.Split(null);

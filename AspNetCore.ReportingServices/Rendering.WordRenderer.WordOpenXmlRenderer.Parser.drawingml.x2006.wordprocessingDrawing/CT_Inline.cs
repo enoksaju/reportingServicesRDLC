@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.drawingml.x2006.wordprocessingDrawing
 {
-	internal class CT_Inline : OoxmlComplexType, IOoxmlComplexType
+	public class CT_Inline : OoxmlComplexType, IOoxmlComplexType
 	{
 		private CT_PositiveSize2D _extent;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapGridLinesInstance : BaseInstance
+	public sealed class MapGridLinesInstance : BaseInstance
 	{
 		private MapGridLines m_defObject;
 
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapGridLinesInstance(MapGridLines defObject)
+		public MapGridLinesInstance(MapGridLines defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

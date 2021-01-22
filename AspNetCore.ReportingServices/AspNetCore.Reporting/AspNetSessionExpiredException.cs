@@ -4,9 +4,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class AspNetSessionExpiredException : ReportViewerException
+	public sealed class AspNetSessionExpiredException : ReportViewerException
 	{
-		internal AspNetSessionExpiredException()
+		public AspNetSessionExpiredException()
 			: base(Errors.ASPNetSessionExpired)
 		{
 		}

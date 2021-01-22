@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal interface IOnDemandScopeInstance : IStorable, IPersistable
+	public interface IOnDemandScopeInstance : IStorable, IPersistable
 	{
 		bool IsNoRows
 		{

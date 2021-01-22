@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ArrowOrientation
+	public enum ArrowOrientation
 	{
 		Left,
 		Right,

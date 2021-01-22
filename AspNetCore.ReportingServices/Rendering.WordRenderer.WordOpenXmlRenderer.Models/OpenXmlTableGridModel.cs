@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlTableGridModel : BaseInterleaver
+	public sealed class OpenXmlTableGridModel : BaseInterleaver
 	{
 		private List<int> _columns = new List<int>();
 
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return ObjectType.WordOpenXmlTableGrid;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			return OpenXmlTableGridModel._declaration;
 		}

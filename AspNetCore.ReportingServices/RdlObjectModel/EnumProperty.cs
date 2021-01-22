@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class EnumProperty : PropertyDefinition, IPropertyDefinition
+	public class EnumProperty : PropertyDefinition, IPropertyDefinition
 	{
 		private object m_default;
 

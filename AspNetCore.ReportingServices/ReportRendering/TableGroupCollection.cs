@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableGroupCollection
+	public sealed class TableGroupCollection
 	{
 		private Table m_owner;
 
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.TableGroup GroupDefinition
+		public AspNetCore.ReportingServices.ReportProcessing.TableGroup GroupDefinition
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableGroupCollection(Table owner, TableGroup parent, AspNetCore.ReportingServices.ReportProcessing.TableGroup groupDef, TableGroupInstanceList groupInstances)
+		public TableGroupCollection(Table owner, TableGroup parent, AspNetCore.ReportingServices.ReportProcessing.TableGroup groupDef, TableGroupInstanceList groupInstances)
 		{
 			this.m_owner = owner;
 			this.m_parent = parent;

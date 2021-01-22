@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class DataSetInfo
+	public sealed class DataSetInfo
 	{
 		private Guid m_id = Guid.Empty;
 

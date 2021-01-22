@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ReportImageOperation : ReportDataOperation
+	public sealed class ReportImageOperation : ReportDataOperation
 	{
 		private const string UrlParamStreamID = "StreamID";
 

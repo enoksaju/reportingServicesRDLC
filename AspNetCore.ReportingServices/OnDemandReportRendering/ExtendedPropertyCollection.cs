@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ExtendedPropertyCollection : ReportElementCollectionBase<ExtendedProperty>
+	public sealed class ExtendedPropertyCollection : ReportElementCollectionBase<ExtendedProperty>
 	{
 		private ExtendedProperty[] m_extendedProperties;
 
@@ -56,13 +56,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ExtendedPropertyCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.RecordField field, List<string> extendedPropertyNames)
+		public ExtendedPropertyCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.RecordField field, List<string> extendedPropertyNames)
 		{
 			this.m_recordField = field;
 			this.m_extendedPropertyNames = extendedPropertyNames;
 		}
 
-		internal void UpdateRecordField(AspNetCore.ReportingServices.ReportIntermediateFormat.RecordField field)
+		public void UpdateRecordField(AspNetCore.ReportingServices.ReportIntermediateFormat.RecordField field)
 		{
 			this.m_recordField = field;
 			if (this.m_extendedProperties != null)

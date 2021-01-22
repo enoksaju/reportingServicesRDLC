@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartAxisCollection : ChartObjectCollectionBase<ChartAxis, ChartAxisInstance>
+	public sealed class ChartAxisCollection : ChartObjectCollectionBase<ChartAxis, ChartAxisInstance>
 	{
 		private Chart m_chart;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartAxisCollection(ChartArea chartArea, Chart chart, bool isCategory)
+		public ChartAxisCollection(ChartArea chartArea, Chart chart, bool isCategory)
 		{
 			this.m_chartArea = chartArea;
 			this.m_chart = chart;
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return new ChartAxis(this.m_chartArea.ChartAreaDef.CategoryAxes[index], this.m_chart);
 		}
 
-		internal ChartAxis GetByName(string axisName)
+		public ChartAxis GetByName(string axisName)
 		{
 			for (int i = 0; i < this.Count; i++)
 			{

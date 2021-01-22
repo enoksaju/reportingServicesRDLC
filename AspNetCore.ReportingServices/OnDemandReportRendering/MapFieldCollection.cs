@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapFieldCollection : MapObjectCollectionBase<MapField>
+	public sealed class MapFieldCollection : MapObjectCollectionBase<MapField>
 	{
 		private Map m_map;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapFieldCollection(MapSpatialElement mapSpatialElement, Map map)
+		public MapFieldCollection(MapSpatialElement mapSpatialElement, Map map)
 		{
 			this.m_mapSpatialElement = mapSpatialElement;
 			this.m_map = map;

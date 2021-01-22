@@ -13,7 +13,7 @@ using System.Web;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-    internal sealed class HTML5ViewerRenderer : HTML5Renderer
+    public sealed class HTML5ViewerRenderer : HTML5Renderer
     {
         private sealed class DetachedReportWrapper : IReportWrapper
         {
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
             }
         }
 
-        internal sealed class SPBProcessingStub : ISPBProcessing
+        public sealed class SPBProcessingStub : ISPBProcessing
         {
             private const string DEVICE_INFO_TEMPLATE = "<DeviceInfo><StartPage>{0}</StartPage><EndPage>{1}</EndPage><ToggleItems>{2}</ToggleItems><MeasureItems>{3}</MeasureItems><SecondaryStreams>{4}</SecondaryStreams><StreamNames>{5}</StreamNames><StreamRoot>{6}</StreamRoot><RPLVersion>{7}</RPLVersion><ImageConsolidation>{8}</ImageConsolidation></DeviceInfo>";
 
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
             private SPBContext m_spbContext = new SPBContext();
 
-            internal SPBProcessingStub(ReportControlSession reportControlSession, string streamRoot, PageCountMode pageCountMode)
+            public SPBProcessingStub(ReportControlSession reportControlSession, string streamRoot, PageCountMode pageCountMode)
             {
                 this.m_reportControlSession = reportControlSession;
                 this.m_pageCountMode = pageCountMode;
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
             }
         }
 
-        internal string PageStyle;
+        public string PageStyle;
 
         private string m_fixedHeaderScript;
 
@@ -482,7 +482,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
             return stringBuilder3.ToString();
         }
 
-        internal string FixedHeaderScript
+        public string FixedHeaderScript
         {
             get
             {

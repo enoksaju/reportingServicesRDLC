@@ -5,9 +5,9 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal abstract class DataTypeUtility
+	public abstract class DataTypeUtility
 	{
-		internal static bool IsSpatial(DataAggregate.DataTypeCode typeCode)
+		public static bool IsSpatial(DataAggregate.DataTypeCode typeCode)
 		{
 			if (typeCode != DataAggregate.DataTypeCode.SqlGeography)
 			{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool IsNumeric(DataAggregate.DataTypeCode typeCode)
+		public static bool IsNumeric(DataAggregate.DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool IsFloat(DataAggregate.DataTypeCode typeCode)
+		public static bool IsFloat(DataAggregate.DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool IsSigned(DataAggregate.DataTypeCode typeCode)
+		public static bool IsSigned(DataAggregate.DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool IsUnsigned(DataAggregate.DataTypeCode typeCode)
+		public static bool IsUnsigned(DataAggregate.DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool Is32BitOrLess(DataAggregate.DataTypeCode typeCode)
+		public static bool Is32BitOrLess(DataAggregate.DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static bool Is64BitOrLess(DataAggregate.DataTypeCode typeCode)
+		public static bool Is64BitOrLess(DataAggregate.DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static double ConvertToDouble(DataAggregate.DataTypeCode typeCode, object data)
+		public static double ConvertToDouble(DataAggregate.DataTypeCode typeCode, object data)
 		{
 			switch (typeCode)
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static int ConvertToInt32(DataAggregate.DataTypeCode typeCode, object data, out bool valid)
+		public static int ConvertToInt32(DataAggregate.DataTypeCode typeCode, object data, out bool valid)
 		{
 			valid = true;
 			switch (typeCode)
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return 0;
 		}
 
-		internal static string ConvertToInvariantString(object o)
+		public static string ConvertToInvariantString(object o)
 		{
 			if (o == null)
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Type GetNumericTypeFromDataTypeCode(DataAggregate.DataTypeCode typeCode)
+		public static Type GetNumericTypeFromDataTypeCode(DataAggregate.DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static DataAggregate.DataTypeCode CommonNumericDenominator(DataAggregate.DataTypeCode x, DataAggregate.DataTypeCode y)
+		public static DataAggregate.DataTypeCode CommonNumericDenominator(DataAggregate.DataTypeCode x, DataAggregate.DataTypeCode y)
 		{
 			if (DataTypeUtility.IsNumeric(x) && DataTypeUtility.IsNumeric(y))
 			{
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return DataAggregate.DataTypeCode.Decimal;
 		}
 
-		internal static bool IsNumericLessThanZero(object value, DataAggregate.DataTypeCode dataType)
+		public static bool IsNumericLessThanZero(object value, DataAggregate.DataTypeCode dataType)
 		{
 			switch (dataType)
 			{

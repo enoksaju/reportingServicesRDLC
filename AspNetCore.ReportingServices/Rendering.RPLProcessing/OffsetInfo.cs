@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class OffsetInfo : IRPLObjectFactory
+	public class OffsetInfo : IRPLObjectFactory
 	{
 		protected long m_endOffset = -1L;
 
-		internal RPLContext m_context;
+		public RPLContext m_context;
 
 		public long EndOffset
 		{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal OffsetInfo(long endOffset, RPLContext context)
+		public OffsetInfo(long endOffset, RPLContext context)
 		{
 			this.m_endOffset = endOffset;
 			this.m_context = context;

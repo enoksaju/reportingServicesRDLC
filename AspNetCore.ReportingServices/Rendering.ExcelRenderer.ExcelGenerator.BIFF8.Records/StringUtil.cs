@@ -2,14 +2,14 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BIFF8.Records
 {
-	internal static class StringUtil
+	public static class StringUtil
 	{
-		internal static void WriteBIFF8String(BinaryWriter aOut, string aString, bool compressed)
+		public static void WriteBIFF8String(BinaryWriter aOut, string aString, bool compressed)
 		{
 			StringUtil.WriteBIFF8String(aOut, aString, true, compressed);
 		}
 
-		internal static void WriteBIFF8String(BinaryWriter output, string str, bool writeLength, bool compressed)
+		public static void WriteBIFF8String(BinaryWriter output, string str, bool writeLength, bool compressed)
 		{
 			string text = str;
 			if (text.Length > 256)
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal static int CalcBIFF8StringSize(string str, bool tryToCompress, out bool compressed)
+		public static int CalcBIFF8StringSize(string str, bool tryToCompress, out bool compressed)
 		{
 			string text = str;
 			if (text.Length > 256)
@@ -52,12 +52,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return text.Length * 2;
 		}
 
-		internal static int CalcBIFF8StringSize(string aString, out bool compressed)
+		public static int CalcBIFF8StringSize(string aString, out bool compressed)
 		{
 			return StringUtil.CalcBIFF8StringSize(aString, true, out compressed);
 		}
 
-		internal static byte[] DecodeTo1Byte(string aStr)
+		public static byte[] DecodeTo1Byte(string aStr)
 		{
 			byte[] array = new byte[aStr.Length];
 			for (int i = 0; i < array.Length; i++)
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return array;
 		}
 
-		internal static void DecodeTo1Byte(BinaryWriter aOut, string aStr)
+		public static void DecodeTo1Byte(BinaryWriter aOut, string aStr)
 		{
 			for (int i = 0; i < aStr.Length; i++)
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal static void DecodeTo1Byte(Stream aOut, string aStr, int aOffset, int aLength)
+		public static void DecodeTo1Byte(Stream aOut, string aStr, int aOffset, int aLength)
 		{
 			for (int i = 0; i < aLength; i++)
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal static byte[] DecodeTo2ByteLE(string aStr)
+		public static byte[] DecodeTo2ByteLE(string aStr)
 		{
 			byte[] array = new byte[aStr.Length * 2];
 			for (int i = 0; i < aStr.Length; i++)
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return array;
 		}
 
-		internal static void DecodeTo2ByteLE(BinaryWriter aOut, string aStr)
+		public static void DecodeTo2ByteLE(BinaryWriter aOut, string aStr)
 		{
 			foreach (char c in aStr)
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal static void DecodeTo2ByteLE(Stream aOut, string aStr, int aOffset, int aLength)
+		public static void DecodeTo2ByteLE(Stream aOut, string aStr, int aOffset, int aLength)
 		{
 			for (int i = 0; i < aLength; i++)
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal static bool CanCompress(string aStr)
+		public static bool CanCompress(string aStr)
 		{
 			for (int i = 0; i < aStr.Length; i++)
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return true;
 		}
 
-		internal static bool CanCompress(char[] aChars, int aOffset, int aLength)
+		public static bool CanCompress(char[] aChars, int aOffset, int aLength)
 		{
 			for (int i = 0; i < aLength; i++)
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return true;
 		}
 
-		internal static bool CanCompress(string aStr, int aOffset, int aLength)
+		public static bool CanCompress(string aStr, int aOffset, int aLength)
 		{
 			for (int i = 0; i < aLength; i++)
 			{

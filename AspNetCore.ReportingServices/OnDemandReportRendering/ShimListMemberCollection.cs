@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimListMemberCollection : ShimMemberCollection
+	public sealed class ShimListMemberCollection : ShimMemberCollection
 	{
 		private ShimRenderGroups m_renderGroups;
 
@@ -36,18 +36,18 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimListMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner)
+		public ShimListMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner)
 			: base(parentDefinitionPath, owner, true)
 		{
 		}
 
-		internal ShimListMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, ListContentCollection renderListContents)
+		public ShimListMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner, ListContentCollection renderListContents)
 			: base(parentDefinitionPath, owner, false)
 		{
 			this.m_renderGroups = new ShimRenderGroups(renderListContents);
 		}
 
-		internal void UpdateContext(ListContentCollection renderListContents)
+		public void UpdateContext(ListContentCollection renderListContents)
 		{
 			this.m_renderGroups = new ShimRenderGroups(renderListContents);
 			if (base.m_children != null)

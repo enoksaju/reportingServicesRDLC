@@ -3,16 +3,16 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class CountDistinct : DataAggregate
+	public sealed class CountDistinct : DataAggregate
 	{
 		private Hashtable m_distinctValues = new Hashtable();
 
-		internal override void Init()
+		public override void Init()
 		{
 			this.m_distinctValues.Clear();
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			Global.Tracer.Assert(null != expressions);
 			Global.Tracer.Assert(1 == expressions.Length);
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			return this.m_distinctValues.Count;
 		}

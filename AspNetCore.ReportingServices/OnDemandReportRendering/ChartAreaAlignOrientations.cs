@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartAreaAlignOrientations
+	public enum ChartAreaAlignOrientations
 	{
 		None,
 		Vertical,

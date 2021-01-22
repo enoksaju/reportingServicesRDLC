@@ -8,16 +8,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal class RuntimeMapDataRegionObj : RuntimeChartCriObj
+	public class RuntimeMapDataRegionObj : RuntimeChartCriObj
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeMapDataRegionObj.GetDeclaration();
 
-		internal RuntimeMapDataRegionObj()
+		public RuntimeMapDataRegionObj()
 		{
 		}
 
-		internal RuntimeMapDataRegionObj(IReference<IScope> outerScope, MapDataRegion mapDataRegionDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess)
+		public RuntimeMapDataRegionObj(IReference<IScope> outerScope, MapDataRegion mapDataRegionDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess)
 			: base(outerScope, (AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion)mapDataRegionDef, ref dataAction, odpContext, onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType.MapDataRegion)
 		{
 		}

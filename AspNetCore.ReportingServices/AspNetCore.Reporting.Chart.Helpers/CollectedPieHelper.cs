@@ -10,7 +10,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting.Chart.Helpers
 {
-	internal class CollectedPieHelper
+	public class CollectedPieHelper
 	{
 		public double CollectedPercentage = 5.0;
 

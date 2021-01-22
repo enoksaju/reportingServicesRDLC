@@ -7,11 +7,11 @@ using System.Resources;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class ChartTypeRegistry : IServiceProvider
+	public class ChartTypeRegistry : IServiceProvider
 	{
 		private ResourceManager resourceManager;
 
-		internal Hashtable registeredChartTypes = new Hashtable(StringComparer.OrdinalIgnoreCase);
+		public Hashtable registeredChartTypes = new Hashtable(StringComparer.OrdinalIgnoreCase);
 
 		private Hashtable createdChartTypes = new Hashtable(StringComparer.OrdinalIgnoreCase);
 

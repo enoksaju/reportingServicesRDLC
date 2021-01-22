@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class OnDemandMetadata : IReportInstanceContainer, IPersistable
+	public class OnDemandMetadata : IReportInstanceContainer, IPersistable
 	{
 		private Dictionary<string, SubReportInfo> m_subReportInfoMap;
 
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = OnDemandMetadata.GetDeclaration();
 
-		internal bool IsInitialProcessingRequest
+		public bool IsInitialProcessingRequest
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool GroupTreeHasChanged
+		public bool GroupTreeHasChanged
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool LookupInfoHasChanged
+		public bool LookupInfoHasChanged
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool SnapshotHasChanged
+		public bool SnapshotHasChanged
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool MetadataHasChanged
+		public bool MetadataHasChanged
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal TreePartitionManager GroupTreePartitionManager
+		public TreePartitionManager GroupTreePartitionManager
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal TreePartitionManager LookupPartitionManager
+		public TreePartitionManager LookupPartitionManager
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Report Report
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Report Report
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot ReportSnapshot
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSnapshot ReportSnapshot
 		{
 			get
 			{
@@ -194,7 +194,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal Dictionary<string, DataSetInstance> DataChunkMap
+		public Dictionary<string, DataSetInstance> DataChunkMap
 		{
 			get
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.OnDemandProcessingManager OdpChunkManager
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.OnDemandProcessingManager OdpChunkManager
 		{
 			get
 			{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<OnDemandProcessingContext> OdpContexts
+		public List<OnDemandProcessingContext> OdpContexts
 		{
 			get
 			{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal string TransparentImageChunkName
+		public string TransparentImageChunkName
 		{
 			get
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal GroupTreeScalabilityCache GroupTreeScalabilityCache
+		public GroupTreeScalabilityCache GroupTreeScalabilityCache
 		{
 			get
 			{
@@ -247,7 +247,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal LookupScalabilityCache LookupScalabilityCache
+		public LookupScalabilityCache LookupScalabilityCache
 		{
 			get
 			{
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal GlobalIDOwnerCollection GlobalIDOwnerCollection
+		public GlobalIDOwnerCollection GlobalIDOwnerCollection
 		{
 			get
 			{
@@ -271,7 +271,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal long GroupTreeRootOffset
+		public long GroupTreeRootOffset
 		{
 			get
 			{
@@ -284,7 +284,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal int LastAssignedGlobalID
+		public int LastAssignedGlobalID
 		{
 			get
 			{
@@ -292,13 +292,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal OnDemandMetadata()
+		public OnDemandMetadata()
 		{
 			this.m_isInitialProcessingRequest = false;
 			this.m_metaDataChanged = false;
 		}
 
-		internal OnDemandMetadata(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
+		public OnDemandMetadata(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
 		{
 			this.m_report = report;
 			this.m_odpChunkManager = new AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.OnDemandProcessingManager();
@@ -307,7 +307,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_tablixProcessingComplete = new Dictionary<string, bool[]>();
 		}
 
-		internal OnDemandMetadata(OnDemandMetadata metadataFromOldSnapshot, AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
+		public OnDemandMetadata(OnDemandMetadata metadataFromOldSnapshot, AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
 		{
 			this.m_isInitialProcessingRequest = true;
 			this.m_metaDataChanged = true;
@@ -326,7 +326,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return this.m_reportInstance;
 		}
 
-		internal void ResetUserSortFilterContexts()
+		public void ResetUserSortFilterContexts()
 		{
 			foreach (OnDemandProcessingContext odpContext in this.m_odpContexts)
 			{
@@ -334,7 +334,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void UpdateLastAssignedGlobalID()
+		public void UpdateLastAssignedGlobalID()
 		{
 			if (this.m_globalIDOwnerCollection != null)
 			{
@@ -359,7 +359,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void PrepareForCachedDataProcessing(OnDemandMetadata odpMetadata)
+		public void PrepareForCachedDataProcessing(OnDemandMetadata odpMetadata)
 		{
 			this.m_subReportInfoMap = odpMetadata.m_subReportInfoMap;
 			this.m_commonSubReportInfoMap = odpMetadata.m_commonSubReportInfoMap;
@@ -367,7 +367,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.CommonPrepareForReprocessing();
 		}
 
-		internal bool IsTablixProcessingComplete(OnDemandProcessingContext odpContext, int dataSetIndexInCollection)
+		public bool IsTablixProcessingComplete(OnDemandProcessingContext odpContext, int dataSetIndexInCollection)
 		{
 			if (this.m_tablixProcessingComplete == null)
 			{
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal void SetTablixProcessingComplete(OnDemandProcessingContext odpContext, int dataSetIndexInCollection)
+		public void SetTablixProcessingComplete(OnDemandProcessingContext odpContext, int dataSetIndexInCollection)
 		{
 			if (this.m_tablixProcessingComplete == null)
 			{
@@ -415,7 +415,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return string.Empty;
 		}
 
-		internal void DisposePersistedTreeScalability()
+		public void DisposePersistedTreeScalability()
 		{
 			if (this.m_groupTreeScalabilityCache != null)
 			{
@@ -429,7 +429,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void EnsureLookupScalabilitySetup(IChunkFactory chunkFactory, int rifCompatVersion, bool prohibitSerializableValues)
+		public void EnsureLookupScalabilitySetup(IChunkFactory chunkFactory, int rifCompatVersion, bool prohibitSerializableValues)
 		{
 			if (this.m_lookupScalabilityCache == null)
 			{
@@ -438,7 +438,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal SubReportInfo AddSubReportInfo(bool isTopLevelSubreport, string definitionPath, string reportPath, string originalCatalogReportPath)
+		public SubReportInfo AddSubReportInfo(bool isTopLevelSubreport, string definitionPath, string reportPath, string originalCatalogReportPath)
 		{
 			this.m_metaDataChanged = true;
 			if (this.m_subReportInfoMap == null)
@@ -477,7 +477,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return commonSubReportInfo;
 		}
 
-		internal bool TryGetSubReportInfo(bool isTopLevelSubreport, string definitionPath, string reportPath, out SubReportInfo subReportInfo)
+		public bool TryGetSubReportInfo(bool isTopLevelSubreport, string definitionPath, string reportPath, out SubReportInfo subReportInfo)
 		{
 			subReportInfo = null;
 			if (this.m_subReportInfoMap != null && this.m_subReportInfoMap.TryGetValue(definitionPath, out subReportInfo))
@@ -518,7 +518,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return true;
 		}
 
-		internal SubReportInfo GetSubReportInfo(bool isTopLevelSubreport, string definitionPath, string reportPath)
+		public SubReportInfo GetSubReportInfo(bool isTopLevelSubreport, string definitionPath, string reportPath)
 		{
 			SubReportInfo result = null;
 			bool condition = this.TryGetSubReportInfo(isTopLevelSubreport, definitionPath, reportPath, out result);
@@ -526,7 +526,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return result;
 		}
 
-		internal void AddDataChunk(string dataSetChunkName, DataSetInstance dataSetInstance)
+		public void AddDataChunk(string dataSetChunkName, DataSetInstance dataSetInstance)
 		{
 			this.m_metaDataChanged = true;
 			dataSetInstance.DataChunkName = dataSetChunkName;
@@ -536,7 +536,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void DeleteDataChunk(string dataSetChunkName)
+		public void DeleteDataChunk(string dataSetChunkName)
 		{
 			this.m_metaDataChanged = true;
 			lock (this.m_dataChunkMap)
@@ -545,7 +545,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void AddExternalImage(string value, AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo imageInfo)
+		public void AddExternalImage(string value, AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo imageInfo)
 		{
 			this.m_metaDataChanged = true;
 			if (this.m_cachedExternalImages == null)
@@ -555,7 +555,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_cachedExternalImages.Add(value, imageInfo);
 		}
 
-		internal bool TryGetExternalImage(string value, out AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo imageInfo)
+		public bool TryGetExternalImage(string value, out AspNetCore.ReportingServices.ReportIntermediateFormat.ImageInfo imageInfo)
 		{
 			if (this.m_cachedExternalImages != null)
 			{
@@ -565,7 +565,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal void AddShapefile(string value, ShapefileInfo shapefileInfo)
+		public void AddShapefile(string value, ShapefileInfo shapefileInfo)
 		{
 			this.m_metaDataChanged = true;
 			if (this.m_cachedShapefiles == null)
@@ -575,7 +575,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_cachedShapefiles.Add(value, shapefileInfo);
 		}
 
-		internal bool TryGetShapefile(string value, out ShapefileInfo shapefileInfo)
+		public bool TryGetShapefile(string value, out ShapefileInfo shapefileInfo)
 		{
 			if (this.m_cachedShapefiles != null)
 			{
@@ -585,7 +585,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal bool StoreUpdatedVariableValue(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, int index, object value)
+		public bool StoreUpdatedVariableValue(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, int index, object value)
 		{
 			this.m_metaDataChanged = true;
 			if (this.m_updatedVariableValues == null)
@@ -614,7 +614,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return true;
 		}
 
-		internal void SetUpdatedVariableValues(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
+		public void SetUpdatedVariableValues(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
 		{
 			if (this.m_updatedVariableValues != null)
 			{
@@ -635,7 +635,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.CommonSubReportInfos, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.StringRIFObjectDictionary, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.CommonSubReportInfo));

@@ -1,4 +1,4 @@
 namespace AspNetCore.ReportingServices.Common
 {
-	internal delegate void Operation();
+	public delegate void Operation();
 }

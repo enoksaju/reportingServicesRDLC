@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 		{
 		}
 
-		internal void CallOnInit()
+		public void CallOnInit()
 		{
 			this.OnInit();
 		}

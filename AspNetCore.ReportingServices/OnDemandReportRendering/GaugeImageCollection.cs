@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeImageCollection : GaugePanelObjectCollectionBase<GaugeImage>
+	public sealed class GaugeImageCollection : GaugePanelObjectCollectionBase<GaugeImage>
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeImageCollection(GaugePanel gaugePanel)
+		public GaugeImageCollection(GaugePanel gaugePanel)
 		{
 			this.m_gaugePanel = gaugePanel;
 		}

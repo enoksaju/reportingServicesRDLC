@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IRenderStream
+	public interface IRenderStream
 	{
 		void Finish();
 	}

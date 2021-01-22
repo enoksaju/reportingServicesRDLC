@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLActionInfoWithImageMap : RPLActionInfo
+	public sealed class RPLActionInfoWithImageMap : RPLActionInfo
 	{
 		private RPLImageMapCollection m_imageMaps;
 
@@ -16,11 +16,11 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLActionInfoWithImageMap()
+		public RPLActionInfoWithImageMap()
 		{
 		}
 
-		internal RPLActionInfoWithImageMap(int actionCount)
+		public RPLActionInfoWithImageMap(int actionCount)
 			: base(actionCount)
 		{
 		}

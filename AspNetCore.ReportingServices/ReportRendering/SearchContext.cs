@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class SearchContext
+	public sealed class SearchContext
 	{
 		private int m_searchPage = -1;
 
@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 		private string m_findValue;
 
-		internal int SearchPage
+		public int SearchPage
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal string FindValue
+		public string FindValue
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal int ItemStartPage
+		public int ItemStartPage
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal int ItemEndPage
+		public int ItemEndPage
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool IsItemOnSearchPage
+		public bool IsItemOnSearchPage
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal SearchContext(int searchPage, string findValue, int itemStartPage, int itemEndPage)
+		public SearchContext(int searchPage, string findValue, int itemStartPage, int itemEndPage)
 		{
 			this.m_searchPage = searchPage;
 			this.m_findValue = findValue;
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_itemEndPage = itemEndPage;
 		}
 
-		internal SearchContext(SearchContext copy)
+		public SearchContext(SearchContext copy)
 		{
 			this.m_searchPage = copy.SearchPage;
 			this.m_findValue = copy.FindValue;

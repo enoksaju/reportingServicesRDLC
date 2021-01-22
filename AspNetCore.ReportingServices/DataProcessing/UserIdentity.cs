@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal enum UserIdentity
+	public enum UserIdentity
 	{
 		Default,
 		WindowsIdentity,

@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 {
-	internal class Oscillators : PriceIndicators
+	public class Oscillators : PriceIndicators
 	{
 		public override string Name
 		{
@@ -232,7 +232,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 			throw new ArgumentException(SR.ExceptionOscillatorObjectInvalidPeriod);
 		}
 
-		internal void StochasticIndicator(double[][] inputValues, out double[][] outputValues, string[] parameterList, string[] extraParameterList)
+		public void StochasticIndicator(double[][] inputValues, out double[][] outputValues, string[] parameterList, string[] extraParameterList)
 		{
 			if (inputValues.Length != 4)
 			{
@@ -295,7 +295,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 			base.MovingAverage(array, out outputValues[2], num, false);
 		}
 
-		internal void WilliamsR(double[][] inputValues, out double[][] outputValues, string[] parameterList, string[] extraParameterList)
+		public void WilliamsR(double[][] inputValues, out double[][] outputValues, string[] parameterList, string[] extraParameterList)
 		{
 			if (inputValues.Length != 4)
 			{

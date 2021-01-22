@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FrameTitle8Border : FrameTitle1Border
+	public class FrameTitle8Border : FrameTitle1Border
 	{
 		public override string Name
 		{

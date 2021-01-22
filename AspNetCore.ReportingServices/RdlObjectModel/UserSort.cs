@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class UserSort : ReportObject
+	public class UserSort : ReportObject
 	{
-		internal class Definition : DefinitionStore<UserSort, Definition.Properties>
+		public class Definition : DefinitionStore<UserSort, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				SortExpression,
 				SortExpressionScope,
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal UserSort(IPropertyStore propertyStore)
+		public UserSort(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

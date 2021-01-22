@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.DataExtensions;
 
 namespace AspNetCore.Reporting
 {
-	internal interface ILocalCatalog
+	public interface ILocalCatalog
 	{
 		byte[] GetReportDefinition(PreviewItemContext itemContext);
 

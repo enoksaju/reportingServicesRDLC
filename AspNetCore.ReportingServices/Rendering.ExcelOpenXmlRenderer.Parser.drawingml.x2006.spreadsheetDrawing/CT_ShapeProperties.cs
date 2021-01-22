@@ -4,15 +4,15 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.spreadsheetDrawing
 {
-	internal class CT_ShapeProperties : OoxmlComplexType
+	public class CT_ShapeProperties : OoxmlComplexType
 	{
-		internal enum ChoiceBucket_0
+		public enum ChoiceBucket_0
 		{
 			custGeom,
 			prstGeom
 		}
 
-		internal enum ChoiceBucket_1
+		public enum ChoiceBucket_1
 		{
 			noFill,
 			solidFill,
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.dra
 			grpFill
 		}
 
-		internal enum ChoiceBucket_2
+		public enum ChoiceBucket_2
 		{
 			effectLst,
 			effectDag

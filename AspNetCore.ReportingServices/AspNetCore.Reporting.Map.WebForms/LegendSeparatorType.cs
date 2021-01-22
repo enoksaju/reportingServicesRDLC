@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum LegendSeparatorType
+	public enum LegendSeparatorType
 	{
 		None,
 		Line,

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal sealed class ValidValue
+	public sealed class ValidValue
 	{
 		private string m_label;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal ValidValue(string label, string value)
+		public ValidValue(string label, string value)
 		{
 			this.m_label = label;
 			this.m_value = value;

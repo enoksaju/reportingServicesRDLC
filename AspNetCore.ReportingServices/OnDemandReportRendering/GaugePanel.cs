@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugePanel : DataRegion
+	public sealed class GaugePanel : DataRegion
 	{
 		private enum CompilationState
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanel GaugePanelDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool HasDataCells
+		public override bool HasDataCells
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IDataRegionRowCollection RowCollection
+		public override IDataRegionRowCollection RowCollection
 		{
 			get
 			{
@@ -250,12 +250,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanel reportItemDef, RenderingContext renderingContext)
+		public GaugePanel(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.GaugePanel reportItemDef, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_gaugeMember != null)
 			{
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_compilationState = CompilationState.NotCompiled;
 		}
 
-		internal List<GaugeInputValue> GetGaugeInputValues()
+		public List<GaugeInputValue> GetGaugeInputValues()
 		{
 			List<GaugeInputValue> list = new List<GaugeInputValue>();
 			if (this.RadialGauges != null)
@@ -447,7 +447,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return list;
 		}
 
-		internal void ProcessCompiledInstances()
+		public void ProcessCompiledInstances()
 		{
 			if (this.RequiresCompilation && this.m_compilationState == CompilationState.NotCompiled)
 			{

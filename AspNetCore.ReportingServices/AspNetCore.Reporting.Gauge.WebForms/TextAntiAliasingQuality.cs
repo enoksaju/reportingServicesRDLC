@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum TextAntiAliasingQuality
+	public enum TextAntiAliasingQuality
 	{
 		Normal,
 		High,

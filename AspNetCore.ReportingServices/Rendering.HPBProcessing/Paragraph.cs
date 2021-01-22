@@ -10,7 +10,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class Paragraph : IStorable, IPersistable, IParagraphProps
+	public sealed class Paragraph : IStorable, IPersistable, IParagraphProps
 	{
 		[StaticReference]
 		public static Declaration m_declaration = Paragraph.GetDeclaration();
@@ -201,16 +201,16 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Paragraph()
+		public Paragraph()
 		{
 		}
 
-		internal Paragraph(string uniqueName)
+		public Paragraph(string uniqueName)
 		{
 			this.m_uniqueName = uniqueName;
 		}
 
-		internal Paragraph(ParagraphInstance romParagraphInstance, string uniqueName, bool hideDuplicates)
+		public Paragraph(ParagraphInstance romParagraphInstance, string uniqueName, bool hideDuplicates)
 		{
 			this.m_source = romParagraphInstance.Definition;
 			AspNetCore.ReportingServices.OnDemandReportRendering.Paragraph source = this.m_source;
@@ -268,7 +268,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.Rendering.RichText.Paragraph GetRichTextParagraph()
+		public AspNetCore.ReportingServices.Rendering.RichText.Paragraph GetRichTextParagraph()
 		{
 			AspNetCore.ReportingServices.Rendering.RichText.Paragraph paragraph = new AspNetCore.ReportingServices.Rendering.RichText.Paragraph(this, this.m_textRuns.Count);
 			foreach (TextRun textRun in this.m_textRuns)
@@ -282,7 +282,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return paragraph;
 		}
 
-		internal RPLParagraph GetRPLParagraph(PageContext pageContext, bool hideDuplicates, TextBox.TextBoxOffset startPosition, TextBox.TextBoxOffset endPosition, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextParaRuns)
+		public RPLParagraph GetRPLParagraph(PageContext pageContext, bool hideDuplicates, TextBox.TextBoxOffset startPosition, TextBox.TextBoxOffset endPosition, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextParaRuns)
 		{
 			RPLParagraph rPLParagraph = new RPLParagraph();
 			this.WriteElementProps(rPLParagraph.ElementProps as RPLParagraphProps, pageContext);
@@ -344,7 +344,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return rPLParagraph;
 		}
 
-		internal void WriteElementProps(RPLParagraphProps elemProps, PageContext pageContext)
+		public void WriteElementProps(RPLParagraphProps elemProps, PageContext pageContext)
 		{
 			Hashtable itemPropsStart = pageContext.ItemPropsStart;
 			RPLParagraphPropsDef rPLParagraphPropsDef = pageContext.Common.GetFromCache<RPLParagraphPropsDef>(this.m_source.ID, out itemPropsStart);
@@ -426,13 +426,13 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			elemProps.NonSharedStyle = rPLStyleProps;
 		}
 
-		internal void WriteSharedStyles(StyleWriter writer, Style style)
+		public void WriteSharedStyles(StyleWriter writer, Style style)
 		{
 			Utility.WriteStyleProperty(writer, style, StyleAttributeNames.TextAlign);
 			Utility.WriteStyleProperty(writer, style, StyleAttributeNames.LineHeight);
 		}
 
-		internal long WriteToStream(BinaryWriter writer, PageContext pageContext, bool hideDuplicates, TextBox.TextBoxOffset startPosition, TextBox.TextBoxOffset endPosition, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextParaRuns)
+		public long WriteToStream(BinaryWriter writer, PageContext pageContext, bool hideDuplicates, TextBox.TextBoxOffset startPosition, TextBox.TextBoxOffset endPosition, List<AspNetCore.ReportingServices.Rendering.RichText.TextRun> richTextParaRuns)
 		{
 			int num = 0;
 			int num2 = 0;
@@ -517,7 +517,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return position;
 		}
 
-		internal void WriteElementProps(BinaryWriter spbifWriter, PageContext pageContext)
+		public void WriteElementProps(BinaryWriter spbifWriter, PageContext pageContext)
 		{
 			StyleWriterStream styleWriterStream = new StyleWriterStream(spbifWriter);
 			Hashtable itemPropsStart = pageContext.ItemPropsStart;
@@ -580,7 +580,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal void WriteNonSharedStyles(StyleWriter writer)
+		public void WriteNonSharedStyles(StyleWriter writer)
 		{
 			if (this.m_styles != null)
 			{
@@ -705,7 +705,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (Paragraph.m_declaration == null)
 			{

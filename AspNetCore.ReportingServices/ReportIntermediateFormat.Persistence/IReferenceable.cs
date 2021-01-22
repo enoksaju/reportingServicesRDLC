@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal interface IReferenceable
+	public interface IReferenceable
 	{
 		int ID
 		{

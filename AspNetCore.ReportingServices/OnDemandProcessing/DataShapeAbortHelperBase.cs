@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class DataShapeAbortHelperBase : AbortHelper
+	public abstract class DataShapeAbortHelperBase : AbortHelper
 	{
 		public DataShapeAbortHelperBase(IJobContext jobContext, bool enforceSingleAbortException)
 			: base(jobContext, enforceSingleAbortException, false)
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			base.Status = newStatus;
 		}
 
-		internal override void AddSubreportInstanceOrSharedDataSet(string uniqueName)
+		public override void AddSubreportInstanceOrSharedDataSet(string uniqueName)
 		{
 			Global.Tracer.Assert(false, "Data shape processing does nto support sub-units.");
 		}

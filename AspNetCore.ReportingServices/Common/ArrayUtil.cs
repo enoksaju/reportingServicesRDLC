@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class ArrayUtil
+	public static class ArrayUtil
 	{
 		public static T[] ToArray<T>(ICollection<T> items)
 		{

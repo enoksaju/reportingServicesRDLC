@@ -10,7 +10,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(StateIndicatorConverter))]
-	internal class StateIndicator : NamedElement, IRenderable, IToolTipProvider, IPointerProvider, ISelectable, IImageMapProvider
+	public class StateIndicator : NamedElement, IRenderable, IToolTipProvider, IPointerProvider, ISelectable, IImageMapProvider
 	{
 		private DataAttributes data;
 
@@ -818,7 +818,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal Position Position
+		public Position Position
 		{
 			get
 			{
@@ -826,7 +826,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -840,7 +840,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal DataAttributes Data
+		public DataAttributes Data
 		{
 			get
 			{
@@ -848,7 +848,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal double InternalValue
+		public double InternalValue
 		{
 			get
 			{
@@ -861,7 +861,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool DefaultParent
+		public bool DefaultParent
 		{
 			get
 			{
@@ -917,7 +917,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.data.GetValueInPercents();
 		}
 
-		internal static XamlRenderer CreateXamlRenderer(StateIndicatorStyle style, Color color, RectangleF rect, bool addBorder)
+		public static XamlRenderer CreateXamlRenderer(StateIndicatorStyle style, Color color, RectangleF rect, bool addBorder)
 		{
 			XamlRenderer xamlRenderer = new XamlRenderer(style.ToString() + ".xaml");
 			xamlRenderer.AllowPathGradientTransform = false;
@@ -932,7 +932,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return xamlRenderer;
 		}
 
-		internal XamlRenderer GetXamlRenderer(GaugeGraphics g, State currentState)
+		public XamlRenderer GetXamlRenderer(GaugeGraphics g, State currentState)
 		{
 			GraphicsPath path = this.GetPath(g, currentState);
 			XamlRenderer xamlRenderer = null;
@@ -970,7 +970,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return xamlRenderer;
 		}
 
-		internal static bool IsXamlMarker(StateIndicatorStyle style)
+		public static bool IsXamlMarker(StateIndicatorStyle style)
 		{
 			switch (style)
 			{
@@ -984,7 +984,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal static RectangleF CalculateXamlMarkerBounds(StateIndicatorStyle markerStyle, PointF centerPoint, float width, float height)
+		public static RectangleF CalculateXamlMarkerBounds(StateIndicatorStyle markerStyle, PointF centerPoint, float width, float height)
 		{
 			RectangleF result = RectangleF.Empty;
 			if (StateIndicator.IsXamlMarker(markerStyle))
@@ -1000,7 +1000,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.Name;
 		}
 
-		internal GraphicsPath GetPath(GaugeGraphics g, State currentState)
+		public GraphicsPath GetPath(GaugeGraphics g, State currentState)
 		{
 			if (!this.Visible)
 			{
@@ -1115,7 +1115,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal Brush GetBrush(GaugeGraphics g, State currentState, RectangleF rect)
+		public Brush GetBrush(GaugeGraphics g, State currentState, RectangleF rect)
 		{
 			if (!this.IsCircular())
 			{
@@ -1214,7 +1214,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return brush;
 		}
 
-		internal Pen GetPen(GaugeGraphics g, State currentState)
+		public Pen GetPen(GaugeGraphics g, State currentState)
 		{
 			Color color;
 			int num;
@@ -1274,7 +1274,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return absoluteRectangle;
 		}
 
-		internal void DrawImage(GaugeGraphics g, string imageName, float scaleFactor, Color imageTransColor, Color imageHueColor, bool drawShadow)
+		public void DrawImage(GaugeGraphics g, string imageName, float scaleFactor, Color imageTransColor, Color imageHueColor, bool drawShadow)
 		{
 			if (drawShadow && this.ShadowOffset == 0.0)
 			{
@@ -1387,7 +1387,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal State GetCurrentState()
+		public State GetCurrentState()
 		{
 			foreach (State state in this.States)
 			{
@@ -1399,7 +1399,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return null;
 		}
 
-		internal bool IsCircular()
+		public bool IsCircular()
 		{
 			if (this.IndicatorStyle == StateIndicatorStyle.CircularLed)
 			{
@@ -1408,20 +1408,20 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return false;
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 			this.data.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.ConnectToParent(true);
 			this.data.EndInit();
 		}
 
-		internal override void ReconnectData(bool exact)
+		public override void ReconnectData(bool exact)
 		{
 			this.data.ReconnectData(exact);
 		}
@@ -1449,7 +1449,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			base.Notify(msg, element, param);
 			switch (msg)
@@ -1471,7 +1471,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.States.Notify(msg, element, param);
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.ConnectToParent(true);

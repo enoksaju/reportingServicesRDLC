@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeImageAnnotation_ImageAnnotation")]
-	internal class ImageAnnotation : Annotation
+	public class ImageAnnotation : Annotation
 	{
 		private string imageName = string.Empty;
 
@@ -104,7 +104,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
-		internal override SelectionPointsStyle SelectionPointsStyle
+		public override SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{
@@ -276,7 +276,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override void Paint(Chart chart, ChartGraphics graphics)
+		public override void Paint(Chart chart, ChartGraphics graphics)
 		{
 			this.Chart = chart;
 			PointF empty = PointF.Empty;
@@ -351,7 +351,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override RectangleF GetContentPosition()
+		public override RectangleF GetContentPosition()
 		{
 			if (this.Image.Length > 0)
 			{

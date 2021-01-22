@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Legend2005 : ChartLegend
+	public class Legend2005 : ChartLegend
 	{
-		internal new class Definition : DefinitionStore<Legend2005, Definition.Properties>
+		public new class Definition : DefinitionStore<Legend2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Visible = 24,
 				Style,

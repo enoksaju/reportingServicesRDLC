@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TablixBody : DataRegionBody
+	public class TablixBody : DataRegionBody
 	{
-		internal class Definition : DefinitionStore<TablixBody, Definition.Properties>
+		public class Definition : DefinitionStore<TablixBody, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				TablixColumns,
 				TablixRows
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TablixBody(IPropertyStore propertyStore)
+		public TablixBody(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

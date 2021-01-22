@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLDefinedName
+	public class XMLDefinedName
 	{
 		private readonly CT_DefinedName _definedname;
 

@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace AspNetCore.Reporting
 {
 	[ComVisible(false)]
-	internal sealed class DocumentMapNavigationEventArgs : CancelEventArgs
+	public sealed class DocumentMapNavigationEventArgs : CancelEventArgs
 	{
 		private string m_docMapID;
 

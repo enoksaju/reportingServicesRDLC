@@ -2,12 +2,12 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.RdlExpressions
 {
-	internal struct IntegerResult
+	public struct IntegerResult
 	{
-		internal bool ErrorOccurred;
+		public bool ErrorOccurred;
 
-		internal DataFieldStatus FieldStatus;
+		public DataFieldStatus FieldStatus;
 
-		internal int Value;
+		public int Value;
 	}
 }

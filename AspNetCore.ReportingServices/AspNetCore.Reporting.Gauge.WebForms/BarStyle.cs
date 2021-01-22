@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum BarStyle
+	public enum BarStyle
 	{
 		Style1
 	}

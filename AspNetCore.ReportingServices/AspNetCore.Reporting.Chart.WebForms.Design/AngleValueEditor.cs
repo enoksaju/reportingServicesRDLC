@@ -5,7 +5,7 @@ using System.Windows.Forms.Design;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class AngleValueEditor : UITypeEditor
+	public class AngleValueEditor : UITypeEditor
 	{
 		private IWindowsFormsEditorService edSvc;
 

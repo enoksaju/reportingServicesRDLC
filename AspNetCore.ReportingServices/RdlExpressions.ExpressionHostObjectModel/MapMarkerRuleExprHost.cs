@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<MapMarkerExprHost> m_mapMarkersHostsRemotable;
 
-		internal IList<MapMarkerExprHost> MapMarkersHostsRemotable
+		public IList<MapMarkerExprHost> MapMarkersHostsRemotable
 		{
 			get
 			{

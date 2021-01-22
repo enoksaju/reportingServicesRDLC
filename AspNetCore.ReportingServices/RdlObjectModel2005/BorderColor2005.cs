@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class BorderColor2005 : ReportObject
+	public class BorderColor2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<BorderColor2005, Definition.Properties>
+		public class Definition : DefinitionStore<BorderColor2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Default,
 				Left,

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.officeDocument.x2006.extended_properties
 {
-	internal class CT_Properties : OoxmlComplexType
+	public class CT_Properties : OoxmlComplexType
 	{
 		private string _Template;
 

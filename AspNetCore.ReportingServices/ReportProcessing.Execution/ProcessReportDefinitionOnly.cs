@@ -6,7 +6,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class ProcessReportDefinitionOnly : ProcessReportOdpInitial
+	public class ProcessReportDefinitionOnly : ProcessReportOdpInitial
 	{
 		protected override OnDemandProcessingContext.Mode OnDemandProcessingMode
 		{

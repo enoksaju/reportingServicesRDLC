@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class StyleBase
+	public abstract class StyleBase
 	{
 		public const int StyleAttributeCount = 51;
 
@@ -108,13 +108,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		protected const string cTransparentColor = "TransparentColor";
 
-		internal RenderingContext m_renderingContext;
+		public RenderingContext m_renderingContext;
 
 		protected List<StyleAttributeNames> m_sharedStyles;
 
 		protected List<StyleAttributeNames> m_nonSharedStyles;
 
-		internal static IEnumerable<StyleAttributeNames> StyleNames
+		public static IEnumerable<StyleAttributeNames> StyleNames
 		{
 			get
 			{
@@ -315,7 +315,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StyleBase(RenderingContext context)
+		public StyleBase(RenderingContext context)
 		{
 			this.m_renderingContext = context;
 		}

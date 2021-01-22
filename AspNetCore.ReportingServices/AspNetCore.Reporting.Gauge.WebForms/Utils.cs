@@ -4,16 +4,16 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal static class Utils
+	public static class Utils
 	{
-		internal const float GoldenRatio = 1.618034f;
+		public const float GoldenRatio = 1.618034f;
 
-		internal static string SRGetStr(string key, params object[] p)
+		public static string SRGetStr(string key, params object[] p)
 		{
 			return string.Format(CultureInfo.CurrentCulture, SR.Keys.GetString(key), p);
 		}
 
-		internal static double Round(double value, int precision)
+		public static double Round(double value, int precision)
 		{
 			if (precision >= 0)
 			{
@@ -24,17 +24,17 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return Math.Round(value / num, 0) * num;
 		}
 
-		internal static float Deg2Rad(float angleInDegree)
+		public static float Deg2Rad(float angleInDegree)
 		{
 			return (float)((double)Math.Abs(angleInDegree) * 3.1415926535897931 / 180.0);
 		}
 
-		internal static float Rad2Deg(float angleInRadians)
+		public static float Rad2Deg(float angleInRadians)
 		{
 			return (float)((double)Math.Abs(angleInRadians) / 3.1415926535897931 * 180.0);
 		}
 
-		internal static float NormalizeAngle(float angle)
+		public static float NormalizeAngle(float angle)
 		{
 			if (angle < 0.0)
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return angle;
 		}
 
-		internal static float GetContactPointOffset(SizeF size, float angle)
+		public static float GetContactPointOffset(SizeF size, float angle)
 		{
 			angle = Utils.NormalizeAngle(Math.Abs(angle));
 			if (angle >= 180.0)
@@ -67,7 +67,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (float)(size.Height / 2.0 / Math.Cos((double)Utils.Deg2Rad(angle)));
 		}
 
-		internal static float ToGDIAngle(float angle)
+		public static float ToGDIAngle(float angle)
 		{
 			angle = (float)(angle + 90.0);
 			if (!(angle > 360.0))
@@ -77,7 +77,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (float)(angle - 360.0);
 		}
 
-		internal static RectangleF NormalizeRectangle(RectangleF boundRect, SizeF insetSize, bool resizeResult)
+		public static RectangleF NormalizeRectangle(RectangleF boundRect, SizeF insetSize, bool resizeResult)
 		{
 			RectangleF result = boundRect;
 			if (resizeResult)

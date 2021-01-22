@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class ParentDataSetContainer
+	public sealed class ParentDataSetContainer
 	{
 		private readonly DataSet m_rowParentDataSet;
 

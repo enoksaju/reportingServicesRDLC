@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal interface IDeepCloneable<T>
+	public interface IDeepCloneable<T>
 	{
 		T DeepClone();
 	}

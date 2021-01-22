@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IJobContext
+	public interface IJobContext
 	{
 		object SyncRoot
 		{

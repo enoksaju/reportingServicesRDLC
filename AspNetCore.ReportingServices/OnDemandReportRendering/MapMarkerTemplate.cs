@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMarkerTemplate : MapPointTemplate
+	public sealed class MapMarkerTemplate : MapPointTemplate
 	{
 		private MapMarker m_mapMarker;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerTemplate MapMarkerTemplateDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerTemplate MapMarkerTemplateDef
 		{
 			get
 			{
@@ -34,12 +34,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMarkerTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerTemplate defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapMarkerTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerTemplate defObject, MapVectorLayer mapVectorLayer, Map map)
 			: base(defObject, mapVectorLayer, map)
 		{
 		}
 
-		internal override MapSpatialElementTemplateInstance GetInstance()
+		public override MapSpatialElementTemplateInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

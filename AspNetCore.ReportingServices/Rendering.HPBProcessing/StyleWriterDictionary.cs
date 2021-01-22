@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class StyleWriterDictionary : StyleWriter
+	public class StyleWriterDictionary : StyleWriter
 	{
 		private Dictionary<byte, object> m_styles;
 

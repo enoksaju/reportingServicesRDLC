@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartThreeDProperties
+	public sealed class ChartThreeDProperties
 	{
 		private Chart m_chart;
 
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartThreeDProperties ChartThreeDPropertiesDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartThreeDProperties ChartThreeDPropertiesDef
 		{
 			get
 			{
@@ -264,19 +264,19 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartThreeDProperties(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartThreeDProperties threeDPropertiesDef, Chart chart)
+		public ChartThreeDProperties(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartThreeDProperties threeDPropertiesDef, Chart chart)
 		{
 			this.m_chart = chart;
 			this.m_chartThreeDPropertiesDef = threeDPropertiesDef;
 		}
 
-		internal ChartThreeDProperties(ThreeDProperties renderThreeDPropertiesDef, Chart chart)
+		public ChartThreeDProperties(ThreeDProperties renderThreeDPropertiesDef, Chart chart)
 		{
 			this.m_chart = chart;
 			this.m_renderThreeDPropertiesDef = renderThreeDPropertiesDef;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

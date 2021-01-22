@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface ICompiledStyleInstance
+	public interface ICompiledStyleInstance
 	{
 		ReportColor BackgroundGradientEndColor
 		{

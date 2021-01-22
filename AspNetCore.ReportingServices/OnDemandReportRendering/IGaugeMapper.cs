@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IGaugeMapper : IDVMappingLayer, IDisposable
+	public interface IGaugeMapper : IDVMappingLayer, IDisposable
 	{
 		void RenderGaugePanel();
 

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapTileLayerInstance : MapLayerInstance
+	public sealed class MapTileLayerInstance : MapLayerInstance
 	{
 		private MapTileLayer m_defObject;
 
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapTileLayerInstance(MapTileLayer defObject)
+		public MapTileLayerInstance(MapTileLayer defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

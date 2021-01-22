@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal interface IGlobalIDOwner
+	public interface IGlobalIDOwner
 	{
 		int GlobalID
 		{

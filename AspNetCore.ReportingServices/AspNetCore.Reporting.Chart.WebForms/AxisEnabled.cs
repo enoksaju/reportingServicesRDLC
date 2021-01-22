@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum AxisEnabled
+	public enum AxisEnabled
 	{
 		Auto,
 		True,

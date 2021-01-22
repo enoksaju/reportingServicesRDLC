@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal static class TemplateExtensions
+	public static class TemplateExtensions
 	{
 		public static string ToFullName(this Template template)
 		{

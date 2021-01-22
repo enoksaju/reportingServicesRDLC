@@ -2,40 +2,40 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ReportItemProcessing : MemberBase
+	public sealed class ReportItemProcessing : MemberBase
 	{
-		internal string DefinitionName;
+		public string DefinitionName;
 
-		internal string Label;
+		public string Label;
 
-		internal string Bookmark;
+		public string Bookmark;
 
-		internal string Tooltip;
+		public string Tooltip;
 
-		internal ReportSize Height;
+		public ReportSize Height;
 
-		internal ReportSize Width;
+		public ReportSize Width;
 
-		internal ReportSize Top;
+		public ReportSize Top;
 
-		internal ReportSize Left;
+		public ReportSize Left;
 
-		internal int ZIndex;
+		public int ZIndex;
 
-		internal bool Hidden;
+		public bool Hidden;
 
-		internal SharedHiddenState SharedHidden = SharedHiddenState.Never;
+		public SharedHiddenState SharedHidden = SharedHiddenState.Never;
 
-		internal DataValueInstanceList SharedStyles;
+		public DataValueInstanceList SharedStyles;
 
-		internal DataValueInstanceList NonSharedStyles;
+		public DataValueInstanceList NonSharedStyles;
 
-		internal ReportItemProcessing()
+		public ReportItemProcessing()
 			: base(true)
 		{
 		}
 
-		internal ReportItemProcessing DeepClone()
+		public ReportItemProcessing DeepClone()
 		{
 			ReportItemProcessing reportItemProcessing = new ReportItemProcessing();
 			if (this.DefinitionName != null)

@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class HatchStyleEditor : UITypeEditor
+	public class HatchStyleEditor : UITypeEditor
 	{
 		public override bool GetPaintValueSupported(ITypeDescriptorContext context)
 		{

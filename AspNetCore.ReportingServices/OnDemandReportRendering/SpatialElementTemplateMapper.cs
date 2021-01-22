@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class SpatialElementTemplateMapper
+	public abstract class SpatialElementTemplateMapper
 	{
 		protected MapVectorLayer m_mapVectorLayer;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal SpatialElementTemplateMapper(MapMapper mapMapper, MapVectorLayer mapVectorLayer)
+		public SpatialElementTemplateMapper(MapMapper mapMapper, MapVectorLayer mapVectorLayer)
 		{
 			this.m_mapVectorLayer = mapVectorLayer;
 			this.m_mapMapper = mapMapper;
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			coreSpatialElement.Font = this.GetFont(style, styleInstance, hasScope);
 		}
 
-		internal Font GetFont(bool hasScope)
+		public Font GetFont(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetFont(style, styleInstance, hasScope);
 		}
 
-		internal Font GetFont(Style style, StyleInstance styleInstance, bool hasScope)
+		public Font GetFont(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style == null)
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_mapMapper.GetFontFromCache(0, text, fontSize, fontStyle, fontWeight, textDecoration);
 		}
 
-		internal Color GetTextColor(bool hasScope)
+		public Color GetTextColor(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetTextColor(style, styleInstance, hasScope);
 		}
 
-		internal Color GetTextColor(Style style, StyleInstance styleInstance, bool hasScope)
+		public Color GetTextColor(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style != null && (!MappingHelper.IsPropertyExpression(style.Color) || hasScope))
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MappingHelper.DefaultColor;
 		}
 
-		internal int GetShadowOffset(bool hasScope)
+		public int GetShadowOffset(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetShadowOffset(style, styleInstance, hasScope);
 		}
 
-		internal int GetShadowOffset(Style style, StyleInstance styleInstance, bool hasScope)
+		public int GetShadowOffset(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style != null && (!MappingHelper.IsPropertyExpression(style.ShadowOffset) || hasScope))
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return 0;
 		}
 
-		internal MapHatchStyle GetHatchStyle(bool hasScope)
+		public MapHatchStyle GetHatchStyle(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetHatchStyle(style, styleInstance, hasScope);
 		}
 
-		internal MapHatchStyle GetHatchStyle(Style style, StyleInstance styleInstance, bool hasScope)
+		public MapHatchStyle GetHatchStyle(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style != null && (!MappingHelper.IsPropertyExpression(style.BackgroundHatchType) || hasScope))
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapHatchStyle.None;
 		}
 
-		internal GradientType GetGradientType(bool hasScope)
+		public GradientType GetGradientType(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -215,7 +215,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetGradientType(style, styleInstance, hasScope);
 		}
 
-		internal GradientType GetGradientType(Style style, StyleInstance styleInstance, bool hasScope)
+		public GradientType GetGradientType(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style != null && (!MappingHelper.IsPropertyExpression(style.BackgroundGradientType) || hasScope))
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GradientType.None;
 		}
 
-		internal Color GetBackGradientEndColor(bool hasScope)
+		public Color GetBackGradientEndColor(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetBackGradientEndColor(style, styleInstance, hasScope);
 		}
 
-		internal Color GetBackGradientEndColor(Style style, StyleInstance styleInstance, bool hasScope)
+		public Color GetBackGradientEndColor(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style != null && (!MappingHelper.IsPropertyExpression(style.BackgroundGradientEndColor) || hasScope))
 			{
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return Color.Empty;
 		}
 
-		internal Color GetBackgroundColor(bool hasScope)
+		public Color GetBackgroundColor(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -249,7 +249,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetBackgroundColor(style, styleInstance, hasScope);
 		}
 
-		internal Color GetBackgroundColor(Style style, StyleInstance styleInstance, bool hasScope)
+		public Color GetBackgroundColor(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style == null)
 			{
@@ -262,7 +262,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MappingHelper.GetStyleBackgroundColor(style, styleInstance);
 		}
 
-		internal int GetBorderWidth(bool hasScope)
+		public int GetBorderWidth(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetBorderWidth(style, styleInstance, hasScope);
 		}
 
-		internal int GetBorderWidth(Style style, StyleInstance styleInstance, bool hasScope)
+		public int GetBorderWidth(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style != null)
 			{
@@ -283,7 +283,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MappingHelper.GetDefaultBorderWidth(this.m_mapMapper.DpiX);
 		}
 
-		internal Color GetBorderColor(bool hasScope)
+		public Color GetBorderColor(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetBorderColor(style, styleInstance, hasScope);
 		}
 
-		internal Color GetBorderColor(Style style, StyleInstance styleInstance, bool hasScope)
+		public Color GetBorderColor(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style != null)
 			{
@@ -304,7 +304,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MappingHelper.DefaultBorderColor;
 		}
 
-		internal MapDashStyle GetBorderStyle(bool hasScope)
+		public MapDashStyle GetBorderStyle(bool hasScope)
 		{
 			Style style = default(Style);
 			StyleInstance styleInstance = default(StyleInstance);
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetBorderStyle(style, styleInstance, hasScope);
 		}
 
-		internal MapDashStyle GetBorderStyle(Style style, StyleInstance styleInstance, bool hasScope)
+		public MapDashStyle GetBorderStyle(Style style, StyleInstance styleInstance, bool hasScope)
 		{
 			if (style != null)
 			{

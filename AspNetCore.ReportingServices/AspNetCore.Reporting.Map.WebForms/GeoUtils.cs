@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class GeoUtils
+	public class GeoUtils
 	{
 		private class PolygonCutter
 		{
@@ -182,7 +182,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private class PolygonPart
 		{
-			internal class Comparer : IComparer<PolygonPart>
+			public class Comparer : IComparer<PolygonPart>
 			{
 				public int Compare(PolygonPart p1, PolygonPart p2)
 				{
@@ -200,7 +200,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 				}
 			}
 
-			internal class ReverseComparer : IComparer<PolygonPart>
+			public class ReverseComparer : IComparer<PolygonPart>
 			{
 				public int Compare(PolygonPart p1, PolygonPart p2)
 				{
@@ -224,7 +224,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 			private PolygonClosingPole closingPole;
 
-			internal bool isClosedAtPole;
+			public bool isClosedAtPole;
 
 			public virtual MapPoint FirstPoint
 			{
@@ -447,7 +447,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal class Vector3
+		public class Vector3
 		{
 			public double x;
 
@@ -716,7 +716,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static void CalculateSignedArea(ref MapPoint[] points, ref ShapeSegment[] segments)
+		public static void CalculateSignedArea(ref MapPoint[] points, ref ShapeSegment[] segments)
 		{
 			int num = 0;
 			for (int i = 0; i < segments.Length; i++)
@@ -734,7 +734,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static void FixOrientationForGeometry(ref MapPoint[] points, ref ShapeSegment[] segments)
+		public static void FixOrientationForGeometry(ref MapPoint[] points, ref ShapeSegment[] segments)
 		{
 			GeoUtils.CalculateSignedArea(ref points, ref segments);
 			int i = 0;
@@ -759,7 +759,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static void MoveLargestSegmentToFront(ref MapPoint[] points, ref ShapeSegment[] segments)
+		public static void MoveLargestSegmentToFront(ref MapPoint[] points, ref ShapeSegment[] segments)
 		{
 			GeoUtils.CalculateSignedArea(ref points, ref segments);
 			double num = 0.0;
@@ -791,7 +791,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
         /*
-		internal static SqlGeometry FlattenGeometry(SqlGeometry geometry)
+		public static SqlGeometry FlattenGeometry(SqlGeometry geometry)
 		{
 			List<SqlGeometry> list = new List<SqlGeometry>();
 			GeoUtils.FlattenGeometryRec(geometry, list);
@@ -821,7 +821,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static SqlGeography FlattenGeography(SqlGeography geography)
+		public static SqlGeography FlattenGeography(SqlGeography geography)
 		{
 			List<SqlGeography> list = new List<SqlGeography>();
 			GeoUtils.FlattenGeographyRec(geography, list);

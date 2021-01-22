@@ -5,7 +5,7 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class MalformedXmlException : ReportCatalogException
+	public sealed class MalformedXmlException : ReportCatalogException
 	{
 		public MalformedXmlException(XmlException ex)
 			: base(ErrorCode.rsMalformedXml, ErrorStrings.rsMalformedXml(ex.Message), ex, null)

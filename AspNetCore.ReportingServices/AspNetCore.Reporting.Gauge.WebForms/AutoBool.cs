@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum AutoBool
+	public enum AutoBool
 	{
 		Auto,
 		True,

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum MapCursor
+	public enum MapCursor
 	{
 		AppStarting,
 		Arrow,

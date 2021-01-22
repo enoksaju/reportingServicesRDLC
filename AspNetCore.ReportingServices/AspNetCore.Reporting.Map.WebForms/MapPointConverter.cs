@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapPointConverter : ExpandableObjectConverter
+	public class MapPointConverter : ExpandableObjectConverter
 	{
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
 		{

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal class KeywordInfo
+	public class KeywordInfo
 	{
 		public string Name = string.Empty;
 

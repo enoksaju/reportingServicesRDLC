@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapLegendTitle : MapStyleContainer, IPersistable
+	public sealed class MapLegendTitle : MapStyleContainer, IPersistable
 	{
 		[NonSerialized]
 		private MapLegendTitleExprHost m_exprHost;
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_titleSeparatorColor;
 
-		internal ExpressionInfo Caption
+		public ExpressionInfo Caption
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TitleSeparator
+		public ExpressionInfo TitleSeparator
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TitleSeparatorColor
+		public ExpressionInfo TitleSeparatorColor
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLegendTitleExprHost ExprHost
+		public MapLegendTitleExprHost ExprHost
 		{
 			get
 			{
@@ -78,16 +78,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLegendTitle()
+		public MapLegendTitle()
 		{
 		}
 
-		internal MapLegendTitle(Map map)
+		public MapLegendTitle(Map map)
 			: base(map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapLegendTitleStart();
 			base.Initialize(context);
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapLegendTitleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapLegendTitle mapLegendTitle = (MapLegendTitle)base.PublishClone(context);
 			if (this.m_caption != null)
@@ -127,14 +127,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapLegendTitle;
 		}
 
-		internal void SetExprHost(MapLegendTitleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapLegendTitleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Caption, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -196,20 +196,20 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapLegendTitle;
 		}
 
-		internal string EvaluateCaption(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateCaption(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateMapLegendTitleCaptionExpression(this, base.m_map.Name);
 			return base.m_map.GetFormattedStringFromValue(ref variantResult, context);
 		}
 
-		internal MapLegendTitleSeparator EvaluateTitleSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapLegendTitleSeparator EvaluateTitleSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapLegendTitleSeparator(context.ReportRuntime.EvaluateMapLegendTitleTitleSeparatorExpression(this, base.m_map.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateTitleSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateTitleSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLegendTitleTitleSeparatorColorExpression(this, base.m_map.Name);

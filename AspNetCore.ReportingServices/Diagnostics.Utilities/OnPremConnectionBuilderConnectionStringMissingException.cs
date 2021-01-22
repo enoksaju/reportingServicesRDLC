@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class OnPremConnectionBuilderConnectionStringMissingException : ReportCatalogException
+	public sealed class OnPremConnectionBuilderConnectionStringMissingException : ReportCatalogException
 	{
 		public OnPremConnectionBuilderConnectionStringMissingException()
 			: base(ErrorCode.rsOnPremConnectionBuilderConnectionStringMissing, ErrorStrings.rsOnPremConnectionBuilderConnectionStringMissing, null, null)

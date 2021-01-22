@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<DataCellExprHost> m_dataCellHostsRemotable;
 
-		internal IList<DataGroupingExprHost> DataGroupingHostsRemotable
+		public IList<DataGroupingExprHost> DataGroupingHostsRemotable
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<DataCellExprHost> DataCellHostsRemotable
+		public IList<DataCellExprHost> DataCellHostsRemotable
 		{
 			get
 			{

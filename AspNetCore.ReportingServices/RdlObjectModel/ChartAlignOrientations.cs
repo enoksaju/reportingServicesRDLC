@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartAlignOrientations
+	public enum ChartAlignOrientations
 	{
 		None,
 		Vertical,

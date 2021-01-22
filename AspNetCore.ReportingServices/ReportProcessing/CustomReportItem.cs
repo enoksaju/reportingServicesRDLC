@@ -11,7 +11,7 @@ using System.IO;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CustomReportItem : Tablix, IRunningValueHolder, IErrorContext
+	public sealed class CustomReportItem : Tablix, IRunningValueHolder, IErrorContext
 	{
 		private string m_type;
 
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_firstInstance = true;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override TablixHeadingList TablixColumns
+		public override TablixHeadingList TablixColumns
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override TablixHeadingList TablixRows
+		public override TablixHeadingList TablixRows
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override RunningValueInfoList TablixCellRunningValues
+		public override RunningValueInfoList TablixCellRunningValues
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Type
+		public string Type
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection AltReportItem
+		public ReportItemCollection AltReportItem
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingList Columns
+		public CustomReportItemHeadingList Columns
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingList Rows
+		public CustomReportItemHeadingList Rows
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataCellsList DataRowCells
+		public DataCellsList DataRowCells
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList CellRunningValues
+		public RunningValueInfoList CellRunningValues
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList CellExprHostIDs
+		public IntList CellExprHostIDs
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExpectedColumns
+		public int ExpectedColumns
 		{
 			get
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExpectedRows
+		public int ExpectedRows
 		{
 			get
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingList StaticColumns
+		public CustomReportItemHeadingList StaticColumns
 		{
 			get
 			{
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingList StaticRows
+		public CustomReportItemHeadingList StaticRows
 		{
 			get
 			{
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection RenderReportItem
+		public ReportItemCollection RenderReportItem
 		{
 			get
 			{
@@ -255,7 +255,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FirstInstanceOfRenderReportItem
+		public bool FirstInstanceOfRenderReportItem
 		{
 			get
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.ProcessingContext ProcessingContext
+		public ReportProcessing.ProcessingContext ProcessingContext
 		{
 			get
 			{
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ObjectType CustomObjectType
+		public ObjectType CustomObjectType
 		{
 			get
 			{
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string CustomObjectName
+		public string CustomObjectName
 		{
 			get
 			{
@@ -311,12 +311,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItem(ReportItem parent)
+		public CustomReportItem(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal CustomReportItem(int id, int idAltReportitem, ReportItem parent)
+		public CustomReportItem(int id, int idAltReportitem, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_dataRowCells = new DataCellsList();
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -613,7 +613,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void CopyHeadingAggregates(CustomReportItemHeadingList headings)
+		public void CopyHeadingAggregates(CustomReportItemHeadingList headings)
 		{
 			if (headings != null)
 			{
@@ -629,7 +629,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override int GetDynamicHeadingCount(bool outerGroupings)
+		public override int GetDynamicHeadingCount(bool outerGroupings)
 		{
 			if (outerGroupings && base.m_processingInnerGrouping == Pivot.ProcessingInnerGroupings.Column)
 			{
@@ -656,7 +656,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return num;
 		}
 
-		internal override TablixHeadingList SkipStatics(TablixHeadingList headings)
+		public override TablixHeadingList SkipStatics(TablixHeadingList headings)
 		{
 			Global.Tracer.Assert(headings != null && 1 <= headings.Count && headings is CustomReportItemHeadingList);
 			if (((CustomReportItemHeadingList)headings)[0].Static)
@@ -666,7 +666,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return headings;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -697,7 +697,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override Hashtable GetOuterScopeNames(int dynamicLevel)
+		public override Hashtable GetOuterScopeNames(int dynamicLevel)
 		{
 			Hashtable hashtable = new Hashtable();
 			CustomReportItemHeadingList customReportItemHeadingList = (CustomReportItemHeadingList)base.GetOuterHeading();
@@ -714,7 +714,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return hashtable;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Type, Token.String));
@@ -728,7 +728,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.Tablix, memberInfoList);
 		}
 
-		internal void CustomProcessingInitialize(CustomReportItemInstance instance, CustomReportItemInstanceInfo instanceInfo, ReportProcessing.ProcessingContext context, int repeatedSiblingIndex)
+		public void CustomProcessingInitialize(CustomReportItemInstance instance, CustomReportItemInstanceInfo instanceInfo, ReportProcessing.ProcessingContext context, int repeatedSiblingIndex)
 		{
 			this.m_criInstance = instance;
 			this.m_criInstanceInfo = instanceInfo;
@@ -739,7 +739,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_customPropertyName = null;
 		}
 
-		internal void CustomProcessingReset()
+		public void CustomProcessingReset()
 		{
 			this.m_criInstance = null;
 			this.m_criInstanceInfo = null;
@@ -750,7 +750,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_customPropertyName = null;
 		}
 
-		internal void DeconstructRenderItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderItem, CustomReportItemInstance criInstance)
+		public void DeconstructRenderItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderItem, CustomReportItemInstance criInstance)
 		{
 			if (this.FirstInstanceOfRenderReportItem)
 			{
@@ -1008,7 +1008,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static void DeconstructRenderStyle(bool firstStyleInstance, DataValueInstanceList sharedStyles, DataValueInstanceList nonSharedStyles, ref Style style, out object[] styleAttributeValues, CustomReportItem context)
+		public static void DeconstructRenderStyle(bool firstStyleInstance, DataValueInstanceList sharedStyles, DataValueInstanceList nonSharedStyles, ref Style style, out object[] styleAttributeValues, CustomReportItem context)
 		{
 			styleAttributeValues = null;
 			int num = (sharedStyles != null) ? sharedStyles.Count : 0;
@@ -1147,7 +1147,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			target.SiblingAboveMe = base.m_siblingAboveMe;
 		}
 
-		internal static bool CloneObject(object o, out object clone)
+		public static bool CloneObject(object o, out object clone)
 		{
 			clone = null;
 			if (o != null && DBNull.Value != o)

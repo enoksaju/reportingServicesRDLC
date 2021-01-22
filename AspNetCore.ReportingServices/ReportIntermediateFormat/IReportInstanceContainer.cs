@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.OnDemandProcessing.Scalability;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IReportInstanceContainer
+	public interface IReportInstanceContainer
 	{
 		IReference<ReportInstance> ReportInstance
 		{

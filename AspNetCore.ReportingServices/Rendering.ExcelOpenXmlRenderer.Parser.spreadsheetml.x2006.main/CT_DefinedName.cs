@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_DefinedName : OoxmlComplexType
+	public class CT_DefinedName : OoxmlComplexType
 	{
 		private string _name_attr;
 

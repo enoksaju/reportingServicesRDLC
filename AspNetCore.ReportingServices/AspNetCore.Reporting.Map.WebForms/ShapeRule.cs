@@ -8,7 +8,7 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(ShapeRuleConverter))]
-	internal class ShapeRule : RuleBase
+	public class ShapeRule : RuleBase
 	{
 		private CustomColorCollection customColors;
 
@@ -98,7 +98,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override string Field
+		public override string Field
 		{
 			get
 			{
@@ -323,7 +323,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[DefaultValue(DataGrouping.Optimal)]
 		[SRDescription("DescriptionAttributeShapeRule_DataGrouping")]
 		[SRCategory("CategoryAttribute_Data")]
-		internal override DataGrouping DataGrouping
+		public override DataGrouping DataGrouping
 		{
 			get
 			{
@@ -456,7 +456,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -477,7 +477,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal ShapeRule(CommonElements common)
+		public ShapeRule(CommonElements common)
 			: base(common)
 		{
 			this.customColors = new CustomColorCollection(this, common);
@@ -488,13 +488,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Name;
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.InvalidateRules();
 		}
 
-		internal void InvalidateRules()
+		public void InvalidateRules()
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore != null)
@@ -504,13 +504,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void OnRemove()
+		public override void OnRemove()
 		{
 			base.OnRemove();
 			this.InvalidateRules();
 		}
 
-		internal void RegenerateColorRanges()
+		public void RegenerateColorRanges()
 		{
 			if (this.UseCustomColors)
 			{
@@ -730,7 +730,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void UpdateColorSwatchAndLegend()
+		public void UpdateColorSwatchAndLegend()
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore != null)
@@ -784,7 +784,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string GetLegendText(Field field, string fromValue, string toValue)
+		public string GetLegendText(Field field, string fromValue, string toValue)
 		{
 			object obj = null;
 			object obj2 = null;
@@ -806,7 +806,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return mapCore.ResolveKeyword(empty, "#VALUE", obj);
 		}
 
-		internal void Apply(Shape shape)
+		public void Apply(Shape shape)
 		{
 			if (!(this.Category != shape.Category))
 			{
@@ -844,7 +844,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override Field GetField()
+		public override Field GetField()
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore == null)
@@ -854,7 +854,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (Field)mapCore.ShapeFields.GetByName(this.ShapeField);
 		}
 
-		internal void GetRangeFromShapes(Field field, int intervalCount, ref object fromValue, ref object toValue)
+		public void GetRangeFromShapes(Field field, int intervalCount, ref object fromValue, ref object toValue)
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore != null)
@@ -1074,7 +1074,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override ArrayList GetSortedValues(Field field, object fromValue, object toValue)
+		public override ArrayList GetSortedValues(Field field, object fromValue, object toValue)
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore == null)

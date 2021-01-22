@@ -7,11 +7,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class Rectangle : PageItemContainer
+	public sealed class Rectangle : PageItemContainer
 	{
 		private static Declaration m_declaration = Rectangle.GetDeclaration();
 
-		internal override byte RPLFormatType
+		public override byte RPLFormatType
 		{
 			get
 			{
@@ -19,11 +19,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Rectangle()
+		public Rectangle()
 		{
 		}
 
-		internal Rectangle(AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle source, PageContext pageContext)
+		public Rectangle(AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle source, PageContext pageContext)
 			: base(source)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle rectangle = (AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle)base.m_source;
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.Rectangle;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (Rectangle.m_declaration == null)
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			base.CreateChildren(((AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle)base.m_source).ReportItemCollection, pageContext);
 		}
 
-		internal override void OmitBorderOnPageBreak(RPLWriter rplWriter, double pageLeft, double pageTop, double pageRight, double pageBottom)
+		public override void OmitBorderOnPageBreak(RPLWriter rplWriter, double pageLeft, double pageTop, double pageRight, double pageBottom)
 		{
 			if (rplWriter != null && ((AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle)base.m_source).OmitBorderOnPageBreak)
 			{
@@ -96,18 +96,18 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override RPLElement CreateRPLElement()
+		public override RPLElement CreateRPLElement()
 		{
 			return new RPLRectangle();
 		}
 
-		internal override RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext)
+		public override RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext)
 		{
 			RPLItemProps rplElementProps = props as RPLItemProps;
 			return new RPLRectangle(rplElementProps);
 		}
 
-		internal override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle rectangle = (AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle)base.m_source;
 			ReportItemCollection reportItemCollection = rectangle.ReportItemCollection;
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle rectangle = (AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle)base.m_source;
 			ReportItemCollection reportItemCollection = rectangle.ReportItemCollection;

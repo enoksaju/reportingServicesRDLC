@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum BackgroundHatchTypes
+	public enum BackgroundHatchTypes
 	{
 		Default,
 		None,

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.officeDocument.x2006.docPropsVTypes
 {
-	internal class ST_VectorBaseType
+	public class ST_VectorBaseType
 	{
 		private string _ooxmlEnumerationValue;
 

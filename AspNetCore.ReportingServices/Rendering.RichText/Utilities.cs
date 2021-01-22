@@ -2,47 +2,47 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class Utilities
+	public class Utilities
 	{
-		internal const int EASTASIACHAR_RANGE1_START = 4352;
+		public const int EASTASIACHAR_RANGE1_START = 4352;
 
-		internal const int EASTASIACHAR_RANGE1_END = 4607;
+		public const int EASTASIACHAR_RANGE1_END = 4607;
 
-		internal const int EASTASIACHAR_RANGE2_START = 11904;
+		public const int EASTASIACHAR_RANGE2_START = 11904;
 
-		internal const int EASTASIACHAR_RANGE2_END = 55215;
+		public const int EASTASIACHAR_RANGE2_END = 55215;
 
-		internal const int EASTASIACHAR_RANGE3_START = 63744;
+		public const int EASTASIACHAR_RANGE3_START = 63744;
 
-		internal const int EASTASIACHAR_RANGE3_END = 65519;
+		public const int EASTASIACHAR_RANGE3_END = 65519;
 
-		internal const int EASTASIACHAR_RANGE4_START = 55296;
+		public const int EASTASIACHAR_RANGE4_START = 55296;
 
-		internal const int EASTASIACHAR_RANGE4_END = 56319;
+		public const int EASTASIACHAR_RANGE4_END = 56319;
 
-		internal const int SPACE_MODIFIER_LETTERS_RANGE_START = 688;
+		public const int SPACE_MODIFIER_LETTERS_RANGE_START = 688;
 
-		internal const int SPACE_MODIFIER_LETTERS_RANGE_END = 767;
+		public const int SPACE_MODIFIER_LETTERS_RANGE_END = 767;
 
-		internal const int SCRIPT_LOOKUP_DEFAULT = 0;
+		public const int SCRIPT_LOOKUP_DEFAULT = 0;
 
-		internal const int SCRIPT_LOOKUP_KANA = 14;
+		public const int SCRIPT_LOOKUP_KANA = 14;
 
-		internal const int SCRIPT_LOOKUP_HIRAGANA = 15;
+		public const int SCRIPT_LOOKUP_HIRAGANA = 15;
 
-		internal const int SCRIPT_LOOKUP_KATAKANA = 16;
+		public const int SCRIPT_LOOKUP_KATAKANA = 16;
 
-		internal const int SCRIPT_LOOKUP_HAN = 17;
+		public const int SCRIPT_LOOKUP_HAN = 17;
 
-		internal const int SCRIPT_LOOKUP_HANGUL = 18;
+		public const int SCRIPT_LOOKUP_HANGUL = 18;
 
-		internal const int SCRIPT_LOOKUP_OLD_HANGUL = 19;
+		public const int SCRIPT_LOOKUP_OLD_HANGUL = 19;
 
-		internal const int SCRIPT_LOOKUP_BOPOMOFO = 20;
+		public const int SCRIPT_LOOKUP_BOPOMOFO = 20;
 
-		internal const int SCRIPT_LOOKUP_KATAKANA_EXT = -1;
+		public const int SCRIPT_LOOKUP_KATAKANA_EXT = -1;
 
-		internal static bool IsEastAsianChar(char c)
+		public static bool IsEastAsianChar(char c)
 		{
 			if (c > 'ᄀ' && c <= 'ᇿ')
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return true;
 		}
 
-		internal static string ConvertTabAndCheckEastAsianChars(string value, out bool hasEastAsianChars)
+		public static string ConvertTabAndCheckEastAsianChars(string value, out bool hasEastAsianChars)
 		{
 			hasEastAsianChars = false;
 			if (string.IsNullOrEmpty(value))
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return stringBuilder.ToString();
 		}
 
-		internal static int GetEastAsianScriptIDFromText(string text)
+		public static int GetEastAsianScriptIDFromText(string text)
 		{
 			if (string.IsNullOrEmpty(text))
 			{

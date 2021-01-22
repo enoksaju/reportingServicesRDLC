@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalChartDataPoint : ChartDataPoint, IROMActionOwner
+	public sealed class InternalChartDataPoint : ChartDataPoint, IROMActionOwner
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPoint m_dataPointDef;
 
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPoint DataPointDef
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPoint DataPointDef
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportRendering.ChartDataPoint RenderItem
+		public override AspNetCore.ReportingServices.ReportRendering.ChartDataPoint RenderItem
 		{
 			get
 			{
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ChartDataPoint RenderDataPointDef
+		public override AspNetCore.ReportingServices.ReportProcessing.ChartDataPoint RenderDataPointDef
 		{
 			get
 			{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -193,13 +193,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalChartDataPoint(Chart owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPoint dataPointDef)
+		public InternalChartDataPoint(Chart owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPoint dataPointDef)
 			: base(owner, rowIndex, colIndex)
 		{
 			this.m_dataPointDef = dataPointDef;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_itemInLegend != null)

@@ -1,26 +1,26 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class AnovaResult
+	public class AnovaResult
 	{
-		internal double sumOfSquaresBetweenGroups;
+		public double sumOfSquaresBetweenGroups;
 
-		internal double sumOfSquaresWithinGroups;
+		public double sumOfSquaresWithinGroups;
 
-		internal double sumOfSquaresTotal;
+		public double sumOfSquaresTotal;
 
-		internal double degreeOfFreedomBetweenGroups;
+		public double degreeOfFreedomBetweenGroups;
 
-		internal double degreeOfFreedomWithinGroups;
+		public double degreeOfFreedomWithinGroups;
 
-		internal double degreeOfFreedomTotal;
+		public double degreeOfFreedomTotal;
 
-		internal double meanSquareVarianceBetweenGroups;
+		public double meanSquareVarianceBetweenGroups;
 
-		internal double meanSquareVarianceWithinGroups;
+		public double meanSquareVarianceWithinGroups;
 
-		internal double fRatio;
+		public double fRatio;
 
-		internal double fCriticalValue;
+		public double fCriticalValue;
 
 		public double SumOfSquaresBetweenGroups
 		{

@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class RenderReportOdpLiveAndCacheData : RenderReportOdpInitial
+	public class RenderReportOdpLiveAndCacheData : RenderReportOdpInitial
 	{
 		private IChunkFactory m_metaDataChunkFactory;
 

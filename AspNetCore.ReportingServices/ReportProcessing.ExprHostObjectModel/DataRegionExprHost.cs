@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<FilterExprHost> FilterHostsRemotable
+		public IList<FilterExprHost> FilterHostsRemotable
 		{
 			get
 			{

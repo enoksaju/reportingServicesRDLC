@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Diagnostics.Utilities;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IRichTextLogger
+	public interface IRichTextLogger
 	{
 		RSTrace Tracer
 		{

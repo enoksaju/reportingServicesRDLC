@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class ST_LineSpacingRule
+	public class ST_LineSpacingRule
 	{
 		private string _ooxmlEnumerationValue;
 

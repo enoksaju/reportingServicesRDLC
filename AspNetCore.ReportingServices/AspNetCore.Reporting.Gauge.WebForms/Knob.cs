@@ -10,7 +10,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(KnobConverter))]
-	internal class Knob : PointerBase, ISelectable
+	public class Knob : PointerBase, ISelectable
 	{
 		private bool capVisible = true;
 
@@ -862,7 +862,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return false;
 		}
 
-		internal KnobStyleAttrib GetKnobStyleAttrib(GaugeGraphics g, PointF pointOrigin, float angle)
+		public KnobStyleAttrib GetKnobStyleAttrib(GaugeGraphics g, PointF pointOrigin, float angle)
 		{
 			KnobStyleAttrib knobStyleAttrib = new KnobStyleAttrib();
 			if (this.Image != "" && this.CapImage != "")
@@ -1136,7 +1136,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return brush;
 		}
 
-		internal override void Render(GaugeGraphics g)
+		public override void Render(GaugeGraphics g)
 		{
 			if (this.Common != null && this.Visible && this.GetScale() != null)
 			{
@@ -1201,7 +1201,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void DrawImage(GaugeGraphics g, bool primary, bool drawShadow)
+		public void DrawImage(GaugeGraphics g, bool primary, bool drawShadow)
 		{
 			if (this.Visible)
 			{
@@ -1294,7 +1294,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GraphicsPath GetPointerPath(GaugeGraphics g)
+		public GraphicsPath GetPointerPath(GaugeGraphics g)
 		{
 			if (!this.Visible)
 			{
@@ -1311,7 +1311,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal GraphicsPath GetShadowPath(GaugeGraphics g)
+		public GraphicsPath GetShadowPath(GaugeGraphics g)
 		{
 			if (base.ShadowOffset != 0.0 && this.GetScale() != null)
 			{
@@ -1348,7 +1348,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return null;
 		}
 
-		internal void AddHotRegion(GraphicsPath path, bool primary)
+		public void AddHotRegion(GraphicsPath path, bool primary)
 		{
 			if (primary)
 			{
@@ -1360,7 +1360,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void SetAllHotRegions(GaugeGraphics g)
+		public void SetAllHotRegions(GaugeGraphics g)
 		{
 			this.Common.GaugeCore.HotRegionList.SetHotRegion(this, g.GetAbsolutePoint(this.GetScale().GetPivotPoint()), this.hotRegions[0], this.hotRegions[1]);
 			this.hotRegions[0] = null;

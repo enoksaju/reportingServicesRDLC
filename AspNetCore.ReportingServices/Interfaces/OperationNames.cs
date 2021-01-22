@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal sealed class OperationNames
+	public sealed class OperationNames
 	{
 		public const string OperManageSharedSchedules = "Manage Shared Schedules";
 

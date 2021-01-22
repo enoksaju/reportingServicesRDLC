@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IRunningValueHolder
+	public interface IRunningValueHolder
 	{
 		DataScopeInfo DataScopeInfo
 		{

@@ -8,9 +8,9 @@ using System.Xml.Serialization;
 namespace AspNetCore.ReportingServices.RdlObjectModel.SharedDataSets
 {
 	[XmlElementClass("SharedDataSet", typeof(SharedDataSet), Namespace = "http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition")]
-	internal class SharedDataSet : ReportObject, IGlobalNamedObject, INamedObject
+	public class SharedDataSet : ReportObject, IGlobalNamedObject, INamedObject
 	{
-		internal class SharedDataSetSerializerHost : ISerializerHost
+		public class SharedDataSetSerializerHost : ISerializerHost
 		{
 			public Type GetSubstituteType(Type type)
 			{
@@ -30,9 +30,9 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.SharedDataSets
 			}
 		}
 
-		internal class Definition : DefinitionStore<SharedDataSet, Definition.Properties>
+		public class Definition : DefinitionStore<SharedDataSet, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Description,
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.SharedDataSets
 		{
 		}
 
-		internal SharedDataSet(IPropertyStore propertyStore)
+		public SharedDataSet(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.SharedDataSets
 			return (SharedDataSet)rdlSerializer.Deserialize(stream, typeof(SharedDataSet));
 		}
 
-		internal static RdlSerializer CreateSerializer()
+		public static RdlSerializer CreateSerializer()
 		{
 			SharedDataSetSerializerHost host = new SharedDataSetSerializerHost();
 			RdlSerializerSettings rdlSerializerSettings = new RdlSerializerSettings();

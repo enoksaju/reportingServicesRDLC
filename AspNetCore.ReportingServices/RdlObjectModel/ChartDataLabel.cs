@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartDataLabel : ReportObject
+	public class ChartDataLabel : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartDataLabel, Definition.Properties>
+		public class Definition : DefinitionStore<ChartDataLabel, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Label,
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartDataLabel(IPropertyStore propertyStore)
+		public ChartDataLabel(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

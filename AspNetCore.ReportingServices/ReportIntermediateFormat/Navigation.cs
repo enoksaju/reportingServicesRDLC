@@ -6,16 +6,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal abstract class Navigation : IPersistable
+	public abstract class Navigation : IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Navigation.GetDeclaration();
 
-		internal virtual void Initialize(Tablix tablix, InitializationContext context)
+		public virtual void Initialize(Tablix tablix, InitializationContext context)
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Navigation, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.None, memberInfoList);

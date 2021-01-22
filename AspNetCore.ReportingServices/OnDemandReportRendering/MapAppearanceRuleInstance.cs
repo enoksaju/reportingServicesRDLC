@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapAppearanceRuleInstance : BaseInstance
+	public abstract class MapAppearanceRuleInstance : BaseInstance
 	{
 		private MapAppearanceRule m_defObject;
 
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapAppearanceRuleInstance(MapAppearanceRule defObject)
+		public MapAppearanceRuleInstance(MapAppearanceRule defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

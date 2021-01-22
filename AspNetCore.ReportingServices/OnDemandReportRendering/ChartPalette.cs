@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartPalette
+	public enum ChartPalette
 	{
 		Default,
 		EarthTones,

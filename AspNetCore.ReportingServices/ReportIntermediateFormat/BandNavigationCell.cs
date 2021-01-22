@@ -6,21 +6,21 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class BandNavigationCell : TablixCellBase, IPersistable
+	public sealed class BandNavigationCell : TablixCellBase, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = BandNavigationCell.GetDeclaration();
 
-		internal BandNavigationCell()
+		public BandNavigationCell()
 		{
 		}
 
-		internal BandNavigationCell(int id, DataRegion dataRegion)
+		public BandNavigationCell(int id, DataRegion dataRegion)
 			: base(id, dataRegion)
 		{
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			base.Initialize(0, 0, 0, 0, context);
 		}
@@ -33,12 +33,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			return (BandNavigationCell)base.PublishClone(context);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.BandNavigationCell, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.TablixCellBase, memberInfoList);

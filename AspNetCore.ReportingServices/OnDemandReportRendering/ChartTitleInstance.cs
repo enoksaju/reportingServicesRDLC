@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartTitleInstance : BaseInstance
+	public sealed class ChartTitleInstance : BaseInstance
 	{
 		private ChartTitle m_chartTitleDef;
 
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartTitleInstance(ChartTitle chartTitleDef)
+		public ChartTitleInstance(ChartTitle chartTitleDef)
 			: base(chartTitleDef.ChartDef)
 		{
 			this.m_chartTitleDef = chartTitleDef;

@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class TextRun
+	public class TextRun
 	{
 		protected string m_text;
 
@@ -18,11 +18,11 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		protected ScriptAnalysis m_scriptAnalysis;
 
-		internal SCRIPT_ANALYSIS SCRIPT_ANALYSIS;
+		public SCRIPT_ANALYSIS SCRIPT_ANALYSIS;
 
-		internal SCRIPT_LOGATTR[] ScriptLogAttr;
+		public SCRIPT_LOGATTR[] ScriptLogAttr;
 
-		internal int m_underlineHeight;
+		public int m_underlineHeight;
 
 		private int? m_itemizedScriptId = null;
 
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal ITextRunProps TextRunProperties
+		public ITextRunProps TextRunProperties
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal CachedFont CachedFont
+		public CachedFont CachedFont
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal TextRunState State
+		public TextRunState State
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int? ItemizedScriptId
+		public int? ItemizedScriptId
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool FallbackFont
+		public bool FallbackFont
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool HasEastAsianChars
+		public bool HasEastAsianChars
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int CharacterCount
+		public int CharacterCount
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal uint ColorInt
+		public uint ColorInt
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal ScriptAnalysis ScriptAnalysis
+		public ScriptAnalysis ScriptAnalysis
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal string Text
+		public string Text
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal GlyphData GlyphData
+		public GlyphData GlyphData
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool Clone
+		public bool Clone
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal virtual int HighlightStart
+		public virtual int HighlightStart
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal virtual int HighlightEnd
+		public virtual int HighlightEnd
 		{
 			get
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal virtual Color HighlightColor
+		public virtual Color HighlightColor
 		{
 			get
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal virtual int CharacterIndexInOriginal
+		public virtual int CharacterIndexInOriginal
 		{
 			get
 			{
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal virtual bool IsHighlightTextRun
+		public virtual bool IsHighlightTextRun
 		{
 			get
 			{
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal virtual bool IsPlaceholderTextRun
+		public virtual bool IsPlaceholderTextRun
 		{
 			get
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int UnderlineHeight
+		public int UnderlineHeight
 		{
 			get
 			{
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal virtual bool AllowColorInversion
+		public virtual bool AllowColorInversion
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal TextRun(string text, ITextRunProps props)
+		public TextRun(string text, ITextRunProps props)
 		{
 			bool hasEastAsianChars = false;
 			this.m_text = Utilities.ConvertTabAndCheckEastAsianChars(text, out hasEastAsianChars);
@@ -260,12 +260,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.m_textRunProps = props;
 		}
 
-		internal TextRun(string text, TextRun textRun)
+		public TextRun(string text, TextRun textRun)
 			: this(text, textRun.TextRunProperties)
 		{
 		}
 
-		internal TextRun(string text, ITextRunProps props, TexRunShapeData shapeData)
+		public TextRun(string text, ITextRunProps props, TexRunShapeData shapeData)
 			: this(text, props)
 		{
 			if (shapeData != null)
@@ -282,7 +282,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal TextRun(string text, TextRun textRun, SCRIPT_LOGATTR[] scriptLogAttr)
+		public TextRun(string text, TextRun textRun, SCRIPT_LOGATTR[] scriptLogAttr)
 			: this(text, textRun)
 		{
 			this.SCRIPT_ANALYSIS = textRun.SCRIPT_ANALYSIS;
@@ -294,12 +294,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.HasEastAsianChars = hasEastAsianChars;
 		}
 
-		internal virtual TextRun Split(string text, SCRIPT_LOGATTR[] scriptLogAttr)
+		public virtual TextRun Split(string text, SCRIPT_LOGATTR[] scriptLogAttr)
 		{
 			return new TextRun(text, this, scriptLogAttr);
 		}
 
-		internal virtual TextRun GetSubRun(int startIndex, int length)
+		public virtual TextRun GetSubRun(int startIndex, int length)
 		{
 			if (length == this.m_text.Length)
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return new TextRun(this.m_text.Substring(startIndex, length), this);
 		}
 
-		internal TextRun GetSubRun(int startIndex)
+		public TextRun GetSubRun(int startIndex)
 		{
 			if (startIndex == 0)
 			{
@@ -321,7 +321,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return this.GetSubRun(startIndex, this.m_text.Length - startIndex);
 		}
 
-		internal int[] GetLogicalWidths(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int[] GetLogicalWidths(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			GlyphData glyphData = this.GetGlyphData(hdc, fontCache);
 			int[] array = new int[this.m_text.Length];
@@ -340,7 +340,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return array;
 		}
 
-		internal void TerminateAt(int index)
+		public void TerminateAt(int index)
 		{
 			this.m_text = this.m_text.Remove(index, this.m_text.Length - index);
 			SCRIPT_LOGATTR[] array = new SCRIPT_LOGATTR[index];
@@ -349,7 +349,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.m_cachedGlyphData = null;
 		}
 
-		internal CachedFont GetCachedFont(Win32DCSafeHandle hdc, FontCache fontCache)
+		public CachedFont GetCachedFont(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			if (this.m_cachedGlyphData == null)
 			{
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return this.m_cachedFont;
 		}
 
-		internal GlyphData GetGlyphData(Win32DCSafeHandle hdc, FontCache fontCache)
+		public GlyphData GetGlyphData(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			if (this.m_cachedGlyphData == null)
 			{
@@ -375,12 +375,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return this.m_cachedGlyphData;
 		}
 
-		internal int GetWidth(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetWidth(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			return this.GetWidth(hdc, fontCache, false);
 		}
 
-		internal int GetWidth(Win32DCSafeHandle hdc, FontCache fontCache, bool isAtLineEnd)
+		public int GetWidth(Win32DCSafeHandle hdc, FontCache fontCache, bool isAtLineEnd)
 		{
 			if (this.m_cachedGlyphData == null)
 			{
@@ -393,25 +393,25 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return this.m_cachedGlyphData.GetTotalWidth(isAtLineEnd);
 		}
 
-		internal int GetHeight(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetHeight(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			CachedFont cachedFont = this.GetCachedFont(hdc, fontCache);
 			return cachedFont.GetHeight(hdc, fontCache);
 		}
 
-		internal int GetAscent(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetAscent(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			CachedFont cachedFont = this.GetCachedFont(hdc, fontCache);
 			return cachedFont.GetAscent(hdc, fontCache);
 		}
 
-		internal int GetDescent(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetDescent(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			CachedFont cachedFont = this.GetCachedFont(hdc, fontCache);
 			return cachedFont.GetDescent(hdc, fontCache);
 		}
 
-		internal void ShapeAndPlace(Win32DCSafeHandle hdc, FontCache fontCache)
+		public void ShapeAndPlace(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			bool verticalFont = false;
 			if (fontCache.AllowVerticalFont)

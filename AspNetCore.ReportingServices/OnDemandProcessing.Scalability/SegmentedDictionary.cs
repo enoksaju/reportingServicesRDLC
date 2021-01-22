@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class SegmentedDictionary<TKey, TValue> : IDictionary<TKey, TValue>, ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable
+	public class SegmentedDictionary<TKey, TValue> : IDictionary<TKey, TValue>, ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable
 	{
-		internal interface ISegmentedDictionaryEntry
+		public interface ISegmentedDictionaryEntry
 		{
 			SegmentedDictionaryEntryType EntryType
 			{
@@ -15,17 +15,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal enum SegmentedDictionaryEntryType
+		public enum SegmentedDictionaryEntryType
 		{
 			Node,
 			Values
 		}
 
-		internal class SegmentedDictionaryNode : ISegmentedDictionaryEntry
+		public class SegmentedDictionaryNode : ISegmentedDictionaryEntry
 		{
-			internal ISegmentedDictionaryEntry[] Entries;
+			public ISegmentedDictionaryEntry[] Entries;
 
-			internal int Count;
+			public int Count;
 
 			public SegmentedDictionaryEntryType EntryType
 			{
@@ -35,13 +35,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal SegmentedDictionaryNode(int capacity)
+			public SegmentedDictionaryNode(int capacity)
 			{
 				this.Entries = new ISegmentedDictionaryEntry[capacity];
 			}
 		}
 
-		internal class SegmentedDictionaryValues : ISegmentedDictionaryEntry
+		public class SegmentedDictionaryValues : ISegmentedDictionaryEntry
 		{
 			private TKey[] m_keys;
 
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal struct SegmentedDictionaryEnumerator : IEnumerator<KeyValuePair<TKey, TValue>>, IDisposable, IEnumerator
+		public struct SegmentedDictionaryEnumerator : IEnumerator<KeyValuePair<TKey, TValue>>, IDisposable, IEnumerator
 		{
 			private class ContextItem<KeyType, ValueType>
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal SegmentedDictionaryEnumerator(SegmentedDictionary<TKey, TValue> dictionary)
+			public SegmentedDictionaryEnumerator(SegmentedDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 				this.m_version = dictionary.m_version;
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal struct SegmentedDictionaryKeysEnumerator : IEnumerator<TKey>, IDisposable, IEnumerator
+		public struct SegmentedDictionaryKeysEnumerator : IEnumerator<TKey>, IDisposable, IEnumerator
 		{
 			private SegmentedDictionary<TKey, TValue> m_dictionary;
 
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal SegmentedDictionaryKeysEnumerator(SegmentedDictionary<TKey, TValue> dictionary)
+			public SegmentedDictionaryKeysEnumerator(SegmentedDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 				this.m_enumerator = dictionary.GetEnumerator();
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal struct SegmentedDictionaryValuesEnumerator : IEnumerator<TValue>, IDisposable, IEnumerator
+		public struct SegmentedDictionaryValuesEnumerator : IEnumerator<TValue>, IDisposable, IEnumerator
 		{
 			private SegmentedDictionary<TKey, TValue> m_dictionary;
 
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal SegmentedDictionaryValuesEnumerator(SegmentedDictionary<TKey, TValue> dictionary)
+			public SegmentedDictionaryValuesEnumerator(SegmentedDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 				this.m_enumerator = dictionary.GetEnumerator();
@@ -334,7 +334,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal class SegmentedDictionaryKeysCollection : ICollection<TKey>, IEnumerable<TKey>, IEnumerable
+		public class SegmentedDictionaryKeysCollection : ICollection<TKey>, IEnumerable<TKey>, IEnumerable
 		{
 			private SegmentedDictionary<TKey, TValue> m_dictionary;
 
@@ -354,7 +354,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal SegmentedDictionaryKeysCollection(SegmentedDictionary<TKey, TValue> dictionary)
+			public SegmentedDictionaryKeysCollection(SegmentedDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 			}
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal class SegmentedDictionaryValuesCollection : ICollection<TValue>, IEnumerable<TValue>, IEnumerable
+		public class SegmentedDictionaryValuesCollection : ICollection<TValue>, IEnumerable<TValue>, IEnumerable
 		{
 			private SegmentedDictionary<TKey, TValue> m_dictionary;
 
@@ -436,7 +436,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal SegmentedDictionaryValuesCollection(SegmentedDictionary<TKey, TValue> dictionary)
+			public SegmentedDictionaryValuesCollection(SegmentedDictionary<TKey, TValue> dictionary)
 			{
 				this.m_dictionary = dictionary;
 			}
@@ -583,17 +583,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal SegmentedDictionary(int priority, IScalabilityCache cache)
+		public SegmentedDictionary(int priority, IScalabilityCache cache)
 			: this(23, 5, (IEqualityComparer<TKey>)null)
 		{
 		}
 
-		internal SegmentedDictionary(int nodeCapacity, int entryCapacity)
+		public SegmentedDictionary(int nodeCapacity, int entryCapacity)
 			: this(nodeCapacity, entryCapacity, (IEqualityComparer<TKey>)null)
 		{
 		}
 
-		internal SegmentedDictionary(int nodeCapacity, int entryCapacity, IEqualityComparer<TKey> comparer)
+		public SegmentedDictionary(int nodeCapacity, int entryCapacity, IEqualityComparer<TKey> comparer)
 		{
 			this.m_nodeCapacity = nodeCapacity;
 			this.m_valuesCapacity = entryCapacity;

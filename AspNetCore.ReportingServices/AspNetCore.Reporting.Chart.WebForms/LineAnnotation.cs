@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeLineAnnotation_LineAnnotation")]
-	internal class LineAnnotation : Annotation
+	public class LineAnnotation : Annotation
 	{
 		private bool drawInfinitive;
 
@@ -250,7 +250,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
 		[SRDescription("DescriptionAttributeSelectionPointsStyle3")]
-		internal override SelectionPointsStyle SelectionPointsStyle
+		public override SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{
@@ -263,7 +263,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.anchorAlignment = ContentAlignment.TopLeft;
 		}
 
-		internal virtual void AdjustLineCoordinates(ref PointF point1, ref PointF point2, ref RectangleF selectionRect)
+		public virtual void AdjustLineCoordinates(ref PointF point1, ref PointF point2, ref RectangleF selectionRect)
 		{
 			if (this.DrawInfinitive)
 			{
@@ -291,7 +291,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override void Paint(Chart chart, ChartGraphics graphics)
+		public override void Paint(Chart chart, ChartGraphics graphics)
 		{
 			this.Chart = chart;
 			PointF empty = PointF.Empty;

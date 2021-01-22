@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class HitTestResult
+	public class HitTestResult
 	{
 		private PointF htPoint;
 
@@ -54,7 +54,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal HitTestResult(HotRegion region, PointF hitTestPoint)
+		public HitTestResult(HotRegion region, PointF hitTestPoint)
 		{
 			this.region = region;
 			if (region != null)

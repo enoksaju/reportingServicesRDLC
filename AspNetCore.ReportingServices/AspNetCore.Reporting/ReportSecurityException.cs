@@ -4,9 +4,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class ReportSecurityException : ReportViewerException
+	public sealed class ReportSecurityException : ReportViewerException
 	{
-		internal ReportSecurityException(string message)
+		public ReportSecurityException(string message)
 			: base(message)
 		{
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeIndicatorStyles
+	public enum GaugeIndicatorStyles
 	{
 		Mechanical,
 		Digital7Segment,

@@ -7,7 +7,7 @@ using System;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal class LocalExecutionSession
+	public class LocalExecutionSession
 	{
 		private ControlSnapshot __ReportSnapshot;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.Reporting
 			private set;
 		}
 
-		internal DataSourceInfoCollection CompiledDataSources
+		public DataSourceInfoCollection CompiledDataSources
 		{
 			get;
 			set;

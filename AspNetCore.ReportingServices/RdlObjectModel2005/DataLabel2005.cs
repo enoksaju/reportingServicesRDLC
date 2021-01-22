@@ -4,11 +4,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class DataLabel2005 : ChartDataLabel
+	public class DataLabel2005 : ChartDataLabel
 	{
-		internal new class Definition : DefinitionStore<DataLabel2005, Definition.Properties>
+		public new class Definition : DefinitionStore<DataLabel2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style = 9,
 				Value,

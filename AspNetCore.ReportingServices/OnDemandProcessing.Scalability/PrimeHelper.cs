@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal static class PrimeHelper
+	public static class PrimeHelper
 	{
 		private static int[] m_primes = new int[208]
 		{
@@ -1050,17 +1050,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		};
 
-		internal static int GetPrime(int level)
+		public static int GetPrime(int level)
 		{
 			return PrimeHelper.m_primes[level];
 		}
 
-		internal static int GetHashInputA(int level)
+		public static int GetHashInputA(int level)
 		{
 			return PrimeHelper.m_hashInputs[level, 0];
 		}
 
-		internal static int GetHashInputB(int level)
+		public static int GetHashInputB(int level)
 		{
 			return PrimeHelper.m_hashInputs[level, 1];
 		}

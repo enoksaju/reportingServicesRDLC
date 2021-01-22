@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum MessageType
+	public enum MessageType
 	{
 		NamedElementAdded,
 		NamedElementRemove,

@@ -7,11 +7,11 @@ using System.Xml.Schema;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class RdlValidator
+	public sealed class RdlValidator
 	{
 		private sealed class RdlElementStack : ArrayList
 		{
-			internal new Hashtable this[int index]
+			public new Hashtable this[int index]
 			{
 				get
 				{

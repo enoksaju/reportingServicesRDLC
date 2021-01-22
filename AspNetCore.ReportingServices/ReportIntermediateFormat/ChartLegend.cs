@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartLegend : ChartStyleContainer, IPersistable
+	public sealed class ChartLegend : ChartStyleContainer, IPersistable
 	{
 		private string m_name;
 
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartLegendExprHost m_exprHost;
 
-		internal string LegendName
+		public string LegendName
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Position
+		public ExpressionInfo Position
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Layout
+		public ExpressionInfo Layout
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DockToChartArea
+		public string DockToChartArea
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DockOutsideChartArea
+		public ExpressionInfo DockOutsideChartArea
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendTitle LegendTitle
+		public ChartLegendTitle LegendTitle
 		{
 			get
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AutoFitTextDisabled
+		public ExpressionInfo AutoFitTextDisabled
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MinFontSize
+		public ExpressionInfo MinFontSize
 		{
 			get
 			{
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HeaderSeparator
+		public ExpressionInfo HeaderSeparator
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HeaderSeparatorColor
+		public ExpressionInfo HeaderSeparatorColor
 		{
 			get
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ColumnSeparator
+		public ExpressionInfo ColumnSeparator
 		{
 			get
 			{
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ColumnSeparatorColor
+		public ExpressionInfo ColumnSeparatorColor
 		{
 			get
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ColumnSpacing
+		public ExpressionInfo ColumnSpacing
 		{
 			get
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo InterlacedRows
+		public ExpressionInfo InterlacedRows
 		{
 			get
 			{
@@ -247,7 +247,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo InterlacedRowsColor
+		public ExpressionInfo InterlacedRowsColor
 		{
 			get
 			{
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo EquallySpacedItems
+		public ExpressionInfo EquallySpacedItems
 		{
 			get
 			{
@@ -271,7 +271,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Reversed
+		public ExpressionInfo Reversed
 		{
 			get
 			{
@@ -283,7 +283,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaxAutoSize
+		public ExpressionInfo MaxAutoSize
 		{
 			get
 			{
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TextWrapThreshold
+		public ExpressionInfo TextWrapThreshold
 		{
 			get
 			{
@@ -307,7 +307,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartLegendCustomItem> LegendCustomItems
+		public List<ChartLegendCustomItem> LegendCustomItems
 		{
 			get
 			{
@@ -319,7 +319,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartLegendColumn> LegendColumns
+		public List<ChartLegendColumn> LegendColumns
 		{
 			get
 			{
@@ -331,7 +331,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartElementPosition ChartElementPosition
+		public ChartElementPosition ChartElementPosition
 		{
 			get
 			{
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendExprHost ExprHost
+		public ChartLegendExprHost ExprHost
 		{
 			get
 			{
@@ -351,7 +351,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -359,16 +359,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegend()
+		public ChartLegend()
 		{
 		}
 
-		internal ChartLegend(Chart chart)
+		public ChartLegend(Chart chart)
 			: base(chart)
 		{
 		}
 
-		internal void SetExprHost(ChartLegendExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartLegendExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -407,7 +407,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartLegendStart(this.m_name);
 			base.Initialize(context);
@@ -522,7 +522,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ChartLegendEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartLegend chartLegend = (ChartLegend)base.PublishClone(context);
 			if (this.m_position != null)
@@ -620,7 +620,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartLegend;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -834,103 +834,103 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartLegend;
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendHiddenExpression(this, base.m_chart.Name, "Hidden");
 		}
 
-		internal ChartLegendPositions EvaluatePosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartLegendPositions EvaluatePosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartLegendPositions(context.ReportRuntime.EvaluateChartLegendPositionExpression(this, base.m_chart.Name, "Position"), context.ReportRuntime);
 		}
 
-		internal ChartLegendLayouts EvaluateLayout(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartLegendLayouts EvaluateLayout(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartLegendLayout(context.ReportRuntime.EvaluateChartLegendLayoutExpression(this, base.m_chart.Name, "Layout"), context.ReportRuntime);
 		}
 
-		internal bool EvaluateDockOutsideChartArea(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateDockOutsideChartArea(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendDockOutsideChartAreaExpression(this, base.m_chart.Name, "DockOutsideChartArea");
 		}
 
-		internal bool EvaluateAutoFitTextDisabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateAutoFitTextDisabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendAutoFitTextDisabledExpression(this, base.m_chart.Name, "AutoFitTextDisabled");
 		}
 
-		internal string EvaluateMinFontSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMinFontSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendMinFontSizeExpression(this, base.m_chart.Name, "MinFontSize");
 		}
 
-		internal ChartSeparators EvaluateHeaderSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartSeparators EvaluateHeaderSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartSeparator(context.ReportRuntime.EvaluateChartLegendHeaderSeparatorExpression(this, base.m_chart.Name, "HeaderSeparator"), context.ReportRuntime);
 		}
 
-		internal string EvaluateHeaderSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateHeaderSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendHeaderSeparatorColorExpression(this, base.m_chart.Name, "HeaderSeparatorColor");
 		}
 
-		internal ChartSeparators EvaluateColumnSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartSeparators EvaluateColumnSeparator(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartSeparator(context.ReportRuntime.EvaluateChartLegendColumnSeparatorExpression(this, base.m_chart.Name, "ColumnSeparator"), context.ReportRuntime);
 		}
 
-		internal string EvaluateColumnSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateColumnSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendColumnSeparatorColorExpression(this, base.m_chart.Name, "ColumnSeparatorColor");
 		}
 
-		internal int EvaluateColumnSpacing(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateColumnSpacing(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendColumnSpacingExpression(this, base.m_chart.Name, "ColumnSpacing");
 		}
 
-		internal bool EvaluateInterlacedRows(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateInterlacedRows(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendInterlacedRowsExpression(this, base.m_chart.Name, "InterlacedRows");
 		}
 
-		internal string EvaluateInterlacedRowsColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateInterlacedRowsColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendInterlacedRowsColorExpression(this, base.m_chart.Name, "InterlacedRowsColor");
 		}
 
-		internal bool EvaluateEquallySpacedItems(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateEquallySpacedItems(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendEquallySpacedItemsExpression(this, base.m_chart.Name, "EquallySpacedItems");
 		}
 
-		internal ChartAutoBool EvaluateReversed(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartAutoBool EvaluateReversed(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartAutoBool(context.ReportRuntime.EvaluateChartLegendReversedExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal int EvaluateMaxAutoSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateMaxAutoSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendMaxAutoSizeExpression(this, base.m_chart.Name, "MaxAutoSize");
 		}
 
-		internal int EvaluateTextWrapThreshold(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateTextWrapThreshold(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendTextWrapThresholdExpression(this, base.m_chart.Name, "TextWrapThreshold");

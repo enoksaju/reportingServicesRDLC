@@ -2,13 +2,13 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class SectionEntry
+	public class SectionEntry
 	{
-		internal string SectionId;
+		public string SectionId;
 
-		internal RPLItemMeasurement HeaderMeasurement;
+		public RPLItemMeasurement HeaderMeasurement;
 
-		internal RPLItemMeasurement FooterMeasurement;
+		public RPLItemMeasurement FooterMeasurement;
 
 		public SectionEntry(RPLReportSection section)
 		{

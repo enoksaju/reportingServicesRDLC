@@ -3,14 +3,14 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class DocumentMapLabels : InteractivityChunks
+	public sealed class DocumentMapLabels : InteractivityChunks
 	{
-		internal DocumentMapLabels(Stream stream, int page)
+		public DocumentMapLabels(Stream stream, int page)
 			: base(stream, page)
 		{
 		}
 
-		internal void WriteDocMapLabel(ReportItemInstance itemInstance)
+		public void WriteDocMapLabel(ReportItemInstance itemInstance)
 		{
 			if (itemInstance != null && itemInstance.DocumentMapLabel != null)
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteDocMapLabel(GroupInstance groupInstance)
+		public void WriteDocMapLabel(GroupInstance groupInstance)
 		{
 			if (groupInstance != null && groupInstance.DocumentMapLabel != null)
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteDocMapRootLabel(string rootLabelUniqueName)
+		public void WriteDocMapRootLabel(string rootLabelUniqueName)
 		{
 			base.m_writer.Write((byte)1);
 			base.m_writer.Write(rootLabelUniqueName);

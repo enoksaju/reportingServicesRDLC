@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2010.Upgrade
 {
-	internal class UpgradeImpl2010 : UpgraderBase
+	public class UpgradeImpl2010 : UpgraderBase
 	{
 		private class CellInfo
 		{
@@ -21,11 +21,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2010.Upgrade
 
 		private List<IUpgradeable2010> m_upgradeable;
 
-		internal UpgradeImpl2010()
+		public UpgradeImpl2010()
 		{
 		}
 
-		internal override Type GetReportType()
+		public override Type GetReportType()
 		{
 			return typeof(Report2010);
 		}
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2010.Upgrade
 			base.SetupReaderSettings(settings);
 		}
 
-		internal void UpgradeReport(Report2010 report)
+		public void UpgradeReport(Report2010 report)
 		{
 			ReportParametersLayout reportParametersLayout = new ReportParametersLayout();
 			GridLayoutDefinition gridLayoutDefinition = new GridLayoutDefinition();

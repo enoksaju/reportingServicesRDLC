@@ -3,9 +3,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class StDevP : VarP
+	public sealed class StDevP : VarP
 	{
-		internal override object Result()
+		public override object Result()
 		{
 			switch (base.m_sumOfXType)
 			{

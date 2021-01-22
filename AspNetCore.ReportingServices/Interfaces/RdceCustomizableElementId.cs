@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal enum RdceCustomizableElementId
+	public enum RdceCustomizableElementId
 	{
 		Body,
 		PageHeader,

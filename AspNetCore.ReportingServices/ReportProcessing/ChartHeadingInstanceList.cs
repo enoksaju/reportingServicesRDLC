@@ -4,12 +4,12 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartHeadingInstanceList : ArrayList
+	public sealed class ChartHeadingInstanceList : ArrayList
 	{
 		[NonSerialized]
 		private ChartHeadingInstance m_lastHeadingInstance;
 
-		internal new ChartHeadingInstance this[int index]
+		public new ChartHeadingInstance this[int index]
 		{
 			get
 			{
@@ -17,16 +17,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceList()
+		public ChartHeadingInstanceList()
 		{
 		}
 
-		internal ChartHeadingInstanceList(int capacity)
+		public ChartHeadingInstanceList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(ChartHeadingInstance chartHeadingInstance, ReportProcessing.ProcessingContext pc)
+		public void Add(ChartHeadingInstance chartHeadingInstance, ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_lastHeadingInstance != null)
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_lastHeadingInstance = chartHeadingInstance;
 		}
 
-		internal void SetLastHeadingSpan(int currentCellIndex, ReportProcessing.ProcessingContext pc)
+		public void SetLastHeadingSpan(int currentCellIndex, ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_lastHeadingInstance != null)
 			{

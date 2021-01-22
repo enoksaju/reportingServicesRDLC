@@ -7,9 +7,9 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartRenderingEngine : IChartRenderingEngine
+	public class ChartRenderingEngine : IChartRenderingEngine
 	{
-		internal bool shadowDrawingMode;
+		public bool shadowDrawingMode;
 
 		private RenderingType activeRenderingType;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private string documentTitle = string.Empty;
 
-		internal IChartRenderingEngine RenderingObject
+		public IChartRenderingEngine RenderingObject
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal RenderingType ActiveRenderingType
+		public RenderingType ActiveRenderingType
 		{
 			get
 			{
@@ -305,17 +305,17 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void StartHotRegion(string href, string title)
+		public void StartHotRegion(string href, string title)
 		{
 			this.RenderingObject.BeginSelection(href, title);
 		}
 
-		internal void StartHotRegion(DataPoint point)
+		public void StartHotRegion(DataPoint point)
 		{
 			this.StartHotRegion(point, false);
 		}
 
-		internal void StartHotRegion(DataPoint point, bool labelRegion)
+		public void StartHotRegion(DataPoint point, bool labelRegion)
 		{
 			string empty = string.Empty;
 			string text = labelRegion ? point.LabelToolTip : point.ToolTip;
@@ -327,7 +327,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.RenderingObject.BeginSelection(point.ReplaceKeywords(empty), point.ReplaceKeywords(text));
 		}
 
-		internal void EndHotRegion()
+		public void EndHotRegion()
 		{
 			this.RenderingObject.EndSelection();
 		}

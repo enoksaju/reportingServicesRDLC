@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLineCollection : MapObjectCollectionBase<MapLine>, ISpatialElementCollection
+	public sealed class MapLineCollection : MapObjectCollectionBase<MapLine>, ISpatialElementCollection
 	{
 		private Map m_map;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLineCollection(MapLineLayer mapLineLayer, Map map)
+		public MapLineCollection(MapLineLayer mapLineLayer, Map map)
 		{
 			this.m_mapLineLayer = mapLineLayer;
 			this.m_map = map;

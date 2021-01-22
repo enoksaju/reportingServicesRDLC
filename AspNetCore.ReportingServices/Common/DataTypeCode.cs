@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Common
 {
-	internal enum DataTypeCode : byte
+	public enum DataTypeCode : byte
 	{
 		Empty,
 		Unknown,

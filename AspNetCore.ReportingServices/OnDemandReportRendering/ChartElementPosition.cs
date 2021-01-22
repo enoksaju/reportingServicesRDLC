@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartElementPosition
+	public sealed class ChartElementPosition
 	{
 		private Chart m_chart;
 
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartElementPosition ChartElementPositionDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartElementPosition ChartElementPositionDef
 		{
 			get
 			{
@@ -98,13 +98,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartElementPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartElementPosition defObject, Chart chart)
+		public ChartElementPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartElementPosition defObject, Chart chart)
 		{
 			this.m_defObject = defObject;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

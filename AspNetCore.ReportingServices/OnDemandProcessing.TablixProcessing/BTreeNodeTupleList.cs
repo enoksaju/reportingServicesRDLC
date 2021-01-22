@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class BTreeNodeTupleList : IStorable, IPersistable
+	public sealed class BTreeNodeTupleList : IStorable, IPersistable
 	{
 		private List<BTreeNodeTuple> m_list;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		[NonSerialized]
 		private static Declaration m_declaration = BTreeNodeTupleList.GetDeclaration();
 
-		internal BTreeNodeTuple this[int index]
+		public BTreeNodeTuple this[int index]
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -40,17 +40,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal BTreeNodeTupleList()
+		public BTreeNodeTupleList()
 		{
 		}
 
-		internal BTreeNodeTupleList(int capacity)
+		public BTreeNodeTupleList(int capacity)
 		{
 			this.m_list = new List<BTreeNodeTuple>(capacity);
 			this.m_capacity = capacity;
 		}
 
-		internal void Add(BTreeNodeTuple tuple, ScalableList<BTreeNode> nodes)
+		public void Add(BTreeNodeTuple tuple, ScalableList<BTreeNode> nodes)
 		{
 			if (this.m_list.Count == this.m_capacity)
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void Insert(int index, BTreeNodeTuple tuple, ScalableList<BTreeNode> nodes)
+		public void Insert(int index, BTreeNodeTuple tuple, ScalableList<BTreeNode> nodes)
 		{
 			if (this.m_list.Count == this.m_capacity)
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void RemoveAtEnd()
+		public void RemoveAtEnd()
 		{
 			this.m_list.RemoveAt(this.m_list.Count - 1);
 		}

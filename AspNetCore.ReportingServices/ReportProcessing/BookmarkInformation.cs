@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class BookmarkInformation
+	public sealed class BookmarkInformation
 	{
 		private string m_id;
 
 		private int m_page;
 
-		internal string Id
+		public string Id
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Page
+		public int Page
 		{
 			get
 			{
@@ -34,17 +34,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BookmarkInformation()
+		public BookmarkInformation()
 		{
 		}
 
-		internal BookmarkInformation(string id, int page)
+		public BookmarkInformation(string id, int page)
 		{
 			this.m_id = id;
 			this.m_page = page;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Id, Token.String));

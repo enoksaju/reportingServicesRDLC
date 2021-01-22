@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum ConstructionPhase
+	public enum ConstructionPhase
 	{
 		Publishing,
 		Deserializing

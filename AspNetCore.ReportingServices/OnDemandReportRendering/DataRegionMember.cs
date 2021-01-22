@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DataRegionMember : IDefinitionPath, IReportScope
+	public abstract class DataRegionMember : IDefinitionPath, IReportScope
 	{
 		protected IDefinitionPath m_parentDefinitionPath;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		protected CustomPropertyCollection m_customPropertyCollection;
 
-		internal abstract string UniqueName
+		public abstract string UniqueName
 		{
 			get;
 		}
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract IReportScope ReportScope
+		public abstract IReportScope ReportScope
 		{
 			get;
 		}
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal abstract IReportScopeInstance ReportScopeInstance
+		public abstract IReportScopeInstance ReportScopeInstance
 		{
 			get;
 		}
@@ -105,12 +105,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal abstract IRIFReportScope RIFReportScope
+		public abstract IRIFReportScope RIFReportScope
 		{
 			get;
 		}
 
-		internal IDataRegion OwnerDataRegion
+		public IDataRegion OwnerDataRegion
 		{
 			get
 			{
@@ -118,17 +118,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal abstract IDataRegionMemberCollection SubMembers
+		public abstract IDataRegionMemberCollection SubMembers
 		{
 			get;
 		}
 
-		internal abstract ReportHierarchyNode DataRegionMemberDefinition
+		public abstract ReportHierarchyNode DataRegionMemberDefinition
 		{
 			get;
 		}
 
-		internal DataRegionMember(IDefinitionPath parentDefinitionPath, ReportItem owner, DataRegionMember parent, int parentCollectionIndex)
+		public DataRegionMember(IDefinitionPath parentDefinitionPath, ReportItem owner, DataRegionMember parent, int parentCollectionIndex)
 		{
 			this.m_parentDefinitionPath = parentDefinitionPath;
 			this.m_owner = owner;
@@ -136,9 +136,9 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_parentCollectionIndex = parentCollectionIndex;
 		}
 
-		internal abstract bool GetIsColumn();
+		public abstract bool GetIsColumn();
 
-		internal virtual void ResetContext()
+		public virtual void ResetContext()
 		{
 			if (this.m_group != null)
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual void SetNewContext(bool fromMoveNext)
+		public virtual void SetNewContext(bool fromMoveNext)
 		{
 			if (this.m_group != null)
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual InternalDynamicMemberLogic BuildOdpMemberLogic(OnDemandProcessingContext odpContext)
+		public virtual InternalDynamicMemberLogic BuildOdpMemberLogic(OnDemandProcessingContext odpContext)
 		{
 			if (odpContext.StreamingMode)
 			{

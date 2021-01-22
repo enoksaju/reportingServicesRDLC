@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class InScopeSortFilterHashtable : Hashtable
+	public sealed class InScopeSortFilterHashtable : Hashtable
 	{
-		internal IntList this[int index]
+		public IntList this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal InScopeSortFilterHashtable()
+		public InScopeSortFilterHashtable()
 		{
 		}
 
-		internal InScopeSortFilterHashtable(int capacity)
+		public InScopeSortFilterHashtable(int capacity)
 			: base(capacity)
 		{
 		}

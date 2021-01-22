@@ -3,9 +3,9 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class ParentSourceConverter : StringConverter
+	public class ParentSourceConverter : StringConverter
 	{
-		internal const string parentNone = "(none)";
+		public const string parentNone = "(none)";
 
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

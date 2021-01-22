@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal struct CellRenderingDetails
+	public struct CellRenderingDetails
 	{
 		private BinaryWriter m_Writer;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private ushort m_ixfe;
 
-		internal BinaryWriter Output
+		public BinaryWriter Output
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int Row
+		public int Row
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal short Column
+		public short Column
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ushort Ixfe
+		public ushort Ixfe
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal void Initialize(BinaryWriter writer, int row, short col, ushort ixfe)
+		public void Initialize(BinaryWriter writer, int row, short col, ushort ixfe)
 		{
 			this.m_Writer = writer;
 			this.m_row = row;

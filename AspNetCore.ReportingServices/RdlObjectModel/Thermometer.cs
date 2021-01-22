@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Thermometer : ReportObject
+	public class Thermometer : ReportObject
 	{
-		internal class Definition : DefinitionStore<Thermometer, Definition.Properties>
+		public class Definition : DefinitionStore<Thermometer, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				BulbOffset,
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Thermometer(IPropertyStore propertyStore)
+		public Thermometer(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

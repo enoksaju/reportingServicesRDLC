@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-        internal ReportObjectModel.ReportItem ReportObjectModelTextBox
+        public ReportObjectModel.ReportItem ReportObjectModelTextBox
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal void SetTextBox(ReportObjectModel.ReportItem textBox)
+		public void SetTextBox(ReportObjectModel.ReportItem textBox)
 		{
 			this.m_textBox = textBox;
 		}

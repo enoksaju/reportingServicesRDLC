@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert
 {
-	internal sealed class Operand
+	public sealed class Operand
 	{
-		internal enum OperandType
+		public enum OperandType
 		{
 			USHORT,
 			DOUBLE,
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 
 		private OperandType m_type;
 
-		internal object OperandValue
+		public object OperandValue
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal OperandType Type
+		public OperandType Type
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal Operand(object operandValue, OperandType type)
+		public Operand(object operandValue, OperandType type)
 		{
 			this.m_operandValue = operandValue;
 			this.m_type = type;

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartBreakLineType
+	public enum ChartBreakLineType
 	{
 		Ragged,
 		None,

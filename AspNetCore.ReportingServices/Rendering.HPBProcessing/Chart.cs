@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class Chart : DynamicImage, IStorable, IPersistable
+	public sealed class Chart : DynamicImage, IStorable, IPersistable
 	{
 		private static Declaration m_declaration = Chart.GetDeclaration();
 
@@ -39,11 +39,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Chart()
+		public Chart()
 		{
 		}
 
-		internal Chart(AspNetCore.ReportingServices.OnDemandReportRendering.Chart source, PageContext pageContext)
+		public Chart(AspNetCore.ReportingServices.OnDemandReportRendering.Chart source, PageContext pageContext)
 			: base(source)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Chart chart = (AspNetCore.ReportingServices.OnDemandReportRendering.Chart)base.m_source;
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.Chart;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (Chart.m_declaration == null)
 			{

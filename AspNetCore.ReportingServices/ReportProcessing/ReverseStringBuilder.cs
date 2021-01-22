@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class ReverseStringBuilder
+	public class ReverseStringBuilder
 	{
 		private char[] m_buffer;
 

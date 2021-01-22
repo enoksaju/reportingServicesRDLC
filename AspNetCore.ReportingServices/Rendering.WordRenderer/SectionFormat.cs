@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class SectionFormat : Format
+	public class SectionFormat : Format
 	{
 		private const int OneSectionSize = 38;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private bool m_useTitlePage;
 
-		internal bool UseTitlePage
+		public bool UseTitlePage
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int SectionCount
+		public int SectionCount
 		{
 			get
 			{
@@ -31,17 +31,17 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal SectionFormat()
+		public SectionFormat()
 			: base(38, 0)
 		{
 		}
 
-		internal void EndSection(int cpOffset)
+		public void EndSection(int cpOffset)
 		{
 			this.m_cpOffsets.Add(cpOffset);
 		}
 
-		internal void WriteTo(BinaryWriter tableWriter, BinaryWriter mainWriter, int lastCp)
+		public void WriteTo(BinaryWriter tableWriter, BinaryWriter mainWriter, int lastCp)
 		{
 			tableWriter.Write(0);
 			int count = this.m_cpOffsets.Count;

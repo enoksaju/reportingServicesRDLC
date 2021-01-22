@@ -8,7 +8,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(LinearRangeConverter))]
-	internal sealed class LinearRange : RangeBase, ISelectable
+	public sealed class LinearRange : RangeBase, ISelectable
 	{
 		[Browsable(false)]
 		[SRDescription("DescriptionAttributeStartValue")]
@@ -166,7 +166,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void Render(GaugeGraphics g)
+		public override void Render(GaugeGraphics g)
 		{
 			if (this.Common != null && base.Visible && this.GetScale() != null && !double.IsNaN(this.StartValue) && !double.IsNaN(this.EndValue))
 			{
@@ -218,7 +218,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GraphicsPath GetPath(GaugeGraphics g, bool getShadowPath)
+		public GraphicsPath GetPath(GaugeGraphics g, bool getShadowPath)
 		{
 			if (getShadowPath && (!base.Visible || base.ShadowOffset == 0.0))
 			{

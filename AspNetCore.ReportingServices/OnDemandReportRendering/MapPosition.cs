@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapPosition
+	public enum MapPosition
 	{
 		TopCenter,
 		TopLeft,

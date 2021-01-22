@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum MapImageAlign
+	public enum MapImageAlign
 	{
 		TopLeft,
 		Top,

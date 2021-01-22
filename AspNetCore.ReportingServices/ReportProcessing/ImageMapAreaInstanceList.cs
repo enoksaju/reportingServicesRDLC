@@ -5,11 +5,11 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ImageMapAreaInstanceList : ArrayList
+	public sealed class ImageMapAreaInstanceList : ArrayList
 	{
 		private int m_uniqueName;
 
-		internal new ImageMapAreaInstance this[int index]
+		public new ImageMapAreaInstance this[int index]
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -29,16 +29,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageMapAreaInstanceList()
+		public ImageMapAreaInstanceList()
 		{
 		}
 
-		internal ImageMapAreaInstanceList(int capacity)
+		public ImageMapAreaInstanceList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface IReferenceCreator
+	public interface IReferenceCreator
 	{
 		bool TryCreateReference(IStorable refTarget, out BaseReference newReference);
 

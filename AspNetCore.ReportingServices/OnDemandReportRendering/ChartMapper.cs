@@ -14,7 +14,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class ChartMapper : MapperBase, IChartMapper, IDVMappingLayer, IDisposable
+	public class ChartMapper : MapperBase, IChartMapper, IDVMappingLayer, IDisposable
 	{
 		private class ChartAreaInfo
 		{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				ChartHatchStyle.ZigZag
 			};
 
-			internal ChartHatchStyle Current
+			public ChartHatchStyle Current
 			{
 				get
 				{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				MarkerStyle.Star10
 			};
 
-			internal MarkerStyle Current
+			public MarkerStyle Current
 			{
 				get
 				{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal void MoveNext()
+			public void MoveNext()
 			{
 				if (this.m_currentUsed)
 				{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 			public const string NEW_CHART_AREA_NAME = "#NewChartArea";
 
-			internal static void RenderFormulaParameters(ChartFormulaParameterCollection chartFormulaParameters, ChartSeriesFormula formula, string sourceSeriesName, string derivedSeriesName, out string formulaParameters, out string inputValues, out string outputValues, out bool startFromFirst)
+			public static void RenderFormulaParameters(ChartFormulaParameterCollection chartFormulaParameters, ChartSeriesFormula formula, string sourceSeriesName, string derivedSeriesName, out string formulaParameters, out string inputValues, out string outputValues, out bool startFromFirst)
 			{
 				Dictionary<string, string> parameters = new Dictionary<string, string>();
 				FormulaHelper.GetParameters(chartFormulaParameters, parameters);
@@ -285,7 +285,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal static string GetInputValues(Dictionary<string, string> parameters, string sourceSeriesName)
+			public static string GetInputValues(Dictionary<string, string> parameters, string sourceSeriesName)
 			{
 				string text = FormulaHelper.GetParameter(parameters, "Input");
 				if (text == "")
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				return text;
 			}
 
-			internal static string GetOutputValues(Dictionary<string, string> parameters, ChartSeriesFormula formula, string derivedSeriesName)
+			public static string GetOutputValues(Dictionary<string, string> parameters, ChartSeriesFormula formula, string derivedSeriesName)
 			{
 				string parameter = FormulaHelper.GetParameter(parameters, "Output");
 				if (parameter != "")
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal static string ConstructFormulaParameters(Dictionary<string, string> parameters, ChartSeriesFormula formula)
+			public static string ConstructFormulaParameters(Dictionary<string, string> parameters, ChartSeriesFormula formula)
 			{
 				string result = "";
 				switch (formula)
@@ -425,12 +425,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				return text;
 			}
 
-			internal static string GetDerivedSeriesName(string sourceSeriesName)
+			public static string GetDerivedSeriesName(string sourceSeriesName)
 			{
 				return sourceSeriesName + "_Formula";
 			}
 
-			internal static bool IsNewAreaRequired(ChartSeriesFormula formula)
+			public static bool IsNewAreaRequired(ChartSeriesFormula formula)
 			{
 				switch (formula)
 				{
@@ -446,7 +446,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal static bool ShouldSendDerivedSeriesBack(SeriesChartType type)
+			public static bool ShouldSendDerivedSeriesBack(SeriesChartType type)
 			{
 				if (type != SeriesChartType.Line)
 				{
@@ -694,7 +694,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MappingHelper.GetImageMaps(this.GetMapAreaInfoList(), this.m_actions, this.m_chart);
 		}
 
-		internal IEnumerable<MappingHelper.MapAreaInfo> GetMapAreaInfoList()
+		public IEnumerable<MappingHelper.MapAreaInfo> GetMapAreaInfoList()
 		{
 			foreach (MapArea mapArea in this.m_coreChart.MapAreas)
 			{

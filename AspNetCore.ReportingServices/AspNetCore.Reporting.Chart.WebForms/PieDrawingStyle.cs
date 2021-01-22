@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum PieDrawingStyle
+	public enum PieDrawingStyle
 	{
 		Default,
 		SoftEdge,

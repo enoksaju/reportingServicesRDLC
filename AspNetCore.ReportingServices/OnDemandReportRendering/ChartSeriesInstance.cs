@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartSeriesInstance : BaseInstance
+	public sealed class ChartSeriesInstance : BaseInstance
 	{
 		private InternalChartSeries m_chartSeriesDef;
 
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string LegendText
+		public string LegendText
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool HideInLegend
+		public bool HideInLegend
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string ToolTip
+		public string ToolTip
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartSeriesInstance(InternalChartSeries chartSeriesDef)
+		public ChartSeriesInstance(InternalChartSeries chartSeriesDef)
 			: base(chartSeriesDef.ReportScope)
 		{
 			this.m_chartSeriesDef = chartSeriesDef;

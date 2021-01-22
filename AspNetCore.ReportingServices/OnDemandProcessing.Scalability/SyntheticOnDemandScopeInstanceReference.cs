@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class SyntheticOnDemandScopeInstanceReference : SyntheticReferenceBase<IOnDemandScopeInstance>
+	public class SyntheticOnDemandScopeInstanceReference : SyntheticReferenceBase<IOnDemandScopeInstance>
 	{
 		private readonly IOnDemandScopeInstance m_value;
 

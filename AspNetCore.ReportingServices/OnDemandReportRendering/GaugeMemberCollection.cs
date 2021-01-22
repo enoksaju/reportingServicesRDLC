@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeMemberCollection : DataRegionMemberCollection<GaugeMember>
+	public sealed class GaugeMemberCollection : DataRegionMemberCollection<GaugeMember>
 	{
 		private GaugeMember m_parent;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel OwnerGaugePanel
+		public GaugePanel OwnerGaugePanel
 		{
 			get
 			{
@@ -59,12 +59,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeMemberCollection(IDefinitionPath parentDefinitionPath, GaugePanel owner)
+		public GaugeMemberCollection(IDefinitionPath parentDefinitionPath, GaugePanel owner)
 			: base(parentDefinitionPath, (ReportItem)owner)
 		{
 		}
 
-		internal GaugeMemberCollection(IDefinitionPath parentDefinitionPath, GaugePanel owner, GaugeMember parent, GaugeMemberList memberDefs)
+		public GaugeMemberCollection(IDefinitionPath parentDefinitionPath, GaugePanel owner, GaugeMember parent, GaugeMemberList memberDefs)
 			: base(parentDefinitionPath, (ReportItem)owner)
 		{
 			this.m_parent = parent;

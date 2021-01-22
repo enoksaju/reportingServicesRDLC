@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PinLabelInstance : BaseInstance
+	public sealed class PinLabelInstance : BaseInstance
 	{
 		private PinLabel m_defObject;
 
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PinLabelInstance(PinLabel defObject)
+		public PinLabelInstance(PinLabel defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

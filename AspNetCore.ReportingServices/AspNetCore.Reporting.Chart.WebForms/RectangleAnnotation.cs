@@ -6,9 +6,9 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeRectangleAnnotation_RectangleAnnotation")]
-	internal class RectangleAnnotation : TextAnnotation
+	public class RectangleAnnotation : TextAnnotation
 	{
-		internal bool isRectVisible = true;
+		public bool isRectVisible = true;
 
 		[DefaultValue(typeof(Color), "Black")]
 		[SRDescription("DescriptionAttributeLineColor")]
@@ -149,7 +149,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
-		internal override SelectionPointsStyle SelectionPointsStyle
+		public override SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override void Paint(Chart chart, ChartGraphics graphics)
+		public override void Paint(Chart chart, ChartGraphics graphics)
 		{
 			this.Chart = chart;
 			PointF empty = PointF.Empty;

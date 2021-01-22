@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class UseSharedStyle : StyleState
+	public sealed class UseSharedStyle : StyleState
 	{
 		private StyleProperties m_styleProps;
 
@@ -332,13 +332,13 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal UseSharedStyle(StyleContainer parent, StyleProperties props)
+		public UseSharedStyle(StyleContainer parent, StyleProperties props)
 			: base(parent)
 		{
 			this.m_styleProps = props;
 		}
 
-		internal override void Finished()
+		public override void Finished()
 		{
 			if (this.m_styleProps.Ixfe != 0)
 			{

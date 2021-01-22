@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal Hashtable Collection
+		public Hashtable Collection
 		{
 			get
 			{
@@ -38,13 +38,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal VariablesImpl(bool lockAdd)
+		public VariablesImpl(bool lockAdd)
 		{
 			this.m_lockAdd = lockAdd;
 			this.m_collection = new Hashtable();
 		}
 
-		internal void Add(VariableImpl variable)
+		public void Add(VariableImpl variable)
 		{
 			try
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void ResetAll()
+		public void ResetAll()
 		{
 			foreach (VariableImpl value in this.m_collection.Values)
 			{

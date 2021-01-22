@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public sealed class FieldsImpl : Fields
 	{
-		internal const string Name = "Fields";
+		public const string Name = "Fields";
 
 		private Hashtable m_nameMap;
 
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal FieldImpl this[int index]
+		public FieldImpl this[int index]
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal int CountWithRowIndex
+		public int CountWithRowIndex
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool ReaderExtensionsSupported
+		public bool ReaderExtensionsSupported
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool ReaderFieldProperties
+		public bool ReaderFieldProperties
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool IsAggregateRow
+		public bool IsAggregateRow
 		{
 			get
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal int AggregationFieldCount
+		public int AggregationFieldCount
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal int AggregationFieldCountForDetailRow
+		public int AggregationFieldCountForDetailRow
 		{
 			set
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool ValidAggregateRow
+		public bool ValidAggregateRow
 		{
 			get
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool AddRowIndex
+		public bool AddRowIndex
 		{
 			get
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal FieldsImpl(int size, bool addRowIndex)
+		public FieldsImpl(int size, bool addRowIndex)
 		{
 			if (addRowIndex)
 			{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_addRowIndex = addRowIndex;
 		}
 
-		internal FieldsImpl()
+		public FieldsImpl()
 		{
 			this.m_collection = null;
 			this.m_nameMap = null;
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_addRowIndex = false;
 		}
 
-		internal void Add(string name, FieldImpl field)
+		public void Add(string name, FieldImpl field)
 		{
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
 			Global.Tracer.Assert(null != this.m_nameMap, "(null != m_nameMap)");
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_count++;
 		}
 
-		internal void AddRowIndexField()
+		public void AddRowIndexField()
 		{
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
 			Global.Tracer.Assert(this.m_count < this.m_collection.Length, "(m_count < m_collection.Length)");
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_count++;
 		}
 
-		internal void SetFieldIsMissing(int index)
+		public void SetFieldIsMissing(int index)
 		{
 			if (this.m_fieldMissing == null)
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_fieldMissing[index] = true;
 		}
 
-		internal bool IsFieldMissing(int index)
+		public bool IsFieldMissing(int index)
 		{
 			if (this.m_fieldMissing == null)
 			{
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			return this.m_fieldMissing[index];
 		}
 
-		internal void SetFieldErrorRegistered(int index)
+		public void SetFieldErrorRegistered(int index)
 		{
 			if (this.m_fieldError == null)
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_fieldError[index] = true;
 		}
 
-		internal bool IsFieldErrorRegistered(int index)
+		public bool IsFieldErrorRegistered(int index)
 		{
 			if (this.m_fieldError == null)
 			{
@@ -284,7 +284,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			return this.m_fieldError[index];
 		}
 
-		internal void NewRow()
+		public void NewRow()
 		{
 			this.m_noRows = false;
 			if (this.m_referenced)
@@ -294,14 +294,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal void SetRowIndex(int rowIndex)
+		public void SetRowIndex(int rowIndex)
 		{
 			Global.Tracer.Assert(this.m_addRowIndex, "(m_addRowIndex)");
 			Global.Tracer.Assert(this.m_count > 0, "(m_count > 0)");
 			this.m_collection[this.m_count - 1] = new FieldImpl(rowIndex, false, null);
 		}
 
-		internal void SetFields(FieldImpl[] fields)
+		public void SetFields(FieldImpl[] fields)
 		{
 			this.NewRow();
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
@@ -326,7 +326,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal void SetFields(FieldImpl[] fields, bool isAggregateRow, int aggregationFieldCount, bool validAggregateRow)
+		public void SetFields(FieldImpl[] fields, bool isAggregateRow, int aggregationFieldCount, bool validAggregateRow)
 		{
 			this.SetFields(fields);
 			this.m_isAggregateRow = isAggregateRow;
@@ -334,27 +334,27 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_validAggregateRow = validAggregateRow;
 		}
 
-		internal FieldImpl[] GetAndSaveFields()
+		public FieldImpl[] GetAndSaveFields()
 		{
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
 			this.m_referenced = true;
 			return this.m_collection;
 		}
 
-		internal FieldImpl[] GetFields()
+		public FieldImpl[] GetFields()
 		{
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
 			return this.m_collection;
 		}
 
-		internal int GetRowIndex()
+		public int GetRowIndex()
 		{
 			Global.Tracer.Assert(this.m_addRowIndex, "(m_addRowIndex)");
 			Global.Tracer.Assert(this.m_count > 0, "(m_count > 0)");
 			return (int)this.m_collection[this.m_count - 1].Value;
 		}
 
-		internal void Clone(FieldsImpl fields)
+		public void Clone(FieldsImpl fields)
 		{
 			if (fields != null)
 			{
@@ -380,7 +380,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			throw new ReportProcessingException_NonExistingFieldReference();
 		}
 
-		internal void ResetUsedInExpression()
+		public void ResetUsedInExpression()
 		{
 			if (this.m_collection != null)
 			{
@@ -391,7 +391,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal void AddFieldsUsedInExpression(List<string> fieldsUsedInValueExpression)
+		public void AddFieldsUsedInExpression(List<string> fieldsUsedInValueExpression)
 		{
 			if (this.m_collection != null)
 			{

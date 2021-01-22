@@ -4,11 +4,11 @@ using System.Text;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal static class VirtualEarthTileSystem
+	public static class VirtualEarthTileSystem
 	{
-		internal const int TileSize = 256;
+		public const int TileSize = 256;
 
-		internal const double EarthRadius = 6378137.0;
+		public const double EarthRadius = 6378137.0;
 
 		private const double MinLatitude = -85.05112878;
 
@@ -100,7 +100,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return Math.Log(156543.03392804097 / groundResolution, 2.0);
 		}
 
-		internal static ImageryMetadataRequest.ImageryType TileSystemToMapStyle(TileSystem tyleSystem)
+		public static ImageryMetadataRequest.ImageryType TileSystemToMapStyle(TileSystem tyleSystem)
 		{
 			switch (tyleSystem)
 			{

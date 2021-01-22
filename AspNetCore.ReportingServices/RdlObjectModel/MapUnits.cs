@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapUnits
+	public enum MapUnits
 	{
 		Percentage,
 		Inch,

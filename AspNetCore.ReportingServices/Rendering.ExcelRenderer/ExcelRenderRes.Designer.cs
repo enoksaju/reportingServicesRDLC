@@ -22,21 +22,21 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ExcelRenderRes {
+    public class ExcelRenderRes {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ExcelRenderRes() {
+        public ExcelRenderRes() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelRenderRes", typeof(ExcelRenderRes).Assembly);
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel Rendering Extension : Argument is not valid..
         /// </summary>
-        internal static string ArgumentInvalid {
+        public static string ArgumentInvalid {
             get {
                 return ResourceManager.GetString("ArgumentInvalid", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel Rendering Extension : Argument is null..
         /// </summary>
-        internal static string ArgumentNullException {
+        public static string ArgumentNullException {
             get {
                 return ResourceManager.GetString("ArgumentNullException", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Document map.
         /// </summary>
-        internal static string DocumentMap {
+        public static string DocumentMap {
             get {
                 return ResourceManager.GetString("DocumentMap", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel 2003.
         /// </summary>
-        internal static string ExcelLocalizedName {
+        public static string ExcelLocalizedName {
             get {
                 return ResourceManager.GetString("ExcelLocalizedName", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel.
         /// </summary>
-        internal static string ExcelOoxmlLocalizedName {
+        public static string ExcelOoxmlLocalizedName {
             get {
                 return ResourceManager.GetString("ExcelOoxmlLocalizedName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel Rendering Extension : Index at {0} is not valid..
         /// </summary>
-        internal static string InvalidIndexException {
+        public static string InvalidIndexException {
             get {
                 return ResourceManager.GetString("InvalidIndexException", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel Rendering Extension: Number of columns exceeds the maximum possible in a worksheet of this version. Columns requested: {0}. Maximum columns: {1}..
         /// </summary>
-        internal static string MaxColExceededInSheet {
+        public static string MaxColExceededInSheet {
             get {
                 return ResourceManager.GetString("MaxColExceededInSheet", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel Rendering Extension: Number of rows exceeds the maximum possible in a worksheet of this version. Rows requested: {0}. Maximum rows: {1}..
         /// </summary>
-        internal static string MaxRowExceededInSheet {
+        public static string MaxRowExceededInSheet {
             get {
                 return ResourceManager.GetString("MaxRowExceededInSheet", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to ExcelRenderingExtension: Value of cell at row {0}, column {1} exceeds the maximum length for a string of 32767 characters..
         /// </summary>
-        internal static string MaxStringLengthExceeded {
+        public static string MaxStringLengthExceeded {
             get {
                 return ResourceManager.GetString("MaxStringLengthExceeded", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel Rendering Extension : Maximum value of data type ({0}) exceeded..
         /// </summary>
-        internal static string MaxValueExceeded {
+        public static string MaxValueExceeded {
             get {
                 return ResourceManager.GetString("MaxValueExceeded", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Sheet.
         /// </summary>
-        internal static string SheetName {
+        public static string SheetName {
             get {
                 return ResourceManager.GetString("SheetName", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  ({0}).
         /// </summary>
-        internal static string SheetNameCounterSuffix {
+        public static string SheetNameCounterSuffix {
             get {
                 return ResourceManager.GetString("SheetNameCounterSuffix", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel Rendering Extension: Unknown image format {0}..
         /// </summary>
-        internal static string UnknownImageFormat {
+        public static string UnknownImageFormat {
             get {
                 return ResourceManager.GetString("UnknownImageFormat", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Excel Rendering Extension : Value {2} is out of range. Expected range is {0} - {1}..
         /// </summary>
-        internal static string ValueOutOfRange {
+        public static string ValueOutOfRange {
             get {
                 return ResourceManager.GetString("ValueOutOfRange", resourceCulture);
             }

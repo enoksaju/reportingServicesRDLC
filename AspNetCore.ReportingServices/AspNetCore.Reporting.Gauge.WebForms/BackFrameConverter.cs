@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class BackFrameConverter : NoNameExpandableObjectConverter
+	public class BackFrameConverter : NoNameExpandableObjectConverter
 	{
 		public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value, Attribute[] attributes)
 		{

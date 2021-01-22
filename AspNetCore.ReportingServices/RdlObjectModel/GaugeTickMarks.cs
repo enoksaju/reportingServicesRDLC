@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class GaugeTickMarks : TickMarkStyle
+	public class GaugeTickMarks : TickMarkStyle
 	{
-		internal new class Definition : DefinitionStore<GaugeTickMarks, Definition.Properties>
+		public new class Definition : DefinitionStore<GaugeTickMarks, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				DistanceFromScale,
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal GaugeTickMarks(IPropertyStore propertyStore)
+		public GaugeTickMarks(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

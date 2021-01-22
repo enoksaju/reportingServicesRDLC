@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal interface IInterleave : IStorable, IPersistable
+	public interface IInterleave : IStorable, IPersistable
 	{
 		int Index
 		{

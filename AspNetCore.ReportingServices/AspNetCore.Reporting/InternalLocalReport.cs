@@ -28,7 +28,7 @@ using Html = AspNetCore.ReportingServices.Rendering.HtmlRenderer;
 namespace AspNetCore.Reporting
 {
     [Serializable]
-    internal sealed class InternalLocalReport : Report, ISerializable, IDisposable
+    public sealed class InternalLocalReport : Report, ISerializable, IDisposable
     {
         private const string TopLevelDirectReportDefinitionPath = "";
 
@@ -48,14 +48,14 @@ namespace AspNetCore.Reporting
 
         private ProcessingMessageList m_lastRenderingWarnings;
 
-        internal readonly ILocalProcessingHost m_processingHost;
+        public readonly ILocalProcessingHost m_processingHost;
 
         private RenderingExtension[] m_externalRenderingExtensions;
 
         [NonSerialized]
         private MapTileServerConfiguration m_mapTileServerConfiguration;
 
-        internal override string DisplayNameForUse
+        public override string DisplayNameForUse
         {
             get
             {
@@ -80,7 +80,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal bool SupportsQueries
+        public bool SupportsQueries
         {
             get
             {
@@ -88,7 +88,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override bool CanSelfCancel
+        public override bool CanSelfCancel
         {
             get
             {
@@ -237,7 +237,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override bool IsReadyForConnection
+        public override bool IsReadyForConnection
         {
             get
             {
@@ -245,7 +245,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override bool IsPreparedReportReadyForRendering
+        public override bool IsPreparedReportReadyForRendering
         {
             get
             {
@@ -273,7 +273,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal bool HasExecutionSession
+        public bool HasExecutionSession
         {
             get
             {
@@ -292,7 +292,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override bool HasDocMap
+        public override bool HasDocMap
         {
             get
             {
@@ -310,7 +310,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override int AutoRefreshInterval
+        public override int AutoRefreshInterval
         {
             get
             {
@@ -321,14 +321,14 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal event InitializeDataSourcesEventHandler InitializeDataSources;
+        public event InitializeDataSourcesEventHandler InitializeDataSources;
 
         //[SRDescription("SubreportProcessingEventDesc")]
         public event SubreportProcessingEventHandler SubreportProcessing;
         public InternalLocalReport() : this(new ControlService(new StandalonePreviewStore()))
         {
         }
-        internal InternalLocalReport(ILocalProcessingHost processingHost)
+        public InternalLocalReport(ILocalProcessingHost processingHost)
         {
             this.m_processingHost = processingHost;
             this.m_dataSources = new ReportDataSourceCollection(base.m_syncObject);
@@ -337,7 +337,7 @@ namespace AspNetCore.Reporting
 
         [SecurityCritical]
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
-        internal InternalLocalReport(SerializationInfo info, StreamingContext context)
+        public InternalLocalReport(SerializationInfo info, StreamingContext context)
         {
             base.DisplayName = info.GetString("DisplayName");
             this.m_reportPath = info.GetString("ReportPath");
@@ -395,7 +395,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override void SetCancelState(bool shouldCancelRequests)
+        public override void SetCancelState(bool shouldCancelRequests)
         {
             this.m_processingHost.SetCancelState(shouldCancelRequests);
         }
@@ -426,7 +426,7 @@ namespace AspNetCore.Reporting
             });
         }
 
-        internal void SetDataSourceCredentials(IEnumerable credentials)
+        public void SetDataSourceCredentials(IEnumerable credentials)
         {
             if (credentials == null)
             {
@@ -445,7 +445,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal ReportDataSourceInfoCollection GetDataSources(out bool allCredentialsSatisfied)
+        public ReportDataSourceInfoCollection GetDataSources(out bool allCredentialsSatisfied)
         {
             lock (base.m_syncObject)
             {
@@ -555,7 +555,7 @@ namespace AspNetCore.Reporting
             });
         }
 
-        internal override int PerformSearch(string searchText, int startPage, int endPage)
+        public override int PerformSearch(string searchText, int startPage, int endPage)
         {
             try
             {
@@ -585,7 +585,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override void PerformToggle(string toggleId)
+        public override void PerformToggle(string toggleId)
         {
             try
             {
@@ -611,7 +611,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override int PerformBookmarkNavigation(string bookmarkId, out string uniqueName)
+        public override int PerformBookmarkNavigation(string bookmarkId, out string uniqueName)
         {
             try
             {
@@ -637,7 +637,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override int PerformDocumentMapNavigation(string documentMapId)
+        public override int PerformDocumentMapNavigation(string documentMapId)
         {
             try
             {
@@ -663,7 +663,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override Report PerformDrillthrough(string drillthroughId, out string reportPath)
+        public override Report PerformDrillthrough(string drillthroughId, out string reportPath)
         {
             try
             {
@@ -724,7 +724,7 @@ namespace AspNetCore.Reporting
             drillReport.m_parentSuppliedParameters = drillParams;
         }
 
-        internal override int PerformSort(string sortId, SortOrder sortDirection, bool clearSort, PageCountMode pageCountMode, out string uniqueName)
+        public override int PerformSort(string sortId, SortOrder sortDirection, bool clearSort, PageCountMode pageCountMode, out string uniqueName)
         {
             try
             {
@@ -846,7 +846,7 @@ namespace AspNetCore.Reporting
             this.ShowDetailedSubreportMessages = parentReport.ShowDetailedSubreportMessages;
         }
 
-        internal override void EnsureExecutionSession()
+        public override void EnsureExecutionSession()
         {
             if (this.DefinitionSource == DefinitionSource.Unknown)
             {
@@ -928,7 +928,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override ParametersPaneLayout GetParametersPaneLayout()
+        public override ParametersPaneLayout GetParametersPaneLayout()
         {
             lock (base.m_syncObject)
             {
@@ -982,7 +982,7 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override byte[] InternalRenderStream(string format, string streamID, string deviceInfo, out string mimeType, out Encoding encoding)
+        public override byte[] InternalRenderStream(string format, string streamID, string deviceInfo, out string mimeType, out Encoding encoding)
         {
             try
             {
@@ -1002,12 +1002,12 @@ namespace AspNetCore.Reporting
             }
         }
 
-        internal override void InternalDeliverReportItem(string format, string deviceInfo, ExtensionSettings settings, string description, string eventType, string matchData)
+        public override void InternalDeliverReportItem(string format, string deviceInfo, ExtensionSettings settings, string description, string eventType, string matchData)
         {
             throw new NotImplementedException();
         }
 
-        internal override DocumentMapNode GetDocumentMap(string rootLabel)
+        public override DocumentMapNode GetDocumentMap(string rootLabel)
         {
             try
             {
@@ -1039,9 +1039,9 @@ namespace AspNetCore.Reporting
         {
             return this.InternalRender(format, false, deviceInfo, pageCountMode, out mimeType, out encoding, out fileNameExtension, out streams, out warnings);
         }
-        public int PageIndex{get;internal set;}
-        public byte[] Styles { get;private set; }
-        internal byte[] InternalRender(string format, bool allowInternalRenderers, string deviceInfo, PageCountMode pageCountMode, out string mimeType, out Encoding encoding, out string fileNameExtension, out string[] streams, out Warning[] warnings)
+        public int PageIndex{get;set;}
+        public byte[] Styles { get;set; }
+        public byte[] InternalRender(string format, bool allowInternalRenderers, string deviceInfo, PageCountMode pageCountMode, out string mimeType, out Encoding encoding, out string fileNameExtension, out string[] streams, out Warning[] warnings)
 		{
 			lock (base.m_syncObject)
 			{
@@ -1072,12 +1072,12 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal void Render(string format, string deviceInfo, CreateStreamCallback createStream, out Warning[] warnings)
+		public void Render(string format, string deviceInfo, CreateStreamCallback createStream, out Warning[] warnings)
 		{
 			this.Render(format, deviceInfo, PageCountMode.Estimate, createStream, out warnings);
 		}
 
-		internal void Render(string format, string deviceInfo, PageCountMode pageCountMode, CreateStreamCallback createStream, out Warning[] warnings)
+		public void Render(string format, string deviceInfo, PageCountMode pageCountMode, CreateStreamCallback createStream, out Warning[] warnings)
 		{
 			if (createStream == null)
 			{
@@ -1090,7 +1090,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal void InternalRender(string format, bool allowInternalRenderers, string deviceInfo, PageCountMode pageCountMode, CreateAndRegisterStream createStreamCallback, out Warning[] warnings)
+		public void InternalRender(string format, bool allowInternalRenderers, string deviceInfo, PageCountMode pageCountMode, CreateAndRegisterStream createStreamCallback, out Warning[] warnings)
 		{
 			lock (base.m_syncObject)
 			{
@@ -1152,7 +1152,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal void TransferEvents(InternalLocalReport targetReport)
+		public void TransferEvents(InternalLocalReport targetReport)
 		{
 			if (targetReport != null)
 			{
@@ -1161,7 +1161,7 @@ namespace AspNetCore.Reporting
 			this.SubreportProcessing = null;
 		}
 
-		internal void CreateSnapshot()
+		public void CreateSnapshot()
 		{
 			this.m_processingHost.Render(null, null, null, false, this.m_dataSources, null);
 		}
@@ -1257,7 +1257,7 @@ namespace AspNetCore.Reporting
 			return InternalLocalReport.CreateItemContext(this.ReportPath, this.GetFullyQualifiedReportPath(), this.DefinitionSource, this.m_embeddedResourceAssembly);
 		}
 
-		internal static PreviewItemContext CreateItemContextForFilePath(string filePath)
+		public static PreviewItemContext CreateItemContextForFilePath(string filePath)
 		{
 			return InternalLocalReport.CreateItemContext(filePath, InternalLocalReport.GetReportNameForFile(filePath), DefinitionSource.File, null);
 		}

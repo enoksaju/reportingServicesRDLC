@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class XamlRenderer : IDisposable
+	public class XamlRenderer : IDisposable
 	{
 		private XmlDocument xaml;
 

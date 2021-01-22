@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_BorderPr : OoxmlComplexType
+	public class CT_BorderPr : OoxmlComplexType
 	{
 		private ST_BorderStyle _style_attr;
 

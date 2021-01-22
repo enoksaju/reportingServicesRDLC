@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimBackgroundImageInstance : BackgroundImageInstance
+	public sealed class ShimBackgroundImageInstance : BackgroundImageInstance
 	{
 		private readonly AspNetCore.ReportingServices.ReportRendering.BackgroundImage m_renderImage;
 
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimBackgroundImageInstance(BackgroundImage backgroundImageDef, AspNetCore.ReportingServices.ReportRendering.BackgroundImage renderImage, string backgroundRepeat)
+		public ShimBackgroundImageInstance(BackgroundImage backgroundImageDef, AspNetCore.ReportingServices.ReportRendering.BackgroundImage renderImage, string backgroundRepeat)
 			: base(null)
 		{
 			this.m_backgroundImageDef = backgroundImageDef;

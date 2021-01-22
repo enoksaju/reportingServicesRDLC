@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum FontStyles
+	public enum FontStyles
 	{
 		Default,
 		Normal,

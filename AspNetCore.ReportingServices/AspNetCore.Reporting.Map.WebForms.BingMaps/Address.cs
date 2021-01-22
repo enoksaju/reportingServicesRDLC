@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class Address
+	public class Address
 	{
 		[DataMember(Name = "addressLine", EmitDefaultValue = false)]
 		public string AddressLine

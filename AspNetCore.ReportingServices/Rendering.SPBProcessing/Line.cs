@@ -5,9 +5,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class Line : PageItem
+	public sealed class Line : PageItem
 	{
-		internal Line(AspNetCore.ReportingServices.OnDemandReportRendering.Line source, PageContext pageContext, bool createForRepeat)
+		public Line(AspNetCore.ReportingServices.OnDemandReportRendering.Line source, PageContext pageContext, bool createForRepeat)
 			: base(source)
 		{
 			if (pageContext != null)
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
+		public override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
 		{
 			base.AdjustOriginFromItemsAbove(siblings, repeatWithItems);
 			if (!this.HitsCurrentPage(pageContext, parentTopInPage))
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal override void CalculateRepeatWithPage(RPLWriter rplWriter, PageContext pageContext, PageItem[] siblings)
+		public override void CalculateRepeatWithPage(RPLWriter rplWriter, PageContext pageContext, PageItem[] siblings)
 		{
 			base.AdjustOriginFromItemsAbove(siblings, null);
 			ItemSizes contentSize = null;
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override int WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
+		public override int WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (base.ItemState == State.OnPageHidden)
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return 1;
 		}
 
-		internal void WriteItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public void WriteItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			BinaryWriter binaryWriter = rplWriter.BinaryWriter;
 			if (binaryWriter != null)
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (((AspNetCore.ReportingServices.OnDemandReportRendering.Line)base.m_source).Slant)
 			{
@@ -102,12 +102,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			((RPLLinePropsDef)sharedProps).Slant = ((AspNetCore.ReportingServices.OnDemandReportRendering.Line)base.m_source).Slant;
 		}
 
-		internal override void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public override void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override PageItemHelper WritePaginationInfo()
+		public override PageItemHelper WritePaginationInfo()
 		{
 			PageItemHelper pageItemHelper = new PageItemHelper(8);
 			base.WritePaginationInfoProperties(pageItemHelper);

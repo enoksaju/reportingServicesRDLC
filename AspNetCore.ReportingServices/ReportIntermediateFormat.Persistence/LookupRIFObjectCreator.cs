@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
 	[StructLayout(LayoutKind.Sequential, Size = 1)]
-	internal struct LookupRIFObjectCreator : IRIFObjectCreator, IScalabilityObjectCreator
+	public struct LookupRIFObjectCreator : IRIFObjectCreator, IScalabilityObjectCreator
 	{
 		private static List<Declaration> m_declarations = LookupRIFObjectCreator.BuildDeclarations();
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum MapAreaType
+	public enum MapAreaType
 	{
 		URL,
 		Bookmark,

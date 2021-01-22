@@ -5,9 +5,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class GroupingList : ArrayList
+	public sealed class GroupingList : ArrayList
 	{
-		internal new Grouping this[int index]
+		public new Grouping this[int index]
 		{
 			get
 			{
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Grouping LastEntry
+		public Grouping LastEntry
 		{
 			get
 			{
@@ -31,12 +31,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal GroupingList(int capacity)
+		public GroupingList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context, ReportHierarchyNode owner)
+		public object PublishClone(AutomaticSubtotalContext context, ReportHierarchyNode owner)
 		{
 			int count = this.Count;
 			GroupingList groupingList = new GroupingList(count);
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return groupingList;
 		}
 
-		internal new GroupingList Clone()
+		public new GroupingList Clone()
 		{
 			int count = this.Count;
 			GroupingList groupingList = new GroupingList(count);

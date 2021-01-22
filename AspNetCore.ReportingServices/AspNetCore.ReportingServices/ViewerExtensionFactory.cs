@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices
 {
-	internal class ViewerExtensionFactory : IExtensionFactory
+	public class ViewerExtensionFactory : IExtensionFactory
 	{
 		public bool IsRegisteredCustomReportItemExtension(string extensionType)
 		{

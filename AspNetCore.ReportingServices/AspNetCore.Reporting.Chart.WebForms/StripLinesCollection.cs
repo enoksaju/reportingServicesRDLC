@@ -4,11 +4,11 @@ using System.Collections;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeStripLinesCollection_StripLinesCollection")]
-	internal class StripLinesCollection : IList, ICollection, IEnumerable
+	public class StripLinesCollection : IList, ICollection, IEnumerable
 	{
 		private ArrayList array = new ArrayList();
 
-		internal Axis axis;
+		public Axis axis;
 
 		public StripLine this[int index]
 		{

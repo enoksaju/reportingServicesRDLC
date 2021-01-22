@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapPointLabelPlacements
+	public enum MapPointLabelPlacements
 	{
 		Bottom,
 		Top,

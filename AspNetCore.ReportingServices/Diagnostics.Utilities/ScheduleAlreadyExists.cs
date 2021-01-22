@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ScheduleAlreadyExists : ReportCatalogException
+	public sealed class ScheduleAlreadyExists : ReportCatalogException
 	{
 		public ScheduleAlreadyExists(string name)
 			: base(ErrorCode.rsScheduleAlreadyExists, ErrorStrings.rsScheduleAlreadyExists(name), null, null)

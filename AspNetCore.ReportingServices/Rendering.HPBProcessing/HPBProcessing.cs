@@ -18,7 +18,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class HPBProcessing : IDisposable
+	public class HPBProcessing : IDisposable
 	{
 		protected static ResourceManager HPBResManager;
 
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private static Version m_rplVersion;
 
-		internal static ResourceManager HPBResourceManager
+		public static ResourceManager HPBResourceManager
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal FontCache SharedFontCache
+		public FontCache SharedFontCache
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal List<SectionItemizedData> GlyphCache
+		public List<SectionItemizedData> GlyphCache
 		{
 			get
 			{

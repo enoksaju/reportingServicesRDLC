@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class StorableArray : IStorable, IPersistable, ITransferable
+	public sealed class StorableArray : IStorable, IPersistable, ITransferable
 	{
-		internal object[] Array;
+		public object[] Array;
 
 		private static Declaration m_declaration = StorableArray.GetDeclaration();
 
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.StorableArray;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (StorableArray.m_declaration == null)
 			{

@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLColorModel : ColorModel
+	public class XMLColorModel : ColorModel
 	{
 		private const string Default = "FF000000";
 

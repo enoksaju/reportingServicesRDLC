@@ -4,14 +4,14 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class ReportItemInstance : InstanceInfoOwner, ISearchByUniqueName
+	public abstract class ReportItemInstance : InstanceInfoOwner, ISearchByUniqueName
 	{
 		protected int m_uniqueName;
 
 		[Reference]
 		protected ReportItem m_reportItemDef;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItem ReportItemDef
+		public ReportItem ReportItemDef
 		{
 			get
 			{
@@ -35,13 +35,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemInstance(int uniqueName, ReportItem reportItemDef)
+		public ReportItemInstance(int uniqueName, ReportItem reportItemDef)
 		{
 			this.m_uniqueName = uniqueName;
 			this.m_reportItemDef = reportItemDef;
 		}
 
-		internal ReportItemInstance()
+		public ReportItemInstance()
 		{
 		}
 
@@ -60,24 +60,24 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal virtual int GetDocumentMapUniqueName()
+		public virtual int GetDocumentMapUniqueName()
 		{
 			return this.m_uniqueName;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.InstanceInfoOwner, memberInfoList);
 		}
 
-		internal ReportItemInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public ReportItemInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			return this.GetInstanceInfo(chunkManager, false);
 		}
 
-		internal ReportItemInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager, bool inPageSection)
+		public ReportItemInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager, bool inPageSection)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{
@@ -89,6 +89,6 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return (ReportItemInstanceInfo)base.m_instanceInfo;
 		}
 
-		internal abstract ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader);
+		public abstract ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader);
 	}
 }

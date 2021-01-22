@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal sealed class ServerDataSourceSettings
+	public sealed class ServerDataSourceSettings
 	{
 		private bool m_allowIntegratedSecurity = true;
 

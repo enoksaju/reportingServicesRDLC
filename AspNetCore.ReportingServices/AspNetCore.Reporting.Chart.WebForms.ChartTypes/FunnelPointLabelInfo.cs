@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class FunnelPointLabelInfo
+	public class FunnelPointLabelInfo
 	{
 		public DataPoint Point;
 

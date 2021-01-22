@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace AspNetCore.Reporting
 {
-	internal class DataSetExtensionConnection : IProcessingDataExtensionConnection
+	public class DataSetExtensionConnection : IProcessingDataExtensionConnection
 	{
 		private LocalDataRetrievalFromDataSet.GetSubReportDataSetCallback m_subreportCallback;
 

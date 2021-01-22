@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RenderingChunkManager
+	public sealed class RenderingChunkManager
 	{
 		private string m_rendererID;
 
@@ -12,14 +12,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private Dictionary<string, Stream> m_chunks;
 
-		internal RenderingChunkManager(string rendererID, IChunkFactory chunkFactory)
+		public RenderingChunkManager(string rendererID, IChunkFactory chunkFactory)
 		{
 			this.m_rendererID = rendererID;
 			this.m_chunkFactory = chunkFactory;
 			this.m_chunks = new Dictionary<string, Stream>();
 		}
 
-		internal Stream GetOrCreateChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes type, string chunkName, bool createChunkIfNotExists, out bool isNewChunk)
+		public Stream GetOrCreateChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes type, string chunkName, bool createChunkIfNotExists, out bool isNewChunk)
 		{
 			isNewChunk = false;
 			if (chunkName == null)
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return stream;
 		}
 
-		internal Stream CreateChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes type, string chunkName)
+		public Stream CreateChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes type, string chunkName)
 		{
 			if (chunkName == null)
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return stream;
 		}
 
-		internal void CloseAllChunks()
+		public void CloseAllChunks()
 		{
 			foreach (Stream value in this.m_chunks.Values)
 			{

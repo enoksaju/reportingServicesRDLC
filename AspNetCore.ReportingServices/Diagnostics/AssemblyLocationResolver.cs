@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class AssemblyLocationResolver : MarshalByRefObject
+	public sealed class AssemblyLocationResolver : MarshalByRefObject
 	{
 		private readonly bool m_fullLoad;
 

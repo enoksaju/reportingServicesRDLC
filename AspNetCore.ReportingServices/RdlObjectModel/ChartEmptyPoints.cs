@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartEmptyPoints : ReportObject
+	public class ChartEmptyPoints : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartEmptyPoints, Definition.Properties>
+		public class Definition : DefinitionStore<ChartEmptyPoints, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				ChartMarker,
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartEmptyPoints(IPropertyStore propertyStore)
+		public ChartEmptyPoints(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

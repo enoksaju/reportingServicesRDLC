@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class CallbackEventArgs : EventArgs
+	public class CallbackEventArgs : EventArgs
 	{
 		private string commandName;
 

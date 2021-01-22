@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class BoxPlotChart : IChartType
+	public class BoxPlotChart : IChartType
 	{
 		protected Axis vAxis;
 
@@ -872,7 +872,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return point.YValues[yValueIndex];
 		}
 
-		internal static void CalculateBoxPlotFromLinkedSeries(Series boxPlotSeries, IServiceContainer serviceContainer)
+		public static void CalculateBoxPlotFromLinkedSeries(Series boxPlotSeries, IServiceContainer serviceContainer)
 		{
 			if (string.Compare(boxPlotSeries.ChartTypeName, "BoxPlot", StringComparison.OrdinalIgnoreCase) == 0 && serviceContainer != null)
 			{

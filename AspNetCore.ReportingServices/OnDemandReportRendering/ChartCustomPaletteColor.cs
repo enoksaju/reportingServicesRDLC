@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartCustomPaletteColor : ChartObjectCollectionItem<ChartCustomPaletteColorInstance>
+	public sealed class ChartCustomPaletteColor : ChartObjectCollectionItem<ChartCustomPaletteColorInstance>
 	{
 		private Chart m_chart;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartCustomPaletteColor ChartCustomPaletteColorDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartCustomPaletteColor ChartCustomPaletteColorDef
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartCustomPaletteColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartCustomPaletteColor chartCustomPaletteColorDef, Chart chart)
+		public ChartCustomPaletteColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartCustomPaletteColor chartCustomPaletteColorDef, Chart chart)
 		{
 			this.m_chart = chart;
 			this.m_chartCustomPaletteColorDef = chartCustomPaletteColorDef;

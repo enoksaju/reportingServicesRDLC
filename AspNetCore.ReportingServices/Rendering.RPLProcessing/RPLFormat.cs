@@ -1,15 +1,15 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLFormat
+	public class RPLFormat
 	{
-		internal enum SortOptions : byte
+		public enum SortOptions : byte
 		{
 			None,
 			Ascending,
 			Descending
 		}
 
-		internal enum Sizings : byte
+		public enum Sizings : byte
 		{
 			AutoSize,
 			Fit,
@@ -17,20 +17,20 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			Clip
 		}
 
-		internal enum ShapeType : byte
+		public enum ShapeType : byte
 		{
 			Rectangle,
 			Polygon,
 			Circle
 		}
 
-		internal enum LayoutDirection : byte
+		public enum LayoutDirection : byte
 		{
 			Columns,
 			Rows
 		}
 
-		internal enum ImageRawFormat : byte
+		public enum ImageRawFormat : byte
 		{
 			BMP,
 			JPEG,
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			PNG
 		}
 
-		internal enum BackgroundGradients : byte
+		public enum BackgroundGradients : byte
 		{
 			None,
 			LeftRight,
@@ -50,13 +50,13 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			VerticalCenter
 		}
 
-		internal enum FontStyles : byte
+		public enum FontStyles : byte
 		{
 			Normal,
 			Italic
 		}
 
-		internal enum FontWeights : byte
+		public enum FontWeights : byte
 		{
 			Normal,
 			Thin,
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			Heavy
 		}
 
-		internal enum TextDecorations : byte
+		public enum TextDecorations : byte
 		{
 			None,
 			Underline,
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			LineThrough
 		}
 
-		internal enum TextAlignments : byte
+		public enum TextAlignments : byte
 		{
 			General,
 			Left,
@@ -85,34 +85,34 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			Right
 		}
 
-		internal enum VerticalAlignments : byte
+		public enum VerticalAlignments : byte
 		{
 			Top,
 			Middle,
 			Bottom
 		}
 
-		internal enum Directions : byte
+		public enum Directions : byte
 		{
 			LTR,
 			RTL
 		}
 
-		internal enum WritingModes : byte
+		public enum WritingModes : byte
 		{
 			Horizontal,
 			Vertical,
 			Rotate270
 		}
 
-		internal enum UnicodeBiDiTypes : byte
+		public enum UnicodeBiDiTypes : byte
 		{
 			Normal,
 			Embed,
 			BiDiOverride
 		}
 
-		internal enum Calendars : byte
+		public enum Calendars : byte
 		{
 			Gregorian,
 			GregorianArabic,
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			ThaiBuddhist
 		}
 
-		internal enum BorderStyles : byte
+		public enum BorderStyles : byte
 		{
 			None,
 			Dotted,
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			Double
 		}
 
-		internal enum BackgroundRepeatTypes : byte
+		public enum BackgroundRepeatTypes : byte
 		{
 			Repeat,
 			Clip,
@@ -146,21 +146,21 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			RepeatY
 		}
 
-		internal enum ListStyles : byte
+		public enum ListStyles : byte
 		{
 			None,
 			Numbered,
 			Bulleted
 		}
 
-		internal enum MarkupStyles : byte
+		public enum MarkupStyles : byte
 		{
 			None,
 			HTML,
 			RTF
 		}
 
-		internal class StateValues
+		public class StateValues
 		{
 			public const byte OmitTop = 1;
 
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte SpanPages = 64;
 		}
 
-		internal class SectionProps
+		public class SectionProps
 		{
 			public const byte ID = 0;
 
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte ColumnSpacing = 2;
 		}
 
-		internal class ItemProps
+		public class ItemProps
 		{
 			public const byte UniqueName = 0;
 
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte ConsumeContainerWhitespace = 50;
 		}
 
-		internal class ImageProps
+		public class ImageProps
 		{
 			public const byte ImageMimeType = 0;
 
@@ -310,7 +310,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte RawFormat = 7;
 		}
 
-		internal class ActionInfoProps
+		public class ActionInfoProps
 		{
 			public const byte ActionInfoStyleStart = 0;
 
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte ImageMapAreasStart = 10;
 		}
 
-		internal class StyleProps
+		public class StyleProps
 		{
 			public const byte BorderColor = 0;
 
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte Calendar = 38;
 		}
 
-		internal class TablixMeasurements
+		public class TablixMeasurements
 		{
 			public const byte FixedRows = 1;
 
@@ -459,7 +459,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte TablixMemberDefStart = 16;
 		}
 
-		internal class TablixMemberDefStateValues
+		public class TablixMemberDefStateValues
 		{
 			public const byte Column = 1;
 
@@ -468,7 +468,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte StaticHeadersTree = 4;
 		}
 
-		internal class TablixMemberDefProps
+		public class TablixMemberDefProps
 		{
 			public const byte DefinitionPath = 0;
 
@@ -479,7 +479,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte State = 3;
 		}
 
-		internal class TablixMemberStateValues
+		public class TablixMemberStateValues
 		{
 			public const byte HasToggle = 1;
 
@@ -488,7 +488,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte InnerMost = 4;
 		}
 
-		internal class ContentSizeProps
+		public class ContentSizeProps
 		{
 			public const byte ContentTop = 0;
 
@@ -499,7 +499,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte ContentHeight = 3;
 		}
 
-		internal class TablixCellProps : ContentSizeProps
+		public class TablixCellProps : ContentSizeProps
 		{
 			public const byte CellItemOffset = 4;
 
@@ -524,7 +524,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte RecursiveToggleLevel = 14;
 		}
 
-		internal class ParagraphProps : ContentSizeProps
+		public class ParagraphProps : ContentSizeProps
 		{
 			public const byte UniqueName = 4;
 
@@ -551,7 +551,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			public const byte FirstLine = 15;
 		}
 
-		internal class TextRunProps : ContentSizeProps
+		public class TextRunProps : ContentSizeProps
 		{
 			public const byte UniqueName = 4;
 

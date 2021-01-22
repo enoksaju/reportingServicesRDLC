@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class ChartTitleBase : ChartStyleContainer, IPersistable
+	public class ChartTitleBase : ChartStyleContainer, IPersistable
 	{
 		private ExpressionInfo m_caption;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ChartTitleBase.GetDeclaration();
 
-		internal ExpressionInfo Caption
+		public ExpressionInfo Caption
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartTitleBaseExprHost ExprHost
+		public ChartTitleBaseExprHost ExprHost
 		{
 			get
 			{
@@ -45,24 +45,24 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartTitleBase()
+		public ChartTitleBase()
 		{
 		}
 
-		internal ChartTitleBase(Chart chart)
+		public ChartTitleBase(Chart chart)
 			: base(chart)
 		{
 			base.m_chart = chart;
 		}
 
-		internal override void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = (ChartTitleBaseExprHost)exprHost;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_caption != null)
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string EvaluateCaption(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public string EvaluateCaption(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateChartTitleCaptionExpression(this, base.Name, "Caption");
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartTitleBase chartTitleBase = (ChartTitleBase)base.PublishClone(context);
 			if (this.m_caption != null)
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartTitleBase;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Caption, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));

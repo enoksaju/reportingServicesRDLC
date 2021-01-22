@@ -10,7 +10,7 @@ using System.Web;
 
 namespace AspNetCore.Reporting
 {
-	internal class EmbeddedResourceOperation : HandlerOperation
+	public class EmbeddedResourceOperation : HandlerOperation
 	{
 		private const string UrlParamName = "Name";
 

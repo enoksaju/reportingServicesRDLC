@@ -5,7 +5,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLStyleModel : IStyleModel, ICloneable, IDeepCloneable<XMLStyleModel>
+	public class XMLStyleModel : IStyleModel, ICloneable, IDeepCloneable<XMLStyleModel>
 	{
 		private Style _interface;
 

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PointerImageInstance : BaseGaugeImageInstance
+	public sealed class PointerImageInstance : BaseGaugeImageInstance
 	{
 		private ReportColor m_hueColor;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PointerImageInstance(PointerImage defObject)
+		public PointerImageInstance(PointerImage defObject)
 			: base(defObject)
 		{
 		}

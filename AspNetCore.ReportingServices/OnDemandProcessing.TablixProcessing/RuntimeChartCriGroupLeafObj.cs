@@ -8,21 +8,21 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeChartCriGroupLeafObj : RuntimeDataTablixGroupLeafObj
+	public sealed class RuntimeChartCriGroupLeafObj : RuntimeDataTablixGroupLeafObj
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeChartCriGroupLeafObj.GetDeclaration();
 
-		internal RuntimeChartCriGroupLeafObj()
+		public RuntimeChartCriGroupLeafObj()
 		{
 		}
 
-		internal RuntimeChartCriGroupLeafObj(RuntimeDataTablixGroupRootObjReference groupRootRef, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeChartCriGroupLeafObj(RuntimeDataTablixGroupRootObjReference groupRootRef, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(groupRootRef, objectType)
 		{
 		}
 
-		internal override RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion)
+		public override RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion)
 		{
 			Global.Tracer.Assert(false, "This type of group leaf does not support nested data regions.");
 			throw new InvalidOperationException();
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		{
 		}
 
-		internal override void CreateCell(RuntimeCells cellsCollection, int collectionKey, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef)
+		public override void CreateCell(RuntimeCells cellsCollection, int collectionKey, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef)
 		{
 			RuntimeCell runtimeCell = new RuntimeChartCriCell((RuntimeChartCriGroupLeafObjReference)base.m_selfReference, outerGroupingMember, innerGroupingMember, !base.m_hasInnerHierarchy);
 			if ((BaseReference)runtimeCell.SelfReference == (object)null)

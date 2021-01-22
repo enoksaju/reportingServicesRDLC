@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class GDIPen
+	public sealed class GDIPen
 	{
 		private GDIPen()
 		{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return text;
 		}
 
-		internal static Pen GetPen(Dictionary<string, Pen> pens, Color color, float size, RPLFormat.BorderStyles style)
+		public static Pen GetPen(Dictionary<string, Pen> pens, Color color, float size, RPLFormat.BorderStyles style)
 		{
 			string key = GDIPen.GetKey(color, size, style);
 			Pen pen = default(Pen);

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface ICellModel
+	public interface ICellModel
 	{
 		Cell Interface
 		{

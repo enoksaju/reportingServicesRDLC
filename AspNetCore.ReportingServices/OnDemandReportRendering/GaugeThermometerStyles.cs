@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeThermometerStyles
+	public enum GaugeThermometerStyles
 	{
 		Standard,
 		Flask

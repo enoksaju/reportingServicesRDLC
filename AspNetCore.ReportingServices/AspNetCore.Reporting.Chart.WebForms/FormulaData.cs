@@ -4,15 +4,15 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class FormulaData : ChartElement
+	public class FormulaData : ChartElement
 	{
-		internal const string IndexedSeriesLabelsSourceAttr = "__IndexedSeriesLabelsSource__";
+		public const string IndexedSeriesLabelsSourceAttr = "__IndexedSeriesLabelsSource__";
 
 		private bool ignoreEmptyPoints = true;
 
 		private string[] extraParameters;
 
-		internal FinancialMarkersCollection markers;
+		public FinancialMarkersCollection markers;
 
 		private bool zeroXValues;
 
@@ -560,7 +560,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal void CheckXValuesAlignment(Series[] series)
+		public void CheckXValuesAlignment(Series[] series)
 		{
 			if (series.Length <= 1)
 			{

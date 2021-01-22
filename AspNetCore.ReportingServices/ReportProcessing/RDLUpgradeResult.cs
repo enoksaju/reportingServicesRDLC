@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class RDLUpgradeResult
+	public sealed class RDLUpgradeResult
 	{
 		private bool hasUnsupportedDundasChartFeatures;
 

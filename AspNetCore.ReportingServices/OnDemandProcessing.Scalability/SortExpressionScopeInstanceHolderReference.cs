@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class SortExpressionScopeInstanceHolderReference : Reference<IHierarchyObj>, IReference<RuntimeSortFilterEventInfo.SortExpressionScopeInstanceHolder>, IReference, IStorable, IPersistable
+	public class SortExpressionScopeInstanceHolderReference : Reference<IHierarchyObj>, IReference<RuntimeSortFilterEventInfo.SortExpressionScopeInstanceHolder>, IReference, IStorable, IPersistable
 	{
-		internal SortExpressionScopeInstanceHolderReference()
+		public SortExpressionScopeInstanceHolderReference()
 		{
 		}
 

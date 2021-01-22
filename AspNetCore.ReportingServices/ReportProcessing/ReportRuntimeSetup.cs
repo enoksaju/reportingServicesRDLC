@@ -5,7 +5,7 @@ using System.Security.Policy;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportRuntimeSetup
+	public sealed class ReportRuntimeSetup
 	{
 		private static ReportRuntimeSetup DefaultRuntimeSetup;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AppDomain ExprHostAppDomain
+		public AppDomain ExprHostAppDomain
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Evidence ExprHostEvidence
+		public Evidence ExprHostEvidence
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool CheckCodeModuleIsTrustedInCurrentAppDomain(string assemblyName)
+		public bool CheckCodeModuleIsTrustedInCurrentAppDomain(string assemblyName)
 		{
 			if (this.m_restrictCodeModulesInCurrentAppDomain)
 			{

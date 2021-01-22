@@ -5,7 +5,7 @@ using System.Data;
 
 namespace AspNetCore.Reporting.Map.WebForms.Design
 {
-	internal class DataWizardState
+	public class DataWizardState
 	{
 		public bool FieldsChosen;
 

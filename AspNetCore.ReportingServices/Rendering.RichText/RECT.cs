@@ -1,13 +1,13 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal struct RECT
+	public struct RECT
 	{
-		internal int left;
+		public int left;
 
-		internal int top;
+		public int top;
 
-		internal int right;
+		public int right;
 
-		internal int bottom;
+		public int bottom;
 	}
 }

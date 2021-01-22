@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapLabelCollection : NamedCollection
+	public class MapLabelCollection : NamedCollection
 	{
 		private MapLabel this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapLabelCollection(NamedElement parent, CommonElements common)
+		public MapLabelCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(MapLabel);
@@ -82,12 +82,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Remove(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Label1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Label{0}";
 		}
@@ -104,7 +104,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (base.Common != null)
 			{

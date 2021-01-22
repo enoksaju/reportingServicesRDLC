@@ -1,6 +1,6 @@
 namespace Microsoft.Cloud.Platform.Utils
 {
-	internal sealed class ScrubbedString : IContainsPrivateInformation
+	public sealed class ScrubbedString : IContainsPrivateInformation
 	{
 		private readonly string m_plainString;
 

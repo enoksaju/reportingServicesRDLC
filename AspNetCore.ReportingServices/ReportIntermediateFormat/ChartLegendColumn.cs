@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartLegendColumn : ChartStyleContainer, IPersistable, IActionOwner
+	public sealed class ChartLegendColumn : ChartStyleContainer, IPersistable, IActionOwner
 	{
 		private string m_name;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private List<string> m_fieldsUsedInValueExpression;
 
-		internal string LegendColumnName
+		public string LegendColumnName
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendColumnExprHost ExprHost
+		public ChartLegendColumnExprHost ExprHost
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ID
+		public int ID
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ColumnType
+		public ExpressionInfo ColumnType
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MinimumWidth
+		public ExpressionInfo MinimumWidth
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaximumWidth
+		public ExpressionInfo MaximumWidth
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SeriesSymbolWidth
+		public ExpressionInfo SeriesSymbolWidth
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SeriesSymbolHeight
+		public ExpressionInfo SeriesSymbolHeight
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendColumnHeader Header
+		public ChartLegendColumnHeader Header
 		{
 			get
 			{
@@ -210,17 +210,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendColumn()
+		public ChartLegendColumn()
 		{
 		}
 
-		internal ChartLegendColumn(Chart chart, int id)
+		public ChartLegendColumn(Chart chart, int id)
 			: base(chart)
 		{
 			this.m_id = id;
 		}
 
-		internal void SetExprHost(ChartLegendColumnExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartLegendColumnExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartLegendColumnStart(this.m_name);
 			base.Initialize(context);
@@ -285,7 +285,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ChartLegendColumnEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartLegendColumn chartLegendColumn = (ChartLegendColumn)base.PublishClone(context);
 			if (this.m_action != null)
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartLegendColumn;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -345,43 +345,43 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartLegendColumn, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartStyleContainer, list);
 		}
 
-		internal ChartColumnType EvaluateColumnType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartColumnType EvaluateColumnType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartColumnType(context.ReportRuntime.EvaluateChartLegendColumnColumnTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendColumnValueExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendColumnToolTipExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateMinimumWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMinimumWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendColumnMinimumWidthExpression(this, base.m_chart.Name);
 		}
 
-		internal string EvaluateMaximumWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMaximumWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendColumnMaximumWidthExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateSeriesSymbolWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateSeriesSymbolWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendColumnSeriesSymbolWidthExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateSeriesSymbolHeight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateSeriesSymbolHeight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendColumnSeriesSymbolHeightExpression(this, base.m_chart.Name);

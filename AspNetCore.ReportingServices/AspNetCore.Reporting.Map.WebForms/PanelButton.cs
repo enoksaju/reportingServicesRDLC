@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PanelButton : MapObject, IToolTipProvider
+	public class PanelButton : MapObject, IToolTipProvider
 	{
 		private const int ButtonPadding = 4;
 
@@ -371,7 +371,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DoClick()
+		public void DoClick()
 		{
 			if (this.clickEventHandler != null)
 			{

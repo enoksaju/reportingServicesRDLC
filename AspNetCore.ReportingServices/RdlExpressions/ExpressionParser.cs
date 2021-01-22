@@ -10,9 +10,9 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.RdlExpressions
 {
-	internal abstract class ExpressionParser
+	public abstract class ExpressionParser
 	{
-		internal enum ExpressionType
+		public enum ExpressionType
 		{
 			General,
 			ReportParameter,
@@ -34,19 +34,19 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			Calculation
 		}
 
-		internal enum RecursiveFlags
+		public enum RecursiveFlags
 		{
 			Simple,
 			Recursive
 		}
 
-		internal enum EvaluationMode
+		public enum EvaluationMode
 		{
 			Auto,
 			Constant
 		}
 
-		internal struct ExpressionContext
+		public struct ExpressionContext
 		{
 			private ExpressionType m_expressionType;
 
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 			private readonly PublishingContextBase m_publishingContext;
 
-			internal bool InPrevious
+			public bool InPrevious
 			{
 				get
 				{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal bool InLookup
+			public bool InLookup
 			{
 				get
 				{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal ExpressionType ExpressionType
+			public ExpressionType ExpressionType
 			{
 				get
 				{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal DataType ConstantType
+			public DataType ConstantType
 			{
 				get
 				{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal AspNetCore.ReportingServices.ReportPublishing.LocationFlags Location
+			public AspNetCore.ReportingServices.ReportPublishing.LocationFlags Location
 			{
 				get
 				{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal ObjectType ObjectType
+			public ObjectType ObjectType
 			{
 				get
 				{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal string ObjectName
+			public string ObjectName
 			{
 				get
 				{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal string PropertyName
+			public string PropertyName
 			{
 				get
 				{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal string DataSetName
+			public string DataSetName
 			{
 				get
 				{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal int MaxExpressionLength
+			public int MaxExpressionLength
 			{
 				get
 				{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo OuterAggregate
+			public AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo OuterAggregate
 			{
 				get
 				{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal bool InAggregate
+			public bool InAggregate
 			{
 				get
 				{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal PublishingVersioning PublishingVersioning
+			public PublishingVersioning PublishingVersioning
 			{
 				get
 				{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal ExpressionContext(ExpressionType expressionType, DataType constantType, AspNetCore.ReportingServices.ReportPublishing.LocationFlags location, ObjectType objectType, string objectName, string propertyName, string dataSetName, int maxExpressionLength, PublishingContextBase publishingContext)
+			public ExpressionContext(ExpressionType expressionType, DataType constantType, AspNetCore.ReportingServices.ReportPublishing.LocationFlags location, ObjectType objectType, string objectName, string propertyName, string dataSetName, int maxExpressionLength, PublishingContextBase publishingContext)
 			{
 				this.m_expressionType = expressionType;
 				this.m_constantType = constantType;
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			ScopeValue = 0x180D6
 		}
 
-		internal const int UnrestrictedMaxExprLength = -1;
+		public const int UnrestrictedMaxExprLength = -1;
 
 		protected ErrorContext m_errorContext;
 
@@ -262,57 +262,57 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private bool m_valueReferencedGlobal;
 
-		internal abstract bool BodyRefersToReportItems
+		public abstract bool BodyRefersToReportItems
 		{
 			get;
 		}
 
-		internal abstract bool PageSectionRefersToReportItems
+		public abstract bool PageSectionRefersToReportItems
 		{
 			get;
 		}
 
-		internal abstract bool PageSectionRefersToOverallTotalPages
+		public abstract bool PageSectionRefersToOverallTotalPages
 		{
 			get;
 		}
 
-		internal abstract bool PageSectionRefersToTotalPages
+		public abstract bool PageSectionRefersToTotalPages
 		{
 			get;
 		}
 
-		internal abstract int NumberOfAggregates
+		public abstract int NumberOfAggregates
 		{
 			get;
 		}
 
-		internal abstract int LastID
+		public abstract int LastID
 		{
 			get;
 		}
 
-		internal abstract int LastLookupID
+		public abstract int LastLookupID
 		{
 			get;
 		}
 
-		internal abstract bool PreviousAggregateUsed
+		public abstract bool PreviousAggregateUsed
 		{
 			get;
 		}
 
-		internal abstract bool AggregateOfAggregatesUsed
+		public abstract bool AggregateOfAggregatesUsed
 		{
 			get;
 		}
 
-		internal abstract bool AggregateOfAggregatesUsedInUserSort
+		public abstract bool AggregateOfAggregatesUsedInUserSort
 		{
 			get;
 		}
 
-		internal bool ValueReferenced
+		public bool ValueReferenced
 		{
 			get
 			{
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool ValueReferencedGlobal
+		public bool ValueReferencedGlobal
 		{
 			get
 			{
@@ -328,31 +328,31 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal ExpressionParser(ErrorContext errorContext)
+		public ExpressionParser(ErrorContext errorContext)
 		{
 			this.m_errorContext = errorContext;
 		}
 
-		internal abstract CodeDomProvider GetCodeCompiler();
+		public abstract CodeDomProvider GetCodeCompiler();
 
-		internal abstract string GetCompilerArguments();
+		public abstract string GetCompilerArguments();
 
-		internal abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionContext context, EvaluationMode evaluationMode);
+		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionContext context, EvaluationMode evaluationMode);
 
-		internal abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionContext context, EvaluationMode evaluationMode, out bool userCollectionReferenced);
+		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo ParseExpression(string expression, ExpressionContext context, EvaluationMode evaluationMode, out bool userCollectionReferenced);
 
-		internal abstract void ConvertField2ComplexExpr(ref AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression);
+		public abstract void ConvertField2ComplexExpr(ref AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression);
 
-		internal abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo CreateScopedFirstAggregate(string fieldName, string dataSetName);
+		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo CreateScopedFirstAggregate(string fieldName, string dataSetName);
 
-		internal void ResetValueReferencedFlag()
+		public void ResetValueReferencedFlag()
 		{
 			this.m_valueReferenced = false;
 		}
 
-		internal abstract void ResetPageSectionRefersFlags();
+		public abstract void ResetPageSectionRefersFlags();
 
-		internal static void ParseRDLConstant(string expression, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expressionInfo, DataType constantType, ErrorContext errorContext, ObjectType objectType, string objectName, string propertyName)
+		public static void ParseRDLConstant(string expression, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expressionInfo, DataType constantType, ErrorContext errorContext, ObjectType objectType, string objectName, string propertyName)
 		{
 			expressionInfo.Type = AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo.Types.Constant;
 			expressionInfo.ConstantType = constantType;

@@ -13,7 +13,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal abstract class PageItem : IStorable, IPersistable
+	public abstract class PageItem : IStorable, IPersistable
 	{
 		[Flags]
 		protected enum StateFlags : ushort
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 		}
 
 		[Flags]
-		internal enum RepeatState : byte
+		public enum RepeatState : byte
 		{
 			None = 0,
 			Vertical = 1,
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private static Declaration m_declaration = PageItem.GetDeclaration();
 
-		internal ReportItem Source
+		public ReportItem Source
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual string SourceID
+		public virtual string SourceID
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual string SourceUniqueName
+		public virtual string SourceUniqueName
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal ItemSizes ItemPageSizes
+		public ItemSizes ItemPageSizes
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal List<int> PageItemsAbove
+		public List<int> PageItemsAbove
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal List<int> PageItemsLeft
+		public List<int> PageItemsLeft
 		{
 			get
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal byte RplItemState
+		public byte RplItemState
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal PageBreakProperties PageBreakProperties
+		public PageBreakProperties PageBreakProperties
 		{
 			get
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool PageBreakAtStart
+		public bool PageBreakAtStart
 		{
 			get
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool PageBreakAtEnd
+		public bool PageBreakAtEnd
 		{
 			get
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal string PageName
+		public string PageName
 		{
 			get
 			{
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool IgnorePageBreaks
+		public bool IgnorePageBreaks
 		{
 			get
 			{
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool OnThisVerticalPage
+		public bool OnThisVerticalPage
 		{
 			get
 			{
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool SplitsVerticalPage
+		public bool SplitsVerticalPage
 		{
 			get
 			{
@@ -255,7 +255,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool Duplicate
+		public bool Duplicate
 		{
 			get
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool ResolveChildren
+		public bool ResolveChildren
 		{
 			get
 			{
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool KeepTogetherVertical
+		public bool KeepTogetherVertical
 		{
 			get
 			{
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool KeepTogetherHorizontal
+		public bool KeepTogetherHorizontal
 		{
 			get
 			{
@@ -303,7 +303,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool UnresolvedPBS
+		public bool UnresolvedPBS
 		{
 			get
 			{
@@ -315,7 +315,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool UnresolvedPBE
+		public bool UnresolvedPBE
 		{
 			get
 			{
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool UnresolvedKTV
+		public bool UnresolvedKTV
 		{
 			get
 			{
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool UnresolvedKTH
+		public bool UnresolvedKTH
 		{
 			get
 			{
@@ -351,7 +351,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool UnresolvedCKTV
+		public bool UnresolvedCKTV
 		{
 			get
 			{
@@ -363,7 +363,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool UnresolvedCKTH
+		public bool UnresolvedCKTH
 		{
 			get
 			{
@@ -375,7 +375,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool UnresolvedCPB
+		public bool UnresolvedCPB
 		{
 			get
 			{
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool NeedResolve
+		public bool NeedResolve
 		{
 			get
 			{
@@ -399,7 +399,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool TablixCellTopItem
+		public bool TablixCellTopItem
 		{
 			get
 			{
@@ -411,7 +411,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool FullyCreated
+		public bool FullyCreated
 		{
 			get
 			{
@@ -423,7 +423,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool PBAreUnresolved
+		public bool PBAreUnresolved
 		{
 			get
 			{
@@ -439,7 +439,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool KTVIsUnresolved
+		public bool KTVIsUnresolved
 		{
 			get
 			{
@@ -455,7 +455,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool KTHIsUnresolved
+		public bool KTHIsUnresolved
 		{
 			get
 			{
@@ -471,7 +471,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual double OriginalLeft
+		public virtual double OriginalLeft
 		{
 			get
 			{
@@ -479,7 +479,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual double OriginalWidth
+		public virtual double OriginalWidth
 		{
 			get
 			{
@@ -487,7 +487,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual double OriginalRight
+		public virtual double OriginalRight
 		{
 			get
 			{
@@ -495,7 +495,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual Style SharedStyle
+		public virtual Style SharedStyle
 		{
 			get
 			{
@@ -503,7 +503,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual StyleInstance NonSharedStyle
+		public virtual StyleInstance NonSharedStyle
 		{
 			get
 			{
@@ -519,7 +519,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual bool ContentOnPage
+		public virtual bool ContentOnPage
 		{
 			get
 			{
@@ -527,7 +527,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal PageItem()
+		public PageItem()
 		{
 		}
 
@@ -675,7 +675,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.PageItem;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (PageItem.m_declaration == null)
 			{
@@ -696,12 +696,12 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return PageItem.m_declaration;
 		}
 
-		internal static PageItem Create(ReportItem source, bool tablixCellParent, PageContext pageContext)
+		public static PageItem Create(ReportItem source, bool tablixCellParent, PageContext pageContext)
 		{
 			return PageItem.Create(source, tablixCellParent, false, pageContext);
 		}
 
-		internal static PageItem Create(ReportItem source, bool tablixCellParent, bool ignoreKT, PageContext pageContext)
+		public static PageItem Create(ReportItem source, bool tablixCellParent, bool ignoreKT, PageContext pageContext)
 		{
 			if (source == null)
 			{
@@ -798,7 +798,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return pageItem;
 		}
 
-		internal static bool TransformToTextBox(DataRegion source)
+		public static bool TransformToTextBox(DataRegion source)
 		{
 			bool result = false;
 			DataRegionInstance dataRegionInstance = (DataRegionInstance)source.Instance;
@@ -814,7 +814,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return result;
 		}
 
-		internal static bool TransformToTextBox(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix source, bool tablixCellParent, ref bool noRows)
+		public static bool TransformToTextBox(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix source, bool tablixCellParent, ref bool noRows)
 		{
 			bool flag = false;
 			TablixInstance tablixInstance = (TablixInstance)source.Instance;
@@ -845,7 +845,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return flag;
 		}
 
-		internal static bool TransformToTextBox(AspNetCore.ReportingServices.OnDemandReportRendering.SubReport source, bool tablixCellParent, ref bool noRows)
+		public static bool TransformToTextBox(AspNetCore.ReportingServices.OnDemandReportRendering.SubReport source, bool tablixCellParent, ref bool noRows)
 		{
 			bool result = false;
 			SubReportInstance subReportInstance = (SubReportInstance)source.Instance;
@@ -873,12 +873,12 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return result;
 		}
 
-		internal void CalculateVertical(PageContext pageContext, double topInParentSystem, double bottomInParentSystem, PageItem[] siblings, List<PageItem> ancestors, ref bool anyAncestorHasKT, bool hasUnpinnedAncestors)
+		public void CalculateVertical(PageContext pageContext, double topInParentSystem, double bottomInParentSystem, PageItem[] siblings, List<PageItem> ancestors, ref bool anyAncestorHasKT, bool hasUnpinnedAncestors)
 		{
 			this.CalculateVertical(pageContext, topInParentSystem, bottomInParentSystem, siblings, ancestors, ref anyAncestorHasKT, hasUnpinnedAncestors, (double?)null);
 		}
 
-		internal void CalculateVertical(PageContext pageContext, double topInParentSystem, double bottomInParentSystem, PageItem[] siblings, List<PageItem> ancestors, ref bool anyAncestorHasKT, bool hasUnpinnedAncestors, double? sourceWidth)
+		public void CalculateVertical(PageContext pageContext, double topInParentSystem, double bottomInParentSystem, PageItem[] siblings, List<PageItem> ancestors, ref bool anyAncestorHasKT, bool hasUnpinnedAncestors, double? sourceWidth)
 		{
 			this.AdjustOriginFromItemsAbove(siblings);
 			this.OnThisVerticalPage = false;
@@ -963,7 +963,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 		{
 		}
 
-		internal virtual bool ResolveDuplicates(PageContext pageContext, double topInParentSystem, PageItem[] siblings, bool recalculate)
+		public virtual bool ResolveDuplicates(PageContext pageContext, double topInParentSystem, PageItem[] siblings, bool recalculate)
 		{
 			if (recalculate)
 			{
@@ -972,7 +972,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return false;
 		}
 
-		internal void ResolveVertical(PageContext pageContext, double topInParentSystem, double bottomInParentSystem, PageItem[] siblings, bool resolveItem, bool canOverwritePageBreak, bool canSetPageName)
+		public void ResolveVertical(PageContext pageContext, double topInParentSystem, double bottomInParentSystem, PageItem[] siblings, bool resolveItem, bool canOverwritePageBreak, bool canSetPageName)
 		{
 			if (resolveItem && this.NeedResolve)
 			{
@@ -1012,12 +1012,12 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void CalculateHorizontal(PageContext pageContext, double leftInParentSystem, double rightInParentSystem, PageItem[] siblings, List<PageItem> ancestors, ref bool anyAncestorHasKT, bool hasUnpinnedAncestors)
+		public void CalculateHorizontal(PageContext pageContext, double leftInParentSystem, double rightInParentSystem, PageItem[] siblings, List<PageItem> ancestors, ref bool anyAncestorHasKT, bool hasUnpinnedAncestors)
 		{
 			this.CalculateHorizontal(pageContext, leftInParentSystem, rightInParentSystem, siblings, ancestors, ref anyAncestorHasKT, hasUnpinnedAncestors, (double?)null);
 		}
 
-		internal void CalculateHorizontal(PageContext pageContext, double leftInParentSystem, double rightInParentSystem, PageItem[] siblings, List<PageItem> ancestors, ref bool anyAncestorHasKT, bool hasUnpinnedAncestors, double? sourceWidth)
+		public void CalculateHorizontal(PageContext pageContext, double leftInParentSystem, double rightInParentSystem, PageItem[] siblings, List<PageItem> ancestors, ref bool anyAncestorHasKT, bool hasUnpinnedAncestors, double? sourceWidth)
 		{
 			if (pageContext.FullOnPage || hasUnpinnedAncestors)
 			{
@@ -1079,7 +1079,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 		{
 		}
 
-		internal void ResolveHorizontal(PageContext pageContext, double leftInParentSystem, double rightInParentSystem, PageItem[] siblings, bool resolveItem)
+		public void ResolveHorizontal(PageContext pageContext, double leftInParentSystem, double rightInParentSystem, PageItem[] siblings, bool resolveItem)
 		{
 			if (resolveItem && this.NeedResolve)
 			{
@@ -1199,7 +1199,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return false;
 		}
 
-		internal bool AboveCurrentVerticalPage(double topInParentSystem)
+		public bool AboveCurrentVerticalPage(double topInParentSystem)
 		{
 			RoundedDouble x = new RoundedDouble(this.ItemPageSizes.Bottom);
 			if (x < topInParentSystem)
@@ -1213,7 +1213,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return false;
 		}
 
-		internal bool HitsCurrentVerticalPage(double topInParentSystem, double bottomInParentSystem)
+		public bool HitsCurrentVerticalPage(double topInParentSystem, double bottomInParentSystem)
 		{
 			RoundedDouble roundedDouble = new RoundedDouble(this.ItemPageSizes.Bottom);
 			if (roundedDouble < topInParentSystem)
@@ -1232,7 +1232,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return true;
 		}
 
-		internal bool HitsCurrentHorizontalPage(double leftInParentSystem, double rightInParentSystem)
+		public bool HitsCurrentHorizontalPage(double leftInParentSystem, double rightInParentSystem)
 		{
 			RoundedDouble roundedDouble = new RoundedDouble(this.ItemPageSizes.Right);
 			if (roundedDouble < leftInParentSystem)
@@ -1251,7 +1251,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return true;
 		}
 
-		internal virtual bool HitsCurrentPage(double pageLeft, double pageTop, double pageRight, double pageBottom)
+		public virtual bool HitsCurrentPage(double pageLeft, double pageTop, double pageRight, double pageBottom)
 		{
 			if (this.HitsCurrentVerticalPage(pageTop, pageBottom) && this.HitsCurrentHorizontalPage(pageLeft, pageRight))
 			{
@@ -1260,7 +1260,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return false;
 		}
 
-		internal bool Release(double pageBottom, double pageRight)
+		public bool Release(double pageBottom, double pageRight)
 		{
 			RoundedDouble roundedDouble = new RoundedDouble(this.ItemPageSizes.Bottom);
 			if (roundedDouble <= pageBottom)
@@ -1274,7 +1274,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return false;
 		}
 
-		internal virtual bool AddToPage(RPLWriter rplWriter, PageContext pageContext, double pageLeft, double pageTop, double pageRight, double pageBottom, RepeatState repeatState)
+		public virtual bool AddToPage(RPLWriter rplWriter, PageContext pageContext, double pageLeft, double pageTop, double pageRight, double pageBottom, RepeatState repeatState)
 		{
 			if (this.HitsCurrentPage(pageLeft, pageTop, pageRight, pageBottom))
 			{
@@ -1286,11 +1286,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return false;
 		}
 
-		internal virtual void RegisterTextBoxes(RPLWriter rplWriter, PageContext pageContext)
+		public virtual void RegisterTextBoxes(RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
-		internal virtual void ResetHorizontal(bool spanPages, double? width)
+		public virtual void ResetHorizontal(bool spanPages, double? width)
 		{
 			this.ItemPageSizes.Left = this.OriginalLeft;
 			if (width.HasValue)
@@ -1303,11 +1303,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual void OmitBorderOnPageBreak(RPLWriter rplWriter, double pageLeft, double pageTop, double pageRight, double pageBottom)
+		public virtual void OmitBorderOnPageBreak(RPLWriter rplWriter, double pageLeft, double pageTop, double pageRight, double pageBottom)
 		{
 		}
 
-		internal void OmitBorderOnPageBreak(double pageLeft, double pageTop, double pageRight, double pageBottom)
+		public void OmitBorderOnPageBreak(double pageLeft, double pageTop, double pageRight, double pageBottom)
 		{
 			byte b = 15;
 			b = (byte)(~b);
@@ -1334,7 +1334,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void AdjustOriginFromItemsAtLeft(PageItem[] siblings)
+		public void AdjustOriginFromItemsAtLeft(PageItem[] siblings)
 		{
 			if (this.m_pageItemsLeft != null && siblings != null)
 			{
@@ -1394,7 +1394,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void AdjustOriginFromItemsAbove(PageItem[] siblings)
+		public void AdjustOriginFromItemsAbove(PageItem[] siblings)
 		{
 			if (this.m_pageItemsAbove != null && siblings != null)
 			{
@@ -1490,7 +1490,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WritePageItemSizes(BinaryWriter spbifWriter)
+		public void WritePageItemSizes(BinaryWriter spbifWriter)
 		{
 			spbifWriter.Write((float)this.m_itemPageSizes.Left);
 			spbifWriter.Write((float)this.m_itemPageSizes.Top);
@@ -1508,7 +1508,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			spbifWriter.Write(this.m_offset);
 		}
 
-		internal RPLItemMeasurement WritePageItemSizes()
+		public RPLItemMeasurement WritePageItemSizes()
 		{
 			RPLItemMeasurement rPLItemMeasurement = new RPLItemMeasurement();
 			rPLItemMeasurement.Left = (float)this.m_itemPageSizes.Left;
@@ -1524,9 +1524,9 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return rPLItemMeasurement;
 		}
 
-		internal abstract void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext);
+		public abstract void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext);
 
-		internal virtual void CacheNonSharedProperties(PageContext pageContext)
+		public virtual void CacheNonSharedProperties(PageContext pageContext)
 		{
 			if (pageContext.CacheNonSharedProps)
 			{
@@ -1558,7 +1558,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteElementProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
+		public void WriteElementProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
 		{
 			spbifWriter.Write((byte)15);
 			this.WriteSharedItemProps(spbifWriter, rplWriter, pageContext, offset);
@@ -1573,7 +1573,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal virtual void CopyCachedData(RPLWriter rplWriter, PageContext pageContext)
+		public virtual void CopyCachedData(RPLWriter rplWriter, PageContext pageContext)
 		{
 			BinaryReader propertyCacheReader = pageContext.PropertyCacheReader;
 			propertyCacheReader.BaseStream.Seek(this.m_nonSharedOffset, SeekOrigin.Begin);
@@ -1590,7 +1590,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void CopyDataAndResolve(RPLWriter rplWriter, PageContext pageContext, long startOffset, long endOffset, bool ignoreDelimiter)
+		public void CopyDataAndResolve(RPLWriter rplWriter, PageContext pageContext, long startOffset, long endOffset, bool ignoreDelimiter)
 		{
 			BinaryReader propertyCacheReader = pageContext.PropertyCacheReader;
 			propertyCacheReader.BaseStream.Seek(endOffset, SeekOrigin.Begin);
@@ -1638,7 +1638,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.CopyData(propertyCacheReader, rplWriter, endOffset - num2);
 		}
 
-		internal void CopyData(BinaryReader cacheReader, RPLWriter rplWriter, long length)
+		public void CopyData(BinaryReader cacheReader, RPLWriter rplWriter, long length)
 		{
 			byte[] copyBuffer = rplWriter.CopyBuffer;
 			while (length >= copyBuffer.Length)
@@ -1654,7 +1654,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteElementProps(RPLElementProps elemProps, PageContext pageContext)
+		public void WriteElementProps(RPLElementProps elemProps, PageContext pageContext)
 		{
 			this.WriteSharedItemProps(elemProps, pageContext);
 			this.WriteNonSharedItemProps(elemProps, pageContext);
@@ -1719,15 +1719,15 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			rPLItemPropsDef.SharedStyle = this.WriteSharedStyle(null, pageContext);
 		}
 
-		internal virtual void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public virtual void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
+		public virtual void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
 		{
 		}
 
-		internal void WriteStyleProp(Style styleDef, StyleInstance style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType)
+		public void WriteStyleProp(Style styleDef, StyleInstance style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType)
 		{
 			if (styleDef == null)
 			{
@@ -1786,7 +1786,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteStyleProp(Style styleDef, StyleInstance style, RPLStyleProps rplStyleProps, StyleAttributeNames name, byte spbifType)
+		public void WriteStyleProp(Style styleDef, StyleInstance style, RPLStyleProps rplStyleProps, StyleAttributeNames name, byte spbifType)
 		{
 			if (styleDef == null)
 			{
@@ -1842,7 +1842,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static byte? GetStylePropByte(byte spbifType, object styleProp, ref bool convertToString)
+		public static byte? GetStylePropByte(byte spbifType, object styleProp, ref bool convertToString)
 		{
 			switch (spbifType)
 			{
@@ -1879,7 +1879,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void WriteStyleReportProperty(ReportProperty styleProp, BinaryWriter spbifWriter, byte spbifType)
+		public static void WriteStyleReportProperty(ReportProperty styleProp, BinaryWriter spbifWriter, byte spbifType)
 		{
 			if (styleProp != null)
 			{
@@ -1932,7 +1932,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void WriteStyleReportProperty(ReportProperty styleProp, RPLStyleProps rplStyleProps, byte spbifType)
+		public static void WriteStyleReportProperty(ReportProperty styleProp, RPLStyleProps rplStyleProps, byte spbifType)
 		{
 			if (styleProp != null)
 			{
@@ -1980,7 +1980,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static byte? GetStylePropByte(byte spbifType, ReportProperty styleProp)
+		public static byte? GetStylePropByte(byte spbifType, ReportProperty styleProp)
 		{
 			switch (spbifType)
 			{
@@ -2015,7 +2015,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteStyleProp(Style style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType)
+		public void WriteStyleProp(Style style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType)
 		{
 			ReportProperty reportProperty = ((StyleBase)style)[name];
 			if (reportProperty != null && !reportProperty.IsExpression)
@@ -2024,7 +2024,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static void WriteStyleProp(Style style, RPLStyleProps rplStyleProps, StyleAttributeNames name, byte spbifType)
+		public static void WriteStyleProp(Style style, RPLStyleProps rplStyleProps, StyleAttributeNames name, byte spbifType)
 		{
 			ReportProperty reportProperty = ((StyleBase)style)[name];
 			if (reportProperty != null && !reportProperty.IsExpression)
@@ -2033,7 +2033,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteBackgroundImage(Style style, bool writeShared, BinaryWriter spbifWriter, PageContext pageContext)
+		public void WriteBackgroundImage(Style style, bool writeShared, BinaryWriter spbifWriter, PageContext pageContext)
 		{
 			if (style == null)
 			{
@@ -2084,7 +2084,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteBackgroundImage(Style style, bool writeShared, RPLStyleProps rplStyleProps, PageContext pageContext)
+		public void WriteBackgroundImage(Style style, bool writeShared, RPLStyleProps rplStyleProps, PageContext pageContext)
 		{
 			if (style == null)
 			{
@@ -2135,7 +2135,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteSharedStyle(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public void WriteSharedStyle(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			if (style == null)
 			{
@@ -2151,7 +2151,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual void WriteBorderProps(BinaryWriter spbifWriter, Style style)
+		public virtual void WriteBorderProps(BinaryWriter spbifWriter, Style style)
 		{
 			this.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BorderColor, 0);
 			this.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BorderColorBottom, 4);
@@ -2170,7 +2170,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BorderWidthTop, 13);
 		}
 
-		internal RPLStyleProps WriteSharedStyle(Style style, PageContext pageContext)
+		public RPLStyleProps WriteSharedStyle(Style style, PageContext pageContext)
 		{
 			if (style == null)
 			{
@@ -2186,7 +2186,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return rPLStyleProps;
 		}
 
-		internal virtual void WriteBorderProps(RPLStyleProps rplStyleProps, Style style)
+		public virtual void WriteBorderProps(RPLStyleProps rplStyleProps, Style style)
 		{
 			PageItem.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BorderColor, 0);
 			PageItem.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BorderColorBottom, 4);
@@ -2205,11 +2205,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			PageItem.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BorderWidthTop, 13);
 		}
 
-		internal virtual void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public virtual void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public virtual void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 		}
 
@@ -2240,15 +2240,15 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			rPLItemProps.NonSharedStyle = this.WriteNonSharedStyle(null, null, pageContext);
 		}
 
-		internal virtual void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, PageContext pageContext)
+		public virtual void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteCustomNonSharedItemProps(RPLElementProps elemProps, PageContext pageContext)
+		public virtual void WriteCustomNonSharedItemProps(RPLElementProps elemProps, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public virtual void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			switch (styleAttribute)
 			{
@@ -2303,7 +2303,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual void WriteNonSharedStyle(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, PageContext pageContext)
+		public virtual void WriteNonSharedStyle(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, PageContext pageContext)
 		{
 			if (styleDef == null)
 			{
@@ -2343,7 +2343,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual void WriteNonSharedStyleWithoutTag(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, PageContext pageContext)
+		public virtual void WriteNonSharedStyleWithoutTag(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, PageContext pageContext)
 		{
 			if (styleDef == null)
 			{
@@ -2382,7 +2382,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public virtual void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			switch (styleAttribute)
 			{
@@ -2437,7 +2437,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual RPLStyleProps WriteNonSharedStyle(Style styleDef, StyleInstance style, PageContext pageContext)
+		public virtual RPLStyleProps WriteNonSharedStyle(Style styleDef, StyleInstance style, PageContext pageContext)
 		{
 			if (styleDef == null)
 			{
@@ -2478,15 +2478,15 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return null;
 		}
 
-		internal virtual void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public virtual void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public virtual void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 		}
 
-		internal void WriteInvalidImage(BinaryWriter spbifWriter, PageContext pageContext, GDIImageProps gdiImageProps)
+		public void WriteInvalidImage(BinaryWriter spbifWriter, PageContext pageContext, GDIImageProps gdiImageProps)
 		{
 			long position = spbifWriter.BaseStream.Position;
 			spbifWriter.Write((byte)42);
@@ -2525,7 +2525,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal void WriteImage(IImageInstance imageInstance, string resourceName, BinaryWriter spbifWriter, PageContext pageContext, GDIImageProps gdiImage, bool writeShared)
+		public void WriteImage(IImageInstance imageInstance, string resourceName, BinaryWriter spbifWriter, PageContext pageContext, GDIImageProps gdiImage, bool writeShared)
 		{
 			string text = resourceName;
 			if (imageInstance != null)
@@ -2546,7 +2546,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteInvalidImage(RPLImageProps elemProps, PageContext pageContext, GDIImageProps gdiImageProps)
+		public void WriteInvalidImage(RPLImageProps elemProps, PageContext pageContext, GDIImageProps gdiImageProps)
 		{
 			Hashtable hashtable = pageContext.SharedImages;
 			if (hashtable != null)
@@ -2581,7 +2581,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			elemProps.Image = rPLImageData;
 		}
 
-		internal void WriteImage(IImageInstance imageInstance, string resourceName, RPLImageProps elemProps, PageContext pageContext, GDIImageProps gdiImage)
+		public void WriteImage(IImageInstance imageInstance, string resourceName, RPLImageProps elemProps, PageContext pageContext, GDIImageProps gdiImage)
 		{
 			string text = resourceName;
 			if (imageInstance != null)
@@ -2600,7 +2600,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			elemProps.Image = rPLImageData;
 		}
 
-		internal void WriteImage(IImageInstance imageInstance, string resourceName, ref RPLImageData imageData, PageContext pageContext, GDIImageProps gdiImage)
+		public void WriteImage(IImageInstance imageInstance, string resourceName, ref RPLImageData imageData, PageContext pageContext, GDIImageProps gdiImage)
 		{
 			string text = resourceName;
 			if (imageInstance != null)
@@ -2766,7 +2766,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.WriteImageProperties(imageInstance, streamName, imageData, gdiImage);
 		}
 
-		internal void WriteActionInfo(ActionInfo actionInfo, BinaryWriter spbifWriter)
+		public void WriteActionInfo(ActionInfo actionInfo, BinaryWriter spbifWriter)
 		{
 			if (actionInfo != null)
 			{
@@ -2803,7 +2803,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal static RPLActionInfo WriteActionInfo(ActionInfo actionInfo)
+		public static RPLActionInfo WriteActionInfo(ActionInfo actionInfo)
 		{
 			if (actionInfo == null)
 			{
@@ -2819,7 +2819,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return null;
 		}
 
-		internal static void WriteAction(ActionCollection actions, RPLActionInfo rplActionInfo)
+		public static void WriteAction(ActionCollection actions, RPLActionInfo rplActionInfo)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Action action = null;
 			ActionInstance actionInstance = null;
@@ -2845,7 +2845,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool WriteObjectValue(BinaryWriter spbifWriter, byte name, TypeCode typeCode, object value)
+		public bool WriteObjectValue(BinaryWriter spbifWriter, byte name, TypeCode typeCode, object value)
 		{
 			bool result = false;
 			spbifWriter.Write(name);
@@ -2898,7 +2898,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return result;
 		}
 
-		internal bool WriteObjectValue(RPLTextBoxProps textBoxProps, TypeCode typeCode, object value)
+		public bool WriteObjectValue(RPLTextBoxProps textBoxProps, TypeCode typeCode, object value)
 		{
 			bool result = false;
 			switch (typeCode)

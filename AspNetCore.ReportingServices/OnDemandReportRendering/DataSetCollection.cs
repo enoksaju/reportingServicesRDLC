@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class DataSetCollection : ReportElementCollectionBase<DataSet>
+	public sealed class DataSetCollection : ReportElementCollectionBase<DataSet>
 	{
 		private DataSet[] m_collection;
 
@@ -51,13 +51,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataSetCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.Report reportDef, RenderingContext renderingContext)
+		public DataSetCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.Report reportDef, RenderingContext renderingContext)
 		{
 			this.m_reportDef = reportDef;
 			this.m_rendringContext = renderingContext;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_collection != null)
 			{

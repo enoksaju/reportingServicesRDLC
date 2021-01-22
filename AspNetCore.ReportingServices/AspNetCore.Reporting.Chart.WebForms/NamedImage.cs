@@ -5,7 +5,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[DefaultProperty("Name")]
 	[SRDescription("DescriptionAttributeNamedImage_NamedImage")]
-	internal class NamedImage
+	public class NamedImage
 	{
 		private string name = string.Empty;
 

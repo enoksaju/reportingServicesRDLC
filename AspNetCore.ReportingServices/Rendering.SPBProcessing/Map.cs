@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class Map : DynamicImage
+	public sealed class Map : DynamicImage
 	{
 		protected override PaginationInfoItems PaginationInfoEnum
 		{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Map(AspNetCore.ReportingServices.OnDemandReportRendering.Map source, PageContext pageContext, bool createForRepeat)
+		public Map(AspNetCore.ReportingServices.OnDemandReportRendering.Map source, PageContext pageContext, bool createForRepeat)
 			: base(source, pageContext, createForRepeat)
 		{
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class GroupTreeScalabilityCache : PartitionedTreeScalabilityCache
+	public sealed class GroupTreeScalabilityCache : PartitionedTreeScalabilityCache
 	{
 		private const long CacheExpansionIntervalMs = 2000L;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal GroupTreeScalabilityCache(TreePartitionManager partitionManager, IStorage storage)
+		public GroupTreeScalabilityCache(TreePartitionManager partitionManager, IStorage storage)
 			: base(partitionManager, storage, 2000L, 0.3, 2097152L)
 		{
 		}

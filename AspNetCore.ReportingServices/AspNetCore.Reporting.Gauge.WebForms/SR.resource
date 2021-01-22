@@ -439,7 +439,7 @@
     <value>Determines the Z order of this gauge in the gauge container.</value>
   </data>
   <data name="ExceptionGdiNonInitialized" xml:space="preserve">
-    <value>Internal error. GDI engine is not initialized.</value>
+    <value>public error. GDI engine is not initialized.</value>
   </data>
   <data name="DescriptionAttributeGaugeContainer_DynamicWidth" xml:space="preserve">
     <value>The width to which the gauge panel should grow/shrink.</value>
@@ -1043,7 +1043,7 @@
     <value>Invalid number of coordinates for the polygon map area shape. "x1,y1,x2,y2...xn,yn" Each x,y pair contains the coordinates of one vertex of the polygon.</value>
   </data>
   <data name="ExceptionInvalidPlacementType" xml:space="preserve">
-    <value>Internal error. Invalid placement type specified.</value>
+    <value>public error. Invalid placement type specified.</value>
   </data>
   <data name="DescriptionAttributeNumericIndicator_OffString" xml:space="preserve">
     <value>The string to be displayed if the Value is Double.NaN.</value>
@@ -1555,7 +1555,7 @@
     <value>{0} is not implemented yet</value>
   </data>
   <data name="ExceptionGenerateNameFailed" xml:space="preserve">
-    <value>Internal exception : Generating unique name failed.</value>
+    <value>public exception : Generating unique name failed.</value>
   </data>
   <data name="DescriptionAttributeLinearPointer_ThermometerBackGradientEndColor" xml:space="preserve">
     <value>The end color of the thermometer's back gradient.</value>
@@ -2126,7 +2126,7 @@ image</value>
     <value>Misc</value>
   </data>
   <data name="ExceptionInvalidMarkerType" xml:space="preserve">
-    <value>Internal error. Invalid marker type specified.</value>
+    <value>public error. Invalid marker type specified.</value>
   </data>
   <data name="DescriptionAttributeStateIndicator_Minimum" xml:space="preserve">
     <value>A number that represents the minimum (start) value of the indicator range.</value>

@@ -4,11 +4,11 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class FontCache
+	public class FontCache
 	{
 		private Dictionary<string, Font> fontCache = new Dictionary<string, Font>();
 
-		internal Font GetFont(string name, int size)
+		public Font GetFont(string name, int size)
 		{
 			string key = string.Format(CultureInfo.InvariantCulture, "Name:{0}, Size:{1}", name, size);
 			if (!this.fontCache.ContainsKey(key))

@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class AttributeUtil
+	public static class AttributeUtil
 	{
 		public static T GetCustomAttribute<T>(MemberInfo element) where T : Attribute
 		{

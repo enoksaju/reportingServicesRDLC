@@ -7,9 +7,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[DefaultProperty("SkinStyle")]
 	[SRDescription("DescriptionAttributeBorderSkinAttributes_BorderSkinAttributes")]
-	internal class BorderSkinAttributes
+	public class BorderSkinAttributes
 	{
-		internal IServiceContainer serviceContainer;
+		public IServiceContainer serviceContainer;
 
 		private Color pageColor = Color.White;
 
@@ -37,7 +37,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private ChartHatchStyle backHatchStyle;
 
-		internal object ownerElement;
+		public object ownerElement;
 
 		[Bindable(true)]
 		[NotifyParentProperty(true)]
@@ -297,7 +297,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal BorderSkinAttributes(IServiceContainer container)
+		public BorderSkinAttributes(IServiceContainer container)
 		{
 			this.serviceContainer = container;
 		}

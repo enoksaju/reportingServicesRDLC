@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class Instruction
+	public class Instruction
 	{
 		[DataMember(Name = "maneuverType", EmitDefaultValue = false)]
 		public string ManeuverType

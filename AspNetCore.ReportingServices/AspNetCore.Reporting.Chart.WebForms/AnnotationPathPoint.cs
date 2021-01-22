@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeAnnotationPathPoint_AnnotationPathPoint")]
-	internal class AnnotationPathPoint
+	public class AnnotationPathPoint
 	{
 		private float x;
 

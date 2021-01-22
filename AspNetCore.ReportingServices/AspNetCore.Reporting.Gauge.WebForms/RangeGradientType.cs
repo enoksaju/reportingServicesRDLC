@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum RangeGradientType
+	public enum RangeGradientType
 	{
 		None,
 		StartToEnd,

@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal class GlobalStyle : Style
+	public class GlobalStyle : Style
 	{
 		private readonly IStyleModel mModel;
 
-		internal GlobalStyle(IStyleModel model)
+		public GlobalStyle(IStyleModel model)
 			: base(model)
 		{
 			this.mModel = model;

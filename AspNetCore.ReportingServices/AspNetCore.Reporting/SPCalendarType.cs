@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal enum SPCalendarType
+	public enum SPCalendarType
 	{
 		None,
 		Gregorian,

@@ -9,14 +9,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapMarkerRule : MapAppearanceRule, IPersistable
+	public sealed class MapMarkerRule : MapAppearanceRule, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapMarkerRule.GetDeclaration();
 
 		private List<MapMarker> m_mapMarkers;
 
-		internal List<MapMarker> MapMarkers
+		public List<MapMarker> MapMarkers
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapMarkerRuleExprHost ExprHost
+		public new MapMarkerRuleExprHost ExprHost
 		{
 			get
 			{
@@ -36,16 +36,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMarkerRule()
+		public MapMarkerRule()
 		{
 		}
 
-		internal MapMarkerRule(MapVectorLayer mapVectorLayer, Map map)
+		public MapMarkerRule(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapMarkerRuleStart();
 			base.Initialize(context);
@@ -59,14 +59,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapMarkerRuleEnd();
 		}
 
-		internal override void InitializeMapMember(InitializationContext context)
+		public override void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapMarkerRuleStart();
 			base.InitializeMapMember(context);
 			context.ExprHostBuilder.MapMarkerRuleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapMarkerRule mapMarkerRule = (MapMarkerRule)base.PublishClone(context);
 			if (this.m_mapMarkers != null)
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapMarkerRule;
 		}
 
-		internal override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapMarkers, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapMarker));

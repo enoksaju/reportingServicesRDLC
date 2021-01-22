@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal abstract class XMLWorksheetModel : IWorksheetModel, ICloneable
+	public abstract class XMLWorksheetModel : IWorksheetModel, ICloneable
 	{
 		protected XMLWorkbookModel _workbookModel;
 

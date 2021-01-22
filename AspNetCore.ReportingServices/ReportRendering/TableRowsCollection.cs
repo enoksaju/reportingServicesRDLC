@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableRowsCollection
+	public sealed class TableRowsCollection
 	{
 		private Table m_owner;
 
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableDetail DetailDefinition
+		public TableDetail DetailDefinition
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableRowsCollection(Table owner, TableDetail detailDef, TableDetailInstanceList detailInstances)
+		public TableRowsCollection(Table owner, TableDetail detailDef, TableDetailInstanceList detailInstances)
 		{
 			this.m_owner = owner;
 			this.m_detailInstances = detailInstances;

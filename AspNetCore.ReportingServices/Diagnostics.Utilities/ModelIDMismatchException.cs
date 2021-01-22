@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ModelIDMismatchException : ReportCatalogException
+	public sealed class ModelIDMismatchException : ReportCatalogException
 	{
 		public ModelIDMismatchException()
 			: base(ErrorCode.rsModelIDMismatch, ErrorStrings.rsModelIDMismatch, null, null)

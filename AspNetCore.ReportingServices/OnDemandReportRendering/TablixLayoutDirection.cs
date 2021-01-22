@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum TablixLayoutDirection
+	public enum TablixLayoutDirection
 	{
 		LTR,
 		RTL

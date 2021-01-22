@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Common
 {
-	internal enum RVUnitType
+	public enum RVUnitType
 	{
 		Cm = 1,
 		Em,

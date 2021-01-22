@@ -4,11 +4,11 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class LookupReferenceCreator : IReferenceCreator
+	public class LookupReferenceCreator : IReferenceCreator
 	{
 		private static LookupReferenceCreator m_instance;
 
-		internal static LookupReferenceCreator Instance
+		public static LookupReferenceCreator Instance
 		{
 			get
 			{

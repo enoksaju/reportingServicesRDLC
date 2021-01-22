@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DataBindingHelper
+	public class DataBindingHelper
 	{
-		internal class DataFieldDescriptor
+		public class DataFieldDescriptor
 		{
 			public readonly string Name = "";
 

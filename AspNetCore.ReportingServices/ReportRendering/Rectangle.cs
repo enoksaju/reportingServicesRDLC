@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Rectangle : ReportItem
+	public sealed class Rectangle : ReportItem
 	{
 		private NonComputedUniqueNames[] m_childrenNonComputedUniqueNames;
 
@@ -111,13 +111,13 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Rectangle(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext, NonComputedUniqueNames[] childrenNonComputedUniqueNames)
+		public Rectangle(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext, NonComputedUniqueNames[] childrenNonComputedUniqueNames)
 			: base(uniqueName, intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 			this.m_childrenNonComputedUniqueNames = childrenNonComputedUniqueNames;
 		}
 
-		internal override bool Search(SearchContext searchContext)
+		public override bool Search(SearchContext searchContext)
 		{
 			if (base.SkipSearch)
 			{

@@ -5,9 +5,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal static class ImageHelper
+	public static class ImageHelper
 	{
-		internal static string StoreImageDataInChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes chunkType, byte[] imageData, string mimeType, OnDemandMetadata odpMetadata, IChunkFactory chunkFactory)
+		public static string StoreImageDataInChunk(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes chunkType, byte[] imageData, string mimeType, OnDemandMetadata odpMetadata, IChunkFactory chunkFactory)
 		{
 			string text = ImageHelper.GenerateImageStreamName();
 			ReportSnapshot reportSnapshot = odpMetadata.ReportSnapshot;
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static string GenerateImageStreamName()
+		public static string GenerateImageStreamName()
 		{
 			return Guid.NewGuid().ToString("N");
 		}

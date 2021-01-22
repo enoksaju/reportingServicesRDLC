@@ -8,9 +8,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeCustomLabel_CustomLabel")]
 	[DefaultProperty("Text")]
-	internal class CustomLabel
+	public class CustomLabel
 	{
-		internal Axis axis;
+		public Axis axis;
 
 		private string name = "Custom Label";
 
@@ -30,7 +30,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private GridTicks gridTick;
 
-		internal bool customLabel = true;
+		public bool customLabel = true;
 
 		private object tag;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLTextRunPropsDef : RPLElementPropsDef
+	public sealed class RPLTextRunPropsDef : RPLElementPropsDef
 	{
 		private string m_value;
 
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTextRunPropsDef()
+		public RPLTextRunPropsDef()
 		{
 		}
 	}

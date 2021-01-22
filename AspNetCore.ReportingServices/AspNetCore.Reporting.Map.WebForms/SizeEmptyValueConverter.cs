@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SizeEmptyValueConverter : System.Drawing.SizeConverter
+	public class SizeEmptyValueConverter : System.Drawing.SizeConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

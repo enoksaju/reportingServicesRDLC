@@ -6,9 +6,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BIFF8.Records
 {
-	internal static class RecordFactory
+	public static class RecordFactory
 	{
-		internal enum BOFSubstreamType : ushort
+		public enum BOFSubstreamType : ushort
 		{
 			WorkbookGlobal = 5,
 			VisualBasicModule,
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 		private static UnicodeEncoding m_uniEncoding = new UnicodeEncoding();
 
-		internal static void WriteHeader(BinaryWriter output, short type, int size)
+		public static void WriteHeader(BinaryWriter output, short type, int size)
 		{
 			output.Write(type);
 			output.Write((ushort)size);
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return (int)(points / 72.0 * 96.0);
 		}
 
-		internal static long BOF(BinaryWriter output, BOFSubstreamType type)
+		public static long BOF(BinaryWriter output, BOFSubstreamType type)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 2057, 16);
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long BOUNDSHEET(BinaryWriter output, uint offsetToBOF, string sheetName)
+		public static long BOUNDSHEET(BinaryWriter output, uint offsetToBOF, string sheetName)
 		{
 			long position = output.BaseStream.Position;
 			bool compressed = default(bool);
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long COLINFO(BinaryWriter output, ushort column, double colWidth, ushort outlineLevel, bool collapsed)
+		public static long COLINFO(BinaryWriter output, ushort column, double colWidth, ushort outlineLevel, bool collapsed)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 125, 12);
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long DIMENSIONS(BinaryWriter output, uint rowStart, uint rowStop, ushort colStart, ushort colStop)
+		public static long DIMENSIONS(BinaryWriter output, uint rowStart, uint rowStop, ushort colStart, ushort colStop)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 512, 14);
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long INDEX(BinaryWriter output, uint firstRow, uint lastRow, List<uint> dbCellOffsets)
+		public static long INDEX(BinaryWriter output, uint firstRow, uint lastRow, List<uint> dbCellOffsets)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 523, 16 + 4 * dbCellOffsets.Count);
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long DBCELL(BinaryWriter output, uint startRowOffset, List<ushort> streamOffsets)
+		public static long DBCELL(BinaryWriter output, uint startRowOffset, List<ushort> streamOffsets)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 215, 4 + 2 * streamOffsets.Count);
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long ROW(BinaryWriter output, ushort rowIndex, ushort colMin, ushort colMax, ushort rowHeight, ushort outlineLevel, bool collapsed, bool autoSize)
+		public static long ROW(BinaryWriter output, ushort rowIndex, ushort colMin, ushort colMax, ushort rowHeight, ushort outlineLevel, bool collapsed, bool autoSize)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 520, 16);
@@ -167,14 +167,14 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long BLANK(BinaryWriter output, ushort row, ushort col, ushort ixfe)
+		public static long BLANK(BinaryWriter output, ushort row, ushort col, ushort ixfe)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteCellHeader(output, 513, 6, row, col, ixfe);
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long MULBLANK(BinaryWriter output, ushort row, ushort colFirst, ushort colLast, ushort[] xfIndexes, int numValues)
+		public static long MULBLANK(BinaryWriter output, ushort row, ushort colFirst, ushort colLast, ushort[] xfIndexes, int numValues)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 190, 6 + 2 * numValues);
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long BOOLERR(BinaryWriter output, ushort row, ushort column, ushort ixfe, byte valOrErrorCode, bool isError)
+		public static long BOOLERR(BinaryWriter output, ushort row, ushort column, ushort ixfe, byte valOrErrorCode, bool isError)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteCellHeader(output, 517, 8, row, column, ixfe);
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long LABEL(BinaryWriter output, ushort rowIndex, ushort colIndex, ushort ixfe, string rgch)
+		public static long LABEL(BinaryWriter output, ushort rowIndex, ushort colIndex, ushort ixfe, string rgch)
 		{
 			long position = output.BaseStream.Position;
 			bool compressed = default(bool);
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long LABELSST(BinaryWriter output, ushort rowIndex, ushort colIndex, ushort ixfe, uint isst)
+		public static long LABELSST(BinaryWriter output, ushort rowIndex, ushort colIndex, ushort ixfe, uint isst)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteCellHeader(output, 253, 10, rowIndex, colIndex, ixfe);
@@ -215,7 +215,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long RK(BinaryWriter output, ushort rowIndex, ushort colIndex, ushort ixfe, uint rkValue)
+		public static long RK(BinaryWriter output, ushort rowIndex, ushort colIndex, ushort ixfe, uint rkValue)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteCellHeader(output, 638, 10, rowIndex, colIndex, ixfe);
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long MULRK(BinaryWriter output, ushort rowIndex, ushort colFirst, ushort colLast, ushort[] xfIndexes, uint[] rkValues, int numValues)
+		public static long MULRK(BinaryWriter output, ushort rowIndex, ushort colFirst, ushort colLast, ushort[] xfIndexes, uint[] rkValues, int numValues)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 189, 6 + 6 * numValues);
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long NUMBER(BinaryWriter output, ushort rowIndex, ushort colIndex, ushort ixfe, double value)
+		public static long NUMBER(BinaryWriter output, ushort rowIndex, ushort colIndex, ushort ixfe, double value)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteCellHeader(output, 515, 14, rowIndex, colIndex, ixfe);
@@ -246,7 +246,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long MERGECELLS(BinaryWriter output, List<AreaInfo> mergeAreas)
+		public static long MERGECELLS(BinaryWriter output, List<AreaInfo> mergeAreas)
 		{
 			long position = output.BaseStream.Position;
 			int num = mergeAreas.Count;
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long FONT(BinaryWriter output, BIFF8Font font)
+		public static long FONT(BinaryWriter output, BIFF8Font font)
 		{
 			long position = output.BaseStream.Position;
 			string text = font.Name;
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long FORMAT(BinaryWriter output, string format, int ifmt)
+		public static long FORMAT(BinaryWriter output, string format, int ifmt)
 		{
 			long position = output.BaseStream.Position;
 			bool compressed = default(bool);
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long XF(BinaryWriter output, byte[] styleData)
+		public static long XF(BinaryWriter output, byte[] styleData)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 224, 20);
@@ -325,7 +325,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long PALETTE(BinaryWriter output, List<BIFF8Color> colors)
+		public static long PALETTE(BinaryWriter output, List<BIFF8Color> colors)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 146, 2 + colors.Count * 4);
@@ -340,7 +340,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long OBJ(BinaryWriter output, ushort objId)
+		public static long OBJ(BinaryWriter output, ushort objId)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 93, 38);
@@ -373,7 +373,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long HEADER(BinaryWriter output, string headerString)
+		public static long HEADER(BinaryWriter output, string headerString)
 		{
 			long position = output.BaseStream.Position;
 			bool compressed = default(bool);
@@ -382,7 +382,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long FOOTER(BinaryWriter output, string footerString)
+		public static long FOOTER(BinaryWriter output, string footerString)
 		{
 			long position = output.BaseStream.Position;
 			bool compressed = default(bool);
@@ -391,7 +391,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long PANE(BinaryWriter output, ushort verticalSplit, ushort horizontalSplit, ushort topVisible, ushort leftVisible, ushort activePane)
+		public static long PANE(BinaryWriter output, ushort verticalSplit, ushort horizontalSplit, ushort topVisible, ushort leftVisible, ushort activePane)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 65, 10);
@@ -403,7 +403,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long WINDOW2(BinaryWriter output, bool frozen, bool selected)
+		public static long WINDOW2(BinaryWriter output, bool frozen, bool selected)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 574, 18);
@@ -419,7 +419,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long WSBOOL(BinaryWriter output, bool rowSummaryBelow, bool colSummaryToRight)
+		public static long WSBOOL(BinaryWriter output, bool rowSummaryBelow, bool colSummaryToRight)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 129, 2);
@@ -436,7 +436,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long HLINK(BinaryWriter output, HyperlinkInfo link)
+		public static long HLINK(BinaryWriter output, HyperlinkInfo link)
 		{
 			long position = output.BaseStream.Position;
 			int num = 40 + (link.Label.Length + 1) * 2 + (link.URL.Length + 1) * 2;
@@ -478,7 +478,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long BACKGROUNDIMAGE(BinaryWriter output, Stream imageStream, ushort pictureWidth, ushort pictureHeight)
+		public static long BACKGROUNDIMAGE(BinaryWriter output, Stream imageStream, ushort pictureWidth, ushort pictureHeight)
 		{
 			if (imageStream != null && pictureWidth >= 0 && pictureHeight >= 0)
 			{
@@ -540,7 +540,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return 0L;
 		}
 
-		internal static long SETUP(BinaryWriter output, ushort paperSize, bool isPortrait, double headerMargin, double footerMargin)
+		public static long SETUP(BinaryWriter output, ushort paperSize, bool isPortrait, double headerMargin, double footerMargin)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 161, 34);
@@ -558,7 +558,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long GUTS(BinaryWriter output, byte maxRowOutline, byte maxColOutline)
+		public static long GUTS(BinaryWriter output, byte maxRowOutline, byte maxColOutline)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 128, 8);
@@ -577,7 +577,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long NAME_PRINTTITLE(BinaryWriter output, PrintTitleInfo printTitle)
+		public static long NAME_PRINTTITLE(BinaryWriter output, PrintTitleInfo printTitle)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 24, 27);
@@ -602,7 +602,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long SUPBOOK(BinaryWriter output, ushort cTab)
+		public static long SUPBOOK(BinaryWriter output, ushort cTab)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 430, 4);
@@ -612,7 +612,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long EXTERNSHEET(BinaryWriter output, ExternSheetInfo externSheetInfo)
+		public static long EXTERNSHEET(BinaryWriter output, ExternSheetInfo externSheetInfo)
 		{
 			long position = output.BaseStream.Position;
 			int num = externSheetInfo.XTIStructures.Count;
@@ -635,7 +635,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return output.BaseStream.Position - position;
 		}
 
-		internal static long MARGINS(BinaryWriter output, double topMargin, double bottomMargin, double leftMargin, double rightMargin)
+		public static long MARGINS(BinaryWriter output, double topMargin, double bottomMargin, double leftMargin, double rightMargin)
 		{
 			long position = output.BaseStream.Position;
 			RecordFactory.WriteHeader(output, 40, 8);

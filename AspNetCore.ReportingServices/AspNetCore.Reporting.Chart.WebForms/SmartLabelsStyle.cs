@@ -8,9 +8,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 	[DefaultProperty("Enabled")]
 	[SRDescription("DescriptionAttributeSmartLabelsStyle_SmartLabelsStyle")]
 	[TypeConverter(typeof(NoNameExpandableObjectConverter))]
-	internal class SmartLabelsStyle
+	public class SmartLabelsStyle
 	{
-		internal object chartElement;
+		public object chartElement;
 
 		private bool enabled;
 

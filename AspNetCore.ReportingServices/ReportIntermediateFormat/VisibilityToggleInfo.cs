@@ -3,18 +3,18 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class VisibilityToggleInfo
+	public sealed class VisibilityToggleInfo
 	{
-		internal ObjectType ObjectType;
+		public ObjectType ObjectType;
 
-		internal string ObjectName;
+		public string ObjectName;
 
-		internal Visibility Visibility;
+		public Visibility Visibility;
 
-		internal string GroupName;
+		public string GroupName;
 
-		internal Hashtable GroupingSet;
+		public Hashtable GroupingSet;
 
-		internal bool IsTablixMember;
+		public bool IsTablixMember;
 	}
 }

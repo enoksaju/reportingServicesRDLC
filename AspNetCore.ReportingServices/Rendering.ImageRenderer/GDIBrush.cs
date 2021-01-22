@@ -3,13 +3,13 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class GDIBrush
+	public sealed class GDIBrush
 	{
 		private GDIBrush()
 		{
 		}
 
-		internal static Brush GetBrush(Dictionary<string, Brush> brushes, Color color)
+		public static Brush GetBrush(Dictionary<string, Brush> brushes, Color color)
 		{
 			string key = color.ToString();
 			Brush brush = default(Brush);

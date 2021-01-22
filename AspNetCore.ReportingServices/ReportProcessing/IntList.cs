@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class IntList : ArrayList
+	public sealed class IntList : ArrayList
 	{
-		internal new int this[int index]
+		public new int this[int index]
 		{
 			get
 			{
@@ -18,16 +18,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList()
+		public IntList()
 		{
 		}
 
-		internal IntList(int capacity)
+		public IntList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void CopyTo(IntList target)
+		public void CopyTo(IntList target)
 		{
 			if (target != null)
 			{

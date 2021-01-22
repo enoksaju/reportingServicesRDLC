@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeImage : GaugePanelItem
+	public sealed class GaugeImage : GaugePanelItem
 	{
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeImage GaugeImageDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeImage GaugeImageDef
 		{
 			get
 			{
@@ -20,14 +20,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeImage(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeImage defObject, GaugePanel gaugePanel)
+		public GaugeImage(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeImage defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override BaseInstance GetInstance()
+		public override BaseInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

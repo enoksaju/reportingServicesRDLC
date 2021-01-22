@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal enum AuthenticationType
+	public enum AuthenticationType
 	{
 		None,
 		Windows,

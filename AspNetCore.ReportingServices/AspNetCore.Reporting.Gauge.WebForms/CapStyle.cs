@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum CapStyle
+	public enum CapStyle
 	{
 		Simple,
 		CustomCap1,

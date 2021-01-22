@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
-    internal sealed class DataSet
+    public sealed class DataSet
 	{
 		public string Name
 		{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Internal
 			set;
 		}
 
-		internal DataSet()
+		public DataSet()
 		{
 		}
 	}

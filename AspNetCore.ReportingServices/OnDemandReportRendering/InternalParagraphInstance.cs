@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalParagraphInstance : ParagraphInstance
+	public sealed class InternalParagraphInstance : ParagraphInstance
 	{
 		private ReportSize m_leftIndent;
 
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Paragraph ParagraphDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Paragraph ParagraphDef
 		{
 			get
 			{
@@ -160,17 +160,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalParagraphInstance(Paragraph paragraphDef)
+		public InternalParagraphInstance(Paragraph paragraphDef)
 			: base(paragraphDef)
 		{
 		}
 
-		internal InternalParagraphInstance(ReportElement reportElementDef)
+		public InternalParagraphInstance(ReportElement reportElementDef)
 			: base(reportElementDef)
 		{
 		}
 
-		internal ReportSize GetLeftIndent(bool constantUsable)
+		public ReportSize GetLeftIndent(bool constantUsable)
 		{
 			ExpressionInfo leftIndent = this.ParagraphDef.LeftIndent;
 			if (leftIndent != null)
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal ReportSize GetRightIndent(bool constantUsable)
+		public ReportSize GetRightIndent(bool constantUsable)
 		{
 			ExpressionInfo rightIndent = this.ParagraphDef.RightIndent;
 			if (rightIndent != null)
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal ReportSize GetHangingIndent(bool constantUsable)
+		public ReportSize GetHangingIndent(bool constantUsable)
 		{
 			ExpressionInfo hangingIndent = this.ParagraphDef.HangingIndent;
 			if (hangingIndent != null)
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal ReportSize GetSpaceBefore(bool constantUsable)
+		public ReportSize GetSpaceBefore(bool constantUsable)
 		{
 			ExpressionInfo spaceBefore = this.ParagraphDef.SpaceBefore;
 			if (spaceBefore != null)
@@ -238,7 +238,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal ReportSize GetSpaceAfter(bool constantUsable)
+		public ReportSize GetSpaceAfter(bool constantUsable)
 		{
 			ExpressionInfo spaceAfter = this.ParagraphDef.SpaceAfter;
 			if (spaceAfter != null)

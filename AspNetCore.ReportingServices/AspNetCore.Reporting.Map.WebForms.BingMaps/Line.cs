@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class Line
+	public class Line
 	{
 		[DataMember(Name = "type", EmitDefaultValue = false)]
 		public string Type

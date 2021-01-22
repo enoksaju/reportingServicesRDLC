@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class TimerData : ICloneable
+	public class TimerData : ICloneable
 	{
 		public TimeSpan ticks;
 

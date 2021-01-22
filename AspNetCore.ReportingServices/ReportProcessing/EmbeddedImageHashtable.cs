@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class EmbeddedImageHashtable : Hashtable
+	public sealed class EmbeddedImageHashtable : Hashtable
 	{
-		internal ImageInfo this[string index]
+		public ImageInfo this[string index]
 		{
 			get
 			{
@@ -15,11 +15,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal EmbeddedImageHashtable()
+		public EmbeddedImageHashtable()
 		{
 		}
 
-		internal EmbeddedImageHashtable(int capacity)
+		public EmbeddedImageHashtable(int capacity)
 			: base(capacity)
 		{
 		}

@@ -3,7 +3,7 @@ using System.Security.Principal;
 
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IRSRequestContext
+	public interface IRSRequestContext
 	{
 		IDictionary<string, string> Cookies
 		{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeCell : IReportScope, IDataRegionCell
+	public sealed class GaugeCell : IReportScope, IDataRegionCell
 	{
 		private GaugePanel m_owner;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private List<GaugeInputValue> m_gaugeInputValues;
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeCell GaugeCellDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeCell GaugeCellDef
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeCell(GaugePanel owner, AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeCell gaugeCellDef)
+		public GaugeCell(GaugePanel owner, AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeCell gaugeCellDef)
 		{
 			this.m_owner = owner;
 			this.m_gaugeCellDef = gaugeCellDef;
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.SetNewContext();
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

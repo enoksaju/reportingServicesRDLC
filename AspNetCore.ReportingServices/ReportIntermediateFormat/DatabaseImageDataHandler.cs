@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class DatabaseImageDataHandler : ImageDataHandler
+	public sealed class DatabaseImageDataHandler : ImageDataHandler
 	{
 		public override AspNetCore.ReportingServices.OnDemandReportRendering.Image.SourceType Source
 		{

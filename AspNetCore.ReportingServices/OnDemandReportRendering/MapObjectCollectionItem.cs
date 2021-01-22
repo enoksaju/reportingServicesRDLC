@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapObjectCollectionItem : IMapObjectCollectionItem
+	public abstract class MapObjectCollectionItem : IMapObjectCollectionItem
 	{
 		protected BaseInstance m_instance;
 
@@ -9,7 +9,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.SetNewContext();
 		}
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapViewport : MapSubItem, IPersistable
+	public sealed class MapViewport : MapSubItem, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapViewport.GetDeclaration();
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_simplificationResolution;
 
-		internal ExpressionInfo MapCoordinateSystem
+		public ExpressionInfo MapCoordinateSystem
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MapProjection
+		public ExpressionInfo MapProjection
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ProjectionCenterX
+		public ExpressionInfo ProjectionCenterX
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ProjectionCenterY
+		public ExpressionInfo ProjectionCenterY
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLimits MapLimits
+		public MapLimits MapLimits
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapView MapView
+		public MapView MapView
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaximumZoom
+		public ExpressionInfo MaximumZoom
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MinimumZoom
+		public ExpressionInfo MinimumZoom
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SimplificationResolution
+		public ExpressionInfo SimplificationResolution
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ContentMargin
+		public ExpressionInfo ContentMargin
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapGridLines MapMeridians
+		public MapGridLines MapMeridians
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapGridLines MapParallels
+		public MapGridLines MapParallels
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo GridUnderContent
+		public ExpressionInfo GridUnderContent
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapViewportExprHost ExprHost
+		public new MapViewportExprHost ExprHost
 		{
 			get
 			{
@@ -206,16 +206,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapViewport()
+		public MapViewport()
 		{
 		}
 
-		internal MapViewport(Map map)
+		public MapViewport(Map map)
 			: base(map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapViewportStart();
 			base.Initialize(context);
@@ -283,7 +283,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapViewportEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapViewport mapViewport = (MapViewport)base.PublishClone(context);
 			if (this.m_mapCoordinateSystem != null)
@@ -341,7 +341,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapViewport;
 		}
 
-		internal void SetExprHost(MapViewportExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapViewportExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -363,7 +363,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapCoordinateSystem, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -495,55 +495,55 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapViewport;
 		}
 
-		internal MapCoordinateSystem EvaluateMapCoordinateSystem(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapCoordinateSystem EvaluateMapCoordinateSystem(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapCoordinateSystem(context.ReportRuntime.EvaluateMapViewportMapCoordinateSystemExpression(this, base.m_map.Name), context.ReportRuntime);
 		}
 
-		internal MapProjection EvaluateMapProjection(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapProjection EvaluateMapProjection(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapProjection(context.ReportRuntime.EvaluateMapViewportMapProjectionExpression(this, base.m_map.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateProjectionCenterX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateProjectionCenterX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapViewportProjectionCenterXExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateProjectionCenterY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateProjectionCenterY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapViewportProjectionCenterYExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateMaximumZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMaximumZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapViewportMaximumZoomExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateMinimumZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMinimumZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapViewportMinimumZoomExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateContentMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateContentMargin(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapViewportContentMarginExpression(this, base.m_map.Name);
 		}
 
-		internal bool EvaluateGridUnderContent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateGridUnderContent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapViewportGridUnderContentExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateSimplificationResolution(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateSimplificationResolution(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapViewportSimplificationResolutionExpression(this, base.m_map.Name);

@@ -11,7 +11,7 @@ using System.Security.Policy;
 
 namespace AspNetCore.Reporting
 {
-	internal interface ILocalProcessingHost
+	public interface ILocalProcessingHost
 	{
 		PreviewItemContext ItemContext
 		{

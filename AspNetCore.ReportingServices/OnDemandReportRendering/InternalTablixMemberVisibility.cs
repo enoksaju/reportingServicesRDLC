@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalTablixMemberVisibility : Visibility
+	public sealed class InternalTablixMemberVisibility : Visibility
 	{
 		private InternalTablixMember m_owner;
 

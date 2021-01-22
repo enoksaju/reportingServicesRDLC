@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapCoordinateSystems
+	public enum MapCoordinateSystems
 	{
 		Planar,
 		Geographic

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class CoverageArea
+	public class CoverageArea
 	{
 		[DataMember(Name = "bbox", EmitDefaultValue = false)]
 		public double[] BoundingBox

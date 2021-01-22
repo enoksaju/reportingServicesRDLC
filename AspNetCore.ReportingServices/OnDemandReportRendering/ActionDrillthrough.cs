@@ -7,7 +7,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ActionDrillthrough
+	public sealed class ActionDrillthrough
 	{
 		private ReportStringProperty m_reportName;
 
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem ActionItemDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem ActionItemDef
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionInfo Owner
+		public ActionInfo Owner
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ICatalogItemContext PathResolutionContext
+		public ICatalogItemContext PathResolutionContext
 		{
 			get
 			{
@@ -125,14 +125,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionDrillthrough(ActionInfo owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem actionItemDef, int index)
+		public ActionDrillthrough(ActionInfo owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ActionItem actionItemDef, int index)
 		{
 			this.m_owner = owner;
 			this.m_actionItemDef = actionItemDef;
 			this.m_index = index;
 		}
 
-		internal ActionDrillthrough(ActionInfo owner, AspNetCore.ReportingServices.ReportRendering.Action renderAction)
+		public ActionDrillthrough(ActionInfo owner, AspNetCore.ReportingServices.ReportRendering.Action renderAction)
 		{
 			this.m_owner = owner;
 			this.m_renderAction = renderAction;
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.Parameters.Add(this, parameterValue);
 		}
 
-		internal void Update(AspNetCore.ReportingServices.ReportRendering.Action newAction)
+		public void Update(AspNetCore.ReportingServices.ReportRendering.Action newAction)
 		{
 			if (this.m_instance != null)
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ConstructDrillthoughDefinition()
+		public void ConstructDrillthoughDefinition()
 		{
 			ActionDrillthroughInstance instance = this.Instance;
 			Global.Tracer.Assert(instance != null, "(instance != null)");

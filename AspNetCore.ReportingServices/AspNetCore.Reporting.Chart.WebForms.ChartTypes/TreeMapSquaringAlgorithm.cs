@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal sealed class TreeMapSquaringAlgorithm
+	public sealed class TreeMapSquaringAlgorithm
 	{
 		private sealed class TreeMapDataPointInfo
 		{

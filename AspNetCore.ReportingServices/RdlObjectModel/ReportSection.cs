@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ReportSection : ReportObject
+	public class ReportSection : ReportObject
 	{
-		internal class Definition : DefinitionStore<ReportSection, Definition.Properties>
+		public class Definition : DefinitionStore<ReportSection, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Body,
 				Width,
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ReportSection(IPropertyStore propertyStore)
+		public ReportSection(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

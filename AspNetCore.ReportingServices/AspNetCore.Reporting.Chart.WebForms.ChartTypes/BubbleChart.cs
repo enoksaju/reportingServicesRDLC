@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class BubbleChart : PointChart
+	public class BubbleChart : PointChart
 	{
 		private bool scaleDetected;
 
@@ -190,7 +190,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return (float)((value - this.valueDiff) * this.valueScale) + this.minBubleSize;
 		}
 
-		internal static double AxisScaleBubbleSize(ChartGraphics graph, CommonElements common, ChartArea area, double value, bool yValue)
+		public static double AxisScaleBubbleSize(ChartGraphics graph, CommonElements common, ChartArea area, double value, bool yValue)
 		{
 			double num = 1.7976931348623157E+308;
 			double num2 = -1.7976931348623157E+308;
@@ -288,7 +288,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return (double)((float)((value - num12) * num11) + num10);
 		}
 
-		internal static double GetBubbleMaxSize(ChartArea area)
+		public static double GetBubbleMaxSize(ChartArea area)
 		{
 			double num = 15.0;
 			foreach (Series item in area.Common.DataManager.Series)

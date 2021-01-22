@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal interface ICircularChartType
+	public interface ICircularChartType
 	{
 		bool RequireClosedFigure();
 

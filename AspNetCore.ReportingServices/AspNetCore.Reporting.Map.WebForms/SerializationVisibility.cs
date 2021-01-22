@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum SerializationVisibility
+	public enum SerializationVisibility
 	{
 		Hidden,
 		Attribute,

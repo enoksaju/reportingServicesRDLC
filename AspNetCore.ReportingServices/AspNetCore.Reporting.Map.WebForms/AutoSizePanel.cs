@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal abstract class AutoSizePanel : DockablePanel
+	public abstract class AutoSizePanel : DockablePanel
 	{
 		private bool autoSize = true;
 
@@ -67,7 +67,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal abstract bool IsEmpty
+		public abstract bool IsEmpty
 		{
 			get;
 		}
@@ -98,14 +98,14 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal AutoSizePanel(CommonElements common)
+		public AutoSizePanel(CommonElements common)
 			: base(common)
 		{
 		}
 
-		internal abstract SizeF GetOptimalSize(MapGraphics g, SizeF maxSizeAbs);
+		public abstract SizeF GetOptimalSize(MapGraphics g, SizeF maxSizeAbs);
 
-		internal void AdjustAutoSize(MapGraphics g)
+		public void AdjustAutoSize(MapGraphics g)
 		{
 			if (this.AutoSize && this.Common != null)
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return size;
 		}
 
-		internal override bool IsVisible()
+		public override bool IsVisible()
 		{
 			bool flag = base.Visible;
 			if (this.Common != null && !this.Common.MapControl.IsDesignMode())
@@ -184,7 +184,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return flag;
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			this.Invalidate(false);
 		}
@@ -201,7 +201,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override bool IsRenderVisible(MapGraphics g, RectangleF clipRect)
+		public override bool IsRenderVisible(MapGraphics g, RectangleF clipRect)
 		{
 			if (base.IsRenderVisible(g, clipRect))
 			{

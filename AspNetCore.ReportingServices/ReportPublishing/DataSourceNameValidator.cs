@@ -2,14 +2,14 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class DataSourceNameValidator : NameValidator
+	public sealed class DataSourceNameValidator : NameValidator
 	{
-		internal DataSourceNameValidator()
+		public DataSourceNameValidator()
 			: base(false)
 		{
 		}
 
-		internal bool Validate(ObjectType objectType, string objectName, ErrorContext errorContext)
+		public bool Validate(ObjectType objectType, string objectName, ErrorContext errorContext)
 		{
 			bool result = true;
 			if (string.IsNullOrEmpty(objectName) || objectName.Length > 256)

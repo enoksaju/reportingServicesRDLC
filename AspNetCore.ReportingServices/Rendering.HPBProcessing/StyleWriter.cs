@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal interface StyleWriter
+	public interface StyleWriter
 	{
 		void Write(byte rplId, string value);
 

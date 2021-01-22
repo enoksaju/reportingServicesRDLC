@@ -6,9 +6,9 @@ using System.Drawing.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal class GraphicsBase : IDisposable
+	public class GraphicsBase : IDisposable
 	{
-		internal delegate void SynchronizedOperation();
+		public delegate void SynchronizedOperation();
 
 		protected System.Drawing.Graphics m_graphicsBase;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 
 		private Win32DCSafeHandle m_hdc = Win32DCSafeHandle.Zero;
 
-		internal int DpiX
+		public int DpiX
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal int DpiY
+		public int DpiY
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal Win32DCSafeHandle Hdc
+		public Win32DCSafeHandle Hdc
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal System.Drawing.Graphics SystemGraphics
+		public System.Drawing.Graphics SystemGraphics
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal GraphicsBase(float dpiX, float dpiY)
+		public GraphicsBase(float dpiX, float dpiY)
 		{
 			this.m_dpiX = (int)dpiX;
 			this.m_dpiY = (int)dpiY;
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.Dispose(false);
 		}
 
-		internal virtual void CacheHdc(bool createNewHdc)
+		public virtual void CacheHdc(bool createNewHdc)
 		{
 			if (!createNewHdc && this.Hdc != Win32DCSafeHandle.Zero)
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.GetHdc();
 		}
 
-		internal virtual void ReleaseCachedHdc(bool releaseHdc)
+		public virtual void ReleaseCachedHdc(bool releaseHdc)
 		{
 			if (releaseHdc)
 			{
@@ -124,19 +124,19 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal virtual void ExecuteSync(SynchronizedOperation synchronizedOperation)
+		public virtual void ExecuteSync(SynchronizedOperation synchronizedOperation)
 		{
 			synchronizedOperation();
 		}
 
-		internal Win32DCSafeHandle GetHdc()
+		public Win32DCSafeHandle GetHdc()
 		{
 			this.ReleaseHdc();
 			this.Hdc = new Win32DCSafeHandle(this.m_graphicsBase.GetHdc(), false);
 			return this.Hdc;
 		}
 
-		internal void ReleaseHdc()
+		public void ReleaseHdc()
 		{
 			if (!this.Hdc.IsInvalid)
 			{
@@ -145,12 +145,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal float ConvertToMillimeters(int pixels)
+		public float ConvertToMillimeters(int pixels)
 		{
 			return SharedRenderer.ConvertToMillimeters(pixels, (float)this.m_dpiX);
 		}
 
-		internal int ConvertToPixels(float mm)
+		public int ConvertToPixels(float mm)
 		{
 			return SharedRenderer.ConvertToPixels(mm, (float)this.m_dpiX);
 		}

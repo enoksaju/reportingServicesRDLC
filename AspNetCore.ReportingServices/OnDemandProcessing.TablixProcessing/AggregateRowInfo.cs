@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class AggregateRowInfo
+	public sealed class AggregateRowInfo
 	{
 		private bool[] m_aggregationFieldChecked;
 
@@ -11,14 +11,14 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private bool m_validAggregateRow;
 
-		internal static AggregateRowInfo CreateAndSaveAggregateInfo(OnDemandProcessingContext odpContext)
+		public static AggregateRowInfo CreateAndSaveAggregateInfo(OnDemandProcessingContext odpContext)
 		{
 			AggregateRowInfo aggregateRowInfo = new AggregateRowInfo();
 			aggregateRowInfo.SaveAggregateInfo(odpContext);
 			return aggregateRowInfo;
 		}
 
-		internal void SaveAggregateInfo(OnDemandProcessingContext odpContext)
+		public void SaveAggregateInfo(OnDemandProcessingContext odpContext)
 		{
 			FieldsImpl fieldsImpl = odpContext.ReportObjectModel.FieldsImpl;
 			this.m_aggregationFieldCount = fieldsImpl.AggregationFieldCount;
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_validAggregateRow = fieldsImpl.ValidAggregateRow;
 		}
 
-		internal void RestoreAggregateInfo(OnDemandProcessingContext odpContext)
+		public void RestoreAggregateInfo(OnDemandProcessingContext odpContext)
 		{
 			FieldsImpl fieldsImpl = odpContext.ReportObjectModel.FieldsImpl;
 			fieldsImpl.AggregationFieldCount = this.m_aggregationFieldCount;
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			fieldsImpl.ValidAggregateRow = this.m_validAggregateRow;
 		}
 
-		internal void CombineAggregateInfo(OnDemandProcessingContext odpContext, AggregateRowInfo updated)
+		public void CombineAggregateInfo(OnDemandProcessingContext odpContext, AggregateRowInfo updated)
 		{
 			FieldsImpl fieldsImpl = odpContext.ReportObjectModel.FieldsImpl;
 			if (updated == null)

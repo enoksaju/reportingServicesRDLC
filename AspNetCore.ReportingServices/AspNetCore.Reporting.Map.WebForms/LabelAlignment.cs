@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum LabelAlignment
+	public enum LabelAlignment
 	{
 		Top,
 		Bottom,

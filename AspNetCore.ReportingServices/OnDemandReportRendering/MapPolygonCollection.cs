@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPolygonCollection : MapObjectCollectionBase<MapPolygon>, ISpatialElementCollection
+	public sealed class MapPolygonCollection : MapObjectCollectionBase<MapPolygon>, ISpatialElementCollection
 	{
 		private Map m_map;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapPolygonCollection(MapPolygonLayer mapPolygonLayer, Map map)
+		public MapPolygonCollection(MapPolygonLayer mapPolygonLayer, Map map)
 		{
 			this.m_mapPolygonLayer = mapPolygonLayer;
 			this.m_map = map;

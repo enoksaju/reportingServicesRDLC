@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class SPBInteractivityProcessing : IInteractivityPaginationModule
+	public class SPBInteractivityProcessing : IInteractivityPaginationModule
 	{
 		public int ProcessFindStringEvent(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, int totalPages, int startPage, int endPage, string findValue)
 		{

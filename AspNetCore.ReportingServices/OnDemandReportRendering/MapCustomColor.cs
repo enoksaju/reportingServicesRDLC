@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapCustomColor : MapObjectCollectionItem
+	public sealed class MapCustomColor : MapObjectCollectionItem
 	{
 		private Map m_map;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapCustomColor MapCustomColorDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapCustomColor MapCustomColorDef
 		{
 			get
 			{
@@ -59,13 +59,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapCustomColor(AspNetCore.ReportingServices.ReportIntermediateFormat.MapCustomColor defObject, Map map)
+		public MapCustomColor(AspNetCore.ReportingServices.ReportIntermediateFormat.MapCustomColor defObject, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_map = map;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

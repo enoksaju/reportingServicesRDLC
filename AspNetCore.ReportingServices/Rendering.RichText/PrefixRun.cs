@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class PrefixRun : ITextRunProps
+	public class PrefixRun : ITextRunProps
 	{
 		private const float PrefixFontSize = 10f;
 
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal virtual string FontName
+		public virtual string FontName
 		{
 			get
 			{

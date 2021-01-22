@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
 	[Flags]
-	internal enum RenderMode
+	public enum RenderMode
 	{
 		RenderEdit = 1,
 		FullOdp = 2,

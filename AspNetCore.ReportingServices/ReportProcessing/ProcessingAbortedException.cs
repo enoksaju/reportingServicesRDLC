@@ -7,9 +7,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ProcessingAbortedException : RSException
+	public sealed class ProcessingAbortedException : RSException
 	{
-		internal enum Reason
+		public enum Reason
 		{
 			UserCanceled,
 			AbnormalTermination
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CancelationTrigger Trigger
+		public CancelationTrigger Trigger
 		{
 			get
 			{
@@ -40,24 +40,24 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 		}
 
-		internal ProcessingAbortedException()
+		public ProcessingAbortedException()
 			: this(CancelationTrigger.None)
 		{
 		}
 
-		internal ProcessingAbortedException(CancelationTrigger cancelationTrigger)
+		public ProcessingAbortedException(CancelationTrigger cancelationTrigger)
 			: base(ErrorCode.rsProcessingAborted, RPRes.rsProcessingAbortedByUser, null, Global.Tracer, ProcessingAbortedException.CreateAdditionalTraceMessage(Reason.UserCanceled, cancelationTrigger))
 		{
 			this.m_reason = Reason.UserCanceled;
 			this.m_cancelationTrigger = cancelationTrigger;
 		}
 
-		internal ProcessingAbortedException(Exception innerException)
+		public ProcessingAbortedException(Exception innerException)
 			: this(CancelationTrigger.None, innerException)
 		{
 		}
 
-		internal ProcessingAbortedException(CancelationTrigger cancelationTrigger, Exception innerException)
+		public ProcessingAbortedException(CancelationTrigger cancelationTrigger, Exception innerException)
 			: base(ErrorCode.rsProcessingAborted, RPRes.rsProcessingAbortedByError, innerException, Global.Tracer, ProcessingAbortedException.CreateAdditionalTraceMessage(Reason.AbnormalTermination, cancelationTrigger))
 		{
 			this.m_reason = Reason.AbnormalTermination;

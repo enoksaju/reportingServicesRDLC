@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TextBoxInstanceInfo : ReportItemInstanceInfo, IShowHideSender
+	public sealed class TextBoxInstanceInfo : ReportItemInstanceInfo, IShowHideSender
 	{
 		private string m_formattedValue;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private bool m_initialToggleState;
 
-		internal string FormattedValue
+		public string FormattedValue
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object OriginalValue
+		public object OriginalValue
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Duplicate
+		public bool Duplicate
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActionInstance Action
+		public ActionInstance Action
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InitialToggleState
+		public bool InitialToggleState
 		{
 			get
 			{
@@ -76,12 +76,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TextBoxInstanceInfo(ReportProcessing.ProcessingContext pc, TextBox reportItemDef, TextBoxInstance owner, int index)
+		public TextBoxInstanceInfo(ReportProcessing.ProcessingContext pc, TextBox reportItemDef, TextBoxInstance owner, int index)
 			: base(pc, reportItemDef, owner, index)
 		{
 		}
 
-		internal TextBoxInstanceInfo(TextBox reportItemDef)
+		public TextBoxInstanceInfo(TextBox reportItemDef)
 			: base(reportItemDef)
 		{
 		}
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_initialToggleState = context.ProcessSender(uniqueName, base.m_startHidden, (TextBox)base.m_reportItemDef);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.FormattedValue, Token.String));

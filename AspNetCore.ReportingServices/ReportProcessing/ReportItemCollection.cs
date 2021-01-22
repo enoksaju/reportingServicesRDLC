@@ -5,7 +5,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportItemCollection : IDOwner, IRunningValueHolder
+	public sealed class ReportItemCollection : IDOwner, IRunningValueHolder
 	{
 		private ReportItemList m_nonComputedReportItems;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_firstInstance = true;
 
-		internal ReportItem this[int index]
+		public ReportItem this[int index]
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemList ComputedReportItems
+		public ReportItemList ComputedReportItems
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemList NonComputedReportItems
+		public ReportItemList NonComputedReportItems
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemIndexerList SortedReportItems
+		public ReportItemIndexerList SortedReportItems
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FirstInstance
+		public bool FirstInstance
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string LinkToChild
+		public string LinkToChild
 		{
 			set
 			{
@@ -135,11 +135,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection()
+		public ReportItemCollection()
 		{
 		}
 
-		internal ReportItemCollection(int id, bool normal)
+		public ReportItemCollection(int id, bool normal)
 			: base(id)
 		{
 			this.m_runningValues = new RunningValueInfoList();
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void AddReportItem(ReportItem reportItem)
+		public void AddReportItem(ReportItem reportItem)
 		{
 			Global.Tracer.Assert(this.m_unpopulated);
 			Global.Tracer.Assert(null != reportItem);
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_entries.Add(reportItem);
 		}
 
-		internal void AddCustomRenderItem(ReportItem reportItem)
+		public void AddCustomRenderItem(ReportItem reportItem)
 		{
 			Global.Tracer.Assert(null != reportItem);
 			this.m_unpopulated = false;
@@ -193,12 +193,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_sortedReportItemList.Add(reportItemIndexer);
 		}
 
-		internal bool Initialize(InitializationContext context, bool registerRunningValues)
+		public bool Initialize(InitializationContext context, bool registerRunningValues)
 		{
 			return this.Initialize(context, registerRunningValues, null);
 		}
 
-		internal bool Initialize(InitializationContext context, bool registerRunningValues, bool[] tableColumnVisiblity)
+		public bool Initialize(InitializationContext context, bool registerRunningValues, bool[] tableColumnVisiblity)
 		{
 			Global.Tracer.Assert(this.m_unpopulated);
 			if (registerRunningValues)
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void CalculateSizes(InitializationContext context, bool overwrite)
+		public void CalculateSizes(InitializationContext context, bool overwrite)
 		{
 			Global.Tracer.Assert(this.m_unpopulated);
 			Global.Tracer.Assert(null != this.m_entries);
@@ -332,7 +332,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void RegisterReceiver(InitializationContext context)
+		public void RegisterReceiver(InitializationContext context)
 		{
 			Global.Tracer.Assert(this.m_unpopulated);
 			Global.Tracer.Assert(null != this.m_entries);
@@ -344,7 +344,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void MarkChildrenComputed()
+		public void MarkChildrenComputed()
 		{
 			Global.Tracer.Assert(this.m_unpopulated);
 			Global.Tracer.Assert(null != this.m_entries);
@@ -359,7 +359,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Populate(ErrorContext errorContext)
+		public void Populate(ErrorContext errorContext)
 		{
 			Global.Tracer.Assert(this.m_unpopulated);
 			Global.Tracer.Assert(null != this.m_entries);
@@ -429,21 +429,21 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsReportItemComputed(int index)
+		public bool IsReportItemComputed(int index)
 		{
 			Global.Tracer.Assert(!this.m_unpopulated);
 			Global.Tracer.Assert(0 <= index);
 			return this.m_sortedReportItemList[index].IsComputed;
 		}
 
-		internal ReportItem GetUnsortedReportItem(int index, bool computed)
+		public ReportItem GetUnsortedReportItem(int index, bool computed)
 		{
 			Global.Tracer.Assert(!this.m_unpopulated);
 			Global.Tracer.Assert(0 <= index);
 			return this.InternalGet(index, computed);
 		}
 
-		internal void GetReportItem(int index, out bool computed, out int internalIndex, out ReportItem reportItem)
+		public void GetReportItem(int index, out bool computed, out int internalIndex, out ReportItem reportItem)
 		{
 			Global.Tracer.Assert(!this.m_unpopulated);
 			computed = false;
@@ -472,7 +472,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.m_nonComputedReportItems[index];
 		}
 
-		internal void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, NonComputedUniqueNames[] nonCompNames)
+		public void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, NonComputedUniqueNames[] nonCompNames)
 		{
 			if (nonCompNames != null && this.m_nonComputedReportItems != null && this.m_nonComputedReportItems.Count != 0)
 			{
@@ -485,7 +485,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.NonComputedReportItems, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemList));

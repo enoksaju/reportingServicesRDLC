@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class WordRendererReferenceCreator : IReferenceCreator
+	public sealed class WordRendererReferenceCreator : IReferenceCreator
 	{
 		private static WordRendererReferenceCreator _instance = new WordRendererReferenceCreator();
 
-		internal static WordRendererReferenceCreator Instance
+		public static WordRendererReferenceCreator Instance
 		{
 			get
 			{

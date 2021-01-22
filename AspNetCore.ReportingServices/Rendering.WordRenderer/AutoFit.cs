@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal enum AutoFit
+	public enum AutoFit
 	{
 		False,
 		True,

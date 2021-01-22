@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapColorScaleTitle : MapStyleContainer, IPersistable
+	public sealed class MapColorScaleTitle : MapStyleContainer, IPersistable
 	{
 		[NonSerialized]
 		private MapColorScaleTitleExprHost m_exprHost;
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_caption;
 
-		internal ExpressionInfo Caption
+		public ExpressionInfo Caption
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapColorScaleTitleExprHost ExprHost
+		public MapColorScaleTitleExprHost ExprHost
 		{
 			get
 			{
@@ -50,16 +50,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapColorScaleTitle()
+		public MapColorScaleTitle()
 		{
 		}
 
-		internal MapColorScaleTitle(Map map)
+		public MapColorScaleTitle(Map map)
 			: base(map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapColorScaleTitleStart();
 			base.Initialize(context);
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapColorScaleTitleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapColorScaleTitle mapColorScaleTitle = (MapColorScaleTitle)base.PublishClone(context);
 			if (this.m_caption != null)
@@ -81,14 +81,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapColorScaleTitle;
 		}
 
-		internal void SetExprHost(MapColorScaleTitleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapColorScaleTitleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Caption, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapColorScaleTitle;
 		}
 
-		internal string EvaluateCaption(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateCaption(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateMapColorScaleTitleCaptionExpression(this, base.m_map.Name);

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum Orientations
+	public enum Orientations
 	{
 		Auto,
 		Horizontal,

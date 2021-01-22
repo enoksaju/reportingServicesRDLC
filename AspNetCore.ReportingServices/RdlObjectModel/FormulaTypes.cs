@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum FormulaTypes
+	public enum FormulaTypes
 	{
 		None,
 		Average,

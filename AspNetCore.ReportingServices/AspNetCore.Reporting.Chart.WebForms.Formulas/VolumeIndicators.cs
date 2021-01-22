@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 {
-	internal class VolumeIndicators : PriceIndicators
+	public class VolumeIndicators : PriceIndicators
 	{
 		public override string Name
 		{
@@ -249,7 +249,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 			}
 		}
 
-		internal void AccumulationDistribution(double[][] inputValues, out double[][] outputValues, string[] parameterList, string[] extraParameterList)
+		public void AccumulationDistribution(double[][] inputValues, out double[][] outputValues, string[] parameterList, string[] extraParameterList)
 		{
 			if (inputValues.Length != 5)
 			{

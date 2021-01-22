@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLParagraphPropsDef : RPLElementPropsDef
+	public sealed class RPLParagraphPropsDef : RPLElementPropsDef
 	{
 		private RPLFormat.ListStyles m_listStyle;
 
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLParagraphPropsDef()
+		public RPLParagraphPropsDef()
 		{
 		}
 	}

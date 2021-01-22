@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IPageBreakItem
+	public interface IPageBreakItem
 	{
 		bool HasPageBreaks(bool atStart);
 

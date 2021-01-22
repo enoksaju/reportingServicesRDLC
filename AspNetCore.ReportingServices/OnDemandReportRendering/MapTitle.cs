@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapTitle : MapDockableSubItem
+	public sealed class MapTitle : MapDockableSubItem
 	{
 		private ReportStringProperty m_text;
 
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapTitle MapTitleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapTitle MapTitleDef
 		{
 			get
 			{
@@ -70,12 +70,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapTitle(AspNetCore.ReportingServices.ReportIntermediateFormat.MapTitle defObject, Map map)
+		public MapTitle(AspNetCore.ReportingServices.ReportIntermediateFormat.MapTitle defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapSubItemInstance GetInstance()
+		public override MapSubItemInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapSubItemInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

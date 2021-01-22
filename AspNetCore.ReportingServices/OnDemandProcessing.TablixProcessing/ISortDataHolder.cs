@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal interface ISortDataHolder : IStorable, IPersistable
+	public interface ISortDataHolder : IStorable, IPersistable
 	{
 		void NextRow();
 

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLocation
+	public sealed class MapLocation
 	{
 		private Map m_map;
 
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapLocation MapLocationDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapLocation MapLocationDef
 		{
 			get
 			{
@@ -84,13 +84,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLocation(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLocation defObject, Map map)
+		public MapLocation(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLocation defObject, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_map = map;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

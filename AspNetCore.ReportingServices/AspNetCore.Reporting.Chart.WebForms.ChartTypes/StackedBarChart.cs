@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class StackedBarChart : IChartType
+	public class StackedBarChart : IChartType
 	{
 		protected double prevPosY = double.NaN;
 
@@ -14,11 +14,11 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 
 		protected bool hundredPercentStacked;
 
-		internal bool stackGroupNameUsed;
+		public bool stackGroupNameUsed;
 
-		internal ArrayList stackGroupNames;
+		public ArrayList stackGroupNames;
 
-		internal string currentStackGroup = string.Empty;
+		public string currentStackGroup = string.Empty;
 
 		public virtual string Name
 		{

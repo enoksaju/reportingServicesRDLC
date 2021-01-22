@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartTickMarksEnabledTypes
+	public enum ChartTickMarksEnabledTypes
 	{
 		Auto,
 		True,

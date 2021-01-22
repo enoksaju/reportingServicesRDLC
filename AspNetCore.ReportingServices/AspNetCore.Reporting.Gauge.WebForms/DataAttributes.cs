@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class DataAttributes : GaugeObject, IValueConsumer
+	public class DataAttributes : GaugeObject, IValueConsumer
 	{
 		private double dValue = double.NaN;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private IValueProvider provider;
 
-		internal double Value
+		public double Value
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal string ValueSource
+		public string ValueSource
 		{
 			get
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal double OldValue
+		public double OldValue
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal DateTime DateValueStamp
+		public DateTime DateValueStamp
 		{
 			get
 			{
@@ -150,12 +150,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal DataAttributes(object parent)
+		public DataAttributes(object parent)
 			: base(parent)
 		{
 		}
 
-		internal double GetValueInPercents()
+		public double GetValueInPercents()
 		{
 			double result = double.NaN;
 			if (this.IsPercentBased)
@@ -172,7 +172,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return result;
 		}
 
-		internal void SetValue(double value, bool initialize)
+		public void SetValue(double value, bool initialize)
 		{
 			this.OldValue = this.dValue;
 			this.dValue = value;
@@ -255,18 +255,18 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.AttachToProvider(true);
 		}
 
-		internal override void ReconnectData(bool exact)
+		public override void ReconnectData(bool exact)
 		{
 			this.AttachToProvider(exact);
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			base.Notify(msg, element, param);
 			if (msg == MessageType.DataInvalidated)
@@ -275,7 +275,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool StartDampening(double targetValue, double minimum, double maximum, double dampeningSweepTime, double refreshRate)
+		public bool StartDampening(double targetValue, double minimum, double maximum, double dampeningSweepTime, double refreshRate)
 		{
 			if (this.Common == null)
 			{
@@ -294,7 +294,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return false;
 		}
 
-		internal void StopDampening()
+		public void StopDampening()
 		{
 		}
 

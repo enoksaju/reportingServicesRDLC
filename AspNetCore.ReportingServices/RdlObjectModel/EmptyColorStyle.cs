@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.RdlObjectModel.Serialization;
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[XmlElementClass("Style")]
-	internal class EmptyColorStyle : Style
+	public class EmptyColorStyle : Style
 	{
 		public new EmptyBorder Border
 		{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			this.Color = Constants.DefaultEmptyColor;
 		}
 
-		internal EmptyColorStyle(IPropertyStore propertyStore)
+		public EmptyColorStyle(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

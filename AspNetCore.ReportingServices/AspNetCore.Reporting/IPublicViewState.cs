@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal interface IPublicViewState
+	public interface IPublicViewState
 	{
 		void LoadViewState(object viewState);
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ChartDashStyle
+	public enum ChartDashStyle
 	{
 		NotSet,
 		Dash,

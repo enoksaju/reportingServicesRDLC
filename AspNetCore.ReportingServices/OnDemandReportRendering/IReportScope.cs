@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IReportScope
+	public interface IReportScope
 	{
 		IReportScopeInstance ReportScopeInstance
 		{

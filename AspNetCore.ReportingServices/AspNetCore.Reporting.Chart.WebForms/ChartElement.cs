@@ -4,9 +4,9 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal abstract class ChartElement
+	public abstract class ChartElement
 	{
-		internal const int MaxNumOfGridlines = 10000;
+		public const int MaxNumOfGridlines = 10000;
 
 		private ElementPosition plotAreaPosition;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private object tag;
 
-		internal CommonElements Common
+		public CommonElements Common
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ElementPosition PlotAreaPosition
+		public ElementPosition PlotAreaPosition
 		{
 			get
 			{
@@ -53,21 +53,21 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ChartElement()
+		public ChartElement()
 		{
 		}
 
-		internal double AlignIntervalStart(double start, double intervalSize, DateTimeIntervalType type)
+		public double AlignIntervalStart(double start, double intervalSize, DateTimeIntervalType type)
 		{
 			return this.AlignIntervalStart(start, intervalSize, type, null);
 		}
 
-		internal double AlignIntervalStart(double start, double intervalSize, DateTimeIntervalType type, Series series)
+		public double AlignIntervalStart(double start, double intervalSize, DateTimeIntervalType type, Series series)
 		{
 			return this.AlignIntervalStart(start, intervalSize, type, series, true);
 		}
 
-		internal double AlignIntervalStart(double start, double intervalSize, DateTimeIntervalType type, Series series, bool majorInterval)
+		public double AlignIntervalStart(double start, double intervalSize, DateTimeIntervalType type, Series series, bool majorInterval)
 		{
 			if (series != null && series.XValueIndexed)
 			{
@@ -162,17 +162,17 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return start;
 		}
 
-		internal double GetIntervalSize(double current, double interval, DateTimeIntervalType type)
+		public double GetIntervalSize(double current, double interval, DateTimeIntervalType type)
 		{
 			return this.GetIntervalSize(current, interval, type, null, 0.0, DateTimeIntervalType.Number, true, true);
 		}
 
-		internal double GetIntervalSize(double current, double interval, DateTimeIntervalType type, Series series, double intervalOffset, DateTimeIntervalType intervalOffsetType, bool forceIntIndex)
+		public double GetIntervalSize(double current, double interval, DateTimeIntervalType type, Series series, double intervalOffset, DateTimeIntervalType intervalOffsetType, bool forceIntIndex)
 		{
 			return this.GetIntervalSize(current, interval, type, series, intervalOffset, intervalOffsetType, forceIntIndex, true);
 		}
 
-		internal double GetIntervalSize(double current, double interval, DateTimeIntervalType type, Series series, double intervalOffset, DateTimeIntervalType intervalOffsetType, bool forceIntIndex, bool forceAbsInterval)
+		public double GetIntervalSize(double current, double interval, DateTimeIntervalType type, Series series, double intervalOffset, DateTimeIntervalType intervalOffsetType, bool forceIntIndex, bool forceAbsInterval)
 		{
 			double num2;
 			double num3;
@@ -316,7 +316,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num6;
 		}
 
-		internal static bool IndexedSeries(Series series)
+		public static bool IndexedSeries(Series series)
 		{
 			if (series.XValueIndexed)
 			{
@@ -325,7 +325,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return ChartElement.SeriesXValuesZeros(series);
 		}
 
-		internal static bool SeriesXValuesZeros(Series series)
+		public static bool SeriesXValuesZeros(Series series)
 		{
 			if (series.xValuesZerosChecked)
 			{
@@ -348,7 +348,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return series.xValuesZeros;
 		}
 
-		internal bool IndexedSeries(params string[] series)
+		public bool IndexedSeries(params string[] series)
 		{
 			bool flag = true;
 			foreach (string parameter in series)
@@ -365,7 +365,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return flag;
 		}
 
-		internal bool SeriesXValuesZeros(params string[] series)
+		public bool SeriesXValuesZeros(params string[] series)
 		{
 			foreach (string parameter in series)
 			{

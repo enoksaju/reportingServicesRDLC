@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal sealed class SunburstChart : IChartType
+	public sealed class SunburstChart : IChartType
 	{
 		private static StringFormat format;
 

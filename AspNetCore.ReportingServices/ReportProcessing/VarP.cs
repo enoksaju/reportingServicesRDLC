@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.Diagnostics.Utilities;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class VarP : VarBase
+	public class VarP : VarBase
 	{
-		internal override object Result()
+		public override object Result()
 		{
 			switch (base.m_sumOfXType)
 			{

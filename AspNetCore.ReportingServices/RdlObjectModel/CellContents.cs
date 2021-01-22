@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class CellContents : ReportObject
+	public class CellContents : ReportObject
 	{
-		internal class Definition : DefinitionStore<CellContents, Definition.Properties>
+		public class Definition : DefinitionStore<CellContents, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ReportItem,
 				ColSpan,
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal CellContents(IPropertyStore propertyStore)
+		public CellContents(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

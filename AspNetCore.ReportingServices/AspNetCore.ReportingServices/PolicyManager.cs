@@ -3,7 +3,7 @@ using System.Security.Policy;
 
 namespace AspNetCore.ReportingServices
 {
-	internal abstract class PolicyManager
+	public abstract class PolicyManager
 	{
 		public event EventHandler PolicyChanged;
 

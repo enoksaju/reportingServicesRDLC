@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapField : IPersistable
+	public sealed class MapField : IPersistable
 	{
 		[Reference]
 		private Map m_map;
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private string m_value;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Value
+		public string Value
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -51,23 +51,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapField()
+		public MapField()
 		{
 		}
 
-		internal MapField(Map map)
+		public MapField(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapField mapField = (MapField)base.MemberwiseClone();
 			mapField.m_map = context.CurrentMapClone;
 			return mapField;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));

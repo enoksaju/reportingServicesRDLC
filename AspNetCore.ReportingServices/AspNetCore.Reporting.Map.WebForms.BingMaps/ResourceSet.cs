@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class ResourceSet
+	public class ResourceSet
 	{
 		[DataMember(Name = "estimatedTotal", EmitDefaultValue = false)]
 		public long EstimatedTotal

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapTileInstance : BaseInstance
+	public sealed class MapTileInstance : BaseInstance
 	{
 		private MapTile m_defObject;
 
-		internal MapTileInstance(MapTile defObject)
+		public MapTileInstance(MapTile defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

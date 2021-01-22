@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum ResizeMode
+	public enum ResizeMode
 	{
 		None,
 		AutoFit

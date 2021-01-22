@@ -1,7 +1,7 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal struct SCRIPT_VISATTR
+	public struct SCRIPT_VISATTR
 	{
-		internal ushort word1;
+		public ushort word1;
 	}
 }

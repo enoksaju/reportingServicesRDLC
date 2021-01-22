@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Tag
+	public sealed class Tag
 	{
 		private readonly Image m_image;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Image Image
+		public Image Image
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ExpressionInfo Expression
+		public ExpressionInfo Expression
 		{
 			get
 			{
@@ -52,13 +52,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Tag(Image image, ExpressionInfo expression)
+		public Tag(Image image, ExpressionInfo expression)
 		{
 			this.m_image = image;
 			this.m_expression = expression;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class DataSourceWrapper : IDataSource
+	public sealed class DataSourceWrapper : IDataSource
 	{
 		//private DataSourceViewSelectCallbackEvent m_selectCompletionEvent;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal DataSourceWrapper(ReportDataSource ds)
+		public DataSourceWrapper(ReportDataSource ds)
 		{
 			this.m_ds = ds;
 			this.StartAsyncSelect();

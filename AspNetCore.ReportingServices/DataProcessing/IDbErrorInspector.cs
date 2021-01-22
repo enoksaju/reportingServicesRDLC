@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbErrorInspector
+	public interface IDbErrorInspector
 	{
 		bool IsQueryTimeout(Exception e);
 

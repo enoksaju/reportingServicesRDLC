@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum SerializationContent
+	public enum SerializationContent
 	{
 		None,
 		Appearance,

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugePointerPlacements
+	public enum GaugePointerPlacements
 	{
 		Cross,
 		Outside,

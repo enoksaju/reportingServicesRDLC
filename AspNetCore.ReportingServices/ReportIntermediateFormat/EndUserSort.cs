@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class EndUserSort : IPersistable
+	public sealed class EndUserSort : IPersistable
 	{
 		[Reference]
 		private DataSet m_dataSet;
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private int m_subReportDataSetGlobalId = -1;
 
-		internal DataSet DataSet
+		public DataSet DataSet
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ISortFilterScope SortExpressionScope
+		public ISortFilterScope SortExpressionScope
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GroupingList GroupsInSortTarget
+		public GroupingList GroupsInSortTarget
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ISortFilterScope SortTarget
+		public ISortFilterScope SortTarget
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int SortExpressionIndex
+		public int SortExpressionIndex
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<SubReport> DetailScopeSubReports
+		public List<SubReport> DetailScopeSubReports
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int SubReportDataSetGlobalId
+		public int SubReportDataSetGlobalId
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SortExpression
+		public ExpressionInfo SortExpression
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string SortExpressionScopeString
+		public string SortExpressionScopeString
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string SortTargetString
+		public string SortTargetString
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetSortTarget(ISortFilterScope target)
+		public void SetSortTarget(ISortFilterScope target)
 		{
 			Global.Tracer.Assert(null != target);
 			this.m_sortTarget = target;
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			target.UserSortExpressions.Add(this.m_sortExpression);
 		}
 
-		internal void SetDefaultSortTarget(ISortFilterScope target)
+		public void SetDefaultSortTarget(ISortFilterScope target)
 		{
 			this.SetSortTarget(target);
 			this.m_sortTargetString = target.ScopeName;
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return endUserSort;
 		}
 
-		internal void UpdateSortScopeAndTargetReference(AutomaticSubtotalContext context)
+		public void UpdateSortScopeAndTargetReference(AutomaticSubtotalContext context)
 		{
 			if (this.m_sortExpressionScopeString != null)
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataSet, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataSet, Token.Reference));

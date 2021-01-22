@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class BTree : IStorable, IPersistable, IDisposable
+	public sealed class BTree : IStorable, IPersistable, IDisposable
 	{
 		private BTreeNode m_root;
 
@@ -23,17 +23,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal BTree()
+		public BTree()
 		{
 		}
 
-		internal BTree(IHierarchyObj owner, OnDemandProcessingContext odpContext, int level)
+		public BTree(IHierarchyObj owner, OnDemandProcessingContext odpContext, int level)
 		{
 			this.m_nodes = new ScalableList<BTreeNode>(level, odpContext.TablixProcessingScalabilityCache);
 			this.m_root = new BTreeNode(owner);
 		}
 
-		internal void NextRow(object keyValue, IHierarchyObj owner)
+		public void NextRow(object keyValue, IHierarchyObj owner)
 		{
 			try
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
+		public void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
 		{
 			this.m_root.Traverse(operation, ascending, this.m_nodes, traversalContext);
 		}
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.BTree;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (BTree.m_declaration == null)
 			{

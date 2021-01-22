@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum BreakLineType
+	public enum BreakLineType
 	{
 		None,
 		Straight,

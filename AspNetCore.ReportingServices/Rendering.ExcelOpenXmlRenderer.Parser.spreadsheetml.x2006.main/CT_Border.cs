@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_Border : OoxmlComplexType
+	public class CT_Border : OoxmlComplexType
 	{
 		private OoxmlBool _outline_attr;
 

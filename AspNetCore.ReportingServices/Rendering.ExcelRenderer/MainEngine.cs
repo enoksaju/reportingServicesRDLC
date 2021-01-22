@@ -10,7 +10,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 {
-	internal sealed class MainEngine : IDisposable
+	public sealed class MainEngine : IDisposable
 	{
 		private IExcelGenerator m_excel;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 
 		private ushort m_backgroundImageHeight;
 
-		internal long TotalScaleTimeMs
+		public long TotalScaleTimeMs
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 			}
 		}
 
-		internal long PeakMemoryUsageKB
+		public long PeakMemoryUsageKB
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 			}
 		}
 
-		internal MainEngine(CreateAndRegisterStream createStream, ExcelRenderer excelRenderer)
+		public MainEngine(CreateAndRegisterStream createStream, ExcelRenderer excelRenderer)
 		{
 			this.m_streamDelegate = createStream;
 			this.m_excel = excelRenderer.CreateExcelGenerator(this.CreateTempStream);
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 			return this.m_streamDelegate(name, ".bin", null, "", true, StreamOper.CreateOnly);
 		}
 
-		internal void AddBackgroundImage(RPLPageContent pageContent, RPLReportSection reportSection)
+		public void AddBackgroundImage(RPLPageContent pageContent, RPLReportSection reportSection)
 		{
 			RPLBody rPLBody = (RPLBody)reportSection.Columns[0].Element;
 			RPLImageData rPLImageData = (RPLImageData)rPLBody.ElementProps.Style[33];
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 			}
 		}
 
-		internal bool AddDocumentMap(DocumentMap docMap)
+		public bool AddDocumentMap(DocumentMap docMap)
 		{
 			if (docMap == null)
 			{
@@ -141,17 +141,17 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 			return true;
 		}
 
-		internal void AdjustFirstWorksheetName(string reportName, bool addedDocMap)
+		public void AdjustFirstWorksheetName(string reportName, bool addedDocMap)
 		{
 			this.m_excel.AdjustFirstWorksheetName(reportName, addedDocMap);
 		}
 
-		internal void NextPage()
+		public void NextPage()
 		{
 			this.m_excel.NextWorksheet();
 		}
 
-		internal void RenderRPLPage(RPLReport report, bool headerInBody, bool suppressOutlines)
+		public void RenderRPLPage(RPLReport report, bool headerInBody, bool suppressOutlines)
 		{
 			string key = null;
 			LayoutEngine layoutEngine = new LayoutEngine(report, headerInBody, this.m_streamDelegate);
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 			}
 		}
 
-		internal void Save(Stream output)
+		public void Save(Stream output)
 		{
 			this.m_excel.SaveSpreadsheet(output, this.m_backgroundImage, this.m_backgroundImageWidth, this.m_backgroundImageHeight);
 		}

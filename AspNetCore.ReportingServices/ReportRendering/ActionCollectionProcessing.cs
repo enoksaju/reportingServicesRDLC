@@ -2,16 +2,16 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ActionCollectionProcessing : MemberBase
+	public sealed class ActionCollectionProcessing : MemberBase
 	{
-		internal ArrayList m_actions;
+		public ArrayList m_actions;
 
-		internal ActionCollectionProcessing()
+		public ActionCollectionProcessing()
 			: base(true)
 		{
 		}
 
-		internal ActionCollectionProcessing DeepClone()
+		public ActionCollectionProcessing DeepClone()
 		{
 			if (this.m_actions != null && this.m_actions.Count != 0)
 			{

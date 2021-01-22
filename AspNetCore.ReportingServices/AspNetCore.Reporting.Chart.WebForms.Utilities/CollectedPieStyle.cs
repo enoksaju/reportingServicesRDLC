@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum CollectedPieStyle
+	public enum CollectedPieStyle
 	{
 		None,
 		SingleSlice,

@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class LocalRenderingExtensionInfo
+	public sealed class LocalRenderingExtensionInfo
 	{
 		private string m_name;
 
@@ -40,7 +40,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal bool IsExposedExternally
+		public bool IsExposedExternally
 		{
 			get
 			{
@@ -48,25 +48,25 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal LocalRenderingExtensionInfo(string name, string localizedName, bool isVisible)
+		public LocalRenderingExtensionInfo(string name, string localizedName, bool isVisible)
 		{
 			this.m_name = name;
 			this.m_localizedName = localizedName;
 			this.m_isVisible = isVisible;
 		}
 
-		internal LocalRenderingExtensionInfo(string name, string localizedName, bool isVisible, Type type, bool isExposedExternally)
+		public LocalRenderingExtensionInfo(string name, string localizedName, bool isVisible, Type type, bool isExposedExternally)
 			: this(name, localizedName, isVisible)
 		{
 			this.m_type = type;
 			this.m_isExposedExternally = isExposedExternally;
 		}
 
-		internal IRenderingExtension Instantiate()
+		public IRenderingExtension Instantiate()
 		{
 			if (this.m_type == null)
 			{
-				throw new Exception("Internal Error: Direct instantiation is only available during standalone local mode");
+				throw new Exception("public Error: Direct instantiation is only available during standalone local mode");
 			}
 			return (IRenderingExtension)Activator.CreateInstance(this.m_type);
 		}

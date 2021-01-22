@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalChartMember : ChartMember
+	public sealed class InternalChartMember : ChartMember
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMember m_memberDef;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private string m_uniqueName;
 
-		internal override string UniqueName
+		public override string UniqueName
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMember MemberDefinition
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMember MemberDefinition
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScopeInstance ReportScopeInstance
+		public override IReportScopeInstance ReportScopeInstance
 		{
 			get
 			{
@@ -219,7 +219,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalChartMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, Chart owner, ChartMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMember memberDef, int parentCollectionIndex)
+		public InternalChartMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, Chart owner, ChartMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMember memberDef, int parentCollectionIndex)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex)
 		{
 			this.m_memberDef = memberDef;
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			base.m_group = new Group(owner, this.m_memberDef, this);
 		}
 
-		internal override void SetNewContext(bool fromMoveNext)
+		public override void SetNewContext(bool fromMoveNext)
 		{
 			if (!fromMoveNext && base.m_instance != null && !this.IsStatic)
 			{

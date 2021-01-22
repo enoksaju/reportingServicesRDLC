@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class ReportInstance : ScopeInstance
+	public class ReportInstance : ScopeInstance
 	{
 		private bool m_noRows;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ReportInstance.GetDeclaration();
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType ObjectType
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Language
+		public string Language
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object[] VariableValues
+		public object[] VariableValues
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportInstance(OnDemandProcessingContext odpContext, Report reportDef, ParameterInfoCollection parameters)
+		public ReportInstance(OnDemandProcessingContext odpContext, Report reportDef, ParameterInfoCollection parameters)
 		{
 			int count = reportDef.MappingNameToDataSet.Count;
 			this.m_dataSetInstances = new DataSetInstance[count];
@@ -83,11 +83,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportInstance()
+		public ReportInstance()
 		{
 		}
 
-		internal bool IsMissingExpectedDataChunk(OnDemandProcessingContext odpContext)
+		public bool IsMissingExpectedDataChunk(OnDemandProcessingContext odpContext)
 		{
 			List<DataSet> mappingDataSetIndexToDataSet = odpContext.ReportDefinition.MappingDataSetIndexToDataSet;
 			for (int i = 0; i < mappingDataSetIndexToDataSet.Count; i++)
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal DataSetInstance GetDataSetInstance(DataSet dataSet, OnDemandProcessingContext odpContext)
+		public DataSetInstance GetDataSetInstance(DataSet dataSet, OnDemandProcessingContext odpContext)
 		{
 			if (this.m_dataSetInstances == null)
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_dataSetInstances[indexInCollection];
 		}
 
-		internal DataSetInstance GetDataSetInstance(int dataSetIndexInCollection, OnDemandProcessingContext odpContext)
+		public DataSetInstance GetDataSetInstance(int dataSetIndexInCollection, OnDemandProcessingContext odpContext)
 		{
 			if (this.m_dataSetInstances == null)
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_dataSetInstances[dataSetIndexInCollection];
 		}
 
-		internal void SetDataSetInstance(DataSetInstance dataSetInstance)
+		public void SetDataSetInstance(DataSetInstance dataSetInstance)
 		{
 			this.m_dataSetInstances[dataSetInstance.DataSetDef.IndexInCollection] = dataSetInstance;
 		}
@@ -139,12 +139,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_dataSetInstances = new DataSetInstance[odpContext.ReportDefinition.MappingDataSetIndexToDataSet.Count];
 		}
 
-		internal IEnumerator GetCachedDataSetInstances()
+		public IEnumerator GetCachedDataSetInstances()
 		{
 			return this.m_dataSetInstances.GetEnumerator();
 		}
 
-		internal void InitializeFromSnapshot(OnDemandProcessingContext odpContext)
+		public void InitializeFromSnapshot(OnDemandProcessingContext odpContext)
 		{
 			if (!odpContext.ReprocessSnapshot)
 			{
@@ -179,17 +179,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void AddChildScope(IReference<ScopeInstance> child, int indexInCollection)
+		public override void AddChildScope(IReference<ScopeInstance> child, int indexInCollection)
 		{
 			base.AddChildScope(child, indexInCollection);
 		}
 
-		internal IReference<DataRegionInstance> GetTopLevelDataRegionReference(int indexInCollection)
+		public IReference<DataRegionInstance> GetTopLevelDataRegionReference(int indexInCollection)
 		{
 			return base.m_dataRegionInstances[indexInCollection];
 		}
 
-		internal void SetupEnvironment(OnDemandProcessingContext odpContext)
+		public void SetupEnvironment(OnDemandProcessingContext odpContext)
 		{
 			if (this.m_dataSetInstances == null)
 			{
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void CalculateAndStoreReportVariables(OnDemandProcessingContext odpContext)
+		public void CalculateAndStoreReportVariables(OnDemandProcessingContext odpContext)
 		{
 			if (odpContext.ReportDefinition.Variables != null && this.m_variables == null)
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ResetReportVariables(OnDemandProcessingContext odpContext)
+		public void ResetReportVariables(OnDemandProcessingContext odpContext)
 		{
 			if (odpContext.ReportDefinition.Variables != null)
 			{
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.NoRows, Token.Boolean));
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ReportInstance, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ScopeInstance, list);
 		}
 
-		internal static IReference<ReportInstance> CreateInstance(IReportInstanceContainer reportInstanceContainer, OnDemandProcessingContext odpContext, Report reportDef, ParameterInfoCollection parameters)
+		public static IReference<ReportInstance> CreateInstance(IReportInstanceContainer reportInstanceContainer, OnDemandProcessingContext odpContext, Report reportDef, ParameterInfoCollection parameters)
 		{
 			ReportInstance reportInstance = new ReportInstance(odpContext, reportDef, parameters);
 			IReference<ReportInstance> reference = reportInstanceContainer.SetReportInstance(reportInstance, odpContext.OdpMetadata);

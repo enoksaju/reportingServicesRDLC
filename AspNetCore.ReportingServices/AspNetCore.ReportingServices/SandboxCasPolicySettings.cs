@@ -7,7 +7,7 @@ using System.Security.Policy;
 namespace AspNetCore.ReportingServices
 {
 	[Serializable]
-	internal class SandboxCasPolicySettings
+	public class SandboxCasPolicySettings
 	{
 		private PermissionSet m_basePermissions;
 

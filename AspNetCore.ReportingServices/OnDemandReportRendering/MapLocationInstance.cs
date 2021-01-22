@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLocationInstance : BaseInstance
+	public sealed class MapLocationInstance : BaseInstance
 	{
 		private MapLocation m_defObject;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLocationInstance(MapLocation defObject)
+		public MapLocationInstance(MapLocation defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

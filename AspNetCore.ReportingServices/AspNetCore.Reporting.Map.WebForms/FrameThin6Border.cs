@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FrameThin6Border : FrameThin1Border
+	public class FrameThin6Border : FrameThin1Border
 	{
 		public override string Name
 		{

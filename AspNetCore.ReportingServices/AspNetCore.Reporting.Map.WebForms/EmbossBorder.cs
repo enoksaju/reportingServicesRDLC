@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class EmbossBorder : IBorderType
+	public class EmbossBorder : IBorderType
 	{
 		public const float defaultRadiusSize = 15f;
 

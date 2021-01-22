@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimDataCell : DataCell
+	public sealed class ShimDataCell : DataCell
 	{
 		private AspNetCore.ReportingServices.ReportRendering.DataCell m_renderDataCell;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.DataCell DataCellDef
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.DataCell DataCellDef
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportRendering.DataCell RenderItem
+		public override AspNetCore.ReportingServices.ReportRendering.DataCell RenderItem
 		{
 			get
 			{
@@ -57,14 +57,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimDataCell(CustomReportItem owner, int rowIndex, int colIndex, ShimDataMember rowParentMember, ShimDataMember columnParentMember)
+		public ShimDataCell(CustomReportItem owner, int rowIndex, int colIndex, ShimDataMember rowParentMember, ShimDataMember columnParentMember)
 			: base(owner, rowIndex, colIndex)
 		{
 			this.m_rowParentMember = rowParentMember;
 			this.m_columnParentMember = columnParentMember;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			this.m_renderDataCell = null;

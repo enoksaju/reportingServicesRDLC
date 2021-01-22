@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapCustomView : MapView
+	public class MapCustomView : MapView
 	{
-		internal new class Definition : DefinitionStore<MapCustomView, Definition.Properties>
+		public new class Definition : DefinitionStore<MapCustomView, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Zoom,
 				CenterX,
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapCustomView(IPropertyStore propertyStore)
+		public MapCustomView(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

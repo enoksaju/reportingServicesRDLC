@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal sealed class TreeMapChart : IChartType
+	public sealed class TreeMapChart : IChartType
 	{
 		private static float ChartAreaMargin = 5f;
 

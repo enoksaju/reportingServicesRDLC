@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ThermometerInstance : BaseInstance
+	public sealed class ThermometerInstance : BaseInstance
 	{
 		private Thermometer m_defObject;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ThermometerInstance(Thermometer defObject)
+		public ThermometerInstance(Thermometer defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

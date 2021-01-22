@@ -5,9 +5,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class SubReportInitializer
+	public class SubReportInitializer
 	{
-		internal static void InitializeSubReportOdpContext(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext parentOdpContext)
+		public static void InitializeSubReportOdpContext(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext parentOdpContext)
 		{
 			foreach (AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport in report.SubReports)
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal static bool InitializeSubReports(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, OnDemandProcessingContext odpContext, bool inDataRegion, bool fromCreateSubReportInstance)
+		public static bool InitializeSubReports(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, OnDemandProcessingContext odpContext, bool inDataRegion, bool fromCreateSubReportInstance)
 		{
 			try
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal static bool InitializeSubReport(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
+		public static bool InitializeSubReport(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
 		{
 			bool result = false;
 			OnDemandProcessingContext onDemandProcessingContext = null;

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_Jc : OoxmlComplexType, IOoxmlComplexType
+	public class CT_Jc : OoxmlComplexType, IOoxmlComplexType
 	{
 		private ST_Jc _val_attr;
 

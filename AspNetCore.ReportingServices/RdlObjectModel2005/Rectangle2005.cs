@@ -5,11 +5,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Rectangle2005 : Rectangle, IReportItem2005, IPageBreakLocation2005, IUpgradeable
+	public class Rectangle2005 : Rectangle, IReportItem2005, IPageBreakLocation2005, IUpgradeable
 	{
-		internal new class Definition : DefinitionStore<Rectangle2005, Definition.Properties>
+		public new class Definition : DefinitionStore<Rectangle2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Action = 24,
 				PageBreakAtStart,

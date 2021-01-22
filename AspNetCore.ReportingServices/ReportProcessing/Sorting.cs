@@ -6,7 +6,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Sorting
+	public sealed class Sorting
 	{
 		private ExpressionInfoList m_sortExpressions;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private SortingExprHost m_exprHost;
 
-		internal ExpressionInfoList SortExpressions
+		public ExpressionInfoList SortExpressions
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BoolList SortDirections
+		public BoolList SortDirections
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SortingExprHost ExprHost
+		public SortingExprHost ExprHost
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Sorting(ConstructionPhase phase)
+		public Sorting(ConstructionPhase phase)
 		{
 			if (phase == ConstructionPhase.Publishing)
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.SortingStart();
 			if (this.m_sortExpressions != null)
@@ -71,14 +71,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.ExprHostBuilder.SortingEnd();
 		}
 
-		internal void SetExprHost(SortingExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(SortingExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.SortExpressions, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ExpressionInfoList));

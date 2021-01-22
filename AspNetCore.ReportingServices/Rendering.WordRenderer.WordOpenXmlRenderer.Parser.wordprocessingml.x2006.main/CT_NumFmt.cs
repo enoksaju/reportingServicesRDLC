@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_NumFmt : OoxmlComplexType, IOoxmlComplexType
+	public class CT_NumFmt : OoxmlComplexType, IOoxmlComplexType
 	{
 		private ST_NumberFormat _val_attr;
 

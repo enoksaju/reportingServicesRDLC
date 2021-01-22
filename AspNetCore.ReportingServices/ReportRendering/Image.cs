@@ -6,9 +6,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Image : ReportItem, IImage, IDeepCloneable
+	public sealed class Image : ReportItem, IImage, IDeepCloneable
 	{
-		internal enum Sizings
+		public enum Sizings
 		{
 			AutoSize,
 			Fit,
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			Clip
 		}
 
-		internal enum SourceType
+		public enum SourceType
 		{
 			External,
 			Embedded,
@@ -263,7 +263,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal new ImageProcessing Processing
+		public new ImageProcessing Processing
 		{
 			get
 			{
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_internalImage = new ImageProcessing();
 		}
 
-		internal Image(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Image reportItemDef, AspNetCore.ReportingServices.ReportProcessing.ImageInstance reportItemInstance, RenderingContext renderingContext)
+		public Image(string uniqueName, int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.Image reportItemDef, AspNetCore.ReportingServices.ReportProcessing.ImageInstance reportItemInstance, RenderingContext renderingContext)
 			: base(uniqueName, intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 			ImageInstanceInfo imageInstanceInfo = (ImageInstanceInfo)base.InstanceInfo;

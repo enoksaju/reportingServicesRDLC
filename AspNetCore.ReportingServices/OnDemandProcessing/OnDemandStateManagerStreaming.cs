@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class OnDemandStateManagerStreaming : OnDemandStateManager
+	public sealed class OnDemandStateManagerStreaming : OnDemandStateManager
 	{
 		private class DataPipelineThrottle
 		{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				}
 			}
 
-			internal bool ShouldStopPipelineAdvance(bool rowAccepted)
+			public bool ShouldStopPipelineAdvance(bool rowAccepted)
 			{
 				switch (this.m_pipelineMode)
 				{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 				return this.m_metStoppingCondition;
 			}
 
-			internal void CreatedScopeInstance(IRIFReportDataScope scope)
+			public void CreatedScopeInstance(IRIFReportDataScope scope)
 			{
 				this.m_anyScopeInstanceCreated = true;
 				if (OnDemandStateManagerStreaming.CanBindOrProcessIndividually(scope) && this.IsTargetScopeForDataProcessing(scope))
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private DataPipelineThrottle m_pipelineThrottle2;
 
-		internal override IReportScopeInstance LastROMInstance
+		public override IReportScopeInstance LastROMInstance
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override IRIFReportScope LastTablixProcessingReportScope
+		public override IRIFReportScope LastTablixProcessingReportScope
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override IInstancePath LastRIFObject
+		public override IInstancePath LastRIFObject
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override QueryRestartInfo QueryRestartInfo
+		public override QueryRestartInfo QueryRestartInfo
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override ExecutedQueryCache ExecutedQueryCache
+		public override ExecutedQueryCache ExecutedQueryCache
 		{
 			get
 			{
@@ -176,36 +176,36 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override ExecutedQueryCache SetupExecutedQueryCache()
+		public override ExecutedQueryCache SetupExecutedQueryCache()
 		{
 			Global.Tracer.Assert(this.m_executedQueryCache == null, "Cannot SetupExecutedQueryCache twice");
 			this.m_executedQueryCache = new ExecutedQueryCache();
 			return this.ExecutedQueryCache;
 		}
 
-		internal override void ResetOnDemandState()
+		public override void ResetOnDemandState()
 		{
 		}
 
-		internal override int RecursiveLevel(string scopeName)
+		public override int RecursiveLevel(string scopeName)
 		{
 			Global.Tracer.Assert(false, "The Level function is not supported in this execution mode.");
 			throw new NotImplementedException();
 		}
 
-		internal override bool InScope(string scopeName)
+		public override bool InScope(string scopeName)
 		{
 			Global.Tracer.Assert(false, "The InScope function is not supported in this execution mode.");
 			throw new NotImplementedException();
 		}
 
-		internal override Dictionary<string, object> GetCurrentSpecialGroupingValues()
+		public override Dictionary<string, object> GetCurrentSpecialGroupingValues()
 		{
 			Global.Tracer.Assert(false, "The CreateDrillthroughContext function is not supported in this execution mode.");
 			throw new NotImplementedException();
 		}
 
-		internal override bool CalculateAggregate(string aggregateName)
+		public override bool CalculateAggregate(string aggregateName)
 		{
 			Global.Tracer.Assert(!base.m_odpContext.IsPageHeaderFooter, "Not supported for page header/footer in streaming mode");
 			OnDemandProcessingContext odpWorkerContextForTablixProcessing = base.GetOdpWorkerContextForTablixProcessing();
@@ -228,19 +228,19 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return true;
 		}
 
-		internal override bool CalculateLookup(LookupInfo lookup)
+		public override bool CalculateLookup(LookupInfo lookup)
 		{
 			Global.Tracer.Assert(false, "Lookup functions are not supported in this execution mode.");
 			throw new NotImplementedException();
 		}
 
-		internal override bool PrepareFieldsCollectionForDirectFields()
+		public override bool PrepareFieldsCollectionForDirectFields()
 		{
 			Global.Tracer.Assert(false, "The fields collection should already be setup for Streaming ODP Mode");
 			throw new NotImplementedException();
 		}
 
-		internal override void EvaluateScopedFieldReference(string scopeName, int fieldIndex, ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
+		public override void EvaluateScopedFieldReference(string scopeName, int fieldIndex, ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
 		{
 			Global.Tracer.Assert(this.m_lastRIFObject != null, "The RIF object for the current scope should be present.");
 			try
@@ -285,7 +285,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return nonStructuralIdcDataManager;
 		}
 
-		internal override void RestoreContext(IInstancePath originalObject)
+		public override void RestoreContext(IInstancePath originalObject)
 		{
 			if (originalObject != null && base.m_odpContext.ReportRuntime.ContextUpdated && this.m_lastRIFObject != originalObject)
 			{
@@ -293,12 +293,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance)
+		public override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance)
 		{
 			this.SetupContext(rifObject, romInstance, -1);
 		}
 
-		internal override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
+		public override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
 		{
 			this.m_lastROMInstance = romInstance;
 			IRIFReportDataScope iRIFReportDataScope = romInstance.ReportScope.RIFReportScope as IRIFReportDataScope;
@@ -496,7 +496,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			idcDataManager.RegisterActiveParent(parentScopeInstanceRef);
 		}
 
-		internal override bool CheckForPrematureServerAggregate(string aggregateName)
+		public override bool CheckForPrematureServerAggregate(string aggregateName)
 		{
 			IRIFReportDataScope iRIFReportDataScope = this.m_lastRIFObject;
 			while (iRIFReportDataScope != null && !iRIFReportDataScope.IsScope)
@@ -516,7 +516,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal static bool NeedsDataForServerAggregate(IRIFReportDataScope reportDataScope)
+		public static bool NeedsDataForServerAggregate(IRIFReportDataScope reportDataScope)
 		{
 			IOnDemandScopeInstance onDemandScopeInstance = reportDataScope.CurrentStreamingScopeInstance.Value();
 			if (!onDemandScopeInstance.IsNoRows && onDemandScopeInstance.IsMostRecentlyCreatedScopeInstance)
@@ -586,7 +586,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance)
+		public override IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance)
 		{
 			LiveRecordRowReader liveRecordRowReader = new LiveRecordRowReader(dataSet, base.m_odpContext);
 			dataSetInstance = liveRecordRowReader.DataSetInstance;
@@ -658,7 +658,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return pipelineThrottle;
 		}
 
-		internal override bool ProcessOneRow(IRIFReportDataScope scope)
+		public override bool ProcessOneRow(IRIFReportDataScope scope)
 		{
 			return this.AdvanceDataPipeline(scope, PipelineAdvanceMode.ByOneRow);
 		}
@@ -671,7 +671,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void FreeResources()
+		public override void FreeResources()
 		{
 			if (this.m_abortProcessor != null)
 			{
@@ -691,7 +691,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
+		public override void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
 		{
 			IRIFReportDataScope iRIFReportDataScope = romInstance.ReportScope.RIFReportScope as IRIFReportDataScope;
 			IReference<IOnDemandMemberInstance> reference = iRIFReportDataScope.CurrentStreamingScopeInstance as IReference<IOnDemandMemberInstance>;
@@ -729,17 +729,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override bool ShouldStopPipelineAdvance(bool rowAccepted)
+		public override bool ShouldStopPipelineAdvance(bool rowAccepted)
 		{
 			return this.m_pipelineThrottle.ShouldStopPipelineAdvance(rowAccepted);
 		}
 
-		internal override void CreatedScopeInstance(IRIFReportDataScope scope)
+		public override void CreatedScopeInstance(IRIFReportDataScope scope)
 		{
 			this.m_pipelineThrottle.CreatedScopeInstance(scope);
 		}
 
-		internal static bool CanBindOrProcessIndividually(IRIFReportDataScope scope)
+		public static bool CanBindOrProcessIndividually(IRIFReportDataScope scope)
 		{
 			return scope.DataScopeInfo.IsDecomposable;
 		}

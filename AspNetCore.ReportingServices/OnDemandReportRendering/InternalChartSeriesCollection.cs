@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalChartSeriesCollection : ChartSeriesCollection
+	public sealed class InternalChartSeriesCollection : ChartSeriesCollection
 	{
 		private ChartSeriesList m_seriesDefs;
 
@@ -35,13 +35,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalChartSeriesCollection(Chart owner, ChartSeriesList seriesDefs)
+		public InternalChartSeriesCollection(Chart owner, ChartSeriesList seriesDefs)
 			: base(owner)
 		{
 			this.m_seriesDefs = seriesDefs;
 		}
 
-		internal InternalChartSeries GetByName(string seriesName)
+		public InternalChartSeries GetByName(string seriesName)
 		{
 			for (int i = 0; i < this.Count; i++)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartAreaInstance : BaseInstance
+	public sealed class ChartAreaInstance : BaseInstance
 	{
 		private ChartArea m_chartAreaDef;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartAreaInstance(ChartArea chartAreaDef)
+		public ChartAreaInstance(ChartArea chartAreaDef)
 			: base(chartAreaDef.ChartDef)
 		{
 			this.m_chartAreaDef = chartAreaDef;

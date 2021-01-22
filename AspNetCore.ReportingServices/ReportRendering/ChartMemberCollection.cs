@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ChartMemberCollection
+	public sealed class ChartMemberCollection
 	{
 		private Chart m_owner;
 
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ChartMemberCollection(Chart owner, ChartMember parent, ChartHeading headingDef, ChartHeadingInstanceList headingInstances)
+		public ChartMemberCollection(Chart owner, ChartMember parent, ChartHeading headingDef, ChartHeadingInstanceList headingInstances)
 		{
 			this.m_owner = owner;
 			this.m_parent = parent;

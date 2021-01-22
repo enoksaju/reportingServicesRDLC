@@ -11,7 +11,7 @@ using System.Linq;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class DataSetCore : IPersistable, IExpressionHostAssemblyHolder
+	public sealed class DataSetCore : IPersistable, IExpressionHostAssemblyHolder
 	{
 		private string m_name;
 
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DataSetCore.GetDeclaration();
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<Field> Fields
+		public List<Field> Fields
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasAggregateIndicatorFields
+		public bool HasAggregateIndicatorFields
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportQuery Query
+		public ReportQuery Query
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SharedDataSetQuery SharedDataSetQuery
+		public SharedDataSetQuery SharedDataSetQuery
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Collation
+		public string Collation
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string CollationCulture
+		public string CollationCulture
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal uint LCID
+		public uint LCID
 		{
 			get
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet.TriState CaseSensitivity
+		public DataSet.TriState CaseSensitivity
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet.TriState AccentSensitivity
+		public DataSet.TriState AccentSensitivity
 		{
 			get
 			{
@@ -192,7 +192,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet.TriState KanatypeSensitivity
+		public DataSet.TriState KanatypeSensitivity
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet.TriState WidthSensitivity
+		public DataSet.TriState WidthSensitivity
 		{
 			get
 			{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NullsAsBlanks
+		public bool NullsAsBlanks
 		{
 			get
 			{
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UseOrdinalStringKeyGeneration
+		public bool UseOrdinalStringKeyGeneration
 		{
 			get
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<Filter> Filters
+		public List<Filter> Filters
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet.TriState InterpretSubtotalsAsDetails
+		public DataSet.TriState InterpretSubtotalsAsDetails
 		{
 			get
 			{
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int NonCalculatedFieldCount
+		public int NonCalculatedFieldCount
 		{
 			get
 			{
@@ -284,7 +284,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Guid CatalogID
+		public Guid CatalogID
 		{
 			get
 			{
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -304,7 +304,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSetExprHost ExprHost
+		public DataSetExprHost ExprHost
 		{
 			get
 			{
@@ -316,7 +316,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal FieldsContext FieldsContext
+		public FieldsContext FieldsContext
 		{
 			get
 			{
@@ -397,16 +397,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSetCore()
+		public DataSetCore()
 		{
 		}
 
-		internal CultureInfo CreateCultureInfoFromLcid()
+		public CultureInfo CreateCultureInfoFromLcid()
 		{
 			return new CultureInfo((int)this.LCID, false);
 		}
 
-		internal void SetCatalogID(Guid id)
+		public void SetCatalogID(Guid id)
 		{
 			if (this.m_catalogID == Guid.Empty)
 			{
@@ -414,7 +414,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_query != null)
 			{
@@ -441,7 +441,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CompareOptions GetCLRCompareOptions()
+		public CompareOptions GetCLRCompareOptions()
 		{
 			CompareOptions compareOptions = CompareOptions.None;
 			if (DataSet.TriState.True != this.m_caseSensitivity)
@@ -463,7 +463,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return compareOptions;
 		}
 
-		internal bool NeedAutoDetectCollation()
+		public bool NeedAutoDetectCollation()
 		{
 			if (DataSetValidator.LOCALE_SYSTEM_DEFAULT != this.m_lcid && this.m_accentSensitivity != 0 && this.m_caseSensitivity != 0 && this.m_kanatypeSensitivity != 0)
 			{
@@ -472,7 +472,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal void MergeCollationSettings(ErrorContext errorContext, string dataSourceType, string cultureName, bool caseSensitive, bool accentSensitive, bool kanatypeSensitive, bool widthSensitive)
+		public void MergeCollationSettings(ErrorContext errorContext, string dataSourceType, string cultureName, bool caseSensitive, bool accentSensitive, bool kanatypeSensitive, bool widthSensitive)
 		{
 			if (this.NeedAutoDetectCollation())
 			{
@@ -516,7 +516,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return DataSet.TriState.False;
 		}
 
-		internal bool HasCalculatedFields()
+		public bool HasCalculatedFields()
 		{
 			if (this.m_fields != null)
 			{
@@ -525,7 +525,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -550,7 +550,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetFilterExprHost(ObjectModelImpl reportObjectModel)
+		public void SetFilterExprHost(ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_filters != null && this.m_exprHost != null)
 			{
@@ -561,7 +561,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));

@@ -2,11 +2,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class IndicatorState : ReportObject, INamedObject
+	public class IndicatorState : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<IndicatorState, Definition.Properties>
+		public class Definition : DefinitionStore<IndicatorState, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				StartValue,
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal IndicatorState(IPropertyStore propertyStore)
+		public IndicatorState(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

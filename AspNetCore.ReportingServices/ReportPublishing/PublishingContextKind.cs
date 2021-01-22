@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal enum PublishingContextKind
+	public enum PublishingContextKind
 	{
 		Full,
 		Progressive,

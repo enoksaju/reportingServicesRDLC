@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal static class ChartPaletteColors
+	public static class ChartPaletteColors
 	{
 		private static Color[] colorsGrayScale;
 

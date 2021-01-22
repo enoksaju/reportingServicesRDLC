@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ReportParameterInfo
+	public sealed class ReportParameterInfo
 	{
 		private string m_name;
 
@@ -43,7 +43,7 @@ namespace AspNetCore.Reporting
 
 		private bool m_visible;
 
-		internal bool HasUnsatisfiedDownstreamParametersWithDefaults
+		public bool HasUnsatisfiedDownstreamParametersWithDefaults
 		{
 			get
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal ReportParameterInfo(string name, ParameterDataType dataType, bool isNullable, bool allowBlank, bool isMultiValue, bool isQueryParameter, string prompt, bool promptUser, bool areDefaultValuesQueryBased, bool areValidValuesQueryBased, string errorMessage, string[] currentValues, IList<ValidValue> validValues, string[] dependencies, ParameterState state)
+		public ReportParameterInfo(string name, ParameterDataType dataType, bool isNullable, bool allowBlank, bool isMultiValue, bool isQueryParameter, string prompt, bool promptUser, bool areDefaultValuesQueryBased, bool areValidValuesQueryBased, string errorMessage, string[] currentValues, IList<ValidValue> validValues, string[] dependencies, ParameterState state)
 		{
 			this.m_name = name;
 			this.m_dataType = dataType;
@@ -222,7 +222,7 @@ namespace AspNetCore.Reporting
 			this.m_visible = true;
 		}
 
-		internal void SetDependencies(ReportParameterInfoCollection coll)
+		public void SetDependencies(ReportParameterInfoCollection coll)
 		{
 			if (this.m_dependencyCollection == null)
 			{

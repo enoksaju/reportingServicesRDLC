@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapAppearanceRule : IPersistable
+	public class MapAppearanceRule : IPersistable
 	{
 		[NonSerialized]
 		protected MapAppearanceRuleExprHost m_exprHost;
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private DataElementOutputTypes m_dataElementOutput;
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DataValue
+		public ExpressionInfo DataValue
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DistributionType
+		public ExpressionInfo DistributionType
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BucketCount
+		public ExpressionInfo BucketCount
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo StartValue
+		public ExpressionInfo StartValue
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo EndValue
+		public ExpressionInfo EndValue
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapBucket> MapBuckets
+		public List<MapBucket> MapBuckets
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string LegendName
+		public string LegendName
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LegendText
+		public ExpressionInfo LegendText
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapAppearanceRuleExprHost ExprHost
+		public MapAppearanceRuleExprHost ExprHost
 		{
 			get
 			{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapAppearanceRuleExprHost ExprHostMapMember
+		public MapAppearanceRuleExprHost ExprHostMapMember
 		{
 			get
 			{
@@ -193,17 +193,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapAppearanceRule()
+		public MapAppearanceRule()
 		{
 		}
 
-		internal MapAppearanceRule(MapVectorLayer mapVectorLayer, Map map)
+		public MapAppearanceRule(MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_map = map;
 			this.m_mapVectorLayer = mapVectorLayer;
 		}
 
-		internal virtual void Initialize(InitializationContext context)
+		public virtual void Initialize(InitializationContext context)
 		{
 			if (this.m_distributionType != null)
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual void InitializeMapMember(InitializationContext context)
+		public virtual void InitializeMapMember(InitializationContext context)
 		{
 			if (this.m_mapVectorLayer.MapDataRegionName != null && this.m_dataValue != null)
 			{
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapAppearanceRule mapAppearanceRule = (MapAppearanceRule)base.MemberwiseClone();
 			mapAppearanceRule.m_map = context.CurrentMapClone;
@@ -293,7 +293,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapAppearanceRule;
 		}
 
-		internal virtual void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHost(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -312,14 +312,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual void SetExprHostMapMember(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHostMapMember(MapAppearanceRuleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHostMapMember = exprHost;
 			this.m_exprHostMapMember.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataValue, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -467,37 +467,37 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapAppearanceRule;
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateDataValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateDataValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_mapVectorLayer.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapAppearanceRuleDataValueExpression(this, this.m_map.Name);
 		}
 
-		internal MapRuleDistributionType EvaluateDistributionType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapRuleDistributionType EvaluateDistributionType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapRuleDistributionType(context.ReportRuntime.EvaluateMapAppearanceRuleDistributionTypeExpression(this, this.m_map.Name), context.ReportRuntime);
 		}
 
-		internal int EvaluateBucketCount(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateBucketCount(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapAppearanceRuleBucketCountExpression(this, this.m_map.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateStartValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateStartValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapAppearanceRuleStartValueExpression(this, this.m_map.Name);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateEndValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateEndValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapAppearanceRuleEndValueExpression(this, this.m_map.Name);
 		}
 
-		internal string EvaluateLegendText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateLegendText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateMapAppearanceRuleLegendTextExpression(this, this.m_map.Name);

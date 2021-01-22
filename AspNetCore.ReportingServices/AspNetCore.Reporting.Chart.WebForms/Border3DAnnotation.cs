@@ -7,7 +7,7 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeBorder3DAnnotation_Border3DAnnotation")]
-	internal class Border3DAnnotation : RectangleAnnotation
+	public class Border3DAnnotation : RectangleAnnotation
 	{
 		private BorderSkinAttributes borderSkin = new BorderSkinAttributes();
 
@@ -52,7 +52,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[DefaultValue(null)]
 		[SRDescription("DescriptionAttributeChart")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		internal override Chart Chart
+		public override Chart Chart
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.lineColor = Color.Empty;
 		}
 
-		internal override void Paint(Chart chart, ChartGraphics graphics)
+		public override void Paint(Chart chart, ChartGraphics graphics)
 		{
 			this.Chart = chart;
 			PointF empty = PointF.Empty;
@@ -110,7 +110,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override RectangleF GetTextSpacing(out bool annotationRelative)
+		public override RectangleF GetTextSpacing(out bool annotationRelative)
 		{
 			annotationRelative = false;
 			RectangleF rectangleF = new RectangleF(3f, 3f, 3f, 3f);

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLineLayer : MapVectorLayer
+	public sealed class MapLineLayer : MapVectorLayer
 	{
 		private MapLineTemplate m_mapLineTemplate;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineLayer MapLineLayerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineLayer MapLineLayerDef
 		{
 			get
 			{
@@ -62,12 +62,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLineLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineLayer defObject, Map map)
+		public MapLineLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineLayer defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapLayerInstance GetInstance()
+		public override MapLayerInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapVectorLayerInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

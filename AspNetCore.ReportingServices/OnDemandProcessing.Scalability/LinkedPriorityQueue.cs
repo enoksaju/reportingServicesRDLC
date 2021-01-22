@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class LinkedPriorityQueue<T> where T : class
+	public sealed class LinkedPriorityQueue<T> where T : class
 	{
-		internal struct PriorityQueueDecumulator : IDecumulator<T>, IEnumerator<T>, IDisposable, IEnumerator
+		public struct PriorityQueueDecumulator : IDecumulator<T>, IEnumerator<T>, IDisposable, IEnumerator
 		{
 			private IDecumulator<T> m_currentLevelDecumulator;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal PriorityQueueDecumulator(LinkedPriorityQueue<T> queue)
+			public PriorityQueueDecumulator(LinkedPriorityQueue<T> queue)
 			{
 				this.m_queue = queue;
 				this.m_enumerator = (IEnumerator<PriorityLevel>)(object)this.m_queue.m_priorityLevels.Values.GetEnumerator();
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal class PriorityLevel
+		public class PriorityLevel
 		{
 			public LinkedBucketedQueue<T> Queue;
 
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 
 		private bool m_pendingDecumulatorCommit;
 
-		internal int LevelCount
+		public int LevelCount
 		{
 			get
 			{
@@ -109,12 +109,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal LinkedPriorityQueue()
+		public LinkedPriorityQueue()
 		{
 			this.m_priorityLevels = new SortedDictionary<int, PriorityLevel>(EqualityComparers.ReversedInt32ComparerInstance);
 		}
 
-		internal void Enqueue(T item, int priority)
+		public void Enqueue(T item, int priority)
 		{
 			Global.Tracer.Assert(!this.m_pendingDecumulatorCommit, "Cannot perform operations on the queue until the open enumerator is Disposed");
 			PriorityLevel priorityLevel = default(PriorityLevel);
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			priorityLevel.Queue.Enqueue(item);
 		}
 
-		internal T Dequeue()
+		public T Dequeue()
 		{
 			Global.Tracer.Assert(!this.m_pendingDecumulatorCommit, "Cannot perform operations on the queue until the open enumerator is Disposed");
 			using (IDecumulator<T> decumulator = this.GetDecumulator())
@@ -140,14 +140,14 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal IDecumulator<T> GetDecumulator()
+		public IDecumulator<T> GetDecumulator()
 		{
 			Global.Tracer.Assert(!this.m_pendingDecumulatorCommit, "Cannot perform operations on the queue until the open enumerator is Disposed");
 			this.m_pendingDecumulatorCommit = true;
 			return (IDecumulator<T>)(object)new PriorityQueueDecumulator(this);
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			this.m_priorityLevels.Clear();
 		}

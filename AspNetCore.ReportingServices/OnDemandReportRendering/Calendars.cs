@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum Calendars
+	public enum Calendars
 	{
 		Default,
 		Gregorian,

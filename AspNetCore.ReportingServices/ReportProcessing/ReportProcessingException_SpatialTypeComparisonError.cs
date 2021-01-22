@@ -4,13 +4,13 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_SpatialTypeComparisonError : Exception
+	public sealed class ReportProcessingException_SpatialTypeComparisonError : Exception
 	{
 		private const string TypeSerializationID = "type";
 
 		private string m_type;
 
-		internal string Type
+		public string Type
 		{
 			get
 			{
@@ -18,12 +18,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessingException_SpatialTypeComparisonError(string type)
+		public ReportProcessingException_SpatialTypeComparisonError(string type)
 		{
 			this.m_type = type;
 		}
 
-		internal ReportProcessingException_SpatialTypeComparisonError(SerializationInfo info, StreamingContext context)
+		public ReportProcessingException_SpatialTypeComparisonError(SerializationInfo info, StreamingContext context)
 			: base(info, context)
 		{
 			this.m_type = info.GetString("type");

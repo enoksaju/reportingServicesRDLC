@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal static class GaugeMapperFactory
+	public static class GaugeMapperFactory
 	{
-		internal static IGaugeMapper CreateGaugeMapperInstance(GaugePanel gaugePanel, string defaultFontFamily)
+		public static IGaugeMapper CreateGaugeMapperInstance(GaugePanel gaugePanel, string defaultFontFamily)
 		{
 			return new GaugeMapper(gaugePanel, defaultFontFamily);
 		}

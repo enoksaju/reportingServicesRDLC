@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class ParameterValue : IPersistable
+	public class ParameterValue : IPersistable
 	{
 		private string m_name;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ParameterValue.GetDeclaration();
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataType ConstantDataType
+		public DataType ConstantDataType
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Omit
+		public ExpressionInfo Omit
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string UniqueName
+		public string UniqueName
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParamExprHost ExprHost
+		public ParamExprHost ExprHost
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(string containerPropertyName, InitializationContext context, bool queryParam)
+		public void Initialize(string containerPropertyName, InitializationContext context, bool queryParam)
 		{
 			string str = (containerPropertyName == null) ? "" : (containerPropertyName + ".");
 			if (this.m_value != null)
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetExprHost(IList<ParamExprHost> paramExprHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<ParamExprHost> paramExprHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -146,12 +146,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object EvaluateQueryParameterValue(OnDemandProcessingContext odpContext, DataSetExprHost dataSetExprHost)
+		public object EvaluateQueryParameterValue(OnDemandProcessingContext odpContext, DataSetExprHost dataSetExprHost)
 		{
 			return odpContext.ReportRuntime.EvaluateQueryParamValue(this.m_value, (dataSetExprHost != null) ? dataSetExprHost.QueryParametersHost : null, AspNetCore.ReportingServices.ReportProcessing.ObjectType.QueryParameter, this.m_name);
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ParameterValue parameterValue = (ParameterValue)base.MemberwiseClone();
 			if (this.m_name != null)
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return parameterValue;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));

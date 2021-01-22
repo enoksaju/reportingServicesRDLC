@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class TimeMetric
+	public sealed class TimeMetric
 	{
 		private bool m_isRunning;
 

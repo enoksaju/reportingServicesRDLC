@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class DataSourceNoPromptException : ReportCatalogException
+	public sealed class DataSourceNoPromptException : ReportCatalogException
 	{
 		public DataSourceNoPromptException(string dataSource)
 			: base(ErrorCode.rsDataSourceNoPrompt, ErrorStrings.rsDataSourceNoPromptException(dataSource), null, null)

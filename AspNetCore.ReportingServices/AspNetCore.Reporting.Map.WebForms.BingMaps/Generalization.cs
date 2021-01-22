@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class Generalization
+	public class Generalization
 	{
 		[DataMember(Name = "pathIndices", EmitDefaultValue = false)]
 		public int[] PathIndices

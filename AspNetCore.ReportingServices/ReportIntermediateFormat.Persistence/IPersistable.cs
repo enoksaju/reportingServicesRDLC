@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal interface IPersistable
+	public interface IPersistable
 	{
 		void Serialize(IntermediateFormatWriter writer);
 

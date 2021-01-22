@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class CustomData : DataRegionBody
+	public class CustomData : DataRegionBody
 	{
-		internal class Definition : DefinitionStore<CustomData, Definition.Properties>
+		public class Definition : DefinitionStore<CustomData, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataSetName,
 				Filters,
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal CustomData(IPropertyStore propertyStore)
+		public CustomData(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class RdceWrappedException : RSException
+	public sealed class RdceWrappedException : RSException
 	{
 		public RdceWrappedException(Exception innerException)
 			: this(innerException, null)

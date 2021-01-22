@@ -4,7 +4,7 @@ using System.IO.Packaging;
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models.Relationships
 {
 	[DebuggerDisplay("{RelatedPart.Location} : {RelationshipId}")]
-	internal sealed class Relationship
+	public sealed class Relationship
 	{
 		private string _relationshipId;
 

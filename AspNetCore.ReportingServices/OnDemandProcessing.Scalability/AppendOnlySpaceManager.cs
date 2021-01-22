@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class AppendOnlySpaceManager : ISpaceManager
+	public sealed class AppendOnlySpaceManager : ISpaceManager
 	{
 		private long m_streamEnd;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal AppendOnlySpaceManager()
+		public AppendOnlySpaceManager()
 		{
 			this.m_streamEnd = 0L;
 		}

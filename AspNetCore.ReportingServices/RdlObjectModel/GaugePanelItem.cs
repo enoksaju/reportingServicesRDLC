@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class GaugePanelItem : ReportObject, INamedObject
+	public class GaugePanelItem : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<GaugePanelItem, Definition.Properties>
+		public class Definition : DefinitionStore<GaugePanelItem, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal GaugePanelItem(IPropertyStore propertyStore)
+		public GaugePanelItem(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

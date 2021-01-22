@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InvalidDataSourceSchemaException : ReportCatalogException
+	public sealed class InvalidDataSourceSchemaException : ReportCatalogException
 	{
 		public InvalidDataSourceSchemaException()
 			: base(ErrorCode.rsInvalidRSDSSchema, ErrorStrings.rsInvalidRSDSSchema, null, null)

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal class PublishingVersioning
+	public class PublishingVersioning
 	{
 		private readonly IConfiguration m_configuration;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private static readonly RdlVersionedFeatures m_rdlFeatureVersioningStructure = PublishingVersioning.CreateRdlFeatureVersioningStructure();
 
-		internal RenderMode RenderMode
+		public RenderMode RenderMode
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal PublishingVersioning(IConfiguration configuration, PublishingContextBase publishingContext)
+		public PublishingVersioning(IConfiguration configuration, PublishingContextBase publishingContext)
 		{
 			this.m_configuration = configuration;
 			this.m_publishingContext = publishingContext;
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return rdlVersionedFeatures;
 		}
 
-		internal bool IsRdlFeatureRestricted(RdlFeatures feature)
+		public bool IsRdlFeatureRestricted(RdlFeatures feature)
 		{
 			return !PublishingVersioning.m_rdlFeatureVersioningStructure.IsRdlFeatureAllowed(feature, this.m_configVersion, this.m_publishingContext.PublishingVersioning.RenderMode);
 		}

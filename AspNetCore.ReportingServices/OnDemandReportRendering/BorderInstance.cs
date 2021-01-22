@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class BorderInstance : BaseInstance
+	public sealed class BorderInstance : BaseInstance
 	{
-		internal enum BorderStyleProperty
+		public enum BorderStyleProperty
 		{
 			Color,
 			Style,
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsColorAssigned
+		public bool IsColorAssigned
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsStyleAssigned
+		public bool IsStyleAssigned
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsWidthAssigned
+		public bool IsWidthAssigned
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal BorderInstance(Border owner, IReportScope reportScope, BorderStyles defaultStyleValueIfExpressionNull)
+		public BorderInstance(Border owner, IReportScope reportScope, BorderStyles defaultStyleValueIfExpressionNull)
 			: base(reportScope)
 		{
 			this.m_owner = owner;
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_width = null;
 		}
 
-		internal void GetAssignedDynamicValues(List<int> styles, List<AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo> values)
+		public void GetAssignedDynamicValues(List<int> styles, List<AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo> values)
 		{
 			if (this.m_colorAssigned && this.m_owner.Color.IsExpression)
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetAssignedDynamicValue(BorderStyleProperty prop, AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo value, bool allowTransparency)
+		public void SetAssignedDynamicValue(BorderStyleProperty prop, AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo value, bool allowTransparency)
 		{
 			switch (prop)
 			{

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class EmptyBorderColor2005 : BorderColor2005
+	public class EmptyBorderColor2005 : BorderColor2005
 	{
 		public new ReportExpression<ReportColor> Default
 		{

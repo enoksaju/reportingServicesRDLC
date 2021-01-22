@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapColorPaletteRule : MapColorRule
+	public class MapColorPaletteRule : MapColorRule
 	{
-		internal new class Definition : DefinitionStore<MapColorPaletteRule, Definition.Properties>
+		public new class Definition : DefinitionStore<MapColorPaletteRule, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataValue,
 				DistributionType,
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapColorPaletteRule(IPropertyStore propertyStore)
+		public MapColorPaletteRule(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

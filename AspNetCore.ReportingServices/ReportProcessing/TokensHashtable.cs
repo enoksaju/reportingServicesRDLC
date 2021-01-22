@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TokensHashtable : HashtableInstanceInfo
+	public sealed class TokensHashtable : HashtableInstanceInfo
 	{
-		internal object this[int key]
+		public object this[int key]
 		{
 			get
 			{
@@ -17,16 +17,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TokensHashtable()
+		public TokensHashtable()
 		{
 		}
 
-		internal TokensHashtable(int capacity)
+		public TokensHashtable(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(int tokenID, object tokenValue)
+		public void Add(int tokenID, object tokenValue)
 		{
 			base.m_hashtable.Add(tokenID, tokenValue);
 		}

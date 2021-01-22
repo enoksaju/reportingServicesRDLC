@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CheckBoxInstanceInfo : ReportItemInstanceInfo
+	public sealed class CheckBoxInstanceInfo : ReportItemInstanceInfo
 	{
 		private bool m_value;
 
 		private bool m_duplicate;
 
-		internal bool Value
+		public bool Value
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Duplicate
+		public bool Duplicate
 		{
 			get
 			{
@@ -34,17 +34,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CheckBoxInstanceInfo(ReportProcessing.ProcessingContext pc, CheckBox reportItemDef, ReportItemInstance owner, int index)
+		public CheckBoxInstanceInfo(ReportProcessing.ProcessingContext pc, CheckBox reportItemDef, ReportItemInstance owner, int index)
 			: base(pc, reportItemDef, owner, index)
 		{
 		}
 
-		internal CheckBoxInstanceInfo(CheckBox reportItemDef)
+		public CheckBoxInstanceInfo(CheckBox reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Value, Token.Boolean));

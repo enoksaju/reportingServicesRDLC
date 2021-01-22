@@ -5,9 +5,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal abstract class EscherRecord : ICloneable
+	public abstract class EscherRecord : ICloneable
 	{
-		internal class EscherRecordHeader
+		public class EscherRecordHeader
 		{
 			private ushort options;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 			private int remainingBytes;
 
-			internal virtual ushort Options
+			public virtual ushort Options
 			{
 				get
 				{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 				}
 			}
 
-			internal virtual ushort RecordId
+			public virtual ushort RecordId
 			{
 				get
 				{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 				}
 			}
 
-			internal virtual int RemainingBytes
+			public virtual int RemainingBytes
 			{
 				get
 				{
@@ -39,11 +39,11 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 				}
 			}
 
-			internal EscherRecordHeader()
+			public EscherRecordHeader()
 			{
 			}
 
-			internal static EscherRecordHeader readHeader(byte[] data, int offset)
+			public static EscherRecordHeader readHeader(byte[] data, int offset)
 			{
 				EscherRecordHeader escherRecordHeader = new EscherRecordHeader();
 				escherRecordHeader.options = LittleEndian.getUShort(data, offset);
@@ -58,13 +58,13 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal const int HEADER_SIZE = 8;
+		public const int HEADER_SIZE = 8;
 
 		private ushort options;
 
 		private ushort recordId;
 
-		internal virtual bool ContainerRecord
+		public virtual bool ContainerRecord
 		{
 			get
 			{
@@ -72,12 +72,12 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal abstract int RecordSize
+		public abstract int RecordSize
 		{
 			get;
 		}
 
-		internal virtual IList ChildRecords
+		public virtual IList ChildRecords
 		{
 			get
 			{
@@ -89,12 +89,12 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal abstract string RecordName
+		public abstract string RecordName
 		{
 			get;
 		}
 
-		internal virtual short Instance
+		public virtual short Instance
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherRecord()
+		public EscherRecord()
 		{
 		}
 
@@ -114,24 +114,24 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return escherRecordHeader.RemainingBytes;
 		}
 
-		internal virtual ushort getOptions()
+		public virtual ushort getOptions()
 		{
 			return this.options;
 		}
 
-		internal virtual void setOptions(ushort options)
+		public virtual void setOptions(ushort options)
 		{
 			this.options = options;
 		}
 
-		internal abstract int Serialize(BinaryWriter dataWriter);
+		public abstract int Serialize(BinaryWriter dataWriter);
 
-		internal virtual ushort GetRecordId()
+		public virtual ushort GetRecordId()
 		{
 			return this.recordId;
 		}
 
-		internal virtual void SetRecordId(ushort recordId)
+		public virtual void SetRecordId(ushort recordId)
 		{
 			this.recordId = recordId;
 		}
@@ -141,12 +141,12 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			throw new SystemException("The class " + base.GetType().FullName + " needs to define a clone method");
 		}
 
-		internal virtual EscherRecord GetChild(int index)
+		public virtual EscherRecord GetChild(int index)
 		{
 			return (EscherRecord)this.ChildRecords[index];
 		}
 
-		internal virtual void Display(StreamWriter w, int indent)
+		public virtual void Display(StreamWriter w, int indent)
 		{
 			for (int i = 0; i < indent * 4; i++)
 			{

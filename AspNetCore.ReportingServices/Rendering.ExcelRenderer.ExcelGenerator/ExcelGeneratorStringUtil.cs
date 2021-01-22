@@ -3,9 +3,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator
 {
-	internal static class ExcelGeneratorStringUtil
+	public static class ExcelGeneratorStringUtil
 	{
-		internal static void ConvertWhitespaceAppendString(string value, StringBuilder stringBuilder, bool checkEastAsianChars, out bool foundEastAsianChar)
+		public static void ConvertWhitespaceAppendString(string value, StringBuilder stringBuilder, bool checkEastAsianChars, out bool foundEastAsianChar)
 		{
 			foundEastAsianChar = false;
 			for (int i = 0; i < value.Length; i++)
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator
 			}
 		}
 
-		internal static void ConvertWhitespaceAppendString(string value, StringBuilder stringBuilder)
+		public static void ConvertWhitespaceAppendString(string value, StringBuilder stringBuilder)
 		{
 			bool flag = false;
 			ExcelGeneratorStringUtil.ConvertWhitespaceAppendString(value, stringBuilder, false, out flag);
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator
 			return stringBuilder;
 		}
 
-		internal static string Truncate(string value, int length)
+		public static string Truncate(string value, int length)
 		{
 			if (value != null && value.Length > length)
 			{

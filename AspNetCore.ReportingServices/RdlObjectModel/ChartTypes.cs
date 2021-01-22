@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartTypes
+	public enum ChartTypes
 	{
 		Column,
 		Bar,

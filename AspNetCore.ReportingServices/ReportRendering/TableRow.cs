@@ -3,17 +3,17 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal class TableRow
+	public class TableRow
 	{
-		internal Table m_owner;
+		public Table m_owner;
 
-		internal AspNetCore.ReportingServices.ReportProcessing.TableRow m_rowDef;
+		public AspNetCore.ReportingServices.ReportProcessing.TableRow m_rowDef;
 
-		internal TableRowInstance m_rowInstance;
+		public TableRowInstance m_rowInstance;
 
-		internal TableCellCollection m_rowCells;
+		public TableCellCollection m_rowCells;
 
-		internal TableRowInstanceInfo m_tableRowInstanceInfo;
+		public TableRowInstanceInfo m_tableRowInstanceInfo;
 
 		public string ID
 		{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableRowInstanceInfo InstanceInfo
+		public TableRowInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableRow(Table owner, AspNetCore.ReportingServices.ReportProcessing.TableRow rowDef, TableRowInstance rowInstance)
+		public TableRow(Table owner, AspNetCore.ReportingServices.ReportProcessing.TableRow rowDef, TableRowInstance rowInstance)
 		{
 			this.m_owner = owner;
 			this.m_rowDef = rowDef;

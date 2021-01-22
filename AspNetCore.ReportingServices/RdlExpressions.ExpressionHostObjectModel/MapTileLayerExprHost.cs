@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapTileExprHost> MapTilesHostsRemotable
+		public IList<MapTileExprHost> MapTilesHostsRemotable
 		{
 			get
 			{

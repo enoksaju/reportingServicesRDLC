@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class OperationNotSupportedException : ReportCatalogException
+	public sealed class OperationNotSupportedException : ReportCatalogException
 	{
 		public OperationNotSupportedException(string operation)
 			: base(ErrorCode.rsOperationNotSupported, ErrorStrings.rsOperationNotSupported(operation), null, null)

@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class OWCChartInstance : ReportItemInstance, IPageItem
+	public sealed class OWCChartInstance : ReportItemInstance, IPageItem
 	{
 		[NonSerialized]
 		private int m_startPage = -1;
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal OWCChartInstanceInfo InstanceInfo
+		public OWCChartInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -49,31 +49,31 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OWCChartInstance(ReportProcessing.ProcessingContext pc, OWCChart reportItemDef)
+		public OWCChartInstance(ReportProcessing.ProcessingContext pc, OWCChart reportItemDef)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new OWCChartInstanceInfo(pc, reportItemDef, this);
 			pc.QuickFind.Add(base.UniqueName, this);
 		}
 
-		internal OWCChartInstance(ReportProcessing.ProcessingContext pc, OWCChart reportItemDef, VariantList[] chartData)
+		public OWCChartInstance(ReportProcessing.ProcessingContext pc, OWCChart reportItemDef, VariantList[] chartData)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new OWCChartInstanceInfo(pc, reportItemDef, this, chartData);
 			pc.QuickFind.Add(base.UniqueName, this);
 		}
 
-		internal OWCChartInstance()
+		public OWCChartInstance()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList members = new MemberInfoList();
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance, members);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadOWCChartInstanceInfo((OWCChart)base.m_reportItemDef);

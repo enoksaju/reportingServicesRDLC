@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class LinearGauge : Gauge
+	public class LinearGauge : Gauge
 	{
-		internal new class Definition : DefinitionStore<LinearGauge, Definition.Properties>
+		public new class Definition : DefinitionStore<LinearGauge, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal LinearGauge(IPropertyStore propertyStore)
+		public LinearGauge(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

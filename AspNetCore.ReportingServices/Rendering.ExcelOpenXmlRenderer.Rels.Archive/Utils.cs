@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Rels.Archive
 {
-	internal static class Utils
+	public static class Utils
 	{
 		public static string CleanName(string name)
 		{

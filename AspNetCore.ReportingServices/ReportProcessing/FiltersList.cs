@@ -2,9 +2,9 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class FiltersList : ArrayList
+	public sealed class FiltersList : ArrayList
 	{
-		internal new Filters this[int index]
+		public new Filters this[int index]
 		{
 			get
 			{

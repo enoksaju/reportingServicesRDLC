@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Marker2005 : ChartMarker
+	public class Marker2005 : ChartMarker
 	{
-		internal new class Definition : DefinitionStore<Marker2005, Definition.Properties>
+		public new class Definition : DefinitionStore<Marker2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Type = 3,
 				Size,

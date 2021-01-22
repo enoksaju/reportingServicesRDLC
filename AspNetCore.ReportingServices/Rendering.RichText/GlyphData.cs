@@ -2,21 +2,21 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class GlyphData
+	public sealed class GlyphData
 	{
-		internal GlyphShapeData GlyphScriptShapeData;
+		public GlyphShapeData GlyphScriptShapeData;
 
 		private int[] m_advances;
 
 		private GOFFSET[] m_gOffsets;
 
-		internal ABC ABC;
+		public ABC ABC;
 
 		private float m_scaleFactor = 1f;
 
 		private bool m_needGlyphPlaceData;
 
-		internal bool NeedGlyphPlaceData
+		public bool NeedGlyphPlaceData
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal float ScaleFactor
+		public float ScaleFactor
 		{
 			set
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int[] Advances
+		public int[] Advances
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int[] ScaledAdvances
+		public int[] ScaledAdvances
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal GOFFSET[] RawGOffsets
+		public GOFFSET[] RawGOffsets
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal GOFFSET[] GOffsets
+		public GOFFSET[] GOffsets
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal GOFFSET[] ScaledGOffsets
+		public GOFFSET[] ScaledGOffsets
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int ScaledTotalWidth
+		public int ScaledTotalWidth
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int ScaledTotalWidthAtLineEnd
+		public int ScaledTotalWidthAtLineEnd
 		{
 			get
 			{
@@ -128,12 +128,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal GlyphData(int maxglyphs, int numChars)
+		public GlyphData(int maxglyphs, int numChars)
 		{
 			this.GlyphScriptShapeData = new GlyphShapeData(maxglyphs, numChars);
 		}
 
-		internal GlyphData(GlyphShapeData glyphInfo)
+		public GlyphData(GlyphShapeData glyphInfo)
 		{
 			this.m_needGlyphPlaceData = true;
 			this.GlyphScriptShapeData = glyphInfo;
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.ABC = default(ABC);
 		}
 
-		internal int GetTotalWidth(bool isAtLineEnd)
+		public int GetTotalWidth(bool isAtLineEnd)
 		{
 			int num = isAtLineEnd ? this.ScaledTotalWidthAtLineEnd : this.ScaledTotalWidth;
 			if (this.m_scaleFactor != 1.0)
@@ -152,12 +152,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return num;
 		}
 
-		internal int Scale(int value)
+		public int Scale(int value)
 		{
 			return (int)((float)value / this.m_scaleFactor + 0.5);
 		}
 
-		internal void TrimToGlyphCount()
+		public void TrimToGlyphCount()
 		{
 			this.GlyphScriptShapeData.TrimToGlyphCount();
 			this.m_advances = new int[this.GlyphScriptShapeData.GlyphCount];

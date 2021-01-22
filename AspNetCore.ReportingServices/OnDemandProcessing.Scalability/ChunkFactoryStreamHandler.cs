@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class ChunkFactoryStreamHandler : IStreamHandler
+	public sealed class ChunkFactoryStreamHandler : IStreamHandler
 	{
 		private string m_chunkName;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 
 		private bool m_existingChunk;
 
-		internal ChunkFactoryStreamHandler(string chunkName, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes chunkType, IChunkFactory chunkFactory, bool existingChunk)
+		public ChunkFactoryStreamHandler(string chunkName, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportChunkTypes chunkType, IChunkFactory chunkFactory, bool existingChunk)
 		{
 			this.m_chunkName = chunkName;
 			this.m_chunkType = chunkType;

@@ -4,9 +4,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public sealed class UserImpl : User
 	{
-		internal const string Name = "User";
+		public const string Name = "User";
 
-		internal const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.User";
+		public const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.User";
 
 		private string m_userID;
 
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal UserProfileState UserProfileLocation
+		public UserProfileState UserProfileLocation
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal UserProfileState HasUserProfileState
+		public UserProfileState HasUserProfileState
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool IndirectQueryReference
+		public bool IndirectQueryReference
 		{
 			get
 			{
@@ -91,14 +91,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal UserImpl(string userID, string language, UserProfileState allowUserProfileState)
+		public UserImpl(string userID, string language, UserProfileState allowUserProfileState)
 		{
 			this.m_userID = userID;
 			this.m_language = language;
 			this.m_allowUserProfileState = allowUserProfileState;
 		}
 
-		internal void UpdateUserProfileState()
+		public void UpdateUserProfileState()
 		{
 			this.m_hasUserProfileState |= this.m_location;
 			if (this.m_indirectQueryReference)

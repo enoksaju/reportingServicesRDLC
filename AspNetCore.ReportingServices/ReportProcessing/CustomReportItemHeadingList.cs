@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CustomReportItemHeadingList : TablixHeadingList
+	public sealed class CustomReportItemHeadingList : TablixHeadingList
 	{
-		internal new CustomReportItemHeading this[int index]
+		public new CustomReportItemHeading this[int index]
 		{
 			get
 			{
@@ -13,16 +13,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingList()
+		public CustomReportItemHeadingList()
 		{
 		}
 
-		internal CustomReportItemHeadingList(int capacity)
+		public CustomReportItemHeadingList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal int Initialize(int level, DataCellsList dataRowCells, ref int currentIndex, ref int maxLevel, InitializationContext context)
+		public int Initialize(int level, DataCellsList dataRowCells, ref int currentIndex, ref int maxLevel, InitializationContext context)
 		{
 			int num = this.Count;
 			int num2 = 0;
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return num2;
 		}
 
-		internal void TransferHeadingAggregates()
+		public void TransferHeadingAggregates()
 		{
 			int count = this.Count;
 			for (int i = 0; i < count; i++)
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override TablixHeadingList InnerHeadings()
+		public override TablixHeadingList InnerHeadings()
 		{
 			if (this.Count > 0)
 			{

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartBorderSkin : ReportObject
+	public class ChartBorderSkin : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartBorderSkin, Definition.Properties>
+		public class Definition : DefinitionStore<ChartBorderSkin, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ChartBorderSkinType,
 				Style,
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartBorderSkin(IPropertyStore propertyStore)
+		public ChartBorderSkin(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

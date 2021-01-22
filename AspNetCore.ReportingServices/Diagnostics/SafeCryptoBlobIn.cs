@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class SafeCryptoBlobIn : SafeHandleZeroOrMinusOneIsInvalid
+	public sealed class SafeCryptoBlobIn : SafeHandleZeroOrMinusOneIsInvalid
 	{
 		private int m_bufferSize;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 
 		private SafeLocalFree m_pbData;
 
-		internal SafeCryptoBlobIn(byte[] data)
+		public SafeCryptoBlobIn(byte[] data)
 			: base(true)
 		{
 			this.m_bufferSize = data.Length;
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			}, base.handle, true);
 		}
 
-		internal void ZeroBuffer()
+		public void ZeroBuffer()
 		{
 			if (!this.IsInvalid && this.m_bufferSize > 0 && this.m_pbData != null)
 			{

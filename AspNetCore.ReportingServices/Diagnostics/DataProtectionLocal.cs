@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class DataProtectionLocal
+	public static class DataProtectionLocal
 	{
 		private sealed class DataProtectionLocalInstance : IDataProtection
 		{

@@ -7,7 +7,7 @@ using System.Drawing.Design;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(PathWidthRuleConverter))]
-	internal class PathWidthRule : PathRuleBase
+	public class PathWidthRule : PathRuleBase
 	{
 		private CustomWidthCollection customWidths;
 
@@ -230,7 +230,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -251,13 +251,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal PathWidthRule(CommonElements common)
+		public PathWidthRule(CommonElements common)
 			: base(common)
 		{
 			this.customWidths = new CustomWidthCollection(this, common);
 		}
 
-		internal override void RegenerateRanges()
+		public override void RegenerateRanges()
 		{
 			if (this.UseCustomWidths)
 			{
@@ -457,7 +457,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void UpdateLegend()
+		public void UpdateLegend()
 		{
 			MapCore mapCore = base.GetMapCore();
 			if (mapCore != null)
@@ -491,7 +491,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void Apply(Path path)
+		public override void Apply(Path path)
 		{
 			if (!(this.Category != path.Category))
 			{

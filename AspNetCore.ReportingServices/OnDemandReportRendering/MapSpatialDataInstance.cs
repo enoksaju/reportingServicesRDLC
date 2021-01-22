@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapSpatialDataInstance : BaseInstance
+	public abstract class MapSpatialDataInstance : BaseInstance
 	{
 		private MapSpatialData m_defObject;
 
-		internal MapSpatialDataInstance(MapSpatialData defObject)
+		public MapSpatialDataInstance(MapSpatialData defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

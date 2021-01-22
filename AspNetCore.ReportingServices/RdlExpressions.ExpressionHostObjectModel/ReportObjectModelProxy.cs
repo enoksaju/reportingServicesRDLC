@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal void SetReportObjectModel(OnDemandObjectModel reportObjectModel)
+		public void SetReportObjectModel(OnDemandObjectModel reportObjectModel)
 		{
 			this.m_reportObjectModel = reportObjectModel;
 		}

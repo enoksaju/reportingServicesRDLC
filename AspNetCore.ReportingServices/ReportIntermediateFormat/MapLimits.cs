@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapLimits : IPersistable
+	public sealed class MapLimits : IPersistable
 	{
 		[NonSerialized]
 		private MapLimitsExprHost m_exprHost;
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_limitToData;
 
-		internal ExpressionInfo MinimumX
+		public ExpressionInfo MinimumX
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MinimumY
+		public ExpressionInfo MinimumY
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaximumX
+		public ExpressionInfo MaximumX
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaximumY
+		public ExpressionInfo MaximumY
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LimitToData
+		public ExpressionInfo LimitToData
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLimitsExprHost ExprHost
+		public MapLimitsExprHost ExprHost
 		{
 			get
 			{
@@ -108,16 +108,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLimits()
+		public MapLimits()
 		{
 		}
 
-		internal MapLimits(Map map)
+		public MapLimits(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapLimitsStart();
 			if (this.m_minimumX != null)
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapLimitsEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapLimits mapLimits = (MapLimits)base.MemberwiseClone();
 			mapLimits.m_map = context.CurrentMapClone;
@@ -175,14 +175,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapLimits;
 		}
 
-		internal void SetExprHost(MapLimitsExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapLimitsExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MinimumX, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -284,31 +284,31 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapLimits;
 		}
 
-		internal double EvaluateMinimumX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMinimumX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLimitsMinimumXExpression(this, this.m_map.Name);
 		}
 
-		internal double EvaluateMinimumY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMinimumY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLimitsMinimumYExpression(this, this.m_map.Name);
 		}
 
-		internal double EvaluateMaximumX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMaximumX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLimitsMaximumXExpression(this, this.m_map.Name);
 		}
 
-		internal double EvaluateMaximumY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMaximumY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLimitsMaximumYExpression(this, this.m_map.Name);
 		}
 
-		internal bool EvaluateLimitToData(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateLimitToData(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLimitsLimitToDataExpression(this, this.m_map.Name);

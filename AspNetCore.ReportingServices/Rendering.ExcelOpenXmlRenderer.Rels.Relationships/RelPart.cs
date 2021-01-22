@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Rels.Relationships
 {
-	internal abstract class RelPart
+	public abstract class RelPart
 	{
 		private string _location;
 

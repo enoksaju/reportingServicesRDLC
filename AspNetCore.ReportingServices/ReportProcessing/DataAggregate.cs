@@ -2,9 +2,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal abstract class DataAggregate
+	public abstract class DataAggregate
 	{
-		internal enum DataTypeCode
+		public enum DataTypeCode
 		{
 			Null,
 			String,
@@ -29,19 +29,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			SqlGeometry
 		}
 
-		internal abstract void Init();
+		public abstract void Init();
 
-		internal abstract void Update(object[] expressions, IErrorContext iErrorContext);
+		public abstract void Update(object[] expressions, IErrorContext iErrorContext);
 
-		internal abstract object Result();
+		public abstract object Result();
 
-		internal static DataTypeCode GetTypeCode(object o)
+		public static DataTypeCode GetTypeCode(object o)
 		{
 			bool flag = default(bool);
 			return DataAggregate.GetTypeCode(o, true, out flag);
 		}
 
-		internal static DataTypeCode GetTypeCode(object o, bool throwException, out bool valid)
+		public static DataTypeCode GetTypeCode(object o, bool throwException, out bool valid)
 		{
 			valid = true;
 			if (o is string)

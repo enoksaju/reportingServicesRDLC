@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum NumericIndicatorStyles
+	public enum NumericIndicatorStyles
 	{
 		Mechanical,
 		Digital7Segment,

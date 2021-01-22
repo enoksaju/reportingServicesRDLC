@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.Reporting
 {
-	internal static class SPUtility
+	public static class SPUtility
 	{
 		public static bool IsValidStringInput(string regexp, string newValue)
 		{

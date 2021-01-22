@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ListStyle
+	public enum ListStyle
 	{
 		None,
 		Numbered,

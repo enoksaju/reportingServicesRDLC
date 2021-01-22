@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class RuntimeTablixGroupLeafObjReference : RuntimeDataTablixGroupLeafObjReference, IReference<RuntimeTablixGroupLeafObj>, IReference<ISortDataHolder>, IReference, IStorable, IPersistable
+	public class RuntimeTablixGroupLeafObjReference : RuntimeDataTablixGroupLeafObjReference, IReference<RuntimeTablixGroupLeafObj>, IReference<ISortDataHolder>, IReference, IStorable, IPersistable
 	{
-		internal RuntimeTablixGroupLeafObjReference()
+		public RuntimeTablixGroupLeafObjReference()
 		{
 		}
 

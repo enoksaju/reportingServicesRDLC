@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixColumnList : ArrayList
+	public sealed class MatrixColumnList : ArrayList
 	{
-		internal new MatrixColumn this[int index]
+		public new MatrixColumn this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixColumnList()
+		public MatrixColumnList()
 		{
 		}
 
-		internal MatrixColumnList(int capacity)
+		public MatrixColumnList(int capacity)
 			: base(capacity)
 		{
 		}

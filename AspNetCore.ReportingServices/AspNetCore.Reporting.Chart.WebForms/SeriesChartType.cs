@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum SeriesChartType
+	public enum SeriesChartType
 	{
 		Point,
 		FastPoint,

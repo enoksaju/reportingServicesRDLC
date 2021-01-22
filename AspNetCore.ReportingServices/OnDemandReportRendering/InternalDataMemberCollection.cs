@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalDataMemberCollection : DataMemberCollection
+	public sealed class InternalDataMemberCollection : DataMemberCollection
 	{
 		private DataMember m_parent;
 
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalDataMemberCollection(IDefinitionPath parentDefinitionPath, CustomReportItem owner, DataMember parent, DataMemberList memberDefs)
+		public InternalDataMemberCollection(IDefinitionPath parentDefinitionPath, CustomReportItem owner, DataMember parent, DataMemberList memberDefs)
 			: base(parentDefinitionPath, owner)
 		{
 			this.m_parent = parent;

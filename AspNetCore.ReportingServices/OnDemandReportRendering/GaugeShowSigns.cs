@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeShowSigns
+	public enum GaugeShowSigns
 	{
 		NegativeOnly,
 		Both,

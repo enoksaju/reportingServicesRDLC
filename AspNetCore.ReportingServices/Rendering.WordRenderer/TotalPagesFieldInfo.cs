@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class TotalPagesFieldInfo : FieldInfo
+	public class TotalPagesFieldInfo : FieldInfo
 	{
 		private const byte TotalPagesCode = 26;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			128
 		};
 
-		internal override byte[] Start
+		public override byte[] Start
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override byte[] Middle
+		public override byte[] Middle
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override byte[] End
+		public override byte[] End
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal TotalPagesFieldInfo(int offset, Location location)
+		public TotalPagesFieldInfo(int offset, Location location)
 			: base(offset, location)
 		{
 		}

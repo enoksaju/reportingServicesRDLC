@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeFrameShapes
+	public enum GaugeFrameShapes
 	{
 		Default,
 		Circular,

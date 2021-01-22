@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
 	[Serializable]
-	internal class ReportRenderingException : Exception
+	public class ReportRenderingException : Exception
 	{
 		private ErrorCode m_ErrorCode;
 

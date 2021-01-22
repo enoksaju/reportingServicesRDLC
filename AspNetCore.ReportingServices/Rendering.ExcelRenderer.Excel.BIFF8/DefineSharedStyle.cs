@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class DefineSharedStyle : StyleState
+	public sealed class DefineSharedStyle : StyleState
 	{
 		private StyleProperties m_styleProps;
 
@@ -226,14 +226,14 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal DefineSharedStyle(StyleContainer parent, string id)
+		public DefineSharedStyle(StyleContainer parent, string id)
 			: base(parent)
 		{
 			this.m_styleProps = new StyleProperties();
 			this.m_id = id;
 		}
 
-		internal override void Finished()
+		public override void Finished()
 		{
 			base.m_context.AddSharedStyle(this.m_id, this.m_styleProps);
 		}

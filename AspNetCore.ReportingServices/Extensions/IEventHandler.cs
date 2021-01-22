@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Interfaces;
 
 namespace AspNetCore.ReportingServices.Extensions
 {
-	internal interface IEventHandler : IExtension
+	public interface IEventHandler : IExtension
 	{
 		bool CanSubscribe(ICatalogQuery catalogQuery, string reportName);
 

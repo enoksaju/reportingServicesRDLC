@@ -6,13 +6,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class GridLines
+	public sealed class GridLines
 	{
 		private bool m_showGridLines;
 
 		private Style m_styleClass;
 
-		internal bool ShowGridLines
+		public bool ShowGridLines
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Style StyleClass
+		public Style StyleClass
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_styleClass != null)
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && null != reportObjectModel);
 			exprHost.SetReportObjectModel(reportObjectModel);
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ShowGridLines, Token.Boolean));

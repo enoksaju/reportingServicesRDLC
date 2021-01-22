@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal DataSourceImpl(AspNetCore.ReportingServices.ReportProcessing.DataSource dataSourceDef)
+		public DataSourceImpl(AspNetCore.ReportingServices.ReportProcessing.DataSource dataSourceDef)
 		{
 			this.m_dataSource = dataSourceDef;
 		}

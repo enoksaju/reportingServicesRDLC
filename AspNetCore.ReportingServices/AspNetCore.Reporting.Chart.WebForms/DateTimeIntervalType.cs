@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum DateTimeIntervalType
+	public enum DateTimeIntervalType
 	{
 		Auto,
 		Number,

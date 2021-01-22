@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class FtrPart : OoxmlPart
+	public class FtrPart : OoxmlPart
 	{
 		private CT_HdrFtr _root;
 

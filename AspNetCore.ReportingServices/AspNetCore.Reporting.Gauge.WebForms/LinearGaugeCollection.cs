@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class LinearGaugeCollection : NamedCollection
+	public class LinearGaugeCollection : NamedCollection
 	{
 		private LinearGauge this[int index]
 		{
@@ -62,7 +62,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal LinearGaugeCollection(NamedElement parent, CommonElements common)
+		public LinearGaugeCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(LinearGauge);
@@ -104,7 +104,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return base.List.IndexOf(value);
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Gauge{0}";
 		}

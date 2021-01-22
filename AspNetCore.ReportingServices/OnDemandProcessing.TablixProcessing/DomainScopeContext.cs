@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class DomainScopeContext
+	public sealed class DomainScopeContext
 	{
-		internal class DomainScopeInfo
+		public class DomainScopeInfo
 		{
 			private int m_currentKeyIndex = -1;
 
@@ -13,9 +13,9 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 			private object[] m_keys;
 
-			internal DataFieldRow m_currentRow;
+			public DataFieldRow m_currentRow;
 
-			internal object CurrentKey
+			public object CurrentKey
 			{
 				get
 				{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				}
 			}
 
-			internal DataFieldRow CurrentRow
+			public DataFieldRow CurrentRow
 			{
 				get
 				{
@@ -35,29 +35,29 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				}
 			}
 
-			internal void InitializeKeys(int count)
+			public void InitializeKeys(int count)
 			{
 				this.m_keys = new object[count];
 				this.m_keyCount = 0;
 				this.m_currentKeyIndex = -1;
 			}
 
-			internal void AddKey(object key)
+			public void AddKey(object key)
 			{
 				this.m_keys[this.m_keyCount++] = key;
 			}
 
-			internal void RemoveKey()
+			public void RemoveKey()
 			{
 				this.m_keyCount--;
 			}
 
-			internal void MoveNext()
+			public void MoveNext()
 			{
 				this.m_currentKeyIndex++;
 			}
 
-			internal void MovePrevious()
+			public void MovePrevious()
 			{
 				this.m_currentKeyIndex--;
 			}
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private DomainScopeInfo m_currentDomainScopeInfo;
 
-		internal DomainScopeInfo CurrentDomainScope
+		public DomainScopeInfo CurrentDomainScope
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal Dictionary<int, IReference<RuntimeGroupRootObj>> DomainScopes
+		public Dictionary<int, IReference<RuntimeGroupRootObj>> DomainScopes
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void AddDomainScopes(IReference<RuntimeMemberObj>[] membersDef, int startIndex)
+		public void AddDomainScopes(IReference<RuntimeMemberObj>[] membersDef, int startIndex)
 		{
 			for (int i = startIndex; i < membersDef.Length; i++)
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void RemoveDomainScopes(IReference<RuntimeMemberObj>[] membersDef, int startIndex)
+		public void RemoveDomainScopes(IReference<RuntimeMemberObj>[] membersDef, int startIndex)
 		{
 			for (int i = startIndex; i < membersDef.Length; i++)
 			{

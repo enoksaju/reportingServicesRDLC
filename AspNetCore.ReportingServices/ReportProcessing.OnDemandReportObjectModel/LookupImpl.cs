@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -45,13 +45,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal LookupImpl(LookupInfo lookupInfo, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRuntime)
+		public LookupImpl(LookupInfo lookupInfo, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRuntime)
 		{
 			this.m_lookupInfo = lookupInfo;
 			this.m_reportRuntime = reportRuntime;
 		}
 
-		internal object[] EvaluateLookup()
+		public object[] EvaluateLookup()
 		{
 			bool flag = this.m_lookupInfo.ReturnFirstMatchOnly();
 			OnDemandProcessingContext odpContext = this.m_reportRuntime.ReportObjectModel.OdpContext;

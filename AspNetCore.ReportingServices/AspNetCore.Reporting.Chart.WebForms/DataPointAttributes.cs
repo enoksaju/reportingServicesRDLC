@@ -12,25 +12,25 @@ namespace AspNetCore.Reporting.Chart.WebForms
 	[SRDescription("DescriptionAttributeDataPointAttributes_DataPointAttributes")]
 	[DefaultProperty("Label")]
 	[TypeConverter(typeof(NoNameExpandableObjectConverter))]
-	internal class DataPointAttributes : IMapAreaAttributes, ICustomTypeDescriptor
+	public class DataPointAttributes : IMapAreaAttributes, ICustomTypeDescriptor
 	{
-		internal IServiceContainer serviceContainer;
+		public IServiceContainer serviceContainer;
 
-		internal bool pointAttributes = true;
+		public bool pointAttributes = true;
 
-		internal Series series;
+		public Series series;
 
-		internal Hashtable attributes = new Hashtable();
+		public Hashtable attributes = new Hashtable();
 
-		internal static ColorConverter colorConverter = new ColorConverter();
+		public static ColorConverter colorConverter = new ColorConverter();
 
-		internal static FontConverter fontConverter = new FontConverter();
+		public static FontConverter fontConverter = new FontConverter();
 
-		internal bool tempColorIsSet;
+		public bool tempColorIsSet;
 
-		internal CustomAttributes customAttributes;
+		public CustomAttributes customAttributes;
 
-		internal bool emptyPoint;
+		public bool emptyPoint;
 
 		private object tag;
 
@@ -2018,7 +2018,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.attributes.ContainsKey(name);
 		}
 
-		internal bool IsAttributeSet(CommonAttributes attrib)
+		public bool IsAttributeSet(CommonAttributes attrib)
 		{
 			return this.attributes.ContainsKey((int)attrib);
 		}
@@ -2041,7 +2041,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.attributes.Remove(name);
 		}
 
-		internal void DeleteAttribute(CommonAttributes attrib)
+		public void DeleteAttribute(CommonAttributes attrib)
 		{
 			if (!this.pointAttributes)
 			{
@@ -2076,7 +2076,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return (string)this.attributes[name];
 		}
 
-		internal bool IsSerializing()
+		public bool IsSerializing()
 		{
 			if (this.series == null)
 			{
@@ -2097,7 +2097,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.series.chart.serializing;
 		}
 
-		internal object GetAttributeObject(CommonAttributes attrib)
+		public object GetAttributeObject(CommonAttributes attrib)
 		{
 			if (this.pointAttributes && this.series != null)
 			{
@@ -2139,7 +2139,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.attributes[name] = attributeValue;
 		}
 
-		internal void SetAttributeObject(CommonAttributes attrib, object attributeValue)
+		public void SetAttributeObject(CommonAttributes attrib, object attributeValue)
 		{
 			this.attributes[(int)attrib] = attributeValue;
 		}
@@ -2331,7 +2331,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Invalidate(bool invalidateLegend)
+		public void Invalidate(bool invalidateLegend)
 		{
 		}
 

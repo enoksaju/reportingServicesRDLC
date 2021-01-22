@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DataRow : ReportElementCollectionBase<DataCell>, IDataRegionRow
+	public abstract class DataRow : ReportElementCollectionBase<DataCell>, IDataRegionRow
 	{
 		protected CustomReportItem m_owner;
 
@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		protected DataCell[] m_cachedDataCells;
 
-		internal DataRow(CustomReportItem owner, int rowIndex)
+		public DataRow(CustomReportItem owner, int rowIndex)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;

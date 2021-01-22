@@ -5,7 +5,7 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class GdiGraphics : IChartRenderingEngine
+	public class GdiGraphics : IChartRenderingEngine
 	{
 		private Graphics graphics;
 

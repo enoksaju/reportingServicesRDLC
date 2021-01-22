@@ -3,11 +3,11 @@ using System;
 namespace AspNetCore.ReportingServices.Library
 {
 	[Serializable]
-	internal sealed class ChunkHeader
+	public sealed class ChunkHeader
 	{
-		internal static readonly short MissingVersion = 1;
+		public static readonly short MissingVersion = 1;
 
-		internal static readonly short CurrentVersion = 2;
+		public static readonly short CurrentVersion = 2;
 
 		private ChunkFlags m_chunkFlags;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Library
 
 		private short m_version;
 
-		internal string MimeType
+		public string MimeType
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Library
 			}
 		}
 
-		internal string ChunkName
+		public string ChunkName
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.Library
 			}
 		}
 
-		internal int ChunkType
+		public int ChunkType
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Library
 			}
 		}
 
-		internal ChunkFlags ChunkFlag
+		public ChunkFlags ChunkFlag
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.Library
 			}
 		}
 
-		internal long ChunkSize
+		public long ChunkSize
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.Library
 			}
 		}
 
-		internal short Version
+		public short Version
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.Library
 			}
 		}
 
-		internal ChunkHeader(string chunkName, int chunkType, ChunkFlags chunkFlag, string mimeType, short version, long chunkSize)
+		public ChunkHeader(string chunkName, int chunkType, ChunkFlags chunkFlag, string mimeType, short version, long chunkSize)
 		{
 			this.m_chunkName = chunkName;
 			this.m_chunkType = chunkType;
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.Library
 			this.m_chunkSize = chunkSize;
 		}
 
-		internal ChunkHeader(ChunkHeader baseHeader)
+		public ChunkHeader(ChunkHeader baseHeader)
 			: this(baseHeader.ChunkName, baseHeader.ChunkType, baseHeader.ChunkFlag, baseHeader.MimeType, baseHeader.Version, baseHeader.ChunkSize)
 		{
 		}

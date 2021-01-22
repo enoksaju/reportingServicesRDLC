@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Common
 {
-	internal interface IDataComparisonError
+	public interface IDataComparisonError
 	{
 		string TypeX
 		{

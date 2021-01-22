@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_VerticalAlignment
+	public class ST_VerticalAlignment
 	{
 		private string _ooxmlEnumerationValue;
 

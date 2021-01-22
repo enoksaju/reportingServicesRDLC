@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_Settings : OoxmlComplexType, IOoxmlComplexType
+	public class CT_Settings : OoxmlComplexType, IOoxmlComplexType
 	{
 		private CT_OnOff _removePersonalInformation;
 

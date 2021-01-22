@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class ProcessReportParameters
+	public abstract class ProcessReportParameters
 	{
 		protected const int UnrestrictedStringResultLength = -1;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		protected int m_maxStringResultLength = -1;
 
-		internal virtual bool IsReportParameterProcessing
+		public virtual bool IsReportParameterProcessing
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal IInternalProcessingContext ProcessingContext
+		public IInternalProcessingContext ProcessingContext
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal static Dictionary<string, bool> BuildSubmittedDependencyList(ParameterInfoCollection parameters)
+		public static Dictionary<string, bool> BuildSubmittedDependencyList(ParameterInfoCollection parameters)
 		{
 			Dictionary<string, bool> dictionary = new Dictionary<string, bool>();
 			for (int i = 0; i < parameters.Count; i++)
@@ -209,33 +209,33 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return dictionary;
 		}
 
-		internal abstract IParameterDef GetParameterDef(int aParamIndex);
+		public abstract IParameterDef GetParameterDef(int aParamIndex);
 
-		internal abstract void InitParametersContext(ParameterInfoCollection parameters);
+		public abstract void InitParametersContext(ParameterInfoCollection parameters);
 
-		internal abstract void Cleanup();
+		public abstract void Cleanup();
 
-		internal abstract void AddToRuntime(ParameterInfo aParamInfo);
+		public abstract void AddToRuntime(ParameterInfo aParamInfo);
 
-		internal abstract void SetupExprHost(IParameterDef aParamDef);
+		public abstract void SetupExprHost(IParameterDef aParamDef);
 
-		internal abstract object EvaluateDefaultValueExpr(IParameterDef aParamDef, int aIndex);
+		public abstract object EvaluateDefaultValueExpr(IParameterDef aParamDef, int aIndex);
 
-		internal abstract object EvaluateValidValueExpr(IParameterDef aParamDef, int aIndex);
+		public abstract object EvaluateValidValueExpr(IParameterDef aParamDef, int aIndex);
 
-		internal abstract object EvaluateValidValueLabelExpr(IParameterDef aParamDef, int aIndex);
+		public abstract object EvaluateValidValueLabelExpr(IParameterDef aParamDef, int aIndex);
 
-		internal abstract bool NeedPrompt(IParameterDataSource paramDS);
+		public abstract bool NeedPrompt(IParameterDataSource paramDS);
 
-		internal abstract void ThrowExceptionForQueryBackedParameter(ReportProcessingException_FieldError aError, string aParamName, int aDataSourceIndex, int aDataSetIndex, int aFieldIndex, string propertyName);
+		public abstract void ThrowExceptionForQueryBackedParameter(ReportProcessingException_FieldError aError, string aParamName, int aDataSourceIndex, int aDataSetIndex, int aFieldIndex, string propertyName);
 
-		internal abstract string EvaluatePromptExpr(ParameterInfo aParamInfo, IParameterDef aParamDef);
+		public abstract string EvaluatePromptExpr(ParameterInfo aParamInfo, IParameterDef aParamDef);
 
-		internal abstract ReportParameterDataSetCache ProcessReportParameterDataSet(ParameterInfo aParam, IParameterDef aParamDef, IParameterDataSource paramDS, bool aRetrieveValidValues, bool aRetrievalDefaultValues);
+		public abstract ReportParameterDataSetCache ProcessReportParameterDataSet(ParameterInfo aParam, IParameterDef aParamDef, IParameterDataSource paramDS, bool aRetrieveValidValues, bool aRetrievalDefaultValues);
 
 		protected abstract string ApplySandboxStringRestriction(string value, string paramName, string propertyName);
 
-		internal bool ValidateValue(object newValue, IParameterDef paramDef, string parameterValueProperty)
+		public bool ValidateValue(object newValue, IParameterDef paramDef, string parameterValueProperty)
 		{
 			if (paramDef.ValidateValueForNull(newValue, this.m_processingContext.ErrorContext, parameterValueProperty) && paramDef.ValidateValueForBlank(newValue, this.m_processingContext.ErrorContext, parameterValueProperty))
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal object ConvertValue(object o, IParameterDef paramDef, bool isDefaultValue)
+		public object ConvertValue(object o, IParameterDef paramDef, bool isDefaultValue)
 		{
 			if (o != null && DBNull.Value != o)
 			{
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return null;
 		}
 
-		internal void UpdateParametersContext(ParameterInfoCollection parameters, int lastIndex, int currentIndex)
+		public void UpdateParametersContext(ParameterInfoCollection parameters, int lastIndex, int currentIndex)
 		{
 			for (int i = lastIndex; i < currentIndex; i++)
 			{
@@ -332,7 +332,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool ProcessDefaultValue(ParameterInfo parameter, IParameterDef paramDef)
+		public bool ProcessDefaultValue(ParameterInfo parameter, IParameterDef paramDef)
 		{
 			if (parameter != null && paramDef != null)
 			{
@@ -438,7 +438,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return true;
 		}
 
-		internal bool ProcessValidValues(ParameterInfo parameter, IParameterDef paramDef, bool aEvaluateDefaultValues)
+		public bool ProcessValidValues(ParameterInfo parameter, IParameterDef paramDef, bool aEvaluateDefaultValues)
 		{
 			if (parameter != null && paramDef != null)
 			{
@@ -505,7 +505,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return true;
 		}
 
-		internal void ConvertAndAddValidValue(ParameterInfo parameter, IParameterDef paramDef, object value, object label)
+		public void ConvertAndAddValidValue(ParameterInfo parameter, IParameterDef paramDef, object value, object label)
 		{
 			value = this.ConvertValue(value, paramDef, false);
 			string value2 = label as string;

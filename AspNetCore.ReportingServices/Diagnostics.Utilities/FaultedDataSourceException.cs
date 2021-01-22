@@ -2,7 +2,7 @@ using System.Runtime.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal sealed class FaultedDataSourceException : ReportCatalogException
+	public sealed class FaultedDataSourceException : ReportCatalogException
 	{
 		public FaultedDataSourceException(ErrorCode errorCode, string errorString)
 			: base(errorCode, errorString, null, null)

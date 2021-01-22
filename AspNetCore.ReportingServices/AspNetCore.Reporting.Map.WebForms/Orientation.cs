@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum Orientation
+	public enum Orientation
 	{
 		Horizontal,
 		Vertical,

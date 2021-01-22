@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeInputValueInstance : BaseInstance
+	public sealed class GaugeInputValueInstance : BaseInstance
 	{
 		private GaugeInputValue m_defObject;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TypeCode ValueTypeCode
+		public TypeCode ValueTypeCode
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool ErrorOccured
+		public bool ErrorOccured
 		{
 			get
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeInputValueInstance(GaugeInputValue defObject)
+		public GaugeInputValueInstance(GaugeInputValue defObject)
 			: base((GaugeCell)defObject.GaugePanelDef.RowCollection.GetIfExists(0).GetIfExists(0))
 		{
 			this.m_defObject = defObject;

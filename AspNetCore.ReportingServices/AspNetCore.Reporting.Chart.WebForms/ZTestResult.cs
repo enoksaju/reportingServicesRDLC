@@ -1,24 +1,24 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ZTestResult
+	public class ZTestResult
 	{
-		internal double firstSeriesMean;
+		public double firstSeriesMean;
 
-		internal double secondSeriesMean;
+		public double secondSeriesMean;
 
-		internal double firstSeriesVariance;
+		public double firstSeriesVariance;
 
-		internal double secondSeriesVariance;
+		public double secondSeriesVariance;
 
-		internal double zValue;
+		public double zValue;
 
-		internal double probabilityZOneTail;
+		public double probabilityZOneTail;
 
-		internal double zCriticalValueOneTail;
+		public double zCriticalValueOneTail;
 
-		internal double probabilityZTwoTail;
+		public double probabilityZTwoTail;
 
-		internal double zCriticalValueTwoTail;
+		public double zCriticalValueTwoTail;
 
 		public double FirstSeriesMean
 		{

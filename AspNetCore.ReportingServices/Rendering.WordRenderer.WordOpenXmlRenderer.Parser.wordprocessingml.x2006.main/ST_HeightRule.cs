@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class ST_HeightRule
+	public class ST_HeightRule
 	{
 		private string _ooxmlEnumerationValue;
 

@@ -7,9 +7,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class DataValueList : ArrayList
+	public class DataValueList : ArrayList
 	{
-		internal new DataValue this[int index]
+		public new DataValue this[int index]
 		{
 			get
 			{
@@ -17,16 +17,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueList()
+		public DataValueList()
 		{
 		}
 
-		internal DataValueList(int capacity)
+		public DataValueList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal static string CreatePropertyNameString(string prefix, int rowIndex, int cellIndex, int valueIndex)
+		public static string CreatePropertyNameString(string prefix, int rowIndex, int cellIndex, int valueIndex)
 		{
 			if (rowIndex > 0)
 			{
@@ -35,12 +35,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return prefix + "CustomProperty(Index:" + valueIndex + ")";
 		}
 
-		internal void Initialize(string prefix, bool isCustomProperty, InitializationContext context)
+		public void Initialize(string prefix, bool isCustomProperty, InitializationContext context)
 		{
 			this.Initialize(prefix, -1, -1, isCustomProperty, context);
 		}
 
-		internal void Initialize(string prefix, int rowIndex, int cellIndex, bool isCustomProperty, InitializationContext context)
+		public void Initialize(string prefix, int rowIndex, int cellIndex, bool isCustomProperty, InitializationContext context)
 		{
 			int count = this.Count;
 			CustomPropertyUniqueNameValidator validator = new CustomPropertyUniqueNameValidator();
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(IList<DataValueExprHost> dataValueHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<DataValueExprHost> dataValueHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (dataValueHosts != null)
 			{
@@ -64,12 +64,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstanceList EvaluateExpressions(ObjectType objectType, string objectName, string prefix, ReportProcessing.ProcessingContext pc)
+		public DataValueInstanceList EvaluateExpressions(ObjectType objectType, string objectName, string prefix, ReportProcessing.ProcessingContext pc)
 		{
 			return this.EvaluateExpressions(objectType, objectName, prefix, -1, -1, pc);
 		}
 
-		internal DataValueInstanceList EvaluateExpressions(ObjectType objectType, string objectName, string prefix, int rowIndex, int cellIndex, ReportProcessing.ProcessingContext pc)
+		public DataValueInstanceList EvaluateExpressions(ObjectType objectType, string objectName, string prefix, int rowIndex, int cellIndex, ReportProcessing.ProcessingContext pc)
 		{
 			int count = this.Count;
 			DataValueInstanceList dataValueInstanceList = new DataValueInstanceList(count);
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return dataValueInstanceList;
 		}
 
-		internal DataValueList DeepClone(InitializationContext context)
+		public DataValueList DeepClone(InitializationContext context)
 		{
 			int count = this.Count;
 			DataValueList dataValueList = new DataValueList(count);

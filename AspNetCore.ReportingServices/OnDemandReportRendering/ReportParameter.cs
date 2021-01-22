@@ -6,7 +6,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportParameter
+	public sealed class ReportParameter
 	{
 		private AspNetCore.ReportingServices.ReportProcessing.ParameterDef m_renderParam;
 
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal OnDemandProcessingContext OdpContext
+		public OnDemandProcessingContext OdpContext
 		{
 			get
 			{
@@ -147,18 +147,18 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportParameter(AspNetCore.ReportingServices.ReportProcessing.ParameterDef renderParam)
+		public ReportParameter(AspNetCore.ReportingServices.ReportProcessing.ParameterDef renderParam)
 		{
 			this.m_renderParam = renderParam;
 		}
 
-		internal ReportParameter(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterDef paramDef)
+		public ReportParameter(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterDef paramDef)
 		{
 			this.m_paramDef = paramDef;
 			this.m_odpContext = odpContext;
 		}
 
-		internal void SetNewContext(bool validInstance)
+		public void SetNewContext(bool validInstance)
 		{
 			this.m_validInstance = validInstance;
 			if (this.m_paramInstance != null)
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportParameter paramValue)
+		public void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportParameter paramValue)
 		{
 			if (paramValue == null)
 			{

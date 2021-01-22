@@ -6,7 +6,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ExecuteQueriesContext
+	public sealed class ExecuteQueriesContext
 	{
 		private readonly IDbConnection m_connection;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private readonly IJobContext m_jobContext;
 
-		internal IDbConnection Connection
+		public IDbConnection Connection
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CreateAndRegisterStream CreateAndRegisterStream
+		public CreateAndRegisterStream CreateAndRegisterStream
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IJobContext JobContext
+		public IJobContext JobContext
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ExecuteQueriesContext(IDbConnection connection, IProcessingDataExtensionConnection dataExtensionConnection, DataSourceInfo dataSourceInfo, CreateAndRegisterStream createAndRegisterStream, IJobContext jobContext)
+		public ExecuteQueriesContext(IDbConnection connection, IProcessingDataExtensionConnection dataExtensionConnection, DataSourceInfo dataSourceInfo, CreateAndRegisterStream createAndRegisterStream, IJobContext jobContext)
 		{
 			this.m_connection = connection;
 			this.m_dataExtensionConnection = dataExtensionConnection;
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_jobContext = jobContext;
 		}
 
-		internal IDbCommand CreateCommandWrapperForCancel(IDbCommand command)
+		public IDbCommand CreateCommandWrapperForCancel(IDbCommand command)
 		{
 			return new CommandWrappedForCancel(command, this.m_dataExtensionConnection, null, this.m_dataSourceInfo, null, this.m_connection);
 		}

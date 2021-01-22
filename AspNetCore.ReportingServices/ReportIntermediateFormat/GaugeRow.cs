@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class GaugeRow : Row, IPersistable
+	public sealed class GaugeRow : Row, IPersistable
 	{
 		private GaugeCellList m_cells;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = GaugeRow.GetDeclaration();
 
-		internal override CellList Cells
+		public override CellList Cells
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeCell GaugeCell
+		public GaugeCell GaugeCell
 		{
 			get
 			{
@@ -49,17 +49,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeRow()
+		public GaugeRow()
 		{
 		}
 
-		internal GaugeRow(int id, GaugePanel gaugePanel)
+		public GaugeRow(int id, GaugePanel gaugePanel)
 			: base(id)
 		{
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new ReadOnlyMemberInfo(MemberName.GaugeCell, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugeCell));
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugeRow, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Row, list);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			GaugeRow gaugeRow = (GaugeRow)base.PublishClone(context);
 			if (this.m_cells != null)

@@ -5,11 +5,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class ChartSeries2005 : ChartSeries
+	public class ChartSeries2005 : ChartSeries
 	{
-		internal new class Definition : DefinitionStore<ChartSeries2005, Definition.Properties>
+		public new class Definition : DefinitionStore<ChartSeries2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataPoints,
 				PlotType

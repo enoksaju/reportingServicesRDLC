@@ -2,33 +2,33 @@ using System.Net.Cache;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class MapTileServerConsts
+	public static class MapTileServerConsts
 	{
-		internal const string MaxConnections = "MaxConnections";
+		public const string MaxConnections = "MaxConnections";
 
-		internal const string Timeout = "Timeout";
+		public const string Timeout = "Timeout";
 
-		internal const string AppID = "AppID";
+		public const string AppID = "AppID";
 
-		internal const string CacheLevel = "CacheLevel";
+		public const string CacheLevel = "CacheLevel";
 
-		internal const int MaxConnectionsDefault = 2;
+		public const int MaxConnectionsDefault = 2;
 
-		internal const int TimeoutDefault = 10;
+		public const int TimeoutDefault = 10;
 
-		internal const string AppIDDefault = "(Default)";
+		public const string AppIDDefault = "(Default)";
 
-		internal const MapTileCacheLevel CacheLevelDefault = MapTileCacheLevel.Default;
+		public const MapTileCacheLevel CacheLevelDefault = MapTileCacheLevel.Default;
 
-		internal const int MaxConnectionsMinValue = 1;
+		public const int MaxConnectionsMinValue = 1;
 
-		internal const int MaxConnectionsMaxValue = 2147483647;
+		public const int MaxConnectionsMaxValue = 2147483647;
 
-		internal const int TimeoutMinValue = 1;
+		public const int TimeoutMinValue = 1;
 
-		internal const int TimeoutMaxValue = 2147483647;
+		public const int TimeoutMaxValue = 2147483647;
 
-		internal static RequestCacheLevel ConvertFromMapTileCacheLevel(MapTileCacheLevel cacheLevel)
+		public static RequestCacheLevel ConvertFromMapTileCacheLevel(MapTileCacheLevel cacheLevel)
 		{
 			switch (cacheLevel)
 			{

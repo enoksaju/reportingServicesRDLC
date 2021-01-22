@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbCommandProperties
+	public interface IDbCommandProperties
 	{
 		bool SetRequestMemoryLimit(int limit);
 

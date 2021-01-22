@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ReportParameterCollection : Collection<ReportParameter>
+	public sealed class ReportParameterCollection : Collection<ReportParameter>
 	{
 		public ReportParameter this[string name]
 		{

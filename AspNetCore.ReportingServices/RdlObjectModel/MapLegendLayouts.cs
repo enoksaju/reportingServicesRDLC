@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapLegendLayouts
+	public enum MapLegendLayouts
 	{
 		AutoTable,
 		Column,

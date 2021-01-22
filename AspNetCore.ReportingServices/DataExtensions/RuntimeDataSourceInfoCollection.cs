@@ -10,7 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class RuntimeDataSourceInfoCollection
+	public sealed class RuntimeDataSourceInfoCollection
 	{
 		private Hashtable m_collectionByID;
 
@@ -272,7 +272,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return false;
 		}
 
-		internal void Add(DataSourceInfo dataSource, ICatalogItemContext report)
+		public void Add(DataSourceInfo dataSource, ICatalogItemContext report)
 		{
 			if (Guid.Empty == dataSource.ID)
 			{
@@ -285,7 +285,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			this.CheckedAddByPrompt(dataSource);
 		}
 
-		internal DataSourceInfo GetForSharedDataSetExecution()
+		public DataSourceInfo GetForSharedDataSetExecution()
 		{
 			if (this.m_collectionByID != null)
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return null;
 		}
 
-		internal DataSourceInfo GetByID(Guid ID)
+		public DataSourceInfo GetByID(Guid ID)
 		{
 			if (this.m_collectionByID != null)
 			{
@@ -321,7 +321,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return null;
 		}
 
-		internal DataSourceInfo GetByName(string name, ICatalogItemContext report)
+		public DataSourceInfo GetByName(string name, ICatalogItemContext report)
 		{
 			if (this.m_collectionByReport != null)
 			{

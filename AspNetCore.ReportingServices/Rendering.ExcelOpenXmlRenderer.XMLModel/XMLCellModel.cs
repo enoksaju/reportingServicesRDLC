@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreads
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLCellModel : ICellModel, IOoxmlCtWrapperModel
+	public class XMLCellModel : ICellModel, IOoxmlCtWrapperModel
 	{
 		private Cell _interface;
 

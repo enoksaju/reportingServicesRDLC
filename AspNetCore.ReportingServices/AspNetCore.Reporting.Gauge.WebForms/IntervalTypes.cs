@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum IntervalTypes
+	public enum IntervalTypes
 	{
 		Main,
 		Minor,

@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlTableRowPropertiesModel : BaseInterleaver, IHaveABorderAndShading
+	public sealed class OpenXmlTableRowPropertiesModel : BaseInterleaver, IHaveABorderAndShading
 	{
 		private float _height;
 
@@ -271,7 +271,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return ObjectType.WordOpenXmlTableRowProperties;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			return OpenXmlTableRowPropertiesModel._declaration;
 		}

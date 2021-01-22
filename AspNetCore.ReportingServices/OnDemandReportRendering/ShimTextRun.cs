@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimTextRun : TextRun
+	public sealed class ShimTextRun : TextRun
 	{
 		public override string ID
 		{
@@ -91,12 +91,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimTextRun(Paragraph paragraph, RenderingContext renderingContext)
+		public ShimTextRun(Paragraph paragraph, RenderingContext renderingContext)
 			: base(paragraph, renderingContext)
 		{
 		}
 
-		internal override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			if (base.m_style != null)
 			{

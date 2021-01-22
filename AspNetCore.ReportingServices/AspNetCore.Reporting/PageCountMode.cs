@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal enum PageCountMode
+	public enum PageCountMode
 	{
 		Actual,
 		Estimate

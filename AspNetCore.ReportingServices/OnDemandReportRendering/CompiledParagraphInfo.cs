@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class CompiledParagraphInfo
+	public class CompiledParagraphInfo
 	{
-		internal class FlattenedPropertyStore
+		public class FlattenedPropertyStore
 		{
 			private ListStyle m_listStyle;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 			private ICompiledParagraphInstance m_lastPopulatedParagraph;
 
-			internal int ListLevel
+			public int ListLevel
 			{
 				get
 				{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal ListStyle ListStyle
+			public ListStyle ListStyle
 			{
 				get
 				{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal ReportSize SpaceBefore
+			public ReportSize SpaceBefore
 			{
 				get
 				{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal ReportSize MarginTop
+			public ReportSize MarginTop
 			{
 				get
 				{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal ReportSize PendingMarginBottom
+			public ReportSize PendingMarginBottom
 			{
 				get
 				{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal ICompiledParagraphInstance LastPopulatedParagraph
+			public ICompiledParagraphInstance LastPopulatedParagraph
 			{
 				get
 				{
@@ -80,27 +80,27 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal void ClearMarginTop()
+			public void ClearMarginTop()
 			{
 				this.m_marginTop = null;
 			}
 
-			internal void UpdateMarginTop(ReportSize marginTop)
+			public void UpdateMarginTop(ReportSize marginTop)
 			{
 				this.m_marginTop = this.GetLargest(this.m_marginTop, marginTop);
 			}
 
-			internal void AddMarginTop(ReportSize margin)
+			public void AddMarginTop(ReportSize margin)
 			{
 				this.m_marginTop = ReportSize.SumSizes(this.m_marginTop, margin);
 			}
 
-			internal void ClearPendingMarginBottom()
+			public void ClearPendingMarginBottom()
 			{
 				this.m_pendingMarginBottom = null;
 			}
 
-			internal void UpdatePendingMarginBottom(ReportSize marginBottom)
+			public void UpdatePendingMarginBottom(ReportSize marginBottom)
 			{
 				this.m_pendingMarginBottom = this.GetLargest(this.m_pendingMarginBottom, marginBottom);
 			}
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private ICompiledParagraphInstance m_lastParagraph;
 
-		internal HtmlElement.HtmlElementType ElementType
+		public HtmlElement.HtmlElementType ElementType
 		{
 			get
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int ListLevel
+		public int ListLevel
 		{
 			get
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ListStyle ListStyle
+		public ListStyle ListStyle
 		{
 			get
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize LeftIndent
+		public ReportSize LeftIndent
 		{
 			get
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize RightIndent
+		public ReportSize RightIndent
 		{
 			get
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize HangingIndent
+		public ReportSize HangingIndent
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize MarginTop
+		public ReportSize MarginTop
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize MarginBottom
+		public ReportSize MarginBottom
 		{
 			get
 			{
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize SpaceBefore
+		public ReportSize SpaceBefore
 		{
 			get
 			{
@@ -272,7 +272,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize SpaceAfter
+		public ReportSize SpaceAfter
 		{
 			get
 			{
@@ -284,35 +284,35 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CompiledParagraphInfo()
+		public CompiledParagraphInfo()
 		{
 			this.m_flatStore = new FlattenedPropertyStore();
 		}
 
-		internal void AddLeftIndent(ReportSize size)
+		public void AddLeftIndent(ReportSize size)
 		{
 			this.m_leftIndent = ReportSize.SumSizes(this.LeftIndent, size);
 			this.m_leftIndentSet = true;
 		}
 
-		internal void AddRightIndent(ReportSize size)
+		public void AddRightIndent(ReportSize size)
 		{
 			this.m_rightIndent = ReportSize.SumSizes(this.RightIndent, size);
 			this.m_rightIndentSet = true;
 		}
 
-		internal void UpdateMarginTop(ReportSize value)
+		public void UpdateMarginTop(ReportSize value)
 		{
 			this.m_flatStore.UpdateMarginTop(value);
 		}
 
-		internal void AddMarginBottom(ReportSize size)
+		public void AddMarginBottom(ReportSize size)
 		{
 			this.m_marginBottom = size;
 			this.m_marginBottomSet = true;
 		}
 
-		internal void AddSpaceBefore(ReportSize size)
+		public void AddSpaceBefore(ReportSize size)
 		{
 			ReportSize spaceBefore = this.m_flatStore.SpaceBefore;
 			ReportSize reportSize = ReportSize.SumSizes(spaceBefore, size);
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_flatStore.SpaceBefore = reportSize;
 		}
 
-		internal void AddSpaceAfter(ReportSize size)
+		public void AddSpaceAfter(ReportSize size)
 		{
 			if (this.m_spaceAfterSet)
 			{
@@ -333,7 +333,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CompiledParagraphInfo CreateChildParagraph(HtmlElement.HtmlElementType elementType)
+		public CompiledParagraphInfo CreateChildParagraph(HtmlElement.HtmlElementType elementType)
 		{
 			CompiledParagraphInfo compiledParagraphInfo = new CompiledParagraphInfo();
 			compiledParagraphInfo.ElementType = elementType;
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return compiledParagraphInfo;
 		}
 
-		internal CompiledParagraphInfo RemoveAll()
+		public CompiledParagraphInfo RemoveAll()
 		{
 			CompiledParagraphInfo compiledParagraphInfo = this;
 			while (compiledParagraphInfo.m_parentParagraph != null)
@@ -355,7 +355,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return compiledParagraphInfo;
 		}
 
-		internal CompiledParagraphInfo RemoveParagraph(HtmlElement.HtmlElementType elementType)
+		public CompiledParagraphInfo RemoveParagraph(HtmlElement.HtmlElementType elementType)
 		{
 			if (this.m_elementType == elementType)
 			{
@@ -374,7 +374,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this;
 		}
 
-		internal void InternalRemoveParagraph(HtmlElement.HtmlElementType elementType)
+		public void InternalRemoveParagraph(HtmlElement.HtmlElementType elementType)
 		{
 			if (this.m_elementType == elementType)
 			{
@@ -473,7 +473,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_lastParagraph = null;
 		}
 
-		internal void PopulateParagraph(ICompiledParagraphInstance paragraphInstance)
+		public void PopulateParagraph(ICompiledParagraphInstance paragraphInstance)
 		{
 			this.ApplyPendingMargins();
 			this.m_flatStore.LastPopulatedParagraph = paragraphInstance;

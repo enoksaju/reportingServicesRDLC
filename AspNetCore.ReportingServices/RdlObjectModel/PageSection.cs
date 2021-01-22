@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class PageSection : ReportElement
+	public class PageSection : ReportElement
 	{
-		internal new class Definition : DefinitionStore<PageSection, Definition.Properties>
+		public new class Definition : DefinitionStore<PageSection, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Height,
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal PageSection(IPropertyStore propertyStore)
+		public PageSection(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

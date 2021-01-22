@@ -13,7 +13,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal struct InitializationContext
+	public struct InitializationContext
 	{
 		private enum GroupingType
 		{
@@ -24,13 +24,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private sealed class VisibilityContainmentInfo
 		{
-			internal IVisibilityOwner ContainingVisibility;
+			public IVisibilityOwner ContainingVisibility;
 
-			internal IVisibilityOwner ContainingRowVisibility;
+			public IVisibilityOwner ContainingRowVisibility;
 
-			internal IVisibilityOwner ContainingColumnVisibility;
+			public IVisibilityOwner ContainingColumnVisibility;
 
-			internal VisibilityContainmentInfo()
+			public VisibilityContainmentInfo()
 			{
 			}
 		}
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 			private IRIFReportScope m_reportScope;
 
-			internal bool AllowCustomAggregates
+			public bool AllowCustomAggregates
 			{
 				get
 				{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal List<DataAggregateInfo> Aggregates
+			public List<DataAggregateInfo> Aggregates
 			{
 				get
 				{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal List<DataAggregateInfo> PostSortAggregates
+			public List<DataAggregateInfo> PostSortAggregates
 			{
 				get
 				{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal List<DataAggregateInfo> RecursiveAggregates
+			public List<DataAggregateInfo> RecursiveAggregates
 			{
 				get
 				{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal IRIFReportScope ReportScope
+			public IRIFReportScope ReportScope
 			{
 				get
 				{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal Grouping GroupingScope
+			public Grouping GroupingScope
 			{
 				get
 				{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal DataRegion DataRegionScope
+			public DataRegion DataRegionScope
 			{
 				get
 				{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal DataSet DataSetScope
+			public DataSet DataSetScope
 			{
 				get
 				{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal IRIFDataScope DataScope
+			public IRIFDataScope DataScope
 			{
 				get
 				{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal DataScopeInfo DataScopeInfo
+			public DataScopeInfo DataScopeInfo
 			{
 				get
 				{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool IsTopLevelScope
+			public bool IsTopLevelScope
 			{
 				get
 				{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool IsDuplicateScope
+			public bool IsDuplicateScope
 			{
 				get
 				{
@@ -170,36 +170,36 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, IRIFReportScope reportScope)
+			public ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, IRIFReportScope reportScope)
 				: this(allowCustomAggregates, aggregates, null, null, null, reportScope)
 			{
 				this.m_isTopLevelScope = true;
 			}
 
-			internal ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, IRIFReportScope reportScope)
+			public ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, IRIFReportScope reportScope)
 				: this(allowCustomAggregates, aggregates, postSortAggregates, null, null, reportScope)
 			{
 			}
 
-			internal ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, DataRegion dataRegion)
+			public ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, DataRegion dataRegion)
 				: this(allowCustomAggregates, aggregates, postSortAggregates, null, null, dataRegion)
 			{
 				this.m_dataRegionScope = dataRegion;
 			}
 
-			internal ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, DataSet dataset, bool duplicateScope)
+			public ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, DataSet dataset, bool duplicateScope)
 				: this(allowCustomAggregates, aggregates, postSortAggregates, dataset)
 			{
 				this.m_duplicateScope = duplicateScope;
 			}
 
-			internal ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, DataSet dataset)
+			public ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, DataSet dataset)
 				: this(allowCustomAggregates, aggregates, postSortAggregates, null, null, null)
 			{
 				this.m_dataSetScope = dataset;
 			}
 
-			internal ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, List<DataAggregateInfo> recursiveAggregates, Grouping groupingScope, IRIFReportScope reportScope)
+			public ScopeInfo(bool allowCustomAggregates, List<DataAggregateInfo> aggregates, List<DataAggregateInfo> postSortAggregates, List<DataAggregateInfo> recursiveAggregates, Grouping groupingScope, IRIFReportScope reportScope)
 			{
 				this.m_allowCustomAggregates = allowCustomAggregates;
 				this.m_aggregates = aggregates;
@@ -210,11 +210,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal class HashtableKeyComparer : IEqualityComparer<Hashtable>
+		public class HashtableKeyComparer : IEqualityComparer<Hashtable>
 		{
 			private static HashtableKeyComparer m_Instance;
 
-			internal static HashtableKeyComparer Instance
+			public static HashtableKeyComparer Instance
 			{
 				get
 				{
@@ -278,7 +278,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 			private int m_previousDRsRowDetailCount;
 
-			internal bool InCurrentDataRegionDynamicRow
+			public bool InCurrentDataRegionDynamicRow
 			{
 				get
 				{
@@ -290,7 +290,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool InCurrentDataRegionDynamicColumn
+			public bool InCurrentDataRegionDynamicColumn
 			{
 				get
 				{
@@ -302,11 +302,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal AxisGroupingScopesForRunningValues()
+			public AxisGroupingScopesForRunningValues()
 			{
 			}
 
-			internal AxisGroupingScopesForRunningValues(AxisGroupingScopesForRunningValues axisGroupingScopesForRunningValues)
+			public AxisGroupingScopesForRunningValues(AxisGroupingScopesForRunningValues axisGroupingScopesForRunningValues)
 			{
 				this.m_columnGroupExprCount = axisGroupingScopesForRunningValues.m_columnGroupExprCount;
 				this.m_rowGroupExprCount = axisGroupingScopesForRunningValues.m_rowGroupExprCount;
@@ -315,7 +315,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				this.SetCountsForDataRegion();
 			}
 
-			internal void RegisterColumnGrouping(Grouping grouping)
+			public void RegisterColumnGrouping(Grouping grouping)
 			{
 				if (!grouping.IsDetail)
 				{
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal void RegisterRowGrouping(Grouping grouping)
+			public void RegisterRowGrouping(Grouping grouping)
 			{
 				if (!grouping.IsDetail)
 				{
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal void UnregisterColumnGrouping(Grouping grouping)
+			public void UnregisterColumnGrouping(Grouping grouping)
 			{
 				if (!grouping.IsDetail)
 				{
@@ -351,7 +351,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal void UnregisterRowGrouping(Grouping grouping)
+			public void UnregisterRowGrouping(Grouping grouping)
 			{
 				if (!grouping.IsDetail)
 				{
@@ -386,7 +386,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 			private FunctionalList<Grouping> m_columnScopeStack;
 
-			internal bool CurrentRowScopeIsDetail
+			public bool CurrentRowScopeIsDetail
 			{
 				get
 				{
@@ -398,7 +398,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool CurrentColumnScopeIsDetail
+			public bool CurrentColumnScopeIsDetail
 			{
 				get
 				{
@@ -410,7 +410,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal string CurrentRowScopeName
+			public string CurrentRowScopeName
 			{
 				get
 				{
@@ -422,7 +422,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal string CurrentColumnScopeName
+			public string CurrentColumnScopeName
 			{
 				get
 				{
@@ -434,7 +434,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal DataRegion ContainerScope
+			public DataRegion ContainerScope
 			{
 				get
 				{
@@ -442,7 +442,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal string ContainerName
+			public string ContainerName
 			{
 				get
 				{
@@ -450,7 +450,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool IsRunningValueDirectionColumn
+			public bool IsRunningValueDirectionColumn
 			{
 				get
 				{
@@ -458,7 +458,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal GroupingScopesForTablix(bool forceRows, AspNetCore.ReportingServices.ReportProcessing.ObjectType containerType, DataRegion containerScope)
+			public GroupingScopesForTablix(bool forceRows, AspNetCore.ReportingServices.ReportProcessing.ObjectType containerType, DataRegion containerScope)
 			{
 				containerScope.RowScopeFound = forceRows;
 				containerScope.ColumnScopeFound = false;
@@ -470,19 +470,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				this.m_containerScope = containerScope;
 			}
 
-			internal ScopeChainInfo GetScopeChainInfo()
+			public ScopeChainInfo GetScopeChainInfo()
 			{
 				return new ScopeChainInfo(this.m_containerScope, this.m_rowScopeStack, this.m_columnScopeStack);
 			}
 
-			internal DataRegion SetContainerScope(DataRegion dataRegion)
+			public DataRegion SetContainerScope(DataRegion dataRegion)
 			{
 				DataRegion containerScope = this.m_containerScope;
 				this.m_containerScope = dataRegion;
 				return containerScope;
 			}
 
-			internal void RegisterRowGrouping(Grouping grouping)
+			public void RegisterRowGrouping(Grouping grouping)
 			{
 				if (!this.m_rowScopes.ContainsKey(grouping.Name))
 				{
@@ -491,13 +491,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal void UnRegisterRowGrouping(string groupName)
+			public void UnRegisterRowGrouping(string groupName)
 			{
 				this.m_rowScopes.Remove(groupName);
 				this.m_rowScopeStack = this.m_rowScopeStack.Rest;
 			}
 
-			internal void RegisterColumnGrouping(Grouping grouping)
+			public void RegisterColumnGrouping(Grouping grouping)
 			{
 				if (!this.m_columnScopes.ContainsKey(grouping.Name))
 				{
@@ -506,7 +506,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal void UnRegisterColumnGrouping(string groupName)
+			public void UnRegisterColumnGrouping(string groupName)
 			{
 				this.m_columnScopes.Remove(groupName);
 				this.m_columnScopeStack = this.m_columnScopeStack.Rest;
@@ -528,7 +528,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool HasRowColScopeConflict(string textboxSortActionScope, string sortTargetScope, out bool bothGroups)
+			public bool HasRowColScopeConflict(string textboxSortActionScope, string sortTargetScope, out bool bothGroups)
 			{
 				bothGroups = false;
 				if (textboxSortActionScope != null && sortTargetScope != null)
@@ -563,12 +563,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				return false;
 			}
 
-			internal bool ContainsScope(string scope)
+			public bool ContainsScope(string scope)
 			{
 				return this.ContainsScope(scope, null, false, null);
 			}
 
-			internal bool ContainsScope(string scope, ErrorContext errorContext, bool checkConflictingScope, Hashtable groupingScopes)
+			public bool ContainsScope(string scope, ErrorContext errorContext, bool checkConflictingScope, Hashtable groupingScopes)
 			{
 				Global.Tracer.Assert(null != scope, "(null != scope)");
 				if (this.m_rowScopes.ContainsKey(scope))
@@ -603,12 +603,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private sealed class LookupDestinationCompactionTable : Dictionary<string, int>
 		{
-			internal LookupDestinationCompactionTable()
+			public LookupDestinationCompactionTable()
 			{
 			}
 		}
 
-		internal sealed class ScopeChainInfo
+		public sealed class ScopeChainInfo
 		{
 			private DataRegion m_containingDataRegion;
 
@@ -616,14 +616,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 			private FunctionalList<Grouping> m_columnGroupList;
 
-			internal ScopeChainInfo(DataRegion containingDataRegion, FunctionalList<Grouping> rowGroupList, FunctionalList<Grouping> columnGroupList)
+			public ScopeChainInfo(DataRegion containingDataRegion, FunctionalList<Grouping> rowGroupList, FunctionalList<Grouping> columnGroupList)
 			{
 				this.m_containingDataRegion = containingDataRegion;
 				this.m_rowGroupList = rowGroupList;
 				this.m_columnGroupList = columnGroupList;
 			}
 
-			internal Grouping GetInnermostGrouping()
+			public Grouping GetInnermostGrouping()
 			{
 				if (this.m_containingDataRegion.ProcessingInnerGrouping == DataRegion.ProcessingInnerGroupings.Column)
 				{
@@ -655,7 +655,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				return null;
 			}
 
-			internal GroupingList GetGroupingList()
+			public GroupingList GetGroupingList()
 			{
 				GroupingList groupingList = new GroupingList();
 				this.AddAllGroups(groupingList);
@@ -673,7 +673,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal GroupingList GetGroupingListForContainingDataRegion()
+			public GroupingList GetGroupingListForContainingDataRegion()
 			{
 				GroupingList groupingList = new GroupingList();
 				this.AddGroupsForContainingDataRegion(groupingList);
@@ -681,7 +681,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				return groupingList;
 			}
 
-			internal GroupingList GetGroupsFromCurrentTablixAxisToGrouping(Grouping fromGroup)
+			public GroupingList GetGroupsFromCurrentTablixAxisToGrouping(Grouping fromGroup)
 			{
 				Grouping innermostGrouping = this.GetInnermostGrouping();
 				if (innermostGrouping != null)
@@ -691,7 +691,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				return null;
 			}
 
-			internal GroupingList GetGroupsFromCurrentTablixAxisToGrouping(DataRegion dataRegion, bool isColumn, Grouping fromGroup)
+			public GroupingList GetGroupsFromCurrentTablixAxisToGrouping(DataRegion dataRegion, bool isColumn, Grouping fromGroup)
 			{
 				if (dataRegion == this.m_containingDataRegion)
 				{
@@ -727,7 +727,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				return null;
 			}
 
-			internal void GetGroupsFromCurrentTablixAxisToGrouping(GroupingList groups, Grouping fromGroup)
+			public void GetGroupsFromCurrentTablixAxisToGrouping(GroupingList groups, Grouping fromGroup)
 			{
 				bool flag = this.m_containingDataRegion.ProcessingInnerGrouping == DataRegion.ProcessingInnerGroupings.Column;
 				bool flag2 = false;
@@ -794,7 +794,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				}
 			}
 
-			internal bool IsSameOrChildScope(string parentScope, string childScope)
+			public bool IsSameOrChildScope(string parentScope, string childScope)
 			{
 				return this.IsSameOrChildScope(parentScope, childScope, false);
 			}
@@ -1017,7 +1017,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private double m_currentAbsoluteLeft;
 
-		internal ICatalogItemContext ReportContext
+		public ICatalogItemContext ReportContext
 		{
 			get
 			{
@@ -1025,7 +1025,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportPublishing.LocationFlags Location
+		public AspNetCore.ReportingServices.ReportPublishing.LocationFlags Location
 		{
 			get
 			{
@@ -1037,7 +1037,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -1049,7 +1049,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string ObjectName
+		public string ObjectName
 		{
 			get
 			{
@@ -1061,7 +1061,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsTopLevelCellContents
+		public bool IsTopLevelCellContents
 		{
 			get
 			{
@@ -1073,7 +1073,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasUserSorts
+		public bool HasUserSorts
 		{
 			get
 			{
@@ -1081,7 +1081,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InitializingUserSorts
+		public bool InitializingUserSorts
 		{
 			get
 			{
@@ -1093,7 +1093,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsDataRegionCellScope
+		public bool IsDataRegionCellScope
 		{
 			get
 			{
@@ -1105,7 +1105,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool CellHasDynamicRowsAndColumns
+		public bool CellHasDynamicRowsAndColumns
 		{
 			get
 			{
@@ -1117,7 +1117,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsDataRegionScopedCell
+		public bool IsDataRegionScopedCell
 		{
 			get
 			{
@@ -1129,7 +1129,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ReportDataElementStyleAttribute
+		public bool ReportDataElementStyleAttribute
 		{
 			get
 			{
@@ -1141,7 +1141,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string TablixName
+		public string TablixName
 		{
 			get
 			{
@@ -1153,7 +1153,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Dictionary<string, ImageInfo> EmbeddedImages
+		public Dictionary<string, ImageInfo> EmbeddedImages
 		{
 			get
 			{
@@ -1161,7 +1161,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ErrorContext ErrorContext
+		public ErrorContext ErrorContext
 		{
 			get
 			{
@@ -1169,7 +1169,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder ExprHostBuilder
+		public AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder ExprHostBuilder
 		{
 			get
 			{
@@ -1177,7 +1177,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool MergeOnePass
+		public bool MergeOnePass
 		{
 			get
 			{
@@ -1185,7 +1185,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CultureInfo ReportLanguage
+		public CultureInfo ReportLanguage
 		{
 			get
 			{
@@ -1193,7 +1193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IList<Pair<double, int>> ColumnHeaderLevelSizeList
+		public IList<Pair<double, int>> ColumnHeaderLevelSizeList
 		{
 			get
 			{
@@ -1205,7 +1205,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IList<Pair<double, int>> RowHeaderLevelSizeList
+		public IList<Pair<double, int>> RowHeaderLevelSizeList
 		{
 			get
 			{
@@ -1217,7 +1217,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InAutoSubtotalClone
+		public bool InAutoSubtotalClone
 		{
 			get
 			{
@@ -1229,7 +1229,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int MemberCellIndex
+		public int MemberCellIndex
 		{
 			get
 			{
@@ -1241,7 +1241,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double CurrentAbsoluteTop
+		public double CurrentAbsoluteTop
 		{
 			get
 			{
@@ -1249,7 +1249,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double CurrentAbsoluteLeft
+		public double CurrentAbsoluteLeft
 		{
 			get
 			{
@@ -1257,7 +1257,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasPreviousAggregates
+		public bool HasPreviousAggregates
 		{
 			get
 			{
@@ -1265,7 +1265,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Dictionary<string, int> GroupingExprCountAtScope
+		public Dictionary<string, int> GroupingExprCountAtScope
 		{
 			get
 			{
@@ -1273,7 +1273,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsRunningValueDirectionColumn
+		public bool IsRunningValueDirectionColumn
 		{
 			get
 			{
@@ -1285,7 +1285,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasLookups
+		public bool HasLookups
 		{
 			get
 			{
@@ -1293,7 +1293,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Report Report
+		public Report Report
 		{
 			get
 			{
@@ -1301,7 +1301,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ScopeTree ScopeTree
+		public ScopeTree ScopeTree
 		{
 			get
 			{
@@ -1309,7 +1309,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HandledCellContents
+		public bool HandledCellContents
 		{
 			get
 			{
@@ -1321,7 +1321,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InRecursiveHierarchyColumns
+		public bool InRecursiveHierarchyColumns
 		{
 			get
 			{
@@ -1333,7 +1333,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InRecursiveHierarchyRows
+		public bool InRecursiveHierarchyRows
 		{
 			get
 			{
@@ -1345,7 +1345,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PublishingContextBase PublishingContext
+		public PublishingContextBase PublishingContext
 		{
 			get
 			{
@@ -1353,12 +1353,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal InitializationContext(ICatalogItemContext reportContext, List<DataSet> datasets, ErrorContext errorContext, AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder exprHostBuilder, Report artificialReportContainerForCodeGeneration, Dictionary<string, ISortFilterScope> reportScopes, PublishingContextBase publishingContext)
+		public InitializationContext(ICatalogItemContext reportContext, List<DataSet> datasets, ErrorContext errorContext, AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder exprHostBuilder, Report artificialReportContainerForCodeGeneration, Dictionary<string, ISortFilterScope> reportScopes, PublishingContextBase publishingContext)
 		{
 			this = new InitializationContext(reportContext, false, null, datasets, null, null, errorContext, exprHostBuilder, artificialReportContainerForCodeGeneration, null, reportScopes, false, false, 0, 0, 0, publishingContext, new ScopeTree(), true);
 		}
 
-		internal InitializationContext(ICatalogItemContext reportContext, bool hasFilters, StringDictionary dataSources, List<DataSet> dataSets, ArrayList dynamicParameters, Hashtable dataSetQueryInfo, ErrorContext errorContext, AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder exprHostBuilder, Report report, CultureInfo reportLanguage, Dictionary<string, ISortFilterScope> reportScopes, bool hasUserSortPeerScopes, bool hasUserSort, int dataRegionCount, int textboxCount, int variableCount, PublishingContextBase publishingContext, ScopeTree scopeTree, bool isSharedDataSetContext)
+		public InitializationContext(ICatalogItemContext reportContext, bool hasFilters, StringDictionary dataSources, List<DataSet> dataSets, ArrayList dynamicParameters, Hashtable dataSetQueryInfo, ErrorContext errorContext, AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder exprHostBuilder, Report report, CultureInfo reportLanguage, Dictionary<string, ISortFilterScope> reportScopes, bool hasUserSortPeerScopes, bool hasUserSort, int dataRegionCount, int textboxCount, int variableCount, PublishingContextBase publishingContext, ScopeTree scopeTree, bool isSharedDataSetContext)
 		{
 			Global.Tracer.Assert(null != errorContext, "(null != errorContext)");
 			Global.Tracer.Assert(null != reportContext, "(null != reportContext)");
@@ -1491,7 +1491,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_dataSetsForNonStructuralIdc = new Dictionary<int, IRIFDataScope>();
 		}
 
-		internal void RSDRegisterDataSetParameters(DataSetCore sharedDataset)
+		public void RSDRegisterDataSetParameters(DataSetCore sharedDataset)
 		{
 			this.m_parameters = new Hashtable();
 			if (sharedDataset != null && sharedDataset.Query != null && sharedDataset.Query.Parameters != null)
@@ -1508,7 +1508,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ValidateScopeRulesForNaturalGroup(ReportHierarchyNode member)
+		public void ValidateScopeRulesForNaturalGroup(ReportHierarchyNode member)
 		{
 			if (member.Grouping != null && member.Grouping.NaturalGroup)
 			{
@@ -1533,7 +1533,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ValidateScopeRulesForNaturalSort(ReportHierarchyNode member)
+		public void ValidateScopeRulesForNaturalSort(ReportHierarchyNode member)
 		{
 			if (member.Grouping != null && member.Sorting != null && member.Sorting.NaturalSort)
 			{
@@ -1571,7 +1571,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ValidateScopeRulesForIdcNaturalJoin(IRIFDataScope startScope)
+		public void ValidateScopeRulesForIdcNaturalJoin(IRIFDataScope startScope)
 		{
 			ErrorContext errorContext = this.m_errorContext;
 			ScopeTree.DirectedScopeTreeVisitor visitor = delegate(IRIFDataScope scope)
@@ -1623,7 +1623,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void EnsureDataSetUsedOnceForIdcUnderTopDataRegion(DataSet dataSet, IRIFDataScope currentScope)
+		public void EnsureDataSetUsedOnceForIdcUnderTopDataRegion(DataSet dataSet, IRIFDataScope currentScope)
 		{
 			if (currentScope.DataScopeInfo.NeedsIDC && !this.IsErrorForDuplicateIdcDataSet(this.m_dataSetsForIdcInNestedDR, dataSet, currentScope, ProcessingErrorCode.rsInvalidRelationshipDataSetUsedMoreThanOnce))
 			{
@@ -1761,7 +1761,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_axisGroupingScopesForRunningValues = null;
 		}
 
-		internal void RegisterGroupingScope(ReportHierarchyNode member)
+		public void RegisterGroupingScope(ReportHierarchyNode member)
 		{
 			this.RegisterGroupingScope(member, false);
 		}
@@ -1819,7 +1819,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new ScopeInfo(allowCustomAggregates, member.Grouping.Aggregates, member.Grouping.PostSortAggregates, member.Grouping.RecursiveAggregates, member.Grouping, member);
 		}
 
-		internal void UnRegisterGroupingScope(ReportHierarchyNode member)
+		public void UnRegisterGroupingScope(ReportHierarchyNode member)
 		{
 			this.UnRegisterGroupingScope(member, false);
 		}
@@ -1859,7 +1859,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.UnRegisterDataSet(dataSet);
 		}
 
-		internal void ValidateHideDuplicateScope(string hideDuplicateScope, ReportItem reportItem)
+		public void ValidateHideDuplicateScope(string hideDuplicateScope, ReportItem reportItem)
 		{
 			if (hideDuplicateScope != null)
 			{
@@ -1892,17 +1892,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterGroupingScopeForDataRegionCell(ReportHierarchyNode member)
+		public void RegisterGroupingScopeForDataRegionCell(ReportHierarchyNode member)
 		{
 			this.RegisterGroupingScope(member, true);
 		}
 
-		internal void UnRegisterGroupingScopeForDataRegionCell(ReportHierarchyNode member)
+		public void UnRegisterGroupingScopeForDataRegionCell(ReportHierarchyNode member)
 		{
 			this.UnRegisterGroupingScope(member, true);
 		}
 
-		internal void RegisterIndividualCellScope(Cell cell)
+		public void RegisterIndividualCellScope(Cell cell)
 		{
 			DataSet dataSet = cell.DataScopeInfo.DataSet;
 			this.RegisterDataSet(dataSet);
@@ -1916,7 +1916,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UnRegisterIndividualCellScope(Cell cell)
+		public void UnRegisterIndividualCellScope(Cell cell)
 		{
 			this.UnRegisterCell(cell);
 		}
@@ -1926,19 +1926,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.UnRegisterNonScopeCell(cell);
 		}
 
-		internal void RegisterNonScopeCell(Cell cell)
+		public void RegisterNonScopeCell(Cell cell)
 		{
 			DataSet dataSet = cell.DataScopeInfo.DataSet;
 			this.RegisterDataSet(dataSet);
 		}
 
-		internal void UnRegisterNonScopeCell(Cell cell)
+		public void UnRegisterNonScopeCell(Cell cell)
 		{
 			DataSet dataSet = cell.DataScopeInfo.DataSet;
 			this.UnRegisterDataSet(dataSet);
 		}
 
-		internal void FoundAtomicScope(IRIFDataScope scope)
+		public void FoundAtomicScope(IRIFDataScope scope)
 		{
 			this.MarkChildScopesWithAtomicParent(scope);
 		}
@@ -1955,7 +1955,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasMultiplePeerChildScopes(IRIFDataScope scope)
+		public bool HasMultiplePeerChildScopes(IRIFDataScope scope)
 		{
 			int[] dataSetGroupBindingCounts = new int[this.m_report.MappingDataSetIndexToDataSet.Count];
 			foreach (IRIFDataScope childScope in this.m_scopeTree.GetChildScopes(scope))
@@ -1992,7 +1992,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal bool EvaluateAtomicityCondition(bool isAtomic, IRIFDataScope scope, AtomicityReason reason)
+		public bool EvaluateAtomicityCondition(bool isAtomic, IRIFDataScope scope, AtomicityReason reason)
 		{
 			if (isAtomic && this.m_publishingContext.TraceAtomicScopes)
 			{
@@ -2001,7 +2001,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return isAtomic;
 		}
 
-		internal bool IsAncestor(ReportHierarchyNode child, string parentName)
+		public bool IsAncestor(ReportHierarchyNode child, string parentName)
 		{
 			ISortFilterScope sortFilterScope = default(ISortFilterScope);
 			if (!this.m_reportScopes.TryGetValue(parentName, out sortFilterScope))
@@ -2016,7 +2016,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal DataRegion RegisterDataRegionCellScope(DataRegion dataRegion, bool forceRows, List<DataAggregateInfo> scopeAggregates, List<DataAggregateInfo> scopePostSortAggregates)
+		public DataRegion RegisterDataRegionCellScope(DataRegion dataRegion, bool forceRows, List<DataAggregateInfo> scopeAggregates, List<DataAggregateInfo> scopePostSortAggregates)
 		{
 			Global.Tracer.Assert(null != scopeAggregates, "(null != scopeAggregates)");
 			Global.Tracer.Assert(null != scopePostSortAggregates, "(null != scopePostSortAggregates)");
@@ -2034,7 +2034,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal void UnRegisterTablixCellScope(DataRegion dataRegion)
+		public void UnRegisterTablixCellScope(DataRegion dataRegion)
 		{
 			Global.Tracer.Assert(null != this.m_groupingScopesForRunningValuesInTablix, "(null != m_groupingScopesForRunningValuesInTablix)");
 			if (dataRegion == null)
@@ -2047,12 +2047,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ResetMemberAndCellIndexInCollectionTable()
+		public void ResetMemberAndCellIndexInCollectionTable()
 		{
 			this.m_indexInCollectionTable.Clear();
 		}
 
-		internal void SetIndexInCollection(IIndexedInCollection indexedInCollection)
+		public void SetIndexInCollection(IIndexedInCollection indexedInCollection)
 		{
 			Dictionary<Hashtable, int> dictionary;
 			switch (indexedInCollection.IndexedInCollectionType)
@@ -2081,18 +2081,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			indexedInCollection.IndexInCollection = num;
 		}
 
-		internal void RegisterPageSectionScope(Page rifPage, List<DataAggregateInfo> scopeAggregates)
+		public void RegisterPageSectionScope(Page rifPage, List<DataAggregateInfo> scopeAggregates)
 		{
 			Global.Tracer.Assert(null != scopeAggregates, "(null != scopeAggregates)");
 			this.m_currentScope = new ScopeInfo(false, scopeAggregates, rifPage);
 		}
 
-		internal void UnRegisterPageSectionScope()
+		public void UnRegisterPageSectionScope()
 		{
 			this.m_currentScope = null;
 		}
 
-		internal void RegisterRunningValues(List<RunningValueInfo> runningValues, List<RunningValueInfo> runningValuesOfAggregates)
+		public void RegisterRunningValues(List<RunningValueInfo> runningValues, List<RunningValueInfo> runningValuesOfAggregates)
 		{
 			Global.Tracer.Assert(runningValues != null, "(runningValues != null)");
 			Global.Tracer.Assert(runningValuesOfAggregates != null, "(runningValuesOfAggregates != null)");
@@ -2100,7 +2100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_runningValuesOfAggregates = runningValuesOfAggregates;
 		}
 
-		internal void RegisterRunningValues(string groupName, List<RunningValueInfo> runningValues, List<RunningValueInfo> runningValuesOfAggregates)
+		public void RegisterRunningValues(string groupName, List<RunningValueInfo> runningValues, List<RunningValueInfo> runningValuesOfAggregates)
 		{
 			Global.Tracer.Assert(runningValues != null, "(runningValues != null)");
 			Global.Tracer.Assert(runningValuesOfAggregates != null, "(runningValuesOfAggregates != null)");
@@ -2109,7 +2109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_runningValuesOfAggregates = runningValuesOfAggregates;
 		}
 
-		internal void UnRegisterRunningValues(List<RunningValueInfo> runningValues, List<RunningValueInfo> runningValuesOfAggregates)
+		public void UnRegisterRunningValues(List<RunningValueInfo> runningValues, List<RunningValueInfo> runningValuesOfAggregates)
 		{
 			Global.Tracer.Assert(runningValues != null, "(runningValues != null)");
 			Global.Tracer.Assert(runningValuesOfAggregates != null, "(runningValuesOfAggregates != null)");
@@ -2119,7 +2119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_runningValuesOfAggregates = null;
 		}
 
-		internal void TransferGroupExpressionRowNumbers(List<RunningValueInfo> rowNumbers)
+		public void TransferGroupExpressionRowNumbers(List<RunningValueInfo> rowNumbers)
 		{
 			if (rowNumbers != null)
 			{
@@ -2174,12 +2174,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void TransferRunningValues(List<RunningValueInfo> runningValues, string propertyName)
+		public void TransferRunningValues(List<RunningValueInfo> runningValues, string propertyName)
 		{
 			this.TransferRunningValues(runningValues, this.m_objectType, this.m_objectName, propertyName);
 		}
 
-		internal void TransferRunningValues(List<RunningValueInfo> runningValues, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void TransferRunningValues(List<RunningValueInfo> runningValues, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			if (runningValues != null && (this.m_location & AspNetCore.ReportingServices.ReportPublishing.LocationFlags.InPageSection) == (AspNetCore.ReportingServices.ReportPublishing.LocationFlags)0)
 			{
@@ -2459,7 +2459,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			aggregate.PublishingInfo.PropertyName = propertyName;
 		}
 
-		internal void SpecialTransferRunningValues(List<RunningValueInfo> runningValues, List<RunningValueInfo> runningValuesOfAggregates)
+		public void SpecialTransferRunningValues(List<RunningValueInfo> runningValues, List<RunningValueInfo> runningValuesOfAggregates)
 		{
 			this.TransferRunningValueCollection(runningValues, this.m_runningValues);
 			this.TransferRunningValueCollection(runningValuesOfAggregates, this.m_runningValuesOfAggregates);
@@ -2479,12 +2479,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void TransferLookups(List<LookupInfo> lookups, string propertyName)
+		public void TransferLookups(List<LookupInfo> lookups, string propertyName)
 		{
 			this.TransferLookups(lookups, this.m_objectType, this.m_objectName, propertyName, this.GetDataSetName());
 		}
 
-		internal void TransferLookups(List<LookupInfo> lookups, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName, string dataSetName)
+		public void TransferLookups(List<LookupInfo> lookups, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName, string dataSetName)
 		{
 			if (lookups != null)
 			{
@@ -2545,12 +2545,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void TransferAggregates(List<DataAggregateInfo> aggregates, string propertyName)
+		public void TransferAggregates(List<DataAggregateInfo> aggregates, string propertyName)
 		{
 			this.TransferAggregates(aggregates, this.m_objectType, this.m_objectName, propertyName, false);
 		}
 
-		internal void TransferNestedAggregates(List<DataAggregateInfo> aggregates, string propertyName)
+		public void TransferNestedAggregates(List<DataAggregateInfo> aggregates, string propertyName)
 		{
 			this.TransferAggregates(aggregates, this.m_objectType, this.m_objectName, propertyName, true);
 		}
@@ -2813,20 +2813,20 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterReportSection(ReportSection sectionDef)
+		public void RegisterReportSection(ReportSection sectionDef)
 		{
 			this.m_currentScope = new ScopeInfo(false, null, sectionDef);
 			this.m_reportItemsInSection = new Dictionary<string, ReportItem>();
 			this.m_referencableTextboxesInSection = new byte[this.m_referencableTextboxesInSection.Length];
 		}
 
-		internal void UnRegisterReportSection()
+		public void UnRegisterReportSection()
 		{
 			this.m_currentScope = null;
 			this.m_reportItemsInSection = null;
 		}
 
-		internal void InitializeParameters(List<ParameterDef> parameters, List<DataSet> dataSetList)
+		public void InitializeParameters(List<ParameterDef> parameters, List<DataSet> dataSetList)
 		{
 			if (this.m_dynamicParameters != null && this.m_dynamicParameters.Count != 0)
 			{
@@ -2975,7 +2975,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ValidateSliderLabelData(Tablix tablix, LabelData labelData)
+		public bool ValidateSliderLabelData(Tablix tablix, LabelData labelData)
 		{
 			if (labelData == null)
 			{
@@ -3018,7 +3018,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void RegisterDataSetLevelAggregateOrLookup(int referencedDataSetIndex)
+		public void RegisterDataSetLevelAggregateOrLookup(int referencedDataSetIndex)
 		{
 			if (this.GetCurrentDataSetIndex() != referencedDataSetIndex)
 			{
@@ -3037,12 +3037,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet GetParentDataSet()
+		public DataSet GetParentDataSet()
 		{
 			return this.m_activeDataSets.First;
 		}
 
-		internal bool RegisterDataRegion(DataRegion dataRegion)
+		public bool RegisterDataRegion(DataRegion dataRegion)
 		{
 			DataSet first = this.m_activeDataSets.First;
 			DataSet dataSet = dataRegion.DataScopeInfo.DataSet;
@@ -3077,14 +3077,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal void UnRegisterDataRegion(DataRegion dataRegion)
+		public void UnRegisterDataRegion(DataRegion dataRegion)
 		{
 			DataSet dataSet = dataRegion.DataScopeInfo.DataSet;
 			this.UnRegisterDataSet(dataSet);
 			this.UnRegisterDataRegionScope(dataRegion);
 		}
 
-		internal void RegisterDataSet(DataSet dataSet)
+		public void RegisterDataSet(DataSet dataSet)
 		{
 			if (dataSet != null)
 			{
@@ -3100,7 +3100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UnRegisterDataSet(DataSet dataSet)
+		public void UnRegisterDataSet(DataSet dataSet)
 		{
 			if (dataSet != null)
 			{
@@ -3153,7 +3153,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return dataSet;
 		}
 
-		internal void SetDataSetHasSubReports()
+		public void SetDataSetHasSubReports()
 		{
 			DataSet dataSet = this.GetDataSet();
 			if (dataSet != null)
@@ -3162,7 +3162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataRegion GetCurrentDataRegion()
+		public DataRegion GetCurrentDataRegion()
 		{
 			if (this.m_currentDataRegionName == null)
 			{
@@ -3210,12 +3210,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return flag;
 		}
 
-		internal void CheckFieldReferences(List<string> fieldNames, string propertyName)
+		public void CheckFieldReferences(List<string> fieldNames, string propertyName)
 		{
 			this.InternalCheckFieldReferences(fieldNames, this.GetDataSetName(), this.m_objectType, this.m_objectName, propertyName);
 		}
 
-		internal void AggregateCheckFieldReferences(List<string> fieldNames, string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void AggregateCheckFieldReferences(List<string> fieldNames, string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			this.InternalCheckFieldReferences(fieldNames, dataSetName, objectType, objectName, propertyName);
 		}
@@ -3268,12 +3268,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void FillInFieldIndex(ExpressionInfo exprInfo)
+		public void FillInFieldIndex(ExpressionInfo exprInfo)
 		{
 			this.InternalFillInFieldIndex(exprInfo, this.GetDataSetName());
 		}
 
-		internal void FillInFieldIndex(ExpressionInfo exprInfo, string dataSetName)
+		public void FillInFieldIndex(ExpressionInfo exprInfo, string dataSetName)
 		{
 			this.InternalFillInFieldIndex(exprInfo, dataSetName);
 		}
@@ -3297,7 +3297,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal void FillInTokenIndex(ExpressionInfo exprInfo)
+		public void FillInTokenIndex(ExpressionInfo exprInfo)
 		{
 			if (exprInfo != null && exprInfo.Type == ExpressionInfo.Types.Token)
 			{
@@ -3313,12 +3313,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void CheckDataSetReference(List<string> referencedDataSets, string propertyName)
+		public void CheckDataSetReference(List<string> referencedDataSets, string propertyName)
 		{
 			this.InternalCheckDataSetReference(referencedDataSets, this.m_objectType, this.m_objectName, propertyName);
 		}
 
-		internal void AggregateCheckDataSetReference(List<string> referencedDataSets, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void AggregateCheckDataSetReference(List<string> referencedDataSets, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			this.InternalCheckDataSetReference(referencedDataSets, objectType, objectName, propertyName);
 		}
@@ -3342,7 +3342,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ResolveScopedFieldReferenceToIndex(string scopeName, string fieldName)
+		public int ResolveScopedFieldReferenceToIndex(string scopeName, string fieldName)
 		{
 			DataSet targetDataSetForScopeReference = this.GetTargetDataSetForScopeReference(scopeName);
 			if (targetDataSetForScopeReference != null)
@@ -3352,7 +3352,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return -1;
 		}
 
-		internal void CheckScopeReferences(List<ScopeReference> referencedScopes, string propertyName)
+		public void CheckScopeReferences(List<ScopeReference> referencedScopes, string propertyName)
 		{
 			if (referencedScopes != null && referencedScopes.Count != 0)
 			{
@@ -3413,12 +3413,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_scopeTree.GetDataSet(scopeName);
 		}
 
-		internal void CheckDataSourceReference(List<string> referencedDataSources, string propertyName)
+		public void CheckDataSourceReference(List<string> referencedDataSources, string propertyName)
 		{
 			this.InternalCheckDataSourceReference(referencedDataSources, this.m_objectType, this.m_objectName, propertyName);
 		}
 
-		internal void AggregateCheckDataSourceReference(List<string> referencedDataSources, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void AggregateCheckDataSourceReference(List<string> referencedDataSources, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			this.InternalCheckDataSourceReference(referencedDataSources, objectType, objectName, propertyName);
 		}
@@ -3437,7 +3437,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterGroupWithVariables(ReportHierarchyNode node)
+		public void RegisterGroupWithVariables(ReportHierarchyNode node)
 		{
 			if (node.Grouping != null && node.Grouping.Variables != null)
 			{
@@ -3445,7 +3445,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterVariables(List<Variable> variables)
+		public void RegisterVariables(List<Variable> variables)
 		{
 			foreach (Variable variable in variables)
 			{
@@ -3453,7 +3453,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UnregisterVariables(List<Variable> variables)
+		public void UnregisterVariables(List<Variable> variables)
 		{
 			foreach (Variable variable in variables)
 			{
@@ -3461,7 +3461,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterVariable(Variable variable)
+		public void RegisterVariable(Variable variable)
 		{
 			if (!this.m_variablesInScope.ContainsKey(variable.Name))
 			{
@@ -3470,18 +3470,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UnregisterVariable(Variable variable)
+		public void UnregisterVariable(Variable variable)
 		{
 			this.m_variablesInScope.Remove(variable.Name);
 			SequenceIndex.ClearBit(ref this.m_referencableVariables, variable.SequenceID);
 		}
 
-		internal void CheckVariableReferences(List<string> referencedVariables, string propertyName)
+		public void CheckVariableReferences(List<string> referencedVariables, string propertyName)
 		{
 			this.InternalCheckVariableReferences(referencedVariables, this.m_objectType, this.m_objectName, propertyName);
 		}
 
-		internal void AggregateCheckVariableReferences(List<string> referencedVariables, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void AggregateCheckVariableReferences(List<string> referencedVariables, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			this.InternalCheckVariableReferences(referencedVariables, objectType, objectName, propertyName);
 		}
@@ -3500,7 +3500,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterTextBoxInScope(TextBox textbox)
+		public void RegisterTextBoxInScope(TextBox textbox)
 		{
 			if (this.m_currentDataRegionName != null)
 			{
@@ -3538,7 +3538,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterReportItem(ReportItem reportItem)
+		public void RegisterReportItem(ReportItem reportItem)
 		{
 			if (reportItem != null)
 			{
@@ -3572,7 +3572,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterReportItems(ReportItemCollection reportItems)
+		public void RegisterReportItems(ReportItemCollection reportItems)
 		{
 			for (int i = 0; i < reportItems.Count; i++)
 			{
@@ -3594,7 +3594,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterReportItems(TablixRowList rows)
+		public void RegisterReportItems(TablixRowList rows)
 		{
 			foreach (TablixRow row in rows)
 			{
@@ -3661,7 +3661,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterMemberReportItems(TablixMember member, bool firstPass, bool restrictive)
+		public void RegisterMemberReportItems(TablixMember member, bool firstPass, bool restrictive)
 		{
 			int num = 0;
 			this.RegisterMemberReportItems(member, true, false, null, ref num);
@@ -3671,7 +3671,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterMemberReportItems(TablixMember member, bool firstPass)
+		public void RegisterMemberReportItems(TablixMember member, bool firstPass)
 		{
 			this.RegisterMemberReportItems(member, firstPass, true);
 		}
@@ -3777,7 +3777,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UnRegisterReportItem(ReportItem reportItem)
+		public void UnRegisterReportItem(ReportItem reportItem)
 		{
 			if (reportItem != null)
 			{
@@ -3824,7 +3824,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UnRegisterReportItems(TablixRowList rows)
+		public void UnRegisterReportItems(TablixRowList rows)
 		{
 			foreach (TablixRow row in rows)
 			{
@@ -3847,7 +3847,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UnRegisterReportItem(Tablix tablix)
+		public void UnRegisterReportItem(Tablix tablix)
 		{
 			this.UnRegisterReportItems(tablix.Corner);
 			List<int> list = new List<int>();
@@ -3891,12 +3891,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UnRegisterMemberReportItems(TablixMember member, bool firstPass)
+		public void UnRegisterMemberReportItems(TablixMember member, bool firstPass)
 		{
 			this.UnRegisterMemberReportItems(member, firstPass, true);
 		}
 
-		internal void UnRegisterMemberReportItems(TablixMember member, bool firstPass, bool restrictive)
+		public void UnRegisterMemberReportItems(TablixMember member, bool firstPass, bool restrictive)
 		{
 			int num = 0;
 			this.UnRegisterMemberReportItems(member, true, false, null, ref num);
@@ -3930,7 +3930,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UnRegisterReportItems(ReportItemCollection reportItems)
+		public void UnRegisterReportItems(ReportItemCollection reportItems)
 		{
 			Global.Tracer.Assert(null != reportItems);
 			for (int i = 0; i < reportItems.Count; i++)
@@ -3939,12 +3939,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void CheckReportItemReferences(List<string> referencedReportItems, string propertyName)
+		public void CheckReportItemReferences(List<string> referencedReportItems, string propertyName)
 		{
 			this.InternalCheckReportItemReferences(referencedReportItems, this.m_objectType, this.m_objectName, propertyName);
 		}
 
-		internal void AggregateCheckReportItemReferences(List<string> referencedReportItems, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void AggregateCheckReportItemReferences(List<string> referencedReportItems, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			this.InternalCheckReportItemReferences(referencedReportItems, objectType, objectName, propertyName);
 		}
@@ -3976,7 +3976,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal byte[] GetCurrentReferencableVariables()
+		public byte[] GetCurrentReferencableVariables()
 		{
 			if (this.m_referencableVariables == null)
 			{
@@ -3985,7 +3985,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_referencableVariables.Clone() as byte[];
 		}
 
-		internal byte[] GetCurrentReferencableTextboxes()
+		public byte[] GetCurrentReferencableTextboxes()
 		{
 			if (this.m_referencableTextboxes == null)
 			{
@@ -3994,7 +3994,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_referencableTextboxes.Clone() as byte[];
 		}
 
-		internal byte[] GetCurrentReferencableTextboxesInSection()
+		public byte[] GetCurrentReferencableTextboxesInSection()
 		{
 			if (this.m_referencableTextboxesInSection == null)
 			{
@@ -4003,7 +4003,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_referencableTextboxesInSection.Clone() as byte[];
 		}
 
-		internal void CheckReportParameterReferences(List<string> referencedParameters, string propertyName)
+		public void CheckReportParameterReferences(List<string> referencedParameters, string propertyName)
 		{
 			this.InternalCheckReportParameterReferences(referencedParameters, this.m_objectType, this.m_objectName, propertyName);
 		}
@@ -4022,7 +4022,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal VisibilityToggleInfo RegisterVisibilityToggle(Visibility visibility)
+		public VisibilityToggleInfo RegisterVisibilityToggle(Visibility visibility)
 		{
 			if ((this.m_location & AspNetCore.ReportingServices.ReportPublishing.LocationFlags.InPageSection) != 0)
 			{
@@ -4042,7 +4042,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return visibilityToggleInfo;
 		}
 
-		internal bool RegisterVisibility(Visibility visibility, IVisibilityOwner owner)
+		public bool RegisterVisibility(Visibility visibility, IVisibilityOwner owner)
 		{
 			IVisibilityOwner visibilityOwner = default(IVisibilityOwner);
 			IVisibilityOwner visibilityOwner2 = default(IVisibilityOwner);
@@ -4093,12 +4093,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void UnRegisterVisibility(Visibility visibility, IVisibilityOwner owner)
+		public void UnRegisterVisibility(Visibility visibility, IVisibilityOwner owner)
 		{
 			this.m_visibilityContainmentInfos.Pop();
 		}
 
-		internal bool NeedVisibilityLink(Visibility visibility, IVisibilityOwner owner, out IVisibilityOwner outerContainer, out IVisibilityOwner outerRowContainer, out IVisibilityOwner outerColumnContainer)
+		public bool NeedVisibilityLink(Visibility visibility, IVisibilityOwner owner, out IVisibilityOwner outerContainer, out IVisibilityOwner outerRowContainer, out IVisibilityOwner outerColumnContainer)
 		{
 			outerContainer = null;
 			outerRowContainer = null;
@@ -4126,7 +4126,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal void RegisterToggleItem(TextBox textbox)
+		public void RegisterToggleItem(TextBox textbox)
 		{
 			ToggleItemInfo toggleItemInfo = new ToggleItemInfo();
 			toggleItemInfo.Textbox = textbox;
@@ -4135,7 +4135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_toggleItems.Add(textbox.Name, toggleItemInfo);
 		}
 
-		internal void ValidateToggleItems()
+		public void ValidateToggleItems()
 		{
 			foreach (VisibilityToggleInfo visibilityToggleInfo in this.m_visibilityToggleInfos)
 			{
@@ -4254,7 +4254,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return num == subSet.Keys.Count;
 		}
 
-		internal void ValidateHeaderSize(double size, int startLevel, int span, bool isColumnHierarchy, int cellIndex)
+		public void ValidateHeaderSize(double size, int startLevel, int span, bool isColumnHierarchy, int cellIndex)
 		{
 			double headerSize = this.GetHeaderSize(isColumnHierarchy, startLevel, span);
 			double second = Math.Round(headerSize, 4);
@@ -4265,12 +4265,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double GetTotalHeaderSize(bool isColumnHierarchy, int span)
+		public double GetTotalHeaderSize(bool isColumnHierarchy, int span)
 		{
 			return this.GetHeaderSize(isColumnHierarchy, 0, span);
 		}
 
-		internal double GetHeaderSize(bool isColumnHierarchy, int startLevel, int span)
+		public double GetHeaderSize(bool isColumnHierarchy, int startLevel, int span)
 		{
 			double num = 0.0;
 			IList<Pair<double, int>> headerLevelSizeList;
@@ -4287,7 +4287,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.GetHeaderSize(headerLevelSizeList, startLevel, span);
 		}
 
-		internal double GetHeaderSize(IList<Pair<double, int>> headerLevelSizeList, int startingLevel, int spans)
+		public double GetHeaderSize(IList<Pair<double, int>> headerLevelSizeList, int startingLevel, int spans)
 		{
 			int level = startingLevel + spans;
 			startingLevel = this.FindEntryForLevel(headerLevelSizeList, startingLevel);
@@ -4312,7 +4312,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return 0;
 		}
 
-		internal double ValidateSize(string size, string propertyName)
+		public double ValidateSize(string size, string propertyName)
 		{
 			double result = default(double);
 			string text = default(string);
@@ -4320,12 +4320,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal double ValidateSize(ref string size, string propertyName)
+		public double ValidateSize(ref string size, string propertyName)
 		{
 			return this.ValidateSize(ref size, true, propertyName);
 		}
 
-		internal double ValidateSize(ref string size, bool restrictMaxValue, string propertyName)
+		public double ValidateSize(ref string size, bool restrictMaxValue, string propertyName)
 		{
 			double result = default(double);
 			string text = default(string);
@@ -4334,7 +4334,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal void CheckInternationalSettings(Dictionary<string, AttributeInfo> styleAttributes)
+		public void CheckInternationalSettings(Dictionary<string, AttributeInfo> styleAttributes)
 		{
 			if (styleAttributes != null && styleAttributes.Count != 0)
 			{
@@ -4376,7 +4376,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string GetCurrentScopeName()
+		public string GetCurrentScopeName()
 		{
 			Global.Tracer.Assert(null != this.m_currentScope, "Missing ScopeInfo for current scope.");
 			if (this.m_currentScope.IsTopLevelScope)
@@ -4415,7 +4415,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_currentDataRegionName;
 		}
 
-		internal bool IsScope(string scope)
+		public bool IsScope(string scope)
 		{
 			if (scope == null)
 			{
@@ -4424,7 +4424,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_reportScopes.ContainsKey(scope);
 		}
 
-		internal bool IsAncestorScope(string targetScope)
+		public bool IsAncestorScope(string targetScope)
 		{
 			string dataSetName = this.GetDataSetName();
 			if (dataSetName != null && AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.CompareWithInvariantCulture(dataSetName, targetScope, false) == 0)
@@ -4444,7 +4444,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal bool IsSameOrChildScope(string parentScope, string childScope)
+		public bool IsSameOrChildScope(string parentScope, string childScope)
 		{
 			if (parentScope == childScope)
 			{
@@ -4507,12 +4507,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal bool IsCurrentScope(string targetScope)
+		public bool IsCurrentScope(string targetScope)
 		{
 			return targetScope == this.GetCurrentScopeName();
 		}
 
-		internal bool HasPeerGroups(DataRegion dataRegion)
+		public bool HasPeerGroups(DataRegion dataRegion)
 		{
 			bool flag = default(bool);
 			if (this.HasPeerGroups(dataRegion.RowMembers, out flag))
@@ -4549,7 +4549,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal bool IsPeerScope(string targetScope)
+		public bool IsPeerScope(string targetScope)
 		{
 			if (!this.m_hasUserSortPeerScopes)
 			{
@@ -4574,7 +4574,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return num == num2;
 		}
 
-		internal bool IsReportTopLevelScope()
+		public bool IsReportTopLevelScope()
 		{
 			if (this.m_currentScope != null)
 			{
@@ -4583,18 +4583,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal ISortFilterScope GetSortFilterScope()
+		public ISortFilterScope GetSortFilterScope()
 		{
 			return this.GetSortFilterScope(this.GetCurrentScopeName());
 		}
 
-		internal ISortFilterScope GetSortFilterScope(string scopeName)
+		public ISortFilterScope GetSortFilterScope(string scopeName)
 		{
 			Global.Tracer.Assert(scopeName != null && "0_ReportScope" != scopeName && this.m_reportScopes.ContainsKey(scopeName));
 			return this.m_reportScopes[scopeName];
 		}
 
-		internal void RegisterPeerScopes(ReportItemCollection reportItems)
+		public void RegisterPeerScopes(ReportItemCollection reportItems)
 		{
 			this.RegisterPeerScopes(reportItems, ++this.m_lastPeerScopeId, true);
 		}
@@ -4727,7 +4727,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ProcessUserSortScopes(string scopeName)
+		public void ProcessUserSortScopes(string scopeName)
 		{
 			if (this.m_hasUserSorts)
 			{
@@ -4811,7 +4811,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void RegisterSortEventSource(IInScopeEventSource eventSource)
+		public void RegisterSortEventSource(IInScopeEventSource eventSource)
 		{
 			if (this.m_hasUserSorts && eventSource != null && eventSource.UserSort != null)
 			{
@@ -4832,7 +4832,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ProcessSortEventSource(IInScopeEventSource eventSource)
+		public void ProcessSortEventSource(IInScopeEventSource eventSource)
 		{
 			if (this.m_initializingUserSorts && this.m_hasUserSorts && eventSource != null && eventSource.UserSort != null)
 			{
@@ -4954,7 +4954,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GroupingList GetContainingScopesInCurrentDataRegion()
+		public GroupingList GetContainingScopesInCurrentDataRegion()
 		{
 			ScopeChainInfo scopeChainInfo = this.GetScopeChainInfo();
 			if (scopeChainInfo != null)
@@ -4964,7 +4964,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal GroupingList GetContainingScopes()
+		public GroupingList GetContainingScopes()
 		{
 			ScopeChainInfo scopeChainInfo = this.GetScopeChainInfo();
 			if (scopeChainInfo != null)
@@ -5024,7 +5024,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			peerSortFilters.Add(eventSource.ID);
 		}
 
-		internal void SetDataSetDetailUserSortFilter()
+		public void SetDataSetDetailUserSortFilter()
 		{
 			DataSet dataSet = this.GetDataSet();
 			if (dataSet != null)
@@ -5039,7 +5039,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_detailSortExpressionScopeEventSources.Add(eventSource);
 		}
 
-		internal void EventSourcesWithDetailSortExpressionInitialize(string sortExpressionScope)
+		public void EventSourcesWithDetailSortExpressionInitialize(string sortExpressionScope)
 		{
 			if (this.m_hasUserSorts)
 			{
@@ -5066,18 +5066,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void InitializeAbsolutePosition(ReportItem reportItem)
+		public void InitializeAbsolutePosition(ReportItem reportItem)
 		{
 			this.m_currentAbsoluteTop += reportItem.AbsoluteTopValue;
 			this.m_currentAbsoluteLeft += reportItem.AbsoluteLeftValue;
 		}
 
-		internal void UpdateTopLeftDataRegion(DataRegion dataRegion)
+		public void UpdateTopLeftDataRegion(DataRegion dataRegion)
 		{
 			this.m_report.UpdateTopLeftDataRegion(this, dataRegion);
 		}
 
-		internal void AddGroupingExprCountForGroup(string scope, int groupingExprCount)
+		public void AddGroupingExprCountForGroup(string scope, int groupingExprCount)
 		{
 			if (!this.m_groupingExprCountAtScope.ContainsKey(scope))
 			{
@@ -5085,16 +5085,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void EnforceRdlSandboxContentRestrictions(CodeClass codeClass)
+		public void EnforceRdlSandboxContentRestrictions(CodeClass codeClass)
 		{
 		}
 
-		internal void EnforceRdlSandboxContentRestrictions(ExpressionInfo expression, string propertyName)
+		public void EnforceRdlSandboxContentRestrictions(ExpressionInfo expression, string propertyName)
 		{
 			this.EnforceRdlSandboxContentRestrictions(expression, this.ObjectType, this.ObjectName, propertyName);
 		}
 
-		internal void EnforceRdlSandboxContentRestrictions(ExpressionInfo expression, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void EnforceRdlSandboxContentRestrictions(ExpressionInfo expression, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 		}
 	}

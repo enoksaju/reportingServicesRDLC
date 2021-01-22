@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IDocumentMapEntry
+	public interface IDocumentMapEntry
 	{
 		bool InDocumentMap
 		{

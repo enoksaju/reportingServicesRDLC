@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class PageBreak : IPersistable
+	public class PageBreak : IPersistable
 	{
 		private PageBreakLocation m_pageBreakLocation;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = PageBreak.GetDeclaration();
 
-		internal PageBreakLocation BreakLocation
+		public PageBreakLocation BreakLocation
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ResetPageNumber
+		public ExpressionInfo ResetPageNumber
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Disabled
+		public ExpressionInfo Disabled
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PageBreakExprHost ExprHost
+		public PageBreakExprHost ExprHost
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			PageBreak pageBreak = (PageBreak)base.MemberwiseClone();
 			if (this.m_disabled != null)
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return pageBreak;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.PageBreakStart();
 			if (this.m_disabled != null)
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.PageBreak;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.PageBreakLocation, Token.Enum));
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.PageBreak, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.None, list);
 		}
 
-		internal void SetExprHost(PageBreakExprHost pageBreakExpressionHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(PageBreakExprHost pageBreakExpressionHost, ObjectModelImpl reportObjectModel)
 		{
 			if (pageBreakExpressionHost != null)
 			{
@@ -177,13 +177,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool EvaluateDisabled(IReportScopeInstance romInstance, OnDemandProcessingContext context, IPageBreakOwner pageBreakOwner)
+		public bool EvaluateDisabled(IReportScopeInstance romInstance, OnDemandProcessingContext context, IPageBreakOwner pageBreakOwner)
 		{
 			context.SetupContext(pageBreakOwner.InstancePath, romInstance);
 			return context.ReportRuntime.EvaluatePageBreakDisabledExpression(this, this.m_disabled, pageBreakOwner.ObjectType, pageBreakOwner.ObjectName);
 		}
 
-		internal bool EvaluateResetPageNumber(IReportScopeInstance romInstance, OnDemandProcessingContext context, IPageBreakOwner pageBreakOwner)
+		public bool EvaluateResetPageNumber(IReportScopeInstance romInstance, OnDemandProcessingContext context, IPageBreakOwner pageBreakOwner)
 		{
 			context.SetupContext(pageBreakOwner.InstancePath, romInstance);
 			return context.ReportRuntime.EvaluatePageBreakResetPageNumberExpression(this, this.m_resetPageNumber, pageBreakOwner.ObjectType, pageBreakOwner.ObjectName);

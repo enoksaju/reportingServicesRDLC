@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableDetailRowCollection : TableRowCollection
+	public sealed class TableDetailRowCollection : TableRowCollection
 	{
 		private TableDetailInstance m_detailInstance;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableDetailInstance DetailInstance
+		public TableDetailInstance DetailInstance
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableDetailInstanceInfo InstanceInfo
+		public TableDetailInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool Hidden
+		public bool Hidden
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableDetailRowCollection(Table owner, TableRowList rowDefs, TableRowInstance[] rowInstances, TableDetailInstance detailInstance)
+		public TableDetailRowCollection(Table owner, TableRowList rowDefs, TableRowInstance[] rowInstances, TableDetailInstance detailInstance)
 			: base(owner, rowDefs, rowInstances)
 		{
 			this.m_detailInstance = detailInstance;

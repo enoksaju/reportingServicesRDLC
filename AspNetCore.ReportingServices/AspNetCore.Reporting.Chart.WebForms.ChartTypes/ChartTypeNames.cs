@@ -1,79 +1,79 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal static class ChartTypeNames
+	public static class ChartTypeNames
 	{
-		internal const string Area = "Area";
+		public const string Area = "Area";
 
-		internal const string Gantt = "Gantt";
+		public const string Gantt = "Gantt";
 
-		internal const string Bar = "Bar";
+		public const string Bar = "Bar";
 
-		internal const string SplineArea = "SplineArea";
+		public const string SplineArea = "SplineArea";
 
-		internal const string BoxPlot = "BoxPlot";
+		public const string BoxPlot = "BoxPlot";
 
-		internal const string Bubble = "Bubble";
+		public const string Bubble = "Bubble";
 
-		internal const string Column = "Column";
+		public const string Column = "Column";
 
-		internal const string RangeColumn = "RangeColumn";
+		public const string RangeColumn = "RangeColumn";
 
-		internal const string Doughnut = "Doughnut";
+		public const string Doughnut = "Doughnut";
 
-		internal const string ErrorBar = "ErrorBar";
+		public const string ErrorBar = "ErrorBar";
 
-		internal const string FastLine = "FastLine";
+		public const string FastLine = "FastLine";
 
-		internal const string FastPoint = "FastPoint";
+		public const string FastPoint = "FastPoint";
 
-		internal const string Funnel = "Funnel";
+		public const string Funnel = "Funnel";
 
-		internal const string Pyramid = "Pyramid";
+		public const string Pyramid = "Pyramid";
 
-		internal const string Kagi = "Kagi";
+		public const string Kagi = "Kagi";
 
-		internal const string Spline = "Spline";
+		public const string Spline = "Spline";
 
-		internal const string Line = "Line";
+		public const string Line = "Line";
 
-		internal const string PointAndFigure = "PointAndFigure";
+		public const string PointAndFigure = "PointAndFigure";
 
-		internal const string Pie = "Pie";
+		public const string Pie = "Pie";
 
-		internal const string Point = "Point";
+		public const string Point = "Point";
 
-		internal const string Polar = "Polar";
+		public const string Polar = "Polar";
 
-		internal const string Radar = "Radar";
+		public const string Radar = "Radar";
 
-		internal const string SplineRange = "SplineRange";
+		public const string SplineRange = "SplineRange";
 
-		internal const string Range = "Range";
+		public const string Range = "Range";
 
-		internal const string Renko = "Renko";
+		public const string Renko = "Renko";
 
-		internal const string OneHundredPercentStackedArea = "100%StackedArea";
+		public const string OneHundredPercentStackedArea = "100%StackedArea";
 
-		internal const string StackedArea = "StackedArea";
+		public const string StackedArea = "StackedArea";
 
-		internal const string OneHundredPercentStackedBar = "100%StackedBar";
+		public const string OneHundredPercentStackedBar = "100%StackedBar";
 
-		internal const string StackedBar = "StackedBar";
+		public const string StackedBar = "StackedBar";
 
-		internal const string OneHundredPercentStackedColumn = "100%StackedColumn";
+		public const string OneHundredPercentStackedColumn = "100%StackedColumn";
 
-		internal const string StackedColumn = "StackedColumn";
+		public const string StackedColumn = "StackedColumn";
 
-		internal const string StepLine = "StepLine";
+		public const string StepLine = "StepLine";
 
-		internal const string Candlestick = "Candlestick";
+		public const string Candlestick = "Candlestick";
 
-		internal const string Stock = "Stock";
+		public const string Stock = "Stock";
 
-		internal const string ThreeLineBreak = "ThreeLineBreak";
+		public const string ThreeLineBreak = "ThreeLineBreak";
 
-		internal const string TreeMap = "TreeMap";
+		public const string TreeMap = "TreeMap";
 
-		internal const string Sunburst = "Sunburst";
+		public const string Sunburst = "Sunburst";
 	}
 }

@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[Flags]
-	internal enum PanelButtonType
+	public enum PanelButtonType
 	{
 		Unknown = 0,
 		ZoomButton = 0x10,

@@ -6,17 +6,17 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class FastPointChart : IChartType
+	public class FastPointChart : IChartType
 	{
-		internal bool chartArea3DEnabled;
+		public bool chartArea3DEnabled;
 
-		internal ChartGraphics graph;
+		public ChartGraphics graph;
 
-		internal float seriesZCoordinate;
+		public float seriesZCoordinate;
 
-		internal Matrix3D matrix3D;
+		public Matrix3D matrix3D;
 
-		internal CommonElements common;
+		public CommonElements common;
 
 		public virtual string Name
 		{

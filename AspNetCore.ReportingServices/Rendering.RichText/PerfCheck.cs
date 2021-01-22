@@ -3,13 +3,13 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class PerfCheck : IDisposable
+	public class PerfCheck : IDisposable
 	{
 		private string m_Name;
 
 		private Stopwatch m_sw = new Stopwatch();
 
-		internal PerfCheck(string Name)
+		public PerfCheck(string Name)
 		{
 			this.m_Name = Name;
 		}

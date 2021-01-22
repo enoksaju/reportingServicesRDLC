@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class SharedDataSet : ReportObject
+	public class SharedDataSet : ReportObject
 	{
-		internal class Definition : DefinitionStore<SharedDataSet, Definition.Properties>
+		public class Definition : DefinitionStore<SharedDataSet, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				SharedDataSetReference,
 				QueryParameters
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal SharedDataSet(IPropertyStore propertyStore)
+		public SharedDataSet(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

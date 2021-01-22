@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal interface IHierarchyObj : IStorable, IPersistable
+	public interface IHierarchyObj : IStorable, IPersistable
 	{
 		IReference<IHierarchyObj> HierarchyRoot
 		{

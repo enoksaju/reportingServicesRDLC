@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InvalidItemNameException : ReportCatalogException
+	public sealed class InvalidItemNameException : ReportCatalogException
 	{
 		public InvalidItemNameException(string invalidName, int maxItemNameLength)
 			: base(ErrorCode.rsInvalidItemName, ErrorStrings.rsInvalidItemName(invalidName, maxItemNameLength), null, null)

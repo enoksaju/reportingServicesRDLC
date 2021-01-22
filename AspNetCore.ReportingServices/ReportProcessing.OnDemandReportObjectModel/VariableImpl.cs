@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal IScope Scope
+		public IScope Scope
 		{
 			set
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal VariableImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.Variable variable, IndexedExprHost variableValuesHost, ObjectType parentObjectType, string parentObjectName, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, int indexInCollection)
+		public VariableImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.Variable variable, IndexedExprHost variableValuesHost, ObjectType parentObjectType, string parentObjectName, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, int indexInCollection)
 		{
 			Global.Tracer.Assert(reportRT != null && null != variable, "(null != reportRT && null != variable)");
 			this.m_variableDef = variable;
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_indexInCollection = indexInCollection;
 		}
 
-		internal void SetResult(AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
+		public void SetResult(AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
 		{
 			this.m_result = result;
 			this.m_isValueReady = true;
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return result;
 		}
 
-		internal void SetValue(object value, bool internalSet)
+		public void SetValue(object value, bool internalSet)
 		{
 			bool flag = default(bool);
 			this.SetValue(value, internalSet, out flag);
@@ -187,12 +187,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.m_isValueReady = false;
 		}
 
-		internal object GetResult()
+		public object GetResult()
 		{
 			return this.GetResult(false);
 		}

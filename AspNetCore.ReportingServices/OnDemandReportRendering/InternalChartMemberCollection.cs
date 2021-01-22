@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalChartMemberCollection : ChartMemberCollection
+	public sealed class InternalChartMemberCollection : ChartMemberCollection
 	{
 		private ChartMember m_parent;
 
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalChartMemberCollection(IDefinitionPath parentDefinitionPath, Chart owner, ChartMember parent, ChartMemberList memberDefs)
+		public InternalChartMemberCollection(IDefinitionPath parentDefinitionPath, Chart owner, ChartMember parent, ChartMemberList memberDefs)
 			: base(parentDefinitionPath, owner)
 		{
 			this.m_parent = parent;

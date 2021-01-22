@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum AffectedSymbolAttributes
+	public enum AffectedSymbolAttributes
 	{
 		All,
 		ColorOnly,

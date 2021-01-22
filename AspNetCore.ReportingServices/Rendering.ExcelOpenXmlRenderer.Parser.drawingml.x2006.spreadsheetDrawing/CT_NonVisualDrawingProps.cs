@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.spreadsheetDrawing
 {
-	internal class CT_NonVisualDrawingProps : OoxmlComplexType
+	public class CT_NonVisualDrawingProps : OoxmlComplexType
 	{
 		private uint _id_attr;
 

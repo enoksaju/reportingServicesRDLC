@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal abstract class DataRegion : ReportItem
+	public abstract class DataRegion : ReportItem
 	{
 		public virtual bool PageBreakAtEnd
 		{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal abstract string InstanceInfoNoRowMessage
+		public abstract string InstanceInfoNoRowMessage
 		{
 			get;
 		}
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataRegion(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext)
+		public DataRegion(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, ReportItemInstance reportItemInstance, RenderingContext renderingContext)
 			: base(null, intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 		}

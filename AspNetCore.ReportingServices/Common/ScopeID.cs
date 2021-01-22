@@ -8,11 +8,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal class ScopeID : IXmlSerializable
+	public class ScopeID : IXmlSerializable
 	{
-		internal const string SCOPEID = "ScopeID";
+		public const string SCOPEID = "ScopeID";
 
-		internal const string SCOPEVALUES = "ScopeValues";
+		public const string SCOPEVALUES = "ScopeValues";
 
 		private ScopeValue[] m_scopeValues;
 
@@ -60,16 +60,16 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal ScopeID()
+		public ScopeID()
 		{
 		}
 
-		internal ScopeID(ScopeValue[] scopeValues)
+		public ScopeID(ScopeValue[] scopeValues)
 		{
 			this.m_scopeValues = scopeValues;
 		}
 
-		internal ScopeID(ScopeID scopeID)
+		public ScopeID(ScopeID scopeID)
 			: this(scopeID.m_scopeValues)
 		{
 		}
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.Common
 			return this.Equals(obj as ScopeID);
 		}
 
-		internal bool Equals(ScopeID scopeID)
+		public bool Equals(ScopeID scopeID)
 		{
 			if (object.ReferenceEquals(this, scopeID))
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.Common
 			return this.Equals(scopeID, null);
 		}
 
-		internal bool Equals(ScopeID scopeID, IEqualityComparer<object> comparer)
+		public bool Equals(ScopeID scopeID, IEqualityComparer<object> comparer)
 		{
 			if (object.ReferenceEquals(scopeID, null))
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.Common
 			return true;
 		}
 
-		internal int Compare(ScopeID scopeID, IComparer<object> comparer)
+		public int Compare(ScopeID scopeID, IComparer<object> comparer)
 		{
 			int scopeValueCount = this.ScopeValueCount;
 			if (scopeValueCount == 0)
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.Common
 			return 1;
 		}
 
-		internal int GetHashCode(IEqualityComparer<object> comparer)
+		public int GetHashCode(IEqualityComparer<object> comparer)
 		{
 			int scopeValueCount = this.ScopeValueCount;
 			int num = scopeValueCount;

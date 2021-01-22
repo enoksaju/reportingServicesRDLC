@@ -5,9 +5,9 @@ using System.ComponentModel.Design;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 {
-	internal class FormulaRegistry : IServiceProvider
+	public class FormulaRegistry : IServiceProvider
 	{
-		internal Hashtable registeredModules = new Hashtable(StringComparer.OrdinalIgnoreCase);
+		public Hashtable registeredModules = new Hashtable(StringComparer.OrdinalIgnoreCase);
 
 		private Hashtable createdModules = new Hashtable(StringComparer.OrdinalIgnoreCase);
 

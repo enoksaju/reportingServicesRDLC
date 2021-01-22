@@ -3,9 +3,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class DateTimeUtil
+	public static class DateTimeUtil
 	{
-		internal static bool TryParseDateTime(string strDateTime, CultureInfo formatProvider, out DateTimeOffset dateTimeOffset, out bool hasTimeOffset)
+		public static bool TryParseDateTime(string strDateTime, CultureInfo formatProvider, out DateTimeOffset dateTimeOffset, out bool hasTimeOffset)
 		{
 			hasTimeOffset = false;
 			if (DateTimeOffset.TryParse(strDateTime, (IFormatProvider)formatProvider, DateTimeStyles.None, out dateTimeOffset))

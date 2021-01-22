@@ -7,7 +7,7 @@ using System.IO;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class DataSetDefinition
+	public sealed class DataSetDefinition
 	{
 		private string m_description;
 

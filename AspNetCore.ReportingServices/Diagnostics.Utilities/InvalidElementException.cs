@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InvalidElementException : ReportCatalogException
+	public sealed class InvalidElementException : ReportCatalogException
 	{
 		public InvalidElementException(string elementName, Exception innerException)
 			: base(ErrorCode.rsInvalidElement, ErrorStrings.rsInvalidElement(elementName), innerException, null)

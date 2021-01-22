@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PageBreakHelper
+	public sealed class PageBreakHelper
 	{
-		internal static PageBreakLocation GetPageBreakLocation(bool pageBreakAtStart, bool pageBreakAtEnd)
+		public static PageBreakLocation GetPageBreakLocation(bool pageBreakAtStart, bool pageBreakAtEnd)
 		{
 			if (pageBreakAtStart && pageBreakAtEnd)
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return PageBreakLocation.None;
 		}
 
-		internal static PageBreakLocation MergePageBreakLocations(PageBreakLocation outer, PageBreakLocation inner)
+		public static PageBreakLocation MergePageBreakLocations(PageBreakLocation outer, PageBreakLocation inner)
 		{
 			if (outer == inner)
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return outer;
 		}
 
-		internal static bool HasPageBreakAtStart(PageBreakLocation pageBreakLoc)
+		public static bool HasPageBreakAtStart(PageBreakLocation pageBreakLoc)
 		{
 			if (pageBreakLoc != PageBreakLocation.Start)
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return true;
 		}
 
-		internal static bool HasPageBreakAtEnd(PageBreakLocation pageBreakLoc)
+		public static bool HasPageBreakAtEnd(PageBreakLocation pageBreakLoc)
 		{
 			if (pageBreakLoc != PageBreakLocation.End)
 			{

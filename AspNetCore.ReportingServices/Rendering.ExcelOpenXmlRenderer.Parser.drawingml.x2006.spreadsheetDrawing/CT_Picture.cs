@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.spreadsheetDrawing
 {
-	internal class CT_Picture : OoxmlComplexType
+	public class CT_Picture : OoxmlComplexType
 	{
 		private string _macro_attr;
 

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class SoapExtensionInvalidPreambleException : RSException
+	public sealed class SoapExtensionInvalidPreambleException : RSException
 	{
 		public SoapExtensionInvalidPreambleException(Exception innerException, string reason, string preamble)
 			: base(ErrorCode.rsSoapExtensionInvalidPreambleError, ErrorStrings.rsSoapExtensionInvalidPreambleError, innerException, RSTrace.IsTraceInitialized ? RSTrace.WebServerTracer : null, string.Format(CultureInfo.InvariantCulture, "reason={0}{1}", reason, RSTrace.WebServerTracer.TraceVerbose ? (":\n" + preamble) : "."))

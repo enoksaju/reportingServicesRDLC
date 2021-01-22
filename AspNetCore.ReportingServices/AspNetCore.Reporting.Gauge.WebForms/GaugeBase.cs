@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal abstract class GaugeBase : NamedElement, IRenderable, IToolTipProvider, IImageMapProvider
+	public abstract class GaugeBase : NamedElement, IRenderable, IToolTipProvider, IImageMapProvider
 	{
 		private string parent = string.Empty;
 
@@ -376,7 +376,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal Position Position
+		public Position Position
 		{
 			get
 			{
@@ -412,9 +412,9 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal abstract IEnumerable GetRanges();
+		public abstract IEnumerable GetRanges();
 
-		internal string GetDefaultScaleName(string scaleName)
+		public string GetDefaultScaleName(string scaleName)
 		{
 			NamedCollection namedCollection = null;
 			if (this is CircularGauge)
@@ -452,30 +452,30 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.ConnectToParent(true);
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.ConnectToParent(true);
 		}
 
-		internal abstract RectangleF GetAspectRatioBounds();
+		public abstract RectangleF GetAspectRatioBounds();
 
-		internal virtual RectangleF GetBoundRect(GaugeGraphics g)
+		public virtual RectangleF GetBoundRect(GaugeGraphics g)
 		{
 			return this.Position.Rectangle;
 		}
 
-		internal virtual void RenderStaticElements(GaugeGraphics g)
+		public virtual void RenderStaticElements(GaugeGraphics g)
 		{
 		}
 
-		internal virtual void RenderDynamicElements(GaugeGraphics g)
+		public virtual void RenderDynamicElements(GaugeGraphics g)
 		{
 		}
 
@@ -509,7 +509,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.parent;
 		}
 
-		internal abstract void PointerValueChanged(PointerBase sender);
+		public abstract void PointerValueChanged(PointerBase sender);
 
 		string IToolTipProvider.GetToolTip(HitTestResult ht)
 		{

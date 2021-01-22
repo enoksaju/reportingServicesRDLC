@@ -2,13 +2,13 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class BIFF8Color : IColor
+	public sealed class BIFF8Color : IColor
 	{
 		private Color m_color;
 
 		private int m_paletteIndex;
 
-		internal int PaletteIndex
+		public int PaletteIndex
 		{
 			get
 			{
@@ -40,11 +40,11 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal BIFF8Color()
+		public BIFF8Color()
 		{
 		}
 
-		internal BIFF8Color(Color color, int paletteIndex)
+		public BIFF8Color(Color color, int paletteIndex)
 		{
 			this.m_color = color;
 			this.m_paletteIndex = paletteIndex;

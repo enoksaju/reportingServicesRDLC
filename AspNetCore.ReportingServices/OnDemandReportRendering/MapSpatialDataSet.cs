@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapSpatialDataSet : MapSpatialData
+	public sealed class MapSpatialDataSet : MapSpatialData
 	{
 		private ReportStringProperty m_dataSetName;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataSet DataSet
+		public DataSet DataSet
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialDataSet MapSpatialDataSetDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialDataSet MapSpatialDataSetDef
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSpatialDataSet(MapVectorLayer mapVectorLayer, Map map)
+		public MapSpatialDataSet(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.Instance.DataSetName;
 		}
 
-		internal override MapSpatialDataInstance GetInstance()
+		public override MapSpatialDataInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

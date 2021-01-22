@@ -2,9 +2,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class EdgePageItem : PageItem
+	public sealed class EdgePageItem : PageItem
 	{
-		internal EdgePageItem(double top, double left, string id, PageContext pageContext)
+		public EdgePageItem(double top, double left, string id, PageContext pageContext)
 			: base(null)
 		{
 			if (pageContext != null)
@@ -17,12 +17,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
+		public override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
 		{
 			return true;
 		}
 
-		internal override void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public override void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override PageItemHelper WritePaginationInfo()
+		public override PageItemHelper WritePaginationInfo()
 		{
 			PageItemHelper pageItemHelper = new PageItemHelper(3);
 			base.WritePaginationInfoProperties(pageItemHelper);

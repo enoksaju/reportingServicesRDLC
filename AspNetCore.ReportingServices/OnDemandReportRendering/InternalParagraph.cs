@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalParagraph : Paragraph
+	public sealed class InternalParagraph : Paragraph
 	{
 		private ReportSizeProperty m_leftIndent;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.Paragraph m_paragraphDef;
 
-		internal override IStyleContainer StyleContainer
+		public override IStyleContainer StyleContainer
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Paragraph ParagraphDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Paragraph ParagraphDef
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalParagraph(TextBox textBox, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Paragraph paragraph, RenderingContext renderingContext)
+		public InternalParagraph(TextBox textBox, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Paragraph paragraph, RenderingContext renderingContext)
 			: base(textBox, indexIntoParentCollectionDef, renderingContext)
 		{
 			this.m_paragraphDef = paragraph;

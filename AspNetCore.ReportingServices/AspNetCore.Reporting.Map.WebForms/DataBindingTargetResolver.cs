@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DataBindingTargetResolver
+	public class DataBindingTargetResolver
 	{
 		private StringCollection fieldNames = new StringCollection();
 

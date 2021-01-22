@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal class NativeXEMethods
+	public class NativeXEMethods
 	{
 		private const string ReportingServiceExe = "ReportingServicesService.exe";
         /*

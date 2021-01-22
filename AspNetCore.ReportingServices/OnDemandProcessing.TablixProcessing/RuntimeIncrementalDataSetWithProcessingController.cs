@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal abstract class RuntimeIncrementalDataSetWithProcessingController : RuntimeIncrementalDataSet
+	public abstract class RuntimeIncrementalDataSetWithProcessingController : RuntimeIncrementalDataSet
 	{
 		protected DataProcessingController m_dataProcessingController;
 
-		internal IOnDemandScopeInstance GroupTreeRoot
+		public IOnDemandScopeInstance GroupTreeRoot
 		{
 			get
 			{

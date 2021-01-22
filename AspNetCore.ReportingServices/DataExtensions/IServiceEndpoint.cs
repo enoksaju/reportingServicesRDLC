@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal interface IServiceEndpoint
+	public interface IServiceEndpoint
 	{
 		string Host
 		{

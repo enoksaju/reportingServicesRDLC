@@ -8,7 +8,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ProcessingMessage : IPersistable
+	public sealed class ProcessingMessage : IPersistable
 	{
 		private ProcessingErrorCode m_code;
 
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ProcessingMessage(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, string message, ProcessingMessageList innerMessages)
+		public ProcessingMessage(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, string message, ProcessingMessageList innerMessages)
 		{
 			this.m_code = code;
 			this.m_commonCode = ErrorCode.rsProcessingError;
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_processingMessages = innerMessages;
 		}
 
-		internal ProcessingMessage(ErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, string message, ProcessingMessageList innerMessages)
+		public ProcessingMessage(ErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, string message, ProcessingMessageList innerMessages)
 		{
 			this.m_code = ProcessingErrorCode.rsNone;
 			this.m_commonCode = code;
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_processingMessages = innerMessages;
 		}
 
-		internal ProcessingMessage()
+		public ProcessingMessage()
 		{
 		}
 
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return string.Format(CultureInfo.CurrentCulture, "{0} ({1}.{2}) : {3} [{4}]", (this.m_severity == Severity.Warning) ? "Warning" : "Error", this.m_objectName, this.m_propertyName, this.m_message, this.m_code);
 		}
 
-		internal static AspNetCore.ReportingServices.ReportProcessing.Persistence.Declaration GetDeclaration()
+		public static AspNetCore.ReportingServices.ReportProcessing.Persistence.Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new AspNetCore.ReportingServices.ReportProcessing.Persistence.MemberInfo(AspNetCore.ReportingServices.ReportProcessing.Persistence.MemberName.Code, AspNetCore.ReportingServices.ReportProcessing.Persistence.Token.Enum));
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new AspNetCore.ReportingServices.ReportProcessing.Persistence.Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.None, memberInfoList);
 		}
 
-		internal static AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Declaration GetNewDeclaration()
+		public static AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Declaration GetNewDeclaration()
 		{
 			List<AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberInfo> list = new List<AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberInfo>();
 			list.Add(new AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberName.Code, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Token.Enum));

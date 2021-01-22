@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartThreeDProperties : ReportObject
+	public class ChartThreeDProperties : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartThreeDProperties, Definition.Properties>
+		public class Definition : DefinitionStore<ChartThreeDProperties, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Enabled,
 				ProjectionMode,
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartThreeDProperties(IPropertyStore propertyStore)
+		public ChartThreeDProperties(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

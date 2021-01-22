@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class RuntimeAtomicDataSet : RuntimeDataSet, IRowConsumer
+	public abstract class RuntimeAtomicDataSet : RuntimeDataSet, IRowConsumer
 	{
 		private int[] m_iRowConsumerMappingDataSetFieldIndexesToDataChunk;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 		{
 		}
 
-		internal void ProcessConcurrent(object threadSet)
+		public void ProcessConcurrent(object threadSet)
 		{
 			Global.Tracer.Assert(base.m_dataSet.Name != null, "The name of a data set cannot be null.");
 			try

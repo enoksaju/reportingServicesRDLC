@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<ParamExprHost> m_parameterHostsRemotable;
 
-		internal IList<ParamExprHost> ParameterHostsRemotable
+		public IList<ParamExprHost> ParameterHostsRemotable
 		{
 			get
 			{

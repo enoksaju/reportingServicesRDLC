@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartGridLines : ChartStyleContainer, IPersistable
+	public sealed class ChartGridLines : ChartStyleContainer, IPersistable
 	{
 		private ExpressionInfo m_enabled;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ChartGridLines.GetDeclaration();
 
-		internal ExpressionInfo Enabled
+		public ExpressionInfo Enabled
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Interval
+		public ExpressionInfo Interval
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalType
+		public ExpressionInfo IntervalType
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffset
+		public ExpressionInfo IntervalOffset
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffsetType
+		public ExpressionInfo IntervalOffsetType
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartGridLinesExprHost ExprHost
+		public ChartGridLinesExprHost ExprHost
 		{
 			get
 			{
@@ -97,16 +97,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartGridLines()
+		public ChartGridLines()
 		{
 		}
 
-		internal ChartGridLines(Chart chart)
+		public ChartGridLines(Chart chart)
 			: base(chart)
 		{
 		}
 
-		internal void Initialize(InitializationContext context, bool isMajor)
+		public void Initialize(InitializationContext context, bool isMajor)
 		{
 			context.ExprHostBuilder.ChartGridLinesStart(isMajor);
 			base.Initialize(context);
@@ -138,13 +138,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartGridLinesEnd(isMajor);
 		}
 
-		internal void SetExprHost(ChartGridLinesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartGridLinesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = exprHost;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartGridLines chartGridLines = (ChartGridLines)base.PublishClone(context);
 			if (this.m_enabled != null)
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartGridLines;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Enabled, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -251,31 +251,31 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GridLines;
 		}
 
-		internal ChartAutoBool EvaluateEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartAutoBool EvaluateEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartAutoBool(context.ReportRuntime.EvaluateChartGridLinesEnabledExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateInterval(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public double EvaluateInterval(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartGridLinesIntervalExpression(this, base.m_chart.Name, "Interval");
 		}
 
-		internal ChartIntervalType EvaluateIntervalType(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateIntervalType(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartGridLinesIntervalTypeExpression(this, base.m_chart.Name, "IntervalType"), context.ReportRuntime);
 		}
 
-		internal double EvaluateIntervalOffset(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public double EvaluateIntervalOffset(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartGridLinesIntervalOffsetExpression(this, base.m_chart.Name, "IntervalOffset");
 		}
 
-		internal ChartIntervalType EvaluateIntervalOffsetType(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateIntervalOffsetType(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartGridLinesIntervalOffsetTypeExpression(this, base.m_chart.Name, "IntervalOffsetType"), context.ReportRuntime);

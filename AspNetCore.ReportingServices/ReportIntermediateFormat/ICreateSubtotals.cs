@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportPublishing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface ICreateSubtotals
+	public interface ICreateSubtotals
 	{
 		void CreateAutomaticSubtotals(AutomaticSubtotalContext context);
 	}

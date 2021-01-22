@@ -2,15 +2,15 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapGraphState
+	public class MapGraphState
 	{
-		internal GraphicsState state;
+		public GraphicsState state;
 
-		internal int width;
+		public int width;
 
-		internal int height;
+		public int height;
 
-		internal MapGraphState(GraphicsState state, int width, int height)
+		public MapGraphState(GraphicsState state, int width, int height)
 		{
 			this.state = state;
 			this.width = width;

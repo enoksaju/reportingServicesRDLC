@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeCalloutAnnotation_CalloutAnnotation")]
-	internal class CalloutAnnotation : TextAnnotation
+	public class CalloutAnnotation : TextAnnotation
 	{
 		private LineAnchorCap calloutAnchorCap = LineAnchorCap.Arrow;
 
@@ -242,7 +242,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
-		internal override SelectionPointsStyle SelectionPointsStyle
+		public override SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.anchorAlignment = ContentAlignment.BottomLeft;
 		}
 
-		internal override RectangleF GetTextSpacing(out bool annotationRelative)
+		public override RectangleF GetTextSpacing(out bool annotationRelative)
 		{
 			RectangleF result = base.GetTextSpacing(out annotationRelative);
 			if (this.calloutStyle == CalloutStyle.Cloud || this.calloutStyle == CalloutStyle.Ellipse)
@@ -273,7 +273,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal override void Paint(Chart chart, ChartGraphics graphics)
+		public override void Paint(Chart chart, ChartGraphics graphics)
 		{
 			this.Chart = chart;
 			PointF empty = PointF.Empty;
@@ -823,7 +823,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal override bool IsAnchorDrawn()
+		public override bool IsAnchorDrawn()
 		{
 			return true;
 		}
@@ -912,7 +912,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal static PointF GetIntersectionY(PointF firstPoint, PointF secondPoint, float pointY)
+		public static PointF GetIntersectionY(PointF firstPoint, PointF secondPoint, float pointY)
 		{
 			PointF result = default(PointF);
 			result.Y = pointY;
@@ -920,7 +920,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal static PointF GetIntersectionX(PointF firstPoint, PointF secondPoint, float pointX)
+		public static PointF GetIntersectionX(PointF firstPoint, PointF secondPoint, float pointX)
 		{
 			PointF result = default(PointF);
 			result.X = pointX;

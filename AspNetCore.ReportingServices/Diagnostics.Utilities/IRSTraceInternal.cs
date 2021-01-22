@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal interface IRSTraceInternal
+	public interface IRSTraceInternal
 	{
 		string CurrentTraceFilePath
 		{

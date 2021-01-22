@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ProcessingStreamHandler : IDisposable
+	public sealed class ProcessingStreamHandler : IDisposable
 	{
 		private bool m_allowOnlyTemporaryStreams;
 

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimDataMember : DataMember, IShimDataRegionMember
+	public sealed class ShimDataMember : DataMember, IShimDataRegionMember
 	{
 		private bool m_isColumn;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private AspNetCore.ReportingServices.ReportRendering.DataMemberCollection m_renderMembers;
 
-		internal override string UniqueName
+		public override string UniqueName
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.DataMember MemberDefinition
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.DataMember MemberDefinition
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScopeInstance ReportScopeInstance
+		public override IReportScopeInstance ReportScopeInstance
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int DefinitionStartIndex
+		public int DefinitionStartIndex
 		{
 			get
 			{
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int DefinitionEndIndex
+		public int DefinitionEndIndex
 		{
 			get
 			{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.DataMember CurrentRenderDataMember
+		public AspNetCore.ReportingServices.ReportRendering.DataMember CurrentRenderDataMember
 		{
 			get
 			{
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimDataMember(IDefinitionPath parentDefinitionPath, CustomReportItem owner, ShimDataMember parent, int parentCollectionIndex, bool isColumn, bool isStatic, AspNetCore.ReportingServices.ReportRendering.DataMemberCollection renderMembers, int staticIndex)
+		public ShimDataMember(IDefinitionPath parentDefinitionPath, CustomReportItem owner, ShimDataMember parent, int parentCollectionIndex, bool isColumn, bool isStatic, AspNetCore.ReportingServices.ReportRendering.DataMemberCollection renderMembers, int staticIndex)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex)
 		{
 			this.m_definitionStartIndex = owner.GetCurrentMemberCellDefinitionIndex();
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_definitionEndIndex = owner.GetCurrentMemberCellDefinitionIndex();
 		}
 
-		internal bool SetNewContext(int index)
+		public bool SetNewContext(int index)
 		{
 			base.ResetContext();
 			if (base.m_instance != null)
@@ -250,12 +250,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal override void ResetContext()
+		public override void ResetContext()
 		{
 			this.ResetContext(null);
 		}
 
-		internal void ResetContext(AspNetCore.ReportingServices.ReportRendering.DataMemberCollection renderMembers)
+		public void ResetContext(AspNetCore.ReportingServices.ReportRendering.DataMemberCollection renderMembers)
 		{
 			if (renderMembers != null)
 			{

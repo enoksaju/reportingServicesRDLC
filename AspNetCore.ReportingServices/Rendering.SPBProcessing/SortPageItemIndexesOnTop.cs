@@ -2,11 +2,11 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class SortPageItemIndexesOnTop : IComparer
+	public class SortPageItemIndexesOnTop : IComparer
 	{
 		private PageItem[] m_children;
 
-		internal SortPageItemIndexesOnTop(PageItem[] children)
+		public SortPageItemIndexesOnTop(PageItem[] children)
 		{
 			this.m_children = children;
 		}

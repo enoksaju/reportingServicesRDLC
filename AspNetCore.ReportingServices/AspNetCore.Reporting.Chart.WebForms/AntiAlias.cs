@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum AntiAlias
+	public enum AntiAlias
 	{
 		On,
 		Off

@@ -11,7 +11,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer
 {
-	internal sealed class WordOpenXmlWriter : IWordWriter, IDisposable
+	public sealed class WordOpenXmlWriter : IWordWriter, IDisposable
 	{
 		public delegate Stream CreateXmlStream(string name);
 

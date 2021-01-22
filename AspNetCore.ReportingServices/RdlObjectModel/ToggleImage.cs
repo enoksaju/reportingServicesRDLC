@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ToggleImage : ReportObject
+	public class ToggleImage : ReportObject
 	{
-		internal class Definition : DefinitionStore<ToggleImage, Definition.Properties>
+		public class Definition : DefinitionStore<ToggleImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				InitialState
 			}
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ToggleImage(IPropertyStore propertyStore)
+		public ToggleImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

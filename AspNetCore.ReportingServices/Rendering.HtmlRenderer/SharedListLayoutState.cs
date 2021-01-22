@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal enum SharedListLayoutState
+	public enum SharedListLayoutState
 	{
 		None,
 		Start,

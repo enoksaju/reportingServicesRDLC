@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal interface ITextBoxProps
+	public interface ITextBoxProps
 	{
 		RPLFormat.WritingModes WritingMode
 		{

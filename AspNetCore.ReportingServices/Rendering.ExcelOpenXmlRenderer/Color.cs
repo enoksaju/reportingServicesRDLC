@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Color : IColor
+	public sealed class Color : IColor
 	{
 		private readonly ColorModel mModel;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal ColorModel Model
+		public ColorModel Model
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal Color(ColorModel model)
+		public Color(ColorModel model)
 		{
 			this.mModel = model;
 		}

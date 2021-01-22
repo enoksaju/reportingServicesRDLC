@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PageSectionInstance : ReportElementInstance
+	public sealed class PageSectionInstance : ReportElementInstance
 	{
 		public string UniqueName
 		{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PageSection PageSectionDefinition
+		public PageSection PageSectionDefinition
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PageSectionInstance(PageSection pageSectionDef)
+		public PageSectionInstance(PageSection pageSectionDef)
 			: base(pageSectionDef)
 		{
 		}

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Interfaces;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal static class ScalabilityUtils
+	public static class ScalabilityUtils
 	{
 		public static IScalabilityCache CreateCacheForTransientAllocations(CreateAndRegisterStream createStreamCallback, string streamNamePrefix, IScalabilityObjectCreator objectCreator, IReferenceCreator referenceCreator, ComponentType componentType, int minReservedMemoryMB)
 		{

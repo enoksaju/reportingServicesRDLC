@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class StyleEnumerator : IEnumerator
+	public sealed class StyleEnumerator : IEnumerator
 	{
 		private StyleProperties m_sharedProperties;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal StyleEnumerator(StyleProperties sharedProps, StyleProperties nonSharedProps)
+		public StyleEnumerator(StyleProperties sharedProps, StyleProperties nonSharedProps)
 		{
 			this.m_sharedProperties = sharedProps;
 			this.m_nonSharedProperties = nonSharedProps;

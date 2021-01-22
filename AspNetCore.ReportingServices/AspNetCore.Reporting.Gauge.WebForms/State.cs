@@ -6,7 +6,7 @@ using System.Drawing.Design;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(StateConverter))]
-	internal class State : Range
+	public class State : Range
 	{
 		private Font font = new Font("Microsoft Sans Serif", 8.25f);
 
@@ -87,7 +87,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[SRDescription("DescriptionAttributeState_TriggerDelay")]
 		[SRCategory("CategoryBehavior")]
 		[DefaultValue(0.0)]
-		internal double TriggerDelay
+		public double TriggerDelay
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[SRDescription("DescriptionAttributeState_TriggerDelayType")]
 		[DefaultValue(PeriodType.Seconds)]
 		[SRCategory("CategoryBehavior")]
-		internal PeriodType TriggerDelayType
+		public PeriodType TriggerDelayType
 		{
 			get
 			{
@@ -364,14 +364,14 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.Name;
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			StateIndicator stateIndicator = (StateIndicator)this.ParentElement;
 			((IValueConsumer)stateIndicator.Data).Refresh();
 			base.OnAdded();
 		}
 
-		internal override void OnValueRangeTimeOut(object sender, ValueRangeEventArgs e)
+		public override void OnValueRangeTimeOut(object sender, ValueRangeEventArgs e)
 		{
 			base.OnValueRangeTimeOut(sender, e);
 			StateIndicator stateIndicator = (StateIndicator)this.ParentElement;

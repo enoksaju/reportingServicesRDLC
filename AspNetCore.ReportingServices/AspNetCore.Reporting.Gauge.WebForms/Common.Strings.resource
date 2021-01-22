@@ -265,7 +265,7 @@
     <value>Can't deserialize property. Unknown property name "{0}" in object "{1}"</value>
   </data>
   <data name="gdi_noninitialized" xml:space="preserve">
-    <value>Internal error. GDI engine is not initialized.</value>
+    <value>public error. GDI engine is not initialized.</value>
   </data>
   <data name="calculated_value_provider_error" xml:space="preserve">
     <value>CalculatedValue.BaseValueName: Cannot locate value provider with name "{0} "</value>
@@ -325,7 +325,7 @@
     <value>The argument must be greater than {0}.</value>
   </data>
   <data name="generate_name_failed" xml:space="preserve">
-    <value>Internal exception : Generating unique name failed.</value>
+    <value>public exception : Generating unique name failed.</value>
   </data>
   <data name="xaml_brush_not_supported_error" xml:space="preserve">
     <value>The brush {0} is not supported.</value>
@@ -349,7 +349,7 @@
     <value>The digits property value cannot be less than zero.</value>
   </data>
   <data name="invalid_marker_type" xml:space="preserve">
-    <value>Internal error. Invalid marker type specified.</value>
+    <value>public error. Invalid marker type specified.</value>
   </data>
   <data name="list_out_of_range_error" xml:space="preserve">
     <value>List index is out of range</value>
@@ -394,7 +394,7 @@
     <value>The width must be set in pixels.</value>
   </data>
   <data name="invalid_placement_type" xml:space="preserve">
-    <value>Internal error. Invalid placement type specified.</value>
+    <value>public error. Invalid placement type specified.</value>
   </data>
   <data name="map_period_type_argument_error" xml:space="preserve">
     <value>MapToPeriodType: argument DurationType cannot be Infinity or Count.</value>

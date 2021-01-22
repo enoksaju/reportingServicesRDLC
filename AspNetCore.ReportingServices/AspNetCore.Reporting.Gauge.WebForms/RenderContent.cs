@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum RenderContent
+	public enum RenderContent
 	{
 		All,
 		Static,

@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class RdlSerializerSettings
+	public class RdlSerializerSettings
 	{
 		private ISerializerHost m_serializerHost;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 
 		private bool m_ignoreWhitespace;
 
-		internal ISerializerHost Host
+		public ISerializerHost Host
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			}
 		}
 
-		internal XmlAttributeOverrides XmlAttributeOverrides
+		public XmlAttributeOverrides XmlAttributeOverrides
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			}
 		}
 
-		internal XmlSchema XmlSchema
+		public XmlSchema XmlSchema
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			}
 		}
 
-		internal bool ValidateXml
+		public bool ValidateXml
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			}
 		}
 
-		internal ValidationEventHandler XmlValidationEventHandler
+		public ValidationEventHandler XmlValidationEventHandler
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			}
 		}
 
-		internal bool IgnoreWhitespace
+		public bool IgnoreWhitespace
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 			}
 		}
 
-		internal bool Normalize
+		public bool Normalize
 		{
 			get
 			{

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal class SPGregorianCalendar : ISPCalendar
+	public class SPGregorianCalendar : ISPCalendar
 	{
 		public virtual bool IsSupportedYear(int year)
 		{

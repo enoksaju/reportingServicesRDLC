@@ -3,13 +3,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DrillthroughInfo
+	public sealed class DrillthroughInfo
 	{
 		private string m_reportName;
 
 		private DrillthroughParameters m_reportParameters;
 
-		internal string ReportName
+		public string ReportName
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DrillthroughParameters ReportParameters
+		public DrillthroughParameters ReportParameters
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DrillthroughInfo(string reportName, DrillthroughParameters parameters)
+		public DrillthroughInfo(string reportName, DrillthroughParameters parameters)
 		{
 			this.m_reportName = reportName;
 			this.m_reportParameters = parameters;

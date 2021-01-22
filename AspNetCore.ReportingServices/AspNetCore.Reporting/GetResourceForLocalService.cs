@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class GetResourceForLocalService : IGetResource
+	public sealed class GetResourceForLocalService : IGetResource
 	{
 		private ILocalCatalog m_catalog;
 

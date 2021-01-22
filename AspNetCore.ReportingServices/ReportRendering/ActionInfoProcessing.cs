@@ -2,22 +2,22 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ActionInfoProcessing : MemberBase
+	public sealed class ActionInfoProcessing : MemberBase
 	{
-		internal ActionStyle m_style;
+		public ActionStyle m_style;
 
-		internal ActionCollection m_actionCollection;
+		public ActionCollection m_actionCollection;
 
-		internal DataValueInstanceList m_sharedStyles;
+		public DataValueInstanceList m_sharedStyles;
 
-		internal DataValueInstanceList m_nonSharedStyles;
+		public DataValueInstanceList m_nonSharedStyles;
 
-		internal ActionInfoProcessing()
+		public ActionInfoProcessing()
 			: base(true)
 		{
 		}
 
-		internal ActionInfoProcessing DeepClone()
+		public ActionInfoProcessing DeepClone()
 		{
 			Global.Tracer.Assert(this.m_sharedStyles == null && null == this.m_nonSharedStyles);
 			ActionInfoProcessing actionInfoProcessing = new ActionInfoProcessing();

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Diagnostics.Utilities;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal sealed class DataSourceFaultContext
+	public sealed class DataSourceFaultContext
 	{
 		public readonly ErrorCode m_errorCode;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal DataSourceFaultContext(ErrorCode errorCode, string errorString)
+		public DataSourceFaultContext(ErrorCode errorCode, string errorString)
 		{
 			this.m_errorCode = errorCode;
 			this.m_errorString = errorString;

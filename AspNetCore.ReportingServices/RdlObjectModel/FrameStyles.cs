@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum FrameStyles
+	public enum FrameStyles
 	{
 		None,
 		Simple,

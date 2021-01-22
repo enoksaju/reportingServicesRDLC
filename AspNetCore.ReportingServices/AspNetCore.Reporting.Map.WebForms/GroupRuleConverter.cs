@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class GroupRuleConverter : CollectionItemTypeConverter
+	public class GroupRuleConverter : CollectionItemTypeConverter
 	{
 		public GroupRuleConverter()
 		{

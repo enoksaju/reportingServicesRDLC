@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class GaugePanel : DynamicImage
+	public sealed class GaugePanel : DynamicImage
 	{
 		protected override PaginationInfoItems PaginationInfoEnum
 		{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal GaugePanel(AspNetCore.ReportingServices.OnDemandReportRendering.GaugePanel source, PageContext pageContext, bool createForRepeat)
+		public GaugePanel(AspNetCore.ReportingServices.OnDemandReportRendering.GaugePanel source, PageContext pageContext, bool createForRepeat)
 			: base(source, pageContext, createForRepeat)
 		{
 		}

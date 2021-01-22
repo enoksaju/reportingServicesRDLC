@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal enum InteractivityPostBackMode
+	public enum InteractivityPostBackMode
 	{
 		AlwaysAsynchronous,
 		AlwaysSynchronous,

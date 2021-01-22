@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class StringLengthReversedComparer : IComparer
+	public class StringLengthReversedComparer : IComparer
 	{
 		int IComparer.Compare(object x, object y)
 		{

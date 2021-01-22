@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal class EqualityComparers
+	public class EqualityComparers
 	{
 		private class ObjectTypeEqualityComparer : IEqualityComparer<ObjectType>
 		{
-			internal ObjectTypeEqualityComparer()
+			public ObjectTypeEqualityComparer()
 			{
 			}
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 
 		private class StringEqualityComparer : IEqualityComparer<string>
 		{
-			internal StringEqualityComparer()
+			public StringEqualityComparer()
 			{
 			}
 
@@ -39,9 +39,9 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal class Int32EqualityComparer : IEqualityComparer<int>, IComparer<int>
+		public class Int32EqualityComparer : IEqualityComparer<int>, IComparer<int>
 		{
-			internal Int32EqualityComparer()
+			public Int32EqualityComparer()
 			{
 			}
 
@@ -61,9 +61,9 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal class ReversedInt32EqualityComparer : IEqualityComparer<int>, IComparer<int>
+		public class ReversedInt32EqualityComparer : IEqualityComparer<int>, IComparer<int>
 		{
-			internal ReversedInt32EqualityComparer()
+			public ReversedInt32EqualityComparer()
 			{
 			}
 
@@ -83,9 +83,9 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal class Int64EqualityComparer : IEqualityComparer<long>, IComparer<long>
+		public class Int64EqualityComparer : IEqualityComparer<long>, IComparer<long>
 		{
-			internal Int64EqualityComparer()
+			public Int64EqualityComparer()
 			{
 			}
 
@@ -113,14 +113,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal static readonly IEqualityComparer<ObjectType> ObjectTypeComparerInstance = new ObjectTypeEqualityComparer();
+		public static readonly IEqualityComparer<ObjectType> ObjectTypeComparerInstance = new ObjectTypeEqualityComparer();
 
-		internal static readonly Int32EqualityComparer Int32ComparerInstance = new Int32EqualityComparer();
+		public static readonly Int32EqualityComparer Int32ComparerInstance = new Int32EqualityComparer();
 
-		internal static readonly ReversedInt32EqualityComparer ReversedInt32ComparerInstance = new ReversedInt32EqualityComparer();
+		public static readonly ReversedInt32EqualityComparer ReversedInt32ComparerInstance = new ReversedInt32EqualityComparer();
 
-		internal static readonly Int64EqualityComparer Int64ComparerInstance = new Int64EqualityComparer();
+		public static readonly Int64EqualityComparer Int64ComparerInstance = new Int64EqualityComparer();
 
-		internal static readonly IEqualityComparer<string> StringComparerInstance = new StringEqualityComparer();
+		public static readonly IEqualityComparer<string> StringComparerInstance = new StringEqualityComparer();
 	}
 }

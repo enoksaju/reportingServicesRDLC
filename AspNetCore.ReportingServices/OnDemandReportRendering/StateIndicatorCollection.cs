@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class StateIndicatorCollection : GaugePanelObjectCollectionBase<StateIndicator>
+	public sealed class StateIndicatorCollection : GaugePanelObjectCollectionBase<StateIndicator>
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StateIndicatorCollection(GaugePanel gaugePanel)
+		public StateIndicatorCollection(GaugePanel gaugePanel)
 		{
 			this.m_gaugePanel = gaugePanel;
 		}

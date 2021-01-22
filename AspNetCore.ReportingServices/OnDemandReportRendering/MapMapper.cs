@@ -14,17 +14,17 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class MapMapper : MapperBase, IMapMapper, IDVMappingLayer, IDisposable
+	public class MapMapper : MapperBase, IMapMapper, IDVMappingLayer, IDisposable
 	{
 		private class BoundsRectCalculator
 		{
 			private bool hasValue;
 
-			internal AspNetCore.Reporting.Map.WebForms.MapPoint Min;
+			public AspNetCore.Reporting.Map.WebForms.MapPoint Min;
 
-			internal AspNetCore.Reporting.Map.WebForms.MapPoint Max;
+			public AspNetCore.Reporting.Map.WebForms.MapPoint Max;
 
-			internal AspNetCore.Reporting.Map.WebForms.MapPoint Center
+			public AspNetCore.Reporting.Map.WebForms.MapPoint Center
 			{
 				get
 				{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 				}
 			}
 
-			internal void AddSpatialElement(ISpatialElement spatialElement)
+			public void AddSpatialElement(ISpatialElement spatialElement)
 			{
 				if (!this.hasValue)
 				{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private Formatter m_formatter;
 
-		internal int RemainingSpatialElementCount
+		public int RemainingSpatialElementCount
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int RemainingTotalPointCount
+		public int RemainingTotalPointCount
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool CanAddSpatialElement
+		public bool CanAddSpatialElement
 		{
 			get
 			{
@@ -277,7 +277,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return actionInfoWithDynamicImageMap;
 		}
 
-		internal IEnumerable<MappingHelper.MapAreaInfo> GetMapAreaInfoList()
+		public IEnumerable<MappingHelper.MapAreaInfo> GetMapAreaInfoList()
 		{
 			this.m_coreMap.mapCore.PopulateImageMaps();
 			float width = (float)this.m_coreMap.Width;
@@ -784,7 +784,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void AddSpatialElementToView(ISpatialElement spatialElement)
+		public void AddSpatialElementToView(ISpatialElement spatialElement)
 		{
 			if (this.m_boundRectCalculator == null)
 			{
@@ -1986,7 +1986,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static MarkerStyle GetMarkerStyle(MapMarkerStyle mapMarkerStyle)
+		public static MarkerStyle GetMarkerStyle(MapMarkerStyle mapMarkerStyle)
 		{
 			switch (mapMarkerStyle)
 			{
@@ -2013,7 +2013,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static MapMarkerStyle GetMarkerStyle(MapMarker mapMarker, bool hasScope)
+		public static MapMarkerStyle GetMarkerStyle(MapMarker mapMarker, bool hasScope)
 		{
 			if (mapMarker != null)
 			{
@@ -2033,7 +2033,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapMarkerStyle.None;
 		}
 
-		internal static GradientType GetGradientType(Style style, StyleInstance styleInstance)
+		public static GradientType GetGradientType(Style style, StyleInstance styleInstance)
 		{
 			switch (MappingHelper.GetStyleBackGradientType(style, styleInstance))
 			{
@@ -2056,7 +2056,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static MapHatchStyle GetHatchStyle(Style style, StyleInstance styleInstance)
+		public static MapHatchStyle GetHatchStyle(Style style, StyleInstance styleInstance)
 		{
 			switch (MappingHelper.GetStyleBackgroundHatchType(style, styleInstance))
 			{
@@ -2173,12 +2173,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal static int GetValidShadowOffset(int shadowOffset)
+		public static int GetValidShadowOffset(int shadowOffset)
 		{
 			return Math.Min(shadowOffset, 100);
 		}
 
-		internal static MapDashStyle GetDashStyle(Border border, bool hasScope, bool isLine)
+		public static MapDashStyle GetDashStyle(Border border, bool hasScope, bool isLine)
 		{
 			BorderStyles borderStyle = (!MappingHelper.IsPropertyExpression(border.Style) || hasScope) ? MappingHelper.GetStyleBorderStyle(border) : BorderStyles.Default;
 			return MapMapper.GetDashStyle(borderStyle, isLine);
@@ -2210,7 +2210,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string AddImage(MapMarkerImage mapMarkerImage)
+		public string AddImage(MapMarkerImage mapMarkerImage)
 		{
 			byte[] imageData = mapMarkerImage.Instance.ImageData;
 			if (imageData == null)
@@ -2228,7 +2228,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return text;
 		}
 
-		internal ResizeMode GetImageResizeMode(MapMarkerImage mapMarkerImage)
+		public ResizeMode GetImageResizeMode(MapMarkerImage mapMarkerImage)
 		{
 			ReportEnumProperty<MapResizeMode> resizeMode = mapMarkerImage.ResizeMode;
 			if (resizeMode != null)
@@ -2251,7 +2251,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ResizeMode.AutoFit;
 		}
 
-		internal Color GetImageTransColor(MapMarkerImage image)
+		public Color GetImageTransColor(MapMarkerImage image)
 		{
 			ReportColorProperty transparentColor = image.TransparentColor;
 			Color result = Color.Empty;
@@ -2266,7 +2266,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal void RenderActionInfo(ActionInfo actionInfo, string toolTip, IImageMapProvider imageMapProvider, string layerName, bool hasScope)
+		public void RenderActionInfo(ActionInfo actionInfo, string toolTip, IImageMapProvider imageMapProvider, string layerName, bool hasScope)
 		{
 			if (actionInfo == null && string.IsNullOrEmpty(toolTip))
 			{
@@ -2290,7 +2290,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void OnSpatialElementAdded(SpatialElementInfo spatialElementInfo)
+		public void OnSpatialElementAdded(SpatialElementInfo spatialElementInfo)
 		{
 			this.DecrementRemainingSpatialElementCount();
 			if (spatialElementInfo.CoreSpatialElement.Points != null)
@@ -2345,7 +2345,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return 0.0;
 		}
 
-		internal void Simplify(Shape shape)
+		public void Simplify(Shape shape)
 		{
 			if (this.Simplifier != null)
 			{
@@ -2353,7 +2353,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void Simplify(AspNetCore.Reporting.Map.WebForms.Path path)
+		public void Simplify(AspNetCore.Reporting.Map.WebForms.Path path)
 		{
 			if (this.Simplifier != null)
 			{

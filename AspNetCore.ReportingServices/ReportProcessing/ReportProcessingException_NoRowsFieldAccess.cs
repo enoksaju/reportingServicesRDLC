@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_NoRowsFieldAccess : Exception
+	public sealed class ReportProcessingException_NoRowsFieldAccess : Exception
 	{
-		internal ReportProcessingException_NoRowsFieldAccess()
+		public ReportProcessingException_NoRowsFieldAccess()
 			: base(string.Format(CultureInfo.CurrentCulture, RPRes.rsNoRowsFieldAccess))
 		{
 		}

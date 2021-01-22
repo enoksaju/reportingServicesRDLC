@@ -6,11 +6,11 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeLegendCollection_LegendCollection")]
-	internal class LegendCollection : IList, ICollection, IEnumerable
+	public class LegendCollection : IList, ICollection, IEnumerable
 	{
 		private ArrayList array = new ArrayList();
 
-		internal CommonElements common;
+		public CommonElements common;
 
 		[SRDescription("DescriptionAttributeLegendCollection_Item")]
 		public Legend this[object parameter]
@@ -340,7 +340,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal void CalcLegendPosition(ChartGraphics chartGraph, ref RectangleF chartAreasRectangle, float maxLegendSize, float elementSpacing)
+		public void CalcLegendPosition(ChartGraphics chartGraph, ref RectangleF chartAreasRectangle, float maxLegendSize, float elementSpacing)
 		{
 			foreach (Legend item in this.array)
 			{
@@ -351,7 +351,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void CalcOutsideLegendPosition(ChartGraphics chartGraph, ChartArea area, ref RectangleF chartAreasRectangle, float maxLegendSize, float elementSpacing)
+		public void CalcOutsideLegendPosition(ChartGraphics chartGraph, ChartArea area, ref RectangleF chartAreasRectangle, float maxLegendSize, float elementSpacing)
 		{
 			if (this.common != null && this.common.ChartPicture != null)
 			{
@@ -411,7 +411,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void CalcInsideLegendPosition(ChartGraphics chartGraph, float maxLegendSize, float elementSpacing)
+		public void CalcInsideLegendPosition(ChartGraphics chartGraph, float maxLegendSize, float elementSpacing)
 		{
 			if (this.common != null && this.common.ChartPicture != null)
 			{

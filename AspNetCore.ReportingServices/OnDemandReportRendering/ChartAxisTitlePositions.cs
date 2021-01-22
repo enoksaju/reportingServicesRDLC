@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartAxisTitlePositions
+	public enum ChartAxisTitlePositions
 	{
 		Center,
 		Near,

@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartDataPoint : Cell, IPersistable, IActionOwner, IStyleContainer, ICustomPropertiesHolder
+	public sealed class ChartDataPoint : Cell, IPersistable, IActionOwner, IStyleContainer, ICustomPropertiesHolder
 	{
 		private ChartDataPointValues m_dataPointValues;
 
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataPointValues DataPointValues
+		public ChartDataPointValues DataPointValues
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataLabel DataLabel
+		public ChartDataLabel DataLabel
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataValueList CustomProperties
+		public DataValueList CustomProperties
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataPointExprHost ExprHost
+		public ChartDataPointExprHost ExprHost
 		{
 			get
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMarker Marker
+		public ChartMarker Marker
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AxisLabel
+		public ExpressionInfo AxisLabel
 		{
 			get
 			{
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartItemInLegend ItemInLegend
+		public ChartItemInLegend ItemInLegend
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -272,16 +272,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataPoint()
+		public ChartDataPoint()
 		{
 		}
 
-		internal ChartDataPoint(int id, Chart chart)
+		public ChartDataPoint(int id, Chart chart)
 			: base(id, chart)
 		{
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartDataPoint chartDataPoint = (ChartDataPoint)base.PublishClone(context);
 			if (this.m_action != null)
@@ -328,7 +328,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartDataPoint;
 		}
 
-		internal override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
+		public override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
 		{
 			AspNetCore.ReportingServices.RdlExpressions.ExprHostBuilder exprHostBuilder = context.ExprHostBuilder;
 			if (this.m_dataPointValues != null)
@@ -374,7 +374,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.DataRendererInitialize(context);
 		}
 
-		internal void DataRendererInitialize(InitializationContext context)
+		public void DataRendererInitialize(InitializationContext context)
 		{
 			if (this.m_dataElementOutput == DataElementOutputTypes.Auto)
 			{
@@ -383,7 +383,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			AspNetCore.ReportingServices.ReportPublishing.CLSNameValidator.ValidateDataElementName(ref this.m_dataElementName, "Value", context.ObjectType, context.ObjectName, "DataElementName", context.ErrorContext);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataLabel, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartDataLabel));
@@ -400,13 +400,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartDataPoint, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Cell, list);
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateAxisLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateAxisLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartDataPointAxisLabelExpression(this, base.m_dataRegionDef.Name);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateChartDataPointToolTipExpression(this, base.m_dataRegionDef.Name);
@@ -528,7 +528,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartDataPoint;
 		}
 
-		internal void SetExprHost(ChartDataPointExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartDataPointExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			this.m_exprHost = exprHost;

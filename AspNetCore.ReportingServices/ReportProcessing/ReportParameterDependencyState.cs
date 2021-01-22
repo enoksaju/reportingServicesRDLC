@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum ReportParameterDependencyState
+	public enum ReportParameterDependencyState
 	{
 		AllDependenciesSpecified,
 		HasOutstandingDependencies,

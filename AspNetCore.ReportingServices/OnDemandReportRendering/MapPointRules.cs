@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPointRules
+	public sealed class MapPointRules
 	{
 		private Map m_map;
 
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapPointRules MapMarkerRulesDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapPointRules MapMarkerRulesDef
 		{
 			get
 			{
@@ -101,14 +101,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapPointRules(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPointRules defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapPointRules(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPointRules defObject, MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_mapVectorLayer = mapVectorLayer;
 			this.m_map = map;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

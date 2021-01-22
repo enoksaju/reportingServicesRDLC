@@ -2,12 +2,12 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class ToggleItemInfo
+	public class ToggleItemInfo
 	{
-		internal TextBox Textbox;
+		public TextBox Textbox;
 
-		internal string GroupName;
+		public string GroupName;
 
-		internal Hashtable GroupingSet;
+		public Hashtable GroupingSet;
 	}
 }

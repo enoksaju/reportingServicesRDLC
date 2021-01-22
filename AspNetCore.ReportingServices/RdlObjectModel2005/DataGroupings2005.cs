@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class DataGroupings2005 : DataHierarchy
+	public class DataGroupings2005 : DataHierarchy
 	{
 		[XmlElement(typeof(RdlCollection<DataMember>))]
 		[XmlArrayItem("DataGrouping", typeof(DataGrouping2005))]
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel2005
 		{
 		}
 
-		internal DataGroupings2005(IPropertyStore propertyStore)
+		public DataGroupings2005(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

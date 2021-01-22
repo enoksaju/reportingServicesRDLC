@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum BarStart
+	public enum BarStart
 	{
 		Zero,
 		ScaleStart

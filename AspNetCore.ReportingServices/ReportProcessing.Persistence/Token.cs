@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 {
-	internal enum Token : byte
+	public enum Token : byte
 	{
 		Null,
 		Object,

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartCellAlignment
+	public enum ChartCellAlignment
 	{
 		Center,
 		Top,

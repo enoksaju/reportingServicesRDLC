@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum SwatchLabelType
+	public enum SwatchLabelType
 	{
 		Auto,
 		ShowMiddleValue,

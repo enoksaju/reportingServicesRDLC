@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class LinearPointerInstance : GaugePointerInstance
+	public sealed class LinearPointerInstance : GaugePointerInstance
 	{
 		private LinearPointer m_defObject;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal LinearPointerInstance(LinearPointer defObject)
+		public LinearPointerInstance(LinearPointer defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

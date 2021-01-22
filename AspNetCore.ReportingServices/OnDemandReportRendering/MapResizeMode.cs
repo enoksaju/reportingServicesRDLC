@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapResizeMode
+	public enum MapResizeMode
 	{
 		AutoFit,
 		None

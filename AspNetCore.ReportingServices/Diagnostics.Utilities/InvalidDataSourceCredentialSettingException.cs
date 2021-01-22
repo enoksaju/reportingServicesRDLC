@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InvalidDataSourceCredentialSettingException : ReportCatalogException
+	public sealed class InvalidDataSourceCredentialSettingException : ReportCatalogException
 	{
 		public InvalidDataSourceCredentialSettingException()
 			: base(ErrorCode.rsInvalidDataSourceCredentialSetting, ErrorStrings.rsInvalidDataSourceCredentialSetting, null, null)

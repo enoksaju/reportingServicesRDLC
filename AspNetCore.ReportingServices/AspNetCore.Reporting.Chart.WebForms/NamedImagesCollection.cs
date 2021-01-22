@@ -5,11 +5,11 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class NamedImagesCollection : IList, ICollection, IEnumerable
+	public class NamedImagesCollection : IList, ICollection, IEnumerable
 	{
 		private ArrayList array = new ArrayList();
 
-		internal Chart chart;
+		public Chart chart;
 
 		[SRDescription("DescriptionAttributeNamedImagesCollection_Item")]
 		public NamedImage this[object parameter]
@@ -119,7 +119,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal NamedImagesCollection(Chart chart)
+		public NamedImagesCollection(Chart chart)
 		{
 			this.chart = chart;
 		}

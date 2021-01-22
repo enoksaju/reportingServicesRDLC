@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class GradientEditor : UITypeEditor
+	public class GradientEditor : UITypeEditor
 	{
 		private MapGraphics mapGraph;
 

@@ -2,11 +2,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class EmbeddedImage : ReportObject, INamedObject
+	public class EmbeddedImage : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<EmbeddedImage, Definition.Properties>
+		public class Definition : DefinitionStore<EmbeddedImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				MIMEType,
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal EmbeddedImage(IPropertyStore propertyStore)
+		public EmbeddedImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

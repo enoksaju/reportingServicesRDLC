@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<TablixCellExprHost> CornerCellHostsRemotable
+		public IList<TablixCellExprHost> CornerCellHostsRemotable
 		{
 			get
 			{

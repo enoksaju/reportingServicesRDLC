@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ValueA
+	public class ValueA
 	{
 		private float startValue;
 

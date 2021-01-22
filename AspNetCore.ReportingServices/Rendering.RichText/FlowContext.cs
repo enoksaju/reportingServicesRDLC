@@ -1,46 +1,46 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class FlowContext
+	public class FlowContext
 	{
-		internal float Width;
+		public float Width;
 
-		internal float Height;
+		public float Height;
 
-		internal float ContentOffset;
+		public float ContentOffset;
 
-		internal bool WordTrim = true;
+		public bool WordTrim = true;
 
-		internal bool LineLimit = true;
+		public bool LineLimit = true;
 
-		internal float OmittedLineHeight;
+		public float OmittedLineHeight;
 
-		internal bool AtEndOfTextBox;
+		public bool AtEndOfTextBox;
 
-		internal TextBoxContext Context = new TextBoxContext();
+		public TextBoxContext Context = new TextBoxContext();
 
-		internal TextBoxContext ClipContext;
+		public TextBoxContext ClipContext;
 
-		internal bool Updatable;
+		public bool Updatable;
 
-		internal bool VerticalCanGrow;
+		public bool VerticalCanGrow;
 
-		internal bool ForcedCharTrim;
+		public bool ForcedCharTrim;
 
-		internal bool CharTrimLastLine = true;
+		public bool CharTrimLastLine = true;
 
-		internal int CharTrimmedRunWidth;
+		public int CharTrimmedRunWidth;
 
 		private FlowContext()
 		{
 		}
 
-		internal FlowContext(float width, float height)
+		public FlowContext(float width, float height)
 		{
 			this.Width = width;
 			this.Height = height;
 		}
 
-		internal FlowContext(float width, float height, int paragraphIndex, int runIndex, int runCharIndex)
+		public FlowContext(float width, float height, int paragraphIndex, int runIndex, int runCharIndex)
 		{
 			this.Width = width;
 			this.Height = height;
@@ -49,20 +49,20 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.Context.TextRunCharacterIndex = runCharIndex;
 		}
 
-		internal FlowContext(float width, float height, bool wordTrim, bool lineLimit)
+		public FlowContext(float width, float height, bool wordTrim, bool lineLimit)
 			: this(width, height)
 		{
 			this.WordTrim = wordTrim;
 			this.LineLimit = lineLimit;
 		}
 
-		internal FlowContext(float width, float height, TextBoxContext context)
+		public FlowContext(float width, float height, TextBoxContext context)
 			: this(width, height)
 		{
 			this.Context = context;
 		}
 
-		internal FlowContext Clone()
+		public FlowContext Clone()
 		{
 			FlowContext flowContext = (FlowContext)base.MemberwiseClone();
 			flowContext.Context = this.Context.Clone();
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return flowContext;
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.Context.Reset();
 			this.ClipContext = null;

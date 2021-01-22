@@ -3,7 +3,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(GroupDataBindingRuleConverter))]
-	internal class GroupDataBindingRule : DataBindingRuleBase
+	public class GroupDataBindingRule : DataBindingRuleBase
 	{
 		[SRCategory("CategoryAttribute_Data")]
 		[SRDescription("DescriptionAttributeGroupDataBindingRule_BindingField")]
@@ -24,12 +24,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal GroupDataBindingRule(CommonElements common)
+		public GroupDataBindingRule(CommonElements common)
 			: base(common)
 		{
 		}
 
-		internal override void DataBind()
+		public override void DataBind()
 		{
 			if (this.Common != null)
 			{

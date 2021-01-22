@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal sealed class CategoryNode
+	public sealed class CategoryNode
 	{
-		internal sealed class Values
+		public sealed class Values
 		{
 			public double Value
 			{

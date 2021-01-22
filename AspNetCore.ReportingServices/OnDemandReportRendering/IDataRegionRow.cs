@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IDataRegionRow
+	public interface IDataRegionRow
 	{
 		int Count
 		{

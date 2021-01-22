@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class GaugePanelObjectCollectionBase<T> : IEnumerable<T>, IEnumerable where T : GaugePanelObjectCollectionItem
+	public abstract class GaugePanelObjectCollectionBase<T> : IEnumerable<T>, IEnumerable where T : GaugePanelObjectCollectionItem
 	{
 		private T[] m_collection;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetEnumerator();
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_collection != null)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IROMStyleDefinitionContainer
+	public interface IROMStyleDefinitionContainer
 	{
 		Style Style
 		{

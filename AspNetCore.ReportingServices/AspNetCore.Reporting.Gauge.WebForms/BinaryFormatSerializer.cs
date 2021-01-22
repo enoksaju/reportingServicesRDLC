@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class BinaryFormatSerializer : SerializerBase
+	public class BinaryFormatSerializer : SerializerBase
 	{
 		private CaseInsensitiveHashCodeProvider hashCodeProvider = new CaseInsensitiveHashCodeProvider(CultureInfo.InvariantCulture);
 

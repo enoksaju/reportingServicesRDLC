@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal sealed class ReportItemInfo
+	public sealed class ReportItemInfo
 	{
 		private object m_rplSource;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 
 		private bool m_isHidden;
 
-		internal object RPLSource
+		public object RPLSource
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal int Top
+		public int Top
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal int Left
+		public int Left
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal int Right
+		public int Right
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal RPLTextBoxProps Values
+		public RPLTextBoxProps Values
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal int AlignmentPoint
+		public int AlignmentPoint
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal bool IsHidden
+		public bool IsHidden
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal Dictionary<string, ToggleParent> ToggleParents
+		public Dictionary<string, ToggleParent> ToggleParents
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal ReportItemInfo(object aRplSource, int aTop, int aLeft, int aRight, bool aIsHidden, Dictionary<string, ToggleParent> aToggleParents)
+		public ReportItemInfo(object aRplSource, int aTop, int aLeft, int aRight, bool aIsHidden, Dictionary<string, ToggleParent> aToggleParents)
 		{
 			this.m_rplSource = aRplSource;
 			this.m_top = aTop;
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			this.m_toggleParents = aToggleParents;
 		}
 
-		internal static int CompareTopsThenLefts(ReportItemInfo aLeft, ReportItemInfo aRight)
+		public static int CompareTopsThenLefts(ReportItemInfo aLeft, ReportItemInfo aRight)
 		{
 			int num = aLeft.Top.CompareTo(aRight.Top);
 			if (num == 0)

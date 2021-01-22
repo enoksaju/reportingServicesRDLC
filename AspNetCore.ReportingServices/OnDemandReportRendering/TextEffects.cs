@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum TextEffects
+	public enum TextEffects
 	{
 		Default,
 		None,

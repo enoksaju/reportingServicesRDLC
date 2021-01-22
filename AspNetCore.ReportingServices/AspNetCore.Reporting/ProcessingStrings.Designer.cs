@@ -22,21 +22,21 @@ namespace AspNetCore.Reporting.Designer {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ProcessingStrings {
+    public class ProcessingStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ProcessingStrings() {
+        public ProcessingStrings() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AspNetCore.Reporting.ProcessingStrings", typeof(ProcessingStrings).Assembly);
@@ -51,7 +51,7 @@ namespace AspNetCore.Reporting.Designer {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report execution in the current AppDomain requires Code Access Security policy, which is off by default in .NET 4.0 and later.  Enable legacy CAS policy or execute the report in the sandbox AppDomain..
         /// </summary>
-        internal static string CasPolicyUnavailableForCurrentAppDomain {
+        public static string CasPolicyUnavailableForCurrentAppDomain {
             get {
                 return ResourceManager.GetString("CasPolicyUnavailableForCurrentAppDomain", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Data Set Processing Extension.
         /// </summary>
-        internal static string DataSetExtensionName {
+        public static string DataSetExtensionName {
             get {
                 return ResourceManager.GetString("DataSetExtensionName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Main Report.
         /// </summary>
-        internal static string MainReport {
+        public static string MainReport {
             get {
                 return ResourceManager.GetString("MainReport", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Valid values are {0} to {1}..
         /// </summary>
-        internal static string MapTileServerConfiguration_MaxConnectionsOutOfRange {
+        public static string MapTileServerConfiguration_MaxConnectionsOutOfRange {
             get {
                 return ResourceManager.GetString("MapTileServerConfiguration_MaxConnectionsOutOfRange", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Valid values are {0} to {1}..
         /// </summary>
-        internal static string MapTileServerConfiguration_TimeoutOutOfRange {
+        public static string MapTileServerConfiguration_TimeoutOutOfRange {
             get {
                 return ResourceManager.GetString("MapTileServerConfiguration_TimeoutOutOfRange", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A data source instance has not been supplied for the data source &quot;{0}&quot;..
         /// </summary>
-        internal static string MissingDataReader {
+        public static string MissingDataReader {
             get {
                 return ResourceManager.GetString("MissingDataReader", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report definition for report &apos;{0}&apos; has not been specified.
         /// </summary>
-        internal static string MissingDefinition {
+        public static string MissingDefinition {
             get {
                 return ResourceManager.GetString("MissingDefinition", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The definition of the report &apos;{0}&apos; is invalid..
         /// </summary>
-        internal static string pvInvalidDefinition {
+        public static string pvInvalidDefinition {
             get {
                 return ResourceManager.GetString("pvInvalidDefinition", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to RdlCompile: Could not open file &quot;{0}&quot;. {1}.
         /// </summary>
-        internal static string RdlCompile_CouldNotOpenFile {
+        public static string RdlCompile_CouldNotOpenFile {
             get {
                 return ResourceManager.GetString("RdlCompile_CouldNotOpenFile", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to RdlCompile: Could not write state file &quot;{0}&quot;. {1}.
         /// </summary>
-        internal static string RdlCompile_CouldNotWriteStateFile {
+        public static string RdlCompile_CouldNotWriteStateFile {
             get {
                 return ResourceManager.GetString("RdlCompile_CouldNotWriteStateFile", resourceCulture);
             }

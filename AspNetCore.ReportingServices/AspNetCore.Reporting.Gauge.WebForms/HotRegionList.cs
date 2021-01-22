@@ -5,11 +5,11 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class HotRegionList : GaugeObject
+	public class HotRegionList : GaugeObject
 	{
 		private ArrayList list = new ArrayList();
 
-		internal ArrayList List
+		public ArrayList List
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal int LocateObject(object selectedObject)
+		public int LocateObject(object selectedObject)
 		{
 			for (int i = 0; i < this.list.Count; i++)
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			hotRegion.BuildMatrices(this.Common.Graph);
 		}
 
-		internal HotRegion[] CheckHotRegions(int x, int y, Type[] objectTypes)
+		public HotRegion[] CheckHotRegions(int x, int y, Type[] objectTypes)
 		{
 			ArrayList arrayList = new ArrayList();
 			for (int num = this.list.Count - 1; num >= 0; num--)
@@ -110,7 +110,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return null;
 		}
 
-		internal bool IsOfType(Type[] objectTypes, object obj)
+		public bool IsOfType(Type[] objectTypes, object obj)
 		{
 			if (objectTypes.Length == 0)
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return false;
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			foreach (HotRegion item in this.list)
 			{

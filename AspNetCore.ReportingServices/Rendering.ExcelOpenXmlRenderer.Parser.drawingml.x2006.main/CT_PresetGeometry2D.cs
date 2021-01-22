@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class CT_PresetGeometry2D : OoxmlComplexType
+	public class CT_PresetGeometry2D : OoxmlComplexType
 	{
 		private ST_ShapeType _prst_attr;
 

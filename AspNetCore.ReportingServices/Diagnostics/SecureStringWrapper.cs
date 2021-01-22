@@ -5,7 +5,7 @@ using System.Security;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class SecureStringWrapper : IDisposable
+	public sealed class SecureStringWrapper : IDisposable
 	{
 		private SecureString m_secStr;
 
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return SecureStringWrapper.GetDecryptedString(this.m_secStr);
 		}
 
-		internal SecureString GetUnderlyingSecureString()
+		public SecureString GetUnderlyingSecureString()
 		{
 			return this.m_secStr;
 		}

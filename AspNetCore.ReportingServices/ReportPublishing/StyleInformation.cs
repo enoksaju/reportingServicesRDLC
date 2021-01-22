@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class StyleInformation
+	public sealed class StyleInformation
 	{
-		internal sealed class StyleInformationAttribute
+		public sealed class StyleInformationAttribute
 		{
 			public string Name;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private static bool[,] AllowStyleAttributeByType;
 
-		internal List<StyleInformationAttribute> Attributes
+		public List<StyleInformationAttribute> Attributes
 		{
 			get
 			{
@@ -1131,12 +1131,12 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			StyleInformation.StyleNameIndexes.Add("CurrencyLanguage", 51);
 		}
 
-		internal void AddAttribute(string name, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void AddAttribute(string name, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.AddAttribute(name, expression, ValueType.Constant);
 		}
 
-		internal void AddAttribute(string name, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression, ValueType valueType)
+		public void AddAttribute(string name, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression, ValueType valueType)
 		{
 			Global.Tracer.Assert(null != name);
 			Global.Tracer.Assert(null != expression);
@@ -1148,19 +1148,19 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			});
 		}
 
-		internal void RemoveAttribute(string name)
+		public void RemoveAttribute(string name)
 		{
 			Global.Tracer.Assert(null != name);
 			this.m_attributes.RemoveAll((StyleInformationAttribute a) => a.Name == name);
 		}
 
-		internal StyleInformationAttribute GetAttributeByName(string name)
+		public StyleInformationAttribute GetAttributeByName(string name)
 		{
 			Global.Tracer.Assert(null != name);
 			return this.m_attributes.SingleOrDefault((StyleInformationAttribute a) => a.Name == name);
 		}
 
-		internal void Filter(StyleOwnerType ownerType, bool hasNoRows)
+		public void Filter(StyleOwnerType ownerType, bool hasNoRows)
 		{
 			int ownerType2 = this.MapStyleOwnerTypeToIndex(ownerType, hasNoRows);
 			for (int num = this.m_attributes.Count - 1; num >= 0; num--)
@@ -1172,7 +1172,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal void FilterChartLegendTitleStyle()
+		public void FilterChartLegendTitleStyle()
 		{
 			int ownerType = this.MapStyleOwnerTypeToIndex(StyleOwnerType.Chart, false);
 			for (int num = this.m_attributes.Count - 1; num >= 0; num--)
@@ -1185,7 +1185,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal void FilterChartStripLineStyle()
+		public void FilterChartStripLineStyle()
 		{
 			int ownerType = this.MapStyleOwnerTypeToIndex(StyleOwnerType.Chart, false);
 			for (int num = this.m_attributes.Count - 1; num >= 0; num--)
@@ -1198,7 +1198,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal void FilterChartSeriesStyle()
+		public void FilterChartSeriesStyle()
 		{
 			this.MapStyleOwnerTypeToIndex(StyleOwnerType.Chart, false);
 			for (int num = this.m_attributes.Count - 1; num >= 0; num--)
@@ -1211,7 +1211,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal void FilterGaugeLabelStyle()
+		public void FilterGaugeLabelStyle()
 		{
 			int ownerType = this.MapStyleOwnerTypeToIndex(StyleOwnerType.GaugePanel, false);
 			for (int num = this.m_attributes.Count - 1; num >= 0; num--)
@@ -1224,7 +1224,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal void FilterMapTitleStyle()
+		public void FilterMapTitleStyle()
 		{
 			int ownerType = this.MapStyleOwnerTypeToIndex(StyleOwnerType.Map, false);
 			for (int num = this.m_attributes.Count - 1; num >= 0; num--)
@@ -1237,7 +1237,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal void FilterMapLegendTitleStyle()
+		public void FilterMapLegendTitleStyle()
 		{
 			int ownerType = this.MapStyleOwnerTypeToIndex(StyleOwnerType.Map, false);
 			for (int num = this.m_attributes.Count - 1; num >= 0; num--)

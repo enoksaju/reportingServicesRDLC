@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlTableCellModel
+	public sealed class OpenXmlTableCellModel
 	{
 		private enum BorderOverride : byte
 		{
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			UseTableBorder
 		}
 
-		internal interface ICellContent
+		public interface ICellContent
 		{
 			void Write(TextWriter writer);
 		}

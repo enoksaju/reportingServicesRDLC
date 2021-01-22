@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartThreeDPropertiesInstance : BaseInstance
+	public sealed class ChartThreeDPropertiesInstance : BaseInstance
 	{
 		private ChartThreeDProperties m_chartThreeDPropertiesDef;
 
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartThreeDPropertiesInstance(ChartThreeDProperties chartThreeDPropertiesDef)
+		public ChartThreeDPropertiesInstance(ChartThreeDProperties chartThreeDPropertiesDef)
 			: base(chartThreeDPropertiesDef.ChartDef)
 		{
 			this.m_chartThreeDPropertiesDef = chartThreeDPropertiesDef;

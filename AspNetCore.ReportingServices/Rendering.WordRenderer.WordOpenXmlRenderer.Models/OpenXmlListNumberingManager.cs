@@ -3,11 +3,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlListNumberingManager
+	public sealed class OpenXmlListNumberingManager
 	{
 		private int _numberedListCount;
 
-		internal OpenXmlListNumberingManager()
+		public OpenXmlListNumberingManager()
 		{
 			this._numberedListCount = 0;
 		}
@@ -72,14 +72,14 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return cT_AbstractNum;
 		}
 
-		internal int RegisterNewNumberedList()
+		public int RegisterNewNumberedList()
 		{
 			int result = 2 + this._numberedListCount;
 			this._numberedListCount++;
 			return result;
 		}
 
-		internal NumberingPart CreateNumberingPart()
+		public NumberingPart CreateNumberingPart()
 		{
 			CT_AbstractNum cT_AbstractNum = new CT_AbstractNum();
 			cT_AbstractNum.AbstractNumId_Attr = 0;

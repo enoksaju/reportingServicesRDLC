@@ -12,7 +12,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class RuntimeDataSource
+	public abstract class RuntimeDataSource
 	{
 		protected readonly OnDemandProcessingContext m_odpContext;
 
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		protected bool m_useConcurrentDataSetProcessing;
 
-		internal DataProcessingMetrics ExecutionMetrics
+		public DataProcessingMetrics ExecutionMetrics
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal abstract bool NoRows
+		public abstract bool NoRows
 		{
 			get;
 		}
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			Global.Tracer.Assert(this.m_dataSource.Name != null, "The name of a data source cannot be null.");
 		}
 
-		internal virtual void Abort()
+		public virtual void Abort()
 		{
 			if (Global.Tracer.TraceVerbose)
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void EraseDataChunk()
+		public void EraseDataChunk()
 		{
 			Global.Tracer.Assert(this.CreatesDataChunks, "EraseDataChunk is invalid for the current RuntimeDataSource implementation.");
 			if (this.m_runtimeDataSets != null)
@@ -226,12 +226,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_connection = null;
 		}
 
-		internal void RecordTimeDataRetrieval()
+		public void RecordTimeDataRetrieval()
 		{
 			this.m_odpContext.ExecutionLogContext.AddDataProcessingTime(this.m_executionMetrics.TotalDuration);
 		}
 
-		internal static DataSourceInfo GetDataSourceInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, OnDemandProcessingContext processingContext)
+		public static DataSourceInfo GetDataSourceInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, OnDemandProcessingContext processingContext)
 		{
 			if (processingContext.CreateAndSetupDataExtensionFunction.MustResolveSharedDataSources)
 			{
@@ -399,7 +399,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		protected abstract List<RuntimeDataSet> CreateRuntimeDataSets();
 
-        internal static IDbConnection OpenConnection(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSourceObj, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetObj, OnDemandProcessingContext pc, DataProcessingMetrics metrics)
+        public static IDbConnection OpenConnection(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSourceObj, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetObj, OnDemandProcessingContext pc, DataProcessingMetrics metrics)
         {
             IDbConnection dbConnection = null;
             try
@@ -437,7 +437,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
             }
         }
 
-		internal static void CloseConnection(IDbConnection connection, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, OnDemandProcessingContext odpContext, DataProcessingMetrics executionMetrics)
+		public static void CloseConnection(IDbConnection connection, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, OnDemandProcessingContext odpContext, DataProcessingMetrics executionMetrics)
 		{
 			try
 			{

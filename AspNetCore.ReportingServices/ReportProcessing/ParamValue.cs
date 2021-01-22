@@ -3,9 +3,9 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ParamValue
+	public sealed class ParamValue
 	{
-		internal const string _ParameterValue = "ParameterValue";
+		public const string _ParameterValue = "ParameterValue";
 
 		private const string _Name = "Name";
 
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			throw new InvalidXmlException();
 		}
 
-		internal void ToXml(XmlTextWriter writer, bool outputFieldElements)
+		public void ToXml(XmlTextWriter writer, bool outputFieldElements)
 		{
 			writer.WriteStartElement("ParameterValue");
 			writer.WriteElementString("Name", this.Name);
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			writer.WriteEndElement();
 		}
 
-		internal void ToOldParameterXml(XmlTextWriter writer)
+		public void ToOldParameterXml(XmlTextWriter writer)
 		{
 			writer.WriteStartElement("Parameter");
 			writer.WriteElementString("Name", this.Name);

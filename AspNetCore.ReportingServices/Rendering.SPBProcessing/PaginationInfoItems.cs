@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal enum PaginationInfoItems : byte
+	public enum PaginationInfoItems : byte
 	{
 		Unknown,
 		PageItem,

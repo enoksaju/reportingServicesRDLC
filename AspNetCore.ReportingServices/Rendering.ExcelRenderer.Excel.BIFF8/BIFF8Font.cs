@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class BIFF8Font : ICloneable, IFont
+	public sealed class BIFF8Font : ICloneable, IFont
 	{
 		private const short GRBIT_fItalic = 2;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private string m_fontName = "Arial";
 
-		internal byte[] RecordData
+		public byte[] RecordData
 		{
 			get
 			{
@@ -160,12 +160,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal BIFF8Font()
+		public BIFF8Font()
 		{
 			Array.Copy(BIFF8Font.DEFAULT_DATA, this.m_data, 14);
 		}
 
-		internal BIFF8Font(StyleProperties props)
+		public BIFF8Font(StyleProperties props)
 			: this()
 		{
 			this.Bold = props.Bold;

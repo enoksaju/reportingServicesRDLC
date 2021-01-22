@@ -6,7 +6,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableDetail : IDOwner, IRunningValueHolder
+	public sealed class TableDetail : IDOwner, IRunningValueHolder
 	{
 		private TableRowList m_detailRows;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_startHidden;
 
-		internal TableRowList DetailRows
+		public TableRowList DetailRows
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Sorting Sorting
+		public Sorting Sorting
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Visibility Visibility
+		public Visibility Visibility
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasExprHost
+		public bool HasExprHost
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SimpleDetailRows
+		public bool SimpleDetailRows
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroupExprHost ExprHost
+		public TableGroupExprHost ExprHost
 		{
 			get
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -118,17 +118,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableDetail()
+		public TableDetail()
 		{
 		}
 
-		internal TableDetail(int id)
+		public TableDetail(int id)
 			: base(id)
 		{
 			this.m_runningValues = new RunningValueInfoList();
 		}
 
-		internal void Initialize(int numberOfColumns, InitializationContext context, ref double tableHeight, bool[] tableColumnVisibility)
+		public void Initialize(int numberOfColumns, InitializationContext context, ref double tableHeight, bool[] tableColumnVisibility)
 		{
 			context.Location |= LocationFlags.InDetail;
 			context.DetailObjectType = ObjectType.Table;
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void RegisterReceiver(InitializationContext context)
+		public void RegisterReceiver(InitializationContext context)
 		{
 			if (this.m_detailRows != null)
 			{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(TableGroupExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(TableGroupExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null && this.m_hasExprHost);
 			this.m_exprHost = exprHost;
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.DetailRows, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.TableRowList));

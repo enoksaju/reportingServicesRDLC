@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class RangeChart : SplineChart
+	public class RangeChart : SplineChart
 	{
 		protected bool gradientFill;
 
@@ -962,7 +962,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal GraphicsPath Draw3DSplinePolygon(ChartGraphics graph, ChartArea area, float positionZ, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, DataPoint3D firstPoint, DataPoint3D secondPoint, DataPoint3D thirdPoint, DataPoint3D fourthPoint, ArrayList points, int pointIndex, float tension, DrawingOperationTypes operationType, LineSegmentType lineSegmentType, bool forceThinBorder)
+		public GraphicsPath Draw3DSplinePolygon(ChartGraphics graph, ChartArea area, float positionZ, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, DataPoint3D firstPoint, DataPoint3D secondPoint, DataPoint3D thirdPoint, DataPoint3D fourthPoint, ArrayList points, int pointIndex, float tension, DrawingOperationTypes operationType, LineSegmentType lineSegmentType, bool forceThinBorder)
 		{
 			if (tension == 0.0)
 			{

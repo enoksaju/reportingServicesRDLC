@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class RouteLeg
+	public class RouteLeg
 	{
 		[DataMember(Name = "travelDistance", EmitDefaultValue = false)]
 		public double TravelDistance

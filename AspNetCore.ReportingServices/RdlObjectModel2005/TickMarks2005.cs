@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal enum TickMarks2005
+	public enum TickMarks2005
 	{
 		None = 3,
 		Inside = 1,

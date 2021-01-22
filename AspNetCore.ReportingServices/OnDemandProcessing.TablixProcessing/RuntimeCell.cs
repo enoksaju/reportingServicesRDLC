@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeCell : IScope, ISelfReferential, IDataRowHolder, IOnDemandScopeInstance, IStorable, IPersistable
+	public abstract class RuntimeCell : IScope, ISelfReferential, IDataRowHolder, IOnDemandScopeInstance, IStorable, IPersistable
 	{
 		protected RuntimeDataTablixGroupLeafObjReference m_owner;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeCell.GetDeclaration();
 
-		internal int NextCell
+		public int NextCell
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeCellReference SelfReference
+		public RuntimeCellReference SelfReference
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		{
 		}
 
-		internal RuntimeCell(RuntimeDataTablixGroupLeafObjReference owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, bool innermost)
+		public RuntimeCell(RuntimeDataTablixGroupLeafObjReference owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, bool innermost)
 		{
 			this.m_owner = owner;
 			this.m_outerGroupDynamicIndex = outerGroupingMember.HierarchyDynamicIndex;
@@ -255,7 +255,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_scopeInstanceNumber = RuntimeDataRegionObj.AssignScopeInstanceNumber(this.GetCanonicalDataScopeInfo());
 		}
 
-		internal static void GetCellIndexes(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, out List<int> rowIndexes, out List<int> colIndexes)
+		public static void GetCellIndexes(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, out List<int> rowIndexes, out List<int> colIndexes)
 		{
 			if (innerGroupingMember.IsColumn)
 			{
@@ -269,7 +269,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static bool HasOnlySimpleGroupTreeCells(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef)
+		public static bool HasOnlySimpleGroupTreeCells(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef)
 		{
 			List<int> list = default(List<int>);
 			List<int> list2 = default(List<int>);
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		protected abstract void CreateInstanceCellContents(Cell cell, DataCellInstance cellInstance, OnDemandProcessingContext odpContext);
 
-		internal virtual bool NextRow()
+		public virtual bool NextRow()
 		{
 			OnDemandProcessingContext odpContext = this.m_owner.Value().OdpContext;
 			RuntimeDataRegionObj.CommonFirstRow(odpContext, ref this.m_firstRowIsAggregate, ref this.m_firstRow);
@@ -328,7 +328,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void SortAndFilter(AggregateUpdateContext aggContext)
+		public void SortAndFilter(AggregateUpdateContext aggContext)
 		{
 			this.SetupEnvironment();
 			AggregateUpdateQueue workQueue = RuntimeDataRegionObj.AggregateOfAggregatesStart(aggContext, this, this.GetCanonicalDataScopeInfo(), this.m_cellAggregatesOfAggregates, AggregateUpdateFlags.Both, false);
@@ -391,7 +391,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
+		public void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
 		{
 			OnDemandProcessingContext odpContext = this.m_owner.Value().OdpContext;
 			if (this.GetCanonicalDataScopeInfo() != null)
@@ -438,7 +438,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.DoneReadingRows();
 		}
 
-		internal void DoneReadingRows()
+		public void DoneReadingRows()
 		{
 			bool flag = this.m_runningValueValues != null;
 			bool flag2 = this.m_runningValueValues != null;
@@ -564,7 +564,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		public abstract IReference<IDataCorrelation> GetIdcReceiver(IRIFReportDataScope scope);
 
-		internal virtual void CreateInstance(IMemberHierarchy dataRegionOrRowMemberInstance, int columnMemberSequenceId)
+		public virtual void CreateInstance(IMemberHierarchy dataRegionOrRowMemberInstance, int columnMemberSequenceId)
 		{
 			this.SetupEnvironment();
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef = this.m_owner.Value().DataRegionDef;
@@ -1000,7 +1000,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RuntimeCell;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (RuntimeCell.m_declaration == null)
 			{

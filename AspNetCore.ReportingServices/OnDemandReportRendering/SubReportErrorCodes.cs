@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum SubReportErrorCodes
+	public enum SubReportErrorCodes
 	{
 		Success,
 		ProcessingError,

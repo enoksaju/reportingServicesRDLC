@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 
 		public ChartAxisScaleBreakExprHost AxisScaleBreakHost;
 
-		internal IList<DataValueExprHost> CustomPropertyHostsRemotable
+		public IList<DataValueExprHost> CustomPropertyHostsRemotable
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartStripLineExprHost> ChartStripLinesHostsRemotable
+		public IList<ChartStripLineExprHost> ChartStripLinesHostsRemotable
 		{
 			get
 			{

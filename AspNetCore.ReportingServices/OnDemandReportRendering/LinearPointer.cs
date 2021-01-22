@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class LinearPointer : GaugePointer
+	public sealed class LinearPointer : GaugePointer
 	{
 		private ReportEnumProperty<LinearPointerTypes> m_type;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.LinearPointer LinearPointerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.LinearPointer LinearPointerDef
 		{
 			get
 			{
@@ -48,14 +48,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal LinearPointer(AspNetCore.ReportingServices.ReportIntermediateFormat.LinearPointer defObject, GaugePanel gaugePanel)
+		public LinearPointer(AspNetCore.ReportingServices.ReportIntermediateFormat.LinearPointer defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override GaugePointerInstance GetInstance()
+		public override GaugePointerInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (GaugePointerInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

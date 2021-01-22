@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLegendTitle : IROMStyleDefinitionContainer
+	public sealed class MapLegendTitle : IROMStyleDefinitionContainer
 	{
 		private Map m_map;
 
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapLegendTitle MapLegendTitleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapLegendTitle MapLegendTitleDef
 		{
 			get
 			{
@@ -103,13 +103,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLegendTitle(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLegendTitle defObject, Map map)
+		public MapLegendTitle(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLegendTitle defObject, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_map = map;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

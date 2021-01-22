@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade
 {
-	internal class Upgrader
+	public class Upgrader
 	{
 		public static void Upgrade(string inputFile, string outputFile, bool throwUpgradeException)
 		{

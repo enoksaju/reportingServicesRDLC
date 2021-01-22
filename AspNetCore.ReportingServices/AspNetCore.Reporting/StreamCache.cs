@@ -7,7 +7,7 @@ using System.Text;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class StreamCache : IDisposable
+	public sealed class StreamCache : IDisposable
 	{
 		private CachedStream m_mainStream;
 

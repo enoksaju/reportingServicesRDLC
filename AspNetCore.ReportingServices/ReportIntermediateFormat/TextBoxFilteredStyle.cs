@@ -1,15 +1,15 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class TextBoxFilteredStyle : Style
+	public sealed class TextBoxFilteredStyle : Style
 	{
-		internal TextBoxFilteredStyle(Style style)
+		public TextBoxFilteredStyle(Style style)
 			: base(ConstructionPhase.Deserializing)
 		{
 			base.m_styleAttributes = style.StyleAttributes;
 			base.m_expressionList = style.ExpressionList;
 		}
 
-		internal override bool GetAttributeInfo(string styleAttributeName, out AttributeInfo styleAttribute)
+		public override bool GetAttributeInfo(string styleAttributeName, out AttributeInfo styleAttribute)
 		{
 			switch (styleAttributeName)
 			{

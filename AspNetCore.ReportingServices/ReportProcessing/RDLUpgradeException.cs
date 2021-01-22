@@ -5,14 +5,14 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class RDLUpgradeException : XmlException
+	public sealed class RDLUpgradeException : XmlException
 	{
-		internal RDLUpgradeException(string msg)
+		public RDLUpgradeException(string msg)
 			: base(msg)
 		{
 		}
 
-		internal RDLUpgradeException(string msg, Exception inner)
+		public RDLUpgradeException(string msg, Exception inner)
 			: base(msg, inner)
 		{
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal abstract class ComboElement : HtmlElement
+	public abstract class ComboElement : HtmlElement
 	{
 		private HtmlElement Element
 		{

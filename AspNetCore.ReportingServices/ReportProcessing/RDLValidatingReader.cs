@@ -6,11 +6,11 @@ using System.Xml.Schema;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class RDLValidatingReader : XmlValidatingReader
+	public class RDLValidatingReader : XmlValidatingReader
 	{
 		private sealed class RdlElementStack : ArrayList
 		{
-			internal new Hashtable this[int index]
+			public new Hashtable this[int index]
 			{
 				get
 				{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RdlElementStack()
+			public RdlElementStack()
 			{
 			}
 		}

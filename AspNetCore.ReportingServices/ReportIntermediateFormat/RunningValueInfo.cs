@@ -8,7 +8,7 @@ using System.Text;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class RunningValueInfo : DataAggregateInfo, IPersistable
+	public sealed class RunningValueInfo : DataAggregateInfo, IPersistable
 	{
 		private string m_scope;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = RunningValueInfo.GetDeclaration();
 
-		internal override bool MustCopyAggregateResult
+		public override bool MustCopyAggregateResult
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Scope
+		public string Scope
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int TotalGroupingExpressionCount
+		public int TotalGroupingExpressionCount
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsScopedInEvaluationScope
+		public bool IsScopedInEvaluationScope
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasDirectFieldReferences
+		public bool HasDirectFieldReferences
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override bool IsRunningValue()
+		public override bool IsRunningValue()
 		{
 			return true;
 		}
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return runningValueInfo;
 		}
 
-		internal DataAggregateInfo GetAsAggregate()
+		public DataAggregateInfo GetAsAggregate()
 		{
 			DataAggregateInfo dataAggregateInfo = null;
 			if (base.AggregateType != AggregateTypes.Previous)
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return dataAggregateInfo;
 		}
 
-		internal override string GetAsString()
+		public override string GetAsString()
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			switch (base.AggregateType)
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return stringBuilder.ToString();
 		}
 
-		internal void Initialize(InitializationContext context, string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void Initialize(InitializationContext context, string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			if (base.Expressions != null && base.Expressions.Length > 0)
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Scope, Token.String));

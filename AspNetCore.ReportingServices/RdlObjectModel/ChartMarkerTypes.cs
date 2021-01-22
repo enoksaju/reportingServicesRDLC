@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartMarkerTypes
+	public enum ChartMarkerTypes
 	{
 		None,
 		Square,

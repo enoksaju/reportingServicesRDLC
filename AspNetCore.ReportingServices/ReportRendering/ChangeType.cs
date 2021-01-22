@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal enum ChangeType
+	public enum ChangeType
 	{
 		None = 1,
 		Render,

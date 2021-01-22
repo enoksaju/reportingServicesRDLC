@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeMember : DataRegionMember
+	public sealed class GaugeMember : DataRegionMember
 	{
 		private GaugeMemberCollection m_children;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override string UniqueName
+		public override string UniqueName
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeMember MemberDefinition
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeMember MemberDefinition
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportHierarchyNode DataRegionMemberDefinition
+		public override ReportHierarchyNode DataRegionMemberDefinition
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScopeInstance ReportScopeInstance
+		public override IReportScopeInstance ReportScopeInstance
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel OwnerGaugePanel
+		public GaugePanel OwnerGaugePanel
 		{
 			get
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IDataRegionMemberCollection SubMembers
+		public override IDataRegionMemberCollection SubMembers
 		{
 			get
 			{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, GaugePanel owner, GaugeMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeMember memberDef)
+		public GaugeMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, GaugePanel owner, GaugeMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeMember memberDef)
 			: base(parentDefinitionPath, owner, parent, 0)
 		{
 			this.m_memberDef = memberDef;
@@ -211,17 +211,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			base.m_group = new Group(owner, this.m_memberDef, this);
 		}
 
-		internal GaugeMember(IDefinitionPath parentDefinitionPath, GaugePanel owner, GaugeMember parent)
+		public GaugeMember(IDefinitionPath parentDefinitionPath, GaugePanel owner, GaugeMember parent)
 			: base(parentDefinitionPath, owner, parent, 0)
 		{
 		}
 
-		internal override bool GetIsColumn()
+		public override bool GetIsColumn()
 		{
 			return this.IsColumn;
 		}
 
-		internal override void SetNewContext(bool fromMoveNext)
+		public override void SetNewContext(bool fromMoveNext)
 		{
 			if (!fromMoveNext && this.m_instance != null && !this.IsStatic)
 			{

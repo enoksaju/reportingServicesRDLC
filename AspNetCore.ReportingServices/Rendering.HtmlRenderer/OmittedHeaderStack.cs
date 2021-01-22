@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class OmittedHeaderStack : Stack<OmittedHeaderData>
+	public class OmittedHeaderStack : Stack<OmittedHeaderData>
 	{
 		public string GetHeaders(int column, int currentLevel, string idPrefix)
 		{

@@ -5,7 +5,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableRow : IDOwner
+	public sealed class TableRow : IDOwner
 	{
 		private ReportItemCollection m_reportItems;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private string[] m_renderingModelIDs;
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList IDs
+		public IntList IDs
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList ColSpans
+		public IntList ColSpans
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Height
+		public string Height
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double HeightValue
+		public double HeightValue
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Visibility Visibility
+		public Visibility Visibility
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string RenderingModelID
+		public string RenderingModelID
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportSize HeightForRendering
+		public ReportSize HeightForRendering
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string[] RenderingModelIDs
+		public string[] RenderingModelIDs
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -151,18 +151,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRow()
+		public TableRow()
 		{
 		}
 
-		internal TableRow(int id, int idForReportItems)
+		public TableRow(int id, int idForReportItems)
 			: base(id)
 		{
 			this.m_reportItems = new ReportItemCollection(idForReportItems, false);
 			this.m_colSpans = new IntList();
 		}
 
-		internal bool Initialize(bool registerRunningValues, int numberOfColumns, InitializationContext context, ref double tableHeight, bool[] tableColumnVisibility)
+		public bool Initialize(bool registerRunningValues, int numberOfColumns, InitializationContext context, ref double tableHeight, bool[] tableColumnVisibility)
 		{
 			int num = 0;
 			for (int i = 0; i < this.m_colSpans.Count; i++)
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal void RegisterReceiver(InitializationContext context)
+		public void RegisterReceiver(InitializationContext context)
 		{
 			if (this.m_visibility != null)
 			{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ReportItems, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemCollection));

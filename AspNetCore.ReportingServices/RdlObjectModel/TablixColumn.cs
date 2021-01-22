@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TablixColumn : ReportObject
+	public class TablixColumn : ReportObject
 	{
-		internal class Definition : DefinitionStore<TablixColumn, Definition.Properties>
+		public class Definition : DefinitionStore<TablixColumn, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Width
 			}
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TablixColumn(IPropertyStore propertyStore)
+		public TablixColumn(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

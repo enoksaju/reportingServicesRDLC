@@ -8,7 +8,7 @@ using System.Reflection;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal class PreviewItemContext : CatalogItemContextBase<string>
+	public class PreviewItemContext : CatalogItemContextBase<string>
 	{
 		private sealed class ControlRequestParameters : RSRequestParameters
 		{

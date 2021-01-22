@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class PageSectionInstance : ReportItemInstance, IIndexInto
+	public sealed class PageSectionInstance : ReportItemInstance, IIndexInto
 	{
 		private int m_pageNumber;
 
 		private ReportItemColInstance m_reportItemColInstance;
 
-		internal int PageNumber
+		public int PageNumber
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemColInstance ReportItemColInstance
+		public ReportItemColInstance ReportItemColInstance
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PageSectionInstance(ReportProcessing.ProcessingContext pc, int pageNumber, PageSection reportItemDef)
+		public PageSectionInstance(ReportProcessing.ProcessingContext pc, int pageNumber, PageSection reportItemDef)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new PageSectionInstanceInfo(pc, reportItemDef, this);
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_reportItemColInstance = new ReportItemColInstance(pc, reportItemDef.ReportItems);
 		}
 
-		internal PageSectionInstance()
+		public PageSectionInstance()
 		{
 		}
 
@@ -51,13 +51,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ((IIndexInto)this.m_reportItemColInstance).GetChildAt(index, out nonCompNames);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadPageSectionInstanceInfo((PageSection)base.m_reportItemDef);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.PageNumber, Token.Int32));

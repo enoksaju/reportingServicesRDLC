@@ -6,13 +6,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class HiddenPageItem : PageItem, IStorable, IPersistable
+	public class HiddenPageItem : PageItem, IStorable, IPersistable
 	{
 		private Dictionary<string, List<object>> m_textBoxValues;
 
 		private static Declaration m_declaration = HiddenPageItem.GetDeclaration();
 
-		internal override bool ContentOnPage
+		public override bool ContentOnPage
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override double OriginalLeft
+		public override double OriginalLeft
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override double OriginalWidth
+		public override double OriginalWidth
 		{
 			get
 			{
@@ -44,11 +44,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal HiddenPageItem()
+		public HiddenPageItem()
 		{
 		}
 
-		internal HiddenPageItem(double top, double left)
+		public HiddenPageItem(double top, double left)
 			: base(null)
 		{
 			base.m_itemPageSizes = new ItemSizes(left, top, 0.0, 0.0);
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			base.UnresolvedKTV = unresolvedKTV;
 		}
 
-		internal HiddenPageItem(ReportItem source, PageContext pageContext, bool checkHiddenState)
+		public HiddenPageItem(ReportItem source, PageContext pageContext, bool checkHiddenState)
 			: base(source)
 		{
 			base.m_itemPageSizes = new ItemSizes(source);
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void AddToCollection(HiddenPageItem hiddenItem)
+		public void AddToCollection(HiddenPageItem hiddenItem)
 		{
 			if (hiddenItem != null && hiddenItem.m_textBoxValues != null)
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void RegisterTextBoxes(RPLWriter rplWriter, PageContext pageContext)
+		public override void RegisterTextBoxes(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (rplWriter != null && this.m_textBoxValues != null && !pageContext.Common.InSubReport)
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.HiddenPageItem;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (HiddenPageItem.m_declaration == null)
 			{

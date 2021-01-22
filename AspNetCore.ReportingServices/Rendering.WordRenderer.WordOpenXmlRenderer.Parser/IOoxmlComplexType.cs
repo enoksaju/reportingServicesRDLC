@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser
 {
-	internal interface IOoxmlComplexType
+	public interface IOoxmlComplexType
 	{
 		void WriteAsRoot(TextWriter s, string tagName, Dictionary<string, string> namespaces);
 

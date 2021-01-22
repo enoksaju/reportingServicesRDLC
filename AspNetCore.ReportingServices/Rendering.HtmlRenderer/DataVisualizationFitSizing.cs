@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal enum DataVisualizationFitSizing
+	public enum DataVisualizationFitSizing
 	{
 		Exact,
 		Approximate

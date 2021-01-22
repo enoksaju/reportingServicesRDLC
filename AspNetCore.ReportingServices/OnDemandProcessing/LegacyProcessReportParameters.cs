@@ -8,29 +8,29 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class LegacyProcessReportParameters : ProcessReportParameters
+	public sealed class LegacyProcessReportParameters : ProcessReportParameters
 	{
 		private Report m_report;
 
 		private AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.RuntimeDataSourceNode m_runtimeDataSourceNode;
 
-		internal LegacyProcessReportParameters(Report aReport, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportProcessingContext aContext)
+		public LegacyProcessReportParameters(Report aReport, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportProcessingContext aContext)
 			: base(aContext)
 		{
 			this.m_report = aReport;
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportProcessingContext GetLegacyContext()
+		public AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportProcessingContext GetLegacyContext()
 		{
 			return (AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportProcessingContext)base.ProcessingContext;
 		}
 
-		internal override IParameterDef GetParameterDef(int aParamIndex)
+		public override IParameterDef GetParameterDef(int aParamIndex)
 		{
 			return this.m_report.Parameters[aParamIndex];
 		}
 
-		internal override void InitParametersContext(ParameterInfoCollection parameters)
+		public override void InitParametersContext(ParameterInfoCollection parameters)
 		{
 			int dataSourceCount = this.m_report.DataSourceCount;
 			AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportProcessingContext legacyContext = this.GetLegacyContext();
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void Cleanup()
+		public override void Cleanup()
 		{
 			AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportProcessingContext legacyContext = this.GetLegacyContext();
 			if (legacyContext.ReportRuntime != null)
@@ -60,13 +60,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void AddToRuntime(ParameterInfo aParamInfo)
+		public override void AddToRuntime(ParameterInfo aParamInfo)
 		{
 			ParameterImpl parameter = new ParameterImpl(aParamInfo.Values, aParamInfo.Labels, aParamInfo.MultiValue);
 			this.GetLegacyContext().ReportObjectModel.ParametersImpl.Add(aParamInfo.Name, parameter);
 		}
 
-		internal override void SetupExprHost(IParameterDef aParamDef)
+		public override void SetupExprHost(IParameterDef aParamDef)
 		{
 			AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ReportProcessingContext legacyContext = this.GetLegacyContext();
 			if (legacyContext.ReportRuntime.ReportExprHost != null)
@@ -75,13 +75,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override string EvaluatePromptExpr(ParameterInfo aParamInfo, IParameterDef aParamDef)
+		public override string EvaluatePromptExpr(ParameterInfo aParamInfo, IParameterDef aParamDef)
 		{
 			Global.Tracer.Assert(false);
 			return null;
 		}
 
-		internal override object EvaluateDefaultValueExpr(IParameterDef aParamDef, int aIndex)
+		public override object EvaluateDefaultValueExpr(IParameterDef aParamDef, int aIndex)
 		{
 			VariantResult variantResult = this.GetLegacyContext().ReportRuntime.EvaluateParamDefaultValue((ParameterDef)aParamDef, aIndex);
 			if (variantResult.ErrorOccurred)
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return variantResult.Value;
 		}
 
-		internal override object EvaluateValidValueExpr(IParameterDef aParamDef, int aIndex)
+		public override object EvaluateValidValueExpr(IParameterDef aParamDef, int aIndex)
 		{
 			VariantResult variantResult = this.GetLegacyContext().ReportRuntime.EvaluateParamValidValue((ParameterDef)aParamDef, aIndex);
 			if (variantResult.ErrorOccurred)
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return variantResult.Value;
 		}
 
-		internal override object EvaluateValidValueLabelExpr(IParameterDef aParamDef, int aIndex)
+		public override object EvaluateValidValueLabelExpr(IParameterDef aParamDef, int aIndex)
 		{
 			VariantResult variantResult = this.GetLegacyContext().ReportRuntime.EvaluateParamValidValueLabel((ParameterDef)aParamDef, aIndex);
 			if (variantResult.ErrorOccurred)
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return variantResult.Value;
 		}
 
-		internal override bool NeedPrompt(IParameterDataSource paramDS)
+		public override bool NeedPrompt(IParameterDataSource paramDS)
 		{
 			bool result = false;
 			AspNetCore.ReportingServices.ReportProcessing.DataSource dataSource = this.m_report.DataSources[paramDS.DataSourceIndex];
@@ -126,13 +126,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return result;
 		}
 
-		internal override void ThrowExceptionForQueryBackedParameter(ReportProcessingException_FieldError aError, string aParamName, int aDataSourceIndex, int aDataSetIndex, int aFieldIndex, string propertyName)
+		public override void ThrowExceptionForQueryBackedParameter(ReportProcessingException_FieldError aError, string aParamName, int aDataSourceIndex, int aDataSetIndex, int aFieldIndex, string propertyName)
 		{
 			AspNetCore.ReportingServices.ReportProcessing.DataSet dataSet = this.m_report.DataSources[aDataSourceIndex].DataSets[aDataSetIndex];
 			throw new ReportProcessingException(ErrorCode.rsReportParameterQueryProcessingError, aParamName.MarkAsPrivate(), propertyName, dataSet.Fields[aFieldIndex].Name.MarkAsModelInfo(), dataSet.Name.MarkAsPrivate(), ReportRuntime.GetErrorName(aError.Status, aError.Message));
 		}
 
-		internal override ReportParameterDataSetCache ProcessReportParameterDataSet(ParameterInfo aParam, IParameterDef aParamDef, IParameterDataSource paramDS, bool aRetrieveValidValues, bool aRetrievalDefaultValues)
+		public override ReportParameterDataSetCache ProcessReportParameterDataSet(ParameterInfo aParam, IParameterDef aParamDef, IParameterDataSource paramDS, bool aRetrieveValidValues, bool aRetrievalDefaultValues)
 		{
 			EventHandler eventHandler = null;
 			LegacyReportParameterDataSetCache legacyReportParameterDataSetCache = new LegacyReportParameterDataSetCache(this, aParam, (ParameterDef)aParamDef, aRetrieveValidValues, aRetrievalDefaultValues);

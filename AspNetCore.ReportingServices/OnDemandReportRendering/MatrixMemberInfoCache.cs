@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MatrixMemberInfoCache
+	public sealed class MatrixMemberInfoCache
 	{
 		private int m_startIndex;
 
@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private MatrixMemberInfoCache[] m_children;
 
-		internal bool IsOptimizedNode
+		public bool IsOptimizedNode
 		{
 			get
 			{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MatrixMemberInfoCache[] Children
+		public MatrixMemberInfoCache[] Children
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MatrixMemberInfoCache(int startIndex, int length)
+		public MatrixMemberInfoCache(int startIndex, int length)
 		{
 			this.m_startIndex = startIndex;
 			if (!this.IsOptimizedNode)
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int GetCellIndex(ShimMatrixMember member)
+		public int GetCellIndex(ShimMatrixMember member)
 		{
 			if (this.IsOptimizedNode)
 			{

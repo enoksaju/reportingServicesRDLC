@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class Warning
+	public sealed class Warning
 	{
 		public string Code
 		{
@@ -35,7 +35,7 @@ namespace AspNetCore.Reporting
 			private set;
 		}
 
-		internal Warning(string code, string message, string objectName, string objectType, string severity)
+		public Warning(string code, string message, string objectName, string objectType, string severity)
 		{
 			this.Code = code;
 			this.Message = message;
@@ -52,7 +52,7 @@ namespace AspNetCore.Reporting
 		}
 
 
-		internal static Warning[] FromProcessingMessageList(ProcessingMessageList processingWarnings)
+		public static Warning[] FromProcessingMessageList(ProcessingMessageList processingWarnings)
 		{
 			if (processingWarnings == null)
 			{

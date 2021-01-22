@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CompiledTextRunInstance : TextRunInstance, ICompiledTextRunInstance
+	public sealed class CompiledTextRunInstance : TextRunInstance, ICompiledTextRunInstance
 	{
 		private CompiledRichTextInstance m_compiledRichTextInstance;
 
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CompiledTextRunInstance(CompiledRichTextInstance compiledRichTextInstance)
+		public CompiledTextRunInstance(CompiledRichTextInstance compiledRichTextInstance)
 			: base(compiledRichTextInstance.TextRunDefinition)
 		{
 			this.m_compiledRichTextInstance = compiledRichTextInstance;

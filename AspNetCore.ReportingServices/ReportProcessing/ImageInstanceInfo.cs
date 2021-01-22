@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class ImageInstanceInfo : ReportItemInstanceInfo
+	public class ImageInstanceInfo : ReportItemInstanceInfo
 	{
 		private object m_data;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private ImageMapAreaInstanceList m_imageMapAreas;
 
-		internal string ImageValue
+		public string ImageValue
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageData Data
+		public ImageData Data
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object ValueObject
+		public object ValueObject
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActionInstance Action
+		public ActionInstance Action
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool BrokenImage
+		public bool BrokenImage
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageMapAreaInstanceList ImageMapAreas
+		public ImageMapAreaInstanceList ImageMapAreas
 		{
 			get
 			{
@@ -82,17 +82,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageInstanceInfo(ReportProcessing.ProcessingContext pc, Image reportItemDef, ReportItemInstance owner, int index, bool customCreated)
+		public ImageInstanceInfo(ReportProcessing.ProcessingContext pc, Image reportItemDef, ReportItemInstance owner, int index, bool customCreated)
 			: base(pc, reportItemDef, owner, index, customCreated)
 		{
 		}
 
-		internal ImageInstanceInfo(Image reportItemDef)
+		public ImageInstanceInfo(Image reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ImageValue, Token.String));

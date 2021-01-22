@@ -7,7 +7,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(MarginExpandableObjectConverter))]
 	[Description("Chart element margins.")]
-	internal class Margins
+	public class Margins
 	{
 		private int top;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private int right;
 
-		internal CommonElements Common;
+		public CommonElements Common;
 
 		[NotifyParentProperty(true)]
 		[DefaultValue(0)]

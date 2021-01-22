@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum AccentSensitivities
+	public enum AccentSensitivities
 	{
 		Auto,
 		True,

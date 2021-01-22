@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DataValue
+	public sealed class DataValue
 	{
 		private ExpressionInfo m_name;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private DataValueExprHost m_exprHost;
 
-		internal ExpressionInfo Name
+		public ExpressionInfo Name
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueExprHost ExprHost
+		public DataValueExprHost ExprHost
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValue DeepClone(InitializationContext context)
+		public DataValue DeepClone(InitializationContext context)
 		{
 			DataValue dataValue = new DataValue();
 			Global.Tracer.Assert(-1 == this.m_exprHostID);
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return dataValue;
 		}
 
-		internal void Initialize(string propertyName, bool isCustomProperty, CustomPropertyUniqueNameValidator validator, InitializationContext context)
+		public void Initialize(string propertyName, bool isCustomProperty, CustomPropertyUniqueNameValidator validator, InitializationContext context)
 		{
 			context.ExprHostBuilder.DataValueStart();
 			if (this.m_name != null)
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_exprHostID = context.ExprHostBuilder.DataValueEnd(isCustomProperty);
 		}
 
-		internal void SetExprHost(IList<DataValueExprHost> dataValueHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<DataValueExprHost> dataValueHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Name, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ExpressionInfo));

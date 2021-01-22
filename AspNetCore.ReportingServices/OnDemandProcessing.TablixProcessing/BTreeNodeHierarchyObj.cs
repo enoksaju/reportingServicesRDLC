@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class BTreeNodeHierarchyObj : BTreeNodeValue
+	public sealed class BTreeNodeHierarchyObj : BTreeNodeValue
 	{
 		private object m_key;
 
@@ -30,11 +30,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal BTreeNodeHierarchyObj()
+		public BTreeNodeHierarchyObj()
 		{
 		}
 
-		internal BTreeNodeHierarchyObj(object key, IHierarchyObj owner)
+		public BTreeNodeHierarchyObj(object key, IHierarchyObj owner)
 		{
 			this.m_key = key;
 			if (key != null)
@@ -44,12 +44,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void AddRow(IHierarchyObj owner)
+		public override void AddRow(IHierarchyObj owner)
 		{
 			this.m_hierarchyNode.NextRow(owner);
 		}
 
-		internal override void Traverse(ProcessingStages operation, ITraversalContext traversalContext)
+		public override void Traverse(ProcessingStages operation, ITraversalContext traversalContext)
 		{
 			if (this.m_hierarchyNode != null)
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.BTreeNodeHierarchyObj;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (BTreeNodeHierarchyObj.m_declaration == null)
 			{

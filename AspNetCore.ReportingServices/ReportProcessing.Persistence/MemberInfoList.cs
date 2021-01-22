@@ -2,9 +2,9 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 {
-	internal sealed class MemberInfoList : ArrayList
+	public sealed class MemberInfoList : ArrayList
 	{
-		internal new MemberInfo this[int index]
+		public new MemberInfo this[int index]
 		{
 			get
 			{
@@ -12,11 +12,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal MemberInfoList()
+		public MemberInfoList()
 		{
 		}
 
-		internal MemberInfoList(int capacity)
+		public MemberInfoList(int capacity)
 			: base(capacity)
 		{
 		}

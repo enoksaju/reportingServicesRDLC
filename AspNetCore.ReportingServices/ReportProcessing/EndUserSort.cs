@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class EndUserSort
+	public sealed class EndUserSort
 	{
 		private int m_dataSetID = -1;
 
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_foundSortExpressionScope;
 
-		internal int DataSetID
+		public int DataSetID
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ISortFilterScope SortExpressionScope
+		public ISortFilterScope SortExpressionScope
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal GroupingList GroupsInSortTarget
+		public GroupingList GroupsInSortTarget
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ISortFilterScope SortTarget
+		public ISortFilterScope SortTarget
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int SortExpressionIndex
+		public int SortExpressionIndex
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SubReportList DetailScopeSubReports
+		public SubReportList DetailScopeSubReports
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo SortExpression
+		public ExpressionInfo SortExpression
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int SortExpressionScopeID
+		public int SortExpressionScopeID
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList GroupInSortTargetIDs
+		public IntList GroupInSortTargetIDs
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int SortTargetID
+		public int SortTargetID
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string SortExpressionScopeString
+		public string SortExpressionScopeString
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string SortTargetString
+		public string SortTargetString
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FoundSortExpressionScope
+		public bool FoundSortExpressionScope
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetSortTarget(ISortFilterScope target)
+		public void SetSortTarget(ISortFilterScope target)
 		{
 			Global.Tracer.Assert(null != target);
 			this.m_sortTarget = target;
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			target.UserSortExpressions.Add(this.m_sortExpression);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.DataSetID, Token.Int32));

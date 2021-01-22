@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal sealed class PowerViewDataSourceInfoCollection : IPowerViewDataSourceCollection, IEnumerable
+	public sealed class PowerViewDataSourceInfoCollection : IPowerViewDataSourceCollection, IEnumerable
 	{
 		private Dictionary<string, DataSourceInfo> m_dataSourceInfos = new Dictionary<string, DataSourceInfo>();
 

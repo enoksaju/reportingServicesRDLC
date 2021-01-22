@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class CustomizeMapAreasEventArgs : EventArgs
+	public class CustomizeMapAreasEventArgs : EventArgs
 	{
 		private MapAreasCollection areaItems;
 

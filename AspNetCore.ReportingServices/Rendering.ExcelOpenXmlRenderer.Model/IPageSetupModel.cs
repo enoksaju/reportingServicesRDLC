@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IPageSetupModel
+	public interface IPageSetupModel
 	{
 		PageSetup Interface
 		{

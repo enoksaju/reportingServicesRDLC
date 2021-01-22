@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IDataRegion
+	public interface IDataRegion
 	{
 		bool HasDataCells
 		{

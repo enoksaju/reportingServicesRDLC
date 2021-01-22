@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class DataShapeAbortHelper : DataShapeAbortHelperBase, IDataShapeAbortHelper, IAbortHelper, IDisposable
+	public class DataShapeAbortHelper : DataShapeAbortHelperBase, IDataShapeAbortHelper, IAbortHelper, IDisposable
 	{
 		private readonly DataShapeQueryAbortHelper m_parentAbortHelper;
 

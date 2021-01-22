@@ -2,13 +2,13 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal abstract class UniqueNameValidator : NameValidator
+	public abstract class UniqueNameValidator : NameValidator
 	{
-		internal UniqueNameValidator()
+		public UniqueNameValidator()
 			: base(false)
 		{
 		}
 
-		internal abstract bool Validate(Severity severity, ObjectType objectType, string objectName, string propertyNameValue, ErrorContext errorContext);
+		public abstract bool Validate(Severity severity, ObjectType objectType, string objectName, string propertyNameValue, ErrorContext errorContext);
 	}
 }

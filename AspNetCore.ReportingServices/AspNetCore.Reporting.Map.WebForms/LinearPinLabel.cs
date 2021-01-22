@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LinearPinLabel : MapObject
+	public class LinearPinLabel : MapObject
 	{
 		private string text = "";
 

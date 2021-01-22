@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartStripLine : ChartStyleContainer, IPersistable, IActionOwner
+	public sealed class ChartStripLine : ChartStyleContainer, IPersistable, IActionOwner
 	{
 		private int m_exprHostID;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private List<string> m_fieldsUsedInValueExpression;
 
-		internal ChartStripLineExprHost ExprHost
+		public ChartStripLineExprHost ExprHost
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ID
+		public int ID
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Title
+		public ExpressionInfo Title
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TitleAngle
+		public ExpressionInfo TitleAngle
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TextOrientation
+		public ExpressionInfo TextOrientation
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Interval
+		public ExpressionInfo Interval
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalType
+		public ExpressionInfo IntervalType
 		{
 			get
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffset
+		public ExpressionInfo IntervalOffset
 		{
 			get
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffsetType
+		public ExpressionInfo IntervalOffsetType
 		{
 			get
 			{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo StripWidth
+		public ExpressionInfo StripWidth
 		{
 			get
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo StripWidthType
+		public ExpressionInfo StripWidthType
 		{
 			get
 			{
@@ -224,17 +224,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartStripLine()
+		public ChartStripLine()
 		{
 		}
 
-		internal ChartStripLine(Chart chart, int id)
+		public ChartStripLine(Chart chart, int id)
 			: base(chart)
 		{
 			this.m_id = id;
 		}
 
-		internal void SetExprHost(ChartStripLineExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartStripLineExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context, int index)
+		public void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.ChartStripLineStart(index);
 			base.Initialize(context);
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ChartStripLineEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartStripLine chartStripLine = (ChartStripLine)base.PublishClone(context);
 			if (this.m_action != null)
@@ -356,7 +356,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartStripLine;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Action, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Action));
@@ -375,61 +375,61 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartStripLine, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartStyleContainer, list);
 		}
 
-		internal string EvaluateTitle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateTitle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartStripLineTitleExpression(this, base.m_chart.Name);
 		}
 
-		internal int EvaluateTitleAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateTitleAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartStripLineTitleAngleExpression(this, base.m_chart.Name);
 		}
 
-		internal TextOrientations EvaluateTextOrientation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public TextOrientations EvaluateTextOrientation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateTextOrientations(context.ReportRuntime.EvaluateChartStripLineTextOrientationExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartStripLineToolTipExpression(this, base.m_chart.Name);
 		}
 
-		internal double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartStripLineIntervalExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartIntervalType EvaluateIntervalType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateIntervalType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartStripLineIntervalTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartStripLineIntervalOffsetExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartIntervalType EvaluateIntervalOffsetType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateIntervalOffsetType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartStripLineIntervalOffsetTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateStripWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateStripWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartStripLineStripWidthExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartIntervalType EvaluateStripWidthType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateStripWidthType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartStripLineStripWidthTypeExpression(this, base.m_chart.Name), context.ReportRuntime);

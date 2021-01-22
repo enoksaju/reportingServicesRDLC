@@ -7,11 +7,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 	[XmlElementClass("MapPointLayer", typeof(MapPointLayer))]
 	[XmlElementClass("MapLineLayer", typeof(MapLineLayer))]
 	[XmlElementClass("MapPolygonLayer", typeof(MapPolygonLayer))]
-	internal abstract class MapLayer : ReportObject, INamedObject
+	public abstract class MapLayer : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<MapLayer, Definition.Properties>
+		public class Definition : DefinitionStore<MapLayer, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				VisibilityMode,
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapLayer(IPropertyStore propertyStore)
+		public MapLayer(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

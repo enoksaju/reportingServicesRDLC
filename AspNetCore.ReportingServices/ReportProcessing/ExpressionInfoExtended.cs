@@ -2,12 +2,12 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ExpressionInfoExtended : ExpressionInfo
+	public sealed class ExpressionInfoExtended : ExpressionInfo
 	{
 		[NonSerialized]
 		private bool m_isExtendedSimpleFieldReference;
 
-		internal bool IsExtendedSimpleFieldReference
+		public bool IsExtendedSimpleFieldReference
 		{
 			get
 			{

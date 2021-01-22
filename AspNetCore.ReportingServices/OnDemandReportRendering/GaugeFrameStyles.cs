@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeFrameStyles
+	public enum GaugeFrameStyles
 	{
 		None,
 		Simple,

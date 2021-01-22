@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartSeparators
+	public enum ChartSeparators
 	{
 		None,
 		Line,

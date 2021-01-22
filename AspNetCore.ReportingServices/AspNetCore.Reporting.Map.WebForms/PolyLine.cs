@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PolyLine
+	public class PolyLine
 	{
 		public double[] Box = new double[4];
 

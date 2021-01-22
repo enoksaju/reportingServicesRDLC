@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class SpatialDataSetMapper : SpatialDataMapper
+	public class SpatialDataSetMapper : SpatialDataMapper
 	{
 		private class FieldInfo
 		{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private DataSetInstance m_dataSetInstance;
 
-		internal SpatialDataSetMapper(VectorLayerMapper vectorLayerMapper, Dictionary<SpatialElementKey, SpatialElementInfoGroup> spatialElementsDictionary, CoreSpatialElementManager spatialElementManager, MapControl coreMap, MapMapper mapMapper)
+		public SpatialDataSetMapper(VectorLayerMapper vectorLayerMapper, Dictionary<SpatialElementKey, SpatialElementInfoGroup> spatialElementsDictionary, CoreSpatialElementManager spatialElementManager, MapControl coreMap, MapMapper mapMapper)
 			: base(vectorLayerMapper, spatialElementsDictionary, coreMap, mapMapper)
 		{
 			this.m_spatialElementManager = spatialElementManager;
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_dataSetInstance = this.m_dataSet.Instance;
 		}
 
-		internal override void Populate()
+		public override void Populate()
 		{
 			int spatialFieldIndex = this.GetSpatialFieldIndex();
 			FieldInfo[] nonSpatialFieldInfos = this.GetNonSpatialFieldInfos();

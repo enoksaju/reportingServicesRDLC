@@ -5,7 +5,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class ChartHeadingInstanceInfo : InstanceInfo
+	public class ChartHeadingInstanceInfo : InstanceInfo
 	{
 		private object m_headingLabel;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private DataValueInstanceList m_customPropertyInstances;
 
-		internal object HeadingLabel
+		public object HeadingLabel
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int HeadingCellIndex
+		public int HeadingCellIndex
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int HeadingSpan
+		public int HeadingSpan
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object GroupExpressionValue
+		public object GroupExpressionValue
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int StaticGroupingIndex
+		public int StaticGroupingIndex
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstanceList CustomPropertyInstances
+		public DataValueInstanceList CustomPropertyInstances
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceInfo(ReportProcessing.ProcessingContext pc, int headingCellIndex, ChartHeading chartHeadingDef, int labelIndex, VariantList groupExpressionValues)
+		public ChartHeadingInstanceInfo(ReportProcessing.ProcessingContext pc, int headingCellIndex, ChartHeading chartHeadingDef, int labelIndex, VariantList groupExpressionValues)
 		{
 			this.m_headingCellIndex = headingCellIndex;
 			if (chartHeadingDef.ChartGroupExpression)
@@ -130,11 +130,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceInfo()
+		public ChartHeadingInstanceInfo()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.HeadingLabel, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.Variant));

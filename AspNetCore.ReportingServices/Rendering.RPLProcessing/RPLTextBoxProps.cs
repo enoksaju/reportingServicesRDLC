@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLTextBoxProps : RPLItemProps
+	public sealed class RPLTextBoxProps : RPLItemProps
 	{
 		private bool m_toggleState;
 
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTextBoxProps()
+		public RPLTextBoxProps()
 		{
 		}
 

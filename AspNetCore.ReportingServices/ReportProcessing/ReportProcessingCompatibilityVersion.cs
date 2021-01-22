@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal static class ReportProcessingCompatibilityVersion
+	public static class ReportProcessingCompatibilityVersion
 	{
 		public const int SQL11CTP3 = 2;
 

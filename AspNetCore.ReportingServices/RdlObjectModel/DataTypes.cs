@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum DataTypes
+	public enum DataTypes
 	{
 		String,
 		Boolean,

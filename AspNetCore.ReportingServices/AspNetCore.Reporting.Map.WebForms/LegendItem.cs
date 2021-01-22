@@ -7,7 +7,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 {
 	[DefaultProperty("Name")]
 	[Description("Map legend item.")]
-	internal class LegendItem : NamedElement
+	public class LegendItem : NamedElement
 	{
 		private Color color = Color.Empty;
 
@@ -23,31 +23,31 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private string attributes = "";
 
-		internal LegendItemStyle itemStyle;
+		public LegendItemStyle itemStyle;
 
-		internal Color borderColor = Color.DarkGray;
+		public Color borderColor = Color.DarkGray;
 
-		internal int borderWidth = 1;
+		public int borderWidth = 1;
 
-		internal int pathWidth = 3;
+		public int pathWidth = 3;
 
-		internal MapDashStyle pathLineStyle = MapDashStyle.Solid;
+		public MapDashStyle pathLineStyle = MapDashStyle.Solid;
 
-		internal MapDashStyle borderStyle = MapDashStyle.Solid;
+		public MapDashStyle borderStyle = MapDashStyle.Solid;
 
-		internal int shadowOffset;
+		public int shadowOffset;
 
-		internal Color shadowColor = Color.FromArgb(128, 0, 0, 0);
+		public Color shadowColor = Color.FromArgb(128, 0, 0, 0);
 
-		internal MarkerStyle markerStyle = MarkerStyle.Circle;
+		public MarkerStyle markerStyle = MarkerStyle.Circle;
 
-		internal string markerImage = "";
+		public string markerImage = "";
 
-		internal Color markerImageTranspColor = Color.Empty;
+		public Color markerImageTranspColor = Color.Empty;
 
-		internal Color markerColor = Color.Empty;
+		public Color markerColor = Color.Empty;
 
-		internal Color markerBorderColor = Color.Empty;
+		public Color markerBorderColor = Color.Empty;
 
 		[Bindable(false)]
 		[Browsable(false)]
@@ -61,13 +61,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private Color separatorColor = Color.Black;
 
-		internal bool clearTempCells;
+		public bool clearTempCells;
 
 		private string text = "";
 
 		private MapHatchStyle hatchStyle;
 
-		internal Color imageTranspColor = Color.Empty;
+		public Color imageTranspColor = Color.Empty;
 
 		private GradientType gradientType;
 
@@ -91,7 +91,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private MapHatchStyle markerHatchStyle;
 
-		internal bool automaticallyAdded;
+		public bool automaticallyAdded;
 
 		[SRDescription("DescriptionAttributeLegendItem_Text")]
 		[NotifyParentProperty(true)]
@@ -812,7 +812,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -847,7 +847,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return !string.IsNullOrEmpty(this.text);
 		}
 
-		internal void AddAutomaticCells(Legend legend, SizeF singleWCharacterSize)
+		public void AddAutomaticCells(Legend legend, SizeF singleWCharacterSize)
 		{
 			if (this.Cells.Count == 0)
 			{
@@ -926,7 +926,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal SizeF MeasureLegendItem(MapGraphics graph, int fontSizeReducedBy)
+		public SizeF MeasureLegendItem(MapGraphics graph, int fontSizeReducedBy)
 		{
 			SizeF empty = SizeF.Empty;
 			int num = 0;
@@ -950,7 +950,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return empty;
 		}
 
-		internal string ReplaceKeywords(string strOriginal)
+		public string ReplaceKeywords(string strOriginal)
 		{
 			if (strOriginal.Length == 0)
 			{
@@ -959,7 +959,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return strOriginal.Replace("#LEGENDTEXT", this.Text);
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (this.Legend != null)
 			{

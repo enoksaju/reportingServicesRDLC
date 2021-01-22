@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 {
-	internal class TimeSeriesAndForecasting : IFormula
+	public class TimeSeriesAndForecasting : IFormula
 	{
 		private enum RegressionType
 		{

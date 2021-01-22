@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class GaugeCellList : CellList
+	public sealed class GaugeCellList : CellList
 	{
-		internal new GaugeCell this[int index]
+		public new GaugeCell this[int index]
 		{
 			get
 			{

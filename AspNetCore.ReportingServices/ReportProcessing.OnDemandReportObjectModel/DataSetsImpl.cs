@@ -30,13 +30,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal DataSetsImpl(int size)
+		public DataSetsImpl(int size)
 		{
 			this.m_lockAdd = (size > 1);
 			this.m_collection = new Hashtable(size);
 		}
 
-		internal void AddOrUpdate(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetDef, DataSetInstance dataSetInstance, DateTime reportExecutionTime)
+		public void AddOrUpdate(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetDef, DataSetInstance dataSetInstance, DateTime reportExecutionTime)
 		{
 			try
 			{

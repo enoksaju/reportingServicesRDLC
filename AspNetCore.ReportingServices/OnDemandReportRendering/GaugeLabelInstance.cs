@@ -5,7 +5,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeLabelInstance : GaugePanelItemInstance
+	public sealed class GaugeLabelInstance : GaugePanelItemInstance
 	{
 		private GaugeLabel m_defObject;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal object OriginalValue
+		public object OriginalValue
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TypeCode TypeCode
+		public TypeCode TypeCode
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeLabelInstance(GaugeLabel defObject)
+		public GaugeLabelInstance(GaugeLabel defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

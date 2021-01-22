@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 {
 	[CompilerGenerated]
-	internal class ExcelRenderRes
+	public class ExcelRenderRes
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string ExcelLocalizedName = "ExcelLocalizedName";
 

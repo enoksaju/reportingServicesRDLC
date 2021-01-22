@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PathWidthRulePropertyDescriptor : PropertyDescriptor
+	public class PathWidthRulePropertyDescriptor : PropertyDescriptor
 	{
 		private Field field;
 

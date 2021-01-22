@@ -6,7 +6,7 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[Serializable]
-	internal class HistoryCollection : CollectionBase, ICloneable
+	public class HistoryCollection : CollectionBase, ICloneable
 	{
 		private long truncatedTicks;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal HistoryEntry Top
+		public HistoryEntry Top
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal double AccumulatedValue
+		public double AccumulatedValue
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void Truncate(GaugeDuration d)
+		public void Truncate(GaugeDuration d)
 		{
 			if (!d.IsInfinity)
 			{
@@ -149,12 +149,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal int Locate(DateTime timestamp)
+		public int Locate(DateTime timestamp)
 		{
 			return this.SearchInternal(timestamp, false);
 		}
 
-		internal int SearchInternal(DateTime timestamp, bool exact)
+		public int SearchInternal(DateTime timestamp, bool exact)
 		{
 			int num = base.InnerList.BinarySearch(new HistoryEntry(timestamp, 0.0));
 			if (num < 0 && !exact)
@@ -164,22 +164,22 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return Math.Max(-1, num);
 		}
 
-		internal HistoryEntry[] Select()
+		public HistoryEntry[] Select()
 		{
 			return this.Select(0);
 		}
 
-		internal HistoryEntry[] Select(DateTime fromDate, DateTime toDate)
+		public HistoryEntry[] Select(DateTime fromDate, DateTime toDate)
 		{
 			return this.Select(this.Locate(fromDate), this.Locate(toDate));
 		}
 
-		internal HistoryEntry[] Select(int fromPoint)
+		public HistoryEntry[] Select(int fromPoint)
 		{
 			return this.Select(fromPoint, base.Count);
 		}
 
-		internal HistoryEntry[] Select(int fromPoint, int toPoint)
+		public HistoryEntry[] Select(int fromPoint, int toPoint)
 		{
 			if (base.Count != 0 && fromPoint >= 0 && toPoint >= fromPoint)
 			{
@@ -194,7 +194,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return new HistoryEntry[0];
 		}
 
-		internal HistoryEntry[] Select(GaugeDuration duration, DateTime currentDate)
+		public HistoryEntry[] Select(GaugeDuration duration, DateTime currentDate)
 		{
 			if (!duration.IsInfinity)
 			{
@@ -208,17 +208,17 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.Select();
 		}
 
-		internal DataTable ToDataTable()
+		public DataTable ToDataTable()
 		{
 			return this.ToDataTable(base.Count);
 		}
 
-		internal DataTable ToDataTable(DateTime toPoint)
+		public DataTable ToDataTable(DateTime toPoint)
 		{
 			return this.ToDataTable(base.Count - this.Locate(toPoint));
 		}
 
-		internal DataTable ToDataTable(int toPoint)
+		public DataTable ToDataTable(int toPoint)
 		{
 			DataTable dataTable = new DataTable();
 			dataTable.Locale = CultureInfo.InvariantCulture;

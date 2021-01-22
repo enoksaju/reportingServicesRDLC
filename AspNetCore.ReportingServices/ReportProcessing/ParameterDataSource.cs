@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class ParameterDataSource : IParameterDataSource
+	public class ParameterDataSource : IParameterDataSource
 	{
 		private int m_dataSourceIndex = -1;
 
@@ -62,17 +62,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterDataSource()
+		public ParameterDataSource()
 		{
 		}
 
-		internal ParameterDataSource(int dataSourceIndex, int dataSetIndex)
+		public ParameterDataSource(int dataSourceIndex, int dataSetIndex)
 		{
 			this.m_dataSourceIndex = dataSourceIndex;
 			this.m_dataSetIndex = dataSetIndex;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.DataSourceIndex, Token.Int32));

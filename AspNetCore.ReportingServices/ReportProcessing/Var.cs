@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.Diagnostics.Utilities;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class Var : VarBase
+	public class Var : VarBase
 	{
-		internal override object Result()
+		public override object Result()
 		{
 			if (1 == base.m_currentCount)
 			{

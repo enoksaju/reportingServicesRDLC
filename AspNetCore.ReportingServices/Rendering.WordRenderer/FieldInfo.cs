@@ -2,26 +2,26 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal abstract class FieldInfo
+	public abstract class FieldInfo
 	{
-		internal enum Location
+		public enum Location
 		{
 			Start,
 			Middle,
 			End
 		}
 
-		internal const byte StartCode = 19;
+		public const byte StartCode = 19;
 
-		internal const byte MiddleCode = 20;
+		public const byte MiddleCode = 20;
 
-		internal const byte EndCode = 21;
+		public const byte EndCode = 21;
 
 		protected int m_offset;
 
 		protected Location m_location;
 
-		internal int Offset
+		public int Offset
 		{
 			get
 			{
@@ -29,28 +29,28 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal abstract byte[] Start
+		public abstract byte[] Start
 		{
 			get;
 		}
 
-		internal abstract byte[] Middle
+		public abstract byte[] Middle
 		{
 			get;
 		}
 
-		internal abstract byte[] End
+		public abstract byte[] End
 		{
 			get;
 		}
 
-		internal FieldInfo(int offset, Location location)
+		public FieldInfo(int offset, Location location)
 		{
 			this.m_offset = offset;
 			this.m_location = location;
 		}
 
-		internal void WriteData(BinaryWriter dataWriter)
+		public void WriteData(BinaryWriter dataWriter)
 		{
 			switch (this.m_location)
 			{

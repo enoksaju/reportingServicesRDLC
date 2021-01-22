@@ -6,19 +6,19 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class RdlObjectModelUpgradeStrategy : ReportUpgradeStrategy
+	public sealed class RdlObjectModelUpgradeStrategy : ReportUpgradeStrategy
 	{
 		private readonly bool m_renameInvalidDataSources;
 
 		private readonly bool m_throwUpgradeException;
 
-		internal RdlObjectModelUpgradeStrategy(bool renameInvalidDataSources, bool throwUpgradeException)
+		public RdlObjectModelUpgradeStrategy(bool renameInvalidDataSources, bool throwUpgradeException)
 		{
 			this.m_renameInvalidDataSources = renameInvalidDataSources;
 			this.m_throwUpgradeException = throwUpgradeException;
 		}
 
-		internal override Stream Upgrade(Stream definitionStream)
+		public override Stream Upgrade(Stream definitionStream)
 		{
 			Stream stream = RDLUpgrader.UpgradeToCurrent(definitionStream, this.m_throwUpgradeException, this.m_renameInvalidDataSources);
 			if (definitionStream != stream)

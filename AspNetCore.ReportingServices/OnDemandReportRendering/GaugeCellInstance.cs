@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeCellInstance : BaseInstance, IReportScopeInstance
+	public sealed class GaugeCellInstance : BaseInstance, IReportScopeInstance
 	{
 		private GaugeCell m_gaugeCellDef;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeCellInstance(GaugeCell gaugeCellDef)
+		public GaugeCellInstance(GaugeCell gaugeCellDef)
 			: base(gaugeCellDef)
 		{
 			this.m_gaugeCellDef = gaugeCellDef;
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 		{
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (!this.m_isNewContext)
 			{

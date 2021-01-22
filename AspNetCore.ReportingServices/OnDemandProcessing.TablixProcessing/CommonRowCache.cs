@@ -3,13 +3,13 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class CommonRowCache : IDisposable
+	public sealed class CommonRowCache : IDisposable
 	{
-		internal const int UnInitializedRowIndex = -1;
+		public const int UnInitializedRowIndex = -1;
 
 		private ScalableList<DataFieldRow> m_rows;
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal int LastRowIndex
+		public int LastRowIndex
 		{
 			get
 			{
@@ -25,24 +25,24 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal CommonRowCache(IScalabilityCache scaleCache)
+		public CommonRowCache(IScalabilityCache scaleCache)
 		{
 			this.m_rows = new ScalableList<DataFieldRow>(0, scaleCache, 1000, 100);
 		}
 
-		internal int AddRow(DataFieldRow row)
+		public int AddRow(DataFieldRow row)
 		{
 			int count = this.m_rows.Count;
 			this.m_rows.Add(row);
 			return count;
 		}
 
-		internal DataFieldRow GetRow(int index)
+		public DataFieldRow GetRow(int index)
 		{
 			return this.m_rows[index];
 		}
 
-		internal void SetupRow(int index, OnDemandProcessingContext odpContext)
+		public void SetupRow(int index, OnDemandProcessingContext odpContext)
 		{
 			DataFieldRow row = this.GetRow(index);
 			row.SetFields(odpContext.ReportObjectModel.FieldsImpl);

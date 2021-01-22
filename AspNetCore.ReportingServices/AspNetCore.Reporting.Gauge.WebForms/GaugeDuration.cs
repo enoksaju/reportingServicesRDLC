@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GaugeDuration : ICloneable
+	public class GaugeDuration : ICloneable
 	{
 		private DurationType durationType;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal DurationType DurationType
+		public DurationType DurationType
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool IsTimeBased
+		public bool IsTimeBased
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool IsCountBased
+		public bool IsCountBased
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool IsInfinity
+		public bool IsInfinity
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool IsEmpty
+		public bool IsEmpty
 		{
 			get
 			{
@@ -86,21 +86,21 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GaugeDuration()
+		public GaugeDuration()
 		{
 			this.count = 0.0;
 			this.durationType = DurationType.Count;
 			this.ivalidated = true;
 		}
 
-		internal GaugeDuration(double count, DurationType durationType)
+		public GaugeDuration(double count, DurationType durationType)
 		{
 			this.count = count;
 			this.durationType = durationType;
 			this.ivalidated = true;
 		}
 
-		internal static PeriodType MapToPeriodType(DurationType type)
+		public static PeriodType MapToPeriodType(DurationType type)
 		{
 			switch (type)
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal TimeSpan ToTimeSpan()
+		public TimeSpan ToTimeSpan()
 		{
 			if (this.IsTimeBased && !this.IsEmpty)
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return TimeSpan.Zero;
 		}
 
-		internal void Extend(GaugeDuration extend, DateTime topDate, DateTime btmDate)
+		public void Extend(GaugeDuration extend, DateTime topDate, DateTime btmDate)
 		{
 			if (extend.IsInfinity)
 			{

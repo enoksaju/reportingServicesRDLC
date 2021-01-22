@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert
 {
-	internal sealed class FormulaHandler
+	public sealed class FormulaHandler
 	{
 		private int m_reportItemCount;
 
@@ -175,12 +175,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			FormulaHandler.m_VBModulePropertiesUnSupported.Add("Oct");
 		}
 
-		internal FormulaHandler()
+		public FormulaHandler()
 		{
 			this.m_reportItemCount = 0;
 		}
 
-		internal ArrayList ProcessFormula(string formulaExpression, out string excelFormula)
+		public ArrayList ProcessFormula(string formulaExpression, out string excelFormula)
 		{
 			this.m_reportItemsNames = new ArrayList();
 			if (formulaExpression != null && formulaExpression.Length != 0)
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			return this.m_reportItemsNames;
 		}
 
-		internal static string ProcessHeaderFooterFormula(string formulaExpression)
+		public static string ProcessHeaderFooterFormula(string formulaExpression)
 		{
 			if (formulaExpression == null)
 			{
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			return stringBuilder.ToString();
 		}
 
-		internal static void EncodeHeaderFooterString(StringBuilder output, string input)
+		public static void EncodeHeaderFooterString(StringBuilder output, string input)
 		{
 			if (output != null && input != null)
 			{
@@ -299,7 +299,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal static string ExcelHeaderFooterFormula(string formulaExpression)
+		public static string ExcelHeaderFooterFormula(string formulaExpression)
 		{
 			string result = string.Empty;
 			if (formulaExpression != null && formulaExpression.Length != 0)

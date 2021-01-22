@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class RectangleFConverter : TypeConverter
+	public class RectangleFConverter : TypeConverter
 	{
 		public override bool GetPropertiesSupported(ITypeDescriptorContext context)
 		{

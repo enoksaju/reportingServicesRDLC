@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class IndicatorImage : BaseGaugeImage, IPersistable
+	public sealed class IndicatorImage : BaseGaugeImage, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = IndicatorImage.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_transparency;
 
-		internal ExpressionInfo HueColor
+		public ExpressionInfo HueColor
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Transparency
+		public ExpressionInfo Transparency
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new IndicatorImageExprHost ExprHost
+		public new IndicatorImageExprHost ExprHost
 		{
 			get
 			{
@@ -52,16 +52,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IndicatorImage()
+		public IndicatorImage()
 		{
 		}
 
-		internal IndicatorImage(GaugePanel gaugePanel)
+		public IndicatorImage(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.IndicatorImageStart();
 			base.Initialize(context);
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.IndicatorImageEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			IndicatorImage indicatorImage = (IndicatorImage)base.PublishClone(context);
 			if (this.m_hueColor != null)
@@ -92,13 +92,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return indicatorImage;
 		}
 
-		internal void SetExprHost(IndicatorImageExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IndicatorImageExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.HueColor, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -153,13 +153,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.IndicatorImage;
 		}
 
-		internal string EvaluateHueColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateHueColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateIndicatorImageHueColorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateTransparency(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateTransparency(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateIndicatorImageTransparencyExpression(this, base.m_gaugePanel.Name);

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class CallbackManager : MapObject
+	public class CallbackManager : MapObject
 	{
 		private string jsCode = "";
 
@@ -35,24 +35,24 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.jsCode = this.jsCode + jsSourceCode + "; ";
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.jsCode = "";
 			this.controlUpdates = "";
 			this.disableClientUpdate = false;
 		}
 
-		internal string GetJavaScript()
+		public string GetJavaScript()
 		{
 			return this.jsCode;
 		}
 
-		internal void ResetControlUpdates()
+		public void ResetControlUpdates()
 		{
 			this.controlUpdates = "";
 		}
 
-		internal string GetControlUpdates()
+		public string GetControlUpdates()
 		{
 			return this.controlUpdates;
 		}

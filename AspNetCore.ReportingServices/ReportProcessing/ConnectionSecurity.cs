@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum ConnectionSecurity
+	public enum ConnectionSecurity
 	{
 		UseIntegratedSecurity,
 		ImpersonateWindowsUser,

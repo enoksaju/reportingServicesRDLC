@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class WorksheetInfo
+	public sealed class WorksheetInfo
 	{
 		private sealed class ImageCache
 		{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 			private bool m_isBookmark;
 
-			internal uint ShapeID
+			public uint ShapeID
 			{
 				get
 				{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				}
 			}
 
-			internal string Name
+			public string Name
 			{
 				get
 				{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				}
 			}
 
-			internal Escher.ClientAnchor.SPRC ClientAnchor
+			public Escher.ClientAnchor.SPRC ClientAnchor
 			{
 				get
 				{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				}
 			}
 
-			internal uint RefIndex
+			public uint RefIndex
 			{
 				get
 				{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				}
 			}
 
-			internal string HyperlinkURL
+			public string HyperlinkURL
 			{
 				get
 				{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				}
 			}
 
-			internal bool IsBookmark
+			public bool IsBookmark
 			{
 				get
 				{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				}
 			}
 
-			internal ImageCache(uint shapeID, string name, Escher.ClientAnchor.SPRC clientAnchor, uint refIndex)
+			public ImageCache(uint shapeID, string name, Escher.ClientAnchor.SPRC clientAnchor, uint refIndex)
 			{
 				this.ShapeID = shapeID;
 				this.Name = name;
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 				this.IsBookmark = false;
 			}
 
-			internal ImageCache(uint shapeID, string name, Escher.ClientAnchor.SPRC clientAnchor, uint refIndex, string linkURL, bool isBookmark)
+			public ImageCache(uint shapeID, string name, Escher.ClientAnchor.SPRC clientAnchor, uint refIndex, string linkURL, bool isBookmark)
 				: this(shapeID, name, clientAnchor, refIndex)
 			{
 				this.HyperlinkURL = linkURL;
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal sealed class ColumnInfo
+		public sealed class ColumnInfo
 		{
 			private double m_width;
 
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private int m_sheetIndex = -1;
 
-		internal ushort RowFirst
+		public ushort RowFirst
 		{
 			get
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ushort RowLast
+		public ushort RowLast
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ushort ColFirst
+		public ushort ColFirst
 		{
 			get
 			{
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ushort ColLast
+		public ushort ColLast
 		{
 			get
 			{
@@ -276,7 +276,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal Stream CellData
+		public Stream CellData
 		{
 			get
 			{
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal string SheetName
+		public string SheetName
 		{
 			get
 			{
@@ -300,7 +300,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal long BOFStartOffset
+		public long BOFStartOffset
 		{
 			get
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal List<uint> DBCellOffsets
+		public List<uint> DBCellOffsets
 		{
 			get
 			{
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal List<ushort> SizeOfCellData
+		public List<ushort> SizeOfCellData
 		{
 			get
 			{
@@ -328,7 +328,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ColumnInfo[] Columns
+		public ColumnInfo[] Columns
 		{
 			get
 			{
@@ -336,7 +336,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal List<AreaInfo> MergeCellAreas
+		public List<AreaInfo> MergeCellAreas
 		{
 			get
 			{
@@ -344,7 +344,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal string HeaderString
+		public string HeaderString
 		{
 			get
 			{
@@ -356,7 +356,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal string FooterString
+		public string FooterString
 		{
 			get
 			{
@@ -368,7 +368,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal bool SummaryRowAfter
+		public bool SummaryRowAfter
 		{
 			get
 			{
@@ -380,7 +380,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal bool SummaryColumnToRight
+		public bool SummaryColumnToRight
 		{
 			get
 			{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal byte MaxRowOutline
+		public byte MaxRowOutline
 		{
 			get
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal byte MaxColumnOutline
+		public byte MaxColumnOutline
 		{
 			get
 			{
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal PrintTitleInfo PrintTitle
+		public PrintTitleInfo PrintTitle
 		{
 			get
 			{
@@ -428,7 +428,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int SheetIndex
+		public int SheetIndex
 		{
 			get
 			{
@@ -440,7 +440,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal WorksheetInfo(Stream cellDataStream, string name)
+		public WorksheetInfo(Stream cellDataStream, string name)
 		{
 			this.m_cellData = cellDataStream;
 			this.m_sheetName = name;
@@ -452,7 +452,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			this.m_images = new List<ImageCache>();
 		}
 
-		internal void ResolveCellReferences(Dictionary<string, string> lookup)
+		public void ResolveCellReferences(Dictionary<string, string> lookup)
 		{
 			foreach (HyperlinkInfo hyperlink in this.m_hyperlinks)
 			{
@@ -470,7 +470,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal void Write(BinaryWriter writer, bool isFirstPage, ExcelGeneratorConstants.CreateTempStream createTempStream, Stream backgroundImage, ushort backgroundImageWidth, ushort backgroundImageHeight)
+		public void Write(BinaryWriter writer, bool isFirstPage, ExcelGeneratorConstants.CreateTempStream createTempStream, Stream backgroundImage, ushort backgroundImageWidth, ushort backgroundImageHeight)
 		{
 			this.BOFStartOffset = writer.BaseStream.Position;
 			RecordFactory.BOF(writer, RecordFactory.BOFSubstreamType.Worksheet);
@@ -544,7 +544,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			writer.BaseStream.Write(Constants.WORKSHEET4, 0, Constants.WORKSHEET4.Length);
 		}
 
-		internal void AddImage(ushort drawingID, uint starterShapeID, string name, Escher.ClientAnchor.SPRC clientAnchor, uint referenceIndex, string hyperlinkURL, bool isBookmark)
+		public void AddImage(ushort drawingID, uint starterShapeID, string name, Escher.ClientAnchor.SPRC clientAnchor, uint referenceIndex, string hyperlinkURL, bool isBookmark)
 		{
 			if (this.m_drawingContainer == null)
 			{
@@ -562,28 +562,28 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			this.m_currentShapeID += 1u;
 		}
 
-		internal void AddFreezePane(int row, int column)
+		public void AddFreezePane(int row, int column)
 		{
 			this.m_rowSplit = (ushort)row;
 			this.m_columnSplit = (ushort)column;
 		}
 
-		internal void AddHyperlink(int row, int column, string url, string label)
+		public void AddHyperlink(int row, int column, string url, string label)
 		{
 			this.m_hyperlinks.Add(new HyperlinkInfo(url, label, row, row, column, column));
 		}
 
-		internal void AddBookmark(int row, int column, string bookmark, string label)
+		public void AddBookmark(int row, int column, string bookmark, string label)
 		{
 			this.m_hyperlinks.Add(new BookmarkInfo(bookmark, label, row, row, column, column));
 		}
 
-		internal void AddPrintTitle(int externSheetIndex, int rowStart, int rowEnd)
+		public void AddPrintTitle(int externSheetIndex, int rowStart, int rowEnd)
 		{
 			this.m_printTitle = new PrintTitleInfo((ushort)externSheetIndex, (ushort)(this.SheetIndex + 1), (ushort)rowStart, (ushort)rowEnd);
 		}
 
-		internal void SetPageContraints(int paperSize, bool isPortrait, double headerMargin, double footerMargin)
+		public void SetPageContraints(int paperSize, bool isPortrait, double headerMargin, double footerMargin)
 		{
 			this.m_paperSize = paperSize;
 			this.m_isPortrait = isPortrait;
@@ -591,7 +591,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			this.m_footerMargin = footerMargin;
 		}
 
-		internal void SetMargins(double topMargin, double bottomMargin, double leftMargin, double rightMargin)
+		public void SetMargins(double topMargin, double bottomMargin, double leftMargin, double rightMargin)
 		{
 			this.m_topMargin = topMargin;
 			this.m_bottomMargin = bottomMargin;

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class HTMLHeader
+	public class HTMLHeader
 	{
 		public string ID;
 

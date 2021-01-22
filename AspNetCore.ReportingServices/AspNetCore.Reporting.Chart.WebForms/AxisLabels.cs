@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class AxisLabels : AxisScale
+	public class AxisLabels : AxisScale
 	{
 		private CustomLabelsCollection customLabels;
 
@@ -50,7 +50,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.customLabels = new CustomLabelsCollection((Axis)this);
 		}
 
-		internal bool IsCustomGridLines()
+		public bool IsCustomGridLines()
 		{
 			if (this.CustomLabels.Count > 0)
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal bool IsCustomTickMarks()
+		public bool IsCustomTickMarks()
 		{
 			if (this.CustomLabels.Count > 0)
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal AxisType GetAxisType()
+		public AxisType GetAxisType()
 		{
 			if (base.axisType != 0 && base.axisType != AxisName.Y)
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return AxisType.Primary;
 		}
 
-		internal ArrayList GetAxisSeries()
+		public ArrayList GetAxisSeries()
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (string item in base.chartArea.Series)
@@ -110,12 +110,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return arrayList;
 		}
 
-		internal Axis GetOtherTypeAxis()
+		public Axis GetOtherTypeAxis()
 		{
 			return base.chartArea.GetAxis(base.axisType, (AxisType)((this.GetAxisType() == AxisType.Primary) ? 1 : 0), string.Empty);
 		}
 
-		internal void PostFillLabels()
+		public void PostFillLabels()
 		{
 			foreach (CustomLabel customLabel3 in this.CustomLabels)
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void FillLabels(bool removeFirstRow)
+		public void FillLabels(bool removeFirstRow)
 		{
 			if (this.LabelStyle.Enabled && base.enabled)
 			{

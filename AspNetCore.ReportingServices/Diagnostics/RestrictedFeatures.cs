@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal enum RestrictedFeatures
+	public enum RestrictedFeatures
 	{
 		NonSqlDataSources,
 		OtherSkuDatasources,

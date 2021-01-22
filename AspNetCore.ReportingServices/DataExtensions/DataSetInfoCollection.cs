@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class DataSetInfoCollection
+	public sealed class DataSetInfoCollection
 	{
 		private Dictionary<string, DataSetInfo> m_dataSetsByName;
 

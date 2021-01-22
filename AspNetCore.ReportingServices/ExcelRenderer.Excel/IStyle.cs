@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal interface IStyle : IFont
+	public interface IStyle : IFont
 	{
 		ExcelBorderStyle BorderLeftStyle
 		{

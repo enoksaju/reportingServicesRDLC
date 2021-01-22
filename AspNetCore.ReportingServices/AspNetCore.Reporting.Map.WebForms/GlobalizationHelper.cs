@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal static class GlobalizationHelper
+	public static class GlobalizationHelper
 	{
 		public static MessageBoxOptions GetMessageBoxOptions(Control owner)
 		{

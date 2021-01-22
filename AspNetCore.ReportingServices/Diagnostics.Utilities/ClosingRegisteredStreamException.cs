@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ClosingRegisteredStreamException : ReportCatalogException
+	public sealed class ClosingRegisteredStreamException : ReportCatalogException
 	{
 		public ClosingRegisteredStreamException(Exception innerException)
 			: base(ErrorCode.rsClosingRegisteredStreamException, ErrorStrings.rsClosingRegisteredStreamException, innerException, null)

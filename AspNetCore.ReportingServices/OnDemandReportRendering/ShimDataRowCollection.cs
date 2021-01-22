@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimDataRowCollection : DataRowCollection
+	public sealed class ShimDataRowCollection : DataRowCollection
 	{
 		private List<ShimDataRow> m_dataRows;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimDataRowCollection(CustomReportItem owner)
+		public ShimDataRowCollection(CustomReportItem owner)
 			: base(owner)
 		{
 			this.m_dataRows = new List<ShimDataRow>();
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateCells(ShimDataMember innermostMember)
+		public void UpdateCells(ShimDataMember innermostMember)
 		{
 			if (innermostMember != null && innermostMember.Children == null)
 			{

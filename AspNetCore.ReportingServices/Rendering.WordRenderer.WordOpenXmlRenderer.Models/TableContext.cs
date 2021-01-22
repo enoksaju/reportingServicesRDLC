@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class TableContext
+	public sealed class TableContext
 	{
-		internal enum State
+		public enum State
 		{
 			InBody,
 			InHeaderFooter,

@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class LegendAreaNameConverter : StringConverter
+	public class LegendAreaNameConverter : StringConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeBarStarts
+	public enum GaugeBarStarts
 	{
 		ScaleStart,
 		Zero

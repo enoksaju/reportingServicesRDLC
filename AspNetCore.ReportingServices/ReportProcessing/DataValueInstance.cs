@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DataValueInstance
+	public sealed class DataValueInstance
 	{
 		private string m_name;
 
 		private object m_value;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object Value
+		public object Value
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstance DeepClone()
+		public DataValueInstance DeepClone()
 		{
 			DataValueInstance dataValueInstance = new DataValueInstance();
 			if (this.m_name != null)
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return dataValueInstance;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Name, Token.String));

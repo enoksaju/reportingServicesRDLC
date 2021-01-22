@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLRectanglePropsDef : RPLItemPropsDef
+	public sealed class RPLRectanglePropsDef : RPLItemPropsDef
 	{
 		private string m_linkToChildId;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLRectanglePropsDef()
+		public RPLRectanglePropsDef()
 		{
 		}
 	}

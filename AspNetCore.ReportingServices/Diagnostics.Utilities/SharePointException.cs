@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class SharePointException : ReportCatalogException
+	public sealed class SharePointException : ReportCatalogException
 	{
 		public SharePointException(Exception innerException)
 			: base(ErrorCode.rsSharePointError, SharePointException.GetExceptionMessage(innerException), innerException, null)

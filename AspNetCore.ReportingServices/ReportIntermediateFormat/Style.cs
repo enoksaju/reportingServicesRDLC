@@ -12,9 +12,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class Style : IPersistable
+	public class Style : IPersistable
 	{
-		internal enum StyleId
+		public enum StyleId
 		{
 			BorderColor,
 			BorderColorTop,
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private sealed class EmptyStyleExprHost : StyleExprHost
 		{
-			internal static EmptyStyleExprHost Instance = new EmptyStyleExprHost();
+			public static EmptyStyleExprHost Instance = new EmptyStyleExprHost();
 
 			private EmptyStyleExprHost()
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Style.GetDeclaration();
 
-		internal Dictionary<string, AttributeInfo> StyleAttributes
+		public Dictionary<string, AttributeInfo> StyleAttributes
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> ExpressionList
+		public List<ExpressionInfo> ExpressionList
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal StyleExprHost ExprHost
+		public StyleExprHost ExprHost
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int CustomSharedStyleCount
+		public int CustomSharedStyleCount
 		{
 			get
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static string GetStyleString(StyleId styleId)
+		public static string GetStyleString(StyleId styleId)
 		{
 			switch (styleId)
 			{
@@ -246,7 +246,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static StyleId GetStyleId(string styleString)
+		public static StyleId GetStyleId(string styleString)
 		{
 			switch (styleString)
 			{
@@ -353,7 +353,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Style(ConstructionPhase phase)
+		public Style(ConstructionPhase phase)
 		{
 			if (phase == ConstructionPhase.Publishing)
 			{
@@ -361,13 +361,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetStyleExprHost(StyleExprHost exprHost)
+		public void SetStyleExprHost(StyleExprHost exprHost)
 		{
 			Global.Tracer.Assert(null != exprHost, "(null != exprHost)");
 			this.m_exprHost = exprHost;
 		}
 
-		internal int GetStyleAttribute(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string styleAttributeName, OnDemandProcessingContext context, ref bool sharedFormatSettings, out string styleStringValue)
+		public int GetStyleAttribute(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string styleAttributeName, OnDemandProcessingContext context, ref bool sharedFormatSettings, out string styleStringValue)
 		{
 			styleStringValue = null;
 			int result = 0;
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal void GetStyleAttribute(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string styleAttributeName, OnDemandProcessingContext context, ref bool sharedFormatSettings, out int styleIntValue)
+		public void GetStyleAttribute(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string styleAttributeName, OnDemandProcessingContext context, ref bool sharedFormatSettings, out int styleIntValue)
 		{
 			styleIntValue = 0;
 			AttributeInfo attributeInfo = null;
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual bool GetAttributeInfo(string styleAttributeName, out AttributeInfo styleAttribute)
+		public virtual bool GetAttributeInfo(string styleAttributeName, out AttributeInfo styleAttribute)
 		{
 			if (this.m_styleAttributes.TryGetValue(styleAttributeName, out styleAttribute) && styleAttribute != null)
 			{
@@ -425,7 +425,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal object EvaluateStyle(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, StyleId styleId, OnDemandProcessingContext context)
+		public object EvaluateStyle(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, StyleId styleId, OnDemandProcessingContext context)
 		{
 			AttributeInfo attribute = null;
 			if (this.GetAttributeInfo(Style.GetStyleString(styleId), out attribute))
@@ -435,7 +435,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal object EvaluateStyle(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string styleAttributeName, OnDemandProcessingContext context)
+		public object EvaluateStyle(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string styleAttributeName, OnDemandProcessingContext context)
 		{
 			AttributeInfo attribute = null;
 			if (this.GetAttributeInfo(styleAttributeName, out attribute))
@@ -446,7 +446,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal object EvaluateStyle(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, AttributeInfo attribute, StyleId styleId, OnDemandProcessingContext context)
+		public object EvaluateStyle(AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, AttributeInfo attribute, StyleId styleId, OnDemandProcessingContext context)
 		{
 			if (attribute != null)
 			{
@@ -585,17 +585,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal void AddAttribute(string name, ExpressionInfo expressionInfo)
+		public void AddAttribute(string name, ExpressionInfo expressionInfo)
 		{
 			this.AddAttribute(name, expressionInfo, ValueType.Constant);
 		}
 
-		internal void AddAttribute(StyleInformation.StyleInformationAttribute attribute)
+		public void AddAttribute(StyleInformation.StyleInformationAttribute attribute)
 		{
 			this.AddAttribute(attribute.Name, attribute.Value, attribute.ValueType);
 		}
 
-		internal void AddAttribute(string name, ExpressionInfo expressionInfo, ValueType valueType)
+		public void AddAttribute(string name, ExpressionInfo expressionInfo, ValueType valueType)
 		{
 			AttributeInfo attributeInfo = new AttributeInfo();
 			attributeInfo.ValueType = valueType;
@@ -620,7 +620,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_styleAttributes.Add(name, attributeInfo);
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			Global.Tracer.Assert(null != this.m_styleAttributes, "(null != m_styleAttributes)");
 			IDictionaryEnumerator dictionaryEnumerator = (IDictionaryEnumerator)(object)this.m_styleAttributes.GetEnumerator();
@@ -702,12 +702,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return style;
 		}
 
-		internal void InitializeForCRIGeneratedReportItem()
+		public void InitializeForCRIGeneratedReportItem()
 		{
 			this.SetStyleExprHost(EmptyStyleExprHost.Instance);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.StyleAttributes, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.StringRIFObjectDictionary, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.AttributeInfo));

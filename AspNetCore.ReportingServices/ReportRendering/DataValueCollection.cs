@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class DataValueCollection
+	public sealed class DataValueCollection
 	{
 		private DataValueInstanceList m_instances;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataValueCollection(DataValueCRIList expressions, DataValueInstanceList instances)
+		public DataValueCollection(DataValueCRIList expressions, DataValueInstanceList instances)
 		{
 			this.m_expressions = expressions;
 			this.m_instances = instances;

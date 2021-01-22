@@ -5,7 +5,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableRowInstance : InstanceInfoOwner, IShowHideContainer, ISearchByUniqueName
+	public sealed class TableRowInstance : InstanceInfoOwner, IShowHideContainer, ISearchByUniqueName
 	{
 		private int m_uniqueName;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[Reference]
 		private TableRow m_tableRowDef;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemColInstance TableRowReportItemColInstance
+		public ReportItemColInstance TableRowReportItemColInstance
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRow TableRowDef
+		public TableRow TableRowDef
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowInstance(ReportProcessing.ProcessingContext pc, TableRow rowDef, Table tableDef, IndexedExprHost visibilityHiddenExprHost)
+		public TableRowInstance(ReportProcessing.ProcessingContext pc, TableRow rowDef, Table tableDef, IndexedExprHost visibilityHiddenExprHost)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 			base.m_instanceInfo = new TableRowInstanceInfo(pc, rowDef, this, tableDef, visibilityHiddenExprHost);
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_tableRowReportItemColInstance = new ReportItemColInstance(pc, rowDef.ReportItems);
 		}
 
-		internal TableRowInstance()
+		public TableRowInstance()
 		{
 		}
 
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.EndProcessContainer(this.m_uniqueName, this.m_tableRowDef.Visibility);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.InstanceInfoOwner, memberInfoList);
 		}
 
-		internal TableRowInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public TableRowInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{

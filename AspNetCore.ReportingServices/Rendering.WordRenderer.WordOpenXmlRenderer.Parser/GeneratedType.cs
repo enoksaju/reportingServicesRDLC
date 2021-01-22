@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser
 {
-	internal enum GeneratedType
+	public enum GeneratedType
 	{
 		NoType,
 		CT_HdrRef,

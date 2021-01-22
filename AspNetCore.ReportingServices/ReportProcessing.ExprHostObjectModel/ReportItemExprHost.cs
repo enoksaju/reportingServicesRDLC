@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<DataValueExprHost> m_customPropertyHostsRemotable;
 
-		internal IList<DataValueExprHost> CustomPropertyHostsRemotable
+		public IList<DataValueExprHost> CustomPropertyHostsRemotable
 		{
 			get
 			{

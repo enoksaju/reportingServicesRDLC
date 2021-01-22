@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum EmptyPointTypes
+	public enum EmptyPointTypes
 	{
 		Average,
 		Zero

@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class GridLines2005 : ChartGridLines
+	public class GridLines2005 : ChartGridLines
 	{
-		internal new class Definition : DefinitionStore<GridLines2005, Definition.Properties>
+		public new class Definition : DefinitionStore<GridLines2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ShowGridLines = 6,
 				Style

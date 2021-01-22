@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapDistanceScale : MapDockableSubItem, IPersistable
+	public sealed class MapDistanceScale : MapDockableSubItem, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapDistanceScale.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_scaleBorderColor;
 
-		internal ExpressionInfo ScaleColor
+		public ExpressionInfo ScaleColor
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ScaleBorderColor
+		public ExpressionInfo ScaleBorderColor
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapDistanceScaleExprHost ExprHost
+		public new MapDistanceScaleExprHost ExprHost
 		{
 			get
 			{
@@ -52,16 +52,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapDistanceScale()
+		public MapDistanceScale()
 		{
 		}
 
-		internal MapDistanceScale(Map map, int id)
+		public MapDistanceScale(Map map, int id)
 			: base(map, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapDistanceScaleStart();
 			base.Initialize(context);
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapDistanceScaleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapDistanceScale mapDistanceScale = (MapDistanceScale)base.PublishClone(context);
 			if (this.m_scaleColor != null)
@@ -92,13 +92,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapDistanceScale;
 		}
 
-		internal void SetExprHost(MapDistanceScaleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapDistanceScaleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ScaleColor, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -153,13 +153,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapDistanceScale;
 		}
 
-		internal string EvaluateScaleColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateScaleColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapDistanceScaleScaleColorExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateScaleBorderColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateScaleBorderColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapDistanceScaleScaleBorderColorExpression(this, base.m_map.Name);

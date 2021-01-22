@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IStyleContainer
+	public interface IStyleContainer
 	{
 		Style StyleClass
 		{

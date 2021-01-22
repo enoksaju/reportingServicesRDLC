@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 {
-	internal enum ObjectType
+	public enum ObjectType
 	{
 		None,
 		IDOwner,

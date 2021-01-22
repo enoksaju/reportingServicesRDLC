@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum ValueState
+	public enum ValueState
 	{
 		Suspended,
 		Playback,

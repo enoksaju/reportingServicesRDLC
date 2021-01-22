@@ -6,19 +6,19 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DataSetExecutionException : RSException
+	public sealed class DataSetExecutionException : RSException
 	{
-		internal DataSetExecutionException(SerializationInfo info, StreamingContext context)
+		public DataSetExecutionException(SerializationInfo info, StreamingContext context)
 			: base(info, context)
 		{
 		}
 
-		internal DataSetExecutionException(ErrorCode code)
+		public DataSetExecutionException(ErrorCode code)
 			: base(code, RPRes.Keys.GetString(code.ToString()), null, Global.Tracer, null)
 		{
 		}
 
-		internal DataSetExecutionException(string dataSetName, Exception innerException)
+		public DataSetExecutionException(string dataSetName, Exception innerException)
 			: base(ErrorCode.rsDataSetExecutionError, string.Format(CultureInfo.CurrentCulture, ErrorStrings.rsDataSetExecutionError(dataSetName)), innerException, Global.Tracer, null)
 		{
 		}

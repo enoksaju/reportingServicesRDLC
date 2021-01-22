@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class RichTextInfo : IRichTextInfo
+	public sealed class RichTextInfo : IRichTextInfo
 	{
 		private List<Pair<int, int>> m_fontList;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private bool m_foundRotatedFarEastChar;
 
-		internal int MaxFontIndex
+		public int MaxFontIndex
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal bool FoundRotatedFarEastChar
+		public bool FoundRotatedFarEastChar
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal RichTextInfo(StyleContainer styleContainer)
+		public RichTextInfo(StyleContainer styleContainer)
 		{
 			this.m_styleContainer = styleContainer;
 			this.m_startIndex = 0;
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal StringWrapperBIFF8 CompleteRun()
+		public StringWrapperBIFF8 CompleteRun()
 		{
 			if (this.m_font != null)
 			{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class ProcessPageBreaks
+	public sealed class ProcessPageBreaks
 	{
 		private bool m_pbAtStart;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private double m_maxAtEnd;
 
-		internal void ProcessItemPageBreaks(PageItem pageItem)
+		public void ProcessItemPageBreaks(PageItem pageItem)
 		{
 			if (pageItem.ItemState != PageItem.State.OnPage && pageItem.ItemState != PageItem.State.OnPageHidden)
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool HasPageBreaks(ref double breakPosition, ref double pageItemHeight)
+		public bool HasPageBreaks(ref double breakPosition, ref double pageItemHeight)
 		{
 			if (this.m_pbAtStart)
 			{

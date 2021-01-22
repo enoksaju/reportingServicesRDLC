@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class NativeGDIWrapper
+	public sealed class NativeGDIWrapper
 	{
 		public struct ABCFloat
 		{

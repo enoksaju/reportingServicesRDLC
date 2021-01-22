@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class CLSNameValidator : NameValidator
+	public sealed class CLSNameValidator : NameValidator
 	{
-		internal static bool ValidateDataElementName(ref string elementName, string defaultName, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
+		public static bool ValidateDataElementName(ref string elementName, string defaultName, ObjectType objectType, string objectName, string propertyName, ErrorContext errorContext)
 		{
 			Global.Tracer.Assert(null != defaultName);
 			if (elementName == null)

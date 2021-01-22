@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLineTemplate : MapSpatialElementTemplate
+	public sealed class MapLineTemplate : MapSpatialElementTemplate
 	{
 		private ReportSizeProperty m_width;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineTemplate MapLineTemplateDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineTemplate MapLineTemplateDef
 		{
 			get
 			{
@@ -48,12 +48,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLineTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineTemplate defObject, MapLineLayer mapLineLayer, Map map)
+		public MapLineTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLineTemplate defObject, MapLineLayer mapLineLayer, Map map)
 			: base(defObject, mapLineLayer, map)
 		{
 		}
 
-		internal override MapSpatialElementTemplateInstance GetInstance()
+		public override MapSpatialElementTemplateInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

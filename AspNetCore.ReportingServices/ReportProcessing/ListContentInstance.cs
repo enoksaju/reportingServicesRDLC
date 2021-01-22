@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ListContentInstance : InstanceInfoOwner, ISearchByUniqueName, IShowHideContainer
+	public sealed class ListContentInstance : InstanceInfoOwner, ISearchByUniqueName, IShowHideContainer
 	{
 		private int m_uniqueName;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[Reference]
 		private List m_listDef;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal List ListDef
+		public List ListDef
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemColInstance ReportItemColInstance
+		public ReportItemColInstance ReportItemColInstance
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ListContentInstance(ReportProcessing.ProcessingContext pc, List listDef)
+		public ListContentInstance(ReportProcessing.ProcessingContext pc, List listDef)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 			this.m_listDef = listDef;
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			pc.Pagination.EnterIgnoreHeight(listDef.StartHidden);
 		}
 
-		internal ListContentInstance()
+		public ListContentInstance()
 		{
 		}
 
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.EndProcessContainer(this.m_uniqueName, this.m_listDef.Visibility);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.InstanceInfoOwner, memberInfoList);
 		}
 
-		internal ListContentInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
+		public ListContentInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{

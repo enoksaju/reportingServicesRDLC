@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class ActionInfo
+	public class ActionInfo
 	{
 		private ActionCollection m_collection;
 
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IInstancePath InstancePath
+		public IInstancePath InstancePath
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportElement ReportElementOwner
+		public ReportElement ReportElementOwner
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ObjectType ObjectType
+		public ObjectType ObjectType
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string ObjectName
+		public string ObjectName
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsDynamic
+		public bool IsDynamic
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsChartConstruction
+		public bool IsChartConstruction
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Action ActionDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Action ActionDef
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IROMActionOwner ROMActionOwner
+		public IROMActionOwner ROMActionOwner
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionInfo(RenderingContext renderingContext, IReportScope reportScope, AspNetCore.ReportingServices.ReportIntermediateFormat.Action actionDef, IInstancePath instancePath, ReportElement reportElementOwner, ObjectType objectType, string objectName, IROMActionOwner romActionOwner)
+		public ActionInfo(RenderingContext renderingContext, IReportScope reportScope, AspNetCore.ReportingServices.ReportIntermediateFormat.Action actionDef, IInstancePath instancePath, ReportElement reportElementOwner, ObjectType objectType, string objectName, IROMActionOwner romActionOwner)
 		{
 			this.m_renderingContext = renderingContext;
 			this.m_reportScope = reportScope;
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_romActionOwner = romActionOwner;
 		}
 
-		internal ActionInfo(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.ActionInfo renderAction)
+		public ActionInfo(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.ActionInfo renderAction)
 		{
 			this.m_renderingContext = renderingContext;
 			this.m_renderAction = renderAction;
@@ -220,12 +220,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			throw new RenderingObjectModelException(RPRes.rsErrorDuringROMWritebackDynamicAction);
 		}
 
-		internal void Update(AspNetCore.ReportingServices.ReportRendering.ActionInfo newActionInfo)
+		public void Update(AspNetCore.ReportingServices.ReportRendering.ActionInfo newActionInfo)
 		{
 			this.m_collection.Update(newActionInfo);
 		}
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_collection != null)
 			{
@@ -233,7 +233,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool ConstructActionDefinition()
+		public bool ConstructActionDefinition()
 		{
 			if (this.m_collection != null && this.m_collection.Count != 0)
 			{

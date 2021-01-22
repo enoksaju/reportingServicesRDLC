@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal class OpenXmlBookmarkModel : OpenXmlParagraphModel.IParagraphContent
+	public class OpenXmlBookmarkModel : OpenXmlParagraphModel.IParagraphContent
 	{
 		private readonly string _name;
 

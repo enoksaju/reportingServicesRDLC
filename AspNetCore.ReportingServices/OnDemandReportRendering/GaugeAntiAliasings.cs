@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeAntiAliasings
+	public enum GaugeAntiAliasings
 	{
 		All,
 		None,

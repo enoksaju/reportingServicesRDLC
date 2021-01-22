@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InternalResourceNotFoundException : RSException
+	public sealed class InternalResourceNotFoundException : RSException
 	{
 		public InternalResourceNotFoundException()
 			: base(ErrorCode.rsInternalResourceNotSpecifiedError, ErrorStrings.rsInternalResourceNotSpecifiedError, null, RSTrace.IsTraceInitialized ? RSTrace.WebServerTracer : null, null)

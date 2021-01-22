@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class StyleAttributeHashtable : Hashtable
+	public sealed class StyleAttributeHashtable : Hashtable
 	{
-		internal AttributeInfo this[string index]
+		public AttributeInfo this[string index]
 		{
 			get
 			{
@@ -15,11 +15,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal StyleAttributeHashtable()
+		public StyleAttributeHashtable()
 		{
 		}
 
-		internal StyleAttributeHashtable(int capacity)
+		public StyleAttributeHashtable(int capacity)
 			: base(capacity)
 		{
 		}

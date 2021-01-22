@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum DataType
+	public enum DataType
 	{
 		Boolean = 3,
 		DateTime = 0x10,

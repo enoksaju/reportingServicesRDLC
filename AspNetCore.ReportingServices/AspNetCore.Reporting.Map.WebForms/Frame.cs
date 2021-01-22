@@ -8,7 +8,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 	[Description("Drawing attributes for the 3D frames.")]
 	[TypeConverter(typeof(FrameAttributesConverter))]
 	[DefaultProperty("FrameStyle")]
-	internal class Frame : MapObject
+	public class Frame : MapObject
 	{
 		private Color pageColor = Color.White;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private MapHatchStyle backHatchStyle;
 
-		internal object ownerElement;
+		public object ownerElement;
 
 		[SRCategory("CategoryAttribute_Appearance")]
 		[Bindable(true)]
@@ -304,12 +304,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal MapCore GetMapCore()
+		public MapCore GetMapCore()
 		{
 			return (MapCore)this.Parent;
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (mapCore != null)
@@ -318,7 +318,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void InvalidateAndLayout()
+		public void InvalidateAndLayout()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (mapCore != null)
@@ -327,7 +327,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool ShouldRenderReadOnly()
+		public bool ShouldRenderReadOnly()
 		{
 			if (this.FrameStyle != 0 && this.FrameStyle != FrameStyle.Raised && this.FrameStyle != FrameStyle.Sunken)
 			{

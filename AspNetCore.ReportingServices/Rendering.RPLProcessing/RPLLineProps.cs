@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLLineProps : RPLItemProps
+	public sealed class RPLLineProps : RPLItemProps
 	{
-		internal RPLLineProps()
+		public RPLLineProps()
 		{
 		}
 	}

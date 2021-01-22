@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixInstanceInfo : ReportItemInstanceInfo
+	public sealed class MatrixInstanceInfo : ReportItemInstanceInfo
 	{
 		private NonComputedUniqueNames m_cornerNonComputedNames;
 
 		private string m_noRows;
 
-		internal NonComputedUniqueNames CornerNonComputedNames
+		public NonComputedUniqueNames CornerNonComputedNames
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string NoRows
+		public string NoRows
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixInstanceInfo(ReportProcessing.ProcessingContext pc, Matrix reportItemDef, MatrixInstance owner)
+		public MatrixInstanceInfo(ReportProcessing.ProcessingContext pc, Matrix reportItemDef, MatrixInstance owner)
 			: base(pc, reportItemDef, owner, false)
 		{
 			if (0 < reportItemDef.CornerReportItems.Count && !reportItemDef.CornerReportItems.IsReportItemComputed(0))
@@ -57,12 +57,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_noRows = pc.ReportRuntime.EvaluateDataRegionNoRowsExpression(reportItemDef, reportItemDef.ObjectType, reportItemDef.Name, "NoRows");
 		}
 
-		internal MatrixInstanceInfo(Matrix reportItemDef)
+		public MatrixInstanceInfo(Matrix reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.CornerNonComputedNames, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.NonComputedUniqueNames));

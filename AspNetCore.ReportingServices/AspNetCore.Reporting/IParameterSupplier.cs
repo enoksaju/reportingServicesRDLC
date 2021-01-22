@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.Reporting
 {
-	internal interface IParameterSupplier
+	public interface IParameterSupplier
 	{
 		bool IsReadyForConnection
 		{

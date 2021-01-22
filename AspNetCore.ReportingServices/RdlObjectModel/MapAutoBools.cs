@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapAutoBools
+	public enum MapAutoBools
 	{
 		Auto,
 		True,

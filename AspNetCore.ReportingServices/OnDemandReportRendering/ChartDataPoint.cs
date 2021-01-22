@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ChartDataPoint : IReportScope, IDataRegionCell, IROMStyleDefinitionContainer
+	public abstract class ChartDataPoint : IReportScope, IDataRegionCell, IROMStyleDefinitionContainer
 	{
 		protected Chart m_owner;
 
@@ -83,22 +83,22 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPoint DataPointDef
+		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPoint DataPointDef
 		{
 			get;
 		}
 
-		internal abstract AspNetCore.ReportingServices.ReportRendering.ChartDataPoint RenderItem
+		public abstract AspNetCore.ReportingServices.ReportRendering.ChartDataPoint RenderItem
 		{
 			get;
 		}
 
-		internal abstract AspNetCore.ReportingServices.ReportProcessing.ChartDataPoint RenderDataPointDef
+		public abstract AspNetCore.ReportingServices.ReportProcessing.ChartDataPoint RenderDataPointDef
 		{
 			get;
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual IRIFReportScope RIFReportScope
+		public virtual IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartDataPoint(Chart owner, int rowIndex, int colIndex)
+		public ChartDataPoint(Chart owner, int rowIndex, int colIndex)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.SetNewContext();
 		}
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

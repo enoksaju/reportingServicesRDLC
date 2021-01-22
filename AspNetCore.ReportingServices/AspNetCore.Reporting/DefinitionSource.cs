@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal enum DefinitionSource
+	public enum DefinitionSource
 	{
 		Unknown,
 		File,

@@ -3,11 +3,11 @@ using System.Net;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class WebUtil
+	public static class WebUtil
 	{
-		internal const string NormalizedLocalServerName = "localhost";
+		public const string NormalizedLocalServerName = "localhost";
 
-		internal static bool IsWellKnownLocalServer(string server)
+		public static bool IsWellKnownLocalServer(string server)
 		{
 			if (string.Compare(server, "localhost", StringComparison.OrdinalIgnoreCase) == 0)
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return false;
 		}
 
-		internal static bool IsSameServer(IPAddress[] server1IPAddresses, IPAddress[] server2IPAddresses)
+		public static bool IsSameServer(IPAddress[] server1IPAddresses, IPAddress[] server2IPAddresses)
 		{
 			foreach (IPAddress iPAddress in server1IPAddresses)
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return false;
 		}
 
-		internal static string NormalizeWellKnownLocalServerName(string server)
+		public static string NormalizeWellKnownLocalServerName(string server)
 		{
 			if (!WebUtil.IsWellKnownLocalServer(server))
 			{

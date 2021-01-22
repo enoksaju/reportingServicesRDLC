@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixColumnCollection : ReportElementCollectionBase<TablixColumn>
+	public sealed class TablixColumnCollection : ReportElementCollectionBase<TablixColumn>
 	{
 		private Tablix m_owner;
 
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixColumnCollection(Tablix owner)
+		public TablixColumnCollection(Tablix owner)
 		{
 			this.m_owner = owner;
 		}

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartBorderSkin : IROMStyleDefinitionContainer
+	public sealed class ChartBorderSkin : IROMStyleDefinitionContainer
 	{
 		private Chart m_chart;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartBorderSkin ChartBorderSkinDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartBorderSkin ChartBorderSkinDef
 		{
 			get
 			{
@@ -70,13 +70,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartBorderSkin(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartBorderSkin chartBorderSkinDef, Chart chart)
+		public ChartBorderSkin(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartBorderSkin chartBorderSkinDef, Chart chart)
 		{
 			this.m_chartBorderSkinDef = chartBorderSkinDef;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

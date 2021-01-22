@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class DataSetAggregateDataPipelineManager : DataPipelineManager
+	public sealed class DataSetAggregateDataPipelineManager : DataPipelineManager
 	{
 		private RuntimeAggregationIncrementalDataSource m_runtimeDataSource;
 

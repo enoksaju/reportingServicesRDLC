@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_Pane
+	public class ST_Pane
 	{
 		private string _ooxmlEnumerationValue;
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class IEnumerableHelper
+	public class IEnumerableHelper
 	{
-		internal static IEnumerable<T> ConvertToTyped<T>(IEnumerable aEnum)
+		public static IEnumerable<T> ConvertToTyped<T>(IEnumerable aEnum)
 		{
 			foreach (object item in aEnum)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal interface IRPLItemFactory
+	public interface IRPLItemFactory
 	{
 		RPLItem GetRPLItem();
 	}

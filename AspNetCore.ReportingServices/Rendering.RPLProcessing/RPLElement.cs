@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal abstract class RPLElement
+	public abstract class RPLElement
 	{
-		internal RPLContext m_context;
+		public RPLContext m_context;
 
 		protected RPLElementProps m_rplElementProps;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 		{
 		}
 
-		internal RPLElement(RPLContext context)
+		public RPLElement(RPLContext context)
 		{
 			this.m_context = context;
 		}

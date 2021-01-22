@@ -2,15 +2,15 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal abstract class TableRowCollection
+	public abstract class TableRowCollection
 	{
-		internal Table m_owner;
+		public Table m_owner;
 
-		internal TableRowList m_rowDefs;
+		public TableRowList m_rowDefs;
 
-		internal TableRowInstance[] m_rowInstances;
+		public TableRowInstance[] m_rowInstances;
 
-		internal TableRow[] m_rows;
+		public TableRow[] m_rows;
 
 		public virtual TableRow this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableRowList DetailRowDefinitions
+		public TableRowList DetailRowDefinitions
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableRowCollection(Table owner, TableRowList rowDefs, TableRowInstance[] rowInstances)
+		public TableRowCollection(Table owner, TableRowList rowDefs, TableRowInstance[] rowInstances)
 		{
 			this.m_owner = owner;
 			this.m_rowInstances = rowInstances;

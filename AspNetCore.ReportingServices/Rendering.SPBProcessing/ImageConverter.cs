@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class ImageConverter
+	public class ImageConverter
 	{
 		public static bool Convert(ref byte[] imageData, ref string imageMimeType)
 		{

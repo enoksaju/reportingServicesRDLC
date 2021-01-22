@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum PolarDrawingStyles
+	public enum PolarDrawingStyles
 	{
 		Line,
 		Marker

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum AxisType
+	public enum AxisType
 	{
 		Primary,
 		Secondary

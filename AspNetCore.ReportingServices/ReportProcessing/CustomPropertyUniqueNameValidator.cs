@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class CustomPropertyUniqueNameValidator : NameValidator
+	public sealed class CustomPropertyUniqueNameValidator : NameValidator
 	{
-		internal CustomPropertyUniqueNameValidator()
+		public CustomPropertyUniqueNameValidator()
 		{
 		}
 
-		internal bool Validate(Severity severity, ObjectType objectType, string objectName, string propertyNameValue, ErrorContext errorContext)
+		public bool Validate(Severity severity, ObjectType objectType, string objectName, string propertyNameValue, ErrorContext errorContext)
 		{
 			bool result = true;
 			if (propertyNameValue == null || !base.IsUnique(propertyNameValue))

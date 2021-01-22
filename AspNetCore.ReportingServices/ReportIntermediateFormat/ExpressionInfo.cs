@@ -11,9 +11,9 @@ using System.Text;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ExpressionInfo : IPersistable, IStaticReferenceable
+	public sealed class ExpressionInfo : IPersistable, IStaticReferenceable
 	{
-		internal enum Types
+		public enum Types
 		{
 			Expression,
 			Field,
@@ -29,22 +29,22 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private class TransformedExprSpecialFunctionInfo
 		{
-			internal enum SpecialFunctionType
+			public enum SpecialFunctionType
 			{
 				Aggregate,
 				RunningValue,
 				Lookup
 			}
 
-			internal SpecialFunctionType FunctionType;
+			public SpecialFunctionType FunctionType;
 
-			internal int Position;
+			public int Position;
 
-			internal string FunctionID;
+			public string FunctionID;
 
-			internal int IndexIntoCollection;
+			public int IndexIntoCollection;
 
-			internal TransformedExprSpecialFunctionInfo(int position, string functionID, SpecialFunctionType functionType, int indexIntoCollection)
+			public TransformedExprSpecialFunctionInfo(int position, string functionID, SpecialFunctionType functionType, int indexIntoCollection)
 			{
 				this.FunctionType = functionType;
 				this.Position = position;
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 				this.IndexIntoCollection = indexIntoCollection;
 			}
 
-			internal object PublishClone(AutomaticSubtotalContext context)
+			public object PublishClone(AutomaticSubtotalContext context)
 			{
 				TransformedExprSpecialFunctionInfo transformedExprSpecialFunctionInfo = (TransformedExprSpecialFunctionInfo)base.MemberwiseClone();
 				transformedExprSpecialFunctionInfo.FunctionID = (string)this.FunctionID.Clone();
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ExpressionInfo.GetDeclaration();
 
-		internal bool IsExpression
+		public bool IsExpression
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataType ConstantType
+		public DataType ConstantType
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TypeCode ConstantTypeCode
+		public TypeCode ConstantTypeCode
 		{
 			get
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Types Type
+		public Types Type
 		{
 			get
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string StringValue
+		public string StringValue
 		{
 			get
 			{
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object Value
+		public object Value
 		{
 			get
 			{
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool BoolValue
+		public bool BoolValue
 		{
 			get
 			{
@@ -277,7 +277,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int IntValue
+		public int IntValue
 		{
 			get
 			{
@@ -289,7 +289,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double FloatValue
+		public double FloatValue
 		{
 			get
 			{
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OriginalText
+		public string OriginalText
 		{
 			get
 			{
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string TransformedExpression
+		public string TransformedExpression
 		{
 			get
 			{
@@ -325,7 +325,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -337,7 +337,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int CompileTimeID
+		public int CompileTimeID
 		{
 			get
 			{
@@ -349,7 +349,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> Aggregates
+		public List<DataAggregateInfo> Aggregates
 		{
 			get
 			{
@@ -357,7 +357,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<RunningValueInfo> RunningValues
+		public List<RunningValueInfo> RunningValues
 		{
 			get
 			{
@@ -365,7 +365,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<LookupInfo> Lookups
+		public List<LookupInfo> Lookups
 		{
 			get
 			{
@@ -373,7 +373,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InPrevious
+		public bool InPrevious
 		{
 			get
 			{
@@ -385,7 +385,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Hashtable ReferencedFieldProperties
+		public Hashtable ReferencedFieldProperties
 		{
 			get
 			{
@@ -393,7 +393,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<string> ReferencedReportItems
+		public List<string> ReferencedReportItems
 		{
 			get
 			{
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool DynamicFieldReferences
+		public bool DynamicFieldReferences
 		{
 			get
 			{
@@ -413,7 +413,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ReferencedOverallPageGlobals
+		public bool ReferencedOverallPageGlobals
 		{
 			get
 			{
@@ -425,7 +425,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ReferencedPageGlobals
+		public bool ReferencedPageGlobals
 		{
 			get
 			{
@@ -437,7 +437,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool MeDotValueDetected
+		public bool MeDotValueDetected
 		{
 			get
 			{
@@ -453,7 +453,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NullLevelDetected
+		public bool NullLevelDetected
 		{
 			get
 			{
@@ -465,7 +465,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasDirectFieldReferences
+		public bool HasDirectFieldReferences
 		{
 			get
 			{
@@ -477,7 +477,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasAnyFieldReferences
+		public bool HasAnyFieldReferences
 		{
 			get
 			{
@@ -503,7 +503,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string SimpleParameterName
+		public string SimpleParameterName
 		{
 			get
 			{
@@ -515,7 +515,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasDynamicParameterReference
+		public bool HasDynamicParameterReference
 		{
 			get
 			{
@@ -527,7 +527,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<string> ReferencedParameters
+		public List<string> ReferencedParameters
 		{
 			get
 			{
@@ -535,7 +535,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int FieldIndex
+		public int FieldIndex
 		{
 			get
 			{
@@ -543,7 +543,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RdlFunctionInfo RdlFunctionInfo
+		public RdlFunctionInfo RdlFunctionInfo
 		{
 			get
 			{
@@ -555,7 +555,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ScopedFieldInfo ScopedFieldInfo
+		public ScopedFieldInfo ScopedFieldInfo
 		{
 			get
 			{
@@ -567,7 +567,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LiteralInfo LiteralInfo
+		public LiteralInfo LiteralInfo
 		{
 			get
 			{
@@ -587,11 +587,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo()
+		public ExpressionInfo()
 		{
 		}
 
-		internal static ExpressionInfo CreateConstExpression(string value)
+		public static ExpressionInfo CreateConstExpression(string value)
 		{
 			ExpressionInfo expressionInfo = new ExpressionInfo();
 			expressionInfo.Type = Types.Constant;
@@ -601,7 +601,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return expressionInfo;
 		}
 
-		internal static ExpressionInfo CreateConstExpression(bool value)
+		public static ExpressionInfo CreateConstExpression(bool value)
 		{
 			ExpressionInfo expressionInfo = new ExpressionInfo();
 			expressionInfo.Type = Types.Constant;
@@ -611,7 +611,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return expressionInfo;
 		}
 
-		internal static ExpressionInfo CreateConstExpression(int value)
+		public static ExpressionInfo CreateConstExpression(int value)
 		{
 			ExpressionInfo expressionInfo = new ExpressionInfo();
 			expressionInfo.Type = Types.Constant;
@@ -621,7 +621,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return expressionInfo;
 		}
 
-		internal static ExpressionInfo CreateEmptyExpression()
+		public static ExpressionInfo CreateEmptyExpression()
 		{
 			ExpressionInfo expressionInfo = new ExpressionInfo();
 			expressionInfo.Type = Types.Expression;
@@ -630,7 +630,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return expressionInfo;
 		}
 
-		internal object GetDateTimeValue()
+		public object GetDateTimeValue()
 		{
 			if (this.m_dateTimeOffsetValue.HasValue)
 			{
@@ -639,22 +639,22 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_dateTimeValue;
 		}
 
-		internal void SetDateTimeValue(DateTime dateTime)
+		public void SetDateTimeValue(DateTime dateTime)
 		{
 			this.m_dateTimeValue = dateTime;
 		}
 
-		internal void SetDateTimeValue(DateTimeOffset dateTimeOffset)
+		public void SetDateTimeValue(DateTimeOffset dateTimeOffset)
 		{
 			this.m_dateTimeOffsetValue = dateTimeOffset;
 		}
 
-		internal void Initialize(string propertyName, InitializationContext context)
+		public void Initialize(string propertyName, InitializationContext context)
 		{
 			this.Initialize(propertyName, context, true);
 		}
 
-		internal void Initialize(string propertyName, InitializationContext context, bool initializeDataOnError)
+		public void Initialize(string propertyName, InitializationContext context, bool initializeDataOnError)
 		{
 			context.EnforceRdlSandboxContentRestrictions(this, propertyName);
 			context.CheckVariableReferences(this.m_referencedVariables, propertyName);
@@ -687,7 +687,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InitializeAxisExpression(string propertyName, InitializationContext context)
+		public bool InitializeAxisExpression(string propertyName, InitializationContext context)
 		{
 			bool hasError = context.ErrorContext.HasError;
 			context.ErrorContext.HasError = false;
@@ -697,7 +697,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return !hasError2;
 		}
 
-		internal void AggregateInitialize(string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName, InitializationContext context)
+		public void AggregateInitialize(string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName, InitializationContext context)
 		{
 			this.SpecialFunctionArgInitialize(dataSetName, objectType, objectName, propertyName, context, false);
 		}
@@ -734,12 +734,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void LookupInitialize(string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName, InitializationContext context)
+		public void LookupInitialize(string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName, InitializationContext context)
 		{
 			this.SpecialFunctionArgInitialize(dataSetName, objectType, objectName, propertyName, context, true);
 		}
 
-		internal bool HasRecursiveAggregates()
+		public bool HasRecursiveAggregates()
 		{
 			if (this.m_aggregates != null)
 			{
@@ -754,7 +754,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void GroupExpressionInitialize(InitializationContext context)
+		public void GroupExpressionInitialize(InitializationContext context)
 		{
 			context.CheckVariableReferences(this.m_referencedVariables, "Group");
 			context.CheckFieldReferences(this.m_referencedFields, "Group");
@@ -767,7 +767,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.TransferLookups(this.m_lookups, "Group");
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Type, Token.Enum));
@@ -912,7 +912,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo;
 		}
 
-		internal void SetAsSimpleFieldReference(string fieldName)
+		public void SetAsSimpleFieldReference(string fieldName)
 		{
 			this.AddReferencedField(fieldName);
 			this.HasAnyFieldReferences = true;
@@ -920,7 +920,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.StringValue = fieldName;
 		}
 
-		internal void SetAsScopedFieldReference(string scopeName, string fieldName)
+		public void SetAsScopedFieldReference(string scopeName, string fieldName)
 		{
 			this.AddReferencedScope(new ScopeReference(scopeName, fieldName));
 			ScopedFieldInfo scopedFieldInfo = new ScopedFieldInfo();
@@ -930,19 +930,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.ScopedFieldInfo = scopedFieldInfo;
 		}
 
-		internal void SetAsLiteral(LiteralInfo literal)
+		public void SetAsLiteral(LiteralInfo literal)
 		{
 			this.Type = Types.Literal;
 			this.LiteralInfo = literal;
 		}
 
-		internal void SetAsRdlFunction(RdlFunctionInfo function)
+		public void SetAsRdlFunction(RdlFunctionInfo function)
 		{
 			this.Type = Types.RdlFunction;
 			this.RdlFunctionInfo = function;
 		}
 
-		internal void AddReferencedField(string fieldName)
+		public void AddReferencedField(string fieldName)
 		{
 			if (this.m_referencedFields == null)
 			{
@@ -951,7 +951,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_referencedFields.Add(fieldName);
 		}
 
-		internal void AddReferencedReportItemInOriginalText(string reportItemName, int index)
+		public void AddReferencedReportItemInOriginalText(string reportItemName, int index)
 		{
 			if (this.m_referencedReportItemPositionsInOriginalText == null)
 			{
@@ -960,7 +960,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_referencedReportItemPositionsInOriginalText.Add(index);
 		}
 
-		internal void AddReferencedReportItemInTransformedExpression(string reportItemName, int index)
+		public void AddReferencedReportItemInTransformedExpression(string reportItemName, int index)
 		{
 			if (this.m_referencedReportItems == null)
 			{
@@ -974,7 +974,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_referencedReportItems.Add(reportItemName);
 		}
 
-		internal void AddMeDotValueInOriginalText(int index)
+		public void AddMeDotValueInOriginalText(int index)
 		{
 			if (this.m_meDotValuePositionsInOriginalText == null)
 			{
@@ -983,7 +983,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_meDotValuePositionsInOriginalText.Add(index);
 		}
 
-		internal void AddMeDotValueInTransformedExpression(int index)
+		public void AddMeDotValueInTransformedExpression(int index)
 		{
 			if (this.m_meDotValuePositionsInTranformedExpr == null)
 			{
@@ -992,7 +992,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_meDotValuePositionsInTranformedExpr.Add(index);
 		}
 
-		internal void AddReferencedVariable(string variableName, int index)
+		public void AddReferencedVariable(string variableName, int index)
 		{
 			if (this.m_referencedVariables == null)
 			{
@@ -1006,7 +1006,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_referencedVariables.Add(variableName);
 		}
 
-		internal void AddReferencedParameter(string parameterName)
+		public void AddReferencedParameter(string parameterName)
 		{
 			if (this.m_referencedParameters == null)
 			{
@@ -1015,7 +1015,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_referencedParameters.Add(parameterName);
 		}
 
-		internal void AddReferencedDataSet(string dataSetName)
+		public void AddReferencedDataSet(string dataSetName)
 		{
 			if (this.m_referencedDataSets == null)
 			{
@@ -1024,7 +1024,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_referencedDataSets.Add(dataSetName);
 		}
 
-		internal void AddReferencedDataSource(string dataSourceName)
+		public void AddReferencedDataSource(string dataSourceName)
 		{
 			if (this.m_referencedDataSources == null)
 			{
@@ -1033,7 +1033,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_referencedDataSources.Add(dataSourceName);
 		}
 
-		internal void AddReferencedScope(ScopeReference scopeReference)
+		public void AddReferencedScope(ScopeReference scopeReference)
 		{
 			if (this.m_referencedScopes == null)
 			{
@@ -1042,7 +1042,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_referencedScopes.Add(scopeReference);
 		}
 
-		internal void AddAggregate(DataAggregateInfo aggregate)
+		public void AddAggregate(DataAggregateInfo aggregate)
 		{
 			if (this.m_aggregates == null)
 			{
@@ -1051,7 +1051,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_aggregates.Add(aggregate);
 		}
 
-		internal void AddRunningValue(RunningValueInfo runningValue)
+		public void AddRunningValue(RunningValueInfo runningValue)
 		{
 			if (this.m_runningValues == null)
 			{
@@ -1060,7 +1060,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_runningValues.Add(runningValue);
 		}
 
-		internal void AddLookup(LookupInfo lookup)
+		public void AddLookup(LookupInfo lookup)
 		{
 			if (this.m_lookups == null)
 			{
@@ -1069,7 +1069,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_lookups.Add(lookup);
 		}
 
-		internal DataAggregateInfo GetSumAggregateWithoutScope()
+		public DataAggregateInfo GetSumAggregateWithoutScope()
 		{
 			if (Types.Aggregate == this.m_type && this.m_aggregates != null)
 			{
@@ -1084,7 +1084,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal void AddDynamicPropertyReference(string fieldName)
+		public void AddDynamicPropertyReference(string fieldName)
 		{
 			Global.Tracer.Assert(null != fieldName, "(null != fieldName)");
 			if (this.m_referencedFieldProperties == null)
@@ -1098,7 +1098,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_referencedFieldProperties.Add(fieldName, null);
 		}
 
-		internal void AddStaticPropertyReference(string fieldName, string propertyName)
+		public void AddStaticPropertyReference(string fieldName, string propertyName)
 		{
 			Global.Tracer.Assert(fieldName != null && null != propertyName, "(null != fieldName && null != propertyName)");
 			if (this.m_referencedFieldProperties == null)
@@ -1121,7 +1121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void AddTransformedExpressionAggregateInfo(int position, string aggregateID, bool isRunningValue)
+		public void AddTransformedExpressionAggregateInfo(int position, string aggregateID, bool isRunningValue)
 		{
 			int num = 0;
 			TransformedExprSpecialFunctionInfo.SpecialFunctionType funcType;
@@ -1147,7 +1147,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_transformedExprAggregateInfos.Add(new TransformedExprSpecialFunctionInfo(position, specialFunctionID, funcType, index));
 		}
 
-		internal void AddTransformedExpressionLookupInfo(int position, string lookupID)
+		public void AddTransformedExpressionLookupInfo(int position, string lookupID)
 		{
 			this.AddTransformedSpecialFunctionInfo(position, lookupID, TransformedExprSpecialFunctionInfo.SpecialFunctionType.Lookup, this.m_lookups.Count - 1);
 		}
@@ -1193,7 +1193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return referencedIndex;
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ExpressionInfo expressionInfo = (ExpressionInfo)base.MemberwiseClone();
 			if (this.RdlFunctionInfo != null)
@@ -1495,7 +1495,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return expressionInfo;
 		}
 
-		internal void UpdateReportItemReferences(AutomaticSubtotalContext context)
+		public void UpdateReportItemReferences(AutomaticSubtotalContext context)
 		{
 			StringBuilder stringBuilder = new StringBuilder(this.m_transformedExpression);
 			StringBuilder stringBuilder2 = new StringBuilder(this.m_originalText);

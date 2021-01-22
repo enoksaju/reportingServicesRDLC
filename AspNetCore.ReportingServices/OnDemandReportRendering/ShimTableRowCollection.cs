@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimTableRowCollection : TablixRowCollection
+	public sealed class ShimTableRowCollection : TablixRowCollection
 	{
 		private List<TablixRow> m_rows;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimTableRowCollection(Tablix owner)
+		public ShimTableRowCollection(Tablix owner)
 			: base(owner)
 		{
 			this.m_rows = new List<TablixRow>();

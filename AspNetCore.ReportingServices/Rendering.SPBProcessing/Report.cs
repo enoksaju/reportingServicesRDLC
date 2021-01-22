@@ -10,7 +10,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class Report
+	public sealed class Report
 	{
 		private AspNetCore.ReportingServices.OnDemandReportRendering.Report m_report;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private Version m_rplVersion;
 
-		internal bool Done
+		public bool Done
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Version RPLVersion
+		public Version RPLVersion
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double InteractiveHeight
+		public double InteractiveHeight
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal IJobContext JobContext
+		public IJobContext JobContext
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Report(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, PageContext pageContext, string rplVersion, bool defaultVersion)
+		public Report(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, PageContext pageContext, string rplVersion, bool defaultVersion)
 		{
 			this.m_report = report;
 			this.m_pageContext = pageContext;
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_pageContext.VersionPicker = RPLReader.CompareRPLVersions(this.m_rplVersion);
 		}
 
-		internal void LoadInteractiveChunks(int page)
+		public void LoadInteractiveChunks(int page)
 		{
 			if (!this.m_chunksLoaded)
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void LoadLabelsChunk()
+		public void LoadLabelsChunk()
 		{
 			if (!this.m_chunksLoaded && !this.m_labelsChunkLoaded)
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void UnloadInteractiveChunks()
+		public void UnloadInteractiveChunks()
 		{
 			if (this.m_bookmarks != null)
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_chunksLoaded = false;
 		}
 
-		internal bool RegisterPageForCollect(int page, bool collectPageBookmarks)
+		public bool RegisterPageForCollect(int page, bool collectPageBookmarks)
 		{
 			bool flag = false;
 			if (this.m_report.HasBookmarks)
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return flag | this.RegisterPageLabelsForCollect(page);
 		}
 
-		internal bool RegisterPageLabelsForCollect(int page)
+		public bool RegisterPageLabelsForCollect(int page)
 		{
 			bool result = false;
 			if (this.m_report.HasDocumentMap && this.m_labels != null && page == this.m_labels.Page + 1)
@@ -200,18 +200,18 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal void UnregisterPageForCollect()
+		public void UnregisterPageForCollect()
 		{
 			this.m_pageContext.Labels = null;
 			this.m_pageContext.Bookmarks = null;
 		}
 
-		internal void DisposeDelayTextBox()
+		public void DisposeDelayTextBox()
 		{
 			this.m_pageContext.Common.DisposeDelayTextBox();
 		}
 
-		internal void ResetSectionsOnPage()
+		public void ResetSectionsOnPage()
 		{
 			if (this.m_sections != null)
 			{
@@ -219,7 +219,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void SetContext(ReportPaginationInfo reportInfo)
+		public void SetContext(ReportPaginationInfo reportInfo)
 		{
 			if (this.m_sections == null)
 			{
@@ -237,7 +237,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_lastSectionIndex = -1;
 		}
 
-		internal void NextPage(RPLWriter rplWriter, ref ReportSectionHelper lastPageInfo, int page, int totalPages, Interactivity interactivity, bool hasPaginationChunk)
+		public void NextPage(RPLWriter rplWriter, ref ReportSectionHelper lastPageInfo, int page, int totalPages, Interactivity interactivity, bool hasPaginationChunk)
 		{
 			ReportSection reportSection = null;
 			bool flag = true;
@@ -389,7 +389,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteStartItemToStream(RPLWriter rplWriter)
+		public void WriteStartItemToStream(RPLWriter rplWriter)
 		{
 			if (rplWriter != null)
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteEndItemToStream(RPLWriter rplWriter, int sectionStartIndex, int itemsOnPage, PageHeadFoot header, PageHeadFoot footer, double bodyWidth, double bodyHeight, string pageName)
+		public void WriteEndItemToStream(RPLWriter rplWriter, int sectionStartIndex, int itemsOnPage, PageHeadFoot header, PageHeadFoot footer, double bodyWidth, double bodyHeight, string pageName)
 		{
 			if (rplWriter != null)
 			{
@@ -449,7 +449,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void UpdatePagination()
+		public void UpdatePagination()
 		{
 			if (this.m_sections != null && this.m_sections.Count > 0 && this.m_reportInfo.BinaryWriter != null)
 			{
@@ -461,7 +461,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void ResetLastSection()
+		public void ResetLastSection()
 		{
 			if (this.m_sections != null && this.m_lastSectionIndex >= 0 && this.m_lastSectionIndex < this.m_sections.Count)
 			{
@@ -469,7 +469,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ReportSectionHelper GetPaginationInfo()
+		public ReportSectionHelper GetPaginationInfo()
 		{
 			if (this.m_sections != null && this.m_sections.Count > 0 && this.m_lastSectionIndex >= 0 && this.m_lastSectionIndex < this.m_sections.Count)
 			{

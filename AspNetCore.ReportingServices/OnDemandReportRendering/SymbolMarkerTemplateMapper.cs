@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class SymbolMarkerTemplateMapper : PointTemplateMapper
+	public class SymbolMarkerTemplateMapper : PointTemplateMapper
 	{
 		private string sharedImageName;
 
-		internal SymbolMarkerTemplateMapper(MapMapper mapMapper, VectorLayerMapper vectorLayerMapper, MapVectorLayer mapVectorLayer)
+		public SymbolMarkerTemplateMapper(MapMapper mapMapper, VectorLayerMapper vectorLayerMapper, MapVectorLayer mapVectorLayer)
 			: base(mapMapper, vectorLayerMapper, mapVectorLayer)
 		{
 		}

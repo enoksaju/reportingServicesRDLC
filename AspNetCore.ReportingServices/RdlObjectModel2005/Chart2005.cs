@@ -7,11 +7,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Chart2005 : Chart, IReportItem2005, IPageBreakLocation2005, IUpgradeable
+	public class Chart2005 : Chart, IReportItem2005, IPageBreakLocation2005, IUpgradeable
 	{
-		internal new class Definition : DefinitionStore<Chart2005, Definition.Properties>
+		public new class Definition : DefinitionStore<Chart2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Action = 38,
 				PageBreakAtStart,

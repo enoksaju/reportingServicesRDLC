@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_FontScheme : OoxmlComplexType
+	public class CT_FontScheme : OoxmlComplexType
 	{
 		private ST_FontScheme _val_attr;
 

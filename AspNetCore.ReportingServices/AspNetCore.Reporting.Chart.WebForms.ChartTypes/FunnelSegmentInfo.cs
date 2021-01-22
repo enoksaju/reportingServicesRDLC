@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class FunnelSegmentInfo
+	public class FunnelSegmentInfo
 	{
 		public DataPoint Point;
 

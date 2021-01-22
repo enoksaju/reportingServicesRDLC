@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class TablixMember : DataRegionMember
+	public abstract class TablixMember : DataRegionMember
 	{
 		protected TablixMemberCollection m_children;
 
@@ -68,12 +68,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract int RowSpan
+		public abstract int RowSpan
 		{
 			get;
 		}
 
-		internal abstract int ColSpan
+		public abstract int ColSpan
 		{
 			get;
 		}
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract PageBreakLocation PropagatedGroupBreak
+		public abstract PageBreakLocation PropagatedGroupBreak
 		{
 			get;
 		}
@@ -98,12 +98,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract AspNetCore.ReportingServices.ReportIntermediateFormat.TablixMember MemberDefinition
+		public abstract AspNetCore.ReportingServices.ReportIntermediateFormat.TablixMember MemberDefinition
 		{
 			get;
 		}
 
-		internal override ReportHierarchyNode DataRegionMemberDefinition
+		public override ReportHierarchyNode DataRegionMemberDefinition
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Tablix OwnerTablix
+		public Tablix OwnerTablix
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal override IDataRegionMemberCollection SubMembers
+		public override IDataRegionMemberCollection SubMembers
 		{
 			get
 			{
@@ -132,17 +132,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixMember(IDefinitionPath parentDefinitionPath, Tablix owner, TablixMember parent, int parentCollectionIndex)
+		public TablixMember(IDefinitionPath parentDefinitionPath, Tablix owner, TablixMember parent, int parentCollectionIndex)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex)
 		{
 		}
 
-		internal override bool GetIsColumn()
+		public override bool GetIsColumn()
 		{
 			return this.IsColumn;
 		}
 
-		internal override void SetNewContext(bool fromMoveNext)
+		public override void SetNewContext(bool fromMoveNext)
 		{
 			base.SetNewContext(fromMoveNext);
 			if (this.m_header != null)

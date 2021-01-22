@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class RenderingPagesRangesList : ArrayList
+	public sealed class RenderingPagesRangesList : ArrayList
 	{
-		internal new RenderingPagesRanges this[int index]
+		public new RenderingPagesRanges this[int index]
 		{
 			get
 			{
@@ -18,12 +18,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal RenderingPagesRangesList(int capacity)
+		public RenderingPagesRangesList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void MoveAllToFirstPage(int totalCount)
+		public void MoveAllToFirstPage(int totalCount)
 		{
 			int count = this.Count;
 			if (count != 0)

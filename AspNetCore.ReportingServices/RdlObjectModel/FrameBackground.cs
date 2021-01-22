@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class FrameBackground : ReportObject
+	public class FrameBackground : ReportObject
 	{
-		internal class Definition : DefinitionStore<FrameBackground, Definition.Properties>
+		public class Definition : DefinitionStore<FrameBackground, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				PropertyCount
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal FrameBackground(IPropertyStore propertyStore)
+		public FrameBackground(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

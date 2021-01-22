@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_Colors : OoxmlComplexType
+	public class CT_Colors : OoxmlComplexType
 	{
 		private CT_IndexedColors _indexedColors;
 

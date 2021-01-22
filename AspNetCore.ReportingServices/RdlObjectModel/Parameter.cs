@@ -2,11 +2,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Parameter : ReportObject, INamedObject
+	public class Parameter : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<Parameter, Definition.Properties>
+		public class Definition : DefinitionStore<Parameter, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Value,
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Parameter(IPropertyStore propertyStore)
+		public Parameter(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -8,14 +8,14 @@ using System.Linq;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class IdcRelationship : Relationship
+	public sealed class IdcRelationship : Relationship
 	{
 		private string m_parentScope;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = IdcRelationship.GetDeclaration();
 
-		internal string ParentScope
+		public string ParentScope
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (base.m_joinConditions != null)
 			{
@@ -35,14 +35,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ValidateLinearRelationship(ErrorContext errorContext, DataSet parentDataSet)
+		public bool ValidateLinearRelationship(ErrorContext errorContext, DataSet parentDataSet)
 		{
 			base.m_relatedDataSet = parentDataSet;
 			this.m_parentScope = null;
 			return true;
 		}
 
-		internal bool ValidateIntersectRelationship(ErrorContext errorContext, IRIFDataScope intersectScope, ScopeTree scopeTree)
+		public bool ValidateIntersectRelationship(ErrorContext errorContext, IRIFDataScope intersectScope, ScopeTree scopeTree)
 		{
 			IRIFDataScope parentRowScopeForIntersection = scopeTree.GetParentRowScopeForIntersection(intersectScope);
 			IRIFDataScope parentColumnScopeForIntersection = scopeTree.GetParentColumnScopeForIntersection(intersectScope);
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void InsertAggregateIndicatorJoinCondition(Field field, int fieldIndex, Field aggregateIndicatorField, int aggregateIndicatorFieldIndex, InitializationContext context)
+		public void InsertAggregateIndicatorJoinCondition(Field field, int fieldIndex, Field aggregateIndicatorField, int aggregateIndicatorFieldIndex, InitializationContext context)
 		{
 			int num = -1;
 			if (base.m_joinConditions != null)
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return base.m_relatedDataSet.Fields[field2.AggregateIndicatorFieldIndex].Name;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ParentScope, Token.String));

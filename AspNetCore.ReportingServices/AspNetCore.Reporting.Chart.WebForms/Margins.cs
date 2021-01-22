@@ -8,7 +8,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[TypeConverter(typeof(MarginExpandableObjectConverter))]
 	[SRDescription("DescriptionAttributeMargins_Margins")]
-	internal class Margins
+	public class Margins
 	{
 		private int top;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private int right;
 
-		internal CommonElements Common;
+		public CommonElements Common;
 
 		[SRDescription("DescriptionAttributeMargins_Top")]
 		[SRCategory("CategoryAttributeMisc")]

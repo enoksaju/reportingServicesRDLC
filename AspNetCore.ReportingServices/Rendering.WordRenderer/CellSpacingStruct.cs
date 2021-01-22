@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.Rendering.Utilities;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class CellSpacingStruct
+	public class CellSpacingStruct
 	{
-		internal enum Location
+		public enum Location
 		{
 			Top = 1,
 			Left,
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private ushort m_wWidth;
 
-		internal int ItcFirst
+		public int ItcFirst
 		{
 			set
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int ItcLim
+		public int ItcLim
 		{
 			set
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int GrfBrc
+		public int GrfBrc
 		{
 			set
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int FtsWidth
+		public int FtsWidth
 		{
 			set
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int Width
+		public int Width
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool Empty
+		public bool Empty
 		{
 			get
 			{
@@ -75,13 +75,13 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal CellSpacingStruct(Location location)
+		public CellSpacingStruct(Location location)
 		{
 			this.m_grfbrc = (byte)location;
 			this.m_ftsWidth = 3;
 		}
 
-		internal void serialize(byte[] buf, int offset)
+		public void serialize(byte[] buf, int offset)
 		{
 			buf[offset] = this.m_itcFirst;
 			buf[offset + 1] = this.m_itcLim;
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			LittleEndian.PutUShort(buf, offset + 4, this.m_wWidth);
 		}
 
-		internal byte[] ToByteArray()
+		public byte[] ToByteArray()
 		{
 			byte[] array = new byte[9];
 			LittleEndian.PutUShort(array, 54834);

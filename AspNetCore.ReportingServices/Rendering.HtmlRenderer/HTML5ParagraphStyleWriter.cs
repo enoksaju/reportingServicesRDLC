@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class HTML5ParagraphStyleWriter : ElementStyleWriter
+	public class HTML5ParagraphStyleWriter : ElementStyleWriter
 	{
-		internal enum Mode
+		public enum Mode
 		{
 			ListOnly = 1,
 			ParagraphOnly,
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		private int m_currentListLevel;
 
-		internal RPLParagraph Paragraph
+		public RPLParagraph Paragraph
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal Mode ParagraphMode
+		public Mode ParagraphMode
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal int CurrentListLevel
+		public int CurrentListLevel
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool OutputSharedInNonShared
+		public bool OutputSharedInNonShared
 		{
 			get
 			{
@@ -69,13 +69,13 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal HTML5ParagraphStyleWriter(IHtmlReportWriter renderer, RPLTextBox textBox)
+		public HTML5ParagraphStyleWriter(IHtmlReportWriter renderer, RPLTextBox textBox)
 			: base(renderer)
 		{
 			this.m_textBox = textBox;
 		}
 
-		internal override bool NeedsToWriteNullStyle(StyleWriterMode mode)
+		public override bool NeedsToWriteNullStyle(StyleWriterMode mode)
 		{
 			RPLParagraph paragraph = this.m_paragraph;
 			switch (mode)
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return false;
 		}
 
-		internal override void WriteStyles(StyleWriterMode mode, IRPLStyle style)
+		public override void WriteStyles(StyleWriterMode mode, IRPLStyle style)
 		{
 			RPLParagraph paragraph = this.m_paragraph;
 			RPLTextBox textBox = this.m_textBox;
@@ -314,7 +314,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void FixIndents(ref RPLReportSize leftIndent, ref RPLReportSize rightIndent, ref RPLReportSize spaceBefore, ref RPLReportSize spaceAfter, RPLReportSize hangingIndent)
+		public void FixIndents(ref RPLReportSize leftIndent, ref RPLReportSize rightIndent, ref RPLReportSize spaceBefore, ref RPLReportSize spaceAfter, RPLReportSize hangingIndent)
 		{
 			RPLTextBoxProps rPLTextBoxProps = this.m_textBox.ElementProps as RPLTextBoxProps;
 			if (HTML5Renderer.IsDirectionRTL(rPLTextBoxProps.Style))
@@ -336,7 +336,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal RPLReportSize FixHangingIndent(RPLReportSize leftIndent, RPLReportSize hangingIndent)
+		public RPLReportSize FixHangingIndent(RPLReportSize leftIndent, RPLReportSize hangingIndent)
 		{
 			if (hangingIndent == null)
 			{

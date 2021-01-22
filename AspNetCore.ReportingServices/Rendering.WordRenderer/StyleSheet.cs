@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class StyleSheet
+	public class StyleSheet
 	{
-		internal static readonly byte[] Buffer = new byte[218]
+		public static readonly byte[] Buffer = new byte[218]
 		{
 			20,
 			0,

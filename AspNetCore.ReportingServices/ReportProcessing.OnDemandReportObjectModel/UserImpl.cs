@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 
 			private UserProfileState m_oldLocation;
 
-			internal UserProfileTrackingContext(UserImpl userImpl, UserProfileState oldLocation)
+			public UserProfileTrackingContext(UserImpl userImpl, UserProfileState oldLocation)
 			{
 				this.m_userImpl = userImpl;
 				this.m_oldLocation = oldLocation;
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal UserProfileState UserProfileLocation
+		public UserProfileState UserProfileLocation
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal UserProfileState HasUserProfileState
+		public UserProfileState HasUserProfileState
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool IndirectQueryReference
+		public bool IndirectQueryReference
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal UserImpl(string userID, string language, UserProfileState allowUserProfileState, OnDemandProcessingContext odpContext)
+		public UserImpl(string userID, string language, UserProfileState allowUserProfileState, OnDemandProcessingContext odpContext)
 		{
 			this.m_userID = userID;
 			this.m_language = language;
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_odpContext = odpContext;
 		}
 
-		internal UserImpl(UserImpl copy, OnDemandProcessingContext odpContext)
+		public UserImpl(UserImpl copy, OnDemandProcessingContext odpContext)
 		{
 			this.m_userID = copy.m_userID;
 			this.m_language = copy.m_language;
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_odpContext = odpContext;
 		}
 
-		internal IDisposable UpdateUserProfileLocation(UserProfileState newLocation)
+		public IDisposable UpdateUserProfileLocation(UserProfileState newLocation)
 		{
 			Monitor.Enter(this.m_locationUpdateLock);
 			UserProfileTrackingContext userProfileTrackingContext = new UserProfileTrackingContext(this, this.m_location);
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return (IDisposable)(object)userProfileTrackingContext;
 		}
 
-		internal UserProfileState UpdateUserProfileLocationWithoutLocking(UserProfileState newLocation)
+		public UserProfileState UpdateUserProfileLocationWithoutLocking(UserProfileState newLocation)
 		{
 			UserProfileState location = this.m_location;
 			this.m_location = newLocation;
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			throw exceptionToThrow;
 		}
 
-		internal void SetConnectionStringUserProfileDependencyOrThrow()
+		public void SetConnectionStringUserProfileDependencyOrThrow()
 		{
 			Exception exceptionToThrow = null;
 			using (this.UpdateUserProfileLocation(UserProfileState.InQuery))

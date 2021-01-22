@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum RenderingType
+	public enum RenderingType
 	{
 		Gdi,
 		Svg

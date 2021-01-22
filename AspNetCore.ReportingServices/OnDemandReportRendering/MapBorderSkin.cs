@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapBorderSkin : IROMStyleDefinitionContainer
+	public sealed class MapBorderSkin : IROMStyleDefinitionContainer
 	{
 		private Map m_map;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapBorderSkin MapBorderSkinDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapBorderSkin MapBorderSkinDef
 		{
 			get
 			{
@@ -70,13 +70,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapBorderSkin(AspNetCore.ReportingServices.ReportIntermediateFormat.MapBorderSkin defObject, Map map)
+		public MapBorderSkin(AspNetCore.ReportingServices.ReportIntermediateFormat.MapBorderSkin defObject, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_map = map;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

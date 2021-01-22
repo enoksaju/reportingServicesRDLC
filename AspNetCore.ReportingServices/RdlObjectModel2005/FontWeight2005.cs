@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
 	[EnumNames(typeof(Constants2005), "FontWeight")]
-	internal enum FontWeight2005
+	public enum FontWeight2005
 	{
 		Normal400 = 1,
 		Thin100,

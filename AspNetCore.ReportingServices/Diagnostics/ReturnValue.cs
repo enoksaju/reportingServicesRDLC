@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class ReturnValue
+	public sealed class ReturnValue
 	{
 		private readonly object m_value;
 

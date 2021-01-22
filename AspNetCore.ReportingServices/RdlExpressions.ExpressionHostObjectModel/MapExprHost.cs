@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 
 		public MapBorderSkinExprHost MapBorderSkinHost;
 
-		internal IList<MapPolygonLayerExprHost> MapPolygonLayersHostsRemotable
+		public IList<MapPolygonLayerExprHost> MapPolygonLayersHostsRemotable
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapPointLayerExprHost> MapPointLayersHostsRemotable
+		public IList<MapPointLayerExprHost> MapPointLayersHostsRemotable
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapLineLayerExprHost> MapLineLayersHostsRemotable
+		public IList<MapLineLayerExprHost> MapLineLayersHostsRemotable
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapTileLayerExprHost> MapTileLayersHostsRemotable
+		public IList<MapTileLayerExprHost> MapTileLayersHostsRemotable
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapLegendExprHost> MapLegendsHostsRemotable
+		public IList<MapLegendExprHost> MapLegendsHostsRemotable
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapTitleExprHost> MapTitlesHostsRemotable
+		public IList<MapTitleExprHost> MapTitlesHostsRemotable
 		{
 			get
 			{

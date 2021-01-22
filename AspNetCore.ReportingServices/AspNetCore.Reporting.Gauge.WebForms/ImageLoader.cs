@@ -8,7 +8,7 @@ using System.Net;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class ImageLoader : IDisposable, IServiceProvider
+	public class ImageLoader : IDisposable, IServiceProvider
 	{
 		private Hashtable imageData;
 

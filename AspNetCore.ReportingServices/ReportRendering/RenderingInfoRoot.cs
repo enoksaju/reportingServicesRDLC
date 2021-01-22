@@ -5,7 +5,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportRendering
 {
 	[Serializable]
-	internal sealed class RenderingInfoRoot
+	public sealed class RenderingInfoRoot
 	{
 		private Hashtable m_renderingInfo;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 		private PaginationInfo m_paginationInfo;
 
-		internal Hashtable RenderingInfo
+		public Hashtable RenderingInfo
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Hashtable SharedRenderingInfo
+		public Hashtable SharedRenderingInfo
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Hashtable PageSectionRenderingInfo
+		public Hashtable PageSectionRenderingInfo
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal PaginationInfo PaginationInfo
+		public PaginationInfo PaginationInfo
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal RenderingInfoRoot()
+		public RenderingInfoRoot()
 		{
 			this.m_renderingInfo = new Hashtable();
 			this.m_sharedRenderingInfo = new Hashtable();

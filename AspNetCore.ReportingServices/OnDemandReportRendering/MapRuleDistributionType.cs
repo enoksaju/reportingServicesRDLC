@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapRuleDistributionType
+	public enum MapRuleDistributionType
 	{
 		Optimal,
 		EqualInterval,

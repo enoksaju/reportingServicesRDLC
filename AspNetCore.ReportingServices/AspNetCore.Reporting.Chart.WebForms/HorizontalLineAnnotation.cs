@@ -5,7 +5,7 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeHorizontalLineAnnotation_HorizontalLineAnnotation")]
-	internal class HorizontalLineAnnotation : LineAnnotation
+	public class HorizontalLineAnnotation : LineAnnotation
 	{
 		[SerializationVisibility(SerializationVisibility.Hidden)]
 		[SRCategory("CategoryAttributeMisc")]
@@ -22,14 +22,14 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override void AdjustLineCoordinates(ref PointF point1, ref PointF point2, ref RectangleF selectionRect)
+		public override void AdjustLineCoordinates(ref PointF point1, ref PointF point2, ref RectangleF selectionRect)
 		{
 			point2.Y = point1.Y;
 			selectionRect.Height = 0f;
 			base.AdjustLineCoordinates(ref point1, ref point2, ref selectionRect);
 		}
 
-		internal override RectangleF GetContentPosition()
+		public override RectangleF GetContentPosition()
 		{
 			return new RectangleF(float.NaN, float.NaN, float.NaN, 0f);
 		}

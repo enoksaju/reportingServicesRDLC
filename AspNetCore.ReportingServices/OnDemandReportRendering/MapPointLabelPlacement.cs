@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapPointLabelPlacement
+	public enum MapPointLabelPlacement
 	{
 		Bottom,
 		Top,

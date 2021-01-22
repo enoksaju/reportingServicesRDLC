@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal interface IDeepCloneable
+	public interface IDeepCloneable
 	{
 		ReportItem DeepClone();
 	}

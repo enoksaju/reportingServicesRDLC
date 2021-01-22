@@ -6,7 +6,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class PartManager
+	public sealed class PartManager
 	{
 		private OPCRelationshipTree _relationshipTree;
 

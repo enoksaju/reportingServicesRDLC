@@ -4,14 +4,14 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class SortFilterEventInfo
+	public sealed class SortFilterEventInfo
 	{
 		[Reference]
 		private TextBox m_eventSource;
 
 		private VariantList[] m_eventSourceScopeInfo;
 
-		internal TextBox EventSource
+		public TextBox EventSource
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal VariantList[] EventSourceScopeInfo
+		public VariantList[] EventSourceScopeInfo
 		{
 			get
 			{
@@ -35,16 +35,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SortFilterEventInfo()
+		public SortFilterEventInfo()
 		{
 		}
 
-		internal SortFilterEventInfo(TextBox eventSource)
+		public SortFilterEventInfo(TextBox eventSource)
 		{
 			this.m_eventSource = eventSource;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.EventSource, Token.Reference, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.TextBox));

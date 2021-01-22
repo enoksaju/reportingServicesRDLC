@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal class ScopeTree
+	public class ScopeTree
 	{
-		internal delegate void ScopeTreeVisitor(IRIFDataScope scope);
+		public delegate void ScopeTreeVisitor(IRIFDataScope scope);
 
-		internal delegate bool DirectedScopeTreeVisitor(IRIFDataScope scope);
+		public delegate bool DirectedScopeTreeVisitor(IRIFDataScope scope);
 
 		private Dictionary<IRIFDataScope, ScopeTreeNode> m_scopes;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.Report m_report;
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Report Report
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Report Report
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal ScopeTree()
+		public ScopeTree()
 		{
 			this.m_scopes = new Dictionary<IRIFDataScope, ScopeTreeNode>();
 			this.m_scopesByName = new Dictionary<string, ScopeTreeNode>(StringComparer.Ordinal);
@@ -46,18 +46,18 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_canonicalCellScopes = new Dictionary<string, Dictionary<string, ScopeTreeNode>>();
 		}
 
-		internal ScopeTree(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
+		public ScopeTree(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report)
 			: this()
 		{
 			this.m_report = report;
 		}
 
-		internal static bool SameScope(IRIFDataScope scope1, IRIFDataScope scope2)
+		public static bool SameScope(IRIFDataScope scope1, IRIFDataScope scope2)
 		{
 			return scope1 == scope2;
 		}
 
-		internal static bool SameScope(IRIFDataScope scope1, string scope2)
+		public static bool SameScope(IRIFDataScope scope1, string scope2)
 		{
 			if (scope1 == null && scope2 == null)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal static bool SameScope(string scope1, string scope2)
+		public static bool SameScope(string scope1, string scope2)
 		{
 			if (scope1 == null && scope2 == null)
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal string FindAncestorScopeName(string scopeName, int ancestorLevel)
+		public string FindAncestorScopeName(string scopeName, int ancestorLevel)
 		{
 			ScopeTreeNode scopeTreeNode = default(ScopeTreeNode);
 			if (this.m_scopesByName.TryGetValue(scopeName, out scopeTreeNode))
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal int MeasureScopeDistance(string innerScopeName, string outerScopeName)
+		public int MeasureScopeDistance(string innerScopeName, string outerScopeName)
 		{
 			ScopeTreeNode scopeTreeNode = default(ScopeTreeNode);
 			if (this.m_scopesByName.TryGetValue(innerScopeName, out scopeTreeNode))
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return -1;
 		}
 
-		internal bool IsSameOrProperParentScope(IRIFDataScope outerScope, IRIFDataScope innerScope)
+		public bool IsSameOrProperParentScope(IRIFDataScope outerScope, IRIFDataScope innerScope)
 		{
 			ScopeTreeNode scopeTreeNode = default(ScopeTreeNode);
 			if (this.m_scopes.TryGetValue(innerScope, out scopeTreeNode))
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal bool IsSameOrParentScope(IRIFDataScope outerScope, IRIFDataScope innerScope)
+		public bool IsSameOrParentScope(IRIFDataScope outerScope, IRIFDataScope innerScope)
 		{
 			ScopeTreeNode scopeTreeNode = default(ScopeTreeNode);
 			if (this.m_scopes.TryGetValue(innerScope, out scopeTreeNode))
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal bool IsParentScope(IRIFDataScope outerScope, IRIFDataScope innerScope)
+		public bool IsParentScope(IRIFDataScope outerScope, IRIFDataScope innerScope)
 		{
 			if (outerScope == innerScope)
 			{
@@ -171,19 +171,19 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal IEnumerable<IRIFDataScope> GetChildScopes(IRIFDataScope parentScope)
+		public IEnumerable<IRIFDataScope> GetChildScopes(IRIFDataScope parentScope)
 		{
 			ScopeTreeNode scopeNodeOrAssert = this.GetScopeNodeOrAssert(parentScope);
 			return scopeNodeOrAssert.ChildScopes;
 		}
 
-		internal bool IsIntersectionScope(IRIFDataScope scope)
+		public bool IsIntersectionScope(IRIFDataScope scope)
 		{
 			ScopeTreeNode scopeNodeOrAssert = this.GetScopeNodeOrAssert(scope);
 			return scopeNodeOrAssert is IntersectScopeNode;
 		}
 
-		internal IRIFDataScope GetParentScope(IRIFDataScope scope)
+		public IRIFDataScope GetParentScope(IRIFDataScope scope)
 		{
 			SubScopeNode subScopeNodeOrAssert = this.GetSubScopeNodeOrAssert(scope);
 			ScopeTreeNode parentScope = subScopeNodeOrAssert.ParentScope;
@@ -194,31 +194,31 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal IRIFDataScope GetParentRowScopeForIntersection(IRIFDataScope intersectScope)
+		public IRIFDataScope GetParentRowScopeForIntersection(IRIFDataScope intersectScope)
 		{
 			IntersectScopeNode intersectScopeNodeOrAssert = this.GetIntersectScopeNodeOrAssert(intersectScope);
 			return intersectScopeNodeOrAssert.ParentRowScope.Scope;
 		}
 
-		internal IRIFDataScope GetParentColumnScopeForIntersection(IRIFDataScope intersectScope)
+		public IRIFDataScope GetParentColumnScopeForIntersection(IRIFDataScope intersectScope)
 		{
 			IntersectScopeNode intersectScopeNodeOrAssert = this.GetIntersectScopeNodeOrAssert(intersectScope);
 			return intersectScopeNodeOrAssert.ParentColumnScope.Scope;
 		}
 
-		internal void Traverse(ScopeTreeVisitor visitor, IRIFDataScope outerScope, IRIFDataScope innerScope, bool visitOuterScope)
+		public void Traverse(ScopeTreeVisitor visitor, IRIFDataScope outerScope, IRIFDataScope innerScope, bool visitOuterScope)
 		{
 			ScopeTreeNode scopeNodeOrAssert = this.GetScopeNodeOrAssert(innerScope);
 			scopeNodeOrAssert.Traverse(visitor, outerScope, visitOuterScope);
 		}
 
-		internal bool Traverse(DirectedScopeTreeVisitor visitor, IRIFDataScope startScope)
+		public bool Traverse(DirectedScopeTreeVisitor visitor, IRIFDataScope startScope)
 		{
 			ScopeTreeNode scopeNodeOrAssert = this.GetScopeNodeOrAssert(startScope);
 			return scopeNodeOrAssert.Traverse(visitor);
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion GetParentDataRegion(IRIFDataScope scope)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion GetParentDataRegion(IRIFDataScope scope)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion parentDataRegion = null;
 			DirectedScopeTreeVisitor visitor = delegate(IRIFDataScope candidate)
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			throw new InvalidOperationException();
 		}
 
-		internal void RegisterGrouping(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode member)
+		public void RegisterGrouping(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode member)
 		{
 			if (member.IsColumn)
 			{
@@ -283,7 +283,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			axisScopes = axisScopes.Add(scopeTreeNode);
 		}
 
-		internal void UnRegisterGrouping(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode member)
+		public void UnRegisterGrouping(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode member)
 		{
 			if (member.IsColumn)
 			{
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_activeScopes = this.m_activeScopes.Rest;
 		}
 
-		internal void RegisterDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegion)
+		public void RegisterDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegion)
 		{
 			ScopeTreeNode scopeTreeNode = default(ScopeTreeNode);
 			if (!this.m_scopes.TryGetValue((IRIFDataScope)dataRegion, out scopeTreeNode))
@@ -314,7 +314,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_activeColumnScopes = this.m_activeColumnScopes.Add(null);
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet GetDataSet(IRIFDataScope dataScope, string dataSetName)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet GetDataSet(IRIFDataScope dataScope, string dataSetName)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet = null;
 			if (dataScope != null && dataScope.DataScopeInfo != null)
@@ -332,7 +332,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return this.GetDataSet(dataSetName);
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet GetDataSet(string dataSetName)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet GetDataSet(string dataSetName)
 		{
 			if (string.IsNullOrEmpty(dataSetName))
 			{
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return result;
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet GetDefaultTopLevelDataSet()
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet GetDefaultTopLevelDataSet()
 		{
 			if (this.m_report.OneDataSetName != null)
 			{
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return null;
 		}
 
-		internal void UnRegisterDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegion)
+		public void UnRegisterDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegion)
 		{
 			this.m_activeScopes = this.m_activeScopes.Rest;
 			this.m_activeRowScopes = this.m_activeRowScopes.Rest;
@@ -360,7 +360,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_dataRegionScopes = this.m_dataRegionScopes.Rest;
 		}
 
-		internal IRIFDataScope RegisterCell(IRIFDataScope cell)
+		public IRIFDataScope RegisterCell(IRIFDataScope cell)
 		{
 			ScopeTreeNode scopeTreeNode = default(ScopeTreeNode);
 			if (!this.m_scopes.TryGetValue(cell, out scopeTreeNode))
@@ -387,14 +387,14 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return scopeTreeNode.Scope;
 		}
 
-		internal void UnRegisterCell(IRIFDataScope cell)
+		public void UnRegisterCell(IRIFDataScope cell)
 		{
 			this.m_activeScopes = this.m_activeScopes.Rest;
 			this.m_activeRowScopes = this.m_activeRowScopes.Rest;
 			this.m_activeColumnScopes = this.m_activeColumnScopes.Rest;
 		}
 
-		internal IRIFDataScope GetCanonicalCellScope(IRIFDataScope cell)
+		public IRIFDataScope GetCanonicalCellScope(IRIFDataScope cell)
 		{
 			ScopeTreeNode scopeTreeNode = default(ScopeTreeNode);
 			if (!this.m_scopes.TryGetValue(cell, out scopeTreeNode))
@@ -451,7 +451,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.AddScope(scopeNode, scopeNode.Scope);
 		}
 
-		internal string GetScopeName(IRIFDataScope scope)
+		public string GetScopeName(IRIFDataScope scope)
 		{
 			string text = null;
 			ScopeTreeNode scopeTreeNode = default(ScopeTreeNode);
@@ -462,7 +462,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return scope.Name;
 		}
 
-		internal IRIFDataScope GetScopeByName(string scopeName)
+		public IRIFDataScope GetScopeByName(string scopeName)
 		{
 			ScopeTreeNode scopeTreeNode = default(ScopeTreeNode);
 			if (this.m_scopesByName.TryGetValue(scopeName, out scopeTreeNode))

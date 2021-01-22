@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class PairObj<T, U>
+	public class PairObj<T, U>
 	{
-		internal T First;
+		public T First;
 
-		internal U Second;
+		public U Second;
 
-		internal PairObj(T first, U second)
+		public PairObj(T first, U second)
 		{
 			this.First = first;
 			this.Second = second;

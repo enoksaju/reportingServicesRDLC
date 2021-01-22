@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartLegendCustomItemCellExprHost> ChartLegendCustomItemCellsHostsRemotable
+		public IList<ChartLegendCustomItemCellExprHost> ChartLegendCustomItemCellsHostsRemotable
 		{
 			get
 			{

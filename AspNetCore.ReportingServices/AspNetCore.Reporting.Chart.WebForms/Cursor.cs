@@ -7,7 +7,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeCursor_Cursor")]
 	[DefaultProperty("Enabled")]
-	internal class Cursor
+	public class Cursor
 	{
 		private ChartArea chartArea;
 
@@ -341,7 +341,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Initialize(ChartArea chartArea, AxisName attachedToXAxis)
+		public void Initialize(ChartArea chartArea, AxisName attachedToXAxis)
 		{
 			this.chartArea = chartArea;
 			this.attachedToXAxis = attachedToXAxis;
@@ -351,7 +351,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal Axis GetAxis()
+		public Axis GetAxis()
 		{
 			if (this.axis == null && this.chartArea != null)
 			{

@@ -6,14 +6,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class RecordSetPropertyNames : IPersistable
+	public sealed class RecordSetPropertyNames : IPersistable
 	{
 		private List<string> m_propertyNames;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = RecordSetPropertyNames.GetDeclaration();
 
-		internal List<string> PropertyNames
+		public List<string> PropertyNames
 		{
 			get
 			{
@@ -25,11 +25,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RecordSetPropertyNames()
+		public RecordSetPropertyNames()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.PropertyNames, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.PrimitiveList, Token.String));

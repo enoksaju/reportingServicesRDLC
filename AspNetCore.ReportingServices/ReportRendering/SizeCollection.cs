@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class SizeCollection
+	public sealed class SizeCollection
 	{
 		private Matrix m_owner;
 
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal SizeCollection(Matrix owner, bool widthsCollection)
+		public SizeCollection(Matrix owner, bool widthsCollection)
 		{
 			this.m_owner = owner;
 			this.m_widthsCollection = widthsCollection;

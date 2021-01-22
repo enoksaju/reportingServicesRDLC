@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimMatrixRow : TablixRow
+	public sealed class ShimMatrixRow : TablixRow
 	{
 		private List<ShimMatrixCell> m_cells;
 
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimMatrixRow(Tablix owner, int rowIndex, ShimMatrixMember rowParentMember, bool inSubtotalRow)
+		public ShimMatrixRow(Tablix owner, int rowIndex, ShimMatrixMember rowParentMember, bool inSubtotalRow)
 			: base(owner, rowIndex)
 		{
 			this.m_cells = new List<ShimMatrixCell>();

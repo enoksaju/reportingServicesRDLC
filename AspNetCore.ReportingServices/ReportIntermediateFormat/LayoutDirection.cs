@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum LayoutDirection
+	public enum LayoutDirection
 	{
 		LTR,
 		RTL

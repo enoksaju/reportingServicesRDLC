@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal struct ReportEnum<T> : IXmlSerializable, IFormattable where T : struct, IConvertible
+	public struct ReportEnum<T> : IXmlSerializable, IFormattable where T : struct, IConvertible
 	{
 		private T m_value;
 

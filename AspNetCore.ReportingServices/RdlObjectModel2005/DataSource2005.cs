@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class DataSource2005 : DataSource, IUpgradeable
+	public class DataSource2005 : DataSource, IUpgradeable
 	{
 		public DataSource2005()
 		{

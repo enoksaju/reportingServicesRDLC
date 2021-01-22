@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreads
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLBorderPartModel : IBorderPartModel, IDeepCloneable<XMLBorderPartModel>
+	public class XMLBorderPartModel : IBorderPartModel, IDeepCloneable<XMLBorderPartModel>
 	{
 		private readonly CT_BorderPr _part;
 

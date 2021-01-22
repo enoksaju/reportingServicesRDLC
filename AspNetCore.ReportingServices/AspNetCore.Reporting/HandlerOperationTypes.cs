@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal static class HandlerOperationTypes
+	public static class HandlerOperationTypes
 	{
 		public const string EmbeddedResource = "Resource";
 

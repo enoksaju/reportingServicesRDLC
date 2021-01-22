@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal interface ITraversalContext
+	public interface ITraversalContext
 	{
 	}
 }

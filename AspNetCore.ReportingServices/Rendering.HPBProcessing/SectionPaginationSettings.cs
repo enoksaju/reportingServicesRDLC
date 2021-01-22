@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.OnDemandReportRendering;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class SectionPaginationSettings
+	public class SectionPaginationSettings
 	{
 		private double m_columnSpacing = 12.699999809265137;
 

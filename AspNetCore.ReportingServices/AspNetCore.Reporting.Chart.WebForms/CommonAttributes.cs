@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum CommonAttributes
+	public enum CommonAttributes
 	{
 		PointName,
 		Label,

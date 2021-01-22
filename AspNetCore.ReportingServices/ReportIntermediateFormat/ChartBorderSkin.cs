@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartBorderSkin : ChartStyleContainer, IPersistable
+	public sealed class ChartBorderSkin : ChartStyleContainer, IPersistable
 	{
 		private ExpressionInfo m_borderSkinType;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartBorderSkinExprHost m_exprHost;
 
-		internal ChartBorderSkinExprHost ExprHost
+		public ChartBorderSkinExprHost ExprHost
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo BorderSkinType
+		public ExpressionInfo BorderSkinType
 		{
 			get
 			{
@@ -41,23 +41,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartBorderSkin()
+		public ChartBorderSkin()
 		{
 		}
 
-		internal ChartBorderSkin(Chart chart)
+		public ChartBorderSkin(Chart chart)
 			: base(chart)
 		{
 		}
 
-		internal void SetExprHost(ChartBorderSkinExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartBorderSkinExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = exprHost;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartBorderSkinStart();
 			base.Initialize(context);
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartBorderSkinEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartBorderSkin chartBorderSkin = (ChartBorderSkin)base.PublishClone(context);
 			if (this.m_borderSkinType != null)
@@ -79,14 +79,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartBorderSkin;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.BorderSkinType, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartBorderSkin, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartStyleContainer, list);
 		}
 
-		internal ChartBorderSkinType EvaluateBorderSkinType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartBorderSkinType EvaluateBorderSkinType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartBorderSkinType(context.ReportRuntime.EvaluateChartBorderSkinBorderSkinTypeExpression(this, base.m_chart.Name), context.ReportRuntime);

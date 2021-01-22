@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum SortDirections
+	public enum SortDirections
 	{
 		Ascending,
 		Descending

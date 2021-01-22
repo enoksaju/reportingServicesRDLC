@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartFormulaParameterInstance : BaseInstance
+	public sealed class ChartFormulaParameterInstance : BaseInstance
 	{
 		private ChartFormulaParameter m_chartFormulaParameterDef;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartFormulaParameterInstance(ChartFormulaParameter chartFormulaParameterDef)
+		public ChartFormulaParameterInstance(ChartFormulaParameter chartFormulaParameterDef)
 			: base(chartFormulaParameterDef.ReportScope)
 		{
 			this.m_chartFormulaParameterDef = chartFormulaParameterDef;

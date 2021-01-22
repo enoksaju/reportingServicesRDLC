@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class ReportContext
+	public sealed class ReportContext
 	{
 		private class SubreportContext : IDisposable
 		{
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 			private Action m_callback;
 
-			internal string Name
+			public string Name
 			{
 				get
 				{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 				}
 			}
 
-			internal SubreportContext(string name, Action callback)
+			public SubreportContext(string name, Action callback)
 			{
 				this.m_name = name;
 				this.m_callback = callback;
@@ -36,12 +36,12 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		private Stack<SubreportContext> m_subreports;
 
-		internal ReportContext()
+		public ReportContext()
 		{
 			this.m_subreports = new Stack<SubreportContext>();
 		}
 
-		internal IDisposable EnterSubreport(RPLElementPropsDef subreportDef)
+		public IDisposable EnterSubreport(RPLElementPropsDef subreportDef)
 		{
 			RPLItemPropsDef rPLItemPropsDef = subreportDef as RPLItemPropsDef;
 			SubreportContext subreportContext = new SubreportContext(rPLItemPropsDef.Name, this.PopSubreport);
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return subreportContext;
 		}
 
-		internal IEnumerable<string> GetPath()
+		public IEnumerable<string> GetPath()
 		{
 			return from s in this.m_subreports
 			select s.Name;

@@ -4,16 +4,16 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class DataSourceErrorInspector
+	public sealed class DataSourceErrorInspector
 	{
 		private readonly IDbConnection m_connection;
 
-		internal DataSourceErrorInspector(IDbConnection connection)
+		public DataSourceErrorInspector(IDbConnection connection)
 		{
 			this.m_connection = connection;
 		}
 
-		internal bool TryInterpretProviderErrorCode(Exception e, out ErrorCode errorCode)
+		public bool TryInterpretProviderErrorCode(Exception e, out ErrorCode errorCode)
 		{
 			IDbErrorInspectorFactory dbErrorInspectorFactory = this.m_connection as IDbErrorInspectorFactory;
 			if (dbErrorInspectorFactory != null)
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			return false;
 		}
 
-		internal bool IsOnPremiseServiceException(Exception e)
+		public bool IsOnPremiseServiceException(Exception e)
 		{
 			IDbErrorInspectorFactory dbErrorInspectorFactory = this.m_connection as IDbErrorInspectorFactory;
 			if (dbErrorInspectorFactory != null)

@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
 	[StructLayout(LayoutKind.Sequential, Size = 1)]
-	internal struct GroupTreeRIFObjectCreator : IRIFObjectCreator, IScalabilityObjectCreator
+	public struct GroupTreeRIFObjectCreator : IRIFObjectCreator, IScalabilityObjectCreator
 	{
 		public IPersistable CreateRIFObject(ObjectType objectType, ref IntermediateFormatReader context)
 		{

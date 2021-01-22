@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IWorksheetsModel : IEnumerable<IWorksheetModel>, IEnumerable
+	public interface IWorksheetsModel : IEnumerable<IWorksheetModel>, IEnumerable
 	{
 		Worksheets Interface
 		{

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapColorScaleTitle : ReportObject
+	public class MapColorScaleTitle : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapColorScaleTitle, Definition.Properties>
+		public class Definition : DefinitionStore<MapColorScaleTitle, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Caption,
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapColorScaleTitle(IPropertyStore propertyStore)
+		public MapColorScaleTitle(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

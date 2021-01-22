@@ -7,14 +7,14 @@ namespace AspNetCore.Reporting
 {
 	[Serializable]
 	[ComVisible(false)]
-	internal sealed class DeviceInfoCollection : KeyedCollection<string, DeviceInfo>
+	public sealed class DeviceInfoCollection : KeyedCollection<string, DeviceInfo>
 	{
 		[NonSerialized]
 		private DeviceInfoNameBlackList m_deviceInfoNamesBlackList = new DeviceInfoNameBlackList();
 
 
 
-		internal DeviceInfoNameBlackList DeviceInfoNameBlackList
+		public DeviceInfoNameBlackList DeviceInfoNameBlackList
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.Reporting
 
 		
 
-		internal DeviceInfoCollection()
+		public DeviceInfoCollection()
 			: base((IEqualityComparer<string>)StringComparer.OrdinalIgnoreCase)
 		{
 		}

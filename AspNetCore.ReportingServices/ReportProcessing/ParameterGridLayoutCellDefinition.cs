@@ -7,7 +7,7 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ParameterGridLayoutCellDefinition : IPersistable
+	public sealed class ParameterGridLayoutCellDefinition : IPersistable
 	{
 		public int RowIndex;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			resultXml.WriteEndElement();
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ParameterCellColumnIndex, Token.Int32, Lifetime.AddedIn(300)));

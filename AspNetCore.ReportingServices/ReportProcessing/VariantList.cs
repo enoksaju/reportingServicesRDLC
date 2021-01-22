@@ -4,13 +4,13 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class VariantList : ArrayList
+	public sealed class VariantList : ArrayList
 	{
-		internal VariantList()
+		public VariantList()
 		{
 		}
 
-		internal VariantList(int capacity)
+		public VariantList(int capacity)
 			: base(capacity)
 		{
 		}

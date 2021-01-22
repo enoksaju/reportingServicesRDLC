@@ -11,22 +11,22 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Report : IDefinitionPath, IReportScope
+	public sealed class Report : IDefinitionPath, IReportScope
 	{
-		internal enum DataElementStyles
+		public enum DataElementStyles
 		{
 			Attribute,
 			Element
 		}
 
-		internal enum SnapshotPageSize
+		public enum SnapshotPageSize
 		{
 			Unknown,
 			Small,
 			Large
 		}
 
-		internal enum ChunkTypes
+		public enum ChunkTypes
 		{
 			Interactivity = 6,
 			Pagination,
@@ -237,7 +237,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataSetCollection DataSets
+		public DataSetCollection DataSets
 		{
 			get
 			{
@@ -591,7 +591,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PageEvaluation PageEvaluation
+		public PageEvaluation PageEvaluation
 		{
 			get
 			{
@@ -599,7 +599,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext HeaderFooterRenderingContext
+		public RenderingContext HeaderFooterRenderingContext
 		{
 			get
 			{
@@ -611,7 +611,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IJobContext JobContext
+		public IJobContext JobContext
 		{
 			get
 			{
@@ -623,7 +623,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Report ReportDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Report ReportDef
 		{
 			get
 			{
@@ -635,7 +635,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -643,7 +643,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -651,7 +651,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.Report RenderReport
+		public AspNetCore.ReportingServices.ReportRendering.Report RenderReport
 		{
 			get
 			{
@@ -663,7 +663,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool SubreportInSubtotal
+		public bool SubreportInSubtotal
 		{
 			get
 			{
@@ -687,7 +687,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSection FirstSection
+		public ReportSection FirstSection
 		{
 			get
 			{
@@ -737,7 +737,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Report(AspNetCore.ReportingServices.ReportIntermediateFormat.Report reportDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, RenderingContext renderingContext, string reportName, string description)
+		public Report(AspNetCore.ReportingServices.ReportIntermediateFormat.Report reportDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, RenderingContext renderingContext, string reportName, string description)
 		{
 			this.m_parentDefinitionPath = null;
 			this.m_isOldSnapshot = false;
@@ -753,7 +753,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Report(AspNetCore.ReportingServices.ReportIntermediateFormat.Report reportDef, RenderingContext renderingContext, string reportName, string description)
+		public Report(AspNetCore.ReportingServices.ReportIntermediateFormat.Report reportDef, RenderingContext renderingContext, string reportName, string description)
 		{
 			this.m_parentDefinitionPath = null;
 			this.m_isOldSnapshot = false;
@@ -764,7 +764,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_description = description;
 		}
 
-		internal Report(AspNetCore.ReportingServices.ReportProcessing.Report reportDef, AspNetCore.ReportingServices.ReportProcessing.ReportInstance reportInstance, AspNetCore.ReportingServices.ReportRendering.RenderingContext oldRenderingContext, RenderingContext renderingContext, string reportName, string description)
+		public Report(AspNetCore.ReportingServices.ReportProcessing.Report reportDef, AspNetCore.ReportingServices.ReportProcessing.ReportInstance reportInstance, AspNetCore.ReportingServices.ReportRendering.RenderingContext oldRenderingContext, RenderingContext renderingContext, string reportName, string description)
 		{
 			this.m_renderReport = new AspNetCore.ReportingServices.ReportRendering.Report(reportDef, reportInstance, oldRenderingContext, reportName, description, Localization.DefaultReportServerSpecificCulture);
 			this.m_parentDefinitionPath = null;
@@ -780,7 +780,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Report(IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportIntermediateFormat.Report reportDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, RenderingContext renderingContext, string reportName, string description, bool subreportInSubtotal)
+		public Report(IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportIntermediateFormat.Report reportDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, RenderingContext renderingContext, string reportName, string description, bool subreportInSubtotal)
 		{
 			this.m_parentDefinitionPath = parentDefinitionPath;
 			this.m_isOldSnapshot = false;
@@ -794,7 +794,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_pageEvaluation = null;
 		}
 
-		internal Report(IDefinitionPath parentDefinitionPath, bool subreportInSubtotal, AspNetCore.ReportingServices.ReportRendering.SubReport subReport, RenderingContext renderingContext)
+		public Report(IDefinitionPath parentDefinitionPath, bool subreportInSubtotal, AspNetCore.ReportingServices.ReportRendering.SubReport subReport, RenderingContext renderingContext)
 		{
 			this.m_parentDefinitionPath = parentDefinitionPath;
 			this.m_renderReport = subReport.Report;
@@ -958,7 +958,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.RenderingContext.OdpContext.TopLevelContext.ReportContext.RSRequestParameters;
 		}
 
-		internal void UpdateSubReportContents(SubReport subReport, AspNetCore.ReportingServices.ReportRendering.SubReport renderSubreport)
+		public void UpdateSubReportContents(SubReport subReport, AspNetCore.ReportingServices.ReportRendering.SubReport renderSubreport)
 		{
 			if (renderSubreport != null)
 			{
@@ -974,13 +974,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
+		public void SetNewContext(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
 		{
 			this.m_reportInstance = reportInstance;
 			this.SetNewContext();
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_reportSections != null)
 			{

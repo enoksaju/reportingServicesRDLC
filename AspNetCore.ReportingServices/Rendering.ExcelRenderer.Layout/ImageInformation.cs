@@ -7,19 +7,19 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal class ImageInformation
+	public class ImageInformation
 	{
-		internal const string GIFMIMETYPE = "image/gif";
+		public const string GIFMIMETYPE = "image/gif";
 
-		internal const string JPGMIMETYPE = "image/jpg";
+		public const string JPGMIMETYPE = "image/jpg";
 
-		internal const string JPEGMIMETYPE = "image/jpeg";
+		public const string JPEGMIMETYPE = "image/jpeg";
 
-		internal const string PNGMIMETYPE = "image/png";
+		public const string PNGMIMETYPE = "image/png";
 
-		internal const string BMPMIMETYPE = "image/bmp";
+		public const string BMPMIMETYPE = "image/bmp";
 
-		internal const string XPNGMIMETYPE = "image/x-png";
+		public const string XPNGMIMETYPE = "image/x-png";
 
 		private Stream m_imageData;
 
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 
 		private PaddingInformation m_paddings;
 
-		internal Stream ImageData
+		public Stream ImageData
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal string ImageName
+		public string ImageName
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal RPLFormat.Sizings ImageSizings
+		public RPLFormat.Sizings ImageSizings
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal ImageFormat ImageFormat
+		public ImageFormat ImageFormat
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal int Width
+		public int Width
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal int Height
+		public int Height
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal float HorizontalResolution
+		public float HorizontalResolution
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal float VerticalResolution
+		public float VerticalResolution
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal string HyperlinkURL
+		public string HyperlinkURL
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal bool HyperlinkIsBookmark
+		public bool HyperlinkIsBookmark
 		{
 			get
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal PaddingInformation Paddings
+		public PaddingInformation Paddings
 		{
 			get
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal RPLFormat.Sizings Sizings
+		public RPLFormat.Sizings Sizings
 		{
 			set
 			{
@@ -203,11 +203,11 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal ImageInformation()
+		public ImageInformation()
 		{
 		}
 
-		internal void ReadImage(IExcelGenerator excel, RPLImageData image, string imageName, RPLReport report)
+		public void ReadImage(IExcelGenerator excel, RPLImageData image, string imageName, RPLReport report)
 		{
 			if (excel != null && image != null && report != null && imageName != null)
 			{
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal void SetMimeType(string mimeType)
+		public void SetMimeType(string mimeType)
 		{
 			if (mimeType != null)
 			{

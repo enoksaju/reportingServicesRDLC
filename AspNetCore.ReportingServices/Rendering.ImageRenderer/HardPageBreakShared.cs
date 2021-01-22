@@ -3,13 +3,13 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class HardPageBreakShared
+	public sealed class HardPageBreakShared
 	{
 		private HardPageBreakShared()
 		{
 		}
 
-		internal static RectangleF CalculateColumnBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, int columnNumber, float top, float columnHeight)
+		public static RectangleF CalculateColumnBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, int columnNumber, float top, float columnHeight)
 		{
 			float num = pageLayout.PageWidth - pageLayout.MarginLeft - pageLayout.MarginRight;
 			int num2 = reportSection.ColumnCount;
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return new RectangleF(pageLayout.MarginLeft + (float)columnNumber * (reportSection.ColumnSpacing + num4), top, num4, columnHeight);
 		}
 
-		internal static RectangleF CalculateHeaderBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, float top, float width)
+		public static RectangleF CalculateHeaderBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, float top, float width)
 		{
 			if (reportSection.Header == null)
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return new RectangleF(pageLayout.MarginLeft, top, width, reportSection.Header.Height);
 		}
 
-		internal static RectangleF CalculateFooterBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, float top, float width)
+		public static RectangleF CalculateFooterBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, float top, float width)
 		{
 			if (reportSection.Footer == null)
 			{

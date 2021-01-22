@@ -1,17 +1,17 @@
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class ShareFont
+	public class ShareFont
 	{
-		internal const int FontGDI = 1;
+		public const int FontGDI = 1;
 
-		internal const int Alignment = 2;
+		public const int Alignment = 2;
 
-		internal const int LineAlignment = 4;
+		public const int LineAlignment = 4;
 
-		internal const int WritingMode = 8;
+		public const int WritingMode = 8;
 
-		internal const int FormatFlags = 16;
+		public const int FormatFlags = 16;
 
-		internal const int All = 31;
+		public const int All = 31;
 	}
 }

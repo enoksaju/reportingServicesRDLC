@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IDataProtection
+	public interface IDataProtection
 	{
 		byte[] ProtectData(string unprotectedData, string tag);
 

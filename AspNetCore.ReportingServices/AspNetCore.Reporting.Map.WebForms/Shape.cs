@@ -15,7 +15,7 @@ using System.Xml;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(ShapeConverter))]
-	internal class Shape : NamedElement, IContentElement, ILayerElement, IToolTipProvider, ISelectable, ISpatialElement, IImageMapProvider
+	public class Shape : NamedElement, IContentElement, ILayerElement, IToolTipProvider, ISelectable, ISpatialElement, IImageMapProvider
 	{
 		private GraphicsPath[] cachedPaths;
 
@@ -23,9 +23,9 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private RectangleF cachedTextBounds = Rectangle.Empty;
 
-		internal int largestPathIndex;
+		public int largestPathIndex;
 
-		internal Hashtable fields;
+		public Hashtable fields;
 
 		private string fieldDataBuffer = string.Empty;
 
@@ -721,7 +721,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ArrayList Symbols
+		public ArrayList Symbols
 		{
 			get
 			{
@@ -745,7 +745,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Group ParentGroupObject
+		public Group ParentGroupObject
 		{
 			get
 			{
@@ -769,7 +769,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool UseInternalProperties
+		public bool UseInternalProperties
 		{
 			get
 			{
@@ -782,7 +782,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Color BorderColorInt
+		public Color BorderColorInt
 		{
 			get
 			{
@@ -806,7 +806,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Color ColorInt
+		public Color ColorInt
 		{
 			get
 			{
@@ -830,7 +830,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal GradientType GradientTypeInt
+		public GradientType GradientTypeInt
 		{
 			get
 			{
@@ -854,7 +854,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Color SecondaryColorInt
+		public Color SecondaryColorInt
 		{
 			get
 			{
@@ -878,7 +878,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapHatchStyle HatchStyleInt
+		public MapHatchStyle HatchStyleInt
 		{
 			get
 			{
@@ -902,7 +902,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string TextInt
+		public string TextInt
 		{
 			get
 			{
@@ -920,7 +920,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string ToolTipInt
+		public string ToolTipInt
 		{
 			get
 			{
@@ -943,7 +943,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Offset OffsetInt
+		public Offset OffsetInt
 		{
 			get
 			{
@@ -955,7 +955,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapDashStyle BorderStyleInt
+		public MapDashStyle BorderStyleInt
 		{
 			get
 			{
@@ -967,7 +967,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int BorderWidthInt
+		public int BorderWidthInt
 		{
 			get
 			{
@@ -979,7 +979,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int ShadowOffsetInt
+		public int ShadowOffsetInt
 		{
 			get
 			{
@@ -991,7 +991,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool VisibleInt
+		public bool VisibleInt
 		{
 			get
 			{
@@ -1003,7 +1003,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string HrefInt
+		public string HrefInt
 		{
 			get
 			{
@@ -1015,7 +1015,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string MapAreaAttributesInt
+		public string MapAreaAttributesInt
 		{
 			get
 			{
@@ -1132,7 +1132,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal Shape(CommonElements common)
+		public Shape(CommonElements common)
 			: base(common)
 		{
 			this.shapeData = new ShapeData();
@@ -1264,7 +1264,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal MapCore GetMapCore()
+		public MapCore GetMapCore()
 		{
 			return (MapCore)this.ParentElement;
 		}
@@ -1281,7 +1281,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void InvalidateChildSymbols()
+		public void InvalidateChildSymbols()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (mapCore != null)
@@ -1313,7 +1313,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return text;
 		}
 
-		internal void FieldDataFromBuffer()
+		public void FieldDataFromBuffer()
 		{
 			if (this.fieldDataBuffer.Length != 0)
 			{
@@ -1339,13 +1339,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.InvalidateRules();
 		}
 
-		internal override void OnRemove()
+		public override void OnRemove()
 		{
 			base.OnRemove();
 			MapCore mapCore = this.GetMapCore();
@@ -1380,7 +1380,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.OnDispose();
 		}
 
-		internal void ApplyCustomColorAttributes(CustomColor customColor)
+		public void ApplyCustomColorAttributes(CustomColor customColor)
 		{
 			this.UseInternalProperties = true;
 			this.BorderColorInt = customColor.BorderColor;
@@ -1392,7 +1392,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.ToolTipInt = customColor.ToolTip;
 		}
 
-		internal void InvalidateRules()
+		public void InvalidateRules()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (mapCore != null)
@@ -1402,7 +1402,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal IEnumerable<RectangleF> GetGeographicRectangles()
+		public IEnumerable<RectangleF> GetGeographicRectangles()
 		{
 			for (int i = 0; i < this.ShapeData.Segments.Length; i++)
 			{
@@ -1811,7 +1811,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsRectangleVisible(MapGraphics g, RectangleF clipRect, MapPoint minExtent, MapPoint maxExtent)
+		public bool IsRectangleVisible(MapGraphics g, RectangleF clipRect, MapPoint minExtent, MapPoint maxExtent)
 		{
 			MapCore mapCore = this.GetMapCore();
 			PointF pointF = mapCore.GeographicToPercents(minExtent).ToPointF();
@@ -1821,7 +1821,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return clipRect.IntersectsWith(relative);
 		}
 
-		internal RectangleF GetTextBounds(MapGraphics g)
+		public RectangleF GetTextBounds(MapGraphics g)
 		{
 			if (this.TextInt == string.Empty)
 			{
@@ -1840,7 +1840,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.cachedTextBounds;
 		}
 
-		internal GraphicsPath[] GetPaths(MapGraphics g)
+		public GraphicsPath[] GetPaths(MapGraphics g)
 		{
 			if (this.VisibleInt && this.ShapeData.Points != null)
 			{
@@ -1944,7 +1944,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return mapPoint;
 		}
 
-		internal GraphicsPath[] GetGeographicGraphicsPaths()
+		public GraphicsPath[] GetGeographicGraphicsPaths()
 		{
 			ArrayList arrayList = new ArrayList();
 			int num = 0;
@@ -1971,7 +1971,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (GraphicsPath[])arrayList.ToArray(typeof(GraphicsPath));
 		}
 
-		internal double GetVerticalOffsetFactor()
+		public double GetVerticalOffsetFactor()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (this.OffsetInt.Y != 0.0 && mapCore != null && mapCore.Projection != 0 && mapCore.Projection != Projection.Mercator)
@@ -1989,7 +1989,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return 1.0;
 		}
 
-		internal void ArrangeChildSymbols(MapGraphics g)
+		public void ArrangeChildSymbols(MapGraphics g)
 		{
 			PointF centerPointInContentPixels = this.GetCenterPointInContentPixels(g);
 			float num = 0f;
@@ -2011,7 +2011,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void InvalidateCachedBounds()
+		public void InvalidateCachedBounds()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (mapCore != null)
@@ -2020,7 +2020,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void ResetCachedPaths()
+		public void ResetCachedPaths()
 		{
 			if (this.cachedPaths != null)
 			{
@@ -2067,7 +2067,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (PointF[])arrayList.ToArray(typeof(PointF));
 		}
 
-		internal Brush GetBackBrush(MapGraphics g, GraphicsPath path, RectangleF pathBounds)
+		public Brush GetBackBrush(MapGraphics g, GraphicsPath path, RectangleF pathBounds)
 		{
 			Brush brush = null;
 			Color color = this.ApplyLayerTransparency(this.ColorInt);
@@ -2085,7 +2085,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new SolidBrush(color);
 		}
 
-		internal Pen GetPen(Brush backBrush)
+		public Pen GetPen(Brush backBrush)
 		{
 			Pen pen = null;
 			if (this.BorderWidthInt <= 0)

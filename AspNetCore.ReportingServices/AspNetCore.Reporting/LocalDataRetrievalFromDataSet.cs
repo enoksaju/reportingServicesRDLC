@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace AspNetCore.Reporting
 {
-	internal class LocalDataRetrievalFromDataSet : LocalDataRetrieval
+	public class LocalDataRetrievalFromDataSet : LocalDataRetrieval
 	{
 		public delegate IEnumerable GetSubReportDataSetCallback(PreviewItemContext subReportContext, ParameterInfoCollection initialParameters);
 

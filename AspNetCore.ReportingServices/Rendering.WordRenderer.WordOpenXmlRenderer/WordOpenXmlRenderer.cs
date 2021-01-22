@@ -7,14 +7,14 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer
 {
-	internal sealed class WordOpenXmlRenderer : WordRenderer
+	public sealed class WordOpenXmlRenderer : WordRenderer
 	{
-		internal WordOpenXmlRenderer(CreateAndRegisterStream createAndRegisterStream, AspNetCore.ReportingServices.Rendering.SPBProcessing.SPBProcessing spbProcessing, IWordWriter writer, DeviceInfo deviceInfo, string reportName)
+		public WordOpenXmlRenderer(CreateAndRegisterStream createAndRegisterStream, AspNetCore.ReportingServices.Rendering.SPBProcessing.SPBProcessing spbProcessing, IWordWriter writer, DeviceInfo deviceInfo, string reportName)
 			: base(createAndRegisterStream, spbProcessing, writer, deviceInfo, reportName)
 		{
 		}
 
-		internal override bool Render()
+		public override bool Render()
 		{
 			RPLItemMeasurement rPLItemMeasurement = null;
 			bool flag = true;

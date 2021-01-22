@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapDockableSubItem : MapSubItem, IPersistable, IActionOwner
+	public class MapDockableSubItem : MapSubItem, IPersistable, IActionOwner
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapDockableSubItem.GetDeclaration();
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_toolTip;
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ID
+		public int ID
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Position
+		public ExpressionInfo Position
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DockOutsideViewport
+		public ExpressionInfo DockOutsideViewport
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapDockableSubItemExprHost ExprHost
+		public new MapDockableSubItemExprHost ExprHost
 		{
 			get
 			{
@@ -128,17 +128,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapDockableSubItem()
+		public MapDockableSubItem()
 		{
 		}
 
-		internal MapDockableSubItem(Map map, int id)
+		public MapDockableSubItem(Map map, int id)
 			: base(map)
 		{
 			this.m_id = id;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_action != null)
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapDockableSubItem mapDockableSubItem = (MapDockableSubItem)base.PublishClone(context);
 			if (this.m_action != null)
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapDockableSubItem;
 		}
 
-		internal void SetExprHost(MapDockableSubItemExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapDockableSubItemExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Action, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Action));
@@ -286,25 +286,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapDockableSubItem;
 		}
 
-		internal MapPosition EvaluatePosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapPosition EvaluatePosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapPosition(context.ReportRuntime.EvaluateMapDockableSubItemPositionExpression(this, base.m_map.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateDockOutsideViewport(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateDockOutsideViewport(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapDockableSubItemDockOutsideViewportExpression(this, base.m_map.Name);
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapDockableSubItemHiddenExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateMapDockableSubItemToolTipExpression(this, base.m_map.Name);

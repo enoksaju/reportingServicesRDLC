@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class ScalabilityCache : BaseScalabilityCache
+	public sealed class ScalabilityCache : BaseScalabilityCache
 	{
 		private const long CacheExpansionIntervalMs = 3000L;
 
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return reference;
 		}
 
-		internal override void UpdateTargetSize(BaseReference reference, int sizeDeltaBytes)
+		public override void UpdateTargetSize(BaseReference reference, int sizeDeltaBytes)
 		{
 			StorageItem storageItem = (StorageItem)reference.Item;
 			storageItem.UpdateSize(sizeDeltaBytes);
@@ -225,13 +225,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			base.m_totalAuditedBytes += sizeDeltaBytes;
 		}
 
-		internal override BaseReference TransferTo(BaseReference reference)
+		public override BaseReference TransferTo(BaseReference reference)
 		{
 			Global.Tracer.Assert(false, "ScalabilityCache does not support the TransferTo operation");
 			return null;
 		}
 
-		internal override void ReferenceSerializeCallback(BaseReference reference)
+		public override void ReferenceSerializeCallback(BaseReference reference)
 		{
 			ReferenceID id = reference.Id;
 			if (id.IsTemporary)
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal override void Free(BaseReference reference)
+		public override void Free(BaseReference reference)
 		{
 			if (!(reference == (object)null))
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal override IStorable Retrieve(BaseReference reference)
+		public override IStorable Retrieve(BaseReference reference)
 		{
 			StorageItem storageItem = default(StorageItem);
 			if (!this.CacheTryGetValue(reference.Id, out storageItem))
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return storageItem.Item;
 		}
 
-		internal override void Pin(BaseReference reference)
+		public override void Pin(BaseReference reference)
 		{
 			StorageItem storageItem = (StorageItem)reference.Item;
 			if (storageItem == null)
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			storageItem.PinCount++;
 		}
 
-		internal override void UnPin(BaseReference reference)
+		public override void UnPin(BaseReference reference)
 		{
 			StorageItem storageItem = (StorageItem)reference.Item;
 			if (--storageItem.PinCount == 0)
@@ -336,7 +336,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal bool CacheTryGetValue(ReferenceID id, out StorageItem item)
+		public bool CacheTryGetValue(ReferenceID id, out StorageItem item)
 		{
 			item = null;
 			bool result = false;
@@ -347,7 +347,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return result;
 		}
 
-		internal bool CacheRemoveValue(ReferenceID id)
+		public bool CacheRemoveValue(ReferenceID id)
 		{
 			bool result = false;
 			if (this.m_cacheLookup != null)
@@ -357,7 +357,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return result;
 		}
 
-		internal void CacheSetValue(ReferenceID id, StorageItem value)
+		public void CacheSetValue(ReferenceID id, StorageItem value)
 		{
 			if (this.m_cacheLookup == null)
 			{

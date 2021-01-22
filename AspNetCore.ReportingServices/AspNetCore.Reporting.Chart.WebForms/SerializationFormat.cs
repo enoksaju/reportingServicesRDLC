@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum SerializationFormat
+	public enum SerializationFormat
 	{
 		Xml,
 		Binary

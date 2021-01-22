@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal sealed class CategoryNodeCollection : IEnumerable<CategoryNode>, IEnumerable
+	public sealed class CategoryNodeCollection : IEnumerable<CategoryNode>, IEnumerable
 	{
 		private readonly List<CategoryNode> _nodes;
 

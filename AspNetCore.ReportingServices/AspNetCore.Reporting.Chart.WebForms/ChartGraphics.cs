@@ -8,11 +8,11 @@ using System.Threading;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartGraphics : ChartGraphics3D
+	public class ChartGraphics : ChartGraphics3D
 	{
-		internal CommonElements common;
+		public CommonElements common;
 
-		internal Pen pen;
+		public Pen pen;
 
 		private SolidBrush solidBrush;
 
@@ -22,11 +22,11 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private int height;
 
-		internal bool softShadows = true;
+		public bool softShadows = true;
 
 		private AntiAliasingTypes antiAliasing = AntiAliasingTypes.All;
 
-		internal bool IsMetafile;
+		public bool IsMetafile;
 
 		public new Graphics Graphics
 		{
@@ -40,7 +40,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal AntiAliasingTypes AntiAliasing
+		public AntiAliasingTypes AntiAliasing
 		{
 			get
 			{
@@ -63,12 +63,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DrawLineRel(Color color, int width, ChartDashStyle style, PointF firstPointF, PointF secondPointF)
+		public void DrawLineRel(Color color, int width, ChartDashStyle style, PointF firstPointF, PointF secondPointF)
 		{
 			this.DrawLineAbs(color, width, style, this.GetAbsolutePoint(firstPointF), this.GetAbsolutePoint(secondPointF));
 		}
 
-		internal void DrawLineAbs(Color color, int width, ChartDashStyle style, PointF firstPoint, PointF secondPoint)
+		public void DrawLineAbs(Color color, int width, ChartDashStyle style, PointF firstPoint, PointF secondPoint)
 		{
 			if (width != 0 && style != 0)
 			{
@@ -94,12 +94,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DrawLineRel(Color color, int width, ChartDashStyle style, PointF firstPoint, PointF secondPoint, Color shadowColor, int shadowOffset)
+		public void DrawLineRel(Color color, int width, ChartDashStyle style, PointF firstPoint, PointF secondPoint, Color shadowColor, int shadowOffset)
 		{
 			this.DrawLineAbs(color, width, style, this.GetAbsolutePoint(firstPoint), this.GetAbsolutePoint(secondPoint), shadowColor, shadowOffset);
 		}
 
-		internal void DrawLineAbs(Color color, int width, ChartDashStyle style, PointF firstPoint, PointF secondPoint, Color shadowColor, int shadowOffset)
+		public void DrawLineAbs(Color color, int width, ChartDashStyle style, PointF firstPoint, PointF secondPoint, Color shadowColor, int shadowOffset)
 		{
 			if (shadowOffset != 0)
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return new HatchBrush(hatchstyle, foreColor, backColor);
 		}
 
-		internal Brush GetTextureBrush(string name, Color backImageTranspColor, ChartImageWrapMode mode, Color backColor)
+		public Brush GetTextureBrush(string name, Color backImageTranspColor, ChartImageWrapMode mode, Color backColor)
 		{
 			Image image = this.common.ImageLoader.LoadImage(name);
 			ImageAttributes imageAttributes = new ImageAttributes();
@@ -220,7 +220,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return new SolidBrush(Color.Black);
 		}
 
-		internal Brush GetPieGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor)
+		public Brush GetPieGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			graphicsPath.AddEllipse(rectangle);
@@ -238,7 +238,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return pathGradientBrush;
 		}
 
-		internal DashStyle GetPenStyle(ChartDashStyle style)
+		public DashStyle GetPenStyle(ChartDashStyle style)
 		{
 			switch (style)
 			{
@@ -273,12 +273,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return array;
 		}
 
-		internal void DrawMarkerRel(PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect)
+		public void DrawMarkerRel(PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect)
 		{
 			this.DrawMarkerAbs(this.GetAbsolutePoint(point), markerStyle, markerSize, markerColor, markerBorderColor, markerBorderSize, markerImage, markerImageTranspColor, shadowSize, shadowColor, imageScaleRect, false);
 		}
 
-		internal void DrawMarkerAbs(PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect, bool forceAntiAlias)
+		public void DrawMarkerAbs(PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect, bool forceAntiAlias)
 		{
 			if (markerBorderSize <= 0)
 			{
@@ -610,7 +610,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return base.MeasureString(text, font, layoutArea, stringFormat);
 		}
 
-		internal SizeF MeasureStringRel(string text, Font font, SizeF layoutArea, StringFormat stringFormat, TextOrientation textOrientation)
+		public SizeF MeasureStringRel(string text, Font font, SizeF layoutArea, StringFormat stringFormat, TextOrientation textOrientation)
 		{
 			if (textOrientation == TextOrientation.Stacked)
 			{
@@ -628,7 +628,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.DrawString(text, font, brush, rect, format);
 		}
 
-		internal void DrawStringRel(string text, Font font, Brush brush, PointF position, StringFormat format, int angle, TextOrientation textOrientation)
+		public void DrawStringRel(string text, Font font, Brush brush, PointF position, StringFormat format, int angle, TextOrientation textOrientation)
 		{
 			if (textOrientation == TextOrientation.Stacked)
 			{
@@ -637,7 +637,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.DrawStringRel(text, font, brush, position, format, angle);
 		}
 
-		internal void DrawStringRel(string text, Font font, Brush brush, RectangleF position, StringFormat format, TextOrientation textOrientation)
+		public void DrawStringRel(string text, Font font, Brush brush, RectangleF position, StringFormat format, TextOrientation textOrientation)
 		{
 			if (textOrientation == TextOrientation.Stacked)
 			{
@@ -646,7 +646,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.DrawStringRel(text, font, brush, position, format);
 		}
 
-		internal static string GetStackedText(string text)
+		public static string GetStackedText(string text)
 		{
 			string text2 = string.Empty;
 			foreach (char c in text)
@@ -660,7 +660,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return text2;
 		}
 
-		internal void DrawPointLabelStringRel(CommonElements common, string text, Font font, Brush brush, RectangleF position, StringFormat format, int angle, RectangleF backPosition, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Series series, DataPoint point, int pointIndex)
+		public void DrawPointLabelStringRel(CommonElements common, string text, Font font, Brush brush, RectangleF position, StringFormat format, int angle, RectangleF backPosition, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Series series, DataPoint point, int pointIndex)
 		{
 			base.StartHotRegion(point, true);
 			this.DrawPointLabelBackground(common, angle, PointF.Empty, backPosition, backColor, borderColor, borderWidth, borderStyle, series, point, pointIndex);
@@ -668,7 +668,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.DrawStringRel(text, font, brush, position, format, angle);
 		}
 
-		internal void DrawPointLabelStringRel(CommonElements common, string text, Font font, Brush brush, PointF position, StringFormat format, int angle, RectangleF backPosition, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Series series, DataPoint point, int pointIndex)
+		public void DrawPointLabelStringRel(CommonElements common, string text, Font font, Brush brush, PointF position, StringFormat format, int angle, RectangleF backPosition, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Series series, DataPoint point, int pointIndex)
 		{
 			base.StartHotRegion(point, true);
 			this.DrawPointLabelBackground(common, angle, position, backPosition, backColor, borderColor, borderWidth, borderStyle, series, point, pointIndex);
@@ -753,12 +753,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DrawStringRel(string text, Font font, Brush brush, PointF position, StringFormat format, int angle)
+		public void DrawStringRel(string text, Font font, Brush brush, PointF position, StringFormat format, int angle)
 		{
 			this.DrawStringAbs(text, font, brush, this.GetAbsolutePoint(position), format, angle);
 		}
 
-		internal void DrawStringAbs(string text, Font font, Brush brush, PointF absPosition, StringFormat format, int angle)
+		public void DrawStringAbs(string text, Font font, Brush brush, PointF absPosition, StringFormat format, int angle)
 		{
 			this.myMatrix = base.Transform.Clone();
 			this.myMatrix.RotateAt((float)angle, absPosition);
@@ -768,7 +768,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.Restore(gstate);
 		}
 
-		internal GraphicsPath GetTranformedTextRectPath(PointF center, SizeF size, int angle)
+		public GraphicsPath GetTranformedTextRectPath(PointF center, SizeF size, int angle)
 		{
 			size.Width += 10f;
 			size.Height += 10f;
@@ -789,7 +789,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal void DrawLabelStringRel(Axis axis, int labelRowIndex, LabelMark labelMark, Color markColor, string text, string image, Color imageTranspColor, Font font, Brush brush, RectangleF position, StringFormat format, int angle, RectangleF boundaryRect, CustomLabel label, bool truncatedLeft, bool truncatedRight)
+		public void DrawLabelStringRel(Axis axis, int labelRowIndex, LabelMark labelMark, Color markColor, string text, string image, Color imageTranspColor, Font font, Brush brush, RectangleF position, StringFormat format, int angle, RectangleF boundaryRect, CustomLabel label, bool truncatedLeft, bool truncatedRight)
 		{
 			StringFormat stringFormat = (StringFormat)format.Clone();
 			SizeF sizeF = SizeF.Empty;
@@ -1292,32 +1292,32 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal SizeF MeasureStringRel(string text, Font font)
+		public SizeF MeasureStringRel(string text, Font font)
 		{
 			SizeF size = base.MeasureString(text, font);
 			return this.GetRelativeSize(size);
 		}
 
-		internal SizeF MeasureStringRel(string text, Font font, SizeF layoutArea, StringFormat stringFormat)
+		public SizeF MeasureStringRel(string text, Font font, SizeF layoutArea, StringFormat stringFormat)
 		{
 			SizeF absoluteSize = this.GetAbsoluteSize(layoutArea);
 			SizeF size = base.MeasureString(text, font, absoluteSize, stringFormat);
 			return this.GetRelativeSize(size);
 		}
 
-		internal Size MeasureStringAbs(string text, Font font)
+		public Size MeasureStringAbs(string text, Font font)
 		{
 			SizeF sizeF = base.MeasureString(text, font);
 			return new Size((int)Math.Ceiling((double)sizeF.Width), (int)Math.Ceiling((double)sizeF.Height));
 		}
 
-		internal Size MeasureStringAbs(string text, Font font, SizeF layoutArea, StringFormat stringFormat)
+		public Size MeasureStringAbs(string text, Font font, SizeF layoutArea, StringFormat stringFormat)
 		{
 			SizeF sizeF = base.MeasureString(text, font, layoutArea, stringFormat);
 			return new Size((int)Math.Ceiling((double)sizeF.Width), (int)Math.Ceiling((double)sizeF.Height));
 		}
 
-		internal void DrawStringRel(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format)
+		public void DrawStringRel(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format)
 		{
 			if (layoutRectangle.Width != 0.0 && layoutRectangle.Height != 0.0)
 			{
@@ -1326,7 +1326,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DrawStringRel(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format, int angle)
+		public void DrawStringRel(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format, int angle)
 		{
 			PointF empty = PointF.Empty;
 			if (layoutRectangle.Width != 0.0 && layoutRectangle.Height != 0.0)
@@ -1357,7 +1357,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DrawRectangleBarStyle(BarDrawingStyle barDrawingStyle, bool isVertical, RectangleF rect, int borderWidth)
+		public void DrawRectangleBarStyle(BarDrawingStyle barDrawingStyle, bool isVertical, RectangleF rect, int borderWidth)
 		{
 			if (barDrawingStyle != 0 && rect.Width > 0.0 && rect.Height > 0.0)
 			{
@@ -1582,22 +1582,22 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void FillRectangleRel(RectangleF rectF, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment, BarDrawingStyle barDrawingStyle, bool isVertical)
+		public void FillRectangleRel(RectangleF rectF, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment, BarDrawingStyle barDrawingStyle, bool isVertical)
 		{
 			this.FillRectangleRel(rectF, backColor, backHatchStyle, backImage, backImageMode, backImageTranspColor, backImageAlign, backGradientType, backGradientEndColor, borderColor, borderWidth, borderStyle, shadowColor, shadowOffset, penAlignment, false, 0, false, barDrawingStyle, isVertical);
 		}
 
-		internal void FillRectangleRel(RectangleF rectF, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment)
+		public void FillRectangleRel(RectangleF rectF, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment)
 		{
 			this.FillRectangleRel(rectF, backColor, backHatchStyle, backImage, backImageMode, backImageTranspColor, backImageAlign, backGradientType, backGradientEndColor, borderColor, borderWidth, borderStyle, shadowColor, shadowOffset, penAlignment, false, 0, false, BarDrawingStyle.Default, true);
 		}
 
-		internal void FillRectangleRel(RectangleF rectF, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment, bool circular, int circularSectorsCount, bool circle3D)
+		public void FillRectangleRel(RectangleF rectF, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment, bool circular, int circularSectorsCount, bool circle3D)
 		{
 			this.FillRectangleRel(rectF, backColor, backHatchStyle, backImage, backImageMode, backImageTranspColor, backImageAlign, backGradientType, backGradientEndColor, borderColor, borderWidth, borderStyle, shadowColor, shadowOffset, penAlignment, circular, circularSectorsCount, circle3D, BarDrawingStyle.Default, true);
 		}
 
-		internal void FillRectangleRel(RectangleF rectF, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment, bool circular, int circularSectorsCount, bool circle3D, BarDrawingStyle barDrawingStyle, bool isVertical)
+		public void FillRectangleRel(RectangleF rectF, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment, bool circular, int circularSectorsCount, bool circle3D, BarDrawingStyle barDrawingStyle, bool isVertical)
 		{
 			Brush brush = null;
 			Brush brush2 = null;
@@ -1785,7 +1785,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.FillRectangleShadowAbs(rect, shadowColor, shadowOffset, backColor, false, 0);
 		}
 
-		internal void FillRectangleShadowAbs(RectangleF rect, Color shadowColor, float shadowOffset, Color backColor, bool circular, int circularSectorsCount)
+		public void FillRectangleShadowAbs(RectangleF rect, Color shadowColor, float shadowOffset, Color backColor, bool circular, int circularSectorsCount)
 		{
 			if (rect.Height != 0.0 && rect.Width != 0.0 && shadowOffset != 0.0 && shadowOffset != 0.0 && !(shadowColor == Color.Empty))
 			{
@@ -1893,7 +1893,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal GraphicsPath GetPolygonCirclePath(RectangleF position, int polygonSectorsNumber)
+		public GraphicsPath GetPolygonCirclePath(RectangleF position, int polygonSectorsNumber)
 		{
 			PointF pointF = new PointF((float)(position.X + position.Width / 2.0), position.Y);
 			PointF point = new PointF((float)(position.X + position.Width / 2.0), (float)(position.Y + position.Height / 2.0));
@@ -1921,7 +1921,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal void DrawCircleAbs(Pen pen, Brush brush, RectangleF position, int polygonSectorsNumber, bool circle3D)
+		public void DrawCircleAbs(Pen pen, Brush brush, RectangleF position, int polygonSectorsNumber, bool circle3D)
 		{
 			bool flag = circle3D && brush != null;
 			if (polygonSectorsNumber <= 2 && !flag)
@@ -1995,7 +1995,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Brush GetSector3DBrush(Brush brush, float curentSector, float sectorSize)
+		public Brush GetSector3DBrush(Brush brush, float curentSector, float sectorSize)
 		{
 			Color beginColor = Color.Gray;
 			if (brush is HatchBrush)
@@ -2028,7 +2028,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return new SolidBrush(beginColor);
 		}
 
-		internal Color GetBrightGradientColor(Color beginColor, double position)
+		public Color GetBrightGradientColor(Color beginColor, double position)
 		{
 			double num = 0.5;
 			if (position < num)
@@ -2042,7 +2042,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return Color.FromArgb(beginColor.A, 0, 0, 0);
 		}
 
-		internal void FillRectangleAbs(RectangleF rect, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment)
+		public void FillRectangleAbs(RectangleF rect, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment)
 		{
 			Brush brush = null;
 			Brush brush2 = null;
@@ -2175,7 +2175,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.SmoothingMode = smoothingMode;
 		}
 
-		internal void DrawPathAbs(GraphicsPath path, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, int shadowOffset, Color shadowColor)
+		public void DrawPathAbs(GraphicsPath path, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, int shadowOffset, Color shadowColor)
 		{
 			if (shadowOffset != 0 && shadowColor != Color.Transparent)
 			{
@@ -2194,7 +2194,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.DrawPathAbs(path, backColor, backHatchStyle, backImage, backImageMode, backImageTranspColor, backImageAlign, backGradientType, backGradientEndColor, borderColor, borderWidth, borderStyle, penAlignment);
 		}
 
-		internal void DrawPathAbs(GraphicsPath path, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment)
+		public void DrawPathAbs(GraphicsPath path, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment)
 		{
 			Brush brush = null;
 			Brush brush2 = null;
@@ -2308,7 +2308,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Brush CreateBrush(RectangleF rect, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor)
+		public Brush CreateBrush(RectangleF rect, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor)
 		{
 			Brush result = new SolidBrush(backColor);
 			if (backImage.Length > 0 && backImageMode != ChartImageWrapMode.Unscaled && backImageMode != ChartImageWrapMode.Scaled)
@@ -2378,7 +2378,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return empty;
 		}
 
-		internal GraphicsPath CreateRoundedRectPath(RectangleF rect, float[] cornerRadius)
+		public GraphicsPath CreateRoundedRectPath(RectangleF rect, float[] cornerRadius)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			graphicsPath.AddLine(rect.X + cornerRadius[0], rect.Y, rect.Right - cornerRadius[1], rect.Y);
@@ -2392,7 +2392,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal void DrawRoundedRectShadowAbs(RectangleF rect, float[] cornerRadius, float radius, Color centerColor, Color surroundColor, float shadowScale)
+		public void DrawRoundedRectShadowAbs(RectangleF rect, float[] cornerRadius, float radius, Color centerColor, Color surroundColor, float shadowScale)
 		{
 			GraphicsPath graphicsPath = this.CreateRoundedRectPath(rect, cornerRadius);
 			PathGradientBrush pathGradientBrush = new PathGradientBrush(graphicsPath);
@@ -2411,12 +2411,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Draw3DBorderRel(BorderSkinAttributes borderSkin, RectangleF rect, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle)
+		public void Draw3DBorderRel(BorderSkinAttributes borderSkin, RectangleF rect, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle)
 		{
 			this.Draw3DBorderAbs(borderSkin, this.GetAbsoluteRectangle(rect), backColor, backHatchStyle, backImage, backImageMode, backImageTranspColor, backImageAlign, backGradientType, backGradientEndColor, borderColor, borderWidth, borderStyle);
 		}
 
-		internal void Draw3DBorderAbs(BorderSkinAttributes borderSkin, RectangleF absRect, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle)
+		public void Draw3DBorderAbs(BorderSkinAttributes borderSkin, RectangleF absRect, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle)
 		{
 			if (this.common != null && borderSkin.SkinStyle != 0 && absRect.Width != 0.0 && absRect.Height != 0.0)
 			{
@@ -2429,7 +2429,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal static PieDrawingStyle GetPieDrawingStyle(DataPoint point)
+		public static PieDrawingStyle GetPieDrawingStyle(DataPoint point)
 		{
 			PieDrawingStyle result = PieDrawingStyle.Default;
 			string text = ((DataPointAttributes)point)["PieDrawingStyle"];
@@ -2456,7 +2456,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal void DrawPieRel(RectangleF rect, float startAngle, float sweepAngle, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, bool shadow, double shadowOffset, bool doughnut, float doughnutRadius, bool explodedShadow, PieDrawingStyle pieDrawingStyle, out GraphicsPath controlGraphicsPath)
+		public void DrawPieRel(RectangleF rect, float startAngle, float sweepAngle, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, bool shadow, double shadowOffset, bool doughnut, float doughnutRadius, bool explodedShadow, PieDrawingStyle pieDrawingStyle, out GraphicsPath controlGraphicsPath)
 		{
 			controlGraphicsPath = null;
 			Pen pen = null;
@@ -2563,7 +2563,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DrawPieRel(RectangleF rect, float startAngle, float sweepAngle, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, bool shadow, double shadowOffset, bool doughnut, float doughnutRadius, bool explodedShadow, PieDrawingStyle pieDrawingStyle)
+		public void DrawPieRel(RectangleF rect, float startAngle, float sweepAngle, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, bool shadow, double shadowOffset, bool doughnut, float doughnutRadius, bool explodedShadow, PieDrawingStyle pieDrawingStyle)
 		{
 			GraphicsPath graphicsPath = null;
 			try
@@ -2718,7 +2718,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.shadowDrawingMode = false;
 		}
 
-		internal void DrawArrowRel(PointF position, ArrowOrientation orientation, ArrowsType type, Color color, int lineWidth, ChartDashStyle lineDashStyle, double shift, double size)
+		public void DrawArrowRel(PointF position, ArrowOrientation orientation, ArrowsType type, Color color, int lineWidth, ChartDashStyle lineDashStyle, double shift, double size)
 		{
 			if (type != 0)
 			{
@@ -2860,7 +2860,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return array;
 		}
 
-		internal static void Widen(GraphicsPath path, Pen pen)
+		public static void Widen(GraphicsPath path, Pen pen)
 		{
 			try
 			{
@@ -2878,7 +2878,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal static BarDrawingStyle GetBarDrawingStyle(DataPoint point)
+		public static BarDrawingStyle GetBarDrawingStyle(DataPoint point)
 		{
 			BarDrawingStyle result = BarDrawingStyle.Default;
 			string text = ((DataPointAttributes)point)["DrawingStyle"];
@@ -2915,7 +2915,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal RectangleF Round(RectangleF rect)
+		public RectangleF Round(RectangleF rect)
 		{
 			float num = (float)Math.Round((double)rect.Left);
 			float num2 = (float)Math.Round((double)rect.Right);
@@ -2941,20 +2941,20 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetPictureSize(int width, int height)
+		public void SetPictureSize(int width, int height)
 		{
 			this.width = width;
 			this.height = height;
 		}
 
-		internal ChartGraphics(CommonElements common)
+		public ChartGraphics(CommonElements common)
 		{
 			this.common = common;
 			this.pen = new Pen(Color.Black);
 			this.solidBrush = new SolidBrush(Color.Black);
 		}
 
-		internal void Dispose()
+		public void Dispose()
 		{
 			if (this.pen != null)
 			{
@@ -2966,21 +2966,21 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal new void SetClip(RectangleF region)
+		public new void SetClip(RectangleF region)
 		{
 			base.SetClip(this.GetAbsoluteRectangle(region));
 		}
 
-		internal void SetClipAbs(RectangleF region)
+		public void SetClipAbs(RectangleF region)
 		{
 			base.SetClip(region);
 		}
 
-		internal void StartAnimation()
+		public void StartAnimation()
 		{
 		}
 
-		internal void StopAnimation()
+		public void StopAnimation()
 		{
 		}
 

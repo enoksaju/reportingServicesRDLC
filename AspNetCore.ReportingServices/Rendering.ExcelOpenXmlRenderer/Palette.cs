@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Palette
+	public sealed class Palette
 	{
 		public const int MaxColorIndex = 55;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 
 		private readonly IPaletteModel mModel;
 
-		internal Palette(IPaletteModel model)
+		public Palette(IPaletteModel model)
 		{
 			this.mModel = model;
 		}

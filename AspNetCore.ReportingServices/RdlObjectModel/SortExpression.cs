@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class SortExpression : ReportObject
+	public class SortExpression : ReportObject
 	{
-		internal class Definition : DefinitionStore<SortExpression, Definition.Properties>
+		public class Definition : DefinitionStore<SortExpression, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Value,
 				Direction
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal SortExpression(IPropertyStore propertyStore)
+		public SortExpression(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

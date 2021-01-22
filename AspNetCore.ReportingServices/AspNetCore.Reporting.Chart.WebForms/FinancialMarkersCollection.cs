@@ -5,11 +5,11 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class FinancialMarkersCollection : IList, ICollection, IEnumerable
+	public class FinancialMarkersCollection : IList, ICollection, IEnumerable
 	{
 		private ArrayList array = new ArrayList();
 
-		internal Series series;
+		public Series series;
 
 		private FinancialMarkers markers;
 
@@ -217,7 +217,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.markers = new FinancialMarkers();
 		}
 
-		internal void DrawMarkers(ChartGraphics graph, ChartPicture chart)
+		public void DrawMarkers(ChartGraphics graph, ChartPicture chart)
 		{
 			if (this.array != null && this.array.Count != 0)
 			{

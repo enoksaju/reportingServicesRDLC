@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartAlignType
+	public sealed class ChartAlignType
 	{
 		private Chart m_chart;
 
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAlignType ChartAlignTypeDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAlignType ChartAlignTypeDef
 		{
 			get
 			{
@@ -98,13 +98,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartAlignType(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAlignType chartAlignTypeDef, Chart chart)
+		public ChartAlignType(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAlignType chartAlignTypeDef, Chart chart)
 		{
 			this.m_chartAlignTypeDef = chartAlignTypeDef;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapMarkerStyle
+	public enum MapMarkerStyle
 	{
 		None,
 		Rectangle,

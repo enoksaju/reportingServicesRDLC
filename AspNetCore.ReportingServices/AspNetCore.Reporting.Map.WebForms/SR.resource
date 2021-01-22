@@ -1468,7 +1468,7 @@
     <value>Legend header visual separator color.</value>
   </data>
   <data name="gdi_noninitialized" xml:space="preserve">
-    <value>Internal error. GDI engine is not initialized.</value>
+    <value>public error. GDI engine is not initialized.</value>
   </data>
   <data name="DescriptionAttributePath_Href" xml:space="preserve">
     <value>The Href of the map label.</value>
@@ -2071,7 +2071,7 @@
     <value>The argument must be greater than {0}.</value>
   </data>
   <data name="generate_name_failed" xml:space="preserve">
-    <value>Internal exception : Generating unique name failed.</value>
+    <value>public exception : Generating unique name failed.</value>
   </data>
   <data name="DescriptionAttributeColorSwatchPanel_TitleFont" xml:space="preserve">
     <value>Specifies the font for the color swatch's title.</value>
@@ -2266,7 +2266,7 @@
     <value>Gets or sets the hatch style to be used for all groups to which this rule applies.</value>
   </data>
   <data name="invalid_marker_type" xml:space="preserve">
-    <value>Internal error. Invalid marker type specified.</value>
+    <value>public error. Invalid marker type specified.</value>
   </data>
   <data name="AccessibilityColorSwatchPanelName" xml:space="preserve">
     <value>Color swatch panel</value>
@@ -2578,7 +2578,7 @@
     <value>'(none)' and '(all)' has special meaning and cannot be used as layer name.</value>
   </data>
   <data name="invalid_placement_type" xml:space="preserve">
-    <value>Internal error. Invalid placement type specified.</value>
+    <value>public error. Invalid placement type specified.</value>
   </data>
   <data name="DescriptionAttributePathRule_ToolTip" xml:space="preserve">
     <value>Gets or sets the tooltip to be displayed for all paths to which this rule applies.</value>

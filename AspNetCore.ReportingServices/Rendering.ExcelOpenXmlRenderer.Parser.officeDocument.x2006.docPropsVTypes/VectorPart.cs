@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.officeDocument.x2006.docPropsVTypes
 {
-	internal class VectorPart : OoxmlPart
+	public class VectorPart : OoxmlPart
 	{
 		private CT_Vector _root;
 

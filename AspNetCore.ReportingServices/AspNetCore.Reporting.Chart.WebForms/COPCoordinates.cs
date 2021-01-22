@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum COPCoordinates
+	public enum COPCoordinates
 	{
 		X = 1,
 		Y = 2,

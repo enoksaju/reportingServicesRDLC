@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapLimits : MapObject
+	public class MapLimits : MapObject
 	{
 		private bool minimumXIsNaN = true;
 
@@ -105,12 +105,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal MapLimits(object parent)
+		public MapLimits(object parent)
 			: base(parent)
 		{
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			MapCore mapCore = (MapCore)this.Parent;
 			if (mapCore != null)
@@ -122,22 +122,22 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsMinimumXNaN()
+		public bool IsMinimumXNaN()
 		{
 			return this.minimumXIsNaN;
 		}
 
-		internal bool IsMinimumYNaN()
+		public bool IsMinimumYNaN()
 		{
 			return this.minimumYIsNaN;
 		}
 
-		internal bool IsMaximumXNaN()
+		public bool IsMaximumXNaN()
 		{
 			return this.maximumXIsNaN;
 		}
 
-		internal bool IsMaximumYNaN()
+		public bool IsMaximumYNaN()
 		{
 			return this.maximumYIsNaN;
 		}

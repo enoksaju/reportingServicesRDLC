@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum ObjectType
+	public enum ObjectType
 	{
 		Report,
 		PageHeader,

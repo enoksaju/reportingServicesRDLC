@@ -7,14 +7,14 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal static class QueryExecutionUtils
+	public static class QueryExecutionUtils
 	{
-		internal static void DisposeDataExtensionObject<T>(ref T obj, string objectType, string dataSetName) where T : class, IDisposable
+		public static void DisposeDataExtensionObject<T>(ref T obj, string objectType, string dataSetName) where T : class, IDisposable
 		{
 			QueryExecutionUtils.DisposeDataExtensionObject<T>(ref obj, objectType, dataSetName, (DataProcessingMetrics)null, (DataProcessingMetrics.MetricType?)null);
 		}
 
-		internal static void DisposeDataExtensionObject<T>(ref T obj, string objectType, string dataSetName, DataProcessingMetrics executionMetrics, DataProcessingMetrics.MetricType? metricType) where T : class, IDisposable
+		public static void DisposeDataExtensionObject<T>(ref T obj, string objectType, string dataSetName, DataProcessingMetrics executionMetrics, DataProcessingMetrics.MetricType? metricType) where T : class, IDisposable
 		{
 			if (obj != null)
 			{

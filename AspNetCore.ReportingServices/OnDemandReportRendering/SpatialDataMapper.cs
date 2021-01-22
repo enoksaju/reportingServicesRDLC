@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class SpatialDataMapper
+	public abstract class SpatialDataMapper
 	{
 		protected MapMapper m_mapMapper;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private Dictionary<SpatialElementKey, SpatialElementInfoGroup> m_spatialElementsDictionary;
 
-		internal List<Type> KeyTypes
+		public List<Type> KeyTypes
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal SpatialDataMapper(VectorLayerMapper vectorLayerMapper, Dictionary<SpatialElementKey, SpatialElementInfoGroup> spatialElementsDictionary, MapControl coreMap, MapMapper mapMapper)
+		public SpatialDataMapper(VectorLayerMapper vectorLayerMapper, Dictionary<SpatialElementKey, SpatialElementInfoGroup> spatialElementsDictionary, MapControl coreMap, MapMapper mapMapper)
 		{
 			this.m_vectorLayerMapper = vectorLayerMapper;
 			this.m_mapVectorLayer = this.m_vectorLayerMapper.m_mapVectorLayer;
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_mapMapper = mapMapper;
 		}
 
-		internal abstract void Populate();
+		public abstract void Populate();
 
 		protected void OnSpatialElementAdded(SpatialElementInfo spatialElementInfo)
 		{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return SpatialDataMapper.CreateCoreSpatialElementKey(coreSpatialElement, this.m_mapVectorLayer.MapBindingFieldPairs, this.m_mapVectorLayer.MapDef.Name, this.m_mapVectorLayer.Name);
 		}
 
-		internal static SpatialElementKey CreateCoreSpatialElementKey(ISpatialElement coreSpatialElement, MapBindingFieldPairCollection mapBindingFieldPairs, string mapName, string layerName)
+		public static SpatialElementKey CreateCoreSpatialElementKey(ISpatialElement coreSpatialElement, MapBindingFieldPairCollection mapBindingFieldPairs, string mapName, string layerName)
 		{
 			if (mapBindingFieldPairs == null)
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return SpatialDataMapper.GetUniqueFieldName(this.m_mapVectorLayer.Name, fieldName);
 		}
 
-		internal static string GetBindingFieldName(MapBindingFieldPair bindingFieldPair)
+		public static string GetBindingFieldName(MapBindingFieldPair bindingFieldPair)
 		{
 			ReportStringProperty fieldName = bindingFieldPair.FieldName;
 			if (!fieldName.IsExpression)
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return bindingFieldPair.Instance.FieldName;
 		}
 
-		internal static string GetUniqueFieldName(string layerName, string fieldName)
+		public static string GetUniqueFieldName(string layerName, string fieldName)
 		{
 			return string.Format(CultureInfo.InvariantCulture, "{0}_{1}", layerName, fieldName);
 		}

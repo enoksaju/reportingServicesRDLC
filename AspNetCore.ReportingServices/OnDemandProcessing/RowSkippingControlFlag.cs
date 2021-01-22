@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal enum RowSkippingControlFlag
+	public enum RowSkippingControlFlag
 	{
 		ExactMatch,
 		Skip,

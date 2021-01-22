@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapPolygonLayer : MapVectorLayer
+	public class MapPolygonLayer : MapVectorLayer
 	{
-		internal new class Definition : DefinitionStore<MapPolygonLayer, Definition.Properties>
+		public new class Definition : DefinitionStore<MapPolygonLayer, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				VisibilityMode,
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapPolygonLayer(IPropertyStore propertyStore)
+		public MapPolygonLayer(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

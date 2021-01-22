@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ExecutionNotFoundException : ReportCatalogException
+	public sealed class ExecutionNotFoundException : ReportCatalogException
 	{
 		public ExecutionNotFoundException(string ExecutionID)
 			: base(ErrorCode.rsExecutionNotFound, ErrorStrings.rsExecutionNotFound(ExecutionID), null, null)

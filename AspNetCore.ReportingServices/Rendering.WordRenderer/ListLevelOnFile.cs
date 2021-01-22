@@ -4,9 +4,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class ListLevelOnFile
+	public class ListLevelOnFile
 	{
-		internal enum WordNumberFormat
+		public enum WordNumberFormat
 		{
 			Arabic,
 			Lowercase = 4,
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			Bullet = 23
 		}
 
-		internal const int TAB = 0;
+		public const int TAB = 0;
 
-		internal const int SPACE = 1;
+		public const int SPACE = 1;
 
-		internal const int NOTHING = 2;
+		public const int NOTHING = 2;
 
 		private int _iStartAt;
 
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private RPLFormat.ListStyles m_style;
 
-		internal virtual int SizeInBytes
+		public virtual int SizeInBytes
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte FollowChar
+		public virtual byte FollowChar
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal RPLFormat.ListStyles ListStyle
+		public RPLFormat.ListStyles ListStyle
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal ListLevelOnFile(int level, RPLFormat.ListStyles listStyle, Word97Writer writer)
+		public ListLevelOnFile(int level, RPLFormat.ListStyles listStyle, Word97Writer writer)
 		{
 			this.m_style = listStyle;
 			this._iStartAt = 1;
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			num += Word97Writer.AddSprm(this._grpprlChpx, num, 19011, param2, null);
 		}
 
-		internal void Write(BinaryWriter writer)
+		public void Write(BinaryWriter writer)
 		{
 			writer.Write(this._iStartAt);
 			writer.Write(this._nfc);

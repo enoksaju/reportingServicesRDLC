@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class NonStructuralIdcDataManager : LinearIdcDataManager
+	public sealed class NonStructuralIdcDataManager : LinearIdcDataManager
 	{
 		private readonly IRIFReportDataScope m_sourceDataScope;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private IReference<IOnDemandScopeInstance> m_lastParentScopeInstance;
 
-		internal IRIFReportDataScope SourceDataScope
+		public IRIFReportDataScope SourceDataScope
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal IReference<IOnDemandScopeInstance> LastParentScopeInstance
+		public IReference<IOnDemandScopeInstance> LastParentScopeInstance
 		{
 			get
 			{

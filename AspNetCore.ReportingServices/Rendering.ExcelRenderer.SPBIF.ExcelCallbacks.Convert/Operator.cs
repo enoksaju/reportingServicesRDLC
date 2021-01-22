@@ -2,9 +2,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert
 {
-	internal class Operator
+	public class Operator
 	{
-		internal enum OperatorType
+		public enum OperatorType
 		{
 			ARITHMETIC,
 			LOGICAL,
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 
 		private bool m_variableArgs;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal int Precedence
+		public int Precedence
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal OperatorType Type
+		public OperatorType Type
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal ushort BCode
+		public ushort BCode
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal uint FCode
+		public uint FCode
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal short ArgumentCount
+		public short ArgumentCount
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal byte[] BiffOperator
+		public byte[] BiffOperator
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal byte[] FunctionCode
+		public byte[] FunctionCode
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal byte[] NumberOfArguments
+		public byte[] NumberOfArguments
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal Operator(string op, int precedence, OperatorType ot, ushort biffCode)
+		public Operator(string op, int precedence, OperatorType ot, ushort biffCode)
 		{
 			this.m_operator = op;
 			this.m_precedence = precedence;
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			this.m_biffCode = biffCode;
 		}
 
-		internal Operator(string op, int precedence, OperatorType ot, ushort biffCode, uint functionCode)
+		public Operator(string op, int precedence, OperatorType ot, ushort biffCode, uint functionCode)
 		{
 			this.m_operator = op;
 			this.m_precedence = precedence;
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			this.m_functionCode = functionCode;
 		}
 
-		internal Operator(string op, int precedence, OperatorType ot, ushort biffCode, uint functionCode, short numOfArgs)
+		public Operator(string op, int precedence, OperatorType ot, ushort biffCode, uint functionCode, short numOfArgs)
 		{
 			this.m_operator = op;
 			this.m_precedence = precedence;
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal Operator(Operator op)
+		public Operator(Operator op)
 		{
 			this.m_operator = op.m_operator;
 			this.m_precedence = op.m_precedence;
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			this.m_numOfArgs = op.m_numOfArgs;
 		}
 
-		internal bool HasVariableArguments()
+		public bool HasVariableArguments()
 		{
 			return this.m_variableArgs;
 		}

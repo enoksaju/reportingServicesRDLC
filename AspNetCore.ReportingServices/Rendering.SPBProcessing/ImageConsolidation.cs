@@ -8,7 +8,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class ImageConsolidation
+	public class ImageConsolidation
 	{
 		protected const float SUPPORTED_DPI = 96f;
 

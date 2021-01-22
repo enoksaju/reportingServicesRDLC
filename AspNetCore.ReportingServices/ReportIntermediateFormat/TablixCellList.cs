@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class TablixCellList : CellList
+	public sealed class TablixCellList : CellList
 	{
-		internal new TablixCell this[int index]
+		public new TablixCell this[int index]
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal TablixCellList(int capacity)
+		public TablixCellList(int capacity)
 			: base(capacity)
 		{
 		}

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class SubreportFromSnapshotException : ReportCatalogException
+	public sealed class SubreportFromSnapshotException : ReportCatalogException
 	{
 		public SubreportFromSnapshotException()
 			: base(ErrorCode.rsSubreportFromSnapshot, ErrorStrings.rsSubreportFromSnapshot, null, null)

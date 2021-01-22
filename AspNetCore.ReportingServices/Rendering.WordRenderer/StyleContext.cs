@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal enum StyleContext : byte
+	public enum StyleContext : byte
 	{
 		Body,
 		Paragraph,

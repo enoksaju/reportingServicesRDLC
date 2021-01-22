@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TopImageInstance : BaseGaugeImageInstance
+	public sealed class TopImageInstance : BaseGaugeImageInstance
 	{
 		private ReportColor m_hueColor;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TopImageInstance(TopImage defObject)
+		public TopImageInstance(TopImage defObject)
 			: base(defObject)
 		{
 		}

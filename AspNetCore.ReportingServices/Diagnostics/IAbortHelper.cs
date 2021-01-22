@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IAbortHelper
+	public interface IAbortHelper
 	{
 		bool Abort(ProcessingStatus status);
 	}

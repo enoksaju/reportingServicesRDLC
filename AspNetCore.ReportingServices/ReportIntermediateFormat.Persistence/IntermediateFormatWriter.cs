@@ -13,7 +13,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal struct IntermediateFormatWriter
+	public struct IntermediateFormatWriter
 	{
 		private int m_currentMemberIndex;
 
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal MemberInfo CurrentMember
+		public MemberInfo CurrentMember
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal PersistenceHelper PersistenceHelper
+		public PersistenceHelper PersistenceHelper
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal bool ProhibitSerializableValues
+		public bool ProhibitSerializableValues
 		{
 			get
 			{
@@ -69,42 +69,42 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal IntermediateFormatWriter(Stream str, int compatVersion)
+		public IntermediateFormatWriter(Stream str, int compatVersion)
 		{
 			this = new IntermediateFormatWriter(str, 0L, null, null, compatVersion, false);
 		}
 
-		internal IntermediateFormatWriter(Stream str, int compatVersion, bool prohibitSerializableValues)
+		public IntermediateFormatWriter(Stream str, int compatVersion, bool prohibitSerializableValues)
 		{
 			this = new IntermediateFormatWriter(str, 0L, null, null, compatVersion, prohibitSerializableValues);
 		}
 
-		internal IntermediateFormatWriter(Stream str, PersistenceHelper persistenceContext, int compatVersion)
+		public IntermediateFormatWriter(Stream str, PersistenceHelper persistenceContext, int compatVersion)
 		{
 			this = new IntermediateFormatWriter(str, 0L, null, persistenceContext, compatVersion, false);
 		}
 
-		internal IntermediateFormatWriter(Stream str, List<Declaration> declarations, int compatVersion)
+		public IntermediateFormatWriter(Stream str, List<Declaration> declarations, int compatVersion)
 		{
 			this = new IntermediateFormatWriter(str, 0L, declarations, null, compatVersion, false);
 		}
 
-		internal IntermediateFormatWriter(Stream str, List<Declaration> declarations, int compatVersion, bool prohibitSerializableValues)
+		public IntermediateFormatWriter(Stream str, List<Declaration> declarations, int compatVersion, bool prohibitSerializableValues)
 		{
 			this = new IntermediateFormatWriter(str, 0L, declarations, null, compatVersion, prohibitSerializableValues);
 		}
 
-		internal IntermediateFormatWriter(Stream str, List<Declaration> declarations, PersistenceHelper persistenceContext, int compatVersion)
+		public IntermediateFormatWriter(Stream str, List<Declaration> declarations, PersistenceHelper persistenceContext, int compatVersion)
 		{
 			this = new IntermediateFormatWriter(str, 0L, declarations, persistenceContext, compatVersion, false);
 		}
 
-		internal IntermediateFormatWriter(Stream str, List<Declaration> declarations, PersistenceHelper persistenceContext, int compatVersion, bool prohibitSerializableValues)
+		public IntermediateFormatWriter(Stream str, List<Declaration> declarations, PersistenceHelper persistenceContext, int compatVersion, bool prohibitSerializableValues)
 		{
 			this = new IntermediateFormatWriter(str, 0L, declarations, persistenceContext, compatVersion, prohibitSerializableValues);
 		}
 
-		internal IntermediateFormatWriter(Stream str, long startOffset, List<Declaration> declarations, PersistenceHelper persistenceContext, int compatVersion, bool prohibitSerializableValues)
+		public IntermediateFormatWriter(Stream str, long startOffset, List<Declaration> declarations, PersistenceHelper persistenceContext, int compatVersion, bool prohibitSerializableValues)
 		{
 			this.m_writer = new PersistenceBinaryWriter(str);
 			this.m_writtenDecls = new Dictionary<ObjectType, Declaration>(EqualityComparers.ObjectTypeComparerInstance);
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return decl;
 		}
 
-		internal void RegisterDeclaration(Declaration declaration)
+		public void RegisterDeclaration(Declaration declaration)
 		{
 			Declaration currentDeclaration = default(Declaration);
 			if (!this.m_writtenDecls.TryGetValue(declaration.ObjectType, out currentDeclaration))
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.m_currentMemberIndex = -1;
 		}
 
-		internal bool NextMember()
+		public bool NextMember()
 		{
 			if (this.m_currentMemberIndex < this.m_lastMemberInfoIndex)
 			{
@@ -206,7 +206,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return false;
 		}
 
-		internal void Write(IPersistable persistableObj)
+		public void Write(IPersistable persistableObj)
 		{
 			this.Write(persistableObj, true);
 		}
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteNameObjectCollection(INameObjectCollection collection)
+		public void WriteNameObjectCollection(INameObjectCollection collection)
 		{
 			if (collection == null)
 			{
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteStringRIFObjectDictionary<TVal>(Dictionary<string, TVal> dictionary) where TVal : IPersistable
+		public void WriteStringRIFObjectDictionary<TVal>(Dictionary<string, TVal> dictionary) where TVal : IPersistable
 		{
 			if (dictionary == null)
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteStringListOfStringDictionary(Dictionary<string, List<string>> dictionary)
+		public void WriteStringListOfStringDictionary(Dictionary<string, List<string>> dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteInt32RIFObjectDictionary<TVal>(Dictionary<int, TVal> dictionary) where TVal : IPersistable
+		public void WriteInt32RIFObjectDictionary<TVal>(Dictionary<int, TVal> dictionary) where TVal : IPersistable
 		{
 			if (dictionary == null)
 			{
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteInt32RIFObjectDictionary<TVal>(IDictionary dictionary) where TVal : IPersistable
+		public void WriteInt32RIFObjectDictionary<TVal>(IDictionary dictionary) where TVal : IPersistable
 		{
 			if (dictionary == null)
 			{
@@ -322,7 +322,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteStringRIFObjectHashtable(Hashtable hashtable)
+		public void WriteStringRIFObjectHashtable(Hashtable hashtable)
 		{
 			if (hashtable == null)
 			{
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteInt32PrimitiveListHashtable<T>(Hashtable hashtable)
+		public void WriteInt32PrimitiveListHashtable<T>(Hashtable hashtable)
 		{
 			if (hashtable == null)
 			{
@@ -382,7 +382,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteStringObjectHashtable(IDictionary dictionary)
+		public void WriteStringObjectHashtable(IDictionary dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -412,7 +412,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteStringRIFObjectHashtable(IDictionary dictionary)
+		public void WriteStringRIFObjectHashtable(IDictionary dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -442,7 +442,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteStringInt32Hashtable(IDictionary dictionary)
+		public void WriteStringInt32Hashtable(IDictionary dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -472,7 +472,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteStringStringHashtable(IDictionary dictionary)
+		public void WriteStringStringHashtable(IDictionary dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -502,7 +502,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteObjectHashtableHashtable(Hashtable hashtable)
+		public void WriteObjectHashtableHashtable(Hashtable hashtable)
 		{
 			if (hashtable == null)
 			{
@@ -532,7 +532,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteNLevelVariantHashtable(Hashtable hashtable)
+		public void WriteNLevelVariantHashtable(Hashtable hashtable)
 		{
 			if (hashtable == null)
 			{
@@ -572,7 +572,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteRIFObjectStringHashtable(IDictionary hashtable)
+		public void WriteRIFObjectStringHashtable(IDictionary hashtable)
 		{
 			if (hashtable == null)
 			{
@@ -602,7 +602,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteVariantVariantHashtable(Hashtable hashtable)
+		public void WriteVariantVariantHashtable(Hashtable hashtable)
 		{
 			if (hashtable == null)
 			{
@@ -632,7 +632,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteVariantListVariantDictionary(Dictionary<List<object>, object> dictionary)
+		public void WriteVariantListVariantDictionary(Dictionary<List<object>, object> dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -649,7 +649,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteStringVariantListDictionary(Dictionary<string, List<object>> dictionary)
+		public void WriteStringVariantListDictionary(Dictionary<string, List<object>> dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -666,7 +666,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteStringBoolArrayDictionary(Dictionary<string, bool[]> dictionary)
+		public void WriteStringBoolArrayDictionary(Dictionary<string, bool[]> dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -683,7 +683,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteInt32StringHashtable(Hashtable hashtable)
+		public void WriteInt32StringHashtable(Hashtable hashtable)
 		{
 			if (hashtable == null)
 			{
@@ -713,7 +713,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteByteVariantHashtable(IDictionary dictionary)
+		public void WriteByteVariantHashtable(IDictionary dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -743,7 +743,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteVariantRifObjectDictionary(IDictionary dictionary)
+		public void WriteVariantRifObjectDictionary(IDictionary dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -773,7 +773,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteVariantListOfRifObjectDictionary(IDictionary dictionary)
+		public void WriteVariantListOfRifObjectDictionary(IDictionary dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -803,7 +803,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Int32SerializableDictionary(Dictionary<int, object> dictionary)
+		public void Int32SerializableDictionary(Dictionary<int, object> dictionary)
 		{
 			if (dictionary == null)
 			{
@@ -820,7 +820,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteListOfReferences(IList rifList)
+		public void WriteListOfReferences(IList rifList)
 		{
 			if (rifList == null)
 			{
@@ -836,7 +836,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteListOfGlobalReferences(IList rifList)
+		public void WriteListOfGlobalReferences(IList rifList)
 		{
 			if (rifList == null)
 			{
@@ -852,12 +852,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write<T>(List<T> rifList) where T : IPersistable
+		public void Write<T>(List<T> rifList) where T : IPersistable
 		{
 			this.WriteRIFList(rifList);
 		}
 
-		internal void WriteRIFList<T>(IList<T> rifList) where T : IPersistable
+		public void WriteRIFList<T>(IList<T> rifList) where T : IPersistable
 		{
 			if (rifList == null)
 			{
@@ -873,7 +873,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(ArrayList rifObjectList)
+		public void Write(ArrayList rifObjectList)
 		{
 			if (rifObjectList == null)
 			{
@@ -889,7 +889,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write<T>(List<List<T>> rifObjectLists) where T : IPersistable
+		public void Write<T>(List<List<T>> rifObjectLists) where T : IPersistable
 		{
 			if (rifObjectLists == null)
 			{
@@ -905,7 +905,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write<T>(List<T[]> rifObjectArrays) where T : IPersistable
+		public void Write<T>(List<T[]> rifObjectArrays) where T : IPersistable
 		{
 			if (rifObjectArrays == null)
 			{
@@ -921,7 +921,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteListOfVariant(IList list)
+		public void WriteListOfVariant(IList list)
 		{
 			if (list == null)
 			{
@@ -937,7 +937,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteArrayListOfPrimitives(ArrayList list)
+		public void WriteArrayListOfPrimitives(ArrayList list)
 		{
 			if (list == null)
 			{
@@ -953,7 +953,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteListOfPrimitives<T>(List<T> list)
+		public void WriteListOfPrimitives<T>(List<T> list)
 		{
 			this.WriteListOfPrimitives(list, true);
 		}
@@ -974,7 +974,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteArrayOfListsOfPrimitives<T>(List<T>[] arrayOfLists)
+		public void WriteArrayOfListsOfPrimitives<T>(List<T>[] arrayOfLists)
 		{
 			this.WriteArrayOfListsOfPrimitives(arrayOfLists, true);
 		}
@@ -995,7 +995,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteListOfArrayOfListsOfPrimitives<T>(List<List<T>[]> outerList)
+		public void WriteListOfArrayOfListsOfPrimitives<T>(List<List<T>[]> outerList)
 		{
 			if (outerList == null)
 			{
@@ -1011,7 +1011,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write<T>(List<T>[] rifObjectListArray) where T : IPersistable
+		public void Write<T>(List<T>[] rifObjectListArray) where T : IPersistable
 		{
 			if (rifObjectListArray == null)
 			{
@@ -1027,7 +1027,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(string[] strings)
+		public void Write(string[] strings)
 		{
 			if (strings == null)
 			{
@@ -1043,7 +1043,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(object[] array)
+		public void Write(object[] array)
 		{
 			if (array == null)
 			{
@@ -1059,7 +1059,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteVariantOrPersistableArray(object[] array)
+		public void WriteVariantOrPersistableArray(object[] array)
 		{
 			if (array == null)
 			{
@@ -1075,7 +1075,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteSerializableArray(object[] array)
+		public void WriteSerializableArray(object[] array)
 		{
 			if (array == null)
 			{
@@ -1091,7 +1091,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(IPersistable[] array)
+		public void Write(IPersistable[] array)
 		{
 			if (array == null)
 			{
@@ -1107,7 +1107,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(IPersistable[,][] array)
+		public void Write(IPersistable[,][] array)
 		{
 			if (array == null)
 			{
@@ -1128,7 +1128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(IPersistable[,] array)
+		public void Write(IPersistable[,] array)
 		{
 			if (array == null)
 			{
@@ -1149,147 +1149,147 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(float[] array)
+		public void Write(float[] array)
 		{
 			this.m_writer.Write(array);
 		}
 
-		internal void Write(int[] array)
+		public void Write(int[] array)
 		{
 			this.m_writer.Write(array);
 		}
 
-		internal void Write(long[] array)
+		public void Write(long[] array)
 		{
 			this.m_writer.Write(array);
 		}
 
-		internal void Write(char[] array)
+		public void Write(char[] array)
 		{
 			this.m_writer.Write(array);
 		}
 
-		internal void Write(byte[] array)
+		public void Write(byte[] array)
 		{
 			this.m_writer.Write(array);
 		}
 
-		internal void Write(bool[] array)
+		public void Write(bool[] array)
 		{
 			this.m_writer.Write(array);
 		}
 
-		internal void Write(double[] array)
+		public void Write(double[] array)
 		{
 			this.m_writer.Write(array);
 		}
 
-		internal void Write(DateTime dateTime)
+		public void Write(DateTime dateTime)
 		{
 			this.m_writer.Write(dateTime, this.m_currentMember.Token);
 		}
 
-		internal void Write(DateTimeOffset dateTimeOffset)
+		public void Write(DateTimeOffset dateTimeOffset)
 		{
 			this.m_writer.Write(dateTimeOffset);
 		}
 
-		internal void Write(TimeSpan timeSpan)
+		public void Write(TimeSpan timeSpan)
 		{
 			this.m_writer.Write(timeSpan);
 		}
 
-		internal void Write(Guid guid)
+		public void Write(Guid guid)
 		{
 			this.m_writer.Write(guid);
 		}
 
-		internal void Write(string value)
+		public void Write(string value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(bool value)
+		public void Write(bool value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(short value)
+		public void Write(short value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(int value)
+		public void Write(int value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(long value)
+		public void Write(long value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(ushort value)
+		public void Write(ushort value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(uint value)
+		public void Write(uint value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(ulong value)
+		public void Write(ulong value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(char value)
+		public void Write(char value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(byte value)
+		public void Write(byte value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(sbyte value)
+		public void Write(sbyte value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(float value)
+		public void Write(float value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(double value)
+		public void Write(double value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write(decimal value)
+		public void Write(decimal value)
 		{
 			this.m_writer.Write(value);
 		}
 
-		internal void Write7BitEncodedInt(int value)
+		public void Write7BitEncodedInt(int value)
 		{
 			this.m_writer.WriteEnum(value);
 		}
 
-		internal void WriteEnum(int value)
+		public void WriteEnum(int value)
 		{
 			this.m_writer.WriteEnum(value);
 		}
 
-		internal void WriteNull()
+		public void WriteNull()
 		{
 			this.m_writer.WriteNull();
 		}
 
-		internal void Write(CultureInfo threadCulture)
+		public void Write(CultureInfo threadCulture)
 		{
 			if (threadCulture != null)
 			{
@@ -1306,12 +1306,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.WriteReferenceID((referenceableItem != null) ? referenceableItem.ID : (-2));
 		}
 
-		internal void WriteReference(IReferenceable referenceableItem)
+		public void WriteReference(IReferenceable referenceableItem)
 		{
 			this.WriteReferenceID((referenceableItem != null) ? referenceableItem.ID : (-1));
 		}
 
-		internal void WriteReferenceID(int referenceID)
+		public void WriteReferenceID(int referenceID)
 		{
 			if (referenceID == -1)
 			{
@@ -1329,12 +1329,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.WriteGlobalReferenceID((globalReference != null) ? globalReference.GlobalID : (-2));
 		}
 
-		internal void WriteGlobalReference(IGloballyReferenceable globalReference)
+		public void WriteGlobalReference(IGloballyReferenceable globalReference)
 		{
 			this.WriteGlobalReferenceID((globalReference != null) ? globalReference.GlobalID : (-1));
 		}
 
-		internal void WriteGlobalReferenceID(int globalReferenceID)
+		public void WriteGlobalReferenceID(int globalReferenceID)
 		{
 			if (globalReferenceID == -1)
 			{
@@ -1347,12 +1347,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(ObjectType type)
+		public void Write(ObjectType type)
 		{
 			this.m_writer.Write(type);
 		}
 
-        internal bool CanWrite(object obj)
+        public bool CanWrite(object obj)
         {
             if (obj == null)
             {
@@ -1392,7 +1392,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
             }
         }
 
-		internal void WriteSerializable(object obj)
+		public void WriteSerializable(object obj)
 		{
 			if (!this.TryWriteSerializable(obj))
 			{
@@ -1400,7 +1400,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal bool TryWriteSerializable(object obj)
+		public bool TryWriteSerializable(object obj)
 		{
 			if (!this.TryWrite(obj))
 			{
@@ -1434,7 +1434,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return true;
 		}
 
-		internal void WriteVariantOrPersistable(object obj)
+		public void WriteVariantOrPersistable(object obj)
 		{
 			IPersistable persistable = obj as IPersistable;
 			if (persistable != null)
@@ -1448,12 +1448,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(object obj)
+		public void Write(object obj)
 		{
 			this.Write(obj, true, true);
 		}
 
-		internal bool TryWrite(object obj)
+		public bool TryWrite(object obj)
 		{
 			return this.Write(obj, true, false);
 		}

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartLegendColumnHeader : ChartStyleContainer, IPersistable
+	public sealed class ChartLegendColumnHeader : ChartStyleContainer, IPersistable
 	{
 		private ExpressionInfo m_value;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartLegendColumnHeaderExprHost m_exprHost;
 
-		internal ChartLegendColumnHeaderExprHost ExprHost
+		public ChartLegendColumnHeaderExprHost ExprHost
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -41,23 +41,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartLegendColumnHeader()
+		public ChartLegendColumnHeader()
 		{
 		}
 
-		internal ChartLegendColumnHeader(Chart chart)
+		public ChartLegendColumnHeader(Chart chart)
 			: base(chart)
 		{
 		}
 
-		internal void SetExprHost(ChartLegendColumnHeaderExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartLegendColumnHeaderExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = exprHost;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartLegendColumnHeaderStart();
 			base.Initialize(context);
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartLegendColumnHeaderEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartLegendColumnHeader chartLegendColumnHeader = (ChartLegendColumnHeader)base.PublishClone(context);
 			if (this.m_value != null)
@@ -79,14 +79,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartLegendColumnHeader;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Value, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartLegendColumnHeader, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartStyleContainer, list);
 		}
 
-		internal string EvaluateValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartLegendColumnHeaderValueExpression(this, base.m_chart.Name);

@@ -7,7 +7,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Table : DataRegion, IPageBreakItem, IRunningValueHolder
+	public sealed class Table : DataRegion, IPageBreakItem, IRunningValueHolder
 	{
 		private sealed class OWCFlagsCalculator
 		{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			{
 			}
 
-			internal static void Calculate(Table table, out bool useOWC, out bool owcNonSharedStyles)
+			public static void Calculate(Table table, out bool useOWC, out bool owcNonSharedStyles)
 			{
 				OWCFlagsCalculator oWCFlagsCalculator = new OWCFlagsCalculator();
 				oWCFlagsCalculator.CalculateOWCFlags(table);
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_context = context;
 			}
 
-			internal static void Calculate(Table table, InitializationContext context)
+			public static void Calculate(Table table, InitializationContext context)
 			{
 				TopLevelItemsSizes topLevelItemsSizes = new TopLevelItemsSizes(table.TableColumns, context);
 				topLevelItemsSizes.CalculateSizes(table);
@@ -300,7 +300,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool[] m_columnsStartHidden;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -308,7 +308,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableColumnList TableColumns
+		public TableColumnList TableColumns
 		{
 			get
 			{
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowList HeaderRows
+		public TableRowList HeaderRows
 		{
 			get
 			{
@@ -332,7 +332,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HeaderRepeatOnNewPage
+		public bool HeaderRepeatOnNewPage
 		{
 			get
 			{
@@ -344,7 +344,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroup TableGroups
+		public TableGroup TableGroups
 		{
 			get
 			{
@@ -356,7 +356,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableDetail TableDetail
+		public TableDetail TableDetail
 		{
 			get
 			{
@@ -368,7 +368,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroup DetailGroup
+		public TableGroup DetailGroup
 		{
 			get
 			{
@@ -380,7 +380,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowList FooterRows
+		public TableRowList FooterRows
 		{
 			get
 			{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FooterRepeatOnNewPage
+		public bool FooterRepeatOnNewPage
 		{
 			get
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PropagatedPageBreakAtStart
+		public bool PropagatedPageBreakAtStart
 		{
 			get
 			{
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool GroupBreakAtStart
+		public bool GroupBreakAtStart
 		{
 			get
 			{
@@ -428,7 +428,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PropagatedPageBreakAtEnd
+		public bool PropagatedPageBreakAtEnd
 		{
 			get
 			{
@@ -440,7 +440,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool GroupBreakAtEnd
+		public bool GroupBreakAtEnd
 		{
 			get
 			{
@@ -452,7 +452,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FillPage
+		public bool FillPage
 		{
 			get
 			{
@@ -464,7 +464,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool UseOWC
+		public bool UseOWC
 		{
 			get
 			{
@@ -476,7 +476,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool OWCNonSharedStyles
+		public bool OWCNonSharedStyles
 		{
 			get
 			{
@@ -488,7 +488,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -500,7 +500,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DetailDataElementName
+		public string DetailDataElementName
 		{
 			get
 			{
@@ -512,7 +512,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DetailDataCollectionName
+		public string DetailDataCollectionName
 		{
 			get
 			{
@@ -524,7 +524,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataElementOutputTypes DetailDataElementOutput
+		public DataElementOutputTypes DetailDataElementOutput
 		{
 			get
 			{
@@ -536,7 +536,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableExprHost TableExprHost
+		public TableExprHost TableExprHost
 		{
 			get
 			{
@@ -544,7 +544,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentPage
+		public int CurrentPage
 		{
 			get
 			{
@@ -564,7 +564,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FixedHeader
+		public bool FixedHeader
 		{
 			get
 			{
@@ -576,7 +576,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasFixedColumnHeaders
+		public bool HasFixedColumnHeaders
 		{
 			get
 			{
@@ -588,7 +588,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double HeaderHeightValue
+		public double HeaderHeightValue
 		{
 			get
 			{
@@ -600,7 +600,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double DetailHeightValue
+		public double DetailHeightValue
 		{
 			get
 			{
@@ -612,7 +612,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool[] ColumnsStartHidden
+		public bool[] ColumnsStartHidden
 		{
 			get
 			{
@@ -624,18 +624,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Table(ReportItem parent)
+		public Table(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Table(int id, ReportItem parent)
+		public Table(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_runningValues = new RunningValueInfoList();
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.Location |= LocationFlags.InMatrixOrTable;
 			context.ObjectType = this.ObjectType;
@@ -683,7 +683,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			CLSNameValidator.ValidateDataElementName(ref this.m_detailDataCollectionName, this.m_detailDataElementName + "_Collection", context.ObjectType, context.ObjectName, "DetailDataCollectionName", context.ErrorContext);
 		}
 
-		internal override void RegisterReceiver(InitializationContext context)
+		public override void RegisterReceiver(InitializationContext context)
 		{
 			this.RegisterHeaderAndFooter(context);
 			if (base.m_visibility != null)
@@ -700,7 +700,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.UnRegisterHeaderAndFooter(context);
 		}
 
-		internal void RegisterHeaderAndFooter(InitializationContext context)
+		public void RegisterHeaderAndFooter(InitializationContext context)
 		{
 			if (this.m_headerRows != null)
 			{
@@ -712,7 +712,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void UnRegisterHeaderAndFooter(InitializationContext context)
+		public void UnRegisterHeaderAndFooter(InitializationContext context)
 		{
 			if (this.m_footerRows != null)
 			{
@@ -831,7 +831,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void CalculatePropagatedFlags()
+		public void CalculatePropagatedFlags()
 		{
 			bool flag = true;
 			if (this.m_tableGroups != null)
@@ -902,7 +902,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -920,7 +920,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.TableColumns, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.TableColumnList));

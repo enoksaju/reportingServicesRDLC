@@ -8,7 +8,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(LinearGaugeConverter))]
-	internal class LinearGauge : GaugeBase, ISelectable
+	public class LinearGauge : GaugeBase, ISelectable
 	{
 		private LinearScaleCollection scales;
 
@@ -63,7 +63,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal SizeF AbsoluteSize
+		public SizeF AbsoluteSize
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.Name;
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 			this.Scales.BeginInit();
@@ -112,7 +112,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Pointers.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.Scales.EndInit();
@@ -128,13 +128,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Pointers.Dispose();
 		}
 
-		internal override void ReconnectData(bool exact)
+		public override void ReconnectData(bool exact)
 		{
 			base.ReconnectData(exact);
 			this.Pointers.ReconnectData(exact);
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			base.Notify(msg, element, param);
 			this.Scales.Notify(msg, element, param);
@@ -142,12 +142,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Pointers.Notify(msg, element, param);
 		}
 
-		internal override IEnumerable GetRanges()
+		public override IEnumerable GetRanges()
 		{
 			return this.ranges;
 		}
 
-		internal GaugeOrientation GetOrientation()
+		public GaugeOrientation GetOrientation()
 		{
 			if (this.Orientation == GaugeOrientation.Auto)
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.Orientation;
 		}
 
-		internal override void PointerValueChanged(PointerBase sender)
+		public override void PointerValueChanged(PointerBase sender)
 		{
 			ScaleBase scaleBase = sender.GetScaleBase();
 			if (scaleBase != null)
@@ -176,7 +176,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderTopImage(GaugeGraphics g)
+		public void RenderTopImage(GaugeGraphics g)
 		{
 			if (base.TopImage != "")
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override RectangleF GetAspectRatioBounds()
+		public override RectangleF GetAspectRatioBounds()
 		{
 			if (double.IsNaN((double)base.AspectRatio))
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return rectangle;
 		}
 
-		internal override RectangleF GetBoundRect(GaugeGraphics g)
+		public override RectangleF GetBoundRect(GaugeGraphics g)
 		{
 			if (this.Common != null && !float.IsNaN(base.AspectRatio))
 			{
@@ -255,7 +255,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return base.Position.Rectangle;
 		}
 
-		internal override void RenderStaticElements(GaugeGraphics g)
+		public override void RenderStaticElements(GaugeGraphics g)
 		{
 			if (base.Visible)
 			{
@@ -297,7 +297,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void RenderDynamicElements(GaugeGraphics g)
+		public override void RenderDynamicElements(GaugeGraphics g)
 		{
 			if (base.Visible)
 			{
@@ -340,7 +340,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderDynamicShadows(GaugeGraphics g)
+		public void RenderDynamicShadows(GaugeGraphics g)
 		{
 			using (GraphicsPath graphicsPath = new GraphicsPath())
 			{
@@ -360,7 +360,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderStaticShadows(GaugeGraphics g)
+		public void RenderStaticShadows(GaugeGraphics g)
 		{
 			using (GraphicsPath graphicsPath = new GraphicsPath())
 			{

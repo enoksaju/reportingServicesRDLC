@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal sealed class EnumNamesAttribute : Attribute
+	public sealed class EnumNamesAttribute : Attribute
 	{
 		private IList<string> m_names;
 

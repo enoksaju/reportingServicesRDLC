@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class ScalableHybridListEntry : IStorable, IPersistable
+	public sealed class ScalableHybridListEntry : IStorable, IPersistable
 	{
-		internal object Item;
+		public object Item;
 
-		internal int Next;
+		public int Next;
 
-		internal int Previous;
+		public int Previous;
 
 		private static readonly Declaration m_declaration = ScalableHybridListEntry.GetDeclaration();
 

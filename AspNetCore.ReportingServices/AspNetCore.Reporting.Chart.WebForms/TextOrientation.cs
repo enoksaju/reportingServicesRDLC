@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum TextOrientation
+	public enum TextOrientation
 	{
 		Auto,
 		Horizontal,

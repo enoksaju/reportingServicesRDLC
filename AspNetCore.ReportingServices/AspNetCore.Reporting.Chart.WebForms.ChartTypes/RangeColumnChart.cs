@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class RangeColumnChart : ColumnChart
+	public class RangeColumnChart : ColumnChart
 	{
 		public override string Name
 		{

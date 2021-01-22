@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class SortFilterEventInfo : IPersistable
+	public sealed class SortFilterEventInfo : IPersistable
 	{
 		[Reference]
 		private IInScopeEventSource m_eventSource;
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = SortFilterEventInfo.GetDeclaration();
 
-		internal IInScopeEventSource EventSource
+		public IInScopeEventSource EventSource
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<object>[] EventSourceScopeInfo
+		public List<object>[] EventSourceScopeInfo
 		{
 			get
 			{
@@ -40,16 +40,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SortFilterEventInfo()
+		public SortFilterEventInfo()
 		{
 		}
 
-		internal SortFilterEventInfo(IInScopeEventSource eventSource)
+		public SortFilterEventInfo(IInScopeEventSource eventSource)
 		{
 			this.m_eventSource = eventSource;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.EventSource, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.IInScopeEventSource, Token.GlobalReference));

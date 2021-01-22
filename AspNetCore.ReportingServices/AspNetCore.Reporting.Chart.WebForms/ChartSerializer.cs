@@ -9,7 +9,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeChartSerializer_ChartSerializer")]
 	[DefaultProperty("Format")]
-	internal class ChartSerializer : IServiceProvider
+	public class ChartSerializer : IServiceProvider
 	{
 		private IServiceContainer serviceContainer;
 
@@ -353,7 +353,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Chart GetChartObject()
+		public Chart GetChartObject()
 		{
 			if (this.chart == null)
 			{

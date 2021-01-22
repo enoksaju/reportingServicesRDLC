@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class ExecutedQuery
+	public sealed class ExecutedQuery
 	{
 		private readonly DataSource m_dataSource;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private IDataReader m_dataReader;
 
-		internal DataSet DataSet
+		public DataSet DataSet
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal DateTime QueryExecutionTimestamp
+		public DateTime QueryExecutionTimestamp
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal string CommandText
+		public string CommandText
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal DataSourceErrorInspector ErrorInspector
+		public DataSourceErrorInspector ErrorInspector
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal DataProcessingMetrics ExecutionMetrics
+		public DataProcessingMetrics ExecutionMetrics
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ExecutedQuery(DataSource dataSource, DataSet dataSet, OnDemandProcessingContext odpContext, DataProcessingMetrics executionMetrics, string commandText, DateTime queryExecutionTimestamp, DataSourceErrorInspector errorInspector)
+		public ExecutedQuery(DataSource dataSource, DataSet dataSet, OnDemandProcessingContext odpContext, DataProcessingMetrics executionMetrics, string commandText, DateTime queryExecutionTimestamp, DataSourceErrorInspector errorInspector)
 		{
 			this.m_dataSource = dataSource;
 			this.m_dataSet = dataSet;
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_errorInspector = errorInspector;
 		}
 
-		internal void AssumeOwnership(ref IDbConnection connection, ref IDbCommand command, ref IDbCommand commandWrappedForCancel, ref IDataReader dataReader)
+		public void AssumeOwnership(ref IDbConnection connection, ref IDbCommand command, ref IDbCommand commandWrappedForCancel, ref IDataReader dataReader)
 		{
 			ExecutedQuery.AssignAndClear<IDbConnection>(ref this.m_connection, ref connection);
 			ExecutedQuery.AssignAndClear<IDbCommand>(ref this.m_command, ref command);
@@ -88,12 +88,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			ExecutedQuery.AssignAndClear<IDataReader>(ref this.m_dataReader, ref dataReader);
 		}
 
-		internal void ReleaseOwnership(ref IDbConnection connection)
+		public void ReleaseOwnership(ref IDbConnection connection)
 		{
 			ExecutedQuery.AssignAndClear<IDbConnection>(ref connection, ref this.m_connection);
 		}
 
-		internal void ReleaseOwnership(ref IDbCommand command, ref IDbCommand commandWrappedForCancel, ref IDataReader dataReader)
+		public void ReleaseOwnership(ref IDbCommand command, ref IDbCommand commandWrappedForCancel, ref IDataReader dataReader)
 		{
 			ExecutedQuery.AssignAndClear<IDataReader>(ref dataReader, ref this.m_dataReader);
 			ExecutedQuery.AssignAndClear<IDbCommand>(ref commandWrappedForCancel, ref this.m_commandWrappedForCancel);
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			Interlocked.Exchange<T>(ref source, (T)null);
 		}
 
-		internal void Close()
+		public void Close()
 		{
 			IDataReader dataReader = Interlocked.Exchange<IDataReader>(ref this.m_dataReader, (IDataReader)null);
 			if (dataReader != null)

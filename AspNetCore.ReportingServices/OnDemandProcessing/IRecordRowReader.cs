@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal interface IRecordRowReader : IDisposable
+	public interface IRecordRowReader : IDisposable
 	{
 		RecordRow RecordRow
 		{

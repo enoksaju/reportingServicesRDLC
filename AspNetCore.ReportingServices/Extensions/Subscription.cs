@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Extensions
 {
-	internal abstract class Subscription
+	public abstract class Subscription
 	{
 		public abstract Guid ID
 		{

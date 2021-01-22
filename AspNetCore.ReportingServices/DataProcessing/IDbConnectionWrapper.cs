@@ -2,7 +2,7 @@ using System.Data;
 
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbConnectionWrapper
+	public interface IDbConnectionWrapper
 	{
 		System.Data.IDbConnection Connection
 		{

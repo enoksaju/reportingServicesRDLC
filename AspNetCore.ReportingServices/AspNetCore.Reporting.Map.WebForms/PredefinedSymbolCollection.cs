@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PredefinedSymbolCollection : NamedCollection
+	public class PredefinedSymbolCollection : NamedCollection
 	{
 		private PredefinedSymbol this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal PredefinedSymbolCollection(NamedElement parent, CommonElements common)
+		public PredefinedSymbolCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(PredefinedSymbol);
@@ -82,12 +82,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Remove(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "PredefinedSymbol1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "PredefinedSymbol{0}";
 		}

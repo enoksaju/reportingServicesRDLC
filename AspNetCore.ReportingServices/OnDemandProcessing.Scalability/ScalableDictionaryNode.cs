@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class ScalableDictionaryNode : IScalableDictionaryEntry, IStorable, IPersistable, ITransferable
+	public sealed class ScalableDictionaryNode : IScalableDictionaryEntry, IStorable, IPersistable, ITransferable
 	{
-		internal IScalableDictionaryEntry[] Entries;
+		public IScalableDictionaryEntry[] Entries;
 
-		internal int Count;
+		public int Count;
 
 		[NonSerialized]
 		private static readonly Declaration m_declaration = ScalableDictionaryNode.GetDeclaration();
@@ -30,11 +30,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal ScalableDictionaryNode()
+		public ScalableDictionaryNode()
 		{
 		}
 
-		internal ScalableDictionaryNode(int capacity)
+		public ScalableDictionaryNode(int capacity)
 		{
 			this.Entries = new IScalableDictionaryEntry[capacity];
 		}
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ScalableDictionaryNode;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (ScalableDictionaryNode.m_declaration == null)
 			{

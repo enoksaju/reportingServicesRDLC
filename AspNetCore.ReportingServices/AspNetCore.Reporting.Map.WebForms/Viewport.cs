@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class Viewport : Panel
+	public class Viewport : Panel
 	{
 		private bool autoSize = true;
 
@@ -364,7 +364,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal Viewport(CommonElements common)
+		public Viewport(CommonElements common)
 			: base(common)
 		{
 			this.Name = "Viewport";
@@ -395,7 +395,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new PointF((float)(this.ViewCenter.X - 50.0), (float)(this.ViewCenter.Y - 50.0));
 		}
 
-		internal SizeF GetContentSizeInPixels()
+		public SizeF GetContentSizeInPixels()
 		{
 			SizeF result = default(SizeF);
 			float num = (float)base.GetMapCore().CalculateAspectRatio();
@@ -422,7 +422,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal PointF GetContentOffsetInPixels()
+		public PointF GetContentOffsetInPixels()
 		{
 			SizeF contentSizeInPixels = this.GetContentSizeInPixels();
 			PointF pointF = new PointF(this.ViewCenter.X, this.ViewCenter.Y);
@@ -436,7 +436,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new PointF((float)(int)(pointF2.X - pointF.X), (float)(int)(pointF2.Y - pointF.Y));
 		}
 
-		internal void SetContentOffsetInPixels(PointF contentOffset)
+		public void SetContentOffsetInPixels(PointF contentOffset)
 		{
 			PointF locationInPixels = base.GetLocationInPixels();
 			SizeF absoluteSize = base.GetAbsoluteSize();
@@ -458,7 +458,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return num / (double)num2;
 		}
 
-		internal double GetGeographicResolutionAtEquator()
+		public double GetGeographicResolutionAtEquator()
 		{
 			double num = base.GetMapCore().MaximumPoint.X - base.GetMapCore().MinimumPoint.X;
 			float num2 = (float)(this.GetContentSizeInPixels().Width * this.Zoom / 100.0);
@@ -470,7 +470,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return num / (double)num2;
 		}
 
-		internal override void RenderBorder(MapGraphics g)
+		public override void RenderBorder(MapGraphics g)
 		{
 			AntiAliasing antiAliasing = g.AntiAliasing;
 			g.AntiAliasing = AntiAliasing.None;
@@ -505,7 +505,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void Render(MapGraphics g)
+		public override void Render(MapGraphics g)
 		{
 			AntiAliasing antiAliasing = g.AntiAliasing;
 			g.AntiAliasing = AntiAliasing.None;
@@ -536,7 +536,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void SizeLocationChanged(SizeLocationChangeInfo info)
+		public override void SizeLocationChanged(SizeLocationChangeInfo info)
 		{
 			base.SizeLocationChanged(info);
 			switch (info)
@@ -556,7 +556,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.InvalidateAndLayout();
 		}
 
-		internal override object GetDefaultPropertyValue(string prop, object currentValue)
+		public override object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object obj = null;
 			switch (prop)

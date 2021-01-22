@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum Projection
+	public enum Projection
 	{
 		Equirectangular,
 		Mercator,

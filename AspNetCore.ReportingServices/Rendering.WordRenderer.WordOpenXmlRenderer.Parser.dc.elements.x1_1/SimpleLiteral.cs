@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.dc.elements.x1_1
 {
-	internal class SimpleLiteral : OoxmlComplexType, IOoxmlComplexType
+	public class SimpleLiteral : OoxmlComplexType, IOoxmlComplexType
 	{
 		private string _content;
 

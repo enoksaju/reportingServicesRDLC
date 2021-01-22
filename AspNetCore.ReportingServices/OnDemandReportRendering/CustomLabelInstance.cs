@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CustomLabelInstance : BaseInstance
+	public sealed class CustomLabelInstance : BaseInstance
 	{
 		private CustomLabel m_defObject;
 
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomLabelInstance(CustomLabel defObject)
+		public CustomLabelInstance(CustomLabel defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

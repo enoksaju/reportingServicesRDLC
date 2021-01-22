@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class LookupDestinationInfo : IPersistable
+	public class LookupDestinationInfo : IPersistable
 	{
 		private bool m_isMultiValue;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = LookupDestinationInfo.GetDeclaration();
 
-		internal string Scope
+		public string Scope
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsMultiValue
+		public bool IsMultiValue
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DestinationExpr
+		public ExpressionInfo DestinationExpr
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int IndexInCollection
+		public int IndexInCollection
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UsedInSameDataSetTablixProcessing
+		public bool UsedInSameDataSetTablixProcessing
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupDestExprHost ExprHost
+		public LookupDestExprHost ExprHost
 		{
 			get
 			{
@@ -111,11 +111,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupDestinationInfo()
+		public LookupDestinationInfo()
 		{
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			LookupDestinationInfo lookupDestinationInfo = (LookupDestinationInfo)base.MemberwiseClone();
 			if (this.m_destinationExpr != null)
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return lookupDestinationInfo;
 		}
 
-		internal void Initialize(InitializationContext context, string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
+		public void Initialize(InitializationContext context, string dataSetName, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, string propertyName)
 		{
 			context.ExprHostBuilder.LookupDestStart();
 			if (this.m_destinationExpr != null)
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.LookupDestEnd();
 		}
 
-		internal void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (this.ExprHostID >= 0)
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateDestExpr(OnDemandProcessingContext odpContext, IErrorContext errorContext)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult EvaluateDestExpr(OnDemandProcessingContext odpContext, IErrorContext errorContext)
 		{
 			return odpContext.ReportRuntime.EvaluateLookupDestExpression(this, errorContext);
 		}

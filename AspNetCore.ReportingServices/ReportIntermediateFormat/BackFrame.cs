@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class BackFrame : GaugePanelStyleContainer, IPersistable
+	public sealed class BackFrame : GaugePanelStyleContainer, IPersistable
 	{
 		[NonSerialized]
 		private BackFrameExprHost m_exprHost;
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private FrameImage m_frameImage;
 
-		internal ExpressionInfo FrameStyle
+		public ExpressionInfo FrameStyle
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo FrameShape
+		public ExpressionInfo FrameShape
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo FrameWidth
+		public ExpressionInfo FrameWidth
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo GlassEffect
+		public ExpressionInfo GlassEffect
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal FrameBackground FrameBackground
+		public FrameBackground FrameBackground
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal FrameImage FrameImage
+		public FrameImage FrameImage
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal BackFrameExprHost ExprHost
+		public BackFrameExprHost ExprHost
 		{
 			get
 			{
@@ -119,16 +119,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal BackFrame()
+		public BackFrame()
 		{
 		}
 
-		internal BackFrame(GaugePanel gaugePanel)
+		public BackFrame(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.BackFrameStart();
 			base.Initialize(context);
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.BackFrameEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			BackFrame backFrame = (BackFrame)base.PublishClone(context);
 			if (this.m_frameStyle != null)
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return backFrame;
 		}
 
-		internal void SetExprHost(BackFrameExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(BackFrameExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.FrameStyle, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -291,25 +291,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.BackFrame;
 		}
 
-		internal GaugeFrameStyles EvaluateFrameStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeFrameStyles EvaluateFrameStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeFrameStyles(context.ReportRuntime.EvaluateBackFrameFrameStyleExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal GaugeFrameShapes EvaluateFrameShape(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeFrameShapes EvaluateFrameShape(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeFrameShapes(context.ReportRuntime.EvaluateBackFrameFrameShapeExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateFrameWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateFrameWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateBackFrameFrameWidthExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal GaugeGlassEffects EvaluateGlassEffect(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeGlassEffects EvaluateGlassEffect(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeGlassEffects(context.ReportRuntime.EvaluateBackFrameGlassEffectExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);

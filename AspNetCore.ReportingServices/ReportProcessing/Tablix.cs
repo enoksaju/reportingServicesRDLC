@@ -5,7 +5,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class Tablix : DataRegion, IAggregateHolder, IRunningValueHolder
+	public abstract class Tablix : DataRegion, IAggregateHolder, IRunningValueHolder
 	{
 		private int m_columnCount;
 
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		protected bool m_processOutermostSTCellRunningValues;
 
-		internal int ColumnCount
+		public int ColumnCount
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int RowCount
+		public int RowCount
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList CellAggregates
+		public DataAggregateInfoList CellAggregates
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList CellPostSortAggregates
+		public DataAggregateInfoList CellPostSortAggregates
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Pivot.ProcessingInnerGroupings ProcessingInnerGrouping
+		public Pivot.ProcessingInnerGroupings ProcessingInnerGrouping
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -115,22 +115,22 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract TablixHeadingList TablixColumns
+		public abstract TablixHeadingList TablixColumns
 		{
 			get;
 		}
 
-		internal abstract TablixHeadingList TablixRows
+		public abstract TablixHeadingList TablixRows
 		{
 			get;
 		}
 
-		internal abstract RunningValueInfoList TablixCellRunningValues
+		public abstract RunningValueInfoList TablixCellRunningValues
 		{
 			get;
 		}
 
-		internal ReportProcessing.RuntimeTablixGroupRootObj CurrentOuterHeadingGroupRoot
+		public ReportProcessing.RuntimeTablixGroupRootObj CurrentOuterHeadingGroupRoot
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int InnermostRowFilterLevel
+		public int InnermostRowFilterLevel
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int InnermostColumnFilterLevel
+		public int InnermostColumnFilterLevel
 		{
 			get
 			{
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int[] OuterGroupingIndexes
+		public int[] OuterGroupingIndexes
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ProcessCellRunningValues
+		public bool ProcessCellRunningValues
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ProcessOutermostSTCellRunningValues
+		public bool ProcessOutermostSTCellRunningValues
 		{
 			get
 			{
@@ -198,12 +198,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Tablix(ReportItem parent)
+		public Tablix(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Tablix(int id, ReportItem parent)
+		public Tablix(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_runningValues = new RunningValueInfoList();
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_cellPostSortAggregates = new DataAggregateInfoList();
 		}
 
-		internal static void CopyAggregates(DataAggregateInfoList srcAggregates, DataAggregateInfoList targetAggregates)
+		public static void CopyAggregates(DataAggregateInfoList srcAggregates, DataAggregateInfoList targetAggregates)
 		{
 			for (int i = 0; i < srcAggregates.Count; i++)
 			{
@@ -277,7 +277,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SkipStaticHeading(ref TablixHeadingList tablixHeading, ref TablixHeadingList staticHeading)
+		public void SkipStaticHeading(ref TablixHeadingList tablixHeading, ref TablixHeadingList staticHeading)
 		{
 			if (tablixHeading != null && tablixHeading[0].Grouping == null)
 			{
@@ -290,7 +290,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TablixHeadingList GetOuterHeading()
+		public TablixHeadingList GetOuterHeading()
 		{
 			if (this.m_processingInnerGrouping == Pivot.ProcessingInnerGroupings.Column)
 			{
@@ -299,11 +299,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.TablixColumns;
 		}
 
-		internal abstract TablixHeadingList SkipStatics(TablixHeadingList headings);
+		public abstract TablixHeadingList SkipStatics(TablixHeadingList headings);
 
-		internal abstract int GetDynamicHeadingCount(bool outerGroupings);
+		public abstract int GetDynamicHeadingCount(bool outerGroupings);
 
-		internal void GetHeadingDefState(out TablixHeadingList outermostColumns, out TablixHeadingList outermostRows, out TablixHeadingList staticColumns, out TablixHeadingList staticRows)
+		public void GetHeadingDefState(out TablixHeadingList outermostColumns, out TablixHeadingList outermostRows, out TablixHeadingList staticColumns, out TablixHeadingList staticRows)
 		{
 			outermostColumns = this.TablixColumns;
 			outermostRows = this.TablixRows;
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.SkipStaticHeading(ref outermostRows, ref staticRows);
 		}
 
-		internal int CreateOuterGroupingIndexList()
+		public int CreateOuterGroupingIndexList()
 		{
 			int dynamicHeadingCount = this.GetDynamicHeadingCount(true);
 			if (this.m_outerGroupingIndexes == null)
@@ -324,9 +324,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return dynamicHeadingCount;
 		}
 
-		internal abstract Hashtable GetOuterScopeNames(int dynamicLevel);
+		public abstract Hashtable GetOuterScopeNames(int dynamicLevel);
 
-		internal void SaveTablixAggregateRowInfo(ReportProcessing.ProcessingContext pc)
+		public void SaveTablixAggregateRowInfo(ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_tablixAggregateRowInfo == null)
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_tablixAggregateRowInfo.SaveAggregateInfo(pc);
 		}
 
-		internal void RestoreTablixAggregateRowInfo(ReportProcessing.ProcessingContext pc)
+		public void RestoreTablixAggregateRowInfo(ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_tablixAggregateRowInfo != null)
 			{
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SaveOuterGroupingAggregateRowInfo(int headingLevel, ReportProcessing.ProcessingContext pc)
+		public void SaveOuterGroupingAggregateRowInfo(int headingLevel, ReportProcessing.ProcessingContext pc)
 		{
 			Global.Tracer.Assert(null != this.m_outerGroupingAggregateRowInfo);
 			if (this.m_outerGroupingAggregateRowInfo[headingLevel] == null)
@@ -353,13 +353,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_outerGroupingAggregateRowInfo[headingLevel].SaveAggregateInfo(pc);
 		}
 
-		internal void SetCellAggregateRowInfo(int headingLevel, ReportProcessing.ProcessingContext pc)
+		public void SetCellAggregateRowInfo(int headingLevel, ReportProcessing.ProcessingContext pc)
 		{
 			Global.Tracer.Assert(this.m_outerGroupingAggregateRowInfo != null && null != this.m_tablixAggregateRowInfo);
 			this.m_tablixAggregateRowInfo.CombineAggregateInfo(pc, this.m_outerGroupingAggregateRowInfo[headingLevel]);
 		}
 
-		internal void ResetOutergGroupingAggregateRowInfo()
+		public void ResetOutergGroupingAggregateRowInfo()
 		{
 			Global.Tracer.Assert(null != this.m_outerGroupingAggregateRowInfo);
 			for (int i = 0; i < this.m_outerGroupingAggregateRowInfo.Length; i++)
@@ -368,7 +368,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ColumnCount, Token.Int32));

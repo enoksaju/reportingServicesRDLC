@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal sealed class SecureStoreLookup
+	public sealed class SecureStoreLookup
 	{
-		internal enum LookupContextOptions
+		public enum LookupContextOptions
 		{
 			AuthenticatedUser,
 			Unattended
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal SecureStoreLookup(LookupContextOptions lookupContext, string targetApplicationId)
+		public SecureStoreLookup(LookupContextOptions lookupContext, string targetApplicationId)
 		{
 			this.m_lookUpContext = lookupContext;
 			this.m_targetApplicationId = targetApplicationId;

@@ -1,20 +1,20 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class FTestResult
+	public class FTestResult
 	{
-		internal double firstSeriesMean;
+		public double firstSeriesMean;
 
-		internal double secondSeriesMean;
+		public double secondSeriesMean;
 
-		internal double firstSeriesVariance;
+		public double firstSeriesVariance;
 
-		internal double secondSeriesVariance;
+		public double secondSeriesVariance;
 
-		internal double fValue;
+		public double fValue;
 
-		internal double probabilityFOneTail;
+		public double probabilityFOneTail;
 
-		internal double fCriticalValueOneTail;
+		public double fCriticalValueOneTail;
 
 		public double FirstSeriesMean
 		{

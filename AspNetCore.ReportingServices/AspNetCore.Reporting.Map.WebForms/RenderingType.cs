@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum RenderingType
+	public enum RenderingType
 	{
 		Gdi,
 		Svg

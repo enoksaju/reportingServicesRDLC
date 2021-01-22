@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IShowHideContainer
+	public interface IShowHideContainer
 	{
 		void BeginProcessContainer(ReportProcessing.ProcessingContext context);
 

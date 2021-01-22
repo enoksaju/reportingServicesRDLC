@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartIntervalTypes
+	public enum ChartIntervalTypes
 	{
 		Default,
 		Auto,

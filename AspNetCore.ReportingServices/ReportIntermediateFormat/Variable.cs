@@ -9,7 +9,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class Variable : IPersistable
+	public sealed class Variable : IPersistable
 	{
 		private DataType m_constantDataType;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Variable.GetDeclaration();
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataType DataType
+		public DataType DataType
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int SequenceID
+		public int SequenceID
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool Writable
+		public bool Writable
 		{
 			get
 			{
@@ -93,11 +93,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Variable()
+		public Variable()
 		{
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_value != null)
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			Variable variable = (Variable)base.MemberwiseClone();
 			variable.SequenceID = context.GenerateVariableSequenceID();
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return variable;
 		}
 
-		internal string GetPropertyName()
+		public string GetPropertyName()
 		{
 			if (this.m_propertyName == null)
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_propertyName;
 		}
 
-		internal VariableImpl GetCachedVariableObj(OnDemandProcessingContext odpContext)
+		public VariableImpl GetCachedVariableObj(OnDemandProcessingContext odpContext)
 		{
 			if (this.m_cachedVariableObj == null)
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_cachedVariableObj;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));

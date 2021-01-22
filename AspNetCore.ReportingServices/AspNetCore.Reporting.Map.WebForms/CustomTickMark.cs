@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class CustomTickMark : MapObject
+	public class CustomTickMark : MapObject
 	{
 		private bool visible = true;
 

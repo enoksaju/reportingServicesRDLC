@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class HeaderFooterReferences : BaseInterleaver, OpenXmlSectionPropertiesModel.IHeaderFooterReferences
+	public sealed class HeaderFooterReferences : BaseInterleaver, OpenXmlSectionPropertiesModel.IHeaderFooterReferences
 	{
 		[NonSerialized]
 		private static Declaration _declaration;
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return ObjectType.WordOpenXmlHeaderFooterReferences;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			return HeaderFooterReferences._declaration;
 		}

@@ -12,7 +12,7 @@ using System.Timers;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(NumericIndicatorConverter))]
-	internal class NumericIndicator : NamedElement, IRenderable, IToolTipProvider, IPointerProvider, ISelectable, IImageMapProvider
+	public class NumericIndicator : NamedElement, IRenderable, IToolTipProvider, IPointerProvider, ISelectable, IImageMapProvider
 	{
 		private double numberPosition = double.NaN;
 
@@ -1000,7 +1000,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal Position Position
+		public Position Position
 		{
 			get
 			{
@@ -1008,7 +1008,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal double NumberPosition
+		public double NumberPosition
 		{
 			get
 			{
@@ -1022,7 +1022,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -1036,7 +1036,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal DataAttributes Data
+		public DataAttributes Data
 		{
 			get
 			{
@@ -1044,7 +1044,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool DefaultParent
+		public bool DefaultParent
 		{
 			get
 			{
@@ -1572,7 +1572,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			base.Notify(msg, element, param);
 			switch (msg)
@@ -1597,7 +1597,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.ranges.Notify(msg, element, param);
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			this.RefreshRate = this.RefreshRate;
 			base.OnAdded();
@@ -1608,13 +1608,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Digits = this.Digits;
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 			this.data.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.ConnectToParent(true);
@@ -1624,7 +1624,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Digits = this.Digits;
 		}
 
-		internal override void ReconnectData(bool exact)
+		public override void ReconnectData(bool exact)
 		{
 			base.ReconnectData(exact);
 			this.data.ReconnectData(exact);
@@ -1638,13 +1638,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			base.OnDispose();
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			this.segmentsCache.Reset();
 			base.Invalidate();
 		}
 
-		internal virtual void PointerValueChanged()
+		public virtual void PointerValueChanged()
 		{
 			bool playbackMode;
 			if (this.Common != null && !double.IsNaN(this.Data.OldValue))

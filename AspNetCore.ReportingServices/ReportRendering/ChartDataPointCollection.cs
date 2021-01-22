@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ChartDataPointCollection
+	public sealed class ChartDataPointCollection
 	{
 		private Chart m_owner;
 
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ChartDataPointCollection(Chart owner, int seriesCount, int categoryCount)
+		public ChartDataPointCollection(Chart owner, int seriesCount, int categoryCount)
 		{
 			this.m_owner = owner;
 			this.m_seriesCount = seriesCount;

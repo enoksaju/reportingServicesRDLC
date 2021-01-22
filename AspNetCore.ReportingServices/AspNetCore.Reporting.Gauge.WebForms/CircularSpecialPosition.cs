@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CircularSpecialPosition : SpecialPosition
+	public class CircularSpecialPosition : SpecialPosition
 	{
 		private CircularPinLabel pinCircularLabel;
 

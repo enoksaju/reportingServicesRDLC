@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IChartMapper : IDVMappingLayer, IDisposable
+	public interface IChartMapper : IDVMappingLayer, IDisposable
 	{
 		void RenderChart();
 	}

@@ -5,9 +5,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DataRegion : ReportItem, IPageBreakItem, IReportScope, IDataRegion
+	public abstract class DataRegion : ReportItem, IPageBreakItem, IReportScope, IDataRegion
 	{
-		internal enum Type
+		public enum Type
 		{
 			None,
 			List,
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private ReportStringProperty m_pageName;
 
-		internal Type m_snapshotDataRegionType;
+		public Type m_snapshotDataRegionType;
 
 		public PageBreak PageBreak
 		{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Type DataRegionType
+		public Type DataRegionType
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal abstract bool HasDataCells
+		public abstract bool HasDataCells
 		{
 			get;
 		}
@@ -184,17 +184,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal abstract IDataRegionRowCollection RowCollection
+		public abstract IDataRegionRowCollection RowCollection
 		{
 			get;
 		}
 
-		internal DataRegion(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
+		public DataRegion(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
 			: base(null, parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 		}
 
-		internal DataRegion(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderDataRegion, RenderingContext renderingContext)
+		public DataRegion(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderDataRegion, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, inSubtotal, renderDataRegion, renderingContext)
 		{
 		}
@@ -215,7 +215,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return array;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_pageBreak != null)

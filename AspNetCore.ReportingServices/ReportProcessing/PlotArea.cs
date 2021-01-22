@@ -6,9 +6,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class PlotArea
+	public sealed class PlotArea
 	{
-		internal enum Origins
+		public enum Origins
 		{
 			BottomLeft,
 			TopLeft,
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private Style m_styleClass;
 
-		internal Origins Origin
+		public Origins Origin
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Style StyleClass
+		public Style StyleClass
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && null != reportObjectModel);
 			exprHost.SetReportObjectModel(reportObjectModel);
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartPlotAreaStart();
 			if (this.m_styleClass != null)
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.ExprHostBuilder.ChartPlotAreaEnd();
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Origin, Token.Enum));

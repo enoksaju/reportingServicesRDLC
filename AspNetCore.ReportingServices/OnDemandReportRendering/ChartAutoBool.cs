@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartAutoBool
+	public enum ChartAutoBool
 	{
 		Auto,
 		True,

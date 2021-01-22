@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum RenderType
+	public enum RenderType
 	{
 		ImageTag,
 		InputTag,

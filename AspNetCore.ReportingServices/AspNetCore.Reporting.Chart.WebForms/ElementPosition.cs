@@ -10,7 +10,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 	[DefaultProperty("Data")]
 	[TypeConverter(typeof(ElementPositionConverter))]
 	[SRDescription("DescriptionAttributeElementPosition_ElementPosition")]
-	internal class ElementPosition
+	public class ElementPosition
 	{
 		private float x;
 
@@ -20,13 +20,13 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private float height;
 
-		internal bool auto = true;
+		public bool auto = true;
 
-		internal CommonElements common;
+		public CommonElements common;
 
-		internal Chart chart;
+		public Chart chart;
 
-		internal bool resetAreaAutoPosition;
+		public bool resetAreaAutoPosition;
 
 		[SRCategory("CategoryAttributeMisc")]
 		[RefreshProperties(RefreshProperties.All)]
@@ -289,7 +289,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal void SetPositionNoAuto(float x, float y, float width, float height)
+		public void SetPositionNoAuto(float x, float y, float width, float height)
 		{
 			bool flag = this.auto;
 			this.x = x;

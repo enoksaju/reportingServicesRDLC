@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapPolygonTemplate : MapSpatialElementTemplate, IPersistable
+	public sealed class MapPolygonTemplate : MapSpatialElementTemplate, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapPolygonTemplate.GetDeclaration();
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_labelPlacement;
 
-		internal ExpressionInfo ScaleFactor
+		public ExpressionInfo ScaleFactor
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CenterPointOffsetX
+		public ExpressionInfo CenterPointOffsetX
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CenterPointOffsetY
+		public ExpressionInfo CenterPointOffsetY
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ShowLabel
+		public ExpressionInfo ShowLabel
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelPlacement
+		public ExpressionInfo LabelPlacement
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapPolygonTemplateExprHost ExprHost
+		public new MapPolygonTemplateExprHost ExprHost
 		{
 			get
 			{
@@ -94,16 +94,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPolygonTemplate()
+		public MapPolygonTemplate()
 		{
 		}
 
-		internal MapPolygonTemplate(MapPolygonLayer mapPolygonLayer, Map map, int id)
+		public MapPolygonTemplate(MapPolygonLayer mapPolygonLayer, Map map, int id)
 			: base(mapPolygonLayer, map, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapPolygonTemplateStart();
 			base.Initialize(context);
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapPolygonTemplateEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapPolygonTemplate mapPolygonTemplate = (MapPolygonTemplate)base.PublishClone(context);
 			if (this.m_scaleFactor != null)
@@ -161,13 +161,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapPolygonTemplate;
 		}
 
-		internal void SetExprHost(MapPolygonTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapPolygonTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ScaleFactor, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -243,31 +243,31 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapPolygonTemplate;
 		}
 
-		internal double EvaluateScaleFactor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateScaleFactor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapPolygonTemplateScaleFactorExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateCenterPointOffsetX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateCenterPointOffsetX(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapPolygonTemplateCenterPointOffsetXExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateCenterPointOffsetY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateCenterPointOffsetY(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapPolygonTemplateCenterPointOffsetYExpression(this, base.m_map.Name);
 		}
 
-		internal MapAutoBool EvaluateShowLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapAutoBool EvaluateShowLabel(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateMapAutoBool(context.ReportRuntime.EvaluateMapPolygonTemplateShowLabelExpression(this, base.m_map.Name), context.ReportRuntime);
 		}
 
-		internal MapPolygonLabelPlacement EvaluateLabelPlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapPolygonLabelPlacement EvaluateLabelPlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateMapPolygonLabelPlacement(context.ReportRuntime.EvaluateMapPolygonTemplateLabelPlacementExpression(this, base.m_map.Name), context.ReportRuntime);

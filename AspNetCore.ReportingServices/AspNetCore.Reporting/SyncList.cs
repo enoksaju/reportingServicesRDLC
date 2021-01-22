@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal class SyncList<TListType> : Collection<TListType>
+	public class SyncList<TListType> : Collection<TListType>
 	{
 		[NonSerialized]
 		private object m_syncObject;
@@ -13,13 +13,13 @@ namespace AspNetCore.Reporting
 		{
 		}
 
-		internal SyncList(object syncObject)
+		public SyncList(object syncObject)
 			: this()
 		{
 			this.SetSyncObject(syncObject);
 		}
 
-		internal void SetSyncObject(object syncObject)
+		public void SetSyncObject(object syncObject)
 		{
 			this.m_syncObject = syncObject;
 		}

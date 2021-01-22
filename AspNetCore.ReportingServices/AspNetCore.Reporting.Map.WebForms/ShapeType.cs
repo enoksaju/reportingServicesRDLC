@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum ShapeType
+	public enum ShapeType
 	{
 		NullShape,
 		Point,

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartGridLines : IROMStyleDefinitionContainer
+	public sealed class ChartGridLines : IROMStyleDefinitionContainer
 	{
 		private Chart m_chart;
 
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartGridLines ChartGridLinesDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartGridLines ChartGridLinesDef
 		{
 			get
 			{
@@ -138,20 +138,20 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartGridLines(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartGridLines gridLinesDef, Chart chart)
+		public ChartGridLines(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartGridLines gridLinesDef, Chart chart)
 		{
 			this.m_chart = chart;
 			this.m_gridLinesDef = gridLinesDef;
 		}
 
-		internal ChartGridLines(GridLines renderGridLinesDef, object[] styleValues, Chart chart)
+		public ChartGridLines(GridLines renderGridLinesDef, object[] styleValues, Chart chart)
 		{
 			this.m_chart = chart;
 			this.m_renderGridLinesDef = renderGridLinesDef;
 			this.m_styleValues = styleValues;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

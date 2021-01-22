@@ -12,9 +12,9 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal abstract class RSRequestParameters : IReportParameterLookup
+	public abstract class RSRequestParameters : IReportParameterLookup
 	{
-		internal enum CacheDeviceInfoTags
+		public enum CacheDeviceInfoTags
 		{
 			Parameters,
 			ReplacementRoot,
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 
 		public const string EstimatePageMode = "Estimate";
 
-		internal const string IsCancellable = "IsCancellable";
+		public const string IsCancellable = "IsCancellable";
 
 		public const string RenderEditCommand = "RenderEdit";
 
@@ -1138,7 +1138,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			RSRequestParameters.m_powerViewServerVrmCommands.Add("GetDocument");
 		}
 
-		internal static bool IsCrescentCommand(string command)
+		public static bool IsCrescentCommand(string command)
 		{
 			if (string.IsNullOrEmpty(command))
 			{
@@ -1147,7 +1147,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return RSRequestParameters.m_crescentCommands.ContainsKey(command);
 		}
 
-		internal static bool IsPowerViewCommand(string command)
+		public static bool IsPowerViewCommand(string command)
 		{
 			if (string.IsNullOrEmpty(command))
 			{
@@ -1156,7 +1156,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return RSRequestParameters.m_powerViewCommands.ContainsKey(command);
 		}
 
-		internal static bool IsPowerViewVrmCommand(string command)
+		public static bool IsPowerViewVrmCommand(string command)
 		{
 			if (string.IsNullOrEmpty(command))
 			{
@@ -1165,7 +1165,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return RSRequestParameters.m_powerViewServerVrmCommands.Contains(command);
 		}
 
-		internal static bool IsPOSTOnlyCommand(string command)
+		public static bool IsPOSTOnlyCommand(string command)
 		{
 			if (!RSRequestParameters.IsPowerViewCommand(command))
 			{

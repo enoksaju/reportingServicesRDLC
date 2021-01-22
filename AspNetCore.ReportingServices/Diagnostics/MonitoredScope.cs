@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class MonitoredScope : IDisposable
+	public sealed class MonitoredScope : IDisposable
 	{
 		private const string IndentationTag = "--";
 
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 		{
 		}
 
-		internal static MonitoredScope New(string name)
+		public static MonitoredScope New(string name)
 		{
 			if (!MonitoredScope.TraceMonitoredScope)
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return monitoredScope;
 		}
 
-		internal static MonitoredScope NewFormat(string format, object arg0)
+		public static MonitoredScope NewFormat(string format, object arg0)
 		{
 			if (!MonitoredScope.TraceMonitoredScope)
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return MonitoredScope.New(string.Format(CultureInfo.InvariantCulture, format, arg0));
 		}
 
-		internal static MonitoredScope NewFormat(string format, object arg0, object arg1)
+		public static MonitoredScope NewFormat(string format, object arg0, object arg1)
 		{
 			if (!MonitoredScope.TraceMonitoredScope)
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return MonitoredScope.New(string.Format(CultureInfo.InvariantCulture, format, arg0, arg1));
 		}
 
-		internal static MonitoredScope NewFormat(string format, object arg0, object arg1, object arg2)
+		public static MonitoredScope NewFormat(string format, object arg0, object arg1, object arg2)
 		{
 			if (!MonitoredScope.TraceMonitoredScope)
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return MonitoredScope.New(string.Format(CultureInfo.InvariantCulture, format, arg0, arg1, arg2));
 		}
 
-		internal static MonitoredScope NewConcat(string arg0, object arg1)
+		public static MonitoredScope NewConcat(string arg0, object arg1)
 		{
 			if (!MonitoredScope.TraceMonitoredScope)
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return MonitoredScope.New(arg0);
 		}
 
-		internal static void End(string name)
+		public static void End(string name)
 		{
 			if (MonitoredScope.TraceMonitoredScope)
 			{

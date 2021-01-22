@@ -10,7 +10,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[DefaultProperty("Enabled")]
 	[SRDescription("DescriptionAttributeLegend_Legend")]
-	internal class Legend : ChartElement
+	public class Legend : ChartElement
 	{
 		private ElementPosition position = new ElementPosition();
 
@@ -64,7 +64,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private bool dockInsideChartArea = true;
 
-		internal LegendItemsCollection legendItems;
+		public LegendItemsCollection legendItems;
 
 		private SizeF sizeLargestItemText = SizeF.Empty;
 
@@ -76,7 +76,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private SizeF itemCellSize = SizeF.Empty;
 
-		internal Font autofitFont;
+		public Font autofitFont;
 
 		private bool equallySpacedItems;
 
@@ -150,7 +150,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private int numberOfCells = -1;
 
-		internal Size singleWCharacterSize = Size.Empty;
+		public Size singleWCharacterSize = Size.Empty;
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[Browsable(false)]
@@ -1485,7 +1485,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return chartGraph.GetRelativeSize(empty);
 		}
 
-		internal void CalcLegendPosition(ChartGraphics chartGraph, ref RectangleF chartAreasRectangle, float maxLegendSize, float elementSpacing)
+		public void CalcLegendPosition(ChartGraphics chartGraph, ref RectangleF chartAreasRectangle, float maxLegendSize, float elementSpacing)
 		{
 			RectangleF rectangleF = default(RectangleF);
 			SizeF maxSizeRel = new SizeF((float)(chartAreasRectangle.Width - 2.0 * elementSpacing), (float)(chartAreasRectangle.Height - 2.0 * elementSpacing));
@@ -2261,7 +2261,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Paint(ChartGraphics chartGraph)
+		public void Paint(ChartGraphics chartGraph)
 		{
 			this.offset = Size.Empty;
 			this.itemColumns = 0;
@@ -2637,7 +2637,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Size GetSeparatorSize(ChartGraphics chartGraph, LegendSeparatorType separatorType)
+		public Size GetSeparatorSize(ChartGraphics chartGraph, LegendSeparatorType separatorType)
 		{
 			Size result = Size.Empty;
 			switch (separatorType)
@@ -2795,7 +2795,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return tableStyle;
 		}
 
-		internal bool IsEnabled()
+		public bool IsEnabled()
 		{
 			if (this.Enabled)
 			{
@@ -2812,11 +2812,11 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal void Invalidate(bool invalidateLegendOnly)
+		public void Invalidate(bool invalidateLegendOnly)
 		{
 		}
 
-		internal void SelectLegendBackground(ChartGraphics chartGraph)
+		public void SelectLegendBackground(ChartGraphics chartGraph)
 		{
 			base.Common.HotRegionsList.AddHotRegion(this.Position.ToRectangleF(), this, ChartElementType.LegendArea, true);
 		}

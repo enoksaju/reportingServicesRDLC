@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal interface IImageMessageReader : IEnumerable, IDisposable
+	public interface IImageMessageReader : IEnumerable, IDisposable
 	{
 	}
 }

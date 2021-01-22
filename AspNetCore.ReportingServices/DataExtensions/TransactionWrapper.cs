@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal class TransactionWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDbTransaction, IDisposable
+	public class TransactionWrapper : BaseDataWrapper, AspNetCore.ReportingServices.DataProcessing.IDbTransaction, IDisposable
 	{
 		protected internal System.Data.IDbTransaction UnderlyingTransaction
 		{

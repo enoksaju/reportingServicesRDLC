@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CircularLabelStyle : LinearLabelStyle
+	public class CircularLabelStyle : LinearLabelStyle
 	{
 		private bool rotateLabels = true;
 

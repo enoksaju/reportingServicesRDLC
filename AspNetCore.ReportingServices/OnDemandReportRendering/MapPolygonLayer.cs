@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPolygonLayer : MapVectorLayer
+	public sealed class MapPolygonLayer : MapVectorLayer
 	{
 		private MapPolygonTemplate m_mapPolygonTemplate;
 
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapPolygonLayer MapPolygonLayerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapPolygonLayer MapPolygonLayerDef
 		{
 			get
 			{
@@ -94,12 +94,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapPolygonLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPolygonLayer defObject, Map map)
+		public MapPolygonLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPolygonLayer defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapLayerInstance GetInstance()
+		public override MapLayerInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapVectorLayerInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

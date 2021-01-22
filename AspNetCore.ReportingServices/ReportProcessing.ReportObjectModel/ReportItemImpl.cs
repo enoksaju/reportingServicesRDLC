@@ -2,15 +2,15 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public abstract class ReportItemImpl : ReportItem
 	{
-		internal AspNetCore.ReportingServices.ReportProcessing.ReportItem m_item;
+		public AspNetCore.ReportingServices.ReportProcessing.ReportItem m_item;
 
-		internal ReportRuntime m_reportRT;
+		public ReportRuntime m_reportRT;
 
-		internal IErrorContext m_iErrorContext;
+		public IErrorContext m_iErrorContext;
 
-		internal ReportProcessing.IScope m_scope;
+		public ReportProcessing.IScope m_scope;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ReportProcessing.IScope Scope
+		public ReportProcessing.IScope Scope
 		{
 			set
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ReportItemImpl(AspNetCore.ReportingServices.ReportProcessing.ReportItem itemDef, ReportRuntime reportRT, IErrorContext iErrorContext)
+		public ReportItemImpl(AspNetCore.ReportingServices.ReportProcessing.ReportItem itemDef, ReportRuntime reportRT, IErrorContext iErrorContext)
 		{
 			Global.Tracer.Assert(null != itemDef, "(null != itemDef)");
 			Global.Tracer.Assert(null != reportRT, "(null != reportRT)");

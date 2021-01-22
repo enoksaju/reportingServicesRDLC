@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal struct GridLine
+	public struct GridLine
 	{
 		public GridType GridType;
 

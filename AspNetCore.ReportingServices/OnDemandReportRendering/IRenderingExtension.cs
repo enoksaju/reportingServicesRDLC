@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IRenderingExtension : IExtension
+	public interface IRenderingExtension : IExtension
 	{
 		bool Render(Report report, NameValueCollection reportServerParameters, NameValueCollection deviceInfo, NameValueCollection clientCapabilities, ref Hashtable renderProperties, CreateAndRegisterStream createAndRegisterStream);
 

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class PinLabel : ReportObject
+	public class PinLabel : ReportObject
 	{
-		internal class Definition : DefinitionStore<PinLabel, Definition.Properties>
+		public class Definition : DefinitionStore<PinLabel, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Text,
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal PinLabel(IPropertyStore propertyStore)
+		public PinLabel(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

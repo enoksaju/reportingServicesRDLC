@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeRowCollection : IDataRegionRowCollection
+	public sealed class GaugeRowCollection : IDataRegionRowCollection
 	{
 		private GaugePanel m_owner;
 
@@ -30,18 +30,18 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeRowCollection(GaugePanel owner, GaugeRowList gaugeRowCollectionDefs)
+		public GaugeRowCollection(GaugePanel owner, GaugeRowList gaugeRowCollectionDefs)
 		{
 			this.m_owner = owner;
 			this.m_gaugeRowCollectionDefs = gaugeRowCollectionDefs;
 		}
 
-		internal GaugeRowCollection(GaugePanel owner)
+		public GaugeRowCollection(GaugePanel owner)
 		{
 			this.m_owner = owner;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_gaugeRow != null)
 			{

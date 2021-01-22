@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class GaugePanelStyleContainer : IStyleContainer, IPersistable
+	public abstract class GaugePanelStyleContainer : IStyleContainer, IPersistable
 	{
 		[Reference]
 		protected GaugePanel m_gaugePanel;
@@ -54,16 +54,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugePanelStyleContainer()
+		public GaugePanelStyleContainer()
 		{
 		}
 
-		internal GaugePanelStyleContainer(GaugePanel gaugePanel)
+		public GaugePanelStyleContainer(GaugePanel gaugePanel)
 		{
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal virtual void Initialize(InitializationContext context)
+		public virtual void Initialize(InitializationContext context)
 		{
 			if (this.m_styleClass != null)
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			GaugePanelStyleContainer gaugePanelStyleContainer = (GaugePanelStyleContainer)base.MemberwiseClone();
 			gaugePanelStyleContainer.m_gaugePanel = (GaugePanel)context.CurrentDataRegionClone;
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return gaugePanelStyleContainer;
 		}
 
-		internal virtual void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && null != reportObjectModel);
 			exprHost.SetReportObjectModel(reportObjectModel);
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.GaugePanel, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugePanel, Token.Reference));

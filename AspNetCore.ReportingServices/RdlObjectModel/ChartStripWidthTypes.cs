@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartStripWidthTypes
+	public enum ChartStripWidthTypes
 	{
 		Auto,
 		Number,

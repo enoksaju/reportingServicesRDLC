@@ -2,11 +2,11 @@ using System.Collections;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class DataSourceCollectionWrapper : IEnumerable
+	public sealed class DataSourceCollectionWrapper : IEnumerable
 	{
 		private readonly ReportDataSourceCollection m_dsCollection;
 
-		internal DataSourceCollectionWrapper(ReportDataSourceCollection dsCollection)
+		public DataSourceCollectionWrapper(ReportDataSourceCollection dsCollection)
 		{
 			this.m_dsCollection = dsCollection;
 		}

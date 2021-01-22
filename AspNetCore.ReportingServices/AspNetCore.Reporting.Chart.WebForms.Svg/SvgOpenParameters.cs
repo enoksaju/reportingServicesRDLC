@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Svg
 {
-	internal struct SvgOpenParameters
+	public struct SvgOpenParameters
 	{
 		private bool m_toolTipsEnabled;
 

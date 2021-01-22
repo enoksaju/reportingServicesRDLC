@@ -2,11 +2,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapLegendTitle : ReportObject
+	public class MapLegendTitle : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapLegendTitle, Definition.Properties>
+		public class Definition : DefinitionStore<MapLegendTitle, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Caption,
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapLegendTitle(IPropertyStore propertyStore)
+		public MapLegendTitle(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

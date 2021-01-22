@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum GaugeHatchStyle
+	public enum GaugeHatchStyle
 	{
 		None,
 		BackwardDiagonal,

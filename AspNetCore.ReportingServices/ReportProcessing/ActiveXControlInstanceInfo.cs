@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ActiveXControlInstanceInfo : ReportItemInstanceInfo
+	public sealed class ActiveXControlInstanceInfo : ReportItemInstanceInfo
 	{
 		private object[] m_parameterValues;
 
-		internal object[] ParameterValues
+		public object[] ParameterValues
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActiveXControlInstanceInfo(ReportProcessing.ProcessingContext pc, ActiveXControl reportItemDef, ReportItemInstance owner, int index)
+		public ActiveXControlInstanceInfo(ReportProcessing.ProcessingContext pc, ActiveXControl reportItemDef, ReportItemInstance owner, int index)
 			: base(pc, reportItemDef, owner, index)
 		{
 			if (reportItemDef.Parameters != null)
@@ -29,12 +29,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActiveXControlInstanceInfo(ActiveXControl reportItemDef)
+		public ActiveXControlInstanceInfo(ActiveXControl reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ParameterValues, Token.Array, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.Variant));

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ParameterTypeMismatchException : ReportCatalogException
+	public sealed class ParameterTypeMismatchException : ReportCatalogException
 	{
 		public ParameterTypeMismatchException(string parameterName)
 			: base(ErrorCode.rsParameterTypeMismatch, ErrorStrings.rsParameterTypeMismatch(parameterName), null, null)

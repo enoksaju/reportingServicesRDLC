@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface ICustomReportItem
+	public interface ICustomReportItem
 	{
 		void GenerateReportItemDefinition(CustomReportItem cri);
 

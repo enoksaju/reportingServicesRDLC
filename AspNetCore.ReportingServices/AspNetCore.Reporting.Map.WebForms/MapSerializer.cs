@@ -8,7 +8,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 {
 	[DefaultProperty("Format")]
 	[Description("Map serializer class.")]
-	internal class MapSerializer : IServiceProvider
+	public class MapSerializer : IServiceProvider
 	{
 		private IServiceContainer serviceContainer;
 
@@ -329,7 +329,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string GetFlagContentString(SerializationContent flag, bool serializable)
+		public string GetFlagContentString(SerializationContent flag, bool serializable)
 		{
 			switch (flag)
 			{
@@ -346,7 +346,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapCore GetMapObject()
+		public MapCore GetMapObject()
 		{
 			if (this.mapObject == null)
 			{

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class BatchNotFoundException : ReportCatalogException
+	public sealed class BatchNotFoundException : ReportCatalogException
 	{
 		public BatchNotFoundException(string batchId)
 			: base(ErrorCode.rsBatchNotFound, ErrorStrings.rsBatchNotFound(batchId), null, null)

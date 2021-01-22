@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[Serializable]
-	internal class HistoryEntry : IComparable, ICloneable
+	public class HistoryEntry : IComparable, ICloneable
 	{
 		private DateTime timestamp = DateTime.Now;
 

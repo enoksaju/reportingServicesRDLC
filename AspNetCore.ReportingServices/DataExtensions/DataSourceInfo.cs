@@ -13,9 +13,9 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class DataSourceInfo
+	public sealed class DataSourceInfo
 	{
-		internal enum CredentialsRetrievalOption
+		public enum CredentialsRetrievalOption
 		{
 			Unknown,
 			Prompt,
@@ -39,45 +39,45 @@ namespace AspNetCore.ReportingServices.DataExtensions
 
 		private const DataSourceFlags DefaultFlags = DataSourceFlags.Enabled | DataSourceFlags.ReferenceIsValid;
 
-		internal const string ExtensionXmlTag = "Extension";
+		public const string ExtensionXmlTag = "Extension";
 
-		internal const string ConnectionStringXmlTag = "ConnectString";
+		public const string ConnectionStringXmlTag = "ConnectString";
 
-		internal const string UseOriginalConnectStringXmlTag = "UseOriginalConnectString";
+		public const string UseOriginalConnectStringXmlTag = "UseOriginalConnectString";
 
-		internal const string OriginalConnectStringExpressionBasedXmlTag = "OriginalConnectStringExpressionBased";
+		public const string OriginalConnectStringExpressionBasedXmlTag = "OriginalConnectStringExpressionBased";
 
-		internal const string CredentialRetrievalXmlTag = "CredentialRetrieval";
+		public const string CredentialRetrievalXmlTag = "CredentialRetrieval";
 
-		internal const string ImpersonateUserXmlTag = "ImpersonateUser";
+		public const string ImpersonateUserXmlTag = "ImpersonateUser";
 
-		internal const string PromptXmlTag = "Prompt";
+		public const string PromptXmlTag = "Prompt";
 
-		internal const string WindowsCredentialsXmlTag = "WindowsCredentials";
+		public const string WindowsCredentialsXmlTag = "WindowsCredentials";
 
-		internal const string UserNameXmlTag = "UserName";
+		public const string UserNameXmlTag = "UserName";
 
-		internal const string PasswordXmlTag = "Password";
+		public const string PasswordXmlTag = "Password";
 
-		internal const string EnabledXmlTag = "Enabled";
+		public const string EnabledXmlTag = "Enabled";
 
-		internal const string NameXmlTag = "Name";
+		public const string NameXmlTag = "Name";
 
-		internal const string SecureStoreLookupXmlTag = "SecureStoreLookup";
+		public const string SecureStoreLookupXmlTag = "SecureStoreLookup";
 
-		internal const string TargetApplicationIdXmlTag = "TargetApplicationId";
+		public const string TargetApplicationIdXmlTag = "TargetApplicationId";
 
-		internal const string DataSourcesXmlTag = "DataSources";
+		public const string DataSourcesXmlTag = "DataSources";
 
-		internal const string DataSourceXmlTag = "DataSource";
+		public const string DataSourceXmlTag = "DataSource";
 
-		internal const string DataSourceDefinitionXmlTag = "DataSourceDefinition";
+		public const string DataSourceDefinitionXmlTag = "DataSourceDefinition";
 
-		internal const string m_dataSourceReferenceXmlTag = "DataSourceReference";
+		public const string m_dataSourceReferenceXmlTag = "DataSourceReference";
 
-		internal const string InvalidDataSourceReferenceXmlTag = "InvalidDataSourceReference";
+		public const string InvalidDataSourceReferenceXmlTag = "InvalidDataSourceReference";
 
-		internal const string XmlNameSpace = "http://schemas.microsoft.com/sqlserver/reporting/2006/03/reportdatasource";
+		public const string XmlNameSpace = "http://schemas.microsoft.com/sqlserver/reporting/2006/03/reportdatasource";
 
 		[NonSerialized]
 		private const RegexOptions CompiledRegexOptions = RegexOptions.ExplicitCapture | RegexOptions.Compiled | RegexOptions.Singleline;
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal bool IsExternalDataSource
+		public bool IsExternalDataSource
 		{
 			get
 			{
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal bool IsFullyFormedExternalDataSource
+		public bool IsFullyFormedExternalDataSource
 		{
 			get
 			{
@@ -278,7 +278,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal bool IsMultiDimensional
+		public bool IsMultiDimensional
 		{
 			get
 			{
@@ -975,12 +975,12 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			this.m_originalConnectionStringEncrypted = dataProtection.ProtectData(connectionString, "OriginalConnectionString");
 		}
 
-		internal void SetOriginalConnectionString(byte[] connectionStringEncrypted)
+		public void SetOriginalConnectionString(byte[] connectionStringEncrypted)
 		{
 			this.m_originalConnectionStringEncrypted = connectionStringEncrypted;
 		}
 
-		internal void SetOriginalConnectStringExpressionBased(bool expressionBased)
+		public void SetOriginalConnectStringExpressionBased(bool expressionBased)
 		{
 			this.m_originalConnectStringExpressionBased = expressionBased;
 		}
@@ -1285,7 +1285,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal static bool HasUseridReference(string connectionString)
+		public static bool HasUseridReference(string connectionString)
 		{
 			if (string.IsNullOrEmpty(connectionString))
 			{
@@ -1294,7 +1294,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return DataSourceInfo.UseridDetectionRegex.Matches(connectionString).Count > 0;
 		}
 
-		internal static string ReplaceAllUseridReferences(string originalConnectionString, string useridReplacementString)
+		public static string ReplaceAllUseridReferences(string originalConnectionString, string useridReplacementString)
 		{
 			if (string.IsNullOrEmpty(originalConnectionString))
 			{

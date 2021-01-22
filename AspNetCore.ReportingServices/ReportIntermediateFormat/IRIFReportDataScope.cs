@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IRIFReportDataScope : IRIFReportScope, IInstancePath, IRIFDataScope
+	public interface IRIFReportDataScope : IRIFReportScope, IInstancePath, IRIFDataScope
 	{
 		bool IsDataIntersectionScope
 		{

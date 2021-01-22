@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ReportElementInstance : BaseInstance, IPersistable
+	public abstract class ReportElementInstance : BaseInstance, IPersistable
 	{
 		[NonSerialized]
 		protected ReportElement m_reportElementDef;
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportElement ReportElementDef
+		public ReportElement ReportElementDef
 		{
 			get
 			{
@@ -34,13 +34,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportElementInstance(ReportElement reportElementDef)
+		public ReportElementInstance(ReportElement reportElementDef)
 			: base(reportElementDef.ReportScope)
 		{
 			this.m_reportElementDef = reportElementDef;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_style != null)
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetObjectType();
 		}
 
-		internal virtual void Serialize(IntermediateFormatWriter writer)
+		public virtual void Serialize(IntermediateFormatWriter writer)
 		{
 			writer.RegisterDeclaration(ReportElementInstance.m_Declaration);
 			while (writer.NextMember())
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual void Deserialize(IntermediateFormatReader reader)
+		public virtual void Deserialize(IntermediateFormatReader reader)
 		{
 			reader.RegisterDeclaration(ReportElementInstance.m_Declaration);
 			while (reader.NextMember())
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType GetObjectType()
+		public virtual AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType GetObjectType()
 		{
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ReportElementInstance;
 		}

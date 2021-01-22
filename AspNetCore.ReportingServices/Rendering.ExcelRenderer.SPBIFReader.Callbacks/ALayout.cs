@@ -3,37 +3,37 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIFReader.Callbacks
 {
-	internal abstract class ALayout
+	public abstract class ALayout
 	{
-		internal static readonly int TablixStructGenerationOffset = 100000;
+		public static readonly int TablixStructGenerationOffset = 100000;
 
-		internal static readonly int TablixStructStart = -2147483648;
+		public static readonly int TablixStructStart = -2147483648;
 
 		protected RPLReport m_report;
 
-		internal abstract bool HeaderInBody
+		public abstract bool HeaderInBody
 		{
 			get;
 		}
 
-		internal abstract bool FooterInBody
+		public abstract bool FooterInBody
 		{
 			get;
 		}
 
-		internal abstract bool? SummaryRowAfter
-		{
-			get;
-			set;
-		}
-
-		internal abstract bool? SummaryColumnAfter
+		public abstract bool? SummaryRowAfter
 		{
 			get;
 			set;
 		}
 
-		internal RPLReport RPLReport
+		public abstract bool? SummaryColumnAfter
+		{
+			get;
+			set;
+		}
+
+		public RPLReport RPLReport
 		{
 			get
 			{
@@ -41,25 +41,25 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIFReader.Callb
 			}
 		}
 
-		internal ALayout(RPLReport report)
+		public ALayout(RPLReport report)
 		{
 			this.m_report = report;
 		}
 
-		internal abstract void AddReportItem(object rplSource, int top, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, Dictionary<string, ToggleParent> toggleParents);
+		public abstract void AddReportItem(object rplSource, int top, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, Dictionary<string, ToggleParent> toggleParents);
 
-		internal abstract void AddStructuralItem(int top, int left, int width, int height, bool isToggglable, int generationIndex, RPLTablixMemberCell member, TogglePosition togglePosition);
+		public abstract void AddStructuralItem(int top, int left, int width, int height, bool isToggglable, int generationIndex, RPLTablixMemberCell member, TogglePosition togglePosition);
 
-		internal abstract void AddStructuralItem(int top, int left, int width, int height, int generationIndex, int rowHeaderWidth, int columnHeaderHeight, bool rtl);
+		public abstract void AddStructuralItem(int top, int left, int width, int height, int generationIndex, int rowHeaderWidth, int columnHeaderHeight, bool rtl);
 
-		internal abstract ALayout GetPageHeaderLayout(float width, float height);
+		public abstract ALayout GetPageHeaderLayout(float width, float height);
 
-		internal abstract ALayout GetPageFooterLayout(float width, float height);
+		public abstract ALayout GetPageFooterLayout(float width, float height);
 
-		internal abstract void CompletePage();
+		public abstract void CompletePage();
 
-		internal abstract void CompleteSection();
+		public abstract void CompleteSection();
 
-		internal abstract void SetIsLastSection(bool isLastSection);
+		public abstract void SetIsLastSection(bool isLastSection);
 	}
 }

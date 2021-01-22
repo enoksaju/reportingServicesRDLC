@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal interface IRPLObjectFactory
+	public interface IRPLObjectFactory
 	{
 		long EndOffset
 		{

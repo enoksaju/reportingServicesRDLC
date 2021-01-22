@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMarkerImage : IBaseImage
+	public sealed class MapMarkerImage : IBaseImage
 	{
 		private Map m_map;
 
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerImage MapMarkerImageDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerImage MapMarkerImageDef
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMarkerImage(AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerImage defObject, Map map)
+		public MapMarkerImage(AspNetCore.ReportingServices.ReportIntermediateFormat.MapMarkerImage defObject, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_map = map;
@@ -246,7 +246,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

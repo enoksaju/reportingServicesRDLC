@@ -9,9 +9,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class SharedRenderer
+	public sealed class SharedRenderer
 	{
-		internal const float INCH_TO_MILLIMETER = 25.4f;
+		public const float INCH_TO_MILLIMETER = 25.4f;
 
 		public const float MIN_DOUBLE_BORDER_SIZE = 0.5292f;
 
@@ -19,12 +19,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 		{
 		}
 
-		internal static void CalculateImageRectangle(RectangleF position, GDIImageProps gdiProperties, RPLFormat.Sizings sizing, out RectangleF imagePositionAndSize, out RectangleF imagePortion)
+		public static void CalculateImageRectangle(RectangleF position, GDIImageProps gdiProperties, RPLFormat.Sizings sizing, out RectangleF imagePositionAndSize, out RectangleF imagePortion)
 		{
 			SharedRenderer.CalculateImageRectangle(position, gdiProperties.Width, gdiProperties.Height, gdiProperties.HorizontalResolution, gdiProperties.VerticalResolution, sizing, out imagePositionAndSize, out imagePortion);
 		}
 
-		internal static void CalculateImageRectangle(RectangleF position, int width, int height, float horizontalResolution, float verticalResolution, RPLFormat.Sizings sizing, out RectangleF imagePositionAndSize, out RectangleF imagePortion)
+		public static void CalculateImageRectangle(RectangleF position, int width, int height, float horizontalResolution, float verticalResolution, RPLFormat.Sizings sizing, out RectangleF imagePositionAndSize, out RectangleF imagePortion)
 		{
 			imagePositionAndSize = position;
 			if (sizing == RPLFormat.Sizings.Clip)
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal static float ConvertToMillimeters(int pixels, float dpi)
+		public static float ConvertToMillimeters(int pixels, float dpi)
 		{
 			if (dpi == 0.0)
 			{
@@ -87,12 +87,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return (float)(1.0 / dpi * (float)pixels * 25.399999618530273);
 		}
 
-		internal static int ConvertToPixels(float mm, float dpi)
+		public static int ConvertToPixels(float mm, float dpi)
 		{
 			return Convert.ToInt32((double)dpi * 0.03937007874 * (double)mm);
 		}
 
-		internal static float ConvertToMillimeters(int pixels, float? dpi, WriterBase writer)
+		public static float ConvertToMillimeters(int pixels, float? dpi, WriterBase writer)
 		{
 			if (dpi.HasValue)
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return writer.ConvertToMillimeters(pixels);
 		}
 
-		internal static int ConvertToPixels(float mm, float? dpi, WriterBase writer)
+		public static int ConvertToPixels(float mm, float? dpi, WriterBase writer)
 		{
 			if (dpi.HasValue)
 			{
@@ -110,12 +110,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return writer.ConvertToPixels(mm);
 		}
 
-		internal static void DrawImage(System.Drawing.Graphics graphics, Image image, RectangleF rectDestMM, RectangleF rectSourcePX)
+		public static void DrawImage(System.Drawing.Graphics graphics, Image image, RectangleF rectDestMM, RectangleF rectSourcePX)
 		{
 			SharedRenderer.DrawImage(graphics, image, rectDestMM, rectSourcePX, null);
 		}
 
-		internal static void DrawImage(System.Drawing.Graphics graphics, Image image, RectangleF rectDestMM, RectangleF rectSourcePX, ImageAttributes imageAttributes)
+		public static void DrawImage(System.Drawing.Graphics graphics, Image image, RectangleF rectDestMM, RectangleF rectSourcePX, ImageAttributes imageAttributes)
 		{
 			SharedRenderer.DrawImage(graphics, image, new PointF[3]
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}, rectSourcePX, imageAttributes);
 		}
 
-		internal static void DrawImage(System.Drawing.Graphics graphics, Image image, PointF[] pointsDestMM, RectangleF rectSourcePX, ImageAttributes imageAttributes)
+		public static void DrawImage(System.Drawing.Graphics graphics, Image image, PointF[] pointsDestMM, RectangleF rectSourcePX, ImageAttributes imageAttributes)
 		{
 			PointF[] destPoints = new PointF[3]
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal static void GetFontFormatInformation(RPLElementProps elementProperties, out RPLFormat.WritingModes writingMode, out RPLFormat.Directions direction, out RPLFormat.VerticalAlignments verticalAlign, out RPLFormat.TextAlignments textAlign, ref bool stringFormatFromInstance)
+		public static void GetFontFormatInformation(RPLElementProps elementProperties, out RPLFormat.WritingModes writingMode, out RPLFormat.Directions direction, out RPLFormat.VerticalAlignments verticalAlign, out RPLFormat.TextAlignments textAlign, ref bool stringFormatFromInstance)
 		{
 			writingMode = (RPLFormat.WritingModes)SharedRenderer.GetStylePropertyValueObject(elementProperties, (byte)30, ref stringFormatFromInstance);
 			direction = (RPLFormat.Directions)SharedRenderer.GetStylePropertyValueObject(elementProperties, (byte)29, ref stringFormatFromInstance);
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			textAlign = (RPLFormat.TextAlignments)SharedRenderer.GetStylePropertyValueObject(elementProperties, (byte)25, ref stringFormatFromInstance);
 		}
 
-		internal static void GetFontStyleInformation(RPLElementProps elementProperties, out RPLFormat.FontStyles fontStyle, out RPLFormat.FontWeights fontWeight, out RPLFormat.TextDecorations textDecoration, out float fontSize, out string fontFamily, ref bool fontStyleFromInstance)
+		public static void GetFontStyleInformation(RPLElementProps elementProperties, out RPLFormat.FontStyles fontStyle, out RPLFormat.FontWeights fontWeight, out RPLFormat.TextDecorations textDecoration, out float fontSize, out string fontFamily, ref bool fontStyleFromInstance)
 		{
 			fontSize = (float)new RPLReportSize(SharedRenderer.GetStylePropertyValueString(elementProperties, (byte)21, ref fontStyleFromInstance)).ToPoints();
 			fontStyle = (RPLFormat.FontStyles)SharedRenderer.GetStylePropertyValueObject(elementProperties, (byte)19, ref fontStyleFromInstance);
@@ -163,12 +163,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			fontFamily = SharedRenderer.GetStylePropertyValueString(elementProperties, (byte)20, ref fontStyleFromInstance);
 		}
 
-		internal static RectangleF GetMeasurementRectangle(RPLMeasurement measurement, RectangleF bounds)
+		public static RectangleF GetMeasurementRectangle(RPLMeasurement measurement, RectangleF bounds)
 		{
 			return new RectangleF(measurement.Left + bounds.Left, measurement.Top + bounds.Top, measurement.Width, measurement.Height);
 		}
 
-		internal static bool GetImage(RPLReport rplReport, ref byte[] imageData, long imageDataOffset)
+		public static bool GetImage(RPLReport rplReport, ref byte[] imageData, long imageDataOffset)
 		{
 			if (imageData != null)
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return true;
 		}
 
-		internal static Stream GetEmbeddedImageStream(RPLReport rplReport, long imageDataOffset, CreateAndRegisterStream createAndRegisterStream, string imageName)
+		public static Stream GetEmbeddedImageStream(RPLReport rplReport, long imageDataOffset, CreateAndRegisterStream createAndRegisterStream, string imageName)
 		{
 			Stream stream = null;
 			if (imageDataOffset > 0)
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return stream;
 		}
 
-		internal static bool GetImage(RPLReport rplReport, ref byte[] imageData, long imageDataOffset, ref GDIImageProps gdiImageProps)
+		public static bool GetImage(RPLReport rplReport, ref byte[] imageData, long imageDataOffset, ref GDIImageProps gdiImageProps)
 		{
 			if (SharedRenderer.GetImage(rplReport, ref imageData, imageDataOffset))
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return false;
 		}
 
-		internal static Color GetReportColorStyle(RPLElementStyle properties, byte style)
+		public static Color GetReportColorStyle(RPLElementStyle properties, byte style)
 		{
 			object obj = properties[style];
 			if (obj != null)
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return Color.Empty;
 		}
 
-		internal static float GetReportSizeStyleMM(RPLElementStyle properties, byte style)
+		public static float GetReportSizeStyleMM(RPLElementStyle properties, byte style)
 		{
 			object obj = properties[style];
 			if (obj != null)
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return float.NaN;
 		}
 
-		internal static RPLFormat.BorderStyles GetStylePropertyValueBorderStyle(RPLElementStyle properties, byte style, RPLFormat.BorderStyles defaultStyle)
+		public static RPLFormat.BorderStyles GetStylePropertyValueBorderStyle(RPLElementStyle properties, byte style, RPLFormat.BorderStyles defaultStyle)
 		{
 			object obj = properties[style];
 			if (obj != null)
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return defaultStyle;
 		}
 
-		internal static RPLFormat.BorderStyles GetStylePropertyValueBorderStyle(RPLElementProps properties, byte style, RPLFormat.BorderStyles defaultStyle)
+		public static RPLFormat.BorderStyles GetStylePropertyValueBorderStyle(RPLElementProps properties, byte style, RPLFormat.BorderStyles defaultStyle)
 		{
 			object stylePropertyValueObject = SharedRenderer.GetStylePropertyValueObject(properties, style);
 			if (stylePropertyValueObject != null)
@@ -260,13 +260,13 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return defaultStyle;
 		}
 
-		internal static object GetStylePropertyValueObject(RPLElementProps properties, byte style)
+		public static object GetStylePropertyValueObject(RPLElementProps properties, byte style)
 		{
 			bool flag = false;
 			return SharedRenderer.GetStylePropertyValueObject(properties, style, ref flag);
 		}
 
-		internal static object GetStylePropertyValueObject(RPLElementProps properties, byte style, ref bool fromInstance)
+		public static object GetStylePropertyValueObject(RPLElementProps properties, byte style, ref bool fromInstance)
 		{
 			object obj = null;
 			if (properties.NonSharedStyle != null)
@@ -285,13 +285,13 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return obj;
 		}
 
-		internal static string GetStylePropertyValueString(RPLElementProps properties, byte style)
+		public static string GetStylePropertyValueString(RPLElementProps properties, byte style)
 		{
 			bool flag = false;
 			return SharedRenderer.GetStylePropertyValueString(properties, style, ref flag);
 		}
 
-		internal static string GetStylePropertyValueString(RPLElementProps properties, byte style, ref bool fromInstance)
+		public static string GetStylePropertyValueString(RPLElementProps properties, byte style, ref bool fromInstance)
 		{
 			object stylePropertyValueObject = SharedRenderer.GetStylePropertyValueObject(properties, style, ref fromInstance);
 			if (stylePropertyValueObject == null)
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return (string)stylePropertyValueObject;
 		}
 
-		internal static RPLFormat.TextAlignments GetTextAlignForGeneral(TypeCode typeCode, RPLFormat.Directions direction)
+		public static RPLFormat.TextAlignments GetTextAlignForGeneral(TypeCode typeCode, RPLFormat.Directions direction)
 		{
 			switch (typeCode)
 			{
@@ -331,7 +331,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal static bool IsWeightBold(RPLFormat.FontWeights weight)
+		public static bool IsWeightBold(RPLFormat.FontWeights weight)
 		{
 			if (weight != RPLFormat.FontWeights.SemiBold && weight != RPLFormat.FontWeights.Bold && weight != RPLFormat.FontWeights.ExtraBold && weight != RPLFormat.FontWeights.Heavy)
 			{
@@ -340,7 +340,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return true;
 		}
 
-		internal static void ProcessBottomBorder(WriterBase writer, List<Operation> operations, float borderWidthBottom, RPLFormat.BorderStyles borderStyleBottom, Color borderColorBottom, Color borderColorLeft, Color borderColorRight, float borderBottom, float borderBottomEdge, float borderLeftEdge, float borderRightEdge, float borderBottomEdgeUnclipped, float borderLeftEdgeUnclipped, float borderRightEdgeUnclipped, float borderWidthLeft, float borderWidthRight, float borderWidthBottomUnclipped, float borderWidthLeftUnclipped, float borderWidthRightUnclipped)
+		public static void ProcessBottomBorder(WriterBase writer, List<Operation> operations, float borderWidthBottom, RPLFormat.BorderStyles borderStyleBottom, Color borderColorBottom, Color borderColorLeft, Color borderColorRight, float borderBottom, float borderBottomEdge, float borderLeftEdge, float borderRightEdge, float borderBottomEdgeUnclipped, float borderLeftEdgeUnclipped, float borderRightEdgeUnclipped, float borderWidthLeft, float borderWidthRight, float borderWidthBottomUnclipped, float borderWidthLeftUnclipped, float borderWidthRightUnclipped)
 		{
 			switch (borderStyleBottom)
 			{
@@ -449,7 +449,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal static void ProcessLeftBorder(WriterBase writer, List<Operation> operations, float borderWidthLeft, RPLFormat.BorderStyles borderStyleLeft, Color borderColorLeft, Color borderColorTop, Color borderColorBottom, float borderLeft, float borderLeftEdge, float borderTopEdge, float borderBottomEdge, float borderLeftEdgeUnclipped, float borderTopEdgeUnclipped, float borderBottomEdgeUnclipped, float borderWidthTop, float borderWidthBottom, float borderWidthLeftUnclipped, float borderWidthTopUnclipped, float borderWidthBottomUnclipped)
+		public static void ProcessLeftBorder(WriterBase writer, List<Operation> operations, float borderWidthLeft, RPLFormat.BorderStyles borderStyleLeft, Color borderColorLeft, Color borderColorTop, Color borderColorBottom, float borderLeft, float borderLeftEdge, float borderTopEdge, float borderBottomEdge, float borderLeftEdgeUnclipped, float borderTopEdgeUnclipped, float borderBottomEdgeUnclipped, float borderWidthTop, float borderWidthBottom, float borderWidthLeftUnclipped, float borderWidthTopUnclipped, float borderWidthBottomUnclipped)
 		{
 			switch (borderStyleLeft)
 			{
@@ -558,7 +558,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal static void ProcessRightBorder(WriterBase writer, List<Operation> operations, float borderWidthRight, RPLFormat.BorderStyles borderStyleRight, Color borderColorRight, Color borderColorTop, Color borderColorBottom, float borderRight, float borderRightEdge, float borderTopEdge, float borderBottomEdge, float borderRightEdgeUnclipped, float borderTopEdgeUnclipped, float borderBottomEdgeUnclipped, float borderWidthTop, float borderWidthBottom, float borderWidthRightUnclipped, float borderWidthTopUnclipped, float borderWidthBottomUnclipped)
+		public static void ProcessRightBorder(WriterBase writer, List<Operation> operations, float borderWidthRight, RPLFormat.BorderStyles borderStyleRight, Color borderColorRight, Color borderColorTop, Color borderColorBottom, float borderRight, float borderRightEdge, float borderTopEdge, float borderBottomEdge, float borderRightEdgeUnclipped, float borderTopEdgeUnclipped, float borderBottomEdgeUnclipped, float borderWidthTop, float borderWidthBottom, float borderWidthRightUnclipped, float borderWidthTopUnclipped, float borderWidthBottomUnclipped)
 		{
 			switch (borderStyleRight)
 			{
@@ -667,7 +667,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal static void ProcessTopBorder(WriterBase writer, List<Operation> operations, float borderWidthTop, RPLFormat.BorderStyles borderStyleTop, Color borderColorTop, Color borderColorLeft, Color borderColorRight, float borderTop, float borderTopEdge, float borderLeftEdge, float borderRightEdge, float borderTopEdgeUnclipped, float borderLeftEdgeUnclipped, float borderRightEdgeUnclipped, float borderWidthLeft, float borderWidthRight, float borderWidthTopUnclipped, float borderWidthLeftUnclipped, float borderWidthRightUnclipped)
+		public static void ProcessTopBorder(WriterBase writer, List<Operation> operations, float borderWidthTop, RPLFormat.BorderStyles borderStyleTop, Color borderColorTop, Color borderColorLeft, Color borderColorRight, float borderTop, float borderTopEdge, float borderLeftEdge, float borderRightEdge, float borderTopEdgeUnclipped, float borderLeftEdgeUnclipped, float borderRightEdgeUnclipped, float borderWidthLeft, float borderWidthRight, float borderWidthTopUnclipped, float borderWidthLeftUnclipped, float borderWidthRightUnclipped)
 		{
 			switch (borderStyleTop)
 			{
@@ -776,12 +776,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal static bool CalculateImageClippedUnscaledBounds(WriterBase writer, RectangleF bounds, int width, int height, float xOffsetMM, float yOffsetMM, out RectangleF destination, out RectangleF source)
+		public static bool CalculateImageClippedUnscaledBounds(WriterBase writer, RectangleF bounds, int width, int height, float xOffsetMM, float yOffsetMM, out RectangleF destination, out RectangleF source)
 		{
 			return SharedRenderer.CalculateImageClippedUnscaledBounds(writer, bounds, width, height, xOffsetMM, yOffsetMM, (int?)null, (int?)null, out destination, out source);
 		}
 
-		internal static bool CalculateImageClippedUnscaledBounds(WriterBase writer, RectangleF bounds, int width, int height, float xOffsetMM, float yOffsetMM, int? measureImageDpiX, int? measureImageDpiY, out RectangleF destination, out RectangleF source)
+		public static bool CalculateImageClippedUnscaledBounds(WriterBase writer, RectangleF bounds, int width, int height, float xOffsetMM, float yOffsetMM, int? measureImageDpiX, int? measureImageDpiY, out RectangleF destination, out RectangleF source)
 		{
 			destination = Rectangle.Empty;
 			source = Rectangle.Empty;
@@ -833,7 +833,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return false;
 		}
 
-		internal static void CalculateColumnZIndexes(RPLTablix tablix, RPLTablixRow row, int currentRow, int[] columnZIndexes)
+		public static void CalculateColumnZIndexes(RPLTablix tablix, RPLTablixRow row, int currentRow, int[] columnZIndexes)
 		{
 			if (currentRow < tablix.ColumnHeaderRows)
 			{
@@ -859,7 +859,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal static int CalculateRowZIndex(RPLTablixRow row)
+		public static int CalculateRowZIndex(RPLTablixRow row)
 		{
 			int num = 2147483647;
 			for (int i = 0; i < row.NumCells; i++)
@@ -880,7 +880,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return num;
 		}
 
-		internal static int CalculateZIndex(RPLTablixMemberCell header)
+		public static int CalculateZIndex(RPLTablixMemberCell header)
 		{
 			int num = header.TablixMemberDef.Level * 3;
 			if (!header.TablixMemberDef.StaticHeadersTree)

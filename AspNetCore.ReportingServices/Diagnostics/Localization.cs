@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class Localization
+	public static class Localization
 	{
 		public static string ClientBrowserCultureName
 		{

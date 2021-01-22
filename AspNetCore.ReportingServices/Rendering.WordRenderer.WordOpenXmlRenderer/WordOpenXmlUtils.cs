@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer
 {
-	internal static class WordOpenXmlUtils
+	public static class WordOpenXmlUtils
 	{
 		public static string CleanName(string name)
 		{
@@ -19,12 +19,12 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return name;
 		}
 
-		internal static void CopyStream(Stream src, Stream dest)
+		public static void CopyStream(Stream src, Stream dest)
 		{
 			WordOpenXmlUtils.CopyStream(src, dest, src.Length - src.Position);
 		}
 
-		internal static void CopyStream(Stream src, Stream dest, long amount)
+		public static void CopyStream(Stream src, Stream dest, long amount)
 		{
 			byte[] buffer = new byte[1024];
 			long num = amount;
@@ -36,12 +36,12 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal static void FailSerializable()
+		public static void FailSerializable()
 		{
 			RSTrace.ExcelRendererTracer.Assert(false);
 		}
 
-		internal static void FailCodingError()
+		public static void FailCodingError()
 		{
 			RSTrace.ExcelRendererTracer.Assert(false);
 		}
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return string.Format(CultureInfo.InvariantCulture, "{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B);
 		}
 
-		internal static bool GetTextAlignForType(TypeCode typeCode)
+		public static bool GetTextAlignForType(TypeCode typeCode)
 		{
 			bool flag = false;
 			switch (typeCode)
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal static Size SizeImage(Size image, Size box, Size.Strategy strategy)
+		public static Size SizeImage(Size image, Size box, Size.Strategy strategy)
 		{
 			Size result = default(Size);
 			switch (strategy)
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return result;
 		}
 
-		internal static string ThousandthsOfAPercentInverse(double numerator, double denominator)
+		public static string ThousandthsOfAPercentInverse(double numerator, double denominator)
 		{
 			return (100000 - (int)(numerator / denominator * 100000.0)).ToString(CultureInfo.InvariantCulture);
 		}

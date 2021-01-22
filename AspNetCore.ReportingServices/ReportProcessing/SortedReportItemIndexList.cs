@@ -2,9 +2,9 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class SortedReportItemIndexList : ArrayList
+	public sealed class SortedReportItemIndexList : ArrayList
 	{
-		internal new int this[int index]
+		public new int this[int index]
 		{
 			get
 			{
@@ -12,11 +12,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SortedReportItemIndexList()
+		public SortedReportItemIndexList()
 		{
 		}
 
-		internal SortedReportItemIndexList(int capacity)
+		public SortedReportItemIndexList(int capacity)
 			: base(capacity)
 		{
 		}

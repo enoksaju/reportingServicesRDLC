@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class ST_ShapeType
+	public class ST_ShapeType
 	{
 		private string _ooxmlEnumerationValue;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal enum FunnelLabelPlacement
+	public enum FunnelLabelPlacement
 	{
 		Right,
 		Left

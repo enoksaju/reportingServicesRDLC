@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixCornerCell : IDefinitionPath
+	public sealed class TablixCornerCell : IDefinitionPath
 	{
 		private Tablix m_owner;
 
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixCornerCell(Tablix owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.TablixCornerCell cellDef)
+		public TablixCornerCell(Tablix owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.TablixCornerCell cellDef)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_cellDef = cellDef;
 		}
 
-		internal TablixCornerCell(Tablix owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportRendering.ReportItem cornerReportItem)
+		public TablixCornerCell(Tablix owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportRendering.ReportItem cornerReportItem)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;

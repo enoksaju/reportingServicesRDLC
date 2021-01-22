@@ -3,9 +3,9 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Style : StyleBase
+	public sealed class Style : StyleBase
 	{
-		internal enum StyleName
+		public enum StyleName
 		{
 			BorderColor,
 			BorderColorTop,
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			NumeralVariant
 		}
 
-		internal sealed class StyleDefaults
+		public sealed class StyleDefaults
 		{
 			private Hashtable m_nameMap;
 
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 			private object[] m_valueCollection;
 
-			internal object this[int index]
+			public object this[int index]
 			{
 				get
 				{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal object this[string styleName]
+			public object this[string styleName]
 			{
 				get
 				{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				}
 			}
 
-			internal StyleDefaults(bool isLine)
+			public StyleDefaults(bool isLine)
 			{
 				this.m_nameMap = new Hashtable(42);
 				this.m_keyCollection = new string[42];
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 				Global.Tracer.Assert(42 == num);
 			}
 
-			internal string GetName(int index)
+			public string GetName(int index)
 			{
 				return this.m_keyCollection[index];
 			}
@@ -385,7 +385,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_styleDefaults = Style.NormalStyleDefaults;
 		}
 
-		internal Style(ReportItem reportItem, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, RenderingContext context)
+		public Style(ReportItem reportItem, AspNetCore.ReportingServices.ReportProcessing.ReportItem reportItemDef, RenderingContext context)
 			: base(context)
 		{
 			Global.Tracer.Assert(!base.IsCustomControl);
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool HasBackgroundImage(out bool isExpressionBased)
+		public bool HasBackgroundImage(out bool isExpressionBased)
 		{
 			isExpressionBased = false;
 			if (this.m_reportItem.HeadingInstance == null && this.m_reportItemDef.StyleClass == null)
@@ -446,13 +446,13 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return false;
 		}
 
-		internal AttributeInfo GetStyleDefinition(string styleName)
+		public AttributeInfo GetStyleDefinition(string styleName)
 		{
 			string text = null;
 			return this.GetStyleDefinition(styleName, out text);
 		}
 
-		internal AttributeInfo GetStyleDefinition(string styleName, out string expressionString)
+		public AttributeInfo GetStyleDefinition(string styleName, out string expressionString)
 		{
 			expressionString = null;
 			if (base.IsCustomControl)
@@ -531,12 +531,12 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return false;
 		}
 
-		internal static object GetStyleValue(string styleName, AspNetCore.ReportingServices.ReportProcessing.Style styleDef, object[] styleAttributeValues)
+		public static object GetStyleValue(string styleName, AspNetCore.ReportingServices.ReportProcessing.Style styleDef, object[] styleAttributeValues)
 		{
 			return Style.GetStyleValue(styleName, styleDef, styleAttributeValues, true);
 		}
 
-		internal static object GetStyleValue(string styleName, AspNetCore.ReportingServices.ReportProcessing.Style styleDef, object[] styleAttributeValues, bool returnDefaultStyle)
+		public static object GetStyleValue(string styleName, AspNetCore.ReportingServices.ReportProcessing.Style styleDef, object[] styleAttributeValues, bool returnDefaultStyle)
 		{
 			object styleValueBase = StyleBase.GetStyleValueBase(styleName, styleDef, styleAttributeValues);
 			if (styleValueBase != null)
@@ -550,7 +550,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return null;
 		}
 
-		internal override object GetStyleAttributeValue(string styleName, AttributeInfo attribute)
+		public override object GetStyleAttributeValue(string styleName, AttributeInfo attribute)
 		{
 			if (this.m_reportItem.HeadingInstance != null)
 			{
@@ -590,7 +590,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return attribute.Value;
 		}
 
-		internal override void PopulateStyleProperties(bool populateAll)
+		public override void PopulateStyleProperties(bool populateAll)
 		{
 			if (!base.IsCustomControl)
 			{

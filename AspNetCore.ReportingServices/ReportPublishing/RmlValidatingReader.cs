@@ -12,16 +12,16 @@ using System.Xml.Schema;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class RmlValidatingReader : RDLValidatingReader
+	public sealed class RmlValidatingReader : RDLValidatingReader
 	{
-		internal enum CustomFlags
+		public enum CustomFlags
 		{
 			None,
 			InCustomElement,
 			AfterCustomElement
 		}
 
-		internal enum ItemType
+		public enum ItemType
 		{
 			Rdl,
 			Rdlx,
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private List<string> m_serverSupportedSchemas;
 
-		internal RmlValidatingReader(Stream stream, List<Pair<string, Stream>> namespaceSchemaStreamMap, PublishingErrorContext errorContext, ItemType itemType)
+		public RmlValidatingReader(Stream stream, List<Pair<string, Stream>> namespaceSchemaStreamMap, PublishingErrorContext errorContext, ItemType itemType)
 			: base(stream, namespaceSchemaStreamMap)
 		{
 			this.m_rdlElementHierarchy = new Stack<Pair<string, string>>();
@@ -384,7 +384,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return base.ReadString();
 		}
 
-		internal bool ReadBoolean(ObjectType objectType, string objectName, string propertyName)
+		public bool ReadBoolean(ObjectType objectType, string objectName, string propertyName)
 		{
 			bool result = false;
 			if (base.IsEmptyElement)
@@ -405,7 +405,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int ReadInteger(ObjectType objectType, string objectName, string propertyName)
+		public int ReadInteger(ObjectType objectType, string objectName, string propertyName)
 		{
 			int result = 0;
 			if (base.IsEmptyElement)
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal string ReadCustomXml()
+		public string ReadCustomXml()
 		{
 			Global.Tracer.Assert(CustomFlags.None == this.m_custom);
 			if (base.IsEmptyElement)

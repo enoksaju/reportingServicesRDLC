@@ -9,7 +9,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal abstract class WordDocumentRendererBase : IRenderingExtension, IExtension
+	public abstract class WordDocumentRendererBase : IRenderingExtension, IExtension
 	{
 		public virtual string LocalizedName
 		{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 		{
 		}
 
-		internal abstract IWordWriter NewWordWriter();
+		public abstract IWordWriter NewWordWriter();
 
 		protected abstract WordRenderer NewWordRenderer(CreateAndRegisterStream createAndRegisterStream, DeviceInfo deviceInfoObj, AspNetCore.ReportingServices.Rendering.SPBProcessing.SPBProcessing spbProcessing, IWordWriter writer, string reportName);
 

@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal interface IOnDemandMemberOwnerInstance : IOnDemandScopeInstance, IStorable, IPersistable
+	public interface IOnDemandMemberOwnerInstance : IOnDemandScopeInstance, IStorable, IPersistable
 	{
 		IOnDemandMemberInstanceReference GetFirstMemberInstance(ReportHierarchyNode rifMember);
 	}

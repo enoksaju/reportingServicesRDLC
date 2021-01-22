@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IActionOwner
+	public interface IActionOwner
 	{
 		Action Action
 		{

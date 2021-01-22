@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MemberHierarchy<T> : IDefinitionPath
+	public abstract class MemberHierarchy<T> : IDefinitionPath
 	{
 		protected DataRegionMemberCollection<T> m_members;
 
@@ -30,13 +30,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MemberHierarchy(ReportItem owner, bool isColumn)
+		public MemberHierarchy(ReportItem owner, bool isColumn)
 		{
 			this.m_owner = owner;
 			this.m_isColumn = isColumn;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_members != null)
 			{
@@ -44,6 +44,6 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal abstract void ResetContext();
+		public abstract void ResetContext();
 	}
 }

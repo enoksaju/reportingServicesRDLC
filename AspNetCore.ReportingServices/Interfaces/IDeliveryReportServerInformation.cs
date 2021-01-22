@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IDeliveryReportServerInformation
+	public interface IDeliveryReportServerInformation
 	{
 		Extension[] RenderingExtension
 		{

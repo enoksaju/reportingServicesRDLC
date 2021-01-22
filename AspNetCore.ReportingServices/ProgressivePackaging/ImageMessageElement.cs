@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal abstract class ImageMessageElement
+	public abstract class ImageMessageElement
 	{
 		public string ImageUrl
 		{

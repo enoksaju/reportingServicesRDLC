@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartAreaCollection : IList, ICollection, IEnumerable
+	public class ChartAreaCollection : IList, ICollection, IEnumerable
 	{
 		private ArrayList array = new ArrayList();
 
@@ -130,7 +130,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ChartAreaCollection(CommonElements common)
+		public ChartAreaCollection(CommonElements common)
 		{
 			this.common = common;
 			common.chartAreaCollection = this;

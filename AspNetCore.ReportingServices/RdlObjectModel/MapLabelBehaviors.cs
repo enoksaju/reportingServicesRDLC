@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapLabelBehaviors
+	public enum MapLabelBehaviors
 	{
 		Auto,
 		ShowMiddleValue,

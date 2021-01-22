@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class TextBoxState
+	public sealed class TextBoxState
 	{
 		[Flags]
 		private enum TextBoxInternalState : byte

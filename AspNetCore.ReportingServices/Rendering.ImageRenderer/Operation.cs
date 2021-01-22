@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal class Operation
+	public class Operation
 	{
-		internal virtual void Perform(WriterBase writer)
+		public virtual void Perform(WriterBase writer)
 		{
 		}
 	}

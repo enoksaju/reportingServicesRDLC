@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum DataFieldStatus
+	public enum DataFieldStatus
 	{
 		None,
 		Overflow,

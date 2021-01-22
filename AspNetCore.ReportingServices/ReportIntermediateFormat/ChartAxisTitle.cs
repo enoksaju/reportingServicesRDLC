@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartAxisTitle : ChartTitleBase, IPersistable
+	public sealed class ChartAxisTitle : ChartTitleBase, IPersistable
 	{
 		private ExpressionInfo m_position;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ChartAxisTitle.GetDeclaration();
 
-		internal ExpressionInfo Position
+		public ExpressionInfo Position
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TextOrientation
+		public ExpressionInfo TextOrientation
 		{
 			get
 			{
@@ -42,17 +42,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAxisTitle()
+		public ChartAxisTitle()
 		{
 		}
 
-		internal ChartAxisTitle(Chart chart)
+		public ChartAxisTitle(Chart chart)
 			: base(chart)
 		{
 			base.m_chart = chart;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartAxisTitleStart();
 			base.Initialize(context);
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartAxisTitleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartAxisTitle chartAxisTitle = (ChartAxisTitle)base.PublishClone(context);
 			if (this.m_position != null)
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartAxisTitle;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Position, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -143,13 +143,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartAxisTitle;
 		}
 
-		internal ChartAxisTitlePositions EvaluatePosition(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public ChartAxisTitlePositions EvaluatePosition(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, instance);
 			return EnumTranslator.TranslateChartAxisTitlePosition(context.ReportRuntime.EvaluateChartAxisTitlePositionExpression(this, base.Name, "Position"), context.ReportRuntime);
 		}
 
-		internal TextOrientations EvaluateTextOrientation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public TextOrientations EvaluateTextOrientation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateTextOrientations(context.ReportRuntime.EvaluateChartAxisTitleTextOrientationExpression(this, base.m_chart.Name), context.ReportRuntime);

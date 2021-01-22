@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal struct ReferenceID
+	public struct ReferenceID
 	{
 		private const long IsTemporaryMask = 4611686018427387904L;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 
 		private long m_value;
 
-		internal long Value
+		public long Value
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal bool HasMultiPart
+		public bool HasMultiPart
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal bool IsTemporary
+		public bool IsTemporary
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal int PartitionID
+		public int PartitionID
 		{
 			get
 			{
@@ -77,12 +77,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal ReferenceID(long value)
+		public ReferenceID(long value)
 		{
 			this.m_value = value;
 		}
 
-		internal ReferenceID(bool hasMultiPart, bool isTemporary, int partitionId)
+		public ReferenceID(bool hasMultiPart, bool isTemporary, int partitionId)
 		{
 			this.m_value = 0L;
 			this.HasMultiPart = hasMultiPart;

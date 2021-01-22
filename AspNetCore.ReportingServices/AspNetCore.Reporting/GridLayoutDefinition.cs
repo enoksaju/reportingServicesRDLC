@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class GridLayoutDefinition
+	public sealed class GridLayoutDefinition
 	{
 		private readonly int m_numberOfColumns;
 
@@ -56,7 +56,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal GridLayoutDefinition(GridLayoutCellDefinitionCollection cellDefs, int numRows, int numColumns, ReportParameterInfoCollection paramInfoCollection)
+		public GridLayoutDefinition(GridLayoutCellDefinitionCollection cellDefs, int numRows, int numColumns, ReportParameterInfoCollection paramInfoCollection)
 		{
 			this.m_cellDefinitions = cellDefs;
 			this.m_numberOfRows = numRows;

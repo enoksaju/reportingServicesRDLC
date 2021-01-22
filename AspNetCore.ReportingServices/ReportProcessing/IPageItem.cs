@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IPageItem
+	public interface IPageItem
 	{
 		int StartPage
 		{

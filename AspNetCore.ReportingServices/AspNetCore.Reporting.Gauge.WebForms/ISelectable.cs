@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface ISelectable
+	public interface ISelectable
 	{
 		void DrawSelection(GaugeGraphics g, bool designTimeSelection);
 	}

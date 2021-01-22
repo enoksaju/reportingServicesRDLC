@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum SerializableProperties
+	public enum SerializableProperties
 	{
 		Adder = -10605,
 		AllowUpsideDown = 22000,

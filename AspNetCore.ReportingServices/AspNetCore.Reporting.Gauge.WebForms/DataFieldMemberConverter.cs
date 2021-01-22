@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class DataFieldMemberConverter : StringConverter
+	public class DataFieldMemberConverter : StringConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{
@@ -36,7 +36,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal static ArrayList GetDataSourceMemberNames(object dataSource)
+		public static ArrayList GetDataSourceMemberNames(object dataSource)
 		{
 			ArrayList arrayList = new ArrayList();
 			if (dataSource != null)

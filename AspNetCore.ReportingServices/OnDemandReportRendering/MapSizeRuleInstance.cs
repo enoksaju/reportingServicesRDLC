@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapSizeRuleInstance : MapAppearanceRuleInstance
+	public sealed class MapSizeRuleInstance : MapAppearanceRuleInstance
 	{
 		private MapSizeRule m_defObject;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSizeRuleInstance(MapSizeRule defObject)
+		public MapSizeRuleInstance(MapSizeRule defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

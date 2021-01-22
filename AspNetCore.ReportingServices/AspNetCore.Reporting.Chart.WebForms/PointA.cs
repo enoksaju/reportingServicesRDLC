@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class PointA
+	public class PointA
 	{
 		private ValueA x = new ValueA();
 

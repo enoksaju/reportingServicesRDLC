@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ChartSeriesCollection : ReportElementCollectionBase<ChartSeries>, IDataRegionRowCollection
+	public abstract class ChartSeriesCollection : ReportElementCollectionBase<ChartSeries>, IDataRegionRowCollection
 	{
 		protected Chart m_owner;
 
 		protected ChartSeries[] m_chartSeriesCollection;
 
-		internal ChartSeriesCollection(Chart owner)
+		public ChartSeriesCollection(Chart owner)
 		{
 			this.m_owner = owner;
 		}

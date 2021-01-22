@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal interface IDataCorrelation
+	public interface IDataCorrelation
 	{
 		bool NextCorrelatedRow();
 	}

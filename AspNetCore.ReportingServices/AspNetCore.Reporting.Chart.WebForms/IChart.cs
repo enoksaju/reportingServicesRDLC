@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal interface IChart
+	public interface IChart
 	{
 		AnnotationCollection Annotations
 		{

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class CatalogItemUrlBuilder
+	public sealed class CatalogItemUrlBuilder
 	{
 		private StringBuilder m_urlString;
 

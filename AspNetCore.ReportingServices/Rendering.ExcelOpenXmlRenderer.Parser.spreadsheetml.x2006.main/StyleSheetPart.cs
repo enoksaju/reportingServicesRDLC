@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class StyleSheetPart : OoxmlPart
+	public class StyleSheetPart : OoxmlPart
 	{
 		private CT_Stylesheet _root;
 

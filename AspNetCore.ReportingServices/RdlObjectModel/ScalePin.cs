@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ScalePin : TickMarkStyle
+	public class ScalePin : TickMarkStyle
 	{
-		internal new class Definition : DefinitionStore<ScalePin, Definition.Properties>
+		public new class Definition : DefinitionStore<ScalePin, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				DistanceFromScale,
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ScalePin(IPropertyStore propertyStore)
+		public ScalePin(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

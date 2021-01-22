@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum NeedleStyle
+	public enum NeedleStyle
 	{
 		Style1,
 		Style2,

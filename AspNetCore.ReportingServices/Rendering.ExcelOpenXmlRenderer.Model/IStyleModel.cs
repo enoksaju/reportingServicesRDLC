@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IStyleModel : ICloneable
+	public interface IStyleModel : ICloneable
 	{
 		Style Interface
 		{

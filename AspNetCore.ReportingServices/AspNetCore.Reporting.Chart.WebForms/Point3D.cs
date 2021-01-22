@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class Point3D
+	public class Point3D
 	{
 		private PointF coordXY = new PointF(0f, 0f);
 

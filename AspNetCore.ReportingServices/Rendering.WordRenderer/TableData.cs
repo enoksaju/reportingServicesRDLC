@@ -6,9 +6,9 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class TableData
+	public class TableData
 	{
-		internal enum Positions
+		public enum Positions
 		{
 			Top,
 			Left,
@@ -24,11 +24,11 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private const int MaxTapxSprmSize = 2048;
 
-		internal static byte TC_ROTATEFONT = 16;
+		public static byte TC_ROTATEFONT = 16;
 
-		internal static byte TC_BACKWARD = 8;
+		public static byte TC_BACKWARD = 8;
 
-		internal static byte TC_VERTICAL = 4;
+		public static byte TC_VERTICAL = 4;
 
 		private CellBorderColor m_borderColors;
 
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private bool m_layoutTable;
 
-		internal bool WriteRowHeight
+		public bool WriteRowHeight
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool WriteExactRowHeight
+		public bool WriteExactRowHeight
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal byte[] Tapx
+		public byte[] Tapx
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal TableData(int tableLevel, bool layoutTable)
+		public TableData(int tableLevel, bool layoutTable)
 		{
 			this.m_tapx = new SprmBuffer(2048, 2);
 			this.m_tapx.AddSprm(9238, 1, null);
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.m_layoutTable = layoutTable;
 		}
 
-		internal void InitTableRow(float leftStart, float rowHeight, float[] columnWidths, AutoFit autoFit)
+		public void InitTableRow(float leftStart, float rowHeight, float[] columnWidths, AutoFit autoFit)
 		{
 			if (this.m_tapx.Offset == 14)
 			{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.m_tapx.AddRawSprmData(array);
 		}
 
-		internal void WriteTableCellBegin(int cellIndex, int numColumns, bool firstVertMerge, bool firstHorzMerge, bool vertMerge, bool horzMerge)
+		public void WriteTableCellBegin(int cellIndex, int numColumns, bool firstVertMerge, bool firstHorzMerge, bool vertMerge, bool horzMerge)
 		{
 			int tcLocation = this.GetTcLocation(numColumns, cellIndex);
 			this.m_tapx.Buf[tcLocation] |= (byte)(firstVertMerge ? 96 : 0);
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.m_tapx.Buf[tcLocation] |= (byte)(horzMerge ? 2 : 0);
 		}
 
-		internal void AddCellStyleProp(int cellIndex, byte code, object value)
+		public void AddCellStyleProp(int cellIndex, byte code, object value)
 		{
 			switch (code)
 			{
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void AddCellDiagonal(int cellIndex, RPLFormat.BorderStyles style, string width, string color, bool slantUp)
+		public void AddCellDiagonal(int cellIndex, RPLFormat.BorderStyles style, string width, string color, bool slantUp)
 		{
 			BorderCode borderCode = new BorderCode();
 			byte b = (byte)(slantUp ? 32 : 16);
@@ -409,7 +409,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void AddTableStyleProp(byte code, object value)
+		public void AddTableStyleProp(byte code, object value)
 		{
 			switch (code)
 			{
@@ -487,7 +487,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void SetTableContext(BorderContext borderContext)
+		public void SetTableContext(BorderContext borderContext)
 		{
 			if (borderContext.Top)
 			{
@@ -588,7 +588,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			LittleEndian.PutUShort(this.m_tapx.Buf, tcLocation, uShort);
 		}
 
-		internal void WriteBrc97(byte[] grpprl, int offset, BorderCode brc)
+		public void WriteBrc97(byte[] grpprl, int offset, BorderCode brc)
 		{
 			brc.Serialize97(grpprl, offset);
 		}
@@ -617,7 +617,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void WriteTableCellEnd(int cellIndex, BorderContext borderContext)
+		public void WriteTableCellEnd(int cellIndex, BorderContext borderContext)
 		{
 			int offset = this.GetTcLocation(this.m_numColumns, cellIndex) + 4;
 			this.UpdateBorderColor(Positions.Top, offset, cellIndex, borderContext.Top);
@@ -644,7 +644,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.m_cellBorders[(int)position] = new BorderCode();
 		}
 
-		internal void ClearCellBorder(Positions position)
+		public void ClearCellBorder(Positions position)
 		{
 			this.m_cellBorders[(int)position] = new BorderCode();
 		}

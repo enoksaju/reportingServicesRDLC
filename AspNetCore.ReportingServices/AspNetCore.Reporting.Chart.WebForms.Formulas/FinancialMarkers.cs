@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 {
-	internal class FinancialMarkers
+	public class FinancialMarkers
 	{
 		private Font textFont;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Formulas
 
 		private bool drawText = true;
 
-		internal void DrawMarkers(ChartGraphics graph, ChartPicture chart, FinancialMarkerType markerName, Series series, int firstPoint, int firstYValue, int secondPoint, int secondYValue, Color lineColor, int lineWidth, ChartDashStyle lineStyle, Color textColor, Font textFont)
+		public void DrawMarkers(ChartGraphics graph, ChartPicture chart, FinancialMarkerType markerName, Series series, int firstPoint, int firstYValue, int secondPoint, int secondYValue, Color lineColor, int lineWidth, ChartDashStyle lineStyle, Color textColor, Font textFont)
 		{
 			this.lineStyle = lineStyle;
 			if (textColor == Color.Empty)

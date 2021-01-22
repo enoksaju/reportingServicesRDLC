@@ -4,7 +4,7 @@ using System.Security.Policy;
 
 namespace AspNetCore.ReportingServices
 {
-	internal sealed class AppDomainPool
+	public sealed class AppDomainPool
 	{
 		private Evidence m_evidence;
 

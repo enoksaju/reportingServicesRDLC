@@ -19,9 +19,9 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal sealed class LayoutEngine : ALayout
+	public sealed class LayoutEngine : ALayout
 	{
-		internal sealed class RowInfo : IStorable, IPersistable
+		public sealed class RowInfo : IStorable, IPersistable
 		{
 			private int m_height;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			[NonSerialized]
 			private static Declaration m_declaration = RowInfo.GetDeclaration();
 
-			internal int Height
+			public int Height
 			{
 				get
 				{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal List<IRowItemStruct> Items
+			public List<IRowItemStruct> Items
 			{
 				get
 				{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal RowInfo()
+			public RowInfo()
 			{
 			}
 
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				return ObjectType.ExcelRowInfo;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (RowInfo.m_declaration == null)
 				{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal sealed class ColumnInfo
+		public sealed class ColumnInfo
 		{
 			private const byte m_outlineLevelMask = 15;
 
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 
 			private byte m_flags;
 
-			internal int Width
+			public int Width
 			{
 				get
 				{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal Stack<ItemInfo> Stack
+			public Stack<ItemInfo> Stack
 			{
 				get
 				{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal List<TablixMemberInfo> TablixStructs
+			public List<TablixMemberInfo> TablixStructs
 			{
 				get
 				{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal IBlockerInfo Blocker
+			public IBlockerInfo Blocker
 			{
 				get
 				{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal Stack<TablixBlockerInfo> TablixBlockers
+			public Stack<TablixBlockerInfo> TablixBlockers
 			{
 				get
 				{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal TablixMemberInfo LastColumnHeader
+			public TablixMemberInfo LastColumnHeader
 			{
 				get
 				{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal byte OutlineLevel
+			public byte OutlineLevel
 			{
 				get
 				{
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal bool Collapsed
+			public bool Collapsed
 			{
 				get
 				{
@@ -247,17 +247,17 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal ColumnInfo()
+			public ColumnInfo()
 			{
 			}
 
-			internal ColumnInfo(int width)
+			public ColumnInfo(int width)
 			{
 				this.m_width = width;
 			}
 		}
 
-		internal interface IBlockerInfo
+		public interface IBlockerInfo
 		{
 			int TopRow
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal class ItemInfo : IBlockerInfo
+		public class ItemInfo : IBlockerInfo
 		{
 			private const ushort m_togglePositionMask = 15;
 
@@ -344,7 +344,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal IColor BackgroundColor
+			public IColor BackgroundColor
 			{
 				get
 				{
@@ -384,7 +384,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal bool IsMerged
+			public bool IsMerged
 			{
 				get
 				{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal byte Type
+			public byte Type
 			{
 				get
 				{
@@ -400,11 +400,11 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal ItemInfo()
+			public ItemInfo()
 			{
 			}
 
-			internal ItemInfo(int top, int bottom, int colLeft, int colRight, bool isMerged, BorderInfo borders, byte type, bool isHidden, TogglePosition togglePosition)
+			public ItemInfo(int top, int bottom, int colLeft, int colRight, bool isMerged, BorderInfo borders, byte type, bool isHidden, TogglePosition togglePosition)
 			{
 				this.m_rowTop = top;
 				this.m_rowBottom = bottom;
@@ -454,7 +454,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal void FillBorders(RPLStyleProps style, bool omitBorderTop, bool omitBorderBottom, IExcelGenerator excel)
+			public void FillBorders(RPLStyleProps style, bool omitBorderTop, bool omitBorderBottom, IExcelGenerator excel)
 			{
 				BorderInfo.FillAllBorders(style, ref this.m_leftBorder, ref this.m_rightBorder, ref this.m_topBorder, ref this.m_bottomBorder, ref this.m_backgroundColor, excel);
 				if (omitBorderTop)
@@ -467,7 +467,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal void RenderBackground(IStyle style)
+			public void RenderBackground(IStyle style)
 			{
 				if (this.m_backgroundColor != null)
 				{
@@ -475,7 +475,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal void RenderBorders(IExcelGenerator excel, int currentRow, int currentColumn)
+			public void RenderBorders(IExcelGenerator excel, int currentRow, int currentColumn)
 			{
 				if (this.m_diagonal != null)
 				{
@@ -500,13 +500,13 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal class TextBoxItemInfo : ItemInfo
+		public class TextBoxItemInfo : ItemInfo
 		{
 			private bool m_canGrow;
 
 			private bool m_canShrink;
 
-			internal bool CanGrow
+			public bool CanGrow
 			{
 				get
 				{
@@ -514,7 +514,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal bool CanShrink
+			public bool CanShrink
 			{
 				get
 				{
@@ -522,11 +522,11 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal TextBoxItemInfo()
+			public TextBoxItemInfo()
 			{
 			}
 
-			internal TextBoxItemInfo(int top, int bottom, int colLeft, int colRight, bool isMerged, bool canGrow, bool canShrink, BorderInfo borders, byte type, bool isHidden, TogglePosition togglePosition)
+			public TextBoxItemInfo(int top, int bottom, int colLeft, int colRight, bool isMerged, bool canGrow, bool canShrink, BorderInfo borders, byte type, bool isHidden, TogglePosition togglePosition)
 				: base(top, bottom, colLeft, colRight, isMerged, borders, type, isHidden, togglePosition)
 			{
 				this.m_canGrow = canGrow;
@@ -534,7 +534,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal class TablixItemInfo : IBlockerInfo
+		public class TablixItemInfo : IBlockerInfo
 		{
 			private int m_rowTop;
 
@@ -576,7 +576,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal TablixItemInfo()
+			public TablixItemInfo()
 			{
 			}
 
@@ -589,7 +589,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal class TablixBlockerInfo : TablixItemInfo
+		public class TablixBlockerInfo : TablixItemInfo
 		{
 			private BlockOutlines m_blockOutlines;
 
@@ -643,7 +643,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal TablixBlockerInfo()
+			public TablixBlockerInfo()
 			{
 			}
 
@@ -656,7 +656,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal class TablixMemberInfo : TablixItemInfo
+		public class TablixMemberInfo : TablixItemInfo
 		{
 			private const byte m_togglePositionMask = 15;
 
@@ -711,7 +711,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal TablixMemberInfo()
+			public TablixMemberInfo()
 			{
 			}
 
@@ -731,7 +731,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal interface IRowItemStruct : IComparable, IComparable<IRowItemStruct>, IStorable, IPersistable
+		public interface IRowItemStruct : IComparable, IComparable<IRowItemStruct>, IStorable, IPersistable
 		{
 			object RPLSource
 			{
@@ -764,7 +764,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal class RowItemStruct : IRowItemStruct, IComparable, IComparable<IRowItemStruct>, IStorable, IPersistable
+		public class RowItemStruct : IRowItemStruct, IComparable, IComparable<IRowItemStruct>, IStorable, IPersistable
 		{
 			[StaticReference]
 			private object m_rplSource;
@@ -846,7 +846,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal bool IsDefaultLine
+			public bool IsDefaultLine
 			{
 				get
 				{
@@ -858,7 +858,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal bool UseRPLStream
+			public bool UseRPLStream
 			{
 				get
 				{
@@ -866,7 +866,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal string SubreportLanguage
+			public string SubreportLanguage
 			{
 				get
 				{
@@ -882,16 +882,16 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal RowItemStruct()
+			public RowItemStruct()
 			{
 			}
 
-			internal RowItemStruct(object rplSource, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, Dictionary<string, ToggleParent> toggleParents)
+			public RowItemStruct(object rplSource, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, Dictionary<string, ToggleParent> toggleParents)
 				: this(rplSource, left, width, height, generationIndex, state, subreportLanguage, true, toggleParents)
 			{
 			}
 
-			internal RowItemStruct(object rplSource, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, bool isDefaultLine, Dictionary<string, ToggleParent> toggleParents)
+			public RowItemStruct(object rplSource, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, bool isDefaultLine, Dictionary<string, ToggleParent> toggleParents)
 			{
 				this.m_rplSource = rplSource;
 				this.m_left = left;
@@ -1054,7 +1054,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				return ObjectType.RowItemStruct;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (RowItemStruct.m_declaration == null)
 				{
@@ -1075,7 +1075,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal abstract class TablixItemStruct : IRowItemStruct, IComparable, IComparable<IRowItemStruct>, IStorable, IPersistable
+		public abstract class TablixItemStruct : IRowItemStruct, IComparable, IComparable<IRowItemStruct>, IStorable, IPersistable
 		{
 			protected int m_left;
 
@@ -1242,7 +1242,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				return ObjectType.TablixItemStruct;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (TablixItemStruct.m_declaration == null)
 				{
@@ -1257,7 +1257,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal class TablixStruct : TablixItemStruct
+		public class TablixStruct : TablixItemStruct
 		{
 			private int m_rowHeaderWidth;
 
@@ -1300,12 +1300,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal TablixStruct()
+			public TablixStruct()
 				: base(0, 0, 0, 0)
 			{
 			}
 
-			internal TablixStruct(int left, int width, int height, int generationIndex, int rowHeaderWidth, int columnHeaderHeight, bool rtl)
+			public TablixStruct(int left, int width, int height, int generationIndex, int rowHeaderWidth, int columnHeaderHeight, bool rtl)
 				: base(left, width, height, generationIndex)
 			{
 				this.m_rowHeaderWidth = rowHeaderWidth;
@@ -1370,7 +1370,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				return ObjectType.TablixStruct;
 			}
 
-			internal new static Declaration GetDeclaration()
+			public new static Declaration GetDeclaration()
 			{
 				if (TablixStruct.m_declaration == null)
 				{
@@ -1384,7 +1384,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal class TablixMemberStruct : TablixItemStruct
+		public class TablixMemberStruct : TablixItemStruct
 		{
 			[NonSerialized]
 			private const byte m_togglePositionMask = 15;
@@ -1463,12 +1463,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				}
 			}
 
-			internal TablixMemberStruct()
+			public TablixMemberStruct()
 				: base(0, 0, 0, 0)
 			{
 			}
 
-			internal TablixMemberStruct(int left, int width, int height, int generationIndex, bool hasToggle, bool isHidden, TogglePosition togglePosition, bool hasLabel, string uniqueName, int recursiveToggleLevel)
+			public TablixMemberStruct(int left, int width, int height, int generationIndex, bool hasToggle, bool isHidden, TogglePosition togglePosition, bool hasLabel, string uniqueName, int recursiveToggleLevel)
 				: base(left, width, height, generationIndex)
 			{
 				this.m_flags = (byte)(togglePosition & (TogglePosition)15);
@@ -1545,7 +1545,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 				return ObjectType.TablixMemberStruct;
 			}
 
-			internal new static Declaration GetDeclaration()
+			public new static Declaration GetDeclaration()
 			{
 				if (TablixMemberStruct.m_declaration == null)
 				{
@@ -1629,7 +1629,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 
 		private bool m_onLastSection;
 
-		internal override bool HeaderInBody
+		public override bool HeaderInBody
 		{
 			get
 			{
@@ -1641,7 +1641,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal override bool FooterInBody
+		public override bool FooterInBody
 		{
 			get
 			{
@@ -1653,7 +1653,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal override bool? SummaryRowAfter
+		public override bool? SummaryRowAfter
 		{
 			get
 			{
@@ -1665,7 +1665,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal override bool? SummaryColumnAfter
+		public override bool? SummaryColumnAfter
 		{
 			get
 			{
@@ -1677,7 +1677,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal IScalabilityCache ScalabilityCache
+		public IScalabilityCache ScalabilityCache
 		{
 			get
 			{
@@ -1685,7 +1685,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal LayoutEngine(RPLReport report, bool headerInBody, CreateAndRegisterStream streamDelegate)
+		public LayoutEngine(RPLReport report, bool headerInBody, CreateAndRegisterStream streamDelegate)
 			: base(report)
 		{
 			this.m_renderHeaderInBody = headerInBody;
@@ -1748,28 +1748,28 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			this.AddColumnEdge(edge2);
 		}
 
-		internal override void AddReportItem(object rplSource, int top, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, Dictionary<string, ToggleParent> toggleParents)
+		public override void AddReportItem(object rplSource, int top, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, Dictionary<string, ToggleParent> toggleParents)
 		{
 			RowItemStruct rowItem = new RowItemStruct(rplSource, left, width, height, generationIndex, state, subreportLanguage, toggleParents);
 			this.AddRowItemStruct(top, rowItem);
 		}
 
-		internal override void AddStructuralItem(int top, int left, int width, int height, bool isToggglable, int generationIndex, RPLTablixMemberCell member, TogglePosition togglePosition)
+		public override void AddStructuralItem(int top, int left, int width, int height, bool isToggglable, int generationIndex, RPLTablixMemberCell member, TogglePosition togglePosition)
 		{
 			this.AddRowItemStruct(top, new TablixMemberStruct(left, width, height, ALayout.TablixStructStart + ALayout.TablixStructGenerationOffset * generationIndex - member.TablixMemberDef.Level, isToggglable, member.ToggleCollapse, togglePosition, member.GroupLabel != null, member.UniqueName, member.RecursiveToggleLevel));
 		}
 
-		internal override void AddStructuralItem(int top, int left, int width, int height, int generationIndex, int rowHeaderWidth, int columnHeaderHeight, bool rtl)
+		public override void AddStructuralItem(int top, int left, int width, int height, int generationIndex, int rowHeaderWidth, int columnHeaderHeight, bool rtl)
 		{
 			this.AddRowItemStruct(top, new TablixStruct(left, width, height, generationIndex, rowHeaderWidth, columnHeaderHeight, rtl));
 		}
 
-		internal override void SetIsLastSection(bool isLastSection)
+		public override void SetIsLastSection(bool isLastSection)
 		{
 			this.m_onLastSection = isLastSection;
 		}
 
-		internal override ALayout GetPageHeaderLayout(float width, float height)
+		public override ALayout GetPageHeaderLayout(float width, float height)
 		{
 			if (!this.HeaderInBody)
 			{
@@ -1786,7 +1786,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			return this;
 		}
 
-		internal override ALayout GetPageFooterLayout(float width, float height)
+		public override ALayout GetPageFooterLayout(float width, float height)
 		{
 			if (!this.FooterInBody)
 			{
@@ -1799,12 +1799,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			return this;
 		}
 
-		internal override void CompleteSection()
+		public override void CompleteSection()
 		{
 			this.m_onFirstSection = false;
 		}
 
-		internal override void CompletePage()
+		public override void CompletePage()
 		{
 			this.m_columnEdges.Add(0);
 			List<int> list = new List<int>(this.m_columnEdges);
@@ -1914,7 +1914,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal void RenderPageToExcel(IExcelGenerator excel, string key, Dictionary<string, BorderInfo> sharedBorderCache, Dictionary<string, ImageInformation> sharedImageCache)
+		public void RenderPageToExcel(IExcelGenerator excel, string key, Dictionary<string, BorderInfo> sharedBorderCache, Dictionary<string, ImageInformation> sharedImageCache)
 		{
 			if (this.m_columns.Length > excel.MaxColumns)
 			{
@@ -2175,7 +2175,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal void RenderEmptyPageToExcel(IExcelGenerator excel, RPLPageLayout pageLayout, Dictionary<string, BorderInfo> sharedBorderCache)
+		public void RenderEmptyPageToExcel(IExcelGenerator excel, RPLPageLayout pageLayout, Dictionary<string, BorderInfo> sharedBorderCache)
 		{
 			if (pageLayout != null)
 			{
@@ -2827,7 +2827,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			this.FixupAlignments(excel, false, textOrientation, horizontalAlign, verticalAlign, textDirection);
 		}
 
-		internal static RPLActionInfo RenderRichText(IExcelGenerator excel, RPLTextBox rplTextbox, IRichTextInfo richTextInfo, bool inHeaderAndFooter, RPLActionInfo actions, bool renderListPrefixes, ref HorizontalAlignment horizontalAlign)
+		public static RPLActionInfo RenderRichText(IExcelGenerator excel, RPLTextBox rplTextbox, IRichTextInfo richTextInfo, bool inHeaderAndFooter, RPLActionInfo actions, bool renderListPrefixes, ref HorizontalAlignment horizontalAlign)
 		{
 			List<int> list = null;
 			bool flag = true;
@@ -4085,7 +4085,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			return left.GenerationIndex.CompareTo(right.GenerationIndex);
 		}
 
-		internal void InitCache(CreateAndRegisterStream streamDelegate)
+		public void InitCache(CreateAndRegisterStream streamDelegate)
 		{
 			if (this.m_scalabilityCache == null)
 			{
@@ -4093,7 +4093,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal void Dispose()
+		public void Dispose()
 		{
 			if (this.m_scalabilityCache != null)
 			{

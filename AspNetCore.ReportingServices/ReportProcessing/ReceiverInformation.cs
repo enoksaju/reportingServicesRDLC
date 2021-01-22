@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReceiverInformation
+	public sealed class ReceiverInformation
 	{
 		private bool m_startHidden;
 
 		private int m_senderUniqueName;
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int SenderUniqueName
+		public int SenderUniqueName
 		{
 			get
 			{
@@ -34,17 +34,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReceiverInformation()
+		public ReceiverInformation()
 		{
 		}
 
-		internal ReceiverInformation(bool startHidden, int senderUniqueName)
+		public ReceiverInformation(bool startHidden, int senderUniqueName)
 		{
 			this.m_startHidden = startHidden;
 			this.m_senderUniqueName = senderUniqueName;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.StartHidden, Token.Boolean));

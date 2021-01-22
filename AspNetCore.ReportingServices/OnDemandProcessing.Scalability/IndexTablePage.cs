@@ -3,17 +3,17 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class IndexTablePage
+	public sealed class IndexTablePage
 	{
-		internal byte[] Buffer;
+		public byte[] Buffer;
 
-		internal bool Dirty;
+		public bool Dirty;
 
-		internal int PageNumber;
+		public int PageNumber;
 
-		internal IndexTablePage PreviousPage;
+		public IndexTablePage PreviousPage;
 
-		internal IndexTablePage NextPage;
+		public IndexTablePage NextPage;
 
 		public IndexTablePage(int size)
 		{

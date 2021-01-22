@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.DataExtensions;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface ISharedDataSet
+	public interface ISharedDataSet
 	{
 		bool HasUserDependencies
 		{

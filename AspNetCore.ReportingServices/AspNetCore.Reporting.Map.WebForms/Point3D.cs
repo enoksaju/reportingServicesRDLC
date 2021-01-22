@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal struct Point3D
+	public struct Point3D
 	{
 		public double X;
 

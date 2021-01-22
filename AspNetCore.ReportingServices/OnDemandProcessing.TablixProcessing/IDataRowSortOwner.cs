@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal interface IDataRowSortOwner
+	public interface IDataRowSortOwner
 	{
 		OnDemandProcessingContext OdpContext
 		{

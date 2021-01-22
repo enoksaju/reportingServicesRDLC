@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class UnPinCascadeHolder : IDisposable
+	public sealed class UnPinCascadeHolder : IDisposable
 	{
 		private List<IDisposable> m_cleanupRefs;
 
-		internal UnPinCascadeHolder()
+		public UnPinCascadeHolder()
 		{
 			this.m_cleanupRefs = new List<IDisposable>();
 		}
 
-		internal void AddCleanupRef(IDisposable cleanupRef)
+		public void AddCleanupRef(IDisposable cleanupRef)
 		{
 			this.m_cleanupRefs.Add(cleanupRef);
 		}

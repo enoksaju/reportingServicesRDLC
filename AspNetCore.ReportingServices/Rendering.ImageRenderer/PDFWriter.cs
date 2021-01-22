@@ -19,9 +19,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class PDFWriter : WriterBase
+	public sealed class PDFWriter : WriterBase
 	{
-		internal const float GRID_CONVERSION = 2.834646f;
+		public const float GRID_CONVERSION = 2.834646f;
 
 		private const string CRLF = "\r\n";
 
@@ -77,17 +77,17 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 
 		private MD5 m_md5Hasher;
 
-		internal Dictionary<string, PDFPagePoint> DocumentMapLabelPoints;
+		public Dictionary<string, PDFPagePoint> DocumentMapLabelPoints;
 
-		internal PDFLabel DocumentMapRootLabel;
+		public PDFLabel DocumentMapRootLabel;
 
-		internal bool HumanReadablePDF;
+		public bool HumanReadablePDF;
 
-		internal bool Test;
+		public bool Test;
 
-		internal bool PrintOnOpen;
+		public bool PrintOnOpen;
 
-		internal FontEmbedding EmbedFonts;
+		public FontEmbedding EmbedFonts;
 
 		private static readonly string m_assemblyVersionString;
 
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override float HalfPixelWidthY
+		public override float HalfPixelWidthY
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override float HalfPixelWidthX
+		public override float HalfPixelWidthX
 		{
 			get
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			PDFWriter.m_assemblyVersionString = typeof(PDFRenderer).Assembly.GetName().Version.ToString();
 		}
 
-		internal PDFWriter(Renderer renderer, Stream stream, bool disposeRenderer, CreateAndRegisterStream createAndRegisterStream, int imageDpiX, int imageDpiY)
+		public PDFWriter(Renderer renderer, Stream stream, bool disposeRenderer, CreateAndRegisterStream createAndRegisterStream, int imageDpiX, int imageDpiY)
 			: base(renderer, stream, disposeRenderer, createAndRegisterStream)
 		{
 			this.m_objectOffsets.Add(0L);
@@ -208,14 +208,14 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.m_imageDpiY = imageDpiY;
 		}
 
-		internal override void BeginPage(float pageWidth, float pageHeight)
+		public override void BeginPage(float pageWidth, float pageHeight)
 		{
 			this.m_mediaBoxSize = new SizeF((float)(pageWidth * 2.8346459865570068), (float)(pageHeight * 2.8346459865570068));
 			this.m_pageContentsSection = new List<string>();
 			this.m_pageId = this.ReserveObjectId();
 		}
 
-		internal override void BeginPageSection(RectangleF bounds)
+		public override void BeginPageSection(RectangleF bounds)
 		{
 			base.BeginPageSection(bounds);
 			this.m_bounds = this.ConvertBoundsToPDFUnits(bounds);
@@ -224,28 +224,28 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.m_pageContentsSection.Add(stringBuilder.ToString());
 		}
 
-		internal override void BeginReport(int dpiX, int dpiY)
+		public override void BeginReport(int dpiX, int dpiY)
 		{
 			this.m_procSetId = this.WriteObject("[/PDF /Text /ImageB /ImageC /ImageI]");
 			base.m_commonGraphics = new GraphicsBase((float)dpiX, (float)dpiY);
 		}
 
-		internal override RectangleF CalculateColumnBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, RPLItemMeasurement column, int columnNumber, float top, float columnHeight, float columnWidth)
+		public override RectangleF CalculateColumnBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, RPLItemMeasurement column, int columnNumber, float top, float columnHeight, float columnWidth)
 		{
 			return HardPageBreakShared.CalculateColumnBounds(reportSection, pageLayout, columnNumber, top, columnHeight);
 		}
 
-		internal override RectangleF CalculateHeaderBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, float top, float width)
+		public override RectangleF CalculateHeaderBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, float top, float width)
 		{
 			return HardPageBreakShared.CalculateHeaderBounds(reportSection, pageLayout, top, width);
 		}
 
-		internal override RectangleF CalculateFooterBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, float top, float width)
+		public override RectangleF CalculateFooterBounds(RPLReportSection reportSection, RPLPageLayout pageLayout, float top, float width)
 		{
 			return HardPageBreakShared.CalculateFooterBounds(reportSection, pageLayout, top, width);
 		}
 
-		internal override void DrawBackgroundImage(RPLImageData imageData, RPLFormat.BackgroundRepeatTypes repeat, PointF start, RectangleF position)
+		public override void DrawBackgroundImage(RPLImageData imageData, RPLFormat.BackgroundRepeatTypes repeat, PointF start, RectangleF position)
 		{
 			PDFImage image = this.GetImage(imageData.ImageName, imageData.ImageData, imageData.ImageDataOffset, imageData.GDIImageProps);
 			if (image != null)
@@ -285,7 +285,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void DrawLine(Color color, float size, RPLFormat.BorderStyles style, float x1, float y1, float x2, float y2)
+		public override void DrawLine(Color color, float size, RPLFormat.BorderStyles style, float x1, float y1, float x2, float y2)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.Append("\r\n");
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.m_pageContentsSection.Add(stringBuilder.ToString());
 		}
 
-		internal override void DrawDynamicImage(string imageName, Stream imageStream, long imageDataOffset, RectangleF position)
+		public override void DrawDynamicImage(string imageName, Stream imageStream, long imageDataOffset, RectangleF position)
 		{
 			byte[] array = null;
 			if (imageStream != null)
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.m_pageContentsSection.Add(stringBuilder.ToString());
 		}
 
-		internal override void DrawImage(RectangleF position, RPLImage image, RPLImageProps instanceProperties, RPLImagePropsDef definitionProperties)
+		public override void DrawImage(RectangleF position, RPLImage image, RPLImageProps instanceProperties, RPLImagePropsDef definitionProperties)
 		{
 			RPLImageData image2 = instanceProperties.Image;
 			PDFImage pDFImage = this.GetImage(image2.ImageName, image2.ImageData, image2.ImageDataOffset, image2.GDIImageProps);
@@ -374,7 +374,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.m_pageContentsSection.Add(stringBuilder.ToString());
 		}
 
-		internal override void DrawRectangle(Color color, float size, RPLFormat.BorderStyles style, RectangleF rectangle)
+		public override void DrawRectangle(Color color, float size, RPLFormat.BorderStyles style, RectangleF rectangle)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.Append("\r\n");
@@ -414,7 +414,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void DrawTextRun(Win32DCSafeHandle hdc, FontCache fontCache, ReportTextBox textBox, AspNetCore.ReportingServices.Rendering.RichText.TextRun run, TypeCode typeCode, RPLFormat.TextAlignments textAlign, RPLFormat.VerticalAlignments verticalAlign, RPLFormat.WritingModes writingMode, RPLFormat.Directions direction, Point position, System.Drawing.Rectangle layoutRectangle, int lHeight, int baselineY)
+		public override void DrawTextRun(Win32DCSafeHandle hdc, FontCache fontCache, ReportTextBox textBox, AspNetCore.ReportingServices.Rendering.RichText.TextRun run, TypeCode typeCode, RPLFormat.TextAlignments textAlign, RPLFormat.VerticalAlignments verticalAlign, RPLFormat.WritingModes writingMode, RPLFormat.Directions direction, Point position, System.Drawing.Rectangle layoutRectangle, int lHeight, int baselineY)
 		{
 			if (!string.IsNullOrEmpty(run.Text))
 			{
@@ -639,7 +639,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			sb.Append(" re f");
 		}
 
-		internal override void EndPage()
+		public override void EndPage()
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			for (int i = 0; i < this.m_pageContentsSection.Count; i++)
@@ -744,12 +744,12 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void EndPageSection()
+		public override void EndPageSection()
 		{
 			this.m_pageContentsSection.Add("\r\nQ");
 		}
 
-		internal override void EndReport()
+		public override void EndReport()
 		{
 			Dictionary<string, EmbeddedFont> dictionary = new Dictionary<string, EmbeddedFont>();
 			foreach (string key in this.m_fonts.Keys)
@@ -933,7 +933,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return num3;
 		}
 
-		internal override void FillPolygon(Color color, PointF[] polygon)
+		public override void FillPolygon(Color color, PointF[] polygon)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.Append("\r\n");
@@ -949,7 +949,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.m_pageContentsSection.Add(stringBuilder.ToString());
 		}
 
-		internal override void FillRectangle(Color color, RectangleF rectangle)
+		public override void FillRectangle(Color color, RectangleF rectangle)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.Append("\r\n");
@@ -960,7 +960,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.m_pageContentsSection.Add(stringBuilder.ToString());
 		}
 
-		internal override void ProcessAction(string uniqueName, RPLActionInfo actionInfo, RectangleF position)
+		public override void ProcessAction(string uniqueName, RPLActionInfo actionInfo, RectangleF position)
 		{
 			RPLAction rPLAction = actionInfo.Actions[0];
 			if (!string.IsNullOrEmpty(rPLAction.Hyperlink))
@@ -969,7 +969,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void ProcessLabel(string uniqueName, string label, PointF point)
+		public override void ProcessLabel(string uniqueName, string label, PointF point)
 		{
 			if (this.DocumentMapRootLabel != null && !this.DocumentMapLabelPoints.ContainsKey(uniqueName))
 			{
@@ -2519,7 +2519,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			sb.Append("\r\n");
 		}
 
-		internal override void ClipTextboxRectangle(Win32DCSafeHandle hdc, RectangleF textposition)
+		public override void ClipTextboxRectangle(Win32DCSafeHandle hdc, RectangleF textposition)
 		{
 			RectangleF rectangleF = this.ConvertToPDFUnits(textposition);
 			StringBuilder stringBuilder = new StringBuilder();
@@ -2527,7 +2527,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.m_pageContentsSection.Add(stringBuilder.ToString());
 		}
 
-		internal override void UnClipTextboxRectangle(Win32DCSafeHandle hdc)
+		public override void UnClipTextboxRectangle(Win32DCSafeHandle hdc)
 		{
 			this.m_pageContentsSection.Add("\r\nQ");
 		}

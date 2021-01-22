@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class MissingElementException : ReportCatalogException
+	public sealed class MissingElementException : ReportCatalogException
 	{
 		private string m_elementName;
 

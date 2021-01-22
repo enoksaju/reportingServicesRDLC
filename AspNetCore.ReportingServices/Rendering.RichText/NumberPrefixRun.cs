@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class NumberPrefixRun : PrefixRun
+	public class NumberPrefixRun : PrefixRun
 	{
 		private const string PrefixNumberFontFamily = "Arial";
 
-		internal override string FontName
+		public override string FontName
 		{
 			get
 			{

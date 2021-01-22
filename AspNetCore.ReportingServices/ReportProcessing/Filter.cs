@@ -7,9 +7,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Filter
+	public sealed class Filter
 	{
-		internal enum Operators
+		public enum Operators
 		{
 			Equal,
 			Like,
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private FilterExprHost m_exprHost;
 
-		internal ExpressionInfo Expression
+		public ExpressionInfo Expression
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Operators Operator
+		public Operators Operator
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList Values
+		public ExpressionInfoList Values
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal FilterExprHost ExprHost
+		public FilterExprHost ExprHost
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.FilterStart();
 			if (this.m_expression != null)
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_exprHostID = context.ExprHostBuilder.FilterEnd();
 		}
 
-		internal void SetExprHost(IList<FilterExprHost> filterHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<FilterExprHost> filterHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (this.ExprHostID >= 0)
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Expression, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ExpressionInfo));

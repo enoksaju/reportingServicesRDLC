@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum MarkerStyle
+	public enum MarkerStyle
 	{
 		None,
 		Square,

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class DataMemberCollection
+	public sealed class DataMemberCollection
 	{
 		private CustomReportItem m_owner;
 
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataMemberCollection(CustomReportItem owner, DataMember parent, CustomReportItemHeading headingDef, bool headingDefIsStaticSubtotal, CustomReportItemHeadingInstanceList headingInstances)
+		public DataMemberCollection(CustomReportItem owner, DataMember parent, CustomReportItemHeading headingDef, bool headingDefIsStaticSubtotal, CustomReportItemHeadingInstanceList headingInstances)
 		{
 			this.m_owner = owner;
 			this.m_parent = parent;

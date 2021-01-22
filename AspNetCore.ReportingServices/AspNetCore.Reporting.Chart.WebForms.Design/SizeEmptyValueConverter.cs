@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class SizeEmptyValueConverter : SizeConverter
+	public class SizeEmptyValueConverter : SizeConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

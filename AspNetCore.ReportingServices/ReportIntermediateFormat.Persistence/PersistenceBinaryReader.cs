@@ -6,9 +6,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal class PersistenceBinaryReader : BinaryReader
+	public class PersistenceBinaryReader : BinaryReader
 	{
-		internal long StreamPosition
+		public long StreamPosition
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal bool EOS
+		public bool EOS
 		{
 			get
 			{
@@ -28,12 +28,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal PersistenceBinaryReader(Stream str)
+		public PersistenceBinaryReader(Stream str)
 			: base(str)
 		{
 		}
 
-		internal bool ReadReference(out int refID, out ObjectType declaredRefType)
+		public bool ReadReference(out int refID, out ObjectType declaredRefType)
 		{
 			declaredRefType = this.ReadObjectType();
 			if (declaredRefType != 0)
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return false;
 		}
 
-		internal bool ReadListStart(ObjectType objectType, out int listSize)
+		public bool ReadListStart(ObjectType objectType, out int listSize)
 		{
 			if (this.ReadObjectType() == ObjectType.Null)
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return true;
 		}
 
-		internal bool ReadDictionaryStart(ObjectType objectType, out int dictionarySize)
+		public bool ReadDictionaryStart(ObjectType objectType, out int dictionarySize)
 		{
 			if (this.ReadObjectType() == ObjectType.Null)
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return true;
 		}
 
-		internal bool ReadArrayStart(ObjectType objectType, out int arraySize)
+		public bool ReadArrayStart(ObjectType objectType, out int arraySize)
 		{
 			if (this.ReadObjectType() == ObjectType.Null)
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return true;
 		}
 
-		internal bool Read2DArrayStart(ObjectType objectType, out int arrayXLength, out int arrayYLength)
+		public bool Read2DArrayStart(ObjectType objectType, out int arrayXLength, out int arrayYLength)
 		{
 			if (this.ReadObjectType() == ObjectType.Null)
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return true;
 		}
 
-		internal bool[] ReadBooleanArray()
+		public bool[] ReadBooleanArray()
 		{
 			bool[] array = null;
 			int num = default(int);
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return array;
 		}
 
-		internal byte[] ReadByteArray()
+		public byte[] ReadByteArray()
 		{
 			byte[] result = null;
 			int count = default(int);
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return result;
 		}
 
-		internal float[] ReadFloatArray()
+		public float[] ReadFloatArray()
 		{
 			float[] array = null;
 			int num = default(int);
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return array;
 		}
 
-		internal double[] ReadDoubleArray()
+		public double[] ReadDoubleArray()
 		{
 			double[] array = null;
 			int num = default(int);
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return array;
 		}
 
-		internal char[] ReadCharArray()
+		public char[] ReadCharArray()
 		{
 			char[] array = null;
 			int num = default(int);
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return array;
 		}
 
-		internal int[] ReadInt32Array()
+		public int[] ReadInt32Array()
 		{
 			int[] array = null;
 			int num = default(int);
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return array;
 		}
 
-		internal long[] ReadInt64Array()
+		public long[] ReadInt64Array()
 		{
 			long[] array = null;
 			int num = default(int);
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return this.ReadByte() != 0;
 		}
 
-		internal Guid ReadGuid()
+		public Guid ReadGuid()
 		{
 			byte[] b = base.ReadBytes(16);
 			return new Guid(b);
@@ -239,7 +239,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return this.ReadString(true);
 		}
 
-		internal string ReadString(bool checkforNull)
+		public string ReadString(bool checkforNull)
 		{
 			if (checkforNull && this.ReadObjectType() == ObjectType.Null)
 			{
@@ -248,40 +248,40 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return base.ReadString();
 		}
 
-		internal DateTime ReadDateTime()
+		public DateTime ReadDateTime()
 		{
 			return new DateTime(this.ReadInt64());
 		}
 
-		internal DateTime ReadDateTimeWithKind()
+		public DateTime ReadDateTimeWithKind()
 		{
 			DateTimeKind kind = (DateTimeKind)this.ReadByte();
 			return DateTime.SpecifyKind(new DateTime(this.ReadInt64()), kind);
 		}
 
-		internal DateTimeOffset ReadDateTimeOffset()
+		public DateTimeOffset ReadDateTimeOffset()
 		{
 			DateTime dateTime = this.ReadDateTime();
 			TimeSpan offset = this.ReadTimeSpan();
 			return new DateTimeOffset(dateTime, offset);
 		}
 
-		internal TimeSpan ReadTimeSpan()
+		public TimeSpan ReadTimeSpan()
 		{
 			return new TimeSpan(this.ReadInt64());
 		}
 
-		internal int ReadEnum()
+		public int ReadEnum()
 		{
 			return base.Read7BitEncodedInt();
 		}
 
-		internal Token ReadToken()
+		public Token ReadToken()
 		{
 			return (Token)this.ReadByte();
 		}
 
-		internal ObjectType ReadObjectType()
+		public ObjectType ReadObjectType()
 		{
 			return (ObjectType)base.Read7BitEncodedInt();
 		}
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return (MemberName)base.Read7BitEncodedInt();
 		}
 
-		internal Declaration ReadDeclaration()
+		public Declaration ReadDeclaration()
 		{
 			ObjectType type = this.ReadObjectType();
 			ObjectType baseType = this.ReadObjectType();
@@ -304,7 +304,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return new Declaration(type, baseType, list);
 		}
 
-		internal void SkipString()
+		public void SkipString()
 		{
 			if (this.ReadObjectType() != 0)
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void SkipBytes(int bytesToSkip)
+		public void SkipBytes(int bytesToSkip)
 		{
 			if (bytesToSkip > 0)
 			{
@@ -328,18 +328,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void SkipMultiByteInt()
+		public void SkipMultiByteInt()
 		{
 			base.Read7BitEncodedInt();
 		}
 
-		internal void SkipTypedArray(int elementSize)
+		public void SkipTypedArray(int elementSize)
 		{
 			int num = base.Read7BitEncodedInt();
 			this.SkipBytes(num * elementSize);
 		}
 
-		internal void Seek(long newPosition, SeekOrigin seekOrigin)
+		public void Seek(long newPosition, SeekOrigin seekOrigin)
 		{
 			Stream baseStream = this.BaseStream;
 			if (baseStream.CanSeek)
@@ -352,14 +352,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		} 
         /*
-		internal SqlGeography ReadSqlGeography()
+		public SqlGeography ReadSqlGeography()
 		{
 			SqlGeography sqlGeography = new SqlGeography();
 			sqlGeography.Read(this);
 			return sqlGeography;
 		}
 
-		internal SqlGeometry ReadSqlGeometry()
+		public SqlGeometry ReadSqlGeometry()
 		{
 			SqlGeometry sqlGeometry = new SqlGeometry();
 			sqlGeometry.Read(this);

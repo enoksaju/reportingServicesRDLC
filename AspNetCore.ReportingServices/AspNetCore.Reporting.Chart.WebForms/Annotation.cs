@@ -11,9 +11,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[DefaultProperty("Name")]
 	[SRDescription("DescriptionAttributeAnnotation_Annotation")]
-	internal abstract class Annotation : IMapAreaAttributes
+	public abstract class Annotation : IMapAreaAttributes
 	{
-		internal const int selectionMarkerSize = 6;
+		public const int selectionMarkerSize = 6;
 
 		private string name = string.Empty;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private object tag;
 
-		internal Chart chart;
+		public Chart chart;
 
 		private double x = double.NaN;
 
@@ -53,7 +53,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private TextStyle textStyle;
 
-		internal Color lineColor = Color.Black;
+		public Color lineColor = Color.Black;
 
 		private int lineWidth = 1;
 
@@ -81,27 +81,27 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private double anchorY = double.NaN;
 
-		internal double anchorOffsetX;
+		public double anchorOffsetX;
 
-		internal double anchorOffsetY;
+		public double anchorOffsetY;
 
-		internal ContentAlignment anchorAlignment = ContentAlignment.BottomCenter;
+		public ContentAlignment anchorAlignment = ContentAlignment.BottomCenter;
 
-		internal RectangleF[] selectionRects;
+		public RectangleF[] selectionRects;
 
-		internal bool outsideClipRegion;
+		public bool outsideClipRegion;
 
 		private string tooltip = string.Empty;
 
-		internal RectangleF currentPositionRel = new RectangleF(float.NaN, float.NaN, float.NaN, float.NaN);
+		public RectangleF currentPositionRel = new RectangleF(float.NaN, float.NaN, float.NaN, float.NaN);
 
-		internal PointF currentAnchorLocationRel = new PointF(float.NaN, float.NaN);
+		public PointF currentAnchorLocationRel = new PointF(float.NaN, float.NaN);
 
 		private AnnotationSmartLabelsStyle smartLabelsStyle;
 
-		internal int currentPathPointIndex = -1;
+		public int currentPathPointIndex = -1;
 
-		internal AnnotationGroup annotationGroup;
+		public AnnotationGroup annotationGroup;
 
 		private bool allowSelecting = true;
 
@@ -115,15 +115,15 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private bool allowPathEditing = true;
 
-		internal bool positionChanged;
+		public bool positionChanged;
 
-		internal RectangleF startMovePositionRel = RectangleF.Empty;
+		public RectangleF startMovePositionRel = RectangleF.Empty;
 
-		internal GraphicsPath startMovePathRel;
+		public GraphicsPath startMovePathRel;
 
-		internal PointF startMoveAnchorLocationRel = PointF.Empty;
+		public PointF startMoveAnchorLocationRel = PointF.Empty;
 
-		internal PointF lastPlacementPosition = PointF.Empty;
+		public PointF lastPlacementPosition = PointF.Empty;
 
 		private string href = string.Empty;
 
@@ -213,7 +213,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SRCategory("CategoryAttributeMisc")]
 		[DefaultValue(null)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
-		internal virtual Chart Chart
+		public virtual Chart Chart
 		{
 			get
 			{
@@ -409,7 +409,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SRCategory("CategoryAttributeAppearance")]
 		[DefaultValue(SelectionPointsStyle.Rectangle)]
 		[SRDescription("DescriptionAttributeSelectionPointsStyle3")]
-		internal virtual SelectionPointsStyle SelectionPointsStyle
+		public virtual SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{
@@ -1117,9 +1117,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal abstract void Paint(Chart chart, ChartGraphics graphics);
+		public abstract void Paint(Chart chart, ChartGraphics graphics);
 
-		internal virtual void PaintSelectionHandles(ChartGraphics chartGraphics, RectangleF rect, GraphicsPath path)
+		public virtual void PaintSelectionHandles(ChartGraphics chartGraphics, RectangleF rect, GraphicsPath path)
 		{
 			Color black = Color.Black;
 			Color markerColor = Color.FromArgb(200, 255, 255, 255);
@@ -1256,7 +1256,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal virtual RectangleF GetContentPosition()
+		public virtual RectangleF GetContentPosition()
 		{
 			return new RectangleF(float.NaN, float.NaN, float.NaN, float.NaN);
 		}
@@ -1289,7 +1289,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal virtual void GetRelativePosition(out PointF location, out SizeF size, out PointF anchorLocation)
+		public virtual void GetRelativePosition(out PointF location, out SizeF size, out PointF anchorLocation)
 		{
 			bool flag = true;
 			if (!double.IsNaN((double)this.currentPositionRel.X) && !double.IsNaN((double)this.currentPositionRel.X))
@@ -1622,12 +1622,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetPositionRelative(RectangleF position, PointF anchorPoint)
+		public void SetPositionRelative(RectangleF position, PointF anchorPoint)
 		{
 			this.SetPositionRelative(position, anchorPoint, false);
 		}
 
-		internal void SetPositionRelative(RectangleF position, PointF anchorPoint, bool userInput)
+		public void SetPositionRelative(RectangleF position, PointF anchorPoint, bool userInput)
 		{
 			double num = (double)position.X;
 			double num2 = (double)position.Y;
@@ -1763,17 +1763,17 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Invalidate();
 		}
 
-		internal virtual void AdjustLocationSize(SizeF movingDistance, ResizingMode resizeMode)
+		public virtual void AdjustLocationSize(SizeF movingDistance, ResizingMode resizeMode)
 		{
 			this.AdjustLocationSize(movingDistance, resizeMode, true);
 		}
 
-		internal virtual void AdjustLocationSize(SizeF movingDistance, ResizingMode resizeMode, bool pixelCoord)
+		public virtual void AdjustLocationSize(SizeF movingDistance, ResizingMode resizeMode, bool pixelCoord)
 		{
 			this.AdjustLocationSize(movingDistance, resizeMode, pixelCoord, false);
 		}
 
-		internal virtual void AdjustLocationSize(SizeF movingDistance, ResizingMode resizeMode, bool pixelCoord, bool userInput)
+		public virtual void AdjustLocationSize(SizeF movingDistance, ResizingMode resizeMode, bool pixelCoord, bool userInput)
 		{
 			if (!movingDistance.IsEmpty)
 			{
@@ -1868,12 +1868,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal virtual bool IsAnchorDrawn()
+		public virtual bool IsAnchorDrawn()
 		{
 			return false;
 		}
 
-		internal DataPoint GetDataPointByName(string dataPointName)
+		public DataPoint GetDataPointByName(string dataPointName)
 		{
 			DataPoint result = null;
 			try
@@ -1946,7 +1946,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal string GetDataPointName(DataPoint dataPoint)
+		public string GetDataPointName(DataPoint dataPoint)
 		{
 			string result = string.Empty;
 			if (dataPoint.series != null)
@@ -2021,7 +2021,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.annotationGroup;
 		}
 
-		internal void AddSmartLabelMarkerPositions(CommonElements common, ArrayList list)
+		public void AddSmartLabelMarkerPositions(CommonElements common, ArrayList list)
 		{
 			if (this.Visible && this.IsAnchorDrawn())
 			{
@@ -2101,7 +2101,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Invalidate();
 		}
 
-		internal bool IsVisible()
+		public bool IsVisible()
 		{
 			if (this.Visible)
 			{
@@ -2134,7 +2134,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal void ResetCurrentRelativePosition()
+		public void ResetCurrentRelativePosition()
 		{
 			this.currentPositionRel = new RectangleF(float.NaN, float.NaN, float.NaN, float.NaN);
 			this.currentAnchorLocationRel = new PointF(float.NaN, float.NaN);
@@ -2148,7 +2148,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal string ReplaceKeywords(string strOriginal)
+		public string ReplaceKeywords(string strOriginal)
 		{
 			if (this.AnchorDataPoint != null)
 			{
@@ -2157,7 +2157,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return strOriginal;
 		}
 
-		internal bool IsAnchorVisible()
+		public bool IsAnchorVisible()
 		{
 			Axis axis = null;
 			Axis axis2 = null;
@@ -2213,7 +2213,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return true;
 		}
 
-		internal ChartGraphics GetGraphics()
+		public ChartGraphics GetGraphics()
 		{
 			if (this.chart != null && this.chart.chartPicture != null && this.chart.chartPicture.common != null)
 			{
@@ -2242,7 +2242,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return null;
 		}
 
-		internal void GetAxes(ref Axis vertAxis, ref Axis horizAxis)
+		public void GetAxes(ref Axis vertAxis, ref Axis horizAxis)
 		{
 			vertAxis = null;
 			horizAxis = null;
@@ -2298,7 +2298,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			throw new InvalidOperationException(SR.ExceptionAnnotationGroupedAxisMustBeEmpty);
 		}
 
-		internal void Invalidate()
+		public void Invalidate()
 		{
 		}
 	}

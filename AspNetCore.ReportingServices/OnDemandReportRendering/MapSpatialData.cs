@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapSpatialData
+	public abstract class MapSpatialData
 	{
 		protected Map m_map;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		protected MapSpatialDataInstance m_instance;
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialData MapSpatialDataDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialData MapSpatialDataDef
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSpatialDataInstance Instance
+		public MapSpatialDataInstance Instance
 		{
 			get
 			{
@@ -36,16 +36,16 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSpatialData(MapVectorLayer mapVectorLayer, Map map)
+		public MapSpatialData(MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_defObject = mapVectorLayer.MapVectorLayerDef.MapSpatialData;
 			this.m_mapVectorLayer = mapVectorLayer;
 			this.m_map = map;
 		}
 
-		internal abstract MapSpatialDataInstance GetInstance();
+		public abstract MapSpatialDataInstance GetInstance();
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

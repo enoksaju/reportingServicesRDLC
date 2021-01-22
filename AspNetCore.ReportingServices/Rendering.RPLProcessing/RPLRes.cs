@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
 	[CompilerGenerated]
-	internal class RPLRes
+	public class RPLRes
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string InvalidRPLToken = "InvalidRPLToken";
 

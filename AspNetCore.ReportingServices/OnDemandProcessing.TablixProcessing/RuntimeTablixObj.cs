@@ -8,16 +8,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeTablixObj : RuntimeDataTablixWithScopedItemsObj, IStorable, IPersistable
+	public sealed class RuntimeTablixObj : RuntimeDataTablixWithScopedItemsObj, IStorable, IPersistable
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeTablixObj.GetDeclaration();
 
-		internal RuntimeTablixObj()
+		public RuntimeTablixObj()
 		{
 		}
 
-		internal RuntimeTablixObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.Tablix tablixDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess)
+		public RuntimeTablixObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.Tablix tablixDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess)
 			: base(outerScope, (AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion)tablixDef, ref dataAction, odpContext, onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType.Tablix)
 		{
 		}
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			base.ResolveReferences(memberReferencesCollection, referenceableItems);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (RuntimeTablixObj.m_declaration == null)
 			{

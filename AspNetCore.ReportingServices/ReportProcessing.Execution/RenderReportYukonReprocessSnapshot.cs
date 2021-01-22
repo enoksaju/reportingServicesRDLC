@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class RenderReportYukonReprocessSnapshot : RenderReportYukon
+	public class RenderReportYukonReprocessSnapshot : RenderReportYukon
 	{
 		private readonly IChunkFactory m_originalSnapshotChunks;
 

@@ -5,9 +5,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public sealed class DataSourcesImpl : DataSources
 	{
-		internal const string Name = "DataSources";
+		public const string Name = "DataSources";
 
-		internal const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.DataSources";
+		public const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.DataSources";
 
 		private bool m_lockAdd;
 
@@ -37,13 +37,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal DataSourcesImpl(int size)
+		public DataSourcesImpl(int size)
 		{
 			this.m_lockAdd = (size > 1);
 			this.m_collection = new Hashtable(size);
 		}
 
-		internal void Add(AspNetCore.ReportingServices.ReportProcessing.DataSource dataSourceDef)
+		public void Add(AspNetCore.ReportingServices.ReportProcessing.DataSource dataSourceDef)
 		{
 			try
 			{

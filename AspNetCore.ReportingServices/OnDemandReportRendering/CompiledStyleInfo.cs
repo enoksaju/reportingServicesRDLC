@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class CompiledStyleInfo
+	public class CompiledStyleInfo
 	{
 		private HtmlElement.HtmlElementType m_elementType;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private CompiledStyleInfo m_childStyle;
 
-		internal HtmlElement.HtmlElementType ElementType
+		public HtmlElement.HtmlElementType ElementType
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportColor Color
+		public ReportColor Color
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal FontStyles FontStyle
+		public FontStyles FontStyle
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string FontFamily
+		public string FontFamily
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize FontSize
+		public ReportSize FontSize
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TextAlignments TextAlign
+		public TextAlignments TextAlign
 		{
 			get
 			{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal FontWeights FontWeight
+		public FontWeights FontWeight
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TextDecorations TextDecoration
+		public TextDecorations TextDecoration
 		{
 			get
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CompiledStyleInfo CreateChildStyle(HtmlElement.HtmlElementType elementType)
+		public CompiledStyleInfo CreateChildStyle(HtmlElement.HtmlElementType elementType)
 		{
 			CompiledStyleInfo compiledStyleInfo = new CompiledStyleInfo();
 			compiledStyleInfo.m_elementType = elementType;
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return compiledStyleInfo;
 		}
 
-		internal CompiledStyleInfo RemoveStyle(HtmlElement.HtmlElementType elementType)
+		public CompiledStyleInfo RemoveStyle(HtmlElement.HtmlElementType elementType)
 		{
 			if (this.m_elementType == elementType)
 			{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this;
 		}
 
-		internal void InternalRemoveStyle(HtmlElement.HtmlElementType elementType)
+		public void InternalRemoveStyle(HtmlElement.HtmlElementType elementType)
 		{
 			if (this.m_elementType == elementType)
 			{
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_textDecorationSet = false;
 		}
 
-		internal void PopulateStyleInstance(ICompiledStyleInstance styleInstance, bool isParagraphStyle)
+		public void PopulateStyleInstance(ICompiledStyleInstance styleInstance, bool isParagraphStyle)
 		{
 			if (isParagraphStyle)
 			{

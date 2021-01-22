@@ -4,7 +4,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ParametersGridCellDefinitionList : ArrayList
+	public sealed class ParametersGridCellDefinitionList : ArrayList
 	{
 		public new ParameterGridLayoutCellDefinition this[int index]
 		{

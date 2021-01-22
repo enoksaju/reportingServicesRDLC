@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum SerializationContents
+	public enum SerializationContents
 	{
 		Default = 1,
 		Data = 2,

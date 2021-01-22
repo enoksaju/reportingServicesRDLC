@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class TablixColumn : IDOwner, IPersistable
+	public sealed class TablixColumn : IDOwner, IPersistable
 	{
 		private string m_width;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = TablixColumn.GetDeclaration();
 
-		internal string Width
+		public string Width
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double WidthValue
+		public double WidthValue
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ForAutoSubtotal
+		public bool ForAutoSubtotal
 		{
 			get
 			{
@@ -54,21 +54,21 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixColumn()
+		public TablixColumn()
 		{
 		}
 
-		internal TablixColumn(int id)
+		public TablixColumn(int id)
 			: base(id)
 		{
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			this.m_widthValue = context.ValidateSize(this.m_width, "Width");
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			TablixColumn tablixColumn = (TablixColumn)base.PublishClone(context);
 			if (this.m_width != null)
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return tablixColumn;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Width, Token.String));

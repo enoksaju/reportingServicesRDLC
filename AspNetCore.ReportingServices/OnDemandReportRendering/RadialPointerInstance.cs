@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RadialPointerInstance : GaugePointerInstance
+	public sealed class RadialPointerInstance : GaugePointerInstance
 	{
 		private RadialPointer m_defObject;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RadialPointerInstance(RadialPointer defObject)
+		public RadialPointerInstance(RadialPointer defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

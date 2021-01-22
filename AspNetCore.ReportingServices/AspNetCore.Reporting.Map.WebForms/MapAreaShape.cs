@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum MapAreaShape
+	public enum MapAreaShape
 	{
 		Rectangle,
 		Circle,

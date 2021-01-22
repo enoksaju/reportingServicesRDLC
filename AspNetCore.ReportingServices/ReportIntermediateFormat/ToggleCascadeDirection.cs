@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum ToggleCascadeDirection
+	public enum ToggleCascadeDirection
 	{
 		None,
 		Row,

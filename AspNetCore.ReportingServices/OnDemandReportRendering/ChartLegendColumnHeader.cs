@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartLegendColumnHeader : IROMStyleDefinitionContainer
+	public sealed class ChartLegendColumnHeader : IROMStyleDefinitionContainer
 	{
 		private Chart m_chart;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendColumnHeader ChartLegendColumnHeaderDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendColumnHeader ChartLegendColumnHeaderDef
 		{
 			get
 			{
@@ -70,13 +70,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartLegendColumnHeader(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendColumnHeader chartLegendColumnHeaderDef, Chart chart)
+		public ChartLegendColumnHeader(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendColumnHeader chartLegendColumnHeaderDef, Chart chart)
 		{
 			this.m_chartLegendColumnHeaderDef = chartLegendColumnHeaderDef;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

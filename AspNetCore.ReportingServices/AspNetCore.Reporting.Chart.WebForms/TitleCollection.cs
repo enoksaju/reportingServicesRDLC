@@ -7,9 +7,9 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeTitles")]
-	internal class TitleCollection : CollectionBase
+	public class TitleCollection : CollectionBase
 	{
-		internal Chart chart;
+		public Chart chart;
 
 		private IServiceContainer serviceContainer;
 
@@ -282,7 +282,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal static void CalcOutsideTitlePosition(ChartPicture chartPicture, ChartGraphics chartGraph, ChartArea area, ref RectangleF chartAreasRectangle, float elementSpacing)
+		public static void CalcOutsideTitlePosition(ChartPicture chartPicture, ChartGraphics chartGraph, ChartArea area, ref RectangleF chartAreasRectangle, float elementSpacing)
 		{
 			if (chartPicture != null)
 			{
@@ -357,7 +357,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal static void CalcInsideTitlePosition(ChartPicture chartPicture, ChartGraphics chartGraph, float elementSpacing)
+		public static void CalcInsideTitlePosition(ChartPicture chartPicture, ChartGraphics chartGraph, float elementSpacing)
 		{
 			if (chartPicture != null)
 			{

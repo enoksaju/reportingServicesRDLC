@@ -5,16 +5,16 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ProcessingErrorContext : ErrorContext
+	public sealed class ProcessingErrorContext : ErrorContext
 	{
 		private Hashtable m_itemsRegistered;
 
-		internal override ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, params string[] arguments)
+		public override ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, params string[] arguments)
 		{
 			return this.Register(code, severity, objectType, objectName, propertyName, null, arguments);
 		}
 
-		internal override ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, ProcessingMessageList innerMessages, params string[] arguments)
+		public override ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, ProcessingMessageList innerMessages, params string[] arguments)
 		{
 			try
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override void Register(RSException rsException, ObjectType objectType)
+		public override void Register(RSException rsException, ObjectType objectType)
 		{
 			try
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal void Combine(ProcessingMessageList messages)
+		public void Combine(ProcessingMessageList messages)
 		{
 			if (messages != null)
 			{

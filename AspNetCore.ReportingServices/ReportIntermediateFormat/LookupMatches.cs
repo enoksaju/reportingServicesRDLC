@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class LookupMatches : IStorable, IPersistable, ITransferable
+	public class LookupMatches : IStorable, IPersistable, ITransferable
 	{
 		private long m_firstRowOffset = DataFieldRow.UnInitializedStreamOffset;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = LookupMatches.GetDeclaration();
 
-		internal bool HasRow
+		public bool HasRow
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int MatchCount
+		public int MatchCount
 		{
 			get
 			{
@@ -50,11 +50,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupMatches()
+		public LookupMatches()
 		{
 		}
 
-		internal virtual void AddRow(long rowOffset, int rowIndex, IScalabilityCache scaleCache)
+		public virtual void AddRow(long rowOffset, int rowIndex, IScalabilityCache scaleCache)
 		{
 			if (this.HasRow)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual void SetupRow(int matchIndex, OnDemandProcessingContext odpContext)
+		public virtual void SetupRow(int matchIndex, OnDemandProcessingContext odpContext)
 		{
 			long unInitializedStreamOffset = DataFieldRow.UnInitializedStreamOffset;
 			unInitializedStreamOffset = ((matchIndex != 0) ? this.m_rowOffsets[matchIndex - 1] : this.m_firstRowOffset);

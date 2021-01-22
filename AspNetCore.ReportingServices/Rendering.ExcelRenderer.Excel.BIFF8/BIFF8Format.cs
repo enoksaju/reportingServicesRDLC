@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal struct BIFF8Format
+	public struct BIFF8Format
 	{
 		private int m_ifmt;
 
 		private string m_string;
 
-		internal int Index
+		public int Index
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal string String
+		public string String
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal BIFF8Format(string builtInFormat, int ifmt)
+		public BIFF8Format(string builtInFormat, int ifmt)
 		{
 			this.m_ifmt = ifmt;
 			this.m_string = builtInFormat;

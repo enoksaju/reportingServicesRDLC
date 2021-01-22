@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class TickMark : CustomTickMark
+	public class TickMark : CustomTickMark
 	{
 		private double interval = double.NaN;
 

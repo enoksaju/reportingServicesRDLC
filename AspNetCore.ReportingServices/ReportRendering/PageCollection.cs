@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class PageCollection
+	public sealed class PageCollection
 	{
 		private PaginationInfo m_paginationDef;
 
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal PageCollection(PaginationInfo paginationDef, Report report)
+		public PageCollection(PaginationInfo paginationDef, Report report)
 		{
 			this.m_paginationDef = paginationDef;
 			this.m_report = report;
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_paginationDef.RemovePage(index);
 		}
 
-		internal PageSection GetHeader(PageSectionInstance headerInstance)
+		public PageSection GetHeader(PageSectionInstance headerInstance)
 		{
 			PageSection result = null;
 			AspNetCore.ReportingServices.ReportProcessing.Report reportDef = this.m_report.ReportDef;
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return result;
 		}
 
-		internal PageSection GetFooter(PageSectionInstance footerInstance)
+		public PageSection GetFooter(PageSectionInstance footerInstance)
 		{
 			PageSection result = null;
 			AspNetCore.ReportingServices.ReportProcessing.Report reportDef = this.m_report.ReportDef;

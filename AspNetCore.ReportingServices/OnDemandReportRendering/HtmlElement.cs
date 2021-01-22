@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class HtmlElement
+	public class HtmlElement
 	{
-		internal enum HtmlNodeType
+		public enum HtmlNodeType
 		{
 			Element,
 			EndElement,
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			StyleText
 		}
 
-		internal enum HtmlElementType
+		public enum HtmlElementType
 		{
 			None,
 			Unsupported,
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private static Regex m_AttributeRegEx = new Regex("((?<name>\\w+)(\\s*=\\s*((\"(?<quotedvalue>[^\"]*)\")|('(?<singlequotedvalue>[^']*)')|(?<value>[^ =]+))?)?)*", RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
-		internal bool IsEmptyElement
+		public bool IsEmptyElement
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal HtmlNodeType NodeType
+		public HtmlNodeType NodeType
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal HtmlElementType ElementType
+		public HtmlElementType ElementType
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Dictionary<string, string> Attributes
+		public Dictionary<string, string> Attributes
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Dictionary<string, string> CssStyle
+		public Dictionary<string, string> CssStyle
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool HasAttributes
+		public bool HasAttributes
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string Value
+		public string Value
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int CharacterPosition
+		public int CharacterPosition
 		{
 			get
 			{
@@ -147,18 +147,18 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal HtmlElement(HtmlNodeType nodeType, HtmlElementType elemntType, int characterPosition)
+		public HtmlElement(HtmlNodeType nodeType, HtmlElementType elemntType, int characterPosition)
 			: this(nodeType, elemntType, null, true, characterPosition)
 		{
 		}
 
-		internal HtmlElement(HtmlNodeType nodeType, HtmlElementType elemntType, string value, int characterPosition)
+		public HtmlElement(HtmlNodeType nodeType, HtmlElementType elemntType, string value, int characterPosition)
 			: this(nodeType, elemntType, null, false, characterPosition)
 		{
 			this.m_value = value;
 		}
 
-		internal HtmlElement(HtmlNodeType nodeType, HtmlElementType type, string attributesAsString, bool isEmpty, int characterPosition)
+		public HtmlElement(HtmlNodeType nodeType, HtmlElementType type, string attributesAsString, bool isEmpty, int characterPosition)
 		{
 			this.m_nodeType = nodeType;
 			this.m_elementType = type;

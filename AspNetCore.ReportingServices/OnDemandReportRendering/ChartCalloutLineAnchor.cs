@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartCalloutLineAnchor
+	public enum ChartCalloutLineAnchor
 	{
 		Arrow,
 		Diamond,

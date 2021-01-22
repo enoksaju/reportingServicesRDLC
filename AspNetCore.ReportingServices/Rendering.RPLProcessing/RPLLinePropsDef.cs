@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLLinePropsDef : RPLItemPropsDef
+	public sealed class RPLLinePropsDef : RPLItemPropsDef
 	{
 		private bool m_slant;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLLinePropsDef()
+		public RPLLinePropsDef()
 		{
 		}
 	}

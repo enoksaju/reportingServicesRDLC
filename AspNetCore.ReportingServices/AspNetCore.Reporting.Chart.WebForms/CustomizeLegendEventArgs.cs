@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class CustomizeLegendEventArgs : EventArgs
+	public class CustomizeLegendEventArgs : EventArgs
 	{
 		private LegendItemsCollection legendItems;
 

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RelationshipRestartContext : RestartContext
+	public sealed class RelationshipRestartContext : RestartContext
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo[] m_expressions;
 

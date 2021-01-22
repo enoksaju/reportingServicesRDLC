@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BIFF8.Records
 {
-	internal struct Pair<T, U>
+	public struct Pair<T, U>
 	{
 		private T m_first;
 
 		private U m_second;
 
-		internal T First
+		public T First
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal U Second
+		public U Second
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal Pair(T first, U second)
+		public Pair(T first, U second)
 		{
 			this.m_first = first;
 			this.m_second = second;

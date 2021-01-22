@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum ScaleType
+	public enum ScaleType
 	{
 		Linear,
 		Logarithmic

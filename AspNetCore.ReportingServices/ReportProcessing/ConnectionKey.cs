@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ConnectionKey
+	public sealed class ConnectionKey
 	{
 		private readonly string m_dataSourceType;
 

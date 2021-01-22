@@ -5,14 +5,14 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportProcessingException_NonExistingUserReference : Exception
+	public sealed class ReportProcessingException_NonExistingUserReference : Exception
 	{
-		internal ReportProcessingException_NonExistingUserReference(string propName)
+		public ReportProcessingException_NonExistingUserReference(string propName)
 			: base(string.Format(CultureInfo.CurrentCulture, RPRes.rsNonExistingUserReference(propName)))
 		{
 		}
 
-		internal ReportProcessingException_NonExistingUserReference(SerializationInfo info, StreamingContext context)
+		public ReportProcessingException_NonExistingUserReference(SerializationInfo info, StreamingContext context)
 			: base(info, context)
 		{
 		}

@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CalculatedValueIntegralConverter))]
-	internal class CalculatedValueIntegral : CalculatedValue
+	public class CalculatedValueIntegral : CalculatedValue
 	{
 		private GaugePeriod interval = new GaugePeriod(double.NaN, AspNetCore.Reporting.Gauge.WebForms.PeriodType.Seconds);
 
@@ -88,7 +88,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void CalculateValue(double value, DateTime timestamp)
+		public override void CalculateValue(double value, DateTime timestamp)
 		{
 			TimeSpan timeSpan = this.interval.ToTimeSpan();
 			base.noMoreData = false;
@@ -138,13 +138,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.oldValue = new DataSampleRC();
 		}
 
-		internal override void RefreshConsumers()
+		public override void RefreshConsumers()
 		{
 			this.RegenerateIntegralResult();
 			base.RefreshConsumers();
 		}
 
-		internal override object CloneInternals(object copy)
+		public override object CloneInternals(object copy)
 		{
 			copy = base.CloneInternals(copy);
 			((CalculatedValueIntegral)copy).interval = this.interval.Clone();

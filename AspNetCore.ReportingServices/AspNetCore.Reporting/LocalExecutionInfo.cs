@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal class LocalExecutionInfo
+	public class LocalExecutionInfo
 	{
 		public ParameterInfoCollection ReportParameters
 		{

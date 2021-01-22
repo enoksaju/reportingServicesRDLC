@@ -7,7 +7,7 @@ using System.IO;
 namespace AspNetCore.ReportingServices
 {
 	[Serializable]
-	internal sealed class StandalonePreviewStore : ILocalCatalog
+	public sealed class StandalonePreviewStore : ILocalCatalog
 	{
 		private Dictionary<string, byte[]> m_directReportDefinitions = new Dictionary<string, byte[]>();
 

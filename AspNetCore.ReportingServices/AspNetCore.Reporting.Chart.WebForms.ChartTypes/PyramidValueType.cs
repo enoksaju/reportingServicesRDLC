@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal enum PyramidValueType
+	public enum PyramidValueType
 	{
 		Linear,
 		Surface

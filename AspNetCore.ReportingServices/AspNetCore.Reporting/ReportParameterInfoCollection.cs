@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace AspNetCore.Reporting
 {
 	[ComVisible(false)]
-	internal sealed class ReportParameterInfoCollection : ReadOnlyCollection<ReportParameterInfo>
+	public sealed class ReportParameterInfoCollection : ReadOnlyCollection<ReportParameterInfo>
 	{
 		public ReportParameterInfo this[string name]
 		{
@@ -23,7 +23,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal ReportParameterInfoCollection(IList<ReportParameterInfo> parameterInfos)
+		public ReportParameterInfoCollection(IList<ReportParameterInfo> parameterInfos)
 			: base(parameterInfos)
 		{
 			foreach (ReportParameterInfo item in this)
@@ -32,7 +32,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal ReportParameterInfoCollection()
+		public ReportParameterInfoCollection()
 			: base((IList<ReportParameterInfo>)new ReportParameterInfo[0])
 		{
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class StaticReferenceHolder
+	public class StaticReferenceHolder
 	{
 		public object Value;
 

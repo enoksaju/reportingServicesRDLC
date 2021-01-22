@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartDataPointList : CellList
+	public sealed class ChartDataPointList : CellList
 	{
-		internal new ChartDataPoint this[int index]
+		public new ChartDataPoint this[int index]
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal ChartDataPointList(int capacity)
+		public ChartDataPointList(int capacity)
 			: base(capacity)
 		{
 		}

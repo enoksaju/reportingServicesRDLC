@@ -6,11 +6,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class PageHeadFoot : PageItemContainer
+	public sealed class PageHeadFoot : PageItemContainer
 	{
 		private new PageSection m_source;
 
-		internal override string SourceUniqueName
+		public override string SourceUniqueName
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override string SourceID
+		public override string SourceID
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override ReportElement OriginalSource
+		public override ReportElement OriginalSource
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageHeadFoot(PageSection source, ReportSize width, PageContext pageContext)
+		public PageHeadFoot(PageSection source, ReportSize width, PageContext pageContext)
 			: base(null, false)
 		{
 			if (pageContext != null)
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_source = source;
 		}
 
-		internal void CalculateItem(RPLWriter rplWriter, PageContext pageContext, bool isHeader, Interactivity interactivity, bool native)
+		public void CalculateItem(RPLWriter rplWriter, PageContext pageContext, bool isHeader, Interactivity interactivity, bool native)
 		{
 			this.WriteStartItemToStream(rplWriter, isHeader, pageContext, native);
 			base.CreateChildren(this.m_source.ReportItemCollection, pageContext, base.m_itemPageSizes.Width, base.m_itemPageSizes.Height);
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteStartItemToStream(RPLWriter rplWriter, bool isHeader, PageContext pageContext, bool native)
+		public void WriteStartItemToStream(RPLWriter rplWriter, bool isHeader, PageContext pageContext, bool native)
 		{
 			if (rplWriter != null)
 			{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteEndItemToStream(RPLWriter rplWriter, int itemsOnPage, PageItem[] childrenOnPage)
+		public override void WriteEndItemToStream(RPLWriter rplWriter, int itemsOnPage, PageItem[] childrenOnPage)
 		{
 			if (rplWriter != null)
 			{
@@ -238,19 +238,19 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BackgroundColor, 34);
 			this.WriteBackgroundImage(spbifWriter, style, true, pageContext);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.BackgroundColor, 34);
 			this.WriteBackgroundImage(rplStyleProps, style, true, pageContext);
 		}
 
-		internal override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -263,7 +263,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{

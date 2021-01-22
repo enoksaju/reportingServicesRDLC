@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.Rendering.SPBProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal static class InteractivityPaginationModuleFactory
+	public static class InteractivityPaginationModuleFactory
 	{
-		internal static IInteractivityPaginationModule CreateInteractivityPaginationModule()
+		public static IInteractivityPaginationModule CreateInteractivityPaginationModule()
 		{
 			return new SPBInteractivityProcessing();
 		}

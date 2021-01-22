@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapTitle : MapDockableSubItem, IPersistable
+	public sealed class MapTitle : MapDockableSubItem, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapTitle.GetDeclaration();
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private string m_name;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Text
+		public ExpressionInfo Text
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Angle
+		public ExpressionInfo Angle
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TextShadowOffset
+		public ExpressionInfo TextShadowOffset
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapTitleExprHost ExprHost
+		public new MapTitleExprHost ExprHost
 		{
 			get
 			{
@@ -81,16 +81,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapTitle()
+		public MapTitle()
 		{
 		}
 
-		internal MapTitle(Map map, int id)
+		public MapTitle(Map map, int id)
 			: base(map, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapTitleStart(this.m_name);
 			base.Initialize(context);
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.MapTitleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapTitle mapTitle = (MapTitle)base.PublishClone(context);
 			if (this.m_text != null)
@@ -130,13 +130,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapTitle;
 		}
 
-		internal void SetExprHost(MapTitleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapTitleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -205,20 +205,20 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapTitle;
 		}
 
-		internal string EvaluateText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateMapTitleTextExpression(this, base.m_map.Name);
 			return base.m_map.GetFormattedStringFromValue(ref variantResult, context);
 		}
 
-		internal double EvaluateAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapTitleAngleExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateTextShadowOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateTextShadowOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapTitleTextShadowOffsetExpression(this, base.m_map.Name);

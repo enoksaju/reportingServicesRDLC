@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class DataSetNotFoundException : ReportCatalogException
+	public sealed class DataSetNotFoundException : ReportCatalogException
 	{
 		public DataSetNotFoundException(string dataSet)
 			: base(ErrorCode.rsDataSetNotFound, ErrorStrings.rsDataSetNotFound(dataSet), null, null)

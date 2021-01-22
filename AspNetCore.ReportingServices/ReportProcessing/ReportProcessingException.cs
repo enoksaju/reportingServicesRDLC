@@ -10,7 +10,7 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class ReportProcessingException : ReportProcessingExceptionBase
+	public class ReportProcessingException : ReportProcessingExceptionBase
 	{
 		private const string ProcessingMessagesName = "ProcessingMessages";
 
@@ -46,45 +46,45 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessingException(ProcessingMessageList processingMessages)
+		public ReportProcessingException(ProcessingMessageList processingMessages)
 			: this(processingMessages, null)
 		{
 		}
 
-		internal ReportProcessingException(ProcessingMessageList processingMessages, Exception innerException)
+		public ReportProcessingException(ProcessingMessageList processingMessages, Exception innerException)
 			: base(ErrorCode.rsProcessingError, RPRes.Keys.GetString(ErrorCode.rsProcessingError.ToString()), innerException, Global.Tracer, null)
 		{
 			this.m_useMessageListForExceptionMessage = true;
 			this.m_processingMessages = processingMessages;
 		}
 
-		internal ReportProcessingException(Exception innerException, ProcessingMessageList processingMessages)
+		public ReportProcessingException(Exception innerException, ProcessingMessageList processingMessages)
 			: base(ErrorCode.rsInternalError, RPRes.Keys.GetString(ErrorCode.rsUnexpectedError.ToString()), innerException, Global.Tracer, null)
 		{
 			this.m_processingMessages = processingMessages;
 		}
 
-		internal ReportProcessingException(ErrorCode code, Exception innerException, params object[] arguments)
+		public ReportProcessingException(ErrorCode code, Exception innerException, params object[] arguments)
 			: base(code, string.Format(CultureInfo.CurrentCulture, RPRes.Keys.GetString(code.ToString()), arguments), innerException, Global.Tracer, null)
 		{
 		}
 
-		internal ReportProcessingException(ErrorCode code)
+		public ReportProcessingException(ErrorCode code)
 			: base(code, RPRes.Keys.GetString(code.ToString()), null, Global.Tracer, null)
 		{
 		}
 
-		internal ReportProcessingException(ErrorCode code, params object[] arguments)
+		public ReportProcessingException(ErrorCode code, params object[] arguments)
 			: base(code, string.Format(CultureInfo.CurrentCulture, RPRes.Keys.GetString(code.ToString()), arguments), null, Global.Tracer, null)
 		{
 		}
 
-		internal ReportProcessingException(string errMessage, ErrorCode code)
+		public ReportProcessingException(string errMessage, ErrorCode code)
 			: base(code, errMessage, null, Global.Tracer, null)
 		{
 		}
 
-		internal ReportProcessingException(string message, ErrorCode code, Exception innerException)
+		public ReportProcessingException(string message, ErrorCode code, Exception innerException)
 			: base(code, message, innerException, Global.Tracer, null)
 		{
 		}

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class InterleavingWriter
+	public sealed class InterleavingWriter
 	{
 		public delegate void FinalWriteInterleaver(IInterleave interleaver, TextWriter output);
 

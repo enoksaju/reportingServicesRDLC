@@ -4,11 +4,11 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class ComparerFromComparison<T> : IComparer
+	public class ComparerFromComparison<T> : IComparer
 	{
 		private Comparison<T> m_comparison;
 
-		internal ComparerFromComparison(Comparison<T> comparison)
+		public ComparerFromComparison(Comparison<T> comparison)
 		{
 			this.m_comparison = comparison;
 		}

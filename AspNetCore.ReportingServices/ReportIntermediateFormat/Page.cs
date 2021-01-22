@@ -11,10 +11,10 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class Page : IDOwner, IPersistable, IStyleContainer, IRIFReportScope, IInstancePath, IAggregateHolder
+	public class Page : IDOwner, IPersistable, IStyleContainer, IRIFReportScope, IInstancePath, IAggregateHolder
 	{
 		[NonSerialized]
-		internal const int UpgradedExprHostId = 0;
+		public const int UpgradedExprHostId = 0;
 
 		private PageSection m_pageHeader;
 
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Page.GetDeclaration();
 
-		internal PageSection PageHeader
+		public PageSection PageHeader
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UpgradedSnapshotPageHeaderEvaluation
+		public bool UpgradedSnapshotPageHeaderEvaluation
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PageSection PageFooter
+		public PageSection PageFooter
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool UpgradedSnapshotPageFooterEvaluation
+		public bool UpgradedSnapshotPageFooterEvaluation
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string PageHeight
+		public string PageHeight
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double PageHeightValue
+		public double PageHeightValue
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string PageWidth
+		public string PageWidth
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double PageWidthValue
+		public double PageWidthValue
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string LeftMargin
+		public string LeftMargin
 		{
 			get
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double LeftMarginValue
+		public double LeftMarginValue
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string RightMargin
+		public string RightMargin
 		{
 			get
 			{
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double RightMarginValue
+		public double RightMarginValue
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string TopMargin
+		public string TopMargin
 		{
 			get
 			{
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double TopMarginValue
+		public double TopMarginValue
 		{
 			get
 			{
@@ -268,7 +268,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string BottomMargin
+		public string BottomMargin
 		{
 			get
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double BottomMarginValue
+		public double BottomMarginValue
 		{
 			get
 			{
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize PageHeightForRendering
+		public ReportSize PageHeightForRendering
 		{
 			get
 			{
@@ -304,7 +304,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize PageWidthForRendering
+		public ReportSize PageWidthForRendering
 		{
 			get
 			{
@@ -316,7 +316,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize LeftMarginForRendering
+		public ReportSize LeftMarginForRendering
 		{
 			get
 			{
@@ -328,7 +328,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize RightMarginForRendering
+		public ReportSize RightMarginForRendering
 		{
 			get
 			{
@@ -340,7 +340,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize TopMarginForRendering
+		public ReportSize TopMarginForRendering
 		{
 			get
 			{
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize BottomMarginForRendering
+		public ReportSize BottomMarginForRendering
 		{
 			get
 			{
@@ -364,7 +364,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string InteractiveHeight
+		public string InteractiveHeight
 		{
 			get
 			{
@@ -376,7 +376,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double InteractiveHeightValue
+		public double InteractiveHeightValue
 		{
 			get
 			{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string InteractiveWidth
+		public string InteractiveWidth
 		{
 			get
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double InteractiveWidthValue
+		public double InteractiveWidthValue
 		{
 			get
 			{
@@ -420,7 +420,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int Columns
+		public int Columns
 		{
 			get
 			{
@@ -432,7 +432,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string ColumnSpacing
+		public string ColumnSpacing
 		{
 			get
 			{
@@ -444,7 +444,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double ColumnSpacingValue
+		public double ColumnSpacingValue
 		{
 			get
 			{
@@ -456,7 +456,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize ColumnSpacingForRendering
+		public ReportSize ColumnSpacingForRendering
 		{
 			get
 			{
@@ -504,7 +504,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -516,7 +516,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize InteractiveHeightForRendering
+		public ReportSize InteractiveHeightForRendering
 		{
 			get
 			{
@@ -528,7 +528,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSize InteractiveWidthForRendering
+		public ReportSize InteractiveWidthForRendering
 		{
 			get
 			{
@@ -540,7 +540,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> PageAggregates
+		public List<DataAggregateInfo> PageAggregates
 		{
 			get
 			{
@@ -571,17 +571,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Page()
+		public Page()
 		{
 		}
 
-		internal Page(int id)
+		public Page(int id)
 			: base(id)
 		{
 			this.m_pageAggregates = new List<DataAggregateInfo>();
 		}
 
-		internal double GetPageSectionWidth(double width)
+		public double GetPageSectionWidth(double width)
 		{
 			if (this.m_columns > 1)
 			{
@@ -590,7 +590,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return width;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			this.m_pageHeightValue = context.ValidateSize(ref this.m_pageHeight, "PageHeight");
 			if (this.m_pageHeightValue <= 0.0)
@@ -639,7 +639,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void PageHeaderFooterInitialize(InitializationContext context)
+		public void PageHeaderFooterInitialize(InitializationContext context)
 		{
 			context.RegisterPageSectionScope(this, this.m_pageAggregates);
 			if (this.m_pageHeader != null)
@@ -671,7 +671,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.UnRegisterPageSectionScope();
 		}
 
-		internal void SetExprHost(ReportExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ReportExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			if (this.m_styleClass != null && this.ExprHostID >= 0)
@@ -752,17 +752,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetTextboxesInScope(byte[] items)
+		public void SetTextboxesInScope(byte[] items)
 		{
 			this.m_textboxesInScope = items;
 		}
 
-		internal void SetInScopeTextBoxes(List<TextBox> items)
+		public void SetInScopeTextBoxes(List<TextBox> items)
 		{
 			this.m_inScopeTextBoxes = items;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.PageHeader, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.PageSection));

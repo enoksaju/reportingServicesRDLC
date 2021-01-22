@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class BTreeNodeValue : IStorable, IPersistable
+	public abstract class BTreeNodeValue : IStorable, IPersistable
 	{
 		protected abstract object Key
 		{
@@ -17,11 +17,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			get;
 		}
 
-		internal abstract void AddRow(IHierarchyObj ownerRef);
+		public abstract void AddRow(IHierarchyObj ownerRef);
 
-		internal abstract void Traverse(ProcessingStages operation, ITraversalContext traversalContext);
+		public abstract void Traverse(ProcessingStages operation, ITraversalContext traversalContext);
 
-		internal int CompareTo(object keyValue, OnDemandProcessingContext odpContext)
+		public int CompareTo(object keyValue, OnDemandProcessingContext odpContext)
 		{
 			return odpContext.ProcessingComparer.Compare(this.Key, keyValue);
 		}

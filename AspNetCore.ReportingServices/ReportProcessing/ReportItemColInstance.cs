@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportItemColInstance : InstanceInfoOwner, ISearchByUniqueName, IIndexInto
+	public sealed class ReportItemColInstance : InstanceInfoOwner, ISearchByUniqueName, IIndexInto
 	{
 		private ReportItemInstanceList m_reportItemInstances;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private NonComputedUniqueNames[] m_childrenNonComputedUniqueNames;
 
-		internal ReportItemInstanceList ReportItemInstances
+		public ReportItemInstanceList ReportItemInstances
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection ReportItemColDef
+		public ReportItemCollection ReportItemColDef
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemInstance this[int index]
+		public ReportItemInstance this[int index]
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal NonComputedUniqueNames[] ChildrenNonComputedUniqueNames
+		public NonComputedUniqueNames[] ChildrenNonComputedUniqueNames
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RenderingPagesRangesList ChildrenStartAndEndPages
+		public RenderingPagesRangesList ChildrenStartAndEndPages
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemColInstance(ReportProcessing.ProcessingContext pc, ReportItemCollection reportItemsDef)
+		public ReportItemColInstance(ReportProcessing.ProcessingContext pc, ReportItemCollection reportItemsDef)
 		{
 			this.m_reportItemColDef = reportItemsDef;
 			if (reportItemsDef.ComputedReportItems != null)
@@ -86,17 +86,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			base.m_instanceInfo = new ReportItemColInstanceInfo(pc, reportItemsDef, this);
 		}
 
-		internal ReportItemColInstance()
+		public ReportItemColInstance()
 		{
 		}
 
-		internal void Add(ReportItemInstance riInstance)
+		public void Add(ReportItemInstance riInstance)
 		{
 			Global.Tracer.Assert(null != this.m_reportItemInstances);
 			this.m_reportItemInstances.Add(riInstance);
 		}
 
-		internal int GetReportItemUniqueName(int index)
+		public int GetReportItemUniqueName(int index)
 		{
 			int num = -1;
 			ReportItem reportItem = null;
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.m_reportItemInstances[num2].UniqueName;
 		}
 
-		internal void GetReportItemStartAndEndPages(int index, ref int startPage, ref int endPage)
+		public void GetReportItemStartAndEndPages(int index, ref int startPage, ref int endPage)
 		{
 			Global.Tracer.Assert(index >= 0 && index < this.m_reportItemColDef.Count);
 			if (this.m_childrenStartAndEndPages != null)
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ReportItemInstances, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstanceList));
@@ -178,7 +178,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal ReportItemColInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager, bool inPageSection)
+		public ReportItemColInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager, bool inPageSection)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return (ReportItemColInstanceInfo)base.m_instanceInfo;
 		}
 
-		internal void SetPaginationForNonComputedChild(ReportProcessing.Pagination pagination, ReportItem reportItem, ReportItem parentDef)
+		public void SetPaginationForNonComputedChild(ReportProcessing.Pagination pagination, ReportItem reportItem, ReportItem parentDef)
 		{
 			ReportItemCollection reportItemColDef = this.m_reportItemColDef;
 			int num = parentDef.StartPage;

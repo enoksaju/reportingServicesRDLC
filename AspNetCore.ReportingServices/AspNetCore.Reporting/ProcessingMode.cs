@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal enum ProcessingMode
+	public enum ProcessingMode
 	{
 		Local,
 		Remote

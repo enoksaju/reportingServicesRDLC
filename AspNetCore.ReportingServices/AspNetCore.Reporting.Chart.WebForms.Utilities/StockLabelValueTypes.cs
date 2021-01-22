@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum StockLabelValueTypes
+	public enum StockLabelValueTypes
 	{
 		High,
 		Low,

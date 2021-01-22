@@ -12,10 +12,10 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ReportSection : ReportItem, IPersistable, IRIFReportScope, IInstancePath
+	public sealed class ReportSection : ReportItem, IPersistable, IRIFReportScope, IInstancePath
 	{
 		[NonSerialized]
-		internal const int UpgradedExprHostId = 0;
+		public const int UpgradedExprHostId = 0;
 
 		private ReportItemCollection m_reportItems;
 
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ReportSection.GetDeclaration();
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Page Page
+		public Page Page
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double PageSectionWidth
+		public double PageSectionWidth
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override string DataElementNameDefault
+		public override string DataElementNameDefault
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override DataElementOutputTypes DataElementOutputDefault
+		public override DataElementOutputTypes DataElementOutputDefault
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NeedsOverallTotalPages
+		public bool NeedsOverallTotalPages
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NeedsPageBreakTotalPages
+		public bool NeedsPageBreakTotalPages
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NeedsReportItemsOnPage
+		public bool NeedsReportItemsOnPage
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool LayoutDirection
+		public bool LayoutDirection
 		{
 			get
 			{
@@ -156,18 +156,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportSection()
+		public ReportSection()
 			: base(null)
 		{
 		}
 
-		internal ReportSection(int indexInCollection)
+		public ReportSection(int indexInCollection)
 			: this()
 		{
 			this.m_publishingIndexInCollection = indexInCollection;
 		}
 
-		internal ReportSection(int indexInCollection, Report report, int id, int idForReportItems)
+		public ReportSection(int indexInCollection, Report report, int id, int idForReportItems)
 			: base(id, report)
 		{
 			this.m_publishingIndexInCollection = indexInCollection;
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_reportItems = new ReportItemCollection(idForReportItems, true);
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			ReportItemExprHost exprHost = null;
 			if (base.ExprHostID >= 0)
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.Location = AspNetCore.ReportingServices.ReportPublishing.LocationFlags.None;
 			context.ObjectType = this.ObjectType;
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void BodyInitialize(InitializationContext context)
+		public void BodyInitialize(InitializationContext context)
 		{
 			context.RegisterReportItems(this.m_reportItems);
 			this.m_textboxesInScope = context.GetCurrentReferencableTextboxes();
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.UnRegisterReportItems(this.m_reportItems);
 		}
 
-		internal override void TraverseScopes(IRIFScopeVisitor visitor)
+		public override void TraverseScopes(IRIFScopeVisitor visitor)
 		{
 			foreach (ReportItem reportItem in this.m_reportItems)
 			{
@@ -297,12 +297,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			Global.Tracer.Assert(false, "Top level event sources should be registered on the Report, not ReportSection");
 		}
 
-		internal void SetTextboxesInScope(byte[] items)
+		public void SetTextboxesInScope(byte[] items)
 		{
 			this.m_textboxesInScope = items;
 		}
 
-		internal void SetInScopeTextBoxes(List<TextBox> items)
+		public void SetInScopeTextBoxes(List<TextBox> items)
 		{
 			this.m_inScopeTextBoxes = items;
 		}

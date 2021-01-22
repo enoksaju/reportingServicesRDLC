@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapLineRules : ReportObject
+	public class MapLineRules : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapLineRules, Definition.Properties>
+		public class Definition : DefinitionStore<MapLineRules, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				MapSizeRule,
 				MapColorRule,
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapLineRules(IPropertyStore propertyStore)
+		public MapLineRules(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

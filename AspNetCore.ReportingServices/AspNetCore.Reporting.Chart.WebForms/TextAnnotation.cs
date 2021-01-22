@@ -7,17 +7,17 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeTextAnnotation_TextAnnotation")]
-	internal class TextAnnotation : Annotation
+	public class TextAnnotation : Annotation
 	{
 		private string text = "";
 
 		private bool multiline;
 
-		internal SizeF contentSize = SizeF.Empty;
+		public SizeF contentSize = SizeF.Empty;
 
-		internal bool isEllipse;
+		public bool isEllipse;
 
-		internal bool restrictedPermissions;
+		public bool restrictedPermissions;
 
 		[DefaultValue("")]
 		[SRCategory("CategoryAttributeAppearance")]
@@ -207,7 +207,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
-		internal override SelectionPointsStyle SelectionPointsStyle
+		public override SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{
@@ -215,7 +215,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override void Paint(Chart chart, ChartGraphics graphics)
+		public override void Paint(Chart chart, ChartGraphics graphics)
 		{
 			this.Chart = chart;
 			PointF empty = PointF.Empty;
@@ -258,7 +258,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal RectangleF DrawText(ChartGraphics graphics, RectangleF textPosition, bool noSpacingForCenteredText, bool getTextPosition)
+		public RectangleF DrawText(ChartGraphics graphics, RectangleF textPosition, bool noSpacingForCenteredText, bool getTextPosition)
 		{
 			RectangleF result = RectangleF.Empty;
 			bool flag = false;
@@ -407,7 +407,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override RectangleF GetContentPosition()
+		public override RectangleF GetContentPosition()
 		{
 			if (!this.contentSize.IsEmpty)
 			{
@@ -463,7 +463,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal virtual RectangleF GetTextSpacing(out bool annotationRelative)
+		public virtual RectangleF GetTextSpacing(out bool annotationRelative)
 		{
 			annotationRelative = false;
 			RectangleF rectangleF = new RectangleF(3f, 3f, 3f, 3f);

@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ParameterNameValidator : NameValidator
+	public sealed class ParameterNameValidator : NameValidator
 	{
-		internal bool Validate(string parameterName, ObjectType objectType, string objectName, ErrorContext errorContext)
+		public bool Validate(string parameterName, ObjectType objectType, string objectName, ErrorContext errorContext)
 		{
 			bool result = true;
 			if (!NameValidator.IsCLSCompliant(parameterName))

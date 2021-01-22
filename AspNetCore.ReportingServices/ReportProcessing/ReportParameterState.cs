@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum ReportParameterState
+	public enum ReportParameterState
 	{
 		HasValidValue,
 		InvalidValueProvided,

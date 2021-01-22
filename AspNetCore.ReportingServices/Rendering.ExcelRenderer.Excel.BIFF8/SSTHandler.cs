@@ -3,11 +3,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class SSTHandler
+	public sealed class SSTHandler
 	{
 		private List<int> m_recordSize;
 
-		internal int m_count;
+		public int m_count;
 
 		private Dictionary<StringWrapperBIFF8, int> m_stringTable;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private int m_baseUniqueStrings;
 
-		internal int TotalStrings
+		public int TotalStrings
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int UniqueStrings
+		public int UniqueStrings
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal SSTHandler()
+		public SSTHandler()
 		{
 			this.m_stringTable = new Dictionary<StringWrapperBIFF8, int>();
 			this.m_stringOrder = new List<StringWrapperBIFF8>();
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			LittleEndianHelper.WriteShortU(aOut, aVal);
 		}
 
-		internal string GetString(int aOffset)
+		public string GetString(int aOffset)
 		{
 			if (aOffset < this.m_stringOrder.Count)
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return null;
 		}
 
-		internal StringWrapperBIFF8 GetStringWrapper(int aOffset)
+		public StringWrapperBIFF8 GetStringWrapper(int aOffset)
 		{
 			if (aOffset < this.m_stringOrder.Count)
 			{
@@ -157,12 +157,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return null;
 		}
 
-		internal int AddString(string aStr)
+		public int AddString(string aStr)
 		{
 			return this.AddString(new StringWrapperBIFF8(aStr));
 		}
 
-		internal int AddString(StringWrapperBIFF8 aWrapper)
+		public int AddString(StringWrapperBIFF8 aWrapper)
 		{
 			if (this.m_stringTable.ContainsKey(aWrapper))
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return this.InternalAddString(aWrapper);
 		}
 
-		internal void Write(Stream aOut)
+		public void Write(Stream aOut)
 		{
 			this.CalcSize();
 			this.m_count = 0;

@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class ScalableDictionaryNodeReference : Reference<ScalableDictionaryNode>, IScalableDictionaryEntry, IStorable, IPersistable
+	public sealed class ScalableDictionaryNodeReference : Reference<ScalableDictionaryNode>, IScalableDictionaryEntry, IStorable, IPersistable
 	{
-		internal ScalableDictionaryNodeReference()
+		public ScalableDictionaryNodeReference()
 		{
 		}
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.RdlUpgrade
 {
-	internal abstract class SerializerHostBase : ISerializerHost
+	public abstract class SerializerHostBase : ISerializerHost
 	{
 		protected string m_extraStringData;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.RdlUpgrade
 			}
 		}
 
-		internal SerializerHostBase(bool serializing)
+		public SerializerHostBase(bool serializing)
 		{
 			this.m_serializing = serializing;
 		}

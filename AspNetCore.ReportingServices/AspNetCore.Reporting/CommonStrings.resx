@@ -373,7 +373,7 @@
     <value>Determines whether synchronous or asynchronous postbacks are used for report interactivity.</value>
   </data>
   <data name="DeviceInfoInternal" xml:space="preserve">
-    <value>DeviceInfo '{0}' is for internal use</value>
+    <value>DeviceInfo '{0}' is for public use</value>
   </data>
   <data name="BookmarkEventDesc" xml:space="preserve">
     <value>Occurs when the user navigates to a bookmark in the report.</value>

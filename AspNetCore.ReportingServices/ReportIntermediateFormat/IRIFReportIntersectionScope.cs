@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.OnDemandProcessing.Scalability;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IRIFReportIntersectionScope : IRIFReportDataScope, IRIFReportScope, IInstancePath, IRIFDataScope
+	public interface IRIFReportIntersectionScope : IRIFReportDataScope, IRIFReportScope, IInstancePath, IRIFDataScope
 	{
 		IRIFReportDataScope ParentRowReportScope
 		{

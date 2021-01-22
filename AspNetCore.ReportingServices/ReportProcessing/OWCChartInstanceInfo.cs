@@ -9,13 +9,13 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class OWCChartInstanceInfo : ReportItemInstanceInfo
+	public sealed class OWCChartInstanceInfo : ReportItemInstanceInfo
 	{
 		private VariantList[] m_chartData;
 
 		private string m_noRows;
 
-		internal VariantList this[int index]
+		public VariantList this[int index]
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal VariantList[] ChartData
+		public VariantList[] ChartData
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int Size
+		public int Size
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string NoRows
+		public string NoRows
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OWCChartInstanceInfo(ReportProcessing.ProcessingContext pc, OWCChart reportItemDef, OWCChartInstance owner)
+		public OWCChartInstanceInfo(ReportProcessing.ProcessingContext pc, OWCChart reportItemDef, OWCChartInstance owner)
 			: base(pc, reportItemDef, owner, false)
 		{
 			this.m_chartData = new VariantList[reportItemDef.ChartData.Count];
@@ -71,19 +71,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_noRows = pc.ReportRuntime.EvaluateDataRegionNoRowsExpression(reportItemDef, reportItemDef.ObjectType, reportItemDef.Name, "NoRows");
 		}
 
-		internal OWCChartInstanceInfo(ReportProcessing.ProcessingContext pc, OWCChart reportItemDef, OWCChartInstance owner, VariantList[] chartData)
+		public OWCChartInstanceInfo(ReportProcessing.ProcessingContext pc, OWCChart reportItemDef, OWCChartInstance owner, VariantList[] chartData)
 			: base(pc, reportItemDef, owner, false)
 		{
 			this.m_chartData = chartData;
 			this.m_noRows = pc.ReportRuntime.EvaluateDataRegionNoRowsExpression(reportItemDef, reportItemDef.ObjectType, reportItemDef.Name, "NoRows");
 		}
 
-		internal OWCChartInstanceInfo(OWCChart reportItemDef)
+		public OWCChartInstanceInfo(OWCChart reportItemDef)
 			: base(reportItemDef)
 		{
 		}
 
-		internal void ChartDataXML(IChartStream chartStream)
+		public void ChartDataXML(IChartStream chartStream)
 		{
 			OWCChart oWCChart = (OWCChart)base.m_reportItemDef;
 			int count = this.m_chartData[0].Count;
@@ -227,7 +227,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			chartStream.Write(stringWriter.ToString());
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ChartData, Token.Array, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.VariantList));

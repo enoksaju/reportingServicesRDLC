@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class HotRegion : IDisposable
+	public class HotRegion : IDisposable
 	{
 		private GraphicsPath[] paths;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		protected bool disposed;
 
-		internal GraphicsPath[] Paths
+		public GraphicsPath[] Paths
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal RectangleF BoundingRectangle
+		public RectangleF BoundingRectangle
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal object SelectedObject
+		public object SelectedObject
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal PointF PinPoint
+		public PointF PinPoint
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Matrix AbsMatrix
+		public Matrix AbsMatrix
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Matrix RelMatrix
+		public Matrix RelMatrix
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool DoNotDispose
+		public bool DoNotDispose
 		{
 			get
 			{
@@ -117,11 +117,11 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal HotRegion()
+		public HotRegion()
 		{
 		}
 
-		internal void BuildMatrices(MapGraphics g)
+		public void BuildMatrices(MapGraphics g)
 		{
 			this.absMatrix.Reset();
 			RectangleF rectangleF = new RectangleF(0f, 0f, 1f, 1f);
@@ -134,24 +134,24 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.relMatrix.Translate((float)(0.0 - g.Transform.OffsetX), (float)(0.0 - g.Transform.OffsetY));
 		}
 
-		internal RectangleF GetAbsRectangle(RectangleF relRect)
+		public RectangleF GetAbsRectangle(RectangleF relRect)
 		{
 			return new RectangleF(this.GetAbsPoint(relRect.Location), this.GetAbsSize(relRect.Size));
 		}
 
-		internal RectangleF GetRelRectangle(RectangleF absRect)
+		public RectangleF GetRelRectangle(RectangleF absRect)
 		{
 			return new RectangleF(this.GetRelPoint(absRect.Location), this.GetRelSize(absRect.Size));
 		}
 
-		internal PointF GetAbsPoint(PointF relPoint)
+		public PointF GetAbsPoint(PointF relPoint)
 		{
 			this.pointsPoint[0] = relPoint;
 			this.absMatrix.TransformPoints(this.pointsPoint);
 			return this.pointsPoint[0];
 		}
 
-		internal PointF GetRelPoint(PointF absPoint)
+		public PointF GetRelPoint(PointF absPoint)
 		{
 			this.pointsPoint[0] = absPoint;
 			this.relMatrix.TransformPoints(this.pointsPoint);
@@ -163,7 +163,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new SizeF(this.GetAbsPoint(relSize.ToPointF()));
 		}
 
-		internal SizeF GetRelSize(SizeF absSize)
+		public SizeF GetRelSize(SizeF absSize)
 		{
 			return new SizeF(this.GetRelPoint(absSize.ToPointF()));
 		}
@@ -191,7 +191,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.disposed = true;
 		}
 
-		internal void OffsetBy(PointF sectionOffset)
+		public void OffsetBy(PointF sectionOffset)
 		{
 			PointF pointF = new PointF(sectionOffset.X - this.lastOffset.X, sectionOffset.Y - this.lastOffset.Y);
 			using (Matrix matrix = new Matrix())

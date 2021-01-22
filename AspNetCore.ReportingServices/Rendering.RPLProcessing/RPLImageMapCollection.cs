@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLImageMapCollection
+	public sealed class RPLImageMapCollection
 	{
 		private RPLImageMap[] m_list;
 
@@ -39,12 +39,12 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLImageMapCollection(int count)
+		public RPLImageMapCollection(int count)
 		{
 			this.m_list = new RPLImageMap[count];
 		}
 
-		internal RPLImageMapCollection(RPLImageMap[] list)
+		public RPLImageMapCollection(RPLImageMap[] list)
 		{
 			this.m_list = list;
 		}

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InvalidReportLinkException : ReportCatalogException
+	public sealed class InvalidReportLinkException : ReportCatalogException
 	{
 		public InvalidReportLinkException()
 			: base(ErrorCode.rsInvalidReportLink, ErrorStrings.rsInvalidReportLink, null, null)

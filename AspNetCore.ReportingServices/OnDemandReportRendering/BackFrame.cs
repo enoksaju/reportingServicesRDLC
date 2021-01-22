@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class BackFrame : IROMStyleDefinitionContainer
+	public sealed class BackFrame : IROMStyleDefinitionContainer
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.BackFrame BackFrameDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.BackFrame BackFrameDef
 		{
 			get
 			{
@@ -140,13 +140,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal BackFrame(AspNetCore.ReportingServices.ReportIntermediateFormat.BackFrame defObject, GaugePanel gaugePanel)
+		public BackFrame(AspNetCore.ReportingServices.ReportIntermediateFormat.BackFrame defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

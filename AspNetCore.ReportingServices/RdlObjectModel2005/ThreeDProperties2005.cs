@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class ThreeDProperties2005 : ChartThreeDProperties
+	public class ThreeDProperties2005 : ChartThreeDProperties
 	{
-		internal new class Definition : DefinitionStore<ThreeDProperties2005, Definition.Properties>
+		public new class Definition : DefinitionStore<ThreeDProperties2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DrawingStyle = 10,
 				ProjectionMode,

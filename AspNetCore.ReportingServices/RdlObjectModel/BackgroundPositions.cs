@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum BackgroundPositions
+	public enum BackgroundPositions
 	{
 		Default,
 		Top,

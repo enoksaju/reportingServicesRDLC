@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class TablixRow : Row, IPersistable
+	public sealed class TablixRow : Row, IPersistable
 	{
 		private string m_height;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = TablixRow.GetDeclaration();
 
-		internal string Height
+		public string Height
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal double HeightValue
+		public double HeightValue
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override CellList Cells
+		public override CellList Cells
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixCellList TablixCells
+		public TablixCellList TablixCells
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ForAutoSubtotal
+		public bool ForAutoSubtotal
 		{
 			get
 			{
@@ -76,21 +76,21 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixRow()
+		public TablixRow()
 		{
 		}
 
-		internal TablixRow(int id)
+		public TablixRow(int id)
 			: base(id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			this.m_heightValue = context.ValidateSize(this.m_height, "Height");
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			TablixRow tablixRow = (TablixRow)base.PublishClone(context);
 			if (this.m_height != null)
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return tablixRow;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Height, Token.String));

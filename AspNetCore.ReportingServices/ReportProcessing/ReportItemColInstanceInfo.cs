@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ReportItemColInstanceInfo : InstanceInfo
+	public sealed class ReportItemColInstanceInfo : InstanceInfo
 	{
 		private NonComputedUniqueNames[] m_childrenNonComputedUniqueNames;
 
-		internal NonComputedUniqueNames[] ChildrenNonComputedUniqueNames
+		public NonComputedUniqueNames[] ChildrenNonComputedUniqueNames
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemColInstanceInfo(ReportProcessing.ProcessingContext pc, ReportItemCollection reportItemsDef, ReportItemColInstance owner)
+		public ReportItemColInstanceInfo(ReportProcessing.ProcessingContext pc, ReportItemCollection reportItemsDef, ReportItemColInstance owner)
 		{
 			if (pc != null)
 			{
@@ -40,11 +40,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemColInstanceInfo()
+		public ReportItemColInstanceInfo()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ChildrenNonComputedUniqueNames, Token.Array, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.NonComputedUniqueNames));

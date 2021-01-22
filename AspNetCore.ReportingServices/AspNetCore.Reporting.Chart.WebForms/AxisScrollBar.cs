@@ -6,9 +6,9 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class AxisScrollBar
+	public class AxisScrollBar
 	{
-		internal Axis axis;
+		public Axis axis;
 
 		private bool enabled = true;
 
@@ -232,16 +232,16 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.axis = axis;
 		}
 
-		internal void Initialize()
+		public void Initialize()
 		{
 		}
 
-		internal bool IsVisible()
+		public bool IsVisible()
 		{
 			return false;
 		}
 
-		internal void Paint(ChartGraphics graph)
+		public void Paint(ChartGraphics graph)
 		{
 			int num = 1;
 			if (this.IsVisible())
@@ -325,7 +325,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void PaintScrollBar3DButton(ChartGraphics graph, RectangleF buttonRect, bool pressedState, ScrollBarButtonType buttonType)
+		public void PaintScrollBar3DButton(ChartGraphics graph, RectangleF buttonRect, bool pressedState, ScrollBarButtonType buttonType)
 		{
 			if (buttonType != ScrollBarButtonType.LargeIncrement && buttonType != ScrollBarButtonType.LargeDecrement)
 			{
@@ -423,7 +423,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal RectangleF GetScrollBarButtonRect(RectangleF scrollBarClientRect, ScrollBarButtonType buttonType)
+		public RectangleF GetScrollBarButtonRect(RectangleF scrollBarClientRect, ScrollBarButtonType buttonType)
 		{
 			RectangleF result = new RectangleF(scrollBarClientRect.Location, scrollBarClientRect.Size);
 			bool flag = (byte)((this.axis.AxisPosition == AxisPosition.Left || this.axis.AxisPosition == AxisPosition.Right) ? 1 : 0) != 0;
@@ -590,7 +590,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal RectangleF GetScrollBarRect()
+		public RectangleF GetScrollBarRect()
 		{
 			float num = (float)this.GetScrollBarRelativeSize();
 			RectangleF rectangleF = this.axis.PlotAreaPosition.ToRectangleF();
@@ -657,7 +657,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return empty;
 		}
 
-		internal double GetScrollBarRelativeSize()
+		public double GetScrollBarRelativeSize()
 		{
 			if (!this.axis.chartArea.Area3DStyle.Enable3D && !this.axis.chartArea.chartAreaIsCurcular)
 			{
@@ -755,7 +755,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num;
 		}
 
-		internal SizeF GetAbsoluteSize(SizeF relative)
+		public SizeF GetAbsoluteSize(SizeF relative)
 		{
 			SizeF empty = SizeF.Empty;
 			empty.Width = (float)(relative.Width * (float)(this.axis.Common.Width - 1) / 100.0);
@@ -763,7 +763,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return empty;
 		}
 
-		internal SizeF GetRelativeSize(SizeF size)
+		public SizeF GetRelativeSize(SizeF size)
 		{
 			SizeF empty = SizeF.Empty;
 			empty.Width = (float)(size.Width * 100.0 / (float)(this.axis.Common.Width - 1));

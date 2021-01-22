@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Borders3D
 {
-	internal class FrameThin2Border : FrameThin1Border
+	public class FrameThin2Border : FrameThin1Border
 	{
 		public override string Name
 		{

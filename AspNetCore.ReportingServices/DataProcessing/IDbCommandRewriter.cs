@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbCommandRewriter
+	public interface IDbCommandRewriter
 	{
 		string RewrittenCommandText
 		{

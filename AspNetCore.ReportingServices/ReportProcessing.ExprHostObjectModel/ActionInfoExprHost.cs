@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<ActionExprHost> m_actionItemHostsRemotable;
 
-		internal IList<ActionExprHost> ActionItemHostsRemotable
+		public IList<ActionExprHost> ActionItemHostsRemotable
 		{
 			get
 			{

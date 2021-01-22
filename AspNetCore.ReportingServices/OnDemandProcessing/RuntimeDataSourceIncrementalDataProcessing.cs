@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RuntimeDataSourceIncrementalDataProcessing : RuntimeIncrementalDataSource
+	public sealed class RuntimeDataSourceIncrementalDataProcessing : RuntimeIncrementalDataSource
 	{
 		private RuntimeOnDemandIncrementalDataSet m_runtimeDataSet;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeDataSourceIncrementalDataProcessing(DataSet dataSet, OnDemandProcessingContext odpContext)
+		public RuntimeDataSourceIncrementalDataProcessing(DataSet dataSet, OnDemandProcessingContext odpContext)
 			: base(odpContext.ReportDefinition, dataSet, odpContext)
 		{
 		}

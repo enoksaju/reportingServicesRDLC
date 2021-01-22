@@ -20,9 +20,9 @@ using System.Text;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal abstract class LocalService : ILocalProcessingHost, IDisposable
+	public abstract class LocalService : ILocalProcessingHost, IDisposable
 	{
-		internal delegate void LocalModeSecurityValidatorCallback(PreviewItemContext itemContext, PublishingResult publishingResult);
+		public delegate void LocalModeSecurityValidatorCallback(PreviewItemContext itemContext, PublishingResult publishingResult);
 
 		protected class SubreportCallbackHandler
 		{

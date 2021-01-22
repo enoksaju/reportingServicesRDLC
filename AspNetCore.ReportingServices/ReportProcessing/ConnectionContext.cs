@@ -2,57 +2,57 @@ using AspNetCore.ReportingServices.Diagnostics;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ConnectionContext
+	public sealed class ConnectionContext
 	{
-		internal string DataSourceType
+		public string DataSourceType
 		{
 			get;
 			set;
 		}
 
-		internal ConnectionSecurity ConnectionSecurity
+		public ConnectionSecurity ConnectionSecurity
 		{
 			get;
 			set;
 		}
 
-		internal string ConnectionString
+		public string ConnectionString
 		{
 			get;
 			set;
 		}
 
-		internal string DomainName
+		public string DomainName
 		{
 			get;
 			set;
 		}
 
-		internal string UserName
+		public string UserName
 		{
 			get;
 			set;
 		}
 
-		internal bool ImpersonateUser
+		public bool ImpersonateUser
 		{
 			get;
 			set;
 		}
 
-		internal string ImpersonateUserName
+		public string ImpersonateUserName
 		{
 			get;
 			set;
 		}
 
-		internal SecureStringWrapper Password
+		public SecureStringWrapper Password
 		{
 			get;
 			set;
 		}
 
-		internal string DecryptedPassword
+		public string DecryptedPassword
 		{
 			get
 			{
@@ -64,12 +64,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ConnectionContext()
+		public ConnectionContext()
 		{
 			this.ConnectionSecurity = ConnectionSecurity.None;
 		}
 
-		internal ConnectionKey CreateConnectionKey()
+		public ConnectionKey CreateConnectionKey()
 		{
 			return new ConnectionKey(this.DataSourceType, this.ConnectionString, this.ConnectionSecurity, this.DomainName, this.UserName, this.ImpersonateUser, this.ImpersonateUserName);
 		}

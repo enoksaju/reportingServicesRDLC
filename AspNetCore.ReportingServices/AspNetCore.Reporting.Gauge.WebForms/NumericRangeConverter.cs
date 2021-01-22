@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class NumericRangeConverter : CollectionItemTypeConverter
+	public class NumericRangeConverter : CollectionItemTypeConverter
 	{
 		public NumericRangeConverter()
 		{

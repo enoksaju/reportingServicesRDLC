@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_FontScheme
+	public class ST_FontScheme
 	{
 		private string _ooxmlEnumerationValue;
 

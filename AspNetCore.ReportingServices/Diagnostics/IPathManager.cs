@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IPathManager
+	public interface IPathManager
 	{
 		string RelativePathToAbsolutePath(string relativePath, string reportPath);
 

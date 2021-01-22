@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal enum StreamOper
+	public enum StreamOper
 	{
 		CreateAndRegister,
 		CreateOnly,

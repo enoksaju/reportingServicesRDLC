@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimDocumentMap : DocumentMap, IDocumentMap, IEnumerator<OnDemandDocumentMapNode>, IDisposable, IEnumerator
+	public sealed class ShimDocumentMap : DocumentMap, IDocumentMap, IEnumerator<OnDemandDocumentMapNode>, IDisposable, IEnumerator
 	{
 		private AspNetCore.ReportingServices.ReportProcessing.DocumentMapNode m_oldDocMap;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimDocumentMap(AspNetCore.ReportingServices.ReportProcessing.DocumentMapNode aOldDocMap)
+		public ShimDocumentMap(AspNetCore.ReportingServices.ReportProcessing.DocumentMapNode aOldDocMap)
 		{
 			this.m_oldDocMap = aOldDocMap;
 			this.Reset();

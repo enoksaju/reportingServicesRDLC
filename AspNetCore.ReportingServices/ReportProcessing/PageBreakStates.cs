@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum PageBreakStates
+	public enum PageBreakStates
 	{
 		Unknown,
 		CanIgnore,

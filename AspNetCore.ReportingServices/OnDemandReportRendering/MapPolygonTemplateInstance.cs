@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPolygonTemplateInstance : MapSpatialElementTemplateInstance
+	public sealed class MapPolygonTemplateInstance : MapSpatialElementTemplateInstance
 	{
 		private MapPolygonTemplate m_defObject;
 
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapPolygonTemplateInstance(MapPolygonTemplate defObject)
+		public MapPolygonTemplateInstance(MapPolygonTemplate defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

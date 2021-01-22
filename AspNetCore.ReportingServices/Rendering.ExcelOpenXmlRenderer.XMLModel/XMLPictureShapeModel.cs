@@ -6,7 +6,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLPictureShapeModel : XMLShapeModel, IPictureShapeModel, IShapeModel
+	public class XMLPictureShapeModel : XMLShapeModel, IPictureShapeModel, IShapeModel
 	{
 		private Picture _interface;
 

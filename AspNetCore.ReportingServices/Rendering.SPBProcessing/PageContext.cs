@@ -16,9 +16,9 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class PageContext
+	public sealed class PageContext
 	{
-		internal enum RPLReportSectionArea : byte
+		public enum RPLReportSectionArea : byte
 		{
 			Header,
 			Footer,
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 		}
 
 		[Flags]
-		internal enum PageContextFlags : ushort
+		public enum PageContextFlags : ushort
 		{
 			Clear = 0,
 			IgnorePageBreak = 1,
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			StretchPage = 0x20
 		}
 
-		internal enum IgnorePBReasonFlag
+		public enum IgnorePBReasonFlag
 		{
 			None,
 			Toggled,
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			HeaderFooter
 		}
 
-		internal class PageContextCommon
+		public class PageContextCommon
 		{
 			private double m_pageHeight = 1.7976931348623157E+308;
 
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 			private Hashtable m_registeredPBIgnored;
 
-			internal double PageHeight
+			public double PageHeight
 			{
 				get
 				{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal double OriginalPageHeight
+			public double OriginalPageHeight
 			{
 				get
 				{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool RegisterEvents
+			public bool RegisterEvents
 			{
 				get
 				{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool MeasureItems
+			public bool MeasureItems
 			{
 				get
 				{
@@ -192,7 +192,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool EmfDynamicImage
+			public bool EmfDynamicImage
 			{
 				get
 				{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool ConsumeContainerWhitespace
+			public bool ConsumeContainerWhitespace
 			{
 				get
 				{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal CreateAndRegisterStream CreateAndRegisterStream
+			public CreateAndRegisterStream CreateAndRegisterStream
 			{
 				get
 				{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal SecondaryStreams SecondaryStreams
+			public SecondaryStreams SecondaryStreams
 			{
 				get
 				{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool AddToggledItems
+			public bool AddToggledItems
 			{
 				get
 				{
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool AddSecondaryStreamNames
+			public bool AddSecondaryStreamNames
 			{
 				get
 				{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool AddOriginalValue
+			public bool AddOriginalValue
 			{
 				get
 				{
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool EvaluatePageHeaderFooter
+			public bool EvaluatePageHeaderFooter
 			{
 				get
 				{
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool AddFirstPageHeaderFooter
+			public bool AddFirstPageHeaderFooter
 			{
 				get
 				{
@@ -272,7 +272,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal float DpiX
+			public float DpiX
 			{
 				get
 				{
@@ -284,7 +284,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal float DpiY
+			public float DpiY
 			{
 				get
 				{
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal int PageNumber
+			public int PageNumber
 			{
 				get
 				{
@@ -308,7 +308,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal string PageName
+			public string PageName
 			{
 				get
 				{
@@ -320,7 +320,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal RPLReportSectionArea RPLSectionArea
+			public RPLReportSectionArea RPLSectionArea
 			{
 				get
 				{
@@ -332,7 +332,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal Hashtable TextBoxSharedInfo
+			public Hashtable TextBoxSharedInfo
 			{
 				get
 				{
@@ -344,7 +344,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal Hashtable ItemPropsStart
+			public Hashtable ItemPropsStart
 			{
 				get
 				{
@@ -356,7 +356,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal Hashtable SharedImages
+			public Hashtable SharedImages
 			{
 				get
 				{
@@ -368,7 +368,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal Hashtable RegisteredStreamNames
+			public Hashtable RegisteredStreamNames
 			{
 				get
 				{
@@ -380,7 +380,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal Hashtable AutoSizeSharedImages
+			public Hashtable AutoSizeSharedImages
 			{
 				get
 				{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal DocumentMapLabels Labels
+			public DocumentMapLabels Labels
 			{
 				get
 				{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal Bookmarks Bookmarks
+			public Bookmarks Bookmarks
 			{
 				get
 				{
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal Dictionary<string, string> PageBookmarks
+			public Dictionary<string, string> PageBookmarks
 			{
 				get
 				{
@@ -428,7 +428,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal PageBreakInfo PageBreakInfo
+			public PageBreakInfo PageBreakInfo
 			{
 				get
 				{
@@ -440,7 +440,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal PageTotalInfo PageTotalInfo
+			public PageTotalInfo PageTotalInfo
 			{
 				get
 				{
@@ -448,7 +448,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal IScalabilityCache ScalabilityCache
+			public IScalabilityCache ScalabilityCache
 			{
 				get
 				{
@@ -456,7 +456,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal long TotalScaleTimeMs
+			public long TotalScaleTimeMs
 			{
 				get
 				{
@@ -464,7 +464,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal long PeakMemoryUsageKB
+			public long PeakMemoryUsageKB
 			{
 				get
 				{
@@ -472,7 +472,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool CancelMode
+			public bool CancelMode
 			{
 				get
 				{
@@ -480,7 +480,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool CancelPage
+			public bool CancelPage
 			{
 				get
 				{
@@ -500,7 +500,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal FontCache FontCache
+			public FontCache FontCache
 			{
 				get
 				{
@@ -512,7 +512,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool EmSquare
+			public bool EmSquare
 			{
 				get
 				{
@@ -524,7 +524,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool CanTracePagination
+			public bool CanTracePagination
 			{
 				get
 				{
@@ -536,7 +536,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal ImageConsolidation ImageConsolidation
+			public ImageConsolidation ImageConsolidation
 			{
 				get
 				{
@@ -548,7 +548,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal RPLVersionEnum VersionPicker
+			public RPLVersionEnum VersionPicker
 			{
 				get
 				{
@@ -560,7 +560,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal BinaryReader PropertyCacheReader
+			public BinaryReader PropertyCacheReader
 			{
 				get
 				{
@@ -568,7 +568,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal BinaryWriter PropertyCacheWriter
+			public BinaryWriter PropertyCacheWriter
 			{
 				get
 				{
@@ -576,7 +576,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal bool ConvertImages
+			public bool ConvertImages
 			{
 				get
 				{
@@ -584,7 +584,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal Hashtable RegisteredPBIgnored
+			public Hashtable RegisteredPBIgnored
 			{
 				get
 				{
@@ -592,7 +592,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal PageContextCommon(string pageName, double pageHeight, bool registerEvents, bool consumeWhitespace, CreateAndRegisterStream createAndRegisterStream)
+			public PageContextCommon(string pageName, double pageHeight, bool registerEvents, bool consumeWhitespace, CreateAndRegisterStream createAndRegisterStream)
 			{
 				this.m_pageHeight = pageHeight;
 				this.m_originalPageHeight = pageHeight;
@@ -609,7 +609,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				this.m_pageTotalInfo = new PageTotalInfo(pageName);
 			}
 
-			internal void SetContext(bool measureItems, bool emfDynamicImage, SecondaryStreams secondaryStreams, bool addSecondaryStreamNames, bool addToggledItems, bool addOriginalValue, bool addFirstPageHeaderFooter, bool convertImages)
+			public void SetContext(bool measureItems, bool emfDynamicImage, SecondaryStreams secondaryStreams, bool addSecondaryStreamNames, bool addToggledItems, bool addOriginalValue, bool addFirstPageHeaderFooter, bool convertImages)
 			{
 				this.m_measureItems = measureItems;
 				this.m_emfDynamicImage = emfDynamicImage;
@@ -628,7 +628,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void DisposeResources()
+			public void DisposeResources()
 			{
 				this.DisposeGraphics();
 				this.DisposeTextboxSharedInfo();
@@ -637,7 +637,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				this.DisposeMemoryPressureListener();
 			}
 
-			internal SizeF MeasureStringGDI(string text, CanvasFont font, SizeF layoutArea, out int charactersFitted, out int linesFilled)
+			public SizeF MeasureStringGDI(string text, CanvasFont font, SizeF layoutArea, out int charactersFitted, out int linesFilled)
 			{
 				if (this.m_bitsGraphics == null)
 				{
@@ -647,7 +647,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return this.m_bitsGraphics.MeasureString(text, font.GDIFont, layoutArea, trimStringFormat, out charactersFitted, out linesFilled);
 			}
 
-			internal float MeasureFullTextBoxHeight(AspNetCore.ReportingServices.Rendering.RichText.TextBox textBox, FlowContext flowContext, out float contentHeight)
+			public float MeasureFullTextBoxHeight(AspNetCore.ReportingServices.Rendering.RichText.TextBox textBox, FlowContext flowContext, out float contentHeight)
 			{
 				if (this.m_bitsGraphics == null)
 				{
@@ -656,7 +656,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return AspNetCore.ReportingServices.Rendering.RichText.TextBox.MeasureFullHeight(textBox, this.m_bitsGraphics, this.FontCache, flowContext, out contentHeight);
 			}
 
-			internal ItemSizes GetSharedItemSizesElement(ReportItem reportItem, bool isPadded)
+			public ItemSizes GetSharedItemSizesElement(ReportItem reportItem, bool isPadded)
 			{
 				if (reportItem == null)
 				{
@@ -676,7 +676,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return itemSizes;
 			}
 
-			internal ItemSizes GetSharedItemSizesElement(ReportSize width, ReportSize height, string id, bool isPadded)
+			public ItemSizes GetSharedItemSizesElement(ReportSize width, ReportSize height, string id, bool isPadded)
 			{
 				if (id == null)
 				{
@@ -696,7 +696,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return itemSizes;
 			}
 
-			internal ItemSizes GetSharedRenderItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
+			public ItemSizes GetSharedRenderItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
 			{
 				if (itemSizes == null)
 				{
@@ -727,7 +727,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return itemSizes2;
 			}
 
-			internal ItemSizes GetSharedEdgeItemSizesElement(double top, double left, string id)
+			public ItemSizes GetSharedEdgeItemSizesElement(double top, double left, string id)
 			{
 				if (id == null)
 				{
@@ -747,7 +747,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return itemSizes;
 			}
 
-			internal ItemSizes GetSharedRenderEdgeItemSizesElement(ItemSizes itemSizes)
+			public ItemSizes GetSharedRenderEdgeItemSizesElement(ItemSizes itemSizes)
 			{
 				if (itemSizes == null)
 				{
@@ -774,7 +774,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return itemSizes2;
 			}
 
-			internal ItemSizes GetSharedFromRepeatItemSizesElement(ReportItem reportItem, bool isPadded)
+			public ItemSizes GetSharedFromRepeatItemSizesElement(ReportItem reportItem, bool isPadded)
 			{
 				if (reportItem == null)
 				{
@@ -795,7 +795,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return itemSizes;
 			}
 
-			internal ItemSizes GetSharedRenderFromRepeatItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
+			public ItemSizes GetSharedRenderFromRepeatItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
 			{
 				if (itemSizes == null)
 				{
@@ -827,7 +827,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return itemSizes2;
 			}
 
-			internal ItemSizes GetSharedRenderRepeatItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
+			public ItemSizes GetSharedRenderRepeatItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
 			{
 				if (itemSizes == null)
 				{
@@ -858,7 +858,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				return itemSizes2;
 			}
 
-			internal void RegisterPageBookmark(ReportItemInstance reportItemInstance)
+			public void RegisterPageBookmark(ReportItemInstance reportItemInstance)
 			{
 				if (reportItemInstance != null && reportItemInstance.Bookmark != null && !this.m_pageBookmarks.ContainsKey(reportItemInstance.Bookmark))
 				{
@@ -866,7 +866,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void InitCache()
+			public void InitCache()
 			{
 				if (this.m_scalabilityCache == null)
 				{
@@ -874,13 +874,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void InitCancelPage(double pageHeight)
+			public void InitCancelPage(double pageHeight)
 			{
 				this.m_pageHeightForMemory = Math.Min(pageHeight, this.m_pageHeightForMemory);
 				this.m_initCancelPage = true;
 			}
 
-			internal void ResetCancelPage()
+			public void ResetCancelPage()
 			{
 				this.m_initCancelPage = false;
 				this.DisposeMemoryPressureListener();
@@ -897,7 +897,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void CheckPageSize(RoundedDouble pageHeight)
+			public void CheckPageSize(RoundedDouble pageHeight)
 			{
 				if (this.m_initCancelPage && this.m_memoryPressure == null && pageHeight > this.m_pageHeightForMemory)
 				{
@@ -972,7 +972,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void DisposeDelayTextBox()
+			public void DisposeDelayTextBox()
 			{
 				if (this.m_delayTextBoxCache != null)
 				{
@@ -984,7 +984,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal void CreateCacheStream(long offsetStart)
+			public void CreateCacheStream(long offsetStart)
 			{
 				if (this.m_delayTextBoxCache == null)
 				{
@@ -997,7 +997,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal class MemoryPressureListener : IDisposable
+		public class MemoryPressureListener : IDisposable
 		{
 			private int m_notificationCount;
 
@@ -1027,37 +1027,37 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal const double RoundDelta = 0.01;
+		public const double RoundDelta = 0.01;
 
-		internal const double RoundOverlapDelta = 0.0001;
+		public const double RoundOverlapDelta = 0.0001;
 
-		internal const string InvalidImage = "InvalidImage";
+		public const string InvalidImage = "InvalidImage";
 
-		internal const char StreamNameSeparator = '_';
+		public const char StreamNameSeparator = '_';
 
-		internal const string PageHeaderSuffix = "H";
+		public const string PageHeaderSuffix = "H";
 
-		internal const string PageFooterSuffix = "F";
+		public const string PageFooterSuffix = "F";
 
-		internal const string ImageStreamNamePrefix = "I";
+		public const string ImageStreamNamePrefix = "I";
 
-		internal const string BkGndImageStreamNamePrefix = "B";
+		public const string BkGndImageStreamNamePrefix = "B";
 
-		internal const string ChartStreamNamePrefix = "C";
+		public const string ChartStreamNamePrefix = "C";
 
-		internal const string GaugeStreamNamePrefix = "G";
+		public const string GaugeStreamNamePrefix = "G";
 
-		internal const string MapStreamNamePrefix = "M";
+		public const string MapStreamNamePrefix = "M";
 
-		internal const double InvalidImageWidth = 3.8;
+		public const double InvalidImageWidth = 3.8;
 
-		internal const double InvalidImageHeight = 4.0;
+		public const double InvalidImageHeight = 4.0;
 
-		internal const double MinFontSize = 0.3528;
+		public const double MinFontSize = 0.3528;
 
-		internal const char RPLVersionSeparator = '.';
+		public const char RPLVersionSeparator = '.';
 
-		internal static readonly string PNG_MIME_TYPE = "image/png";
+		public static readonly string PNG_MIME_TYPE = "image/png";
 
 		private PageContextFlags m_flags;
 
@@ -1065,7 +1065,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private IgnorePBReasonFlag m_ignorePBReason;
 
-		internal ImageConsolidation ImageConsolidation
+		public ImageConsolidation ImageConsolidation
 		{
 			get
 			{
@@ -1077,7 +1077,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal IScalabilityCache ScalabilityCache
+		public IScalabilityCache ScalabilityCache
 		{
 			get
 			{
@@ -1085,7 +1085,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal long TotalScaleTimeMs
+		public long TotalScaleTimeMs
 		{
 			get
 			{
@@ -1093,7 +1093,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal long PeakMemoryUsageKB
+		public long PeakMemoryUsageKB
 		{
 			get
 			{
@@ -1101,7 +1101,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool CancelMode
+		public bool CancelMode
 		{
 			get
 			{
@@ -1109,7 +1109,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool CancelPage
+		public bool CancelPage
 		{
 			get
 			{
@@ -1121,7 +1121,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double PageHeight
+		public double PageHeight
 		{
 			get
 			{
@@ -1137,7 +1137,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double OriginalPageHeight
+		public double OriginalPageHeight
 		{
 			get
 			{
@@ -1149,7 +1149,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageContextFlags Flags
+		public PageContextFlags Flags
 		{
 			get
 			{
@@ -1157,7 +1157,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool IgnorePageBreaks
+		public bool IgnorePageBreaks
 		{
 			get
 			{
@@ -1180,7 +1180,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool FullOnPage
+		public bool FullOnPage
 		{
 			get
 			{
@@ -1199,7 +1199,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool StretchPage
+		public bool StretchPage
 		{
 			get
 			{
@@ -1207,7 +1207,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool KeepTogether
+		public bool KeepTogether
 		{
 			get
 			{
@@ -1226,7 +1226,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool HideDuplicates
+		public bool HideDuplicates
 		{
 			get
 			{
@@ -1245,7 +1245,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool TypeCodeNonString
+		public bool TypeCodeNonString
 		{
 			get
 			{
@@ -1264,7 +1264,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool RegisterEvents
+		public bool RegisterEvents
 		{
 			get
 			{
@@ -1272,7 +1272,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool MeasureItems
+		public bool MeasureItems
 		{
 			get
 			{
@@ -1280,7 +1280,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool EmfDynamicImage
+		public bool EmfDynamicImage
 		{
 			get
 			{
@@ -1288,7 +1288,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool ConsumeContainerWhitespace
+		public bool ConsumeContainerWhitespace
 		{
 			get
 			{
@@ -1296,7 +1296,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal CreateAndRegisterStream CreateAndRegisterStream
+		public CreateAndRegisterStream CreateAndRegisterStream
 		{
 			get
 			{
@@ -1304,7 +1304,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal SecondaryStreams SecondaryStreams
+		public SecondaryStreams SecondaryStreams
 		{
 			get
 			{
@@ -1312,7 +1312,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool AddToggledItems
+		public bool AddToggledItems
 		{
 			get
 			{
@@ -1320,7 +1320,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool AddOriginalValue
+		public bool AddOriginalValue
 		{
 			get
 			{
@@ -1328,7 +1328,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool AddSecondaryStreamNames
+		public bool AddSecondaryStreamNames
 		{
 			get
 			{
@@ -1336,7 +1336,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool EvaluatePageHeaderFooter
+		public bool EvaluatePageHeaderFooter
 		{
 			get
 			{
@@ -1348,7 +1348,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool AddFirstPageHeaderFooter
+		public bool AddFirstPageHeaderFooter
 		{
 			get
 			{
@@ -1360,7 +1360,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal float DpiX
+		public float DpiX
 		{
 			get
 			{
@@ -1372,7 +1372,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal float DpiY
+		public float DpiY
 		{
 			get
 			{
@@ -1384,7 +1384,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int PageNumber
+		public int PageNumber
 		{
 			get
 			{
@@ -1396,7 +1396,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLReportSectionArea RPLSectionArea
+		public RPLReportSectionArea RPLSectionArea
 		{
 			get
 			{
@@ -1408,7 +1408,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Hashtable ItemPropsStart
+		public Hashtable ItemPropsStart
 		{
 			get
 			{
@@ -1420,7 +1420,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Hashtable SharedImages
+		public Hashtable SharedImages
 		{
 			get
 			{
@@ -1432,7 +1432,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Hashtable RegisteredStreamNames
+		public Hashtable RegisteredStreamNames
 		{
 			get
 			{
@@ -1444,7 +1444,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Hashtable AutoSizeSharedImages
+		public Hashtable AutoSizeSharedImages
 		{
 			get
 			{
@@ -1456,7 +1456,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Hashtable TextBoxSharedInfo
+		public Hashtable TextBoxSharedInfo
 		{
 			get
 			{
@@ -1468,7 +1468,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal DocumentMapLabels Labels
+		public DocumentMapLabels Labels
 		{
 			get
 			{
@@ -1480,7 +1480,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Bookmarks Bookmarks
+		public Bookmarks Bookmarks
 		{
 			get
 			{
@@ -1492,7 +1492,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Dictionary<string, string> PageBookmarks
+		public Dictionary<string, string> PageBookmarks
 		{
 			get
 			{
@@ -1504,7 +1504,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool IsPageBreakRegistered
+		public bool IsPageBreakRegistered
 		{
 			get
 			{
@@ -1512,7 +1512,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool IsPageNameRegistered
+		public bool IsPageNameRegistered
 		{
 			get
 			{
@@ -1520,7 +1520,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageTotalInfo PageTotalInfo
+		public PageTotalInfo PageTotalInfo
 		{
 			get
 			{
@@ -1528,7 +1528,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool CanTracePagination
+		public bool CanTracePagination
 		{
 			get
 			{
@@ -1540,7 +1540,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLVersionEnum VersionPicker
+		public RPLVersionEnum VersionPicker
 		{
 			get
 			{
@@ -1552,7 +1552,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal BinaryReader PropertyCacheReader
+		public BinaryReader PropertyCacheReader
 		{
 			get
 			{
@@ -1560,7 +1560,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal BinaryWriter PropertyCacheWriter
+		public BinaryWriter PropertyCacheWriter
 		{
 			get
 			{
@@ -1568,7 +1568,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageContextCommon Common
+		public PageContextCommon Common
 		{
 			get
 			{
@@ -1576,7 +1576,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool ConvertImages
+		public bool ConvertImages
 		{
 			get
 			{
@@ -1584,7 +1584,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal IgnorePBReasonFlag IgnorePBReason
+		public IgnorePBReasonFlag IgnorePBReason
 		{
 			get
 			{
@@ -1592,7 +1592,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool TracingEnabled
+		public bool TracingEnabled
 		{
 			get
 			{
@@ -1604,19 +1604,19 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageContext(string pageName, double pageHeight, bool registerEvents, bool consumeWhiteSpace, CreateAndRegisterStream createAndRegisterStream)
+		public PageContext(string pageName, double pageHeight, bool registerEvents, bool consumeWhiteSpace, CreateAndRegisterStream createAndRegisterStream)
 		{
 			this.m_common = new PageContextCommon(pageName, pageHeight, registerEvents, consumeWhiteSpace, createAndRegisterStream);
 		}
 
-		internal PageContext(PageContext pageContext)
+		public PageContext(PageContext pageContext)
 		{
 			this.m_common = pageContext.Common;
 			this.m_flags = pageContext.Flags;
 			this.m_ignorePBReason = pageContext.IgnorePBReason;
 		}
 
-		internal PageContext(PageContext pageContext, PageContextFlags flags, IgnorePBReasonFlag ignorePBReason)
+		public PageContext(PageContext pageContext, PageContextFlags flags, IgnorePBReasonFlag ignorePBReason)
 		{
 			this.m_common = pageContext.Common;
 			this.m_flags = flags;
@@ -1631,33 +1631,33 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.KeepTogether = pageContext.KeepTogether;
 		}
 
-		internal void SetContext(bool measureItems, bool emfDynamicImage, SecondaryStreams secondaryStreams, bool addSecondaryStreamNames, bool addToggledItems, bool addOriginalValue, bool addFirstPageHeaderFooter, bool convertImages)
+		public void SetContext(bool measureItems, bool emfDynamicImage, SecondaryStreams secondaryStreams, bool addSecondaryStreamNames, bool addToggledItems, bool addOriginalValue, bool addFirstPageHeaderFooter, bool convertImages)
 		{
 			this.m_common.SetContext(measureItems, emfDynamicImage, secondaryStreams, addSecondaryStreamNames, addToggledItems, addOriginalValue, addFirstPageHeaderFooter, convertImages);
 			this.m_flags = PageContextFlags.Clear;
 		}
 
-		internal void InitCache()
+		public void InitCache()
 		{
 			this.m_common.InitCache();
 		}
 
-		internal void InitCancelPage(double pageHeight)
+		public void InitCancelPage(double pageHeight)
 		{
 			this.m_common.InitCancelPage(pageHeight);
 		}
 
-		internal void ResetCancelPage()
+		public void ResetCancelPage()
 		{
 			this.m_common.ResetCancelPage();
 		}
 
-		internal void RegisterPageBreak(PageBreakInfo pageBreakInfo)
+		public void RegisterPageBreak(PageBreakInfo pageBreakInfo)
 		{
 			this.RegisterPageBreak(pageBreakInfo, false);
 		}
 
-		internal void RegisterPageBreak(PageBreakInfo pageBreakInfo, bool overrideChild)
+		public void RegisterPageBreak(PageBreakInfo pageBreakInfo, bool overrideChild)
 		{
 			if (this.m_common.PageBreakInfo == null || overrideChild)
 			{
@@ -1669,12 +1669,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void RegisterPageName(string pageName)
+		public void RegisterPageName(string pageName)
 		{
 			this.RegisterPageName(pageName, false);
 		}
 
-		internal void RegisterPageName(string pageName, bool overrideChild)
+		public void RegisterPageName(string pageName, bool overrideChild)
 		{
 			if (pageName != null && (this.m_common.PageName == null || overrideChild))
 			{
@@ -1682,7 +1682,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void ApplyPageBreak(int currentPageNumber)
+		public void ApplyPageBreak(int currentPageNumber)
 		{
 			if (this.m_common.PageBreakInfo != null && !this.m_common.PageBreakInfo.Disabled)
 			{
@@ -1694,7 +1694,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void ApplyPageName(int currentPageNumber)
+		public void ApplyPageName(int currentPageNumber)
 		{
 			if (this.TracingEnabled)
 			{
@@ -1704,67 +1704,67 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_common.PageName = null;
 		}
 
-		internal void CheckPageSize(RoundedDouble pageHeight)
+		public void CheckPageSize(RoundedDouble pageHeight)
 		{
 			this.m_common.CheckPageSize(pageHeight);
 		}
 
-		internal void DisposeResources()
+		public void DisposeResources()
 		{
 			this.m_common.DisposeResources();
 		}
 
-		internal float MeasureFullTextBoxHeight(AspNetCore.ReportingServices.Rendering.RichText.TextBox textBox, FlowContext flowContext, out float contentHeight)
+		public float MeasureFullTextBoxHeight(AspNetCore.ReportingServices.Rendering.RichText.TextBox textBox, FlowContext flowContext, out float contentHeight)
 		{
 			return this.m_common.MeasureFullTextBoxHeight(textBox, flowContext, out contentHeight);
 		}
 
-		internal ItemSizes GetSharedItemSizesElement(ReportItem reportItem, bool isPadded)
+		public ItemSizes GetSharedItemSizesElement(ReportItem reportItem, bool isPadded)
 		{
 			return this.m_common.GetSharedItemSizesElement(reportItem, isPadded);
 		}
 
-		internal ItemSizes GetSharedItemSizesElement(ReportSize width, ReportSize height, string id, bool isPadded)
+		public ItemSizes GetSharedItemSizesElement(ReportSize width, ReportSize height, string id, bool isPadded)
 		{
 			return this.m_common.GetSharedItemSizesElement(width, height, id, isPadded);
 		}
 
-		internal ItemSizes GetSharedRenderItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
+		public ItemSizes GetSharedRenderItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
 		{
 			return this.m_common.GetSharedRenderItemSizesElement(itemSizes, isPadded, returnPaddings);
 		}
 
-		internal ItemSizes GetSharedEdgeItemSizesElement(double top, double left, string id)
+		public ItemSizes GetSharedEdgeItemSizesElement(double top, double left, string id)
 		{
 			return this.m_common.GetSharedEdgeItemSizesElement(top, left, id);
 		}
 
-		internal ItemSizes GetSharedRenderEdgeItemSizesElement(ItemSizes itemSizes)
+		public ItemSizes GetSharedRenderEdgeItemSizesElement(ItemSizes itemSizes)
 		{
 			return this.m_common.GetSharedRenderEdgeItemSizesElement(itemSizes);
 		}
 
-		internal ItemSizes GetSharedFromRepeatItemSizesElement(ReportItem reportItem, bool isPadded)
+		public ItemSizes GetSharedFromRepeatItemSizesElement(ReportItem reportItem, bool isPadded)
 		{
 			return this.m_common.GetSharedFromRepeatItemSizesElement(reportItem, isPadded);
 		}
 
-		internal ItemSizes GetSharedRenderFromRepeatItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
+		public ItemSizes GetSharedRenderFromRepeatItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
 		{
 			return this.m_common.GetSharedRenderFromRepeatItemSizesElement(itemSizes, isPadded, returnPaddings);
 		}
 
-		internal ItemSizes GetSharedRenderRepeatItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
+		public ItemSizes GetSharedRenderRepeatItemSizesElement(ItemSizes itemSizes, bool isPadded, bool returnPaddings)
 		{
 			return this.m_common.GetSharedRenderRepeatItemSizesElement(itemSizes, isPadded, returnPaddings);
 		}
 
-		internal SizeF MeasureStringGDI(string text, CanvasFont font, SizeF layoutArea, out int charactersFitted, out int linesFilled)
+		public SizeF MeasureStringGDI(string text, CanvasFont font, SizeF layoutArea, out int charactersFitted, out int linesFilled)
 		{
 			return this.m_common.MeasureStringGDI(text, font, layoutArea, out charactersFitted, out linesFilled);
 		}
 
-		internal double ConvertToMillimeters(int coordinate, float dpi)
+		public double ConvertToMillimeters(int coordinate, float dpi)
 		{
 			if (0.0 == dpi)
 			{
@@ -1773,7 +1773,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return 1.0 / (double)dpi * (double)coordinate * 25.399999618530273;
 		}
 
-		internal string GenerateStreamName(IImageInstance imageInstance, string ownerUniqueName)
+		public string GenerateStreamName(IImageInstance imageInstance, string ownerUniqueName)
 		{
 			StringBuilder stringBuilder = null;
 			stringBuilder = ((!(imageInstance is BackgroundImageInstance)) ? new StringBuilder("I") : new StringBuilder("B"));
@@ -1794,7 +1794,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return stringBuilder.ToString();
 		}
 
-		internal string GenerateStreamName(ChartInstance chartIntance)
+		public string GenerateStreamName(ChartInstance chartIntance)
 		{
 			StringBuilder stringBuilder = new StringBuilder("C");
 			stringBuilder.Append('_');
@@ -1804,7 +1804,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return stringBuilder.ToString();
 		}
 
-		internal string GenerateStreamName(GaugePanelInstance gaugeIntance)
+		public string GenerateStreamName(GaugePanelInstance gaugeIntance)
 		{
 			StringBuilder stringBuilder = new StringBuilder("G");
 			stringBuilder.Append('_');
@@ -1814,7 +1814,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return stringBuilder.ToString();
 		}
 
-		internal string GenerateStreamName(MapInstance mapIntance)
+		public string GenerateStreamName(MapInstance mapIntance)
 		{
 			StringBuilder stringBuilder = new StringBuilder("M");
 			stringBuilder.Append('_');
@@ -1824,12 +1824,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return stringBuilder.ToString();
 		}
 
-		internal void RegisterPageBookmark(ReportItemInstance reportItemInstance)
+		public void RegisterPageBookmark(ReportItemInstance reportItemInstance)
 		{
 			this.m_common.RegisterPageBookmark(reportItemInstance);
 		}
 
-		internal void CreateCacheStream(long value)
+		public void CreateCacheStream(long value)
 		{
 			this.m_common.CreateCacheStream(value);
 		}

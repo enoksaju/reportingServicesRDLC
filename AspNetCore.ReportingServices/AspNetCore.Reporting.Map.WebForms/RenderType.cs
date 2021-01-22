@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum RenderType
+	public enum RenderType
 	{
 		ImageTag,
 		InputTag,

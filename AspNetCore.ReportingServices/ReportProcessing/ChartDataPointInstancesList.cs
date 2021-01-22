@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartDataPointInstancesList : ArrayList
+	public sealed class ChartDataPointInstancesList : ArrayList
 	{
-		internal new ChartDataPointInstanceList this[int index]
+		public new ChartDataPointInstanceList this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartDataPointInstancesList()
+		public ChartDataPointInstancesList()
 		{
 		}
 
-		internal ChartDataPointInstancesList(int capacity)
+		public ChartDataPointInstancesList(int capacity)
 			: base(capacity)
 		{
 		}

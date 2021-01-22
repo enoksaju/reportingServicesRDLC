@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class Position
+	public class Position
 	{
 		private GaugeLocation location;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal RectangleF Rectangle
+		public RectangleF Rectangle
 		{
 			get
 			{

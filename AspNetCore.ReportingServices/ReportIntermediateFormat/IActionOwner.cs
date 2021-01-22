@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IActionOwner
+	public interface IActionOwner
 	{
 		Action Action
 		{

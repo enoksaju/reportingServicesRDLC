@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartIntervalType
+	public enum ChartIntervalType
 	{
 		Default,
 		Auto,

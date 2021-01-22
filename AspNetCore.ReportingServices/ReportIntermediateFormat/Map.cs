@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Map : ReportItem, IActionOwner, IPersistable, IPageBreakOwner
+	public sealed class Map : ReportItem, IActionOwner, IPersistable, IPageBreakOwner
 	{
 		private List<MapDataRegion> m_mapDataRegions;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private Formatter m_formatter;
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapViewport MapViewport
+		public MapViewport MapViewport
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapLayer> MapLayers
+		public List<MapLayer> MapLayers
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapLegend> MapLegends
+		public List<MapLegend> MapLegends
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapTitle> MapTitles
+		public List<MapTitle> MapTitles
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapDistanceScale MapDistanceScale
+		public MapDistanceScale MapDistanceScale
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapColorScale MapColorScale
+		public MapColorScale MapColorScale
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapBorderSkin MapBorderSkin
+		public MapBorderSkin MapBorderSkin
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AntiAliasing
+		public ExpressionInfo AntiAliasing
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TextAntiAliasingQuality
+		public ExpressionInfo TextAntiAliasingQuality
 		{
 			get
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ShadowIntensity
+		public ExpressionInfo ShadowIntensity
 		{
 			get
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TileLanguage
+		public ExpressionInfo TileLanguage
 		{
 			get
 			{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int MaximumSpatialElementCount
+		public int MaximumSpatialElementCount
 		{
 			get
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int MaximumTotalPointCount
+		public int MaximumTotalPointCount
 		{
 			get
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapDataRegion> MapDataRegions
+		public List<MapDataRegion> MapDataRegions
 		{
 			get
 			{
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo PageName
+		public ExpressionInfo PageName
 		{
 			get
 			{
@@ -268,7 +268,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PageBreak PageBreak
+		public PageBreak PageBreak
 		{
 			get
 			{
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapExprHost MapExprHost
+		public MapExprHost MapExprHost
 		{
 			get
 			{
@@ -335,17 +335,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Map(ReportItem parent)
+		public Map(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Map(int id, ReportItem parent)
+		public Map(int id, ReportItem parent)
 			: base(id, parent)
 		{
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -437,7 +437,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal override void TraverseScopes(IRIFScopeVisitor visitor)
+		public override void TraverseScopes(IRIFScopeVisitor visitor)
 		{
 			if (this.m_mapDataRegions != null)
 			{
@@ -448,7 +448,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ContainsMapDataRegion()
+		public bool ContainsMapDataRegion()
 		{
 			if (this.m_mapDataRegions != null)
 			{
@@ -457,7 +457,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			Map map2 = context.CurrentMapClone = (Map)base.PublishClone(context);
 			if (this.m_mapDataRegions != null)
@@ -539,37 +539,37 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return map2;
 		}
 
-		internal MapAntiAliasing EvaluateAntiAliasing(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapAntiAliasing EvaluateAntiAliasing(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return EnumTranslator.TranslateMapAntiAliasing(context.ReportRuntime.EvaluateMapAntiAliasingExpression(this, base.Name), context.ReportRuntime);
 		}
 
-		internal MapTextAntiAliasingQuality EvaluateTextAntiAliasingQuality(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapTextAntiAliasingQuality EvaluateTextAntiAliasingQuality(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return EnumTranslator.TranslateMapTextAntiAliasingQuality(context.ReportRuntime.EvaluateMapTextAntiAliasingQualityExpression(this, base.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateShadowIntensity(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateShadowIntensity(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapShadowIntensityExpression(this, base.Name);
 		}
 
-		internal string EvaluateTileLanguage(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateTileLanguage(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapTileLanguageExpression(this, base.Name);
 		}
 
-		internal string EvaluatePageName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluatePageName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapPageNameExpression(this, this.m_pageName, base.m_name);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapDataRegions, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapDataRegion));
@@ -593,7 +593,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Map, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ReportItem, list);
 		}
 
-		internal int GenerateActionOwnerID()
+		public int GenerateActionOwnerID()
 		{
 			return ++this.m_actionOwnerCounter;
 		}
@@ -744,7 +744,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Map;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -841,7 +841,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string GetFormattedStringFromValue(ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result, OnDemandProcessingContext context)
+		public string GetFormattedStringFromValue(ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result, OnDemandProcessingContext context)
 		{
 			string result2 = null;
 			if (result.ErrorOccurred)

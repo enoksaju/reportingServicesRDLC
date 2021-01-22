@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartAxisLocations
+	public enum ChartAxisLocations
 	{
 		Default,
 		Opposite

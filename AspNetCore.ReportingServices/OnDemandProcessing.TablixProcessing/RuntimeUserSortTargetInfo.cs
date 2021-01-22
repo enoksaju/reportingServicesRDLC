@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeUserSortTargetInfo : IStorable, IPersistable
+	public sealed class RuntimeUserSortTargetInfo : IStorable, IPersistable
 	{
 		private BTree m_sortTree;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private static Declaration m_declaration = RuntimeUserSortTargetInfo.GetDeclaration();
 
-		internal BTree SortTree
+		public BTree SortTree
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<AggregateRow> AggregateRows
+		public List<AggregateRow> AggregateRows
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<int> SortFilterInfoIndices
+		public List<int> SortFilterInfoIndices
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool TargetForNonDetailSort
+		public bool TargetForNonDetailSort
 		{
 			get
 			{
@@ -74,16 +74,16 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeUserSortTargetInfo()
+		public RuntimeUserSortTargetInfo()
 		{
 		}
 
-		internal RuntimeUserSortTargetInfo(IReference<IHierarchyObj> owner, int sortInfoIndex, IReference<RuntimeSortFilterEventInfo> sortInfo)
+		public RuntimeUserSortTargetInfo(IReference<IHierarchyObj> owner, int sortInfoIndex, IReference<RuntimeSortFilterEventInfo> sortInfo)
 		{
 			this.AddSortInfo(owner, sortInfoIndex, sortInfo);
 		}
 
-		internal void AddSortInfo(IReference<IHierarchyObj> owner, int sortInfoIndex, IReference<RuntimeSortFilterEventInfo> sortInfo)
+		public void AddSortInfo(IReference<IHierarchyObj> owner, int sortInfoIndex, IReference<RuntimeSortFilterEventInfo> sortInfo)
 		{
 			IInScopeEventSource eventSource = sortInfo.Value().EventSource;
 			if (eventSource.UserSort.SortExpressionScope != null || owner.Value().IsDetail)
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void AddSortInfoIndex(int sortInfoIndex, IReference<RuntimeSortFilterEventInfo> sortInfoRef)
+		public void AddSortInfoIndex(int sortInfoIndex, IReference<RuntimeSortFilterEventInfo> sortInfoRef)
 		{
 			using (sortInfoRef.PinValue())
 			{
@@ -131,12 +131,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void ResetTargetForNonDetailSort()
+		public void ResetTargetForNonDetailSort()
 		{
 			this.m_targetForNonDetailSort = null;
 		}
 
-		internal bool IsTargetForSort(int index, bool detailSort)
+		public bool IsTargetForSort(int index, bool detailSort)
 		{
 			Hashtable hashtable = this.m_targetForNonDetailSort;
 			if (detailSort)
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return false;
 		}
 
-		internal void MarkSortInfoProcessed(List<IReference<RuntimeSortFilterEventInfo>> runtimeSortFilterInfo, IReference<IHierarchyObj> sortTarget)
+		public void MarkSortInfoProcessed(List<IReference<RuntimeSortFilterEventInfo>> runtimeSortFilterInfo, IReference<IHierarchyObj> sortTarget)
 		{
 			if (this.m_targetForNonDetailSort != null)
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void EnterProcessUserSortPhase(OnDemandProcessingContext odpContext)
+		public void EnterProcessUserSortPhase(OnDemandProcessingContext odpContext)
 		{
 			if (this.m_sortFilterInfoIndices != null)
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void LeaveProcessUserSortPhase(OnDemandProcessingContext odpContext)
+		public void LeaveProcessUserSortPhase(OnDemandProcessingContext odpContext)
 		{
 			if (this.m_sortFilterInfoIndices != null)
 			{

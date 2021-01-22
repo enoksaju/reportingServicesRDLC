@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal enum AggregateMode
+	public enum AggregateMode
 	{
 		Aggregates,
 		PostSortAggregates

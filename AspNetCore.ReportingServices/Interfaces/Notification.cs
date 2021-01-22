@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal abstract class Notification
+	public abstract class Notification
 	{
 		public abstract Report Report
 		{

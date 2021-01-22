@@ -2,7 +2,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal static class CellPair
+	public static class CellPair
 	{
 		public static string Name(int row, int col)
 		{

@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class DataSetContext
+	public sealed class DataSetContext
 	{
 		private string m_targetChunkNameInSnapshot;
 

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class InitializeDataSourcesEventArgs : EventArgs
+	public sealed class InitializeDataSourcesEventArgs : EventArgs
 	{
 		private ReportDataSourceCollection m_dataSources;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal InitializeDataSourcesEventArgs(ReportDataSourceCollection dataSources)
+		public InitializeDataSourcesEventArgs(ReportDataSourceCollection dataSources)
 		{
 			this.m_dataSources = dataSources;
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLTablixMemberDef
+	public sealed class RPLTablixMemberDef
 	{
 		private string m_definitionPath;
 
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal byte State
+		public byte State
 		{
 			get
 			{
@@ -82,11 +82,11 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTablixMemberDef()
+		public RPLTablixMemberDef()
 		{
 		}
 
-		internal RPLTablixMemberDef(string definitionPath, int memberCellIndex, byte state, int defTreeLevel)
+		public RPLTablixMemberDef(string definitionPath, int memberCellIndex, byte state, int defTreeLevel)
 		{
 			this.m_definitionPath = definitionPath;
 			this.m_memberCellIndex = memberCellIndex;

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixHierarchy : MemberHierarchy<TablixMember>
+	public sealed class TablixHierarchy : MemberHierarchy<TablixMember>
 	{
 		private Tablix OwnerTablix
 		{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixHierarchy(Tablix owner, bool isColumn)
+		public TablixHierarchy(Tablix owner, bool isColumn)
 			: base((ReportItem)owner, isColumn)
 		{
 		}
@@ -134,12 +134,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return result;
 		}
 
-		internal override void ResetContext()
+		public override void ResetContext()
 		{
 			this.ResetContext(true);
 		}
 
-		internal void ResetContext(bool clearCache)
+		public void ResetContext(bool clearCache)
 		{
 			if (clearCache)
 			{

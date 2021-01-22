@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal enum BrowserMode
+	public enum BrowserMode
 	{
 		Unknown,
 		Quirks,

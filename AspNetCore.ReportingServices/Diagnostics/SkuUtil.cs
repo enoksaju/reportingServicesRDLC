@@ -5,9 +5,9 @@ using System.Data.SqlClient;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class SkuUtil
+	public static class SkuUtil
 	{
-		internal enum SkuVerificationErrorCode
+		public enum SkuVerificationErrorCode
 		{
 			Success,
 			LocalConnectionRequired,
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return SkuVerificationErrorCode.Success;
 		}
 
-		internal static List<SkuType> GetDatabaseSku(SkuType reportServerSku, out List<SkuType> restrictedSkus)
+		public static List<SkuType> GetDatabaseSku(SkuType reportServerSku, out List<SkuType> restrictedSkus)
 		{
 			List<SkuType> list = new List<SkuType>();
 			restrictedSkus = new List<SkuType>();
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return false;
 		}
 
-		internal static string GetMachineNameFromSqlInstanceName(string sqlInstanceName)
+		public static string GetMachineNameFromSqlInstanceName(string sqlInstanceName)
 		{
 			string text = sqlInstanceName;
 			int num = sqlInstanceName.IndexOf('\\');
@@ -294,7 +294,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			return result;
 		}
 
-		internal static void GetConcurrencyLimit(SkuType sku, out long maxPhysicalCpu, out long maxCores, out long minLogicalCpu)
+		public static void GetConcurrencyLimit(SkuType sku, out long maxPhysicalCpu, out long maxCores, out long minLogicalCpu)
 		{
 			minLogicalCpu = 0L;
 			switch (sku)
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 			}
 		}
 
-		internal static long GetMaxMemoryThresholdMB(SkuType sku)
+		public static long GetMaxMemoryThresholdMB(SkuType sku)
 		{
 			long num;
 			switch (sku)

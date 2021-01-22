@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal static class Orientation
+	public static class Orientation
 	{
 		public static int Horizontal = 0;
 

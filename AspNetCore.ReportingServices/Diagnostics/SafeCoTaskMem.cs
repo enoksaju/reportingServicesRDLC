@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class SafeCoTaskMem : SafeHandleZeroOrMinusOneIsInvalid
+	public sealed class SafeCoTaskMem : SafeHandleZeroOrMinusOneIsInvalid
 	{
 		private SafeCoTaskMem()
 			: base(true)
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 		{
 		}
 
-		internal SafeCoTaskMem Alloc(int cb)
+		public SafeCoTaskMem Alloc(int cb)
 		{
 			SafeCoTaskMem safeCoTaskMem = NativeMemoryMethods.CoTaskMemAlloc(cb);
 			if (safeCoTaskMem.IsInvalid)

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbErrorInspectorFactory
+	public interface IDbErrorInspectorFactory
 	{
 		IDbErrorInspector CreateErrorInspector();
 	}

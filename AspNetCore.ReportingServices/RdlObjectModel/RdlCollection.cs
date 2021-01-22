@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class RdlCollection<T> : RdlCollectionBase<T>
+	public class RdlCollection<T> : RdlCollectionBase<T>
 	{
 		public RdlCollection()
 		{

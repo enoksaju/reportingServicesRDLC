@@ -5,7 +5,7 @@ using System.Windows.Forms.Design;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FlagsEnumUITypeEditor : UITypeEditor
+	public class FlagsEnumUITypeEditor : UITypeEditor
 	{
 		private Type enumType;
 

@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class HotRegion
+	public class HotRegion
 	{
 		private GraphicsPath path;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private object selectedSubObject;
 
-		internal GraphicsPath Path
+		public GraphicsPath Path
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal bool RelativeCoordinates
+		public bool RelativeCoordinates
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal RectangleF BoundingRectangle
+		public RectangleF BoundingRectangle
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal object SelectedObject
+		public object SelectedObject
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal object SelectedSubObject
+		public object SelectedSubObject
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal int PointIndex
+		public int PointIndex
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal string SeriesName
+		public string SeriesName
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ChartElementType Type
+		public ChartElementType Type
 		{
 			get
 			{

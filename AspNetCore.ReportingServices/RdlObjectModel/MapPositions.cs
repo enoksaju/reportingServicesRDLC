@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapPositions
+	public enum MapPositions
 	{
 		TopCenter,
 		TopLeft,

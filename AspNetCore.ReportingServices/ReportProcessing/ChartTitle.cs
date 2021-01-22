@@ -6,9 +6,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartTitle
+	public sealed class ChartTitle
 	{
-		internal enum Positions
+		public enum Positions
 		{
 			Center,
 			Near,
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ChartTitleExprHost m_exprHost;
 
-		internal ExpressionInfo Caption
+		public ExpressionInfo Caption
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Style StyleClass
+		public Style StyleClass
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Positions Position
+		public Positions Position
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartTitleExprHost ExprHost
+		public ChartTitleExprHost ExprHost
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(ChartTitleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartTitleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			this.m_exprHost = exprHost;
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartTitleStart();
 			if (this.m_caption != null)
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.ExprHostBuilder.ChartTitleEnd();
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Caption, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ExpressionInfo));

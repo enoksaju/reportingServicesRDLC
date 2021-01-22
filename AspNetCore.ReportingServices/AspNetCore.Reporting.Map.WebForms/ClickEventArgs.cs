@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ClickEventArgs : EventArgs
+	public class ClickEventArgs : EventArgs
 	{
 		private int x;
 

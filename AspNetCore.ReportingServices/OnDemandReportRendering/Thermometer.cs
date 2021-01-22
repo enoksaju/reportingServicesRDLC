@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Thermometer : IROMStyleDefinitionContainer
+	public sealed class Thermometer : IROMStyleDefinitionContainer
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Thermometer ThermometerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Thermometer ThermometerDef
 		{
 			get
 			{
@@ -98,13 +98,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Thermometer(AspNetCore.ReportingServices.ReportIntermediateFormat.Thermometer defObject, GaugePanel gaugePanel)
+		public Thermometer(AspNetCore.ReportingServices.ReportIntermediateFormat.Thermometer defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

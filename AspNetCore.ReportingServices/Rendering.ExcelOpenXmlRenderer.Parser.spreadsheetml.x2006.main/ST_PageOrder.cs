@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_PageOrder
+	public class ST_PageOrder
 	{
 		private string _ooxmlEnumerationValue;
 

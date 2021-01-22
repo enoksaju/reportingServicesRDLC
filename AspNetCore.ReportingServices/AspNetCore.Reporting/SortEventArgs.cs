@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace AspNetCore.Reporting
 {
 	[ComVisible(false)]
-	internal sealed class SortEventArgs : CancelEventArgs
+	public sealed class SortEventArgs : CancelEventArgs
 	{
 		private string m_sortId;
 

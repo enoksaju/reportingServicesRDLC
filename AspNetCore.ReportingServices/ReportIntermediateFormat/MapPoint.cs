@@ -12,7 +12,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapPoint : MapSpatialElement, IPersistable
+	public sealed class MapPoint : MapSpatialElement, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapPoint.GetDeclaration();
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private MapPointTemplate m_mapPointTemplate;
 
-		internal ExpressionInfo UseCustomPointTemplate
+		public ExpressionInfo UseCustomPointTemplate
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPointTemplate MapPointTemplate
+		public MapPointTemplate MapPointTemplate
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapPointExprHost ExprHost
+		public new MapPointExprHost ExprHost
 		{
 			get
 			{
@@ -53,16 +53,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPoint()
+		public MapPoint()
 		{
 		}
 
-		internal MapPoint(MapPointLayer mapPointLayer, Map map)
+		public MapPoint(MapPointLayer mapPointLayer, Map map)
 			: base(mapPointLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context, int index)
+		public override void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.MapPointStart(index.ToString(CultureInfo.InvariantCulture.NumberFormat));
 			base.Initialize(context, index);
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.MapPointEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapPoint mapPoint = (MapPoint)base.PublishClone(context);
 			if (this.m_useCustomPointTemplate != null)
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapPoint;
 		}
 
-		internal void SetExprHost(MapPointExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapPointExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.UseCustomPointTemplate, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapPoint;
 		}
 
-		internal bool EvaluateUseCustomPointTemplate(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUseCustomPointTemplate(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapPointUseCustomPointTemplateExpression(this, base.m_map.Name);

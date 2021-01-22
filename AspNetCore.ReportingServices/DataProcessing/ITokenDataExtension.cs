@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface ITokenDataExtension
+	public interface ITokenDataExtension
 	{
 		void SetUserToken(byte[] UserToken);
 	}

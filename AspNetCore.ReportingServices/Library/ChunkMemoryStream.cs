@@ -4,7 +4,7 @@ using System.IO;
 namespace AspNetCore.ReportingServices.Library
 {
 	[Serializable]
-	internal sealed class ChunkMemoryStream : MemoryStream
+	public sealed class ChunkMemoryStream : MemoryStream
 	{
 		[NonSerialized]
 		public bool CanBeClosed;

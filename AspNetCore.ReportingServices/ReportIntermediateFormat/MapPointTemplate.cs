@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapPointTemplate : MapSpatialElementTemplate, IPersistable
+	public class MapPointTemplate : MapSpatialElementTemplate, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapPointTemplate.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_labelPlacement;
 
-		internal ExpressionInfo Size
+		public ExpressionInfo Size
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelPlacement
+		public ExpressionInfo LabelPlacement
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapPointTemplateExprHost ExprHost
+		public new MapPointTemplateExprHost ExprHost
 		{
 			get
 			{
@@ -52,16 +52,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPointTemplate()
+		public MapPointTemplate()
 		{
 		}
 
-		internal MapPointTemplate(MapVectorLayer mapVectorLayer, Map map, int id)
+		public MapPointTemplate(MapVectorLayer mapVectorLayer, Map map, int id)
 			: base(mapVectorLayer, map, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_size != null)
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapPointTemplate mapPointTemplate = (MapPointTemplate)base.PublishClone(context);
 			if (this.m_size != null)
@@ -90,13 +90,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapPointTemplate;
 		}
 
-		internal virtual void SetExprHost(MapPointTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHost(MapPointTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Size, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -151,13 +151,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapPointTemplate;
 		}
 
-		internal string EvaluateSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapPointTemplateSizeExpression(this, base.m_map.Name);
 		}
 
-		internal MapPointLabelPlacement EvaluateLabelPlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapPointLabelPlacement EvaluateLabelPlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateMapPointLabelPlacement(context.ReportRuntime.EvaluateMapPointTemplateLabelPlacementExpression(this, base.m_map.Name), context.ReportRuntime);

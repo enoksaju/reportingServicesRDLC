@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapTextAntiAliasingQualities
+	public enum MapTextAntiAliasingQualities
 	{
 		High,
 		Normal,

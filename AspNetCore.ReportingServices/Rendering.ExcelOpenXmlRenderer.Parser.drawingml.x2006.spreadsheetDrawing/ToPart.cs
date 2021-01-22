@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.spreadsheetDrawing
 {
-	internal class ToPart : OoxmlPart
+	public class ToPart : OoxmlPart
 	{
 		private CT_Marker _root;
 

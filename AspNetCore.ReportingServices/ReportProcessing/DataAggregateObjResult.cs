@@ -1,19 +1,19 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal struct DataAggregateObjResult
+	public struct DataAggregateObjResult
 	{
-		internal bool ErrorOccurred;
+		public bool ErrorOccurred;
 
-		internal object Value;
+		public object Value;
 
-		internal bool HasCode;
+		public bool HasCode;
 
-		internal ProcessingErrorCode Code;
+		public ProcessingErrorCode Code;
 
-		internal Severity Severity;
+		public Severity Severity;
 
-		internal string[] Arguments;
+		public string[] Arguments;
 
-		internal DataFieldStatus FieldStatus;
+		public DataFieldStatus FieldStatus;
 	}
 }

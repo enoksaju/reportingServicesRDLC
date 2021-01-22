@@ -6,14 +6,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class UpdatedVariableValues : IPersistable
+	public sealed class UpdatedVariableValues : IPersistable
 	{
 		private Dictionary<int, object> m_variableValues;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = UpdatedVariableValues.GetDeclaration();
 
-		internal Dictionary<int, object> VariableValues
+		public Dictionary<int, object> VariableValues
 		{
 			get
 			{
@@ -25,11 +25,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal UpdatedVariableValues()
+		public UpdatedVariableValues()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.UpdatedVariableValues, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Int32SerializableDictionary, Token.Serializable));

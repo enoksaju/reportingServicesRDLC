@@ -9,13 +9,13 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeDataPoint_DataPoint")]
 	[DefaultProperty("YValues")]
-	internal class DataPoint : DataPointAttributes
+	public class DataPoint : DataPointAttributes
 	{
 		private double xValue;
 
 		private double[] yValue = new double[1];
 
-		internal PointF positionRel = PointF.Empty;
+		public PointF positionRel = PointF.Empty;
 
 		[Bindable(true)]
 		[SRDescription("DescriptionAttributeDataPoint_XValue")]
@@ -375,7 +375,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.xValue = xValue;
 		}
 
-		internal void SetPointAttribute(object obj, string attributeName, string format)
+		public void SetPointAttribute(object obj, string attributeName, string format)
 		{
 			string text = obj as string;
 			if (text == null)
@@ -682,7 +682,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return dataPoint;
 		}
 
-		internal void ResizeYValueArray(int newSize)
+		public void ResizeYValueArray(int newSize)
 		{
 			double[] array = new double[newSize];
 			if (this.yValue != null)
@@ -705,7 +705,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.YValues[yValueIndex] = yValue;
 		}
 
-		internal double GetValueByName(string valueName)
+		public double GetValueByName(string valueName)
 		{
 			valueName = valueName.ToUpper(CultureInfo.InvariantCulture);
 			if (string.Compare(valueName, "X", StringComparison.Ordinal) == 0)
@@ -740,7 +740,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			throw new ArgumentException(SR.ExceptionDataPointValueNameInvalid, "valueName");
 		}
 
-		internal string ReplaceKeywords(string strOriginal)
+		public string ReplaceKeywords(string strOriginal)
 		{
 			if (strOriginal != null && strOriginal.Length != 0)
 			{

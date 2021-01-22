@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLImageData
+	public sealed class RPLImageData
 	{
 		private string m_imageName;
 

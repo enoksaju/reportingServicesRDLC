@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportIntProperty : ReportProperty
+	public sealed class ReportIntProperty : ReportProperty
 	{
 		private int m_value;
 
@@ -14,12 +14,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportIntProperty(int value)
+		public ReportIntProperty(int value)
 		{
 			this.m_value = value;
 		}
 
-		internal ReportIntProperty(bool isExpression, string expressionString, int value, int defaultValue)
+		public ReportIntProperty(bool isExpression, string expressionString, int value, int defaultValue)
 			: base(isExpression, expressionString)
 		{
 			if (!isExpression)
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportIntProperty(ExpressionInfo expression)
+		public ReportIntProperty(ExpressionInfo expression)
 			: base(expression != null && expression.IsExpression, (expression == null) ? null : expression.OriginalText)
 		{
 			if (expression != null && !expression.IsExpression)

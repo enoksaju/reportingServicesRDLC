@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class AreaChart : SplineChart
+	public class AreaChart : SplineChart
 	{
 		protected bool gradientFill;
 
@@ -873,7 +873,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			goto IL_01a4;
 		}
 
-		internal DataPoint3D GetAxisIntersection(DataPoint3D firstPoint, DataPoint3D secondPoint, float axisPosition)
+		public DataPoint3D GetAxisIntersection(DataPoint3D firstPoint, DataPoint3D secondPoint, float axisPosition)
 		{
 			DataPoint3D dataPoint3D = new DataPoint3D();
 			dataPoint3D.yPosition = (double)axisPosition;

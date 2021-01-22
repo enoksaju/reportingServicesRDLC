@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ScalePin : TickMarkStyle, IPersistable
+	public sealed class ScalePin : TickMarkStyle, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ScalePin.GetDeclaration();
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private PinLabel m_pinLabel;
 
-		internal ExpressionInfo Location
+		public ExpressionInfo Location
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Enable
+		public ExpressionInfo Enable
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PinLabel PinLabel
+		public PinLabel PinLabel
 		{
 			get
 			{
@@ -58,16 +58,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ScalePin()
+		public ScalePin()
 		{
 		}
 
-		internal ScalePin(GaugePanel gaugePanel)
+		public ScalePin(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal void Initialize(InitializationContext context, bool isMaximum)
+		public void Initialize(InitializationContext context, bool isMaximum)
 		{
 			context.ExprHostBuilder.ScalePinStart(isMaximum);
 			base.InitializeInternal(context);
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ScalePinEnd(isMaximum);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ScalePin scalePin = (ScalePin)base.PublishClone(context);
 			if (this.m_location != null)
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return scalePin;
 		}
 
-		internal void SetExprHost(ScalePinExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ScalePinExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Location, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -179,13 +179,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ScalePin;
 		}
 
-		internal double EvaluateLocation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateLocation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScalePinLocationExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateEnable(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateEnable(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateScalePinEnableExpression(this, base.m_gaugePanel.Name);

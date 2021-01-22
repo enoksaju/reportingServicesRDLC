@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ChartColorPalette
+	public enum ChartColorPalette
 	{
 		None,
 		Default,

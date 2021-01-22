@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class RowSkippingFilter
+	public sealed class RowSkippingFilter
 	{
 		private readonly List<AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo> m_expressions;
 

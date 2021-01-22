@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartData : DataRegionBody
+	public class ChartData : DataRegionBody
 	{
-		internal class Definition : DefinitionStore<ChartData, Definition.Properties>
+		public class Definition : DefinitionStore<ChartData, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				ChartSeriesCollection,
 				ChartDerivedSeriesCollection,
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartData(IPropertyStore propertyStore)
+		public ChartData(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

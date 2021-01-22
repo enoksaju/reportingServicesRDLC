@@ -3,7 +3,7 @@ using System.Data;
 
 namespace AspNetCore.ReportingServices.Extensions
 {
-	internal interface ICatalogQuery
+	public interface ICatalogQuery
 	{
 		void ExecuteNonQuery(string query, Hashtable parameters, CommandType type);
 

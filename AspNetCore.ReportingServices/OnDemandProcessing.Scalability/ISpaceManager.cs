@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface ISpaceManager
+	public interface ISpaceManager
 	{
 		long StreamEnd
 		{

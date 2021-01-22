@@ -21,7 +21,7 @@ using System.Threading;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapCore : NamedElement, IDisposable
+	public class MapCore : NamedElement, IDisposable
 	{
 		private struct PanelPair
 		{
@@ -36,7 +36,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal class GridSection : IDisposable
+		public class GridSection : IDisposable
 		{
 			public Point Origin;
 
@@ -72,17 +72,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private const float VisibleContentMargin = 20f;
 
-		internal const int MaximumResolvedKeywordLength = 80;
+		public const int MaximumResolvedKeywordLength = 80;
 
 		private const int BufferSize = 4096;
 
-		internal const string DefaultRuleLegendTest = "#FROMVALUE{N0} - #TOVALUE{N0}";
+		public const string DefaultRuleLegendTest = "#FROMVALUE{N0} - #TOVALUE{N0}";
 
-		internal const string NoneToken = "(none)";
+		public const string NoneToken = "(none)";
 
-		internal const string AllToken = "(all)";
+		public const string AllToken = "(all)";
 
-		internal const string NameToken = "(Name)";
+		public const string NameToken = "(Name)";
 
 		private const double ClippingMargin = 1E-10;
 
@@ -92,11 +92,11 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private BorderTypeRegistry borderTypeRegistry;
 
-		internal bool silentPaint;
+		public bool silentPaint;
 
-		internal string loadedBuildNumber = string.Empty;
+		public string loadedBuildNumber = string.Empty;
 
-		internal bool skipPaint;
+		public bool skipPaint;
 
 		private MapAreaCollection mapAreas;
 
@@ -106,13 +106,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private ImageLoader imageLoader;
 
-		internal bool dirtyFlag;
+		public bool dirtyFlag;
 
-		internal bool disableInvalidate;
+		public bool disableInvalidate;
 
-		internal bool isInitializing;
+		public bool isInitializing;
 
-		internal bool boundToDataSource;
+		public bool boundToDataSource;
 
 		private bool invalidatingDataBind;
 
@@ -122,7 +122,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private Size printSize = new Size(0, 0);
 
-		internal ServiceContainer serviceContainer;
+		public ServiceContainer serviceContainer;
 
 		private bool rulesDirty = true;
 
@@ -324,9 +324,9 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		//private SqlGeography ClippingPolygon = SqlGeography.Parse("FULLGLOBE");
 
-		internal LoadTilesHandler LoadTilesHandler;
+		public LoadTilesHandler LoadTilesHandler;
 
-		internal SaveTilesHandler SaveTilesHandler;
+		public SaveTilesHandler SaveTilesHandler;
 
 		public string licenseData = "";
 
@@ -1456,7 +1456,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		}
 
 		[DefaultValue("ArHDYkG4iBBgRo5ZKlvBPAXjj3tA13t5WMpr60l7m23-SSyZJoHsVVe2IecRKN88")]
-		internal string TileServerAppId
+		public string TileServerAppId
 		{
 			get
 			{
@@ -1615,7 +1615,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal object DataSource
+		public object DataSource
 		{
 			get
 			{
@@ -1634,7 +1634,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		}
 
 		[SerializationVisibility(SerializationVisibility.Hidden)]
-		internal MapSerializer Serializer
+		public MapSerializer Serializer
 		{
 			get
 			{
@@ -1643,7 +1643,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		}
 
 		[SerializationVisibility(SerializationVisibility.Hidden)]
-		internal CallbackManager CallbackManager
+		public CallbackManager CallbackManager
 		{
 			get
 			{
@@ -1651,7 +1651,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapControl MapControl
+		public MapControl MapControl
 		{
 			get
 			{
@@ -1659,7 +1659,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal HotRegionList HotRegionList
+		public HotRegionList HotRegionList
 		{
 			get
 			{
@@ -1671,7 +1671,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool Serializing
+		public bool Serializing
 		{
 			get
 			{
@@ -1683,7 +1683,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapPoint MapCenterPoint
+		public MapPoint MapCenterPoint
 		{
 			get
 			{
@@ -1705,7 +1705,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapPoint MinimumPoint
+		public MapPoint MinimumPoint
 		{
 			get
 			{
@@ -1727,7 +1727,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapPoint MaximumPoint
+		public MapPoint MaximumPoint
 		{
 			get
 			{
@@ -1749,7 +1749,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal RectangleF MapDockBounds
+		public RectangleF MapDockBounds
 		{
 			get
 			{
@@ -1765,7 +1765,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ISelectable SelectedDesignTimeElement
+		public ISelectable SelectedDesignTimeElement
 		{
 			get
 			{
@@ -1784,7 +1784,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool UseRSAccessibilityNames
+		public bool UseRSAccessibilityNames
 		{
 			get
 			{
@@ -1798,7 +1798,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool DoPanelLayout
+		public bool DoPanelLayout
 		{
 			get
 			{
@@ -1810,7 +1810,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal RenderingMode RenderingMode
+		public RenderingMode RenderingMode
 		{
 			get
 			{
@@ -1822,7 +1822,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Panel PanelToRender
+		public Panel PanelToRender
 		{
 			get
 			{
@@ -1834,7 +1834,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int SingleGridSectionX
+		public int SingleGridSectionX
 		{
 			get
 			{
@@ -1846,7 +1846,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int SingleGridSectionY
+		public int SingleGridSectionY
 		{
 			get
 			{
@@ -1858,7 +1858,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Hashtable TileImagesCache
+		public Hashtable TileImagesCache
 		{
 			get
 			{
@@ -1883,7 +1883,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool UppercaseFieldKeywords
+		public bool UppercaseFieldKeywords
 		{
 			get
 			{
@@ -1895,7 +1895,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int MaxSpatialPointCount
+		public int MaxSpatialPointCount
 		{
 			get
 			{
@@ -1907,7 +1907,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int MaxSpatialElementCount
+		public int MaxSpatialElementCount
 		{
 			get
 			{
@@ -1919,7 +1919,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool InvokeRequired
+		public bool InvokeRequired
 		{
 			get
 			{
@@ -1927,7 +1927,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal GridSection[,] GridSections
+		public GridSection[,] GridSections
 		{
 			get
 			{
@@ -1939,7 +1939,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int GridSectionsXCount
+		public int GridSectionsXCount
 		{
 			get
 			{
@@ -1951,7 +1951,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int GridSectionsYCount
+		public int GridSectionsYCount
 		{
 			get
 			{
@@ -1963,7 +1963,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int GridSectionsInViewportXCount
+		public int GridSectionsInViewportXCount
 		{
 			get
 			{
@@ -1975,7 +1975,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int GridSectionsInViewportYCount
+		public int GridSectionsInViewportYCount
 		{
 			get
 			{
@@ -1987,7 +1987,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Point[] GridSectionsArray
+		public Point[] GridSectionsArray
 		{
 			get
 			{
@@ -1999,7 +1999,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Size GridSectionSize
+		public Size GridSectionSize
 		{
 			get
 			{
@@ -2011,7 +2011,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Point GridSectionsOffset
+		public Point GridSectionsOffset
 		{
 			get
 			{
@@ -2023,7 +2023,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsSuspended
+		public bool IsSuspended
 		{
 			get
 			{
@@ -2031,7 +2031,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool AutoUpdates
+		public bool AutoUpdates
 		{
 			get
 			{
@@ -2088,7 +2088,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal MapCore(MapControl parent)
+		public MapCore(MapControl parent)
 		{
 			this.parent = parent;
 			this.serviceContainer = new ServiceContainer();
@@ -2287,7 +2287,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return typeof(Shape);
 		}
 
-		internal static BasicMapElements? DetermineMapElementsFromSpatial(DataTable spatialTable, string spatialColumn)
+		public static BasicMapElements? DetermineMapElementsFromSpatial(DataTable spatialTable, string spatialColumn)
 		{
             /*
 			int num = 0;
@@ -2361,7 +2361,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return null;
 		}
 
-		internal void LoadFromSpatial(string connectionString, string sqlStatement, string nameColumn, string spatialColumn, BasicMapElements mapElementsToLoad, bool importAllData, string layer)
+		public void LoadFromSpatial(string connectionString, string sqlStatement, string nameColumn, string spatialColumn, BasicMapElements mapElementsToLoad, bool importAllData, string layer)
 		{
 			DataTable dataTable = null;
 			using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -2382,7 +2382,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.LoadFromSpatial(dataTable, nameColumn, spatialColumn, mapElementsToLoad, importAllData, layer);
 		}
 
-		internal void LoadFromSpatial(DataTable dataTable, string nameColumn, string spatialColumn, BasicMapElements mapElementsToLoad, bool importAllData, string layer)
+		public void LoadFromSpatial(DataTable dataTable, string nameColumn, string spatialColumn, BasicMapElements mapElementsToLoad, bool importAllData, string layer)
 		{
 			if (!importAllData)
 			{
@@ -2401,7 +2401,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void LoadFromSpatial(DataTable dataTable, string nameColumn, string spatialColumn, BasicMapElements mapElementsToLoad, string[] additionalColumnsToImport, string layer)
+		public void LoadFromSpatial(DataTable dataTable, string nameColumn, string spatialColumn, BasicMapElements mapElementsToLoad, string[] additionalColumnsToImport, string layer)
 		{
 			ColumnImportMode[] array = new ColumnImportMode[additionalColumnsToImport.Length];
 			for (int i = 0; i < array.Length; i++)
@@ -2411,7 +2411,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.LoadFromSpatial(dataTable, nameColumn, spatialColumn, mapElementsToLoad, additionalColumnsToImport, array, layer, string.Empty);
 		}
 
-		internal void LoadFromSpatial(DataTable spatialTable, string nameColumn, string spatialColumn, BasicMapElements mapElementsToLoad, string[] columnsToImport, ColumnImportMode[] importModes, string layer, string category)
+		public void LoadFromSpatial(DataTable spatialTable, string nameColumn, string spatialColumn, BasicMapElements mapElementsToLoad, string[] columnsToImport, ColumnImportMode[] importModes, string layer, string category)
 		{
 			switch (mapElementsToLoad)
 			{
@@ -2762,7 +2762,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal SqlGeography GetClippingPolygon(int srid)
+		public SqlGeography GetClippingPolygon(int srid)
 		{
 			double num = (this.Projection == Projection.Mercator) ? 85.05112878 : 89.0;
 			if (srid != this.CurrentSrid || num != this.CurrentLatitudeLimit)
@@ -2800,7 +2800,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.ClippingPolygon = sqlGeographyBuilder.ConstructedGeography;
 		}
 
-		internal SqlGeography NormalizeLongitude(SqlGeography geography)
+		public SqlGeography NormalizeLongitude(SqlGeography geography)
 		{
 			geography = geography.STCurveToLine();
 			LongitudeNormalizer longitudeNormalizer = new LongitudeNormalizer();
@@ -2808,7 +2808,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return longitudeNormalizer.Result;
 		}
         */
-		internal SpatialLoadResult LoadFromShapeFileStreams(Stream shpStream, Stream dbfStream, string[] columnsToImport, string[] destinationFields, string layer, string category)
+		public SpatialLoadResult LoadFromShapeFileStreams(Stream shpStream, Stream dbfStream, string[] columnsToImport, string[] destinationFields, string layer, string category)
 		{
 			ShapeFileReader shapeFileReader = new ShapeFileReader();
 			shapeFileReader.ShpStream = shpStream;
@@ -2826,7 +2826,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.LoadFromShapeReader(shapeFileReader, string.Empty, columnsToImport, destinationFields, array, layer, category);
 		}
 
-		internal SpatialLoadResult LoadFromShapeFileStreams(Stream shpStream, Stream dbfStream, string layer, string category)
+		public SpatialLoadResult LoadFromShapeFileStreams(Stream shpStream, Stream dbfStream, string layer, string category)
 		{
 			ShapeFileReader shapeFileReader = new ShapeFileReader();
 			shapeFileReader.ShpStream = shpStream;
@@ -2849,7 +2849,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.LoadFromShapeReader(shapeFileReader, string.Empty, array, array, array2, layer, category);
 		}
 
-		internal void LoadFromShapeFile(string fileName, string nameColumn, bool importData)
+		public void LoadFromShapeFile(string fileName, string nameColumn, bool importData)
 		{
 			ShapeFileReader shapeFileReader = new ShapeFileReader();
 			shapeFileReader.FileName = fileName;
@@ -2871,7 +2871,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void LoadFromShapeFile(string fileName, string nameColumn, string[] columnsToImport, ColumnImportMode[] importModes)
+		public void LoadFromShapeFile(string fileName, string nameColumn, string[] columnsToImport, ColumnImportMode[] importModes)
 		{
 			ShapeFileReader shapeFileReader = new ShapeFileReader();
 			shapeFileReader.FileName = fileName;
@@ -2879,12 +2879,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.LoadFromShapeReader(shapeFileReader, nameColumn, columnsToImport, importModes);
 		}
 
-		internal void LoadFromShapeReader(ShapeFileReader shapeReader, string nameColumn, string[] columnsToImport, ColumnImportMode[] importModes)
+		public void LoadFromShapeReader(ShapeFileReader shapeReader, string nameColumn, string[] columnsToImport, ColumnImportMode[] importModes)
 		{
 			this.LoadFromShapeReader(shapeReader, nameColumn, columnsToImport, columnsToImport, importModes, string.Empty, string.Empty);
 		}
 
-		internal SpatialLoadResult LoadFromShapeReader(ShapeFileReader shapeReader, string nameColumn, string[] columnsToImport, string[] destinationFields, ColumnImportMode[] importModes, string layer, string category)
+		public SpatialLoadResult LoadFromShapeReader(ShapeFileReader shapeReader, string nameColumn, string[] columnsToImport, string[] destinationFields, ColumnImportMode[] importModes, string layer, string category)
 		{
 			SpatialLoadResult result = SpatialLoadResult.AllSpatialElementsLoaded;
 			if (shapeReader.ShapeType == ShapeType.Polygon)
@@ -3250,7 +3250,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.InvalidateViewport();
 		}
 
-		internal void InvalidateCachedBounds()
+		public void InvalidateCachedBounds()
 		{
 			if (!this.updatingCachedBounds)
 			{
@@ -3259,7 +3259,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.InvalidateCachedPaths();
 		}
 
-		internal void UpdateCachedBounds()
+		public void UpdateCachedBounds()
 		{
 			if (this.cachedBoundsDirty)
 			{
@@ -3377,7 +3377,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapBounds DetermineSpatialElementsBounds()
+		public MapBounds DetermineSpatialElementsBounds()
 		{
 			new MapBounds(new MapPoint(double.PositiveInfinity, double.PositiveInfinity), new MapPoint(double.NegativeInfinity, double.NegativeInfinity));
 			List<Shape> boundDeterminingShapes = this.GetBoundDeterminingShapes();
@@ -3867,12 +3867,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void Paint(Graphics g)
+		public void Paint(Graphics g)
 		{
 			this.Paint(g, RenderingType.Gdi, null, false);
 		}
 
-		internal void Paint(Graphics gdiGraph, RenderingType renderingType, Stream stream, bool buffered)
+		public void Paint(Graphics gdiGraph, RenderingType renderingType, Stream stream, bool buffered)
 		{
 			if (!this.skipPaint)
 			{
@@ -3923,7 +3923,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void PrintPaint(Graphics g, Rectangle position)
+		public void PrintPaint(Graphics g, Rectangle position)
 		{
 			this.Notify(MessageType.PrepareSnapShot, this, null);
 			GraphicsState gstate = g.Save();
@@ -3942,7 +3942,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal BufferBitmap InitBitmap(BufferBitmap bmp)
+		public BufferBitmap InitBitmap(BufferBitmap bmp)
 		{
 			if (bmp == null)
 			{
@@ -4002,7 +4002,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return textRenderingHint;
 		}
 
-		internal MapGraphics GetGraphics(RenderingType renderingType, Graphics g, Stream outputStream)
+		public MapGraphics GetGraphics(RenderingType renderingType, Graphics g, Stream outputStream)
 		{
 			MapGraphics mapGraphics = new MapGraphics(this.Common);
 			this.Common.Height = this.GetHeight();
@@ -4016,7 +4016,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return mapGraphics;
 		}
 
-		internal Panel[] GetSortedPanels()
+		public Panel[] GetSortedPanels()
 		{
 			if (this.sortedPanels == null || this.dirtyFlag)
 			{
@@ -4093,7 +4093,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return stringBuilder.ToString().Trim();
 		}
 
-		internal static void RenderTileImageError(Graphics graphics, string error, Rectangle rect)
+		public static void RenderTileImageError(Graphics graphics, string error, Rectangle rect)
 		{
 			rect.Width++;
 			rect.Height++;
@@ -4109,7 +4109,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderErrorMessage(MapGraphics g)
+		public void RenderErrorMessage(MapGraphics g)
 		{
 			string tileLayerError = this.GetTileLayerError();
 			if (string.IsNullOrEmpty(this.Viewport.ErrorMessage) && string.IsNullOrEmpty(tileLayerError))
@@ -4158,7 +4158,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return false;
 		}
 
-		internal void RenderElements(MapGraphics g)
+		public void RenderElements(MapGraphics g)
 		{
 			this.HotRegionList.Clear();
 			this.HotRegionList.ScaleFactorX = g.ScaleFactorX;
@@ -4206,7 +4206,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.RenderPanels(g);
 		}
 
-		internal void RenderLayer(MapGraphics g, Layer layer, bool allLayers, RectangleF clipRect, HotRegionList hotRegions, Hashtable visibleLabels)
+		public void RenderLayer(MapGraphics g, Layer layer, bool allLayers, RectangleF clipRect, HotRegionList hotRegions, Hashtable visibleLabels)
 		{
 			if (layer != null && layer.TileSystem != 0 && this.Projection == Projection.Mercator)
 			{
@@ -4310,7 +4310,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderContentElements(MapGraphics g, PointF gridSectionOffset, HotRegionList hotRegions)
+		public void RenderContentElements(MapGraphics g, PointF gridSectionOffset, HotRegionList hotRegions)
 		{
 			if (this.GridUnderContent)
 			{
@@ -4371,7 +4371,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderPanels(MapGraphics g)
+		public void RenderPanels(MapGraphics g)
 		{
 			RectangleF bounds = g.Clip.GetBounds(g.Graphics);
 			Panel[] array = this.GetSortedPanels();
@@ -4442,7 +4442,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderElementsBufered(MapGraphics g)
+		public void RenderElementsBufered(MapGraphics g)
 		{
 			if (this.dirtyFlag || this.bufferBitmap == null || this.bufferBitmap.Graphics.ClipBounds != RectangleF.Union(g.Graphics.ClipBounds, this.bufferBitmap.Graphics.ClipBounds))
 			{
@@ -4484,7 +4484,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderSelectedContentElements(MapGraphics g, RectangleF clipRect)
+		public void RenderSelectedContentElements(MapGraphics g, RectangleF clipRect)
 		{
 			ISelectable[] selectedContentElements = this.GetSelectedContentElements();
 			ISelectable[] array = selectedContentElements;
@@ -4502,7 +4502,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderSelectedPanels(MapGraphics g, RectangleF clipRect)
+		public void RenderSelectedPanels(MapGraphics g, RectangleF clipRect)
 		{
 			ISelectable[] selectedPanels = this.GetSelectedPanels();
 			ISelectable[] array = selectedPanels;
@@ -4516,7 +4516,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ISelectable[] GetSelectedContentElements()
+		public ISelectable[] GetSelectedContentElements()
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (ISelectable group in this.Groups)
@@ -4550,7 +4550,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (ISelectable[])arrayList.ToArray(typeof(ISelectable));
 		}
 
-		internal ISelectable[] GetSelectedPanels()
+		public ISelectable[] GetSelectedPanels()
 		{
 			ArrayList arrayList = new ArrayList();
 			Panel[] array = this.GetSortedPanels();
@@ -4565,7 +4565,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (ISelectable[])arrayList.ToArray(typeof(ISelectable));
 		}
 
-		internal double PixelsToKilometers(float pixels)
+		public double PixelsToKilometers(float pixels)
 		{
 			PointF absoluteLocation = this.Viewport.GetAbsoluteLocation();
 			SizeF absoluteSize = this.Viewport.GetAbsoluteSize();
@@ -4576,7 +4576,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.MeasureDistance(point, point2);
 		}
 
-		internal double MeasureDistance(MapPoint point1, MapPoint point2)
+		public double MeasureDistance(MapPoint point1, MapPoint point2)
 		{
 			point1.X *= 0.017453292519943295;
 			point1.Y *= 0.017453292519943295;
@@ -4589,12 +4589,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return 6378.137 * num4;
 		}
 
-		internal double GetMinimumAbsoluteLatitude()
+		public double GetMinimumAbsoluteLatitude()
 		{
 			return this.GetMinimumAbsoluteLatitude(this.MinimumPoint.Y, this.MaximumPoint.Y);
 		}
 
-		internal double GetMinimumAbsoluteLatitude(double minY, double maxY)
+		public double GetMinimumAbsoluteLatitude(double minY, double maxY)
 		{
 			if (minY <= 0.0 && maxY >= 0.0)
 			{
@@ -4607,7 +4607,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return minY;
 		}
 
-		internal double LimitValue(double value, double lowerLimit, double upperLimit)
+		public double LimitValue(double value, double lowerLimit, double upperLimit)
 		{
 			if (value < lowerLimit)
 			{
@@ -4620,12 +4620,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return value;
 		}
 
-		internal Point3D ApplyProjection(MapPoint mapPoint)
+		public Point3D ApplyProjection(MapPoint mapPoint)
 		{
 			return this.ApplyProjection(mapPoint.X, mapPoint.Y);
 		}
 
-		internal Point3D ApplyProjection(double longitude, double latitude)
+		public Point3D ApplyProjection(double longitude, double latitude)
 		{
 			double num = longitude;
 			double num2 = latitude;
@@ -4780,7 +4780,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal MapPoint InverseProjection(double projectedX, double projectedY)
+		public MapPoint InverseProjection(double projectedX, double projectedY)
 		{
 			double num = projectedX;
 			double num2 = projectedY;
@@ -4950,7 +4950,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new MapPoint(num, num2);
 		}
 
-		internal double CalculateAspectRatio()
+		public double CalculateAspectRatio()
 		{
 			MapBounds boundsAfterProjection = this.GetBoundsAfterProjection();
 			double num = Math.Abs(boundsAfterProjection.MaximumPoint.X - boundsAfterProjection.MinimumPoint.X);
@@ -4962,12 +4962,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return 1.0;
 		}
 
-		internal void ResetCachedBoundsAfterProjection()
+		public void ResetCachedBoundsAfterProjection()
 		{
 			this.cachedBoundsAfterProjection = null;
 		}
 
-		internal MapBounds GetBoundsAfterProjection()
+		public MapBounds GetBoundsAfterProjection()
 		{
 			if (this.cachedBoundsAfterProjection != null)
 			{
@@ -4977,7 +4977,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.cachedBoundsAfterProjection;
 		}
 
-		internal MapBounds GetBoundsAfterProjection(double minX, double minY, double maxX, double maxY)
+		public MapBounds GetBoundsAfterProjection(double minX, double minY, double maxX, double maxY)
 		{
 			Point3D point3D = this.ApplyProjection(minX, minY);
 			Point3D point3D2 = this.ApplyProjection(maxX, maxY);
@@ -5041,7 +5041,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new MapBounds(new MapPoint(point3D.X, point3D.Y), new MapPoint(point3D2.X, point3D2.Y));
 		}
 
-		internal RectangleF GetGeographicClipRectangle(RectangleF clipRectangle)
+		public RectangleF GetGeographicClipRectangle(RectangleF clipRectangle)
 		{
 			if (!this.cachedGeographicClipRectangles.ContainsKey(clipRectangle))
 			{
@@ -5062,12 +5062,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.cachedGeographicClipRectangles[clipRectangle];
 		}
 
-		internal void ResetGeographicClipRectangles()
+		public void ResetGeographicClipRectangles()
 		{
 			this.cachedGeographicClipRectangles.Clear();
 		}
 
-		internal RectangleF GetGeographicRectangle(IEnumerable<PointF> points)
+		public RectangleF GetGeographicRectangle(IEnumerable<PointF> points)
 		{
 			float num = 3.40282347E+38f;
 			float num2 = 3.40282347E+38f;
@@ -5098,7 +5098,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal void PanBy(Point delta)
+		public void PanBy(Point delta)
 		{
 			PointF contentOffsetInPixels = this.Viewport.GetContentOffsetInPixels();
 			contentOffsetInPixels.X += (float)delta.X;
@@ -5114,7 +5114,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.Viewport.SetContentOffsetInPixels(contentOffsetInPixels);
 		}
 
-		internal void EnsureContentIsVisible()
+		public void EnsureContentIsVisible()
 		{
 			PointF contentOffsetInPixels = this.Viewport.GetContentOffsetInPixels();
 			PointF right = contentOffsetInPixels;
@@ -5144,14 +5144,14 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void CenterView(MapPoint pointOnMap)
+		public void CenterView(MapPoint pointOnMap)
 		{
 			PointF pointF = this.GeographicToPercents(pointOnMap).ToPointF();
 			this.Viewport.ViewCenter.X = pointF.X;
 			this.Viewport.ViewCenter.Y = pointF.Y;
 		}
 
-		internal void Scroll(ScrollDirection direction, double scrollStep)
+		public void Scroll(ScrollDirection direction, double scrollStep)
 		{
 			PointF pointF = (PointF)this.Viewport.ViewCenter;
 			SizeF sizeInPixels = this.Viewport.GetSizeInPixels();
@@ -5254,7 +5254,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool DrawParallelLabels()
+		public bool DrawParallelLabels()
 		{
 			if (this.UseGridSectionRendering() && this.GridUnderContent)
 			{
@@ -5263,7 +5263,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Parallels.ShowLabels;
 		}
 
-		internal bool DrawMeridianLabels()
+		public bool DrawMeridianLabels()
 		{
 			if (this.UseGridSectionRendering() && this.GridUnderContent)
 			{
@@ -5272,7 +5272,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Meridians.ShowLabels;
 		}
 
-		internal void RenderParallels(MapGraphics g, GridLine[] parallels)
+		public void RenderParallels(MapGraphics g, GridLine[] parallels)
 		{
 			AntiAliasing antiAliasing = g.AntiAliasing;
 			if (!this.AreParallelsCurved())
@@ -5299,7 +5299,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			g.AntiAliasing = antiAliasing;
 		}
 
-		internal void RenderMeridians(MapGraphics g, GridLine[] meridians)
+		public void RenderMeridians(MapGraphics g, GridLine[] meridians)
 		{
 			AntiAliasing antiAliasing = g.AntiAliasing;
 			if (!this.AreMeridiansCurved() && this.Projection != Projection.Eckert1)
@@ -5326,7 +5326,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			g.AntiAliasing = antiAliasing;
 		}
 
-		internal GridLine[] GetParallels(MapGraphics g)
+		public GridLine[] GetParallels(MapGraphics g)
 		{
 			bool flag = this.AreParallelsCurved();
 			int num = (!flag) ? 10 : 50;
@@ -5649,7 +5649,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.PercentsToGeographic((double)relativePoint.X, (double)relativePoint.Y);
 		}
 
-		internal GridLine[] GetMeridians(MapGraphics g, GridLine[] parallels)
+		public GridLine[] GetMeridians(MapGraphics g, GridLine[] parallels)
 		{
 			bool flag = this.AreMeridiansCurved();
 			int num = (!flag) ? 5 : 50;
@@ -5871,7 +5871,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (double[])arrayList.ToArray(typeof(double));
 		}
 
-		internal bool AreParallelsCurved()
+		public bool AreParallelsCurved()
 		{
 			if (this.Projection != Projection.HammerAitoff && this.Projection != Projection.Orthographic && this.Projection != Projection.Bonne)
 			{
@@ -5880,7 +5880,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return true;
 		}
 
-		internal bool AreMeridiansCurved()
+		public bool AreMeridiansCurved()
 		{
 			if (this.Projection != 0 && this.Projection != Projection.Mercator && this.Projection != Projection.Eckert1)
 			{
@@ -5889,7 +5889,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return false;
 		}
 
-		internal void InvalidateRules()
+		public void InvalidateRules()
 		{
 			if (!this.applyingRules)
 			{
@@ -5897,7 +5897,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void ApplyAllRules()
+		public void ApplyAllRules()
 		{
 			if (this.rulesDirty)
 			{
@@ -5980,7 +5980,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int GetWidth()
+		public int GetWidth()
 		{
 			if (this.isPrinting)
 			{
@@ -5989,7 +5989,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.MapControl.Width;
 		}
 
-		internal int GetHeight()
+		public int GetHeight()
 		{
 			if (this.isPrinting)
 			{
@@ -5998,7 +5998,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.MapControl.Height;
 		}
 
-		internal void ResetAutoValues()
+		public void ResetAutoValues()
 		{
 			if (this.SelectedDesignTimeElement != null)
 			{
@@ -6006,17 +6006,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			this.dirtyFlag = true;
 		}
 
-		internal override void Invalidate(RectangleF rect)
+		public override void Invalidate(RectangleF rect)
 		{
 			this.dirtyFlag = true;
 		}
 
-		internal override void InvalidateViewport(bool invalidateGridSections)
+		public override void InvalidateViewport(bool invalidateGridSections)
 		{
 			if (this.Viewport != null && !this.disableInvalidate)
 			{
@@ -6029,7 +6029,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void InvalidateDistanceScalePanel()
+		public override void InvalidateDistanceScalePanel()
 		{
 			if (this.DistanceScalePanel != null)
 			{
@@ -6038,13 +6038,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void InvalidateAndLayout()
+		public override void InvalidateAndLayout()
 		{
 			this.DoPanelLayout = true;
 			this.Invalidate();
 		}
 
-		internal void InvalidateCachedPaths()
+		public void InvalidateCachedPaths()
 		{
 			if (!this.resetingCachedPaths)
 			{
@@ -6052,7 +6052,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void ResetCachedPaths()
+		public void ResetCachedPaths()
 		{
 			if (this.cachedPathsDirty)
 			{
@@ -6074,11 +6074,11 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void OnFontChanged()
+		public void OnFontChanged()
 		{
 		}
 
-		internal NamedCollection[] GetRenderCollections()
+		public NamedCollection[] GetRenderCollections()
 		{
 			ArrayList arrayList = new ArrayList();
 			arrayList.Add(this.DataBindingRules);
@@ -6101,7 +6101,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (NamedCollection[])arrayList.ToArray(typeof(NamedCollection));
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			this.isInitializing = true;
 			NamedCollection[] renderCollections = this.GetRenderCollections();
@@ -6111,7 +6111,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			this.skipPaint = false;
 			this.isInitializing = false;
@@ -6155,7 +6155,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void ReconnectData(bool exact)
+		public override void ReconnectData(bool exact)
 		{
 			NamedCollection[] renderCollections = this.GetRenderCollections();
 			foreach (NamedCollection namedCollection in renderCollections)
@@ -6164,7 +6164,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			NamedCollection[] renderCollections = this.GetRenderCollections();
 			foreach (NamedCollection namedCollection in renderCollections)
@@ -6173,7 +6173,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void SaveTo(string fileName, MapImageFormat imageFormat, int compression, Panel panel, bool zoomThumbOnly)
+		public void SaveTo(string fileName, MapImageFormat imageFormat, int compression, Panel panel, bool zoomThumbOnly)
 		{
 			using (Stream stream = new FileStream(fileName, FileMode.Create))
 			{
@@ -6182,7 +6182,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void SaveTo(Stream stream, MapImageFormat imageFormat, int compression, Panel panel, bool zoomThumbOnly)
+		public void SaveTo(Stream stream, MapImageFormat imageFormat, int compression, Panel panel, bool zoomThumbOnly)
 		{
 			if (panel != null)
 			{
@@ -6317,29 +6317,29 @@ namespace AspNetCore.Reporting.Map.WebForms
 			bitmap.Dispose();
 		}
 
-		internal void SavePanelAsImage(Panel panel, string fileName, MapImageFormat format, int compression, bool zoomThumbOnly)
+		public void SavePanelAsImage(Panel panel, string fileName, MapImageFormat format, int compression, bool zoomThumbOnly)
 		{
 			this.SaveTo(fileName, format, compression, panel, zoomThumbOnly);
 		}
 
-		internal void SavePanelAsImage(Panel panel, Stream stream, MapImageFormat format, int compression, bool zoomThumbOnly)
+		public void SavePanelAsImage(Panel panel, Stream stream, MapImageFormat format, int compression, bool zoomThumbOnly)
 		{
 			this.SaveTo(stream, format, compression, panel, zoomThumbOnly);
 		}
 
-		internal void SavePanelAsImage(Panel panel, Stream stream, bool zoomThumbOnly)
+		public void SavePanelAsImage(Panel panel, Stream stream, bool zoomThumbOnly)
 		{
 			MapImageFormat imageFormat = (MapImageFormat)Enum.Parse(typeof(MapImageFormat), ((Enum)(object)this.ImageType).ToString((IFormatProvider)CultureInfo.CurrentCulture), true);
 			this.SaveTo(stream, imageFormat, this.Compression, panel, zoomThumbOnly);
 		}
 
-		internal void SavePanelAsImage(Panel panel, string fileName, bool zoomThumbOnly)
+		public void SavePanelAsImage(Panel panel, string fileName, bool zoomThumbOnly)
 		{
 			MapImageFormat imageFormat = (MapImageFormat)Enum.Parse(typeof(MapImageFormat), ((Enum)(object)this.ImageType).ToString((IFormatProvider)CultureInfo.CurrentCulture), true);
 			this.SaveTo(fileName, imageFormat, this.Compression, panel, zoomThumbOnly);
 		}
 
-		internal int GetSpatialElementCount()
+		public int GetSpatialElementCount()
 		{
 			int num = 0;
 			foreach (Symbol symbol in this.Symbols)
@@ -6352,7 +6352,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Shapes.Count + this.Paths.Count + num;
 		}
 
-		internal int GetSpatialPointCount()
+		public int GetSpatialPointCount()
 		{
 			int num = 0;
 			foreach (ISpatialElement path in this.Paths)
@@ -6403,12 +6403,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsDesignMode()
+		public bool IsDesignMode()
 		{
 			return this.MapControl.IsDesignMode();
 		}
 
-		internal void DrawException(Graphics graphics, Exception e)
+		public void DrawException(Graphics graphics, Exception e)
 		{
 			graphics.FillRectangle(new SolidBrush(Color.White), 0, 0, this.GetWidth(), this.GetHeight());
 			graphics.DrawRectangle(new Pen(Color.Red, 4f), 0, 0, this.GetWidth(), this.GetHeight());
@@ -6431,7 +6431,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			graphics.DrawString(text2, new Font("MS Sans Serif", 8f), new SolidBrush(Color.Black), layoutRectangle, format);
 		}
 
-		internal void PrepareHitTest()
+		public void PrepareHitTest()
 		{
 			if (this.HotRegionList.List.Count == 0)
 			{
@@ -6442,7 +6442,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal HitTestResult[] HitTest(int x, int y, Type[] objectTypes, bool returnMultipleElements)
+		public HitTestResult[] HitTest(int x, int y, Type[] objectTypes, bool returnMultipleElements)
 		{
 			if (objectTypes == null)
 			{
@@ -6475,7 +6475,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return (HitTestResult[])arrayList.ToArray(typeof(HitTestResult));
 		}
 
-		internal HotRegion GetHotRegion(NamedElement element)
+		public HotRegion GetHotRegion(NamedElement element)
 		{
 			if (element == null)
 			{
@@ -6493,7 +6493,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			throw new ArgumentException(SR.hot_region_error_initialize(element.Name));
 		}
 
-		internal double GetMaximumSimplificationResolution()
+		public double GetMaximumSimplificationResolution()
 		{
 			if (this.Width != 0 && this.Height != 0)
 			{
@@ -6506,40 +6506,40 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return 0.0;
 		}
 
-		internal PointF PercentsToPixels(PointF pointInPercents)
+		public PointF PercentsToPixels(PointF pointInPercents)
 		{
 			MapGraphics mapGraphics = new MapGraphics(null);
 			mapGraphics.SetPictureSize(this.Width, this.Height);
 			return mapGraphics.GetAbsolutePoint(pointInPercents);
 		}
 
-		internal PointF PixelsToPercents(PointF pointInPixels)
+		public PointF PixelsToPercents(PointF pointInPixels)
 		{
 			MapGraphics mapGraphics = new MapGraphics(null);
 			mapGraphics.SetPictureSize(this.Width, this.Height);
 			return mapGraphics.GetRelativePoint(pointInPixels);
 		}
 
-		internal SizeF PercentsToPixels(SizeF sizeInPercents)
+		public SizeF PercentsToPixels(SizeF sizeInPercents)
 		{
 			MapGraphics mapGraphics = new MapGraphics(null);
 			mapGraphics.SetPictureSize(this.Width, this.Height);
 			return mapGraphics.GetAbsoluteSize(sizeInPercents);
 		}
 
-		internal SizeF PixelsToPercents(SizeF sizeInPixels)
+		public SizeF PixelsToPercents(SizeF sizeInPixels)
 		{
 			MapGraphics mapGraphics = new MapGraphics(null);
 			mapGraphics.SetPictureSize(this.Width, this.Height);
 			return mapGraphics.GetRelativeSize(sizeInPixels);
 		}
 
-		internal Point3D GeographicToPercents(MapPoint mapPoint)
+		public Point3D GeographicToPercents(MapPoint mapPoint)
 		{
 			return this.GeographicToPercents(mapPoint.X, mapPoint.Y);
 		}
 
-		internal Point3D GeographicToPercents(double longtitude, double latitude)
+		public Point3D GeographicToPercents(double longtitude, double latitude)
 		{
 			Point3D result = this.ApplyProjection(longtitude, latitude);
 			MapBounds boundsAfterProjection = this.GetBoundsAfterProjection();
@@ -6567,12 +6567,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return result;
 		}
 
-		internal MapPoint PercentsToGeographic(MapPoint point)
+		public MapPoint PercentsToGeographic(MapPoint point)
 		{
 			return this.PercentsToGeographic(point.X, point.Y);
 		}
 
-		internal MapPoint PercentsToGeographic(double pointX, double pointY)
+		public MapPoint PercentsToGeographic(double pointX, double pointY)
 		{
 			double num = 100.0 - pointY;
 			MapBounds boundsAfterProjection = this.GetBoundsAfterProjection();
@@ -6583,17 +6583,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.InverseProjection(num2, num);
 		}
 
-		internal MapPoint PixelsToGeographic(PointF pointInPixels)
+		public MapPoint PixelsToGeographic(PointF pointInPixels)
 		{
 			return this.ContentToGeographic(this.PixelsToContent(pointInPixels));
 		}
 
-		internal PointF GeographicToPixels(MapPoint pointOnMap)
+		public PointF GeographicToPixels(MapPoint pointOnMap)
 		{
 			return this.ContentToPixels(this.GeographicToContent(pointOnMap));
 		}
 
-		internal MapPoint ContentToGeographic(PointF contentPoint)
+		public MapPoint ContentToGeographic(PointF contentPoint)
 		{
 			SizeF contentSizeInPixels = this.Viewport.GetContentSizeInPixels();
 			contentPoint.X *= (float)(100.0 / contentSizeInPixels.Width);
@@ -6603,7 +6603,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.PercentsToGeographic((double)contentPoint.X, (double)contentPoint.Y);
 		}
 
-		internal PointF GeographicToContent(MapPoint pointOnMap)
+		public PointF GeographicToContent(MapPoint pointOnMap)
 		{
 			SizeF contentSizeInPixels = this.Viewport.GetContentSizeInPixels();
 			Point3D point3D = this.GeographicToPercents(pointOnMap);
@@ -6614,7 +6614,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return point3D.ToPointF();
 		}
 
-		internal PointF PixelsToContent(PointF pointInPixels)
+		public PointF PixelsToContent(PointF pointInPixels)
 		{
 			PointF contentOffsetInPixels = this.Viewport.GetContentOffsetInPixels();
 			pointInPixels.X -= contentOffsetInPixels.X + (float)this.Viewport.Margins.Left;
@@ -6622,14 +6622,14 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return pointInPixels;
 		}
 
-		internal RectangleF PixelsToContent(RectangleF pixelsRect)
+		public RectangleF PixelsToContent(RectangleF pixelsRect)
 		{
 			PointF contentOffsetInPixels = this.Viewport.GetContentOffsetInPixels();
 			pixelsRect.Offset((float)(0.0 - (contentOffsetInPixels.X + (float)this.Viewport.Margins.Left)), (float)(0.0 - (contentOffsetInPixels.Y + (float)this.Viewport.Margins.Top)));
 			return pixelsRect;
 		}
 
-		internal PointF ContentToPixels(PointF contentPoint)
+		public PointF ContentToPixels(PointF contentPoint)
 		{
 			PointF contentOffsetInPixels = this.Viewport.GetContentOffsetInPixels();
 			contentPoint.X += contentOffsetInPixels.X + (float)this.Viewport.Margins.Left;
@@ -6637,14 +6637,14 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return contentPoint;
 		}
 
-		internal RectangleF ContentToPixels(RectangleF contentRectangle)
+		public RectangleF ContentToPixels(RectangleF contentRectangle)
 		{
 			PointF pointF = this.ContentToPixels(contentRectangle.Location);
 			PointF pointF2 = this.ContentToPixels(new PointF(contentRectangle.X + contentRectangle.Width, contentRectangle.Y + contentRectangle.Height));
 			return new RectangleF(pointF.X, pointF.Y, pointF2.X - pointF.X, pointF2.Y - pointF.Y);
 		}
 
-		internal bool IsContentImageMapRequired()
+		public bool IsContentImageMapRequired()
 		{
 			if (!this.ImageMapEnabled)
 			{
@@ -6683,7 +6683,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return false;
 		}
 
-		internal MapAreaCollection GetMapAreasFromHotRegionList()
+		public MapAreaCollection GetMapAreasFromHotRegionList()
 		{
 			MapAreaCollection mapAreaCollection = new MapAreaCollection();
 			for (int num = this.HotRegionList.List.Count - 1; num >= 0; num--)
@@ -6787,7 +6787,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return mapAreaCollection;
 		}
 
-		internal void PopulateImageMaps()
+		public void PopulateImageMaps()
 		{
 			for (int num = this.HotRegionList.List.Count - 1; num >= 0; num--)
 			{
@@ -6830,7 +6830,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void WriteMapTag(TextWriter output, string mapName)
+		public void WriteMapTag(TextWriter output, string mapName)
 		{
 			output.Write("\r\n<MAP NAME=\"" + mapName + "\">");
 			foreach (MapArea mapArea in this.mapAreas)
@@ -6840,7 +6840,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			output.Write("\r\n</MAP>");
 		}
 
-		internal void InvalidateDataBinding()
+		public void InvalidateDataBinding()
 		{
 			if (!this.dataBinding && !this.invalidatingDataBind && !this.isInitializing && !this.IsSuspended)
 			{
@@ -6859,7 +6859,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void AutoDataBind(bool forceBinding)
+		public void AutoDataBind(bool forceBinding)
 		{
 			if (!this.boundToDataSource)
 			{
@@ -6882,7 +6882,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DataBindShapes(object dataSource, string dataMember, string bindingField)
+		public void DataBindShapes(object dataSource, string dataMember, string bindingField)
 		{
 			try
 			{
@@ -6895,7 +6895,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DataBindGroups(object dataSource, string dataMember, string bindingField)
+		public void DataBindGroups(object dataSource, string dataMember, string bindingField)
 		{
 			try
 			{
@@ -6908,7 +6908,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DataBindPaths(object dataSource, string dataMember, string bindingField)
+		public void DataBindPaths(object dataSource, string dataMember, string bindingField)
 		{
 			try
 			{
@@ -6921,7 +6921,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DataBindSymbols(object dataSource, string dataMember, string bindingField, string category, string parentShapeField, string xCoordinateField, string yCoordinateField)
+		public void DataBindSymbols(object dataSource, string dataMember, string bindingField, string category, string parentShapeField, string xCoordinateField, string yCoordinateField)
 		{
 			try
 			{
@@ -6938,7 +6938,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void ExecuteDataBind(BindingType bindingType, DataBindingRuleBase dataBinding, object dataSource, string dataMember, string bindingField, params string[] auxFields)
+		public void ExecuteDataBind(BindingType bindingType, DataBindingRuleBase dataBinding, object dataSource, string dataMember, string bindingField, params string[] auxFields)
 		{
 			bool flag = false;
 			bool flag2 = false;
@@ -7309,7 +7309,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.MapControl.OnAfterDataBind(e);
 		}
 
-		internal string ResolveAllKeywords(string original, NamedElement element)
+		public string ResolveAllKeywords(string original, NamedElement element)
 		{
 			if (original.Length == 0)
 			{
@@ -7427,7 +7427,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return text;
 		}
 
-		internal string ResolveKeyword(string original, string keyword, object val)
+		public string ResolveKeyword(string original, string keyword, object val)
 		{
 			string text = original;
 			if (val == null)
@@ -7467,7 +7467,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return text.Replace(keyword, text4);
 		}
 
-		internal static bool CheckLicense()
+		public static bool CheckLicense()
 		{
 			return true;
 		}
@@ -7700,7 +7700,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void LayoutPanels(MapGraphics g)
+		public void LayoutPanels(MapGraphics g)
 		{
 			if (this.DoPanelLayout)
 			{
@@ -7758,7 +7758,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal RectangleF CalculateMapDockBounds(MapGraphics g)
+		public RectangleF CalculateMapDockBounds(MapGraphics g)
 		{
 			RectangleF result = RectangleF.Empty;
 			if (this.Frame.FrameStyle != 0)
@@ -7944,7 +7944,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void LoadShapesFromStream(Stream stream)
+		public void LoadShapesFromStream(Stream stream)
 		{
 			stream.Seek(0L, SeekOrigin.Begin);
 			foreach (Shape shape in this.Shapes)
@@ -7954,7 +7954,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.InvalidateCachedBounds();
 		}
 
-		internal void SaveShapesToStream(Stream stream)
+		public void SaveShapesToStream(Stream stream)
 		{
 			foreach (Shape shape in this.Shapes)
 			{
@@ -7962,7 +7962,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void LoadPathsFromStream(Stream stream)
+		public void LoadPathsFromStream(Stream stream)
 		{
 			stream.Seek(0L, SeekOrigin.Begin);
 			foreach (Path path in this.Paths)
@@ -7972,7 +7972,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.InvalidateCachedBounds();
 		}
 
-		internal void SavePathsToStream(Stream stream)
+		public void SavePathsToStream(Stream stream)
 		{
 			foreach (Path path in this.Paths)
 			{
@@ -7980,7 +7980,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void LoadSymbolsFromStream(Stream stream)
+		public void LoadSymbolsFromStream(Stream stream)
 		{
 			stream.Seek(0L, SeekOrigin.Begin);
 			foreach (Symbol symbol in this.Symbols)
@@ -7990,7 +7990,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.InvalidateCachedBounds();
 		}
 
-		internal void SaveSymbolsToStream(Stream stream)
+		public void SaveSymbolsToStream(Stream stream)
 		{
 			foreach (Symbol symbol in this.Symbols)
 			{
@@ -7998,12 +7998,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void CreateGroups(string shapeFieldName)
+		public void CreateGroups(string shapeFieldName)
 		{
 			this.CreateGroups(shapeFieldName, string.Empty, string.Empty);
 		}
 
-		internal void CreateGroups(string shapeFieldName, string layer, string category)
+		public void CreateGroups(string shapeFieldName, string layer, string category)
 		{
 			Field field = (Field)this.ShapeFields.GetByName(shapeFieldName);
 			if (field == null)
@@ -8042,7 +8042,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.InvalidateGridSections();
 		}
 
-		internal void InvalidateChildSymbols()
+		public void InvalidateChildSymbols()
 		{
 			if (!this.resettingChildSymbols)
 			{
@@ -8050,7 +8050,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void ResetChildSymbols()
+		public void ResetChildSymbols()
 		{
 			if (this.childSymbolsDirty)
 			{
@@ -8064,7 +8064,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void InvalidateGridSections()
+		public void InvalidateGridSections()
 		{
 			if (!this.recreatingGridSections)
 			{
@@ -8072,7 +8072,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DisposeGridSections()
+		public void DisposeGridSections()
 		{
 			if (this.GridSections != null)
 			{
@@ -8088,7 +8088,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RecreateGridSections()
+		public void RecreateGridSections()
 		{
 			if (this.gridSectionsDirty)
 			{
@@ -8102,7 +8102,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DetermineGridSectionSizeAndCount()
+		public void DetermineGridSectionSizeAndCount()
 		{
 			SizeF absoluteSize = this.Viewport.GetAbsoluteSize();
 			int val = (int)absoluteSize.Width / 160;
@@ -8130,7 +8130,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.GridSectionsOffset = new Point(MapCore.SimpleRound(contentOffsetInPixels.X % (float)this.GridSectionSize.Width), MapCore.SimpleRound(contentOffsetInPixels.Y % (float)this.GridSectionSize.Height));
 		}
 
-		internal GridSection[] GetVisibleSections()
+		public GridSection[] GetVisibleSections()
 		{
 			ArrayList arrayList = new ArrayList();
 			PointF contentOffsetInPixels = this.Viewport.GetContentOffsetInPixels();
@@ -8189,7 +8189,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void RenderOneGridSection(MapGraphics g, int xIndex, int yIndex)
+		public void RenderOneGridSection(MapGraphics g, int xIndex, int yIndex)
 		{
 			this.HotRegionList.Clear();
 			this.Common.InvokePrePaint(this.Viewport);
@@ -8229,12 +8229,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.Common.InvokePostPaint(this.Viewport);
 		}
 
-		internal static int SimpleRound(float number)
+		public static int SimpleRound(float number)
 		{
 			return (int)Math.Round((double)number);
 		}
 
-		internal void RenderGridSections(MapGraphics g)
+		public void RenderGridSections(MapGraphics g)
 		{
 			this.RecreateGridSections();
 			GridSection[] visibleSections = this.GetVisibleSections();
@@ -8290,7 +8290,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Color GetGridSectionBackColor()
+		public Color GetGridSectionBackColor()
 		{
 			if (this.Viewport.BackColor.A == 0)
 			{
@@ -8299,7 +8299,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Viewport.BackColor;
 		}
 
-		internal bool UseGridSectionRendering()
+		public bool UseGridSectionRendering()
 		{
 			if (this.Viewport.OptimizeForPanning)
 			{
@@ -8312,7 +8312,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return false;
 		}
 
-		internal bool IsTileLayerVisible()
+		public bool IsTileLayerVisible()
 		{
 			foreach (Layer layer in this.Layers)
 			{
@@ -8324,7 +8324,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return false;
 		}
 
-		internal ArrayList Find(string searchFor, bool ignoreCase, bool exactSearch)
+		public ArrayList Find(string searchFor, bool ignoreCase, bool exactSearch)
 		{
 			ArrayList arrayList = new ArrayList();
 			arrayList.AddRange(this.Shapes.Find(searchFor, ignoreCase, exactSearch, true));
@@ -8334,7 +8334,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return arrayList;
 		}
 
-		internal void SuspendUpdates()
+		public void SuspendUpdates()
 		{
 			this.suspendUpdatesCount++;
 			this.disableInvalidate = true;
@@ -8348,7 +8348,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void ResumeUpdates()
+		public void ResumeUpdates()
 		{
 			if (this.suspendUpdatesCount > 0)
 			{

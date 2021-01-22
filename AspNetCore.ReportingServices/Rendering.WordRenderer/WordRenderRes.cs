@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
 	[CompilerGenerated]
-	internal class WordRenderRes
+	public class WordRenderRes
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string WordLocalizedName = "WordLocalizedName";
 

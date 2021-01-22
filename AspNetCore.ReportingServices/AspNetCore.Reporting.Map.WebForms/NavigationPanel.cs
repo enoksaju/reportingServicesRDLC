@@ -5,19 +5,19 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(DockablePanelConverter))]
-	internal class NavigationPanel : DockablePanel, IToolTipProvider
+	public class NavigationPanel : DockablePanel, IToolTipProvider
 	{
 		private const int GirdPadding = 4;
 
 		private const int CenterButtonCorrection = 2;
 
-		internal PanelButton buttonNorth;
+		public PanelButton buttonNorth;
 
-		internal PanelButton buttonSouth;
+		public PanelButton buttonSouth;
 
-		internal PanelButton buttonEast;
+		public PanelButton buttonEast;
 
-		internal PanelButton buttonWest;
+		public PanelButton buttonWest;
 
 		private PanelButton buttonCenter;
 
@@ -146,7 +146,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool CenterButtonVisible
+		public bool CenterButtonVisible
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal NavigationPanel(CommonElements common)
+		public NavigationPanel(CommonElements common)
 			: base(common)
 		{
 			this.Name = "NavigationPanel";
@@ -172,7 +172,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.ApplyColors();
 		}
 
-		internal override void Render(MapGraphics g)
+		public override void Render(MapGraphics g)
 		{
 			base.Render(g);
 			this.RenderButton(g, this.buttonNorth);
@@ -181,7 +181,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.RenderButton(g, this.buttonEast);
 		}
 
-		internal override object GetDefaultPropertyValue(string prop, object currentValue)
+		public override object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object obj = null;
 			switch (prop)

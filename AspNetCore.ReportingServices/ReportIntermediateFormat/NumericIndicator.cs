@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
 	[SkipStaticValidation]
-	internal sealed class NumericIndicator : GaugePanelItem, IPersistable
+	public sealed class NumericIndicator : GaugePanelItem, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = NumericIndicator.GetDeclaration();
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_separatorColor;
 
-		internal GaugeInputValue GaugeInputValue
+		public GaugeInputValue GaugeInputValue
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<NumericIndicatorRange> NumericIndicatorRanges
+		public List<NumericIndicatorRange> NumericIndicatorRanges
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DecimalDigitColor
+		public ExpressionInfo DecimalDigitColor
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DigitColor
+		public ExpressionInfo DigitColor
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo UseFontPercent
+		public ExpressionInfo UseFontPercent
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DecimalDigits
+		public ExpressionInfo DecimalDigits
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Digits
+		public ExpressionInfo Digits
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue MinimumValue
+		public GaugeInputValue MinimumValue
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue MaximumValue
+		public GaugeInputValue MaximumValue
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Multiplier
+		public ExpressionInfo Multiplier
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo NonNumericString
+		public ExpressionInfo NonNumericString
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo OutOfRangeString
+		public ExpressionInfo OutOfRangeString
 		{
 			get
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ResizeMode
+		public ExpressionInfo ResizeMode
 		{
 			get
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ShowDecimalPoint
+		public ExpressionInfo ShowDecimalPoint
 		{
 			get
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ShowLeadingZeros
+		public ExpressionInfo ShowLeadingZeros
 		{
 			get
 			{
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IndicatorStyle
+		public ExpressionInfo IndicatorStyle
 		{
 			get
 			{
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ShowSign
+		public ExpressionInfo ShowSign
 		{
 			get
 			{
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SnappingEnabled
+		public ExpressionInfo SnappingEnabled
 		{
 			get
 			{
@@ -277,7 +277,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SnappingInterval
+		public ExpressionInfo SnappingInterval
 		{
 			get
 			{
@@ -289,7 +289,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LedDimColor
+		public ExpressionInfo LedDimColor
 		{
 			get
 			{
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SeparatorWidth
+		public ExpressionInfo SeparatorWidth
 		{
 			get
 			{
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SeparatorColor
+		public ExpressionInfo SeparatorColor
 		{
 			get
 			{
@@ -325,7 +325,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new NumericIndicatorExprHost ExprHost
+		public new NumericIndicatorExprHost ExprHost
 		{
 			get
 			{
@@ -333,16 +333,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal NumericIndicator()
+		public NumericIndicator()
 		{
 		}
 
-		internal NumericIndicator(GaugePanel gaugePanel, int id)
+		public NumericIndicator(GaugePanel gaugePanel, int id)
 			: base(gaugePanel, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.NumericIndicatorStart(base.m_name);
 			base.Initialize(context);
@@ -446,7 +446,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.NumericIndicatorEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			NumericIndicator numericIndicator = (NumericIndicator)base.PublishClone(context);
 			if (this.m_gaugeInputValue != null)
@@ -544,7 +544,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return numericIndicator;
 		}
 
-		internal void SetExprHost(NumericIndicatorExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(NumericIndicatorExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -574,7 +574,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.NumericIndicator, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.GaugePanelItem, memberInfoList);
@@ -747,109 +747,109 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.NumericIndicator;
 		}
 
-		internal string EvaluateDecimalDigitColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateDecimalDigitColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorDecimalDigitColorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateDigitColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateDigitColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorDigitColorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateUseFontPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUseFontPercent(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorUseFontPercentExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal int EvaluateDecimalDigits(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateDecimalDigits(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorDecimalDigitsExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal int EvaluateDigits(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateDigits(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorDigitsExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateMultiplier(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateMultiplier(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorMultiplierExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateNonNumericString(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateNonNumericString(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorNonNumericStringExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateOutOfRangeString(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateOutOfRangeString(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorOutOfRangeStringExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal GaugeResizeModes EvaluateResizeMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeResizeModes EvaluateResizeMode(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeResizeModes(context.ReportRuntime.EvaluateNumericIndicatorResizeModeExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateShowDecimalPoint(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateShowDecimalPoint(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorShowDecimalPointExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateShowLeadingZeros(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateShowLeadingZeros(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorShowLeadingZerosExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal GaugeIndicatorStyles EvaluateIndicatorStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeIndicatorStyles EvaluateIndicatorStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeIndicatorStyles(context.ReportRuntime.EvaluateNumericIndicatorIndicatorStyleExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal GaugeShowSigns EvaluateShowSign(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeShowSigns EvaluateShowSign(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeShowSigns(context.ReportRuntime.EvaluateNumericIndicatorShowSignExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateSnappingEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateSnappingEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorSnappingEnabledExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateSnappingInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateSnappingInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorSnappingIntervalExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateLedDimColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateLedDimColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorLedDimColorExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateSeparatorWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateSeparatorWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorSeparatorWidthExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateSeparatorColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorSeparatorColorExpression(this, base.m_gaugePanel.Name);

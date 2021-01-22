@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.OnDemandReportRendering;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class PageBreakInfo
+	public class PageBreakInfo
 	{
 		private PageBreakLocation m_breakLocation;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private string m_reportItemName;
 
-		internal PageBreakLocation BreakLocation
+		public PageBreakLocation BreakLocation
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool Disabled
+		public bool Disabled
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool ResetPageNumber
+		public bool ResetPageNumber
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal string ReportItemName
+		public string ReportItemName
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageBreakInfo(PageBreak pageBreak, string reportItemName)
+		public PageBreakInfo(PageBreak pageBreak, string reportItemName)
 		{
 			if (pageBreak != null)
 			{

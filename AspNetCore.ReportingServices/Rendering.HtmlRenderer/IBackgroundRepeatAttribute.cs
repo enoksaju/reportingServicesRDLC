@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal interface IBackgroundRepeatAttribute
+	public interface IBackgroundRepeatAttribute
 	{
 		void Render(IOutputStream outputStream);
 	}

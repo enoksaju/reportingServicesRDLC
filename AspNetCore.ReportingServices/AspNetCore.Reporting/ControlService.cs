@@ -15,7 +15,7 @@ using System.Security.Policy;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class ControlService : LocalService
+	public sealed class ControlService : LocalService
 	{
 		[NonSerialized]
 		private static List<LocalRenderingExtensionInfo> m_renderingExtensions;

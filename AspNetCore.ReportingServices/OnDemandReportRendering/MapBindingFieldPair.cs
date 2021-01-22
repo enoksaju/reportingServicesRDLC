@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapBindingFieldPair : MapObjectCollectionItem
+	public sealed class MapBindingFieldPair : MapObjectCollectionItem
 	{
 		private Map m_map;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapBindingFieldPair MapBindingFieldPairDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapBindingFieldPair MapBindingFieldPairDef
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -82,14 +82,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapBindingFieldPair(AspNetCore.ReportingServices.ReportIntermediateFormat.MapBindingFieldPair defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapBindingFieldPair(AspNetCore.ReportingServices.ReportIntermediateFormat.MapBindingFieldPair defObject, MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_mapVectorLayer = mapVectorLayer;
 			this.m_map = map;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

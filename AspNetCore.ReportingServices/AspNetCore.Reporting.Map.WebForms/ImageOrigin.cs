@@ -6,9 +6,9 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(Converter))]
-	internal class ImageOrigin : ICloneable
+	public class ImageOrigin : ICloneable
 	{
-		internal class Converter : ExpandableObjectConverter
+		public class Converter : ExpandableObjectConverter
 		{
 			public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool DefaultValues
+		public bool DefaultValues
 		{
 			get
 			{

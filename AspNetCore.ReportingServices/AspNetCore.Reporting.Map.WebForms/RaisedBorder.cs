@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class RaisedBorder : SunkenBorder
+	public class RaisedBorder : SunkenBorder
 	{
 		public override string Name
 		{

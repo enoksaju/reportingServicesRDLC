@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class HotRegionsList
+	public class HotRegionsList
 	{
 		private ProcessMode processChartMode = ProcessMode.Paint;
 
@@ -13,9 +13,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private CommonElements common;
 
-		internal bool hitTestCalled;
+		public bool hitTestCalled;
 
-		internal ProcessMode ProcessChartMode
+		public ProcessMode ProcessChartMode
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ArrayList List
+		public ArrayList List
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.common = common;
 		}
 
-		internal void CheckHotRegions(int x, int y, ChartElementType requestedElement, bool ignoreTransparent, out string series, out int point, out ChartElementType type, out object obj, out object subObj)
+		public void CheckHotRegions(int x, int y, ChartElementType requestedElement, bool ignoreTransparent, out string series, out int point, out ChartElementType type, out object obj, out object subObj)
 		{
 			obj = null;
 			subObj = null;
@@ -246,7 +246,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(int insertIndex, ChartGraphics graph, RectangleF rectSize, DataPoint point, string seriesName, int pointIndex)
+		public void AddHotRegion(int insertIndex, ChartGraphics graph, RectangleF rectSize, DataPoint point, string seriesName, int pointIndex)
 		{
 			if ((this.ProcessChartMode & ProcessMode.ImageMaps) == ProcessMode.ImageMaps && this.common.ChartPicture.MapEnabled && (point.ToolTip.Length > 0 || point.Href.Length > 0 || point.MapAreaAttributes.Length > 0))
 			{
@@ -268,7 +268,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(GraphicsPath path, bool relativePath, ChartGraphics graph, DataPoint point, string seriesName, int pointIndex)
+		public void AddHotRegion(GraphicsPath path, bool relativePath, ChartGraphics graph, DataPoint point, string seriesName, int pointIndex)
 		{
 			if (path != null)
 			{
@@ -299,7 +299,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(int insertIndex, GraphicsPath path, bool relativePath, ChartGraphics graph, DataPoint point, string seriesName, int pointIndex)
+		public void AddHotRegion(int insertIndex, GraphicsPath path, bool relativePath, ChartGraphics graph, DataPoint point, string seriesName, int pointIndex)
 		{
 			if ((this.ProcessChartMode & ProcessMode.ImageMaps) == ProcessMode.ImageMaps && this.common.ChartPicture.MapEnabled && (point.ToolTip.Length > 0 || point.Href.Length > 0 || point.MapAreaAttributes.Length > 0))
 			{
@@ -327,7 +327,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(ChartGraphics graph, GraphicsPath path, bool relativePath, float[] coord, DataPoint point, string seriesName, int pointIndex)
+		public void AddHotRegion(ChartGraphics graph, GraphicsPath path, bool relativePath, float[] coord, DataPoint point, string seriesName, int pointIndex)
 		{
 			if ((this.ProcessChartMode & ProcessMode.ImageMaps) == ProcessMode.ImageMaps && this.common.ChartPicture.MapEnabled && (point.ToolTip.Length > 0 || point.Href.Length > 0 || point.MapAreaAttributes.Length > 0))
 			{
@@ -350,7 +350,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(int insertIndex, ChartGraphics graph, float x, float y, float radius, DataPoint point, string seriesName, int pointIndex)
+		public void AddHotRegion(int insertIndex, ChartGraphics graph, float x, float y, float radius, DataPoint point, string seriesName, int pointIndex)
 		{
 			if ((this.ProcessChartMode & ProcessMode.ImageMaps) == ProcessMode.ImageMaps && this.common.ChartPicture.MapEnabled && (point.ToolTip.Length > 0 || point.Href.Length > 0 || point.MapAreaAttributes.Length > 0))
 			{
@@ -383,7 +383,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(ChartGraphics graph, RectangleF rectArea, string toolTip, string hRef, string mapAreaAttributes, object selectedObject, ChartElementType type, string series)
+		public void AddHotRegion(ChartGraphics graph, RectangleF rectArea, string toolTip, string hRef, string mapAreaAttributes, object selectedObject, ChartElementType type, string series)
 		{
 			if ((this.ProcessChartMode & ProcessMode.ImageMaps) == ProcessMode.ImageMaps && this.common.ChartPicture.MapEnabled && (toolTip.Length > 0 || hRef.Length > 0 || mapAreaAttributes.Length > 0))
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(ChartGraphics graph, RectangleF rectArea, string toolTip, string hRef, string mapAreaAttributes, object selectedObject, object selectedSubObject, ChartElementType type, string series)
+		public void AddHotRegion(ChartGraphics graph, RectangleF rectArea, string toolTip, string hRef, string mapAreaAttributes, object selectedObject, object selectedSubObject, ChartElementType type, string series)
 		{
 			if ((this.ProcessChartMode & ProcessMode.ImageMaps) == ProcessMode.ImageMaps && this.common.ChartPicture.MapEnabled && (toolTip.Length > 0 || hRef.Length > 0 || mapAreaAttributes.Length > 0))
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(ChartGraphics graph, GraphicsPath path, bool relativePath, string toolTip, string hRef, string mapAreaAttributes, object selectedObject, ChartElementType type)
+		public void AddHotRegion(ChartGraphics graph, GraphicsPath path, bool relativePath, string toolTip, string hRef, string mapAreaAttributes, object selectedObject, ChartElementType type)
 		{
 			if ((this.ProcessChartMode & ProcessMode.ImageMaps) == ProcessMode.ImageMaps && this.common.ChartPicture.MapEnabled && (toolTip.Length > 0 || hRef.Length > 0 || mapAreaAttributes.Length > 0))
 			{
@@ -444,12 +444,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(RectangleF rectArea, object selectedObject, ChartElementType type, bool relativeCoordinates)
+		public void AddHotRegion(RectangleF rectArea, object selectedObject, ChartElementType type, bool relativeCoordinates)
 		{
 			this.AddHotRegion(rectArea, selectedObject, type, relativeCoordinates, false);
 		}
 
-		internal void AddHotRegion(RectangleF rectArea, object selectedObject, ChartElementType type, bool relativeCoordinates, bool insertAtBeginning)
+		public void AddHotRegion(RectangleF rectArea, object selectedObject, ChartElementType type, bool relativeCoordinates, bool insertAtBeginning)
 		{
 			if ((this.ProcessChartMode & ProcessMode.HotRegions) == ProcessMode.HotRegions)
 			{
@@ -469,7 +469,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddHotRegion(GraphicsPath path, bool relativePath, ChartGraphics graph, ChartElementType type, object selectedObject)
+		public void AddHotRegion(GraphicsPath path, bool relativePath, ChartGraphics graph, ChartElementType type, object selectedObject)
 		{
 			if ((this.ProcessChartMode & ProcessMode.HotRegions) == ProcessMode.HotRegions)
 			{
@@ -483,7 +483,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal int FindInsertIndex()
+		public int FindInsertIndex()
 		{
 			int num = 0;
 			foreach (MapArea mapArea in this.common.ChartPicture.MapAreas)

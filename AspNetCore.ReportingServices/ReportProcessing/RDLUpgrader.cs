@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class RDLUpgrader
+	public sealed class RDLUpgrader
 	{
 		private sealed class RdlUpgrader
 		{
@@ -40,46 +40,46 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private XmlDocument m_definition;
 
-			internal RdlUpgrader()
+			public RdlUpgrader()
 			{
 			}
 
-			internal static string Get2007NamespaceURI()
+			public static string Get2007NamespaceURI()
 			{
 				return "http://schemas.microsoft.com/sqlserver/reporting/2007/01/reportdefinition";
 			}
 
-			internal static string Get2008NamespaceURI()
+			public static string Get2008NamespaceURI()
 			{
 				return "http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition";
 			}
 
-			internal static string Get2009NamespaceURI()
+			public static string Get2009NamespaceURI()
 			{
 				return "http://schemas.microsoft.com/sqlserver/reporting/2009/01/reportdefinition";
 			}
 
-			internal static string Get2010NamespaceURI()
+			public static string Get2010NamespaceURI()
 			{
 				return "http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition";
 			}
 
-			internal static string Get2016NamespaceURI()
+			public static string Get2016NamespaceURI()
 			{
 				return "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition";
 			}
 
-			internal static string Get2005NamespaceURI()
+			public static string Get2005NamespaceURI()
 			{
 				return "http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition";
 			}
 
-			internal Stream Upgrade(XmlReader xmlReader, string namespaceURI, bool throwUpgradeException, bool upgradeDundasCRIToNative, out RDLUpgradeResult upgradeResults)
+			public Stream Upgrade(XmlReader xmlReader, string namespaceURI, bool throwUpgradeException, bool upgradeDundasCRIToNative, out RDLUpgradeResult upgradeResults)
 			{
 				return this.UpgradeUnified((Stream)null, xmlReader, namespaceURI, throwUpgradeException, upgradeDundasCRIToNative, true, out upgradeResults);
 			}
 
-			internal Stream Upgrade(Stream stream, bool throwUpgradeException, bool upgradeDundasCRIToNative, bool renameInvalidDataSources, out RDLUpgradeResult upgradeResults)
+			public Stream Upgrade(Stream stream, bool throwUpgradeException, bool upgradeDundasCRIToNative, bool renameInvalidDataSources, out RDLUpgradeResult upgradeResults)
 			{
 				return this.UpgradeUnified(stream, (XmlReader)null, (string)null, throwUpgradeException, upgradeDundasCRIToNative, renameInvalidDataSources, out upgradeResults);
 			}
@@ -663,31 +663,31 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Stream UpgradeToCurrent(XmlReader rdlReader, string namespaceURI, bool throwUpgradeException, bool upgradeDundasCRIToNative, out RDLUpgradeResult upgradeResults)
+		public static Stream UpgradeToCurrent(XmlReader rdlReader, string namespaceURI, bool throwUpgradeException, bool upgradeDundasCRIToNative, out RDLUpgradeResult upgradeResults)
 		{
 			RdlUpgrader rdlUpgrader = new RdlUpgrader();
 			return rdlUpgrader.Upgrade(rdlReader, namespaceURI, throwUpgradeException, upgradeDundasCRIToNative, out upgradeResults);
 		}
 
-		internal static Stream UpgradeToCurrent(XmlReader rdlReader, string namespaceURI, bool throwUpgradeException, bool upgradeDundasCRIToNative)
+		public static Stream UpgradeToCurrent(XmlReader rdlReader, string namespaceURI, bool throwUpgradeException, bool upgradeDundasCRIToNative)
 		{
 			RDLUpgradeResult rDLUpgradeResult = null;
 			return RDLUpgrader.UpgradeToCurrent(rdlReader, namespaceURI, throwUpgradeException, upgradeDundasCRIToNative, out rDLUpgradeResult);
 		}
 
-		internal static Stream UpgradeToCurrent(Stream stream, bool throwUpgradeException)
+		public static Stream UpgradeToCurrent(Stream stream, bool throwUpgradeException)
 		{
 			RDLUpgradeResult rDLUpgradeResult = null;
 			return RDLUpgrader.UpgradeToCurrent(stream, throwUpgradeException, true, out rDLUpgradeResult);
 		}
 
-		internal static Stream UpgradeToCurrent(Stream stream, bool throwUpgradeException, bool renameInvalidDataSources)
+		public static Stream UpgradeToCurrent(Stream stream, bool throwUpgradeException, bool renameInvalidDataSources)
 		{
 			RDLUpgradeResult rDLUpgradeResult = null;
 			return RDLUpgrader.UpgradeToCurrent(stream, throwUpgradeException, renameInvalidDataSources, out rDLUpgradeResult);
 		}
 
-		internal static Stream UpgradeToCurrent(Stream stream)
+		public static Stream UpgradeToCurrent(Stream stream)
 		{
 			if (stream == null)
 			{
@@ -696,7 +696,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return RDLUpgrader.UpgradeToCurrent(stream, false, true);
 		}
 
-		internal static Stream UpgradeToCurrent(Stream stream, bool throwUpgradeException, bool renameInvalidDataSources, out RDLUpgradeResult upgradeResults)
+		public static Stream UpgradeToCurrent(Stream stream, bool throwUpgradeException, bool renameInvalidDataSources, out RDLUpgradeResult upgradeResults)
 		{
 			if (!stream.CanSeek)
 			{
@@ -706,7 +706,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return rdlUpgrader.Upgrade(stream, throwUpgradeException, true, renameInvalidDataSources, out upgradeResults);
 		}
 
-		internal static RDLUpgradeResult CheckForDundasCRI(XmlTextReader xmlTextReader)
+		public static RDLUpgradeResult CheckForDundasCRI(XmlTextReader xmlTextReader)
 		{
 			RDLUpgradeResult rDLUpgradeResult = new RDLUpgradeResult();
 			try
@@ -865,32 +865,32 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static string GetCurrentNamespaceURI()
+		public static string GetCurrentNamespaceURI()
 		{
 			return RdlUpgrader.Get2016NamespaceURI();
 		}
 
-		internal static string Get2010NamespaceURI()
+		public static string Get2010NamespaceURI()
 		{
 			return RdlUpgrader.Get2010NamespaceURI();
 		}
 
-		internal static string Get2009NamespaceURI()
+		public static string Get2009NamespaceURI()
 		{
 			return RdlUpgrader.Get2009NamespaceURI();
 		}
 
-		internal static string Get2008NamespaceURI()
+		public static string Get2008NamespaceURI()
 		{
 			return RdlUpgrader.Get2008NamespaceURI();
 		}
 
-		internal static string Get2007NamespaceURI()
+		public static string Get2007NamespaceURI()
 		{
 			return RdlUpgrader.Get2007NamespaceURI();
 		}
 
-		internal static string Get2005NamespaceURI()
+		public static string Get2005NamespaceURI()
 		{
 			return RdlUpgrader.Get2005NamespaceURI();
 		}

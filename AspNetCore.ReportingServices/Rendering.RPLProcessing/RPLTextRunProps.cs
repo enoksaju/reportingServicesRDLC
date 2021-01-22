@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLTextRunProps : RPLElementProps
+	public sealed class RPLTextRunProps : RPLElementProps
 	{
 		private RPLActionInfo m_actionInfo;
 
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTextRunProps()
+		public RPLTextRunProps()
 		{
 		}
 	}

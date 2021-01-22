@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class FormatDigitReplacement
+	public sealed class FormatDigitReplacement
 	{
 		private const int DbnumHundred = 11;
 
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private const int NUM_KOREAN4 = 27;
 
-		internal static uint[][] DBNum_Japanese = new uint[16][]
+		public static uint[][] DBNum_Japanese = new uint[16][]
 		{
 			new uint[4]
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		};
 
-		internal static uint[][] DBNum_Korean = new uint[16][]
+		public static uint[][] DBNum_Korean = new uint[16][]
 		{
 			new uint[4]
 			{
@@ -302,7 +302,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		};
 
-		internal static uint[][] DBNum_SimplChinese = new uint[16][]
+		public static uint[][] DBNum_SimplChinese = new uint[16][]
 		{
 			new uint[4]
 			{
@@ -418,7 +418,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		};
 
-		internal static uint[][] DBNum_TradChinese = new uint[16][]
+		public static uint[][] DBNum_TradChinese = new uint[16][]
 		{
 			new uint[4]
 			{
@@ -534,7 +534,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		};
 
-		internal static char[][] SimpleDigitMapping = new char[15][]
+		public static char[][] SimpleDigitMapping = new char[15][]
 		{
 			new char[2]
 			{
@@ -617,7 +617,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 		}
 
-		internal static char SimpleDigitFromNumeralShape(char asciiDigit, int numeralShape)
+		public static char SimpleDigitFromNumeralShape(char asciiDigit, int numeralShape)
 		{
 			if (asciiDigit >= '0' && asciiDigit <= '9')
 			{
@@ -992,7 +992,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return 0;
 		}
 
-		internal static string FormatNumeralVariant(string number, int numeralVariant, CultureInfo numeralLanguage, string numberDecimalSeparator, out bool numberTranslated)
+		public static string FormatNumeralVariant(string number, int numeralVariant, CultureInfo numeralLanguage, string numberDecimalSeparator, out bool numberTranslated)
 		{
 			numberTranslated = true;
 			if (number != null && !(number == string.Empty))

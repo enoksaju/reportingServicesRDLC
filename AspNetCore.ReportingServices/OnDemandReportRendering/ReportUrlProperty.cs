@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportUrlProperty : ReportProperty
+	public sealed class ReportUrlProperty : ReportProperty
 	{
 		private ReportUrl m_reportUrl;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportUrlProperty(bool isExpression, string expressionString, ReportUrl reportUrl)
+		public ReportUrlProperty(bool isExpression, string expressionString, ReportUrl reportUrl)
 			: base(isExpression, expressionString)
 		{
 			if (!isExpression)

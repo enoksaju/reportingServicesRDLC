@@ -5,9 +5,9 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartAxis : ChartObjectCollectionItem<ChartAxisInstance>, IROMStyleDefinitionContainer
+	public sealed class ChartAxis : ChartObjectCollectionItem<ChartAxisInstance>, IROMStyleDefinitionContainer
 	{
-		internal enum TickMarks
+		public enum TickMarks
 		{
 			None,
 			Inside,
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			Cross
 		}
 
-		internal enum Locations
+		public enum Locations
 		{
 			Default,
 			Opposite
@@ -859,7 +859,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -867,7 +867,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAxis AxisDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAxis AxisDef
 		{
 			get
 			{
@@ -875,7 +875,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AxisInstance RenderAxisInstance
+		public AxisInstance RenderAxisInstance
 		{
 			get
 			{
@@ -899,13 +899,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartAxis(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAxis axisDef, Chart chart)
+		public ChartAxis(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAxis axisDef, Chart chart)
 		{
 			this.m_axisDef = axisDef;
 			this.m_chart = chart;
 		}
 
-		internal ChartAxis(Axis renderAxisDef, AxisInstance renderAxisInstance, Chart chart, bool isCategory)
+		public ChartAxis(Axis renderAxisDef, AxisInstance renderAxisInstance, Chart chart, bool isCategory)
 		{
 			this.m_renderAxisDef = renderAxisDef;
 			this.m_renderAxisInstance = renderAxisInstance;
@@ -913,7 +913,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_isCategory = isCategory;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_majorGridlines != null)

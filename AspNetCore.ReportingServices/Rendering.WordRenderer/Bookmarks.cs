@@ -4,13 +4,13 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class Bookmarks
+	public class Bookmarks
 	{
 		private List<int> m_offsets;
 
 		private List<string> m_names;
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -18,13 +18,13 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal Bookmarks()
+		public Bookmarks()
 		{
 			this.m_offsets = new List<int>();
 			this.m_names = new List<string>();
 		}
 
-		internal static char[] EscapeText(string text, out int length)
+		public static char[] EscapeText(string text, out int length)
 		{
 			char[] array = new char[text.Length];
 			length = 0;
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return array;
 		}
 
-		internal static string CleanseName(string name)
+		public static string CleanseName(string name)
 		{
 			int length = 0;
 			name = new string(Bookmarks.EscapeText(name, out length), 0, length);
@@ -95,13 +95,13 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return name;
 		}
 
-		internal void AddBookmark(string name, int cp)
+		public void AddBookmark(string name, int cp)
 		{
 			this.m_names.Add(Bookmarks.CleanseName(name));
 			this.m_offsets.Add(cp);
 		}
 
-		internal void SerializeStarts(BinaryWriter writer, int cpEnd)
+		public void SerializeStarts(BinaryWriter writer, int cpEnd)
 		{
 			for (int i = 0; i < this.m_offsets.Count; i++)
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			writer.Flush();
 		}
 
-		internal void SerializeEnds(BinaryWriter writer, int cpEnd)
+		public void SerializeEnds(BinaryWriter writer, int cpEnd)
 		{
 			for (int i = 0; i < this.m_offsets.Count; i++)
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			writer.Flush();
 		}
 
-		internal void SerializeNames(BinaryWriter writer)
+		public void SerializeNames(BinaryWriter writer)
 		{
 			writer.Write((short)(-1));
 			writer.Write((short)this.m_names.Count);

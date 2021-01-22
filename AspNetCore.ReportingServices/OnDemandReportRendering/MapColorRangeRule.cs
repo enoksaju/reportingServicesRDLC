@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapColorRangeRule : MapColorRule
+	public sealed class MapColorRangeRule : MapColorRule
 	{
 		private ReportColorProperty m_startColor;
 
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorRangeRule MapColorRangeRuleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorRangeRule MapColorRangeRuleDef
 		{
 			get
 			{
@@ -75,12 +75,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapColorRangeRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorRangeRule defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapColorRangeRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorRangeRule defObject, MapVectorLayer mapVectorLayer, Map map)
 			: base(defObject, mapVectorLayer, map)
 		{
 		}
 
-		internal override MapAppearanceRuleInstance GetInstance()
+		public override MapAppearanceRuleInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

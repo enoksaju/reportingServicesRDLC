@@ -6,7 +6,7 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeLegendCellCollection_LegendCellCollection")]
-	internal class LegendCellCollection : CollectionBase
+	public class LegendCellCollection : CollectionBase
 	{
 		private LegendItem legendItem;
 
@@ -80,7 +80,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal LegendCellCollection(LegendItem legendItem)
+		public LegendCellCollection(LegendItem legendItem)
 		{
 			this.legendItem = legendItem;
 		}

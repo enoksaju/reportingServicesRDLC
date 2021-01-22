@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class DataValue
+	public sealed class DataValue
 	{
 		private string m_name;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataValue(string name, object value)
+		public DataValue(string name, object value)
 		{
 			this.m_name = name;
 			this.m_value = value;

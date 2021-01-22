@@ -10,7 +10,7 @@ using System.Web;
 namespace AspNetCore.Reporting
 {
 	[DefaultProperty("SelectedDate")]
-	internal class SPDatePickerControl
+	public class SPDatePickerControl
     {
 
 		private int _lcid = 1033;
@@ -281,7 +281,7 @@ namespace AspNetCore.Reporting
             get; set;
         }
 
-		internal string RemoveLoadingScript
+		public string RemoveLoadingScript
 		{
 			get
 			{

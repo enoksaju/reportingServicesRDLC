@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ReportExpressionDefaultValueAttribute : DefaultValueAttribute
+	public class ReportExpressionDefaultValueAttribute : DefaultValueAttribute
 	{
 		public ReportExpressionDefaultValueAttribute()
 			: base(default(ReportExpression))
@@ -27,12 +27,12 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal static Type ConstructGenericType(Type type)
+		public static Type ConstructGenericType(Type type)
 		{
 			return typeof(ReportExpression<>).MakeGenericType(type);
 		}
 
-		internal static object CreateInstance(Type type, object value)
+		public static object CreateInstance(Type type, object value)
 		{
 			type = ReportExpressionDefaultValueAttribute.ConstructGenericType(type);
 			if (value is string)

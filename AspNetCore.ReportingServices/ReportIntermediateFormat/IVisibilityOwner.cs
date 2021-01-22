@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IVisibilityOwner : IReferenceable
+	public interface IVisibilityOwner : IReferenceable
 	{
 		Visibility Visibility
 		{

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapElementView : MapView
+	public sealed class MapElementView : MapView
 	{
 		private ReportStringProperty m_layerName;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapElementView MapElementViewDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapElementView MapElementViewDef
 		{
 			get
 			{
@@ -48,12 +48,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapElementView(AspNetCore.ReportingServices.ReportIntermediateFormat.MapElementView defObject, Map map)
+		public MapElementView(AspNetCore.ReportingServices.ReportIntermediateFormat.MapElementView defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapViewInstance GetInstance()
+		public override MapViewInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

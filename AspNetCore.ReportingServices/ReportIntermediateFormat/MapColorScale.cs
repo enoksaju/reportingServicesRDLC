@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapColorScale : MapDockableSubItem, IPersistable
+	public sealed class MapColorScale : MapDockableSubItem, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapColorScale.GetDeclaration();
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_noDataText;
 
-		internal MapColorScaleTitle MapColorScaleTitle
+		public MapColorScaleTitle MapColorScaleTitle
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TickMarkLength
+		public ExpressionInfo TickMarkLength
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ColorBarBorderColor
+		public ExpressionInfo ColorBarBorderColor
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelInterval
+		public ExpressionInfo LabelInterval
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelFormat
+		public ExpressionInfo LabelFormat
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelPlacement
+		public ExpressionInfo LabelPlacement
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelBehavior
+		public ExpressionInfo LabelBehavior
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HideEndLabels
+		public ExpressionInfo HideEndLabels
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo RangeGapColor
+		public ExpressionInfo RangeGapColor
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo NoDataText
+		public ExpressionInfo NoDataText
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapColorScaleExprHost ExprHost
+		public new MapColorScaleExprHost ExprHost
 		{
 			get
 			{
@@ -164,16 +164,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapColorScale()
+		public MapColorScale()
 		{
 		}
 
-		internal MapColorScale(Map map, int id)
+		public MapColorScale(Map map, int id)
 			: base(map, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapColorScaleStart();
 			base.Initialize(context);
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapColorScaleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapColorScale mapColorScale = (MapColorScale)base.PublishClone(context);
 			if (this.m_mapColorScaleTitle != null)
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapColorScale;
 		}
 
-		internal void SetExprHost(MapColorScaleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapColorScaleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -285,7 +285,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapColorScaleTitle, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapColorScaleTitle));
@@ -396,55 +396,55 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapColorScale;
 		}
 
-		internal string EvaluateTickMarkLength(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateTickMarkLength(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorScaleTickMarkLengthExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateColorBarBorderColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateColorBarBorderColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorScaleColorBarBorderColorExpression(this, base.m_map.Name);
 		}
 
-		internal int EvaluateLabelInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public int EvaluateLabelInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorScaleLabelIntervalExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateLabelFormat(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateLabelFormat(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorScaleLabelFormatExpression(this, base.m_map.Name);
 		}
 
-		internal MapLabelPlacement EvaluateLabelPlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapLabelPlacement EvaluateLabelPlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateLabelPlacement(context.ReportRuntime.EvaluateMapColorScaleLabelPlacementExpression(this, base.m_map.Name), context.ReportRuntime);
 		}
 
-		internal MapLabelBehavior EvaluateLabelBehavior(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapLabelBehavior EvaluateLabelBehavior(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateLabelBehavior(context.ReportRuntime.EvaluateMapColorScaleLabelBehaviorExpression(this, base.m_map.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateHideEndLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHideEndLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorScaleHideEndLabelsExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateRangeGapColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateRangeGapColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorScaleRangeGapColorExpression(this, base.m_map.Name);
 		}
 
-		internal string EvaluateNoDataText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateNoDataText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapColorScaleNoDataTextExpression(this, base.m_map.Name);

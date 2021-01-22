@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDataReader : IDisposable
+	public interface IDataReader : IDisposable
 	{
 		int FieldCount
 		{

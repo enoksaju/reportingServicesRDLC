@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[SkipStaticValidation]
-	internal class ParametersImplWrapper : IPersistable
+	public class ParametersImplWrapper : IPersistable
 	{
 		private ParametersImpl m_opdParameters;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private static readonly Declaration m_Declaration = ParametersImplWrapper.GetDeclaration();
 
-		internal ParametersImpl WrappedParametersImpl
+		public ParametersImpl WrappedParametersImpl
 		{
 			get
 			{
@@ -25,17 +25,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParametersImplWrapper()
+		public ParametersImplWrapper()
 		{
 			this.m_opdParameters = new ParametersImpl();
 		}
 
-		internal ParametersImplWrapper(ParametersImpl odpParameters)
+		public ParametersImplWrapper(ParametersImpl odpParameters)
 		{
 			this.m_opdParameters = odpParameters;
 		}
 
-		internal bool ValuesAreEqual(ParametersImplWrapper obj)
+		public bool ValuesAreEqual(ParametersImplWrapper obj)
 		{
 			ParameterImpl[] collection = this.m_opdParameters.Collection;
 			ParameterImpl[] collection2 = obj.WrappedParametersImpl.Collection;
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal int GetValuesHashCode()
+		public int GetValuesHashCode()
 		{
 			ParameterImpl[] collection = this.m_opdParameters.Collection;
 			if (this.m_hash == 0)
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_hash;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Parameters, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectArray, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Parameter));

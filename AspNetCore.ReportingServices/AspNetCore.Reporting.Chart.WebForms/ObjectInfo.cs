@@ -1,34 +1,34 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ObjectInfo
+	public class ObjectInfo
 	{
-		internal ChartArea ChartArea;
+		public ChartArea ChartArea;
 
-		internal Legend Legend;
+		public Legend Legend;
 
-		internal LegendItem LegendItem;
+		public LegendItem LegendItem;
 
-		internal Axis Axis;
+		public Axis Axis;
 
-		internal object AxisLabel;
+		public object AxisLabel;
 
-		internal Axis AxisLabelAxis;
+		public Axis AxisLabelAxis;
 
-		internal Series Series;
+		public Series Series;
 
-		internal DataPoint DataPoint;
+		public DataPoint DataPoint;
 
-		internal int PointIndex = -1;
+		public int PointIndex = -1;
 
-		internal Title Title;
+		public Title Title;
 
-		internal Annotation Annotation;
+		public Annotation Annotation;
 
-		internal ContextElementTypes ElementType;
+		public ContextElementTypes ElementType;
 
-		internal object InspectedObject = new HitTestResult();
+		public object InspectedObject = new HitTestResult();
 
-		internal ObjectInfo()
+		public ObjectInfo()
 		{
 		}
 
@@ -169,7 +169,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return objectInfo;
 		}
 
-		internal static ObjectInfo Get(object o, Chart chart)
+		public static ObjectInfo Get(object o, Chart chart)
 		{
 			ObjectInfo objectInfo = new ObjectInfo();
 			objectInfo.InspectedObject = o;
@@ -223,7 +223,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return objectInfo;
 		}
 
-		internal object GetContextObject()
+		public object GetContextObject()
 		{
 			object result = null;
 			switch (this.ElementType)
@@ -253,7 +253,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal Axis GetAxis()
+		public Axis GetAxis()
 		{
 			if (this.Axis != null)
 			{
@@ -266,7 +266,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return null;
 		}
 
-		internal object GetContextObjectNoLabel()
+		public object GetContextObjectNoLabel()
 		{
 			ContextElementTypes elementType = this.ElementType;
 			if (elementType == ContextElementTypes.AxisLabel)
@@ -276,7 +276,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.GetContextObject();
 		}
 
-		internal bool IsAplicable(ContextElementTypes types)
+		public bool IsAplicable(ContextElementTypes types)
 		{
 			bool flag = false;
 			if (types == ContextElementTypes.None)
@@ -318,7 +318,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return flag;
 		}
 
-		internal ChartElementType GetChartElementType()
+		public ChartElementType GetChartElementType()
 		{
 			ChartElementType result = ChartElementType.Nothing;
 			switch (this.ElementType)

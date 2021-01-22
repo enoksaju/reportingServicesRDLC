@@ -19,7 +19,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[LicenseProvider(typeof(LicFileLicenseProvider))]
 	[DisplayName("Dundas Chart Enterprise")]
-	internal class Chart : IDisposable, IChart
+	public class Chart : IDisposable, IChart
 	{
 		private float imageResolution = 96f;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private string codeException = "";
 
-		internal bool ShowDebugMarkings;
+		public bool ShowDebugMarkings;
 
 		private ChartTypeRegistry chartTypeRegistry;
 
@@ -43,15 +43,15 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private DataManager dataManager;
 
-		internal ChartImage chartPicture;
+		public ChartImage chartPicture;
 
 		private ImageLoader imageLoader;
 
-		internal static ITypeDescriptorContext controlCurrentContext = null;
+		public static ITypeDescriptorContext controlCurrentContext = null;
 
-		internal string webFormDocumentURL = "";
+		public string webFormDocumentURL = "";
 
-		internal ServiceContainer serviceContainer;
+		public ServiceContainer serviceContainer;
 
 		private EventsManager eventsManager;
 
@@ -61,7 +61,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private FormulaRegistry formulaRegistry;
 
-		internal static string productID = "DC-WCE-42";
+		public static string productID = "DC-WCE-42";
 
 		private License license;
 
@@ -69,9 +69,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private string chartImageUrl = "ChartPic_#SEQ(300,3)";
 
-		internal bool serializing;
+		public bool serializing;
 
-		internal SerializationStatus serializationStatus;
+		public SerializationStatus serializationStatus;
 
 		private ChartSerializer chartSerializer;
 
@@ -81,9 +81,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private KeywordsRegistry keywordsRegistry;
 
-		internal static double renderingDpiX = 96.0;
+		public static double renderingDpiX = 96.0;
 
-		internal static double renderingDpiY = 96.0;
+		public static double renderingDpiY = 96.0;
 
 		private string lastUpdatedDesignTimeHtmlValue = string.Empty;
 
@@ -249,7 +249,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SRCategory("CategoryAttributeImage")]
 		[Bindable(true)]
 		[SRDescription("DescriptionAttributeChart_RenderType")]
-		internal RenderType RenderType
+		public RenderType RenderType
 		{
 			get
 			{
@@ -380,7 +380,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SRDescription("DescriptionAttributeChart_Serializer")]
 		[Browsable(false)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		internal ChartSerializer Serializer
+		public ChartSerializer Serializer
 		{
 			get
 			{
@@ -409,7 +409,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SRCategory("CategoryAttributeImage")]
 		[Bindable(true)]
 		[DefaultValue(0)]
-		internal int Compression
+		public int Compression
 		{
 			get
 			{
@@ -425,7 +425,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[Bindable(true)]
 		[SRDescription("DescriptionAttributeMapEnabled")]
 		[SRCategory("CategoryAttributeMap")]
-		internal bool MapEnabled
+		public bool MapEnabled
 		{
 			get
 			{
@@ -967,27 +967,27 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		}
 
 		[SRDescription("DescriptionAttributeChartEvent_PrePaint")]
-		internal event PaintEventHandler PrePaint;
+		public event PaintEventHandler PrePaint;
 
 		[SRDescription("DescriptionAttributeChartEvent_PostPaint")]
-		internal event PaintEventHandler PostPaint;
+		public event PaintEventHandler PostPaint;
 
 		[SRDescription("DescriptionAttributeChartEvent_BackPaint")]
 		[Browsable(false)]
-		internal event PaintEventHandler BackPaint;
+		public event PaintEventHandler BackPaint;
 
 		[SRDescription("DescriptionAttributeChartEvent_Paint")]
 		[Browsable(false)]
-		internal event PaintEventHandler Paint;
+		public event PaintEventHandler Paint;
 
 		[SRDescription("DescriptionAttributeChartEvent_CustomizeMapAreas")]
-		internal event CustomizeMapAreasEventHandler CustomizeMapAreas;
+		public event CustomizeMapAreasEventHandler CustomizeMapAreas;
 
 		[SRDescription("DescriptionAttributeChartEvent_Customize")]
-		internal event CustomizeEventHandler Customize;
+		public event CustomizeEventHandler Customize;
 
 		[SRDescription("DescriptionAttributeChartEvent_CustomizeLegend")]
-		internal event CustomizeLegendEventHandler CustomizeLegend;
+		public event CustomizeLegendEventHandler CustomizeLegend;
 
 		public Chart()
 		{
@@ -1203,7 +1203,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.GetHitTestResult(seriesName, pointIndex, type, obj);
 		}
 
-		internal HitTestResult GetHitTestResult(string seriesName, int pointIndex, ChartElementType type, object obj)
+		public HitTestResult GetHitTestResult(string seriesName, int pointIndex, ChartElementType type, object obj)
 		{
 			HitTestResult hitTestResult = new HitTestResult();
 			if (seriesName.Length > 0)
@@ -1516,27 +1516,27 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void CallBackPaint(object caller, ChartPaintEventArgs e)
+		public void CallBackPaint(object caller, ChartPaintEventArgs e)
 		{
 			this.OnBackPaint(caller, e);
 		}
 
-		internal void CallPaint(object caller, ChartPaintEventArgs e)
+		public void CallPaint(object caller, ChartPaintEventArgs e)
 		{
 			this.OnPaint(caller, e);
 		}
 
-		internal void CallCustomizeMapAreas(MapAreasCollection areaItems)
+		public void CallCustomizeMapAreas(MapAreasCollection areaItems)
 		{
 			this.OnCustomizeMapAreas(areaItems);
 		}
 
-		internal void CallCustomize()
+		public void CallCustomize()
 		{
 			this.OnCustomize();
 		}
 
-		internal void CallCustomizeLegend(LegendItemsCollection legendItems, string legendName)
+		public void CallCustomizeLegend(LegendItemsCollection legendItems, string legendName)
 		{
 			this.OnCustomizeLegend(legendItems, legendName);
 		}
@@ -1590,7 +1590,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal bool IsDesignMode()
+		public bool IsDesignMode()
 		{
 			return false;
 		}

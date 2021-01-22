@@ -5,7 +5,7 @@ using System.Drawing.Design;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal abstract class RangeBase : Range, IToolTipProvider, IImageMapProvider
+	public abstract class RangeBase : Range, IToolTipProvider, IImageMapProvider
 	{
 		private Placement placement;
 
@@ -461,9 +461,9 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal abstract void Render(GaugeGraphics g);
+		public abstract void Render(GaugeGraphics g);
 
-		internal GaugeBase GetGaugeBase()
+		public GaugeBase GetGaugeBase()
 		{
 			if (this.Common == null)
 			{
@@ -472,13 +472,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (GaugeBase)this.Collection.ParentElement;
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.scaleName = this.GetGaugeBase().GetDefaultScaleName(this.scaleName);
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			base.Notify(msg, element, param);
 			switch (msg)

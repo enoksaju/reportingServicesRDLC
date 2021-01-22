@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum MapImageWrapMode
+	public enum MapImageWrapMode
 	{
 		Scaled = 4,
 		Tile = 0,

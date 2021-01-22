@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPolygonRulesInstance : BaseInstance
+	public sealed class MapPolygonRulesInstance : BaseInstance
 	{
 		private MapPolygonRules m_defObject;
 
-		internal MapPolygonRulesInstance(MapPolygonRules defObject)
+		public MapPolygonRulesInstance(MapPolygonRules defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

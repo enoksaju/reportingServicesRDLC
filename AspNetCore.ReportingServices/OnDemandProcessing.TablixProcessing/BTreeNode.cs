@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class BTreeNode : IStorable, IPersistable
+	public sealed class BTreeNode : IStorable, IPersistable
 	{
 		private const int BTreeOrder = 3;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private static Declaration m_declaration = BTreeNode.GetDeclaration();
 
-		internal int IndexInParent
+		public int IndexInParent
 		{
 			set
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal BTreeNodeTupleList Tuples
+		public BTreeNodeTupleList Tuples
 		{
 			get
 			{
@@ -40,18 +40,18 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal BTreeNode()
+		public BTreeNode()
 		{
 		}
 
-		internal BTreeNode(IHierarchyObj owner)
+		public BTreeNode(IHierarchyObj owner)
 		{
 			this.m_tuples = new BTreeNodeTupleList(3);
 			BTreeNodeTuple tuple = new BTreeNodeTuple(this.CreateBTreeNode(null, owner), -1);
 			this.m_tuples.Add(tuple, null);
 		}
 
-		internal void Traverse(ProcessingStages operation, bool ascending, ScalableList<BTreeNode> nodes, ITraversalContext traversalContext)
+		public void Traverse(ProcessingStages operation, bool ascending, ScalableList<BTreeNode> nodes, ITraversalContext traversalContext)
 		{
 			if (ascending)
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void SetFirstChild(ScalableList<BTreeNode> nodes, int childIndex)
+		public void SetFirstChild(ScalableList<BTreeNode> nodes, int childIndex)
 		{
 			Global.Tracer.Assert(1 <= this.m_tuples.Count, "(1 <= m_tuples.Count)");
 			this.m_tuples[0].ChildIndex = childIndex;
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return new BTreeNodeHierarchyObj(key, owner);
 		}
 
-		internal bool SearchAndInsert(object keyValue, ScalableList<BTreeNode> nodes, IHierarchyObj owner, out BTreeNodeValue newSiblingValue, out int newSiblingIndex, out int globalNewSiblingIndex)
+		public bool SearchAndInsert(object keyValue, ScalableList<BTreeNode> nodes, IHierarchyObj owner, out BTreeNodeValue newSiblingValue, out int newSiblingIndex, out int globalNewSiblingIndex)
 		{
 			int num = -1;
 			int i;
@@ -247,7 +247,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.BTreeNode;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (BTreeNode.m_declaration == null)
 			{

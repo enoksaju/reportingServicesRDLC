@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class RoundedDouble
+	public class RoundedDouble
 	{
-		internal double m_value;
+		public double m_value;
 
-		internal bool m_forOverlapDetection;
+		public bool m_forOverlapDetection;
 
-		internal double Value
+		public double Value
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_forOverlapDetection = forOverlapDetection;
 		}
 
-		internal static double GetRoundingDelta(RoundedDouble x)
+		public static double GetRoundingDelta(RoundedDouble x)
 		{
 			if (!x.m_forOverlapDetection)
 			{

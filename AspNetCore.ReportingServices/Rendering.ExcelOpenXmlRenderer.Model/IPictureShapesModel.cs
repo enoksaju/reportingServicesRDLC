@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IPictureShapesModel
+	public interface IPictureShapesModel
 	{
 		Pictures Interface
 		{

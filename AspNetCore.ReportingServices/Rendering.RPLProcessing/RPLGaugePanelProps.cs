@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLGaugePanelProps : RPLDynamicImageProps
+	public sealed class RPLGaugePanelProps : RPLDynamicImageProps
 	{
-		internal RPLGaugePanelProps()
+		public RPLGaugePanelProps()
 		{
 		}
 	}

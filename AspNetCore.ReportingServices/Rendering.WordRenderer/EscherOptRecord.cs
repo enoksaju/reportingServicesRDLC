@@ -3,13 +3,13 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherOptRecord : EscherRecord
+	public class EscherOptRecord : EscherRecord
 	{
 		private class AnonymousClassComparator : IComparer
 		{
 			private EscherOptRecord enclosingInstance;
 
-			internal AnonymousClassComparator(EscherOptRecord enclosingInstance)
+			public AnonymousClassComparator(EscherOptRecord enclosingInstance)
 			{
 				this.InitBlock(enclosingInstance);
 			}
@@ -35,13 +35,13 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal const string RECORD_DESCRIPTION = "msofbtOPT";
+		public const string RECORD_DESCRIPTION = "msofbtOPT";
 
-		internal static ushort RECORD_ID = 61451;
+		public static ushort RECORD_ID = 61451;
 
 		private IList m_properties = new ArrayList();
 
-		internal override int RecordSize
+		public override int RecordSize
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override string RecordName
+		public override string RecordName
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual IList EscherProperties
+		public virtual IList EscherProperties
 		{
 			get
 			{
@@ -80,11 +80,11 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherOptRecord()
+		public EscherOptRecord()
 		{
 		}
 
-		internal override int Serialize(BinaryWriter dataWriter)
+		public override int Serialize(BinaryWriter dataWriter)
 		{
 			dataWriter.Write(this.getOptions());
 			dataWriter.Write(this.GetRecordId());
@@ -105,18 +105,18 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return num;
 		}
 
-		internal override ushort getOptions()
+		public override ushort getOptions()
 		{
 			this.setOptions((ushort)(this.m_properties.Count << 4 | 3));
 			return base.getOptions();
 		}
 
-		internal virtual EscherProperty getEscherProperty(int index)
+		public virtual EscherProperty getEscherProperty(int index)
 		{
 			return (EscherProperty)this.m_properties[index];
 		}
 
-		internal virtual EscherProperty getEscherPropertyByID(int id)
+		public virtual EscherProperty getEscherPropertyByID(int id)
 		{
 			for (int i = 0; i < this.m_properties.Count; i++)
 			{
@@ -129,12 +129,12 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return null;
 		}
 
-		internal virtual void addEscherProperty(EscherProperty prop)
+		public virtual void addEscherProperty(EscherProperty prop)
 		{
 			this.m_properties.Add(prop);
 		}
 
-		internal virtual void sortProperties()
+		public virtual void sortProperties()
 		{
 			((ArrayList)this.m_properties).Sort(new AnonymousClassComparator(this));
 		}

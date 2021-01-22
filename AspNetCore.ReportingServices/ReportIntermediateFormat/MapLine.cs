@@ -12,7 +12,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapLine : MapSpatialElement, IPersistable
+	public sealed class MapLine : MapSpatialElement, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapLine.GetDeclaration();
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private MapLineTemplate m_mapLineTemplate;
 
-		internal ExpressionInfo UseCustomLineTemplate
+		public ExpressionInfo UseCustomLineTemplate
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLineTemplate MapLineTemplate
+		public MapLineTemplate MapLineTemplate
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapLineExprHost ExprHost
+		public new MapLineExprHost ExprHost
 		{
 			get
 			{
@@ -53,16 +53,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLine()
+		public MapLine()
 		{
 		}
 
-		internal MapLine(MapLineLayer mapLineLayer, Map map)
+		public MapLine(MapLineLayer mapLineLayer, Map map)
 			: base(mapLineLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context, int index)
+		public override void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.MapLineStart(index.ToString(CultureInfo.InvariantCulture.NumberFormat));
 			base.Initialize(context, index);
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.MapLineEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapLine mapLine = (MapLine)base.PublishClone(context);
 			if (this.m_useCustomLineTemplate != null)
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapLine;
 		}
 
-		internal void SetExprHost(MapLineExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapLineExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.UseCustomLineTemplate, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapLine;
 		}
 
-		internal bool EvaluateUseCustomLineTemplate(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUseCustomLineTemplate(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLineUseCustomLineTemplateExpression(this, base.m_map.Name);

@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class RetrievalManager
+	public class RetrievalManager
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.Report m_report;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private List<RuntimeAtomicDataSource> m_runtimeDataSources = new List<RuntimeAtomicDataSource>();
 
-		internal bool NoRows
+		public bool NoRows
 		{
 			get
 			{
@@ -27,26 +27,26 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RetrievalManager(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext context)
+		public RetrievalManager(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, OnDemandProcessingContext context)
 		{
 			this.m_report = report;
 			this.m_odpContext = context;
 		}
 
-		internal RetrievalManager(DataSetDefinition dataSetDefinition, OnDemandProcessingContext context)
+		public RetrievalManager(DataSetDefinition dataSetDefinition, OnDemandProcessingContext context)
 		{
 			this.m_dataSetDefinition = dataSetDefinition;
 			this.m_odpContext = context;
 		}
 
-		internal void FetchParameterData(ReportParameterDataSetCache aCache, int aDataSourceIndex, int aDataSetIndex)
+		public void FetchParameterData(ReportParameterDataSetCache aCache, int aDataSourceIndex, int aDataSetIndex)
 		{
 			RuntimeDataSourceParameters item = new RuntimeDataSourceParameters(this.m_report, this.m_report.DataSources[aDataSourceIndex], this.m_odpContext, aDataSetIndex, aCache);
 			this.m_runtimeDataSources.Add(item);
 			this.FetchData();
 		}
 
-		internal bool FetchSharedDataSet(ParameterInfoCollection parameters)
+		public bool FetchSharedDataSet(ParameterInfoCollection parameters)
 		{
 			if (parameters != null && parameters.Count != 0)
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal bool PrefetchData(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, ParameterInfoCollection parameters, bool mergeTran)
+		public bool PrefetchData(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance, ParameterInfoCollection parameters, bool mergeTran)
 		{
 			if (this.m_report.DataSourceCount == 0)
 			{

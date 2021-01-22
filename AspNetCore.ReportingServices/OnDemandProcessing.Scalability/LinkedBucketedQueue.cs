@@ -4,19 +4,19 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class LinkedBucketedQueue<T> : IEnumerable<T>, IEnumerable where T : class
+	public sealed class LinkedBucketedQueue<T> : IEnumerable<T>, IEnumerable where T : class
 	{
 		private class QueueBucket
 		{
-			internal T[] Array;
+			public T[] Array;
 
-			internal QueueBucket PreviousBucket;
+			public QueueBucket PreviousBucket;
 
-			internal QueueBucket NextBucket;
+			public QueueBucket NextBucket;
 
-			internal int Count;
+			public int Count;
 
-			internal QueueBucket(int size)
+			public QueueBucket(int size)
 			{
 				this.Array = new T[size];
 				this.PreviousBucket = null;
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal QueueEnumerator(LinkedBucketedQueue<T> queue)
+			public QueueEnumerator(LinkedBucketedQueue<T> queue)
 			{
 				this.m_queue = queue;
 				this.Reset();
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 
 		private int m_removeIndex;
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -148,13 +148,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal LinkedBucketedQueue(int bucketSize)
+		public LinkedBucketedQueue(int bucketSize)
 		{
 			this.m_count = 0;
 			this.m_bucketSize = bucketSize;
 		}
 
-		internal void Enqueue(T item)
+		public void Enqueue(T item)
 		{
 			if (this.m_firstBucket == null)
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			this.m_count++;
 		}
 
-		internal T Dequeue()
+		public T Dequeue()
 		{
 			T val = null;
 			while (val == null && this.m_count > 0)
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			this.m_count = 0;
 			this.m_firstBucket = null;

@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartTitleInstance
+	public sealed class ChartTitleInstance
 	{
 		private int m_uniqueName;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private object[] m_styleAttributeValues;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Caption
+		public string Caption
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] StyleAttributeValues
+		public object[] StyleAttributeValues
 		{
 			get
 			{
@@ -48,18 +48,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartTitleInstance(ReportProcessing.ProcessingContext pc, Chart chart, ChartTitle titleDef, string propertyName)
+		public ChartTitleInstance(ReportProcessing.ProcessingContext pc, Chart chart, ChartTitle titleDef, string propertyName)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 			this.m_caption = pc.ReportRuntime.EvaluateChartTitleCaptionExpression(titleDef, chart.Name, propertyName);
 			this.m_styleAttributeValues = Chart.CreateStyle(pc, titleDef.StyleClass, chart.Name + "." + propertyName, this.m_uniqueName);
 		}
 
-		internal ChartTitleInstance()
+		public ChartTitleInstance()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));

@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class ReportParameter
+	public  sealed class ReportParameter
 	{
 		private string m_name = "";
 
@@ -86,7 +86,7 @@ namespace AspNetCore.Reporting
 			this.Visible = visible;
 		}
 
-		internal static NameValueCollection ToNameValueCollection(IEnumerable<ReportParameter> reportParameters)
+		public static NameValueCollection ToNameValueCollection(IEnumerable<ReportParameter> reportParameters)
 		{
 			if (reportParameters == null)
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.Reporting
 			return nameValueCollection;
 		}
 
-		internal static ReportParameter[] FromNameValueCollection(NameValueCollection parameterColl)
+		public static ReportParameter[] FromNameValueCollection(NameValueCollection parameterColl)
 		{
 			if (parameterColl != null)
 			{

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IWorksheetModel : ICloneable
+	public interface IWorksheetModel : ICloneable
 	{
 		Streamsheet Interface
 		{

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CallbackManager
+	public class CallbackManager
 	{
 		private string jsCode = "";
 
@@ -53,7 +53,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.jsCode = this.jsCode + jsSourceCode + "; ";
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.jsCode = "";
 			this.controlUpdates = "";
@@ -62,12 +62,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.returnCommandArgument = "";
 		}
 
-		internal string GetJavaScript()
+		public string GetJavaScript()
 		{
 			return this.jsCode;
 		}
 
-		internal string GetControlUpdates()
+		public string GetControlUpdates()
 		{
 			return this.controlUpdates;
 		}

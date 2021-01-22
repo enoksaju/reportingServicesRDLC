@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ImageMapAreaInstance : IPersistable
+	public sealed class ImageMapAreaInstance : IPersistable
 	{
 		private ImageMapArea.ImageMapAreaShape m_shape;
 
@@ -39,23 +39,23 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ImageMapAreaInstance(ImageMapArea.ImageMapAreaShape shape, float[] coordinates)
+		public ImageMapAreaInstance(ImageMapArea.ImageMapAreaShape shape, float[] coordinates)
 			: this(shape, coordinates, null)
 		{
 		}
 
-		internal ImageMapAreaInstance(ImageMapArea.ImageMapAreaShape shape, float[] coordinates, string toolTip)
+		public ImageMapAreaInstance(ImageMapArea.ImageMapAreaShape shape, float[] coordinates, string toolTip)
 		{
 			this.m_shape = shape;
 			this.m_coordinates = coordinates;
 			this.m_toolTip = toolTip;
 		}
 
-		internal ImageMapAreaInstance()
+		public ImageMapAreaInstance()
 		{
 		}
 
-		internal ImageMapAreaInstance(AspNetCore.ReportingServices.ReportRendering.ImageMapArea renderImageMapArea)
+		public ImageMapAreaInstance(AspNetCore.ReportingServices.ReportRendering.ImageMapArea renderImageMapArea)
 		{
 			this.m_shape = (ImageMapArea.ImageMapAreaShape)renderImageMapArea.Shape;
 			this.m_coordinates = renderImageMapArea.Coordinates;

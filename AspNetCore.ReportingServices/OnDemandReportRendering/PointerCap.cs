@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PointerCap : IROMStyleDefinitionContainer
+	public sealed class PointerCap : IROMStyleDefinitionContainer
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.PointerCap PointerCapDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.PointerCap PointerCapDef
 		{
 			get
 			{
@@ -140,13 +140,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PointerCap(AspNetCore.ReportingServices.ReportIntermediateFormat.PointerCap defObject, GaugePanel gaugePanel)
+		public PointerCap(AspNetCore.ReportingServices.ReportIntermediateFormat.PointerCap defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

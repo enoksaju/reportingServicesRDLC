@@ -5,17 +5,17 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal abstract class SerializableValue : IXmlSerializable
+	public abstract class SerializableValue : IXmlSerializable
 	{
-		internal const string TYPECODE = "TypeCode";
+		public const string TYPECODE = "TypeCode";
 
-		internal const string VALUE = "Value";
+		public const string VALUE = "Value";
 
 		private object m_value;
 
 		private DataTypeCode m_dataTypeCode = DataTypeCode.Unknown;
 
-		internal DataTypeCode TypeCode
+		public DataTypeCode TypeCode
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal object Value
+		public object Value
 		{
 			get
 			{

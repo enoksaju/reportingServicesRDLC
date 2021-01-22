@@ -4,7 +4,7 @@ using System.Drawing.Printing;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class ReportPageSettings
+	public sealed class ReportPageSettings
 	{
 		private int m_pageWidth;
 
@@ -38,7 +38,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal PageSettings CustomPageSettings
+		public PageSettings CustomPageSettings
 		{
 			get
 			{
@@ -52,14 +52,14 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal ReportPageSettings(double pageHeight, double pageWidth, double leftMargin, double rightMargin, double topMargin, double bottomMargin)
+		public ReportPageSettings(double pageHeight, double pageWidth, double leftMargin, double rightMargin, double topMargin, double bottomMargin)
 		{
 			this.m_pageWidth = ReportPageSettings.ConvertMmTo100thInch(pageWidth);
 			this.m_pageHeight = ReportPageSettings.ConvertMmTo100thInch(pageHeight);
 			this.m_margins = new Margins(ReportPageSettings.ConvertMmTo100thInch(leftMargin), ReportPageSettings.ConvertMmTo100thInch(rightMargin), ReportPageSettings.ConvertMmTo100thInch(topMargin), ReportPageSettings.ConvertMmTo100thInch(bottomMargin));
 		}
 
-		internal ReportPageSettings()
+		public ReportPageSettings()
 			: this(1100.0, 850.0, 50.0, 50.0, 50.0, 50.0)
 		{
 		}
@@ -69,7 +69,7 @@ namespace AspNetCore.Reporting
 			return (int)Math.Round(mm / 25.4 * 100.0);
 		}
 
-		internal static void UpdatePageSettingsForPrinter(PageSettings pageSettings, PrinterSettings printerSettings)
+		public static void UpdatePageSettingsForPrinter(PageSettings pageSettings, PrinterSettings printerSettings)
 		{
 			if (printerSettings.IsValid)
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal PageSettings ToPageSettings(PrinterSettings currentPrinter)
+		public PageSettings ToPageSettings(PrinterSettings currentPrinter)
 		{
 			PageSettings customPageSettings = this.CustomPageSettings;
 			ReportPageSettings.UpdatePageSettingsForPrinter(customPageSettings, currentPrinter);

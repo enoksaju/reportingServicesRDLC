@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class DeviceInfo
+	public class DeviceInfo
 	{
 		private AutoFit m_autoFit = AutoFit.Default;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private NameValueCollection m_rawDeviceInfo;
 
-		internal AutoFit AutoFit
+		public AutoFit AutoFit
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool ExpandToggles
+		public bool ExpandToggles
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool FixedPageWidth
+		public bool FixedPageWidth
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool OmitHyperlinks
+		public bool OmitHyperlinks
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool OmitDrillthroughs
+		public bool OmitDrillthroughs
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal NameValueCollection RawDeviceInfo
+		public NameValueCollection RawDeviceInfo
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal DeviceInfo(NameValueCollection deviceInfo)
+		public DeviceInfo(NameValueCollection deviceInfo)
 		{
 			this.m_rawDeviceInfo = deviceInfo;
 			string value = deviceInfo["AutoFit"];

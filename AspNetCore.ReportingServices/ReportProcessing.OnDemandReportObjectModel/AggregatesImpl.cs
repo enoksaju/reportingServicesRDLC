@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal ICollection Objects
+		public ICollection Objects
 		{
 			get
 			{
@@ -76,16 +76,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal AggregatesImpl()
+		public AggregatesImpl()
 		{
 		}
 
-		internal AggregatesImpl(OnDemandProcessingContext odpContext)
+		public AggregatesImpl(OnDemandProcessingContext odpContext)
 			: this(false, odpContext)
 		{
 		}
 
-		internal AggregatesImpl(bool lockAdd, OnDemandProcessingContext odpContext)
+		public AggregatesImpl(bool lockAdd, OnDemandProcessingContext odpContext)
 		{
 			this.m_lockAdd = lockAdd;
 			this.m_odpContext = odpContext;
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			goto IL_009f;
 		}
 
-		internal void ClearAll()
+		public void ClearAll()
 		{
 			if (this.m_collection != null)
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_duplicateNames = null;
 		}
 
-		internal void ResetAll()
+		public void ResetAll()
 		{
 			foreach (AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj value in this.m_collection.Values)
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void ResetAll<T>(IEnumerable<T> aggregateDefs) where T : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
+		public void ResetAll<T>(IEnumerable<T> aggregateDefs) where T : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
 		{
 			if (aggregateDefs != null)
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Reset(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo aggregateDef)
+		public void Reset(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo aggregateDef)
 		{
 			if (this.m_collection != null)
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Add(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj newObject)
+		public void Add(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj newObject)
 		{
 			Global.Tracer.Assert(!newObject.NonAggregateMode, "( !newObject.NonAggregateMode )");
 			try
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Remove(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo aggDef)
+		public void Remove(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo aggDef)
 		{
 			try
 			{
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Set(string name, AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo aggregateDef, List<string> duplicateNames, AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult aggregateResult)
+		public void Set(string name, AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo aggregateDef, List<string> duplicateNames, AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult aggregateResult)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj aggregateObj = this.GetAggregateObj(name);
 			if (aggregateObj == null)
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj GetAggregateObj(string name)
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj GetAggregateObj(string name)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj dataAggregateObj = (AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj)this.m_collection[name];
 			if (dataAggregateObj == null && this.m_duplicateNames != null)
@@ -283,7 +283,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void ResetFieldsUsedInExpression()
+		public void ResetFieldsUsedInExpression()
 		{
 			foreach (AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj value in this.m_collection.Values)
 			{
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void AddFieldsUsedInExpression(OnDemandProcessingContext odpContext, List<string> fieldsUsedInValueExpression)
+		public void AddFieldsUsedInExpression(OnDemandProcessingContext odpContext, List<string> fieldsUsedInValueExpression)
 		{
 			Dictionary<string, List<string>> aggregateFieldReferences = odpContext.OdpMetadata.ReportSnapshot.AggregateFieldReferences;
 			foreach (AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj value in this.m_collection.Values)

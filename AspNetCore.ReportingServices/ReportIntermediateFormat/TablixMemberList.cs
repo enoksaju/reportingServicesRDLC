@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class TablixMemberList : HierarchyNodeList
+	public sealed class TablixMemberList : HierarchyNodeList
 	{
-		internal new TablixMember this[int index]
+		public new TablixMember this[int index]
 		{
 			get
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal TablixMemberList(int capacity)
+		public TablixMemberList(int capacity)
 			: base(capacity)
 		{
 		}

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimMatrixMember : ShimTablixMember
+	public sealed class ShimMatrixMember : ShimTablixMember
 	{
 		private int m_definitionStartIndex = -1;
 
@@ -13,11 +13,11 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private bool m_isAfterSubtotal;
 
-		internal MatrixMember m_staticOrSubtotal;
+		public MatrixMember m_staticOrSubtotal;
 
 		private MatrixMemberInfoCache m_currentMatrixMemberCellIndexes;
 
-		internal double SizeDelta
+		public double SizeDelta
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override int RowSpan
+		public override int RowSpan
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override int ColSpan
+		public override int ColSpan
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override PageBreakLocation PropagatedGroupBreak
+		public override PageBreakLocation PropagatedGroupBreak
 		{
 			get
 			{
@@ -206,7 +206,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int DefinitionStartIndex
+		public int DefinitionStartIndex
 		{
 			get
 			{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int DefinitionEndIndex
+		public int DefinitionEndIndex
 		{
 			get
 			{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int AdjustedRenderCollectionIndex
+		public int AdjustedRenderCollectionIndex
 		{
 			get
 			{
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MatrixMemberInfoCache CurrentMatrixMemberCellIndexes
+		public MatrixMemberInfoCache CurrentMatrixMemberCellIndexes
 		{
 			get
 			{
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MatrixMember CurrentRenderMatrixMember
+		public MatrixMember CurrentRenderMatrixMember
 		{
 			get
 			{
@@ -254,7 +254,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimMatrixMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimMatrixMember parent, int parentCollectionIndex, bool isColumn, int renderCollectionIndex, MatrixMember staticOrSubtotal, bool isAfterSubtotal, MatrixMemberInfoCache matrixMemberCellIndexes)
+		public ShimMatrixMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimMatrixMember parent, int parentCollectionIndex, bool isColumn, int renderCollectionIndex, MatrixMember staticOrSubtotal, bool isAfterSubtotal, MatrixMemberInfoCache matrixMemberCellIndexes)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex, isColumn)
 		{
 			this.m_renderCollectionIndex = renderCollectionIndex;
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_definitionEndIndex = owner.GetCurrentMemberCellDefinitionIndex();
 		}
 
-		internal ShimMatrixMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimMatrixMember parent, int parentCollectionIndex, bool isColumn, int renderCollectionIndex, ShimRenderGroups renderGroups, MatrixMemberInfoCache matrixMemberCellIndexes)
+		public ShimMatrixMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimMatrixMember parent, int parentCollectionIndex, bool isColumn, int renderCollectionIndex, ShimRenderGroups renderGroups, MatrixMemberInfoCache matrixMemberCellIndexes)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex, isColumn)
 		{
 			this.m_renderCollectionIndex = renderCollectionIndex;
@@ -303,7 +303,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool SetNewContext(int index)
+		public override bool SetNewContext(int index)
 		{
 			base.ResetContext();
 			if (base.m_instance != null)
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return index <= 1;
 		}
 
-		internal override void ResetContext()
+		public override void ResetContext()
 		{
 			base.ResetContext();
 			if (base.m_group.CurrentRenderGroupIndex >= 0)
@@ -338,7 +338,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ResetContext(MatrixMember staticOrSubtotal, int newAfterSubtotalCollectionIndex, ShimRenderGroups renderGroups, MatrixMemberInfoCache newMatrixMemberCellIndexes)
+		public void ResetContext(MatrixMember staticOrSubtotal, int newAfterSubtotalCollectionIndex, ShimRenderGroups renderGroups, MatrixMemberInfoCache newMatrixMemberCellIndexes)
 		{
 			int currentAllocationSize = 1;
 			if (base.m_group != null)

@@ -7,7 +7,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 {
 	public sealed class RenderFormatImpl : RenderFormatImplBase
 	{
-		internal const string InteractivityRenderFormat = "RPL";
+		public const string InteractivityRenderFormat = "RPL";
 
 		private OnDemandProcessingContext m_odpContext;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 
 		private ReadOnlyNameValueCollection m_emptyDeviceInfo;
 
-		internal override string Name
+		public override string Name
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal override bool IsInteractive
+		public override bool IsInteractive
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal override ReadOnlyNameValueCollection DeviceInfo
+		public override ReadOnlyNameValueCollection DeviceInfo
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal RenderFormatImpl(OnDemandProcessingContext odpContext)
+		public RenderFormatImpl(OnDemandProcessingContext odpContext)
 		{
 			this.m_odpContext = odpContext;
 			this.m_emptyDeviceInfo = new ReadOnlyNameValueCollection(new NameValueCollection(0));
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal static string NormalizeRenderFormat(ICatalogItemContext reportContext, out bool isInteractiveFormat)
+		public static string NormalizeRenderFormat(ICatalogItemContext reportContext, out bool isInteractiveFormat)
 		{
 			string text = null;
 			if (reportContext.RSRequestParameters != null)
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return this.m_isInteractiveFormat;
 		}
 
-		internal static bool IsRenderFormat(string format, string targetFormat)
+		public static bool IsRenderFormat(string format, string targetFormat)
 		{
 			return 0 == ReportProcessing.CompareWithInvariantCulture(format, targetFormat, true);
 		}

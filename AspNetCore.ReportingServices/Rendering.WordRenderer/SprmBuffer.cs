@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class SprmBuffer : ICloneable
+	public class SprmBuffer : ICloneable
 	{
 		private byte[] m_grpprl;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private int m_initialOffset;
 
-		internal byte[] Buf
+		public byte[] Buf
 		{
 			get
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int Offset
+		public int Offset
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal short StyleIndex
+		public short StyleIndex
 		{
 			get
 			{
@@ -39,14 +39,14 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal SprmBuffer(int initialSize, int initialOffset)
+		public SprmBuffer(int initialSize, int initialOffset)
 		{
 			this.m_grpprl = new byte[initialSize];
 			this.m_offset = initialOffset;
 			this.m_initialOffset = initialOffset;
 		}
 
-		internal void AddSprm(ushort instruction, int param, byte[] varParam)
+		public void AddSprm(ushort instruction, int param, byte[] varParam)
 		{
 			int num = (instruction & 0xE000) >> 13;
 			byte[] array = null;
@@ -93,28 +93,28 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.m_offset += array.Length;
 		}
 
-		internal void AddRawSprmData(byte[] buf)
+		public void AddRawSprmData(byte[] buf)
 		{
 			Array.Copy(buf, 0, this.m_grpprl, this.m_offset, buf.Length);
 			this.m_offset += buf.Length;
 		}
 
-		internal void Clear(int start, int length)
+		public void Clear(int start, int length)
 		{
 			Array.Clear(this.m_grpprl, start, length);
 		}
 
-		internal void Reset(int offset)
+		public void Reset(int offset)
 		{
 			this.m_offset = offset;
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.Reset(this.m_initialOffset);
 		}
 
-		internal void ClearStyle()
+		public void ClearStyle()
 		{
 			Array.Clear(this.m_grpprl, 0, 2);
 		}

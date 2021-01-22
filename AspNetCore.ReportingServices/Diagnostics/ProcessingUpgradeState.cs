@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal enum ProcessingUpgradeState
+	public enum ProcessingUpgradeState
 	{
 		CurrentVersion,
 		PreviousVersionCompat

@@ -5,15 +5,15 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class Action
+	public sealed class Action
 	{
-		internal ActionType m_actionType;
+		public ActionType m_actionType;
 
-		internal MemberBase m_members;
+		public MemberBase m_members;
 
-		internal NameValueCollection m_parameters;
+		public NameValueCollection m_parameters;
 
-		internal DrillthroughParameters m_parameterNameObjectCollection;
+		public DrillthroughParameters m_parameterNameObjectCollection;
 
 		public ReportUrl HyperLinkURL
 		{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DrillthroughParameters DrillthroughParameterNameObjectCollection
+		public DrillthroughParameters DrillthroughParameterNameObjectCollection
 		{
 			get
 			{
@@ -277,7 +277,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ActionItem ActionDefinition
+		public ActionItem ActionDefinition
 		{
 			get
 			{
@@ -289,7 +289,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ActionItemInstance ActionInstance
+		public ActionItemInstance ActionInstance
 		{
 			get
 			{
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ParameterValueList DrillthroughParameterValueList
+		public ParameterValueList DrillthroughParameterValueList
 		{
 			get
 			{
@@ -313,7 +313,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal string DrillthroughPath
+		public string DrillthroughPath
 		{
 			get
 			{
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ActionProcessing Processing
+		public ActionProcessing Processing
 		{
 			get
 			{
@@ -372,7 +372,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			Global.Tracer.Assert(this.IsCustomControl);
 		}
 
-		internal Action(ActionItem actionItemDef, ActionItemInstance actionItemInstance, string drillthroughId, RenderingContext renderingContext)
+		public Action(ActionItem actionItemDef, ActionItemInstance actionItemInstance, string drillthroughId, RenderingContext renderingContext)
 		{
 			this.m_members = new ActionRendering();
 			Global.Tracer.Assert(!this.IsCustomControl);
@@ -436,7 +436,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.Processing.m_label = label;
 		}
 
-		internal Action DeepClone()
+		public Action DeepClone()
 		{
 			if (!this.IsCustomControl)
 			{

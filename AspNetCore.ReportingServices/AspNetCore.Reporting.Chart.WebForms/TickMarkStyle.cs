@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum TickMarkStyle
+	public enum TickMarkStyle
 	{
 		None,
 		Outside,

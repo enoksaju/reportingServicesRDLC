@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class DataManipulator : FormulaData
+	public class DataManipulator : FormulaData
 	{
 		private class PointElementFilter : IDataPointFilter
 		{
@@ -84,11 +84,11 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private class GroupingFunctionInfo
 		{
-			internal GroupingFunction function;
+			public GroupingFunction function;
 
-			internal int outputIndex;
+			public int outputIndex;
 
-			internal GroupingFunctionInfo()
+			public GroupingFunctionInfo()
 			{
 			}
 		}
@@ -121,7 +121,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Series[] ConvertToSeriesArray(object obj, bool createNew)
+		public Series[] ConvertToSeriesArray(object obj, bool createNew)
 		{
 			Series[] array = null;
 			if (obj == null)
@@ -255,12 +255,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Sort(order, sortBy, this.ConvertToSeriesArray(series, false));
 		}
 
-		internal void Sort(IComparer comparer, Series series)
+		public void Sort(IComparer comparer, Series series)
 		{
 			this.Sort(comparer, this.ConvertToSeriesArray(series, false));
 		}
 
-		internal void Sort(IComparer comparer, string seriesName)
+		public void Sort(IComparer comparer, string seriesName)
 		{
 			this.Sort(comparer, this.ConvertToSeriesArray(seriesName, false));
 		}
@@ -422,7 +422,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.InsertEmptyPoints(interval, intervalType, intervalOffset, intervalOffsetType, fromXValue, toXValue, this.ConvertToSeriesArray(series, false));
 		}
 
-		internal DataSet ExportSeriesValues(Series[] series)
+		public DataSet ExportSeriesValues(Series[] series)
 		{
 			DataSet dataSet = new DataSet();
 			dataSet.Locale = CultureInfo.CurrentCulture;
@@ -894,22 +894,22 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.FilterTopN(pointCount, this.ConvertToSeriesArray(inputSeriesNames, false), this.ConvertToSeriesArray(outputSeriesNames, true), usingValue, true);
 		}
 
-		internal void Filter(IDataPointFilter filterInterface, Series inputSeries)
+		public void Filter(IDataPointFilter filterInterface, Series inputSeries)
 		{
 			this.Filter(filterInterface, this.ConvertToSeriesArray(inputSeries, false), null);
 		}
 
-		internal void Filter(IDataPointFilter filterInterface, Series inputSeries, Series outputSeries)
+		public void Filter(IDataPointFilter filterInterface, Series inputSeries, Series outputSeries)
 		{
 			this.Filter(filterInterface, this.ConvertToSeriesArray(inputSeries, false), this.ConvertToSeriesArray(outputSeries, false));
 		}
 
-		internal void Filter(IDataPointFilter filterInterface, string inputSeriesNames)
+		public void Filter(IDataPointFilter filterInterface, string inputSeriesNames)
 		{
 			this.Filter(filterInterface, this.ConvertToSeriesArray(inputSeriesNames, false), null);
 		}
 
-		internal void Filter(IDataPointFilter filterInterface, string inputSeriesNames, string outputSeriesNames)
+		public void Filter(IDataPointFilter filterInterface, string inputSeriesNames, string outputSeriesNames)
 		{
 			this.Filter(filterInterface, this.ConvertToSeriesArray(inputSeriesNames, false), this.ConvertToSeriesArray(outputSeriesNames, true));
 		}

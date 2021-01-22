@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class InstancePathDictionary<TValue> : Dictionary<List<InstancePathItem>, TValue>
+	public sealed class InstancePathDictionary<TValue> : Dictionary<List<InstancePathItem>, TValue>
 	{
 		public InstancePathDictionary()
 			: base((IEqualityComparer<List<InstancePathItem>>)InstancePathComparer.Instance)

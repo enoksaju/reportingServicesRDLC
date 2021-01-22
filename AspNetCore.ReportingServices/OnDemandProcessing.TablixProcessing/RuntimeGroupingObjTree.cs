@@ -7,14 +7,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeGroupingObjTree : RuntimeGroupingObj
+	public sealed class RuntimeGroupingObjTree : RuntimeGroupingObj
 	{
 		private BTree m_tree;
 
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeGroupingObjTree.GetDeclaration();
 
-		internal override BTree Tree
+		public override BTree Tree
 		{
 			get
 			{
@@ -30,18 +30,18 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeGroupingObjTree()
+		public RuntimeGroupingObjTree()
 		{
 		}
 
-		internal RuntimeGroupingObjTree(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeGroupingObjTree(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(owner, objectType)
 		{
 			OnDemandProcessingContext odpContext = base.m_owner.OdpContext;
 			this.m_tree = new BTree(owner, odpContext, owner.Depth + 1);
 		}
 
-		internal override void Cleanup()
+		public override void Cleanup()
 		{
 			if (this.m_tree != null)
 			{
@@ -50,17 +50,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void NextRow(object keyValue, bool hasParent, object parentKey)
+		public override void NextRow(object keyValue, bool hasParent, object parentKey)
 		{
 			this.m_tree.NextRow(keyValue, base.m_owner);
 		}
 
-		internal override void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
+		public override void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
 		{
 			this.m_tree.Traverse(operation, ascending, traversalContext);
 		}
 
-		internal override void CopyDomainScopeGroupInstances(RuntimeGroupRootObj destination)
+		public override void CopyDomainScopeGroupInstances(RuntimeGroupRootObj destination)
 		{
 			Global.Tracer.Assert(false, "Domain Scope should only be applied to Hash groups");
 		}

@@ -4,13 +4,13 @@ using System.Collections;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeAxisScaleSegmentCollection_AxisScaleSegmentCollection")]
-	internal class AxisScaleSegmentCollection : CollectionBase
+	public class AxisScaleSegmentCollection : CollectionBase
 	{
 		private Axis axis;
 
 		private AxisScaleSegment enforcedSegment;
 
-		internal bool AllowOutOfScaleValues;
+		public bool AllowOutOfScaleValues;
 
 		[SRDescription("DescriptionAttributeAxisScaleSegmentCollection_Item")]
 		public AxisScaleSegment this[int index]
@@ -29,7 +29,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal AxisScaleSegmentCollection(Axis axis)
+		public AxisScaleSegmentCollection(Axis axis)
 		{
 			this.axis = axis;
 		}
@@ -72,7 +72,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			((AxisScaleSegment)newValue).axis = this.axis;
 		}
 
-		internal void EnforceSegment(AxisScaleSegment segment)
+		public void EnforceSegment(AxisScaleSegment segment)
 		{
 			this.enforcedSegment = segment;
 		}

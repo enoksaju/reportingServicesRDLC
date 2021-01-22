@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
 	[PersistedWithinRequestOnly]
 	[SkipStaticValidation]
-	internal abstract class StreamingNoRowsScopeInstanceBase : IOnDemandScopeInstance, IStorable, IPersistable
+	public abstract class StreamingNoRowsScopeInstanceBase : IOnDemandScopeInstance, IStorable, IPersistable
 	{
 		private readonly OnDemandProcessingContext m_odpContext;
 

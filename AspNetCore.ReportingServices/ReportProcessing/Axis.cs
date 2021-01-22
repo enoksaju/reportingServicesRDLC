@@ -6,9 +6,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Axis
+	public sealed class Axis
 	{
-		internal enum TickMarks
+		public enum TickMarks
 		{
 			None,
 			Inside,
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			Cross
 		}
 
-		internal enum Mode
+		public enum Mode
 		{
 			CategoryAxis,
 			CategoryAxisSecondary,
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			ValueAxisSecondary
 		}
 
-		internal enum ExpressionType
+		public enum ExpressionType
 		{
 			Min,
 			Max,
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private AxisExprHost m_exprHost;
 
-		internal bool Visible
+		public bool Visible
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Style StyleClass
+		public Style StyleClass
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartTitle Title
+		public ChartTitle Title
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Margin
+		public bool Margin
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TickMarks MajorTickMarks
+		public TickMarks MajorTickMarks
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TickMarks MinorTickMarks
+		public TickMarks MinorTickMarks
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal GridLines MajorGridLines
+		public GridLines MajorGridLines
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal GridLines MinorGridLines
+		public GridLines MinorGridLines
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo MajorInterval
+		public ExpressionInfo MajorInterval
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo MinorInterval
+		public ExpressionInfo MinorInterval
 		{
 			get
 			{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Reverse
+		public bool Reverse
 		{
 			get
 			{
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo CrossAt
+		public ExpressionInfo CrossAt
 		{
 			get
 			{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool AutoCrossAt
+		public bool AutoCrossAt
 		{
 			get
 			{
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Interlaced
+		public bool Interlaced
 		{
 			get
 			{
@@ -246,7 +246,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Scalar
+		public bool Scalar
 		{
 			get
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Min
+		public ExpressionInfo Min
 		{
 			get
 			{
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo Max
+		public ExpressionInfo Max
 		{
 			get
 			{
@@ -282,7 +282,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool AutoScaleMin
+		public bool AutoScaleMin
 		{
 			get
 			{
@@ -294,7 +294,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool AutoScaleMax
+		public bool AutoScaleMax
 		{
 			get
 			{
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool LogScale
+		public bool LogScale
 		{
 			get
 			{
@@ -318,7 +318,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueList CustomProperties
+		public DataValueList CustomProperties
 		{
 			get
 			{
@@ -330,7 +330,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AxisExprHost ExprHost
+		public AxisExprHost ExprHost
 		{
 			get
 			{
@@ -338,7 +338,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(AxisExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(AxisExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			this.m_exprHost = exprHost;
@@ -366,7 +366,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context, Mode mode)
+		public void Initialize(InitializationContext context, Mode mode)
 		{
 			if (this.m_styleClass != null)
 			{
@@ -420,7 +420,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Visible, Token.Boolean));

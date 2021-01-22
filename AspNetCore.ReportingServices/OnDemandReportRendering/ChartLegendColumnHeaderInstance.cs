@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartLegendColumnHeaderInstance : BaseInstance
+	public sealed class ChartLegendColumnHeaderInstance : BaseInstance
 	{
 		private ChartLegendColumnHeader m_chartLegendColumnHeaderDef;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartLegendColumnHeaderInstance(ChartLegendColumnHeader chartLegendColumnHeaderDef)
+		public ChartLegendColumnHeaderInstance(ChartLegendColumnHeader chartLegendColumnHeaderDef)
 			: base(chartLegendColumnHeaderDef.ChartDef)
 		{
 			this.m_chartLegendColumnHeaderDef = chartLegendColumnHeaderDef;

@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLReportColor
+	public sealed class RPLReportColor
 	{
 		private const RegexOptions RegExOptions = RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture | RegexOptions.Compiled | RegexOptions.Singleline;
 

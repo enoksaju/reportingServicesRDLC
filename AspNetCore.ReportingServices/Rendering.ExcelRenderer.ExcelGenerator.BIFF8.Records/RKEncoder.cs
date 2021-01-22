@@ -2,11 +2,11 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BIFF8.Records
 {
-	internal static class RKEncoder
+	public static class RKEncoder
 	{
 		private static readonly double MAXRKVALUE = 1.7976931348623156E+306;
 
-		internal static uint? EncodeRK(double aRKValue)
+		public static uint? EncodeRK(double aRKValue)
 		{
 			uint? nullable = null;
 			if (aRKValue == 0.0)
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			return RKEncoder.longint2RK(aRKValue2, 3L);
 		}
 
-		internal static double DecodeRK(int aBytes)
+		public static double DecodeRK(int aBytes)
 		{
 			double num = 0.0;
 			num = (((aBytes & 2) == 0) ? BitConverter.Int64BitsToDouble((long)(aBytes >> 2) << 34) : ((double)(aBytes >> 2)));

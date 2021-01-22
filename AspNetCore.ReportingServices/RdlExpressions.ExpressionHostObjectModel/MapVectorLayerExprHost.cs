@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 
 		public MapSpatialDataExprHost MapSpatialDataHost;
 
-		internal IList<MapBindingFieldPairExprHost> MapBindingFieldPairsHostsRemotable
+		public IList<MapBindingFieldPairExprHost> MapBindingFieldPairsHostsRemotable
 		{
 			get
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartCalloutLineAnchorTypes
+	public enum ChartCalloutLineAnchorTypes
 	{
 		Arrow,
 		Diamond,

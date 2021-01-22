@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Diagnostics;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ControlProcessingConfiguration : BaseLocalProcessingConfiguration
+	public sealed class ControlProcessingConfiguration : BaseLocalProcessingConfiguration
 	{
 		private IMapTileServerConfiguration m_mapTileServerConfiguration;
 

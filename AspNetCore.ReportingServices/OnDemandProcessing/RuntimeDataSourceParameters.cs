@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RuntimeDataSourceParameters : RuntimeAtomicDataSource
+	public sealed class RuntimeDataSourceParameters : RuntimeAtomicDataSource
 	{
 		private RuntimeParameterDataSet m_runtimeDataSet;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private readonly ReportParameterDataSetCache m_paramDataCache;
 
-		internal override bool NoRows
+		public override bool NoRows
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeDataSourceParameters(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, OnDemandProcessingContext processingContext, int parameterDataSetIndex, ReportParameterDataSetCache aCache)
+		public RuntimeDataSourceParameters(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, OnDemandProcessingContext processingContext, int parameterDataSetIndex, ReportParameterDataSetCache aCache)
 			: base(report, dataSource, processingContext, false)
 		{
 			Global.Tracer.Assert(parameterDataSetIndex != -1, "Parameter DataSet index must be specified when processing parameters");

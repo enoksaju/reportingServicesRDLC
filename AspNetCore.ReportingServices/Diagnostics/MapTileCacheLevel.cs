@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal enum MapTileCacheLevel
+	public enum MapTileCacheLevel
 	{
 		Default,
 		BypassCache,

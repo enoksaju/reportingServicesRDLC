@@ -2,7 +2,7 @@ using AspNetCore.Reporting.Map.WebForms;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class PolygonLayerMapper : VectorLayerMapper
+	public class PolygonLayerMapper : VectorLayerMapper
 	{
 		private CoreShapeManager m_shapeManager;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PolygonLayerMapper(MapPolygonLayer mapPolygonLayer, MapControl coreMap, MapMapper mapMapper)
+		public PolygonLayerMapper(MapPolygonLayer mapPolygonLayer, MapControl coreMap, MapMapper mapMapper)
 			: base(mapPolygonLayer, coreMap, mapMapper)
 		{
 			this.m_polygonTemplateMapper = new PolygonTemplateMapper(base.m_mapMapper, this, this.MapPolygonLayer);
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_shapeManager;
 		}
 
-		internal bool HasColorRule(Shape shape)
+		public bool HasColorRule(Shape shape)
 		{
 			if (!this.HasColorRule())
 			{
@@ -98,12 +98,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.RenderPolygonCenterPoint(spatialElementInfo, hasScope);
 		}
 
-		internal override MapPointRules GetMapPointRules()
+		public override MapPointRules GetMapPointRules()
 		{
 			return this.MapPolygonLayer.MapCenterPointRules;
 		}
 
-		internal override MapPointTemplate GetMapPointTemplate()
+		public override MapPointTemplate GetMapPointTemplate()
 		{
 			return this.MapPolygonLayer.MapCenterPointTemplate;
 		}
@@ -179,12 +179,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			base.m_pointTemplateMapper.RenderPolygonCenterPoint((MapPolygon)mapSpatialElement, coreSymbol, hasScope);
 		}
 
-		internal override bool IsValidSpatialElement(ISpatialElement spatialElement)
+		public override bool IsValidSpatialElement(ISpatialElement spatialElement)
 		{
 			return spatialElement is Shape;
 		}
 
-		internal override void OnSpatialElementAdded(ISpatialElement spatialElement)
+		public override void OnSpatialElementAdded(ISpatialElement spatialElement)
 		{
 			base.m_mapMapper.Simplify((Shape)spatialElement);
 		}

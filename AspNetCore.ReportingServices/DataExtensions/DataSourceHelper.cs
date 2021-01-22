@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal sealed class DataSourceHelper
+	public sealed class DataSourceHelper
 	{
 		private readonly byte[] m_encryptedDomainAndUserName;
 

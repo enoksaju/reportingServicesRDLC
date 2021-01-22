@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class XamlLayer : IDisposable
+	public class XamlLayer : IDisposable
 	{
 		private PointF origin = PointF.Empty;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class BackgroundImage : IImage
+	public sealed class BackgroundImage : IImage
 	{
 		private InternalImage m_internalImage;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal BackgroundImage(RenderingContext context, Image.SourceType imageSource, object imageValue, string mimeType)
+		public BackgroundImage(RenderingContext context, Image.SourceType imageSource, object imageValue, string mimeType)
 		{
 			this.m_internalImage = new InternalImage(imageSource, mimeType, imageValue, context);
 		}

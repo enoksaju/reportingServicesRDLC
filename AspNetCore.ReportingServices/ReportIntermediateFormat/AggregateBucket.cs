@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class AggregateBucket<T> : IPersistable where T : IPersistable
+	public abstract class AggregateBucket<T> : IPersistable where T : IPersistable
 	{
 		private List<T> m_aggregates;
 
@@ -34,11 +34,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal AggregateBucket()
+		public AggregateBucket()
 		{
 		}
 
-		internal AggregateBucket(int level)
+		public AggregateBucket(int level)
 		{
 			this.m_aggregates = new List<T>();
 			this.m_level = level;

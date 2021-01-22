@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartDataPointValuesInstance : BaseInstance
+	public sealed class ChartDataPointValuesInstance : BaseInstance
 	{
 		private ChartDataPointValues m_chartDataPointValuesDef;
 
@@ -341,7 +341,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartDataPointValuesInstance(ChartDataPointValues chartDataPointValuesDef)
+		public ChartDataPointValuesInstance(ChartDataPointValues chartDataPointValuesDef)
 			: base(chartDataPointValuesDef.ChartDataPoint)
 		{
 			this.m_chartDataPointValuesDef = chartDataPointValuesDef;
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_fieldsUsedInValues = null;
 		}
 
-		internal List<string> GetFieldsUsedInValues()
+		public List<string> GetFieldsUsedInValues()
 		{
 			if (!this.m_fieldsUsedInValuesEvaluated)
 			{

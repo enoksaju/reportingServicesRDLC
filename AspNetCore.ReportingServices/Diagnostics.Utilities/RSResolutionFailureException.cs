@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class RSResolutionFailureException : ReportCatalogException
+	public sealed class RSResolutionFailureException : ReportCatalogException
 	{
 		public RSResolutionFailureException(string databaseFullName)
 			: this(null, databaseFullName)

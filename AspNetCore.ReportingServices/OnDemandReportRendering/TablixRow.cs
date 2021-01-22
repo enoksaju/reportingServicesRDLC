@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class TablixRow : ReportElementCollectionBase<TablixCell>, IDataRegionRow
+	public abstract class TablixRow : ReportElementCollectionBase<TablixCell>, IDataRegionRow
 	{
 		protected Tablix m_owner;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal TablixRow(Tablix owner, int rowIndex)
+		public TablixRow(Tablix owner, int rowIndex)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.GetIfExists(index);
 		}
 
-		internal virtual IDataRegionCell GetIfExists(int index)
+		public virtual IDataRegionCell GetIfExists(int index)
 		{
 			if (index >= 0 && index < this.Count)
 			{

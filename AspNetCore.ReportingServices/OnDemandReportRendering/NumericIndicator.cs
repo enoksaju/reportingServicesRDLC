@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class NumericIndicator : GaugePanelItem
+	public sealed class NumericIndicator : GaugePanelItem
 	{
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.NumericIndicator NumericIndicatorDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.NumericIndicator NumericIndicatorDef
 		{
 			get
 			{
@@ -20,12 +20,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal NumericIndicator(AspNetCore.ReportingServices.ReportIntermediateFormat.NumericIndicator defObject, GaugePanel gaugePanel)
+		public NumericIndicator(AspNetCore.ReportingServices.ReportIntermediateFormat.NumericIndicator defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 		}
 
-		internal override BaseInstance GetInstance()
+		public override BaseInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 		}

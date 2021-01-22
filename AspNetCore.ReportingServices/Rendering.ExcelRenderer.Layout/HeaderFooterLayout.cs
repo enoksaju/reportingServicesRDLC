@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal sealed class HeaderFooterLayout : ALayout
+	public sealed class HeaderFooterLayout : ALayout
 	{
 		private List<ReportItemInfo> m_fullList;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 
 		private float m_height;
 
-		internal float Height
+		public float Height
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal override bool HeaderInBody
+		public override bool HeaderInBody
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal override bool FooterInBody
+		public override bool FooterInBody
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal override bool? SummaryRowAfter
+		public override bool? SummaryRowAfter
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal override bool? SummaryColumnAfter
+		public override bool? SummaryColumnAfter
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			}
 		}
 
-		internal HeaderFooterLayout(RPLReport report, float aWidth, float aHeight)
+		public HeaderFooterLayout(RPLReport report, float aWidth, float aHeight)
 			: base(report)
 		{
 			this.m_fullList = new List<ReportItemInfo>();
@@ -82,43 +82,43 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			this.m_rightList = new List<ReportItemInfo>();
 		}
 
-		internal override void AddReportItem(object rplSource, int top, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, Dictionary<string, ToggleParent> toggleParents)
+		public override void AddReportItem(object rplSource, int top, int left, int width, int height, int generationIndex, byte state, string subreportLanguage, Dictionary<string, ToggleParent> toggleParents)
 		{
 			ReportItemInfo item = new ReportItemInfo(rplSource, top, left, left + width, (state & 0x20) != 0, toggleParents);
 			this.m_fullList.Add(item);
 		}
 
-		internal override void AddStructuralItem(int top, int left, int width, int height, bool isToggglable, int generationIndex, RPLTablixMemberCell member, TogglePosition togglePosition)
+		public override void AddStructuralItem(int top, int left, int width, int height, bool isToggglable, int generationIndex, RPLTablixMemberCell member, TogglePosition togglePosition)
 		{
 		}
 
-		internal override void AddStructuralItem(int top, int left, int width, int height, int generationIndex, int rowHeaderWidth, int columnHeaderHeight, bool rtl)
+		public override void AddStructuralItem(int top, int left, int width, int height, int generationIndex, int rowHeaderWidth, int columnHeaderHeight, bool rtl)
 		{
 		}
 
-		internal override ALayout GetPageHeaderLayout(float aWidth, float aHeight)
-		{
-			return this;
-		}
-
-		internal override ALayout GetPageFooterLayout(float aWidth, float aHeight)
+		public override ALayout GetPageHeaderLayout(float aWidth, float aHeight)
 		{
 			return this;
 		}
 
-		internal override void CompleteSection()
+		public override ALayout GetPageFooterLayout(float aWidth, float aHeight)
+		{
+			return this;
+		}
+
+		public override void CompleteSection()
 		{
 		}
 
-		internal override void CompletePage()
+		public override void CompletePage()
 		{
 		}
 
-		internal override void SetIsLastSection(bool isLastSection)
+		public override void SetIsLastSection(bool isLastSection)
 		{
 		}
 
-		internal void RenderStrings(RPLReport report, IExcelGenerator excel, out string left, out string center, out string right)
+		public void RenderStrings(RPLReport report, IExcelGenerator excel, out string left, out string center, out string right)
 		{
 			foreach (ReportItemInfo full in this.m_fullList)
 			{

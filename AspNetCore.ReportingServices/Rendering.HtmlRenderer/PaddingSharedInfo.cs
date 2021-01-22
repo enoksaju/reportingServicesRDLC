@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class PaddingSharedInfo
+	public class PaddingSharedInfo
 	{
 		private double m_padH;
 
@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		private int m_paddingContext;
 
-		internal double PadH
+		public double PadH
 		{
 			get
 			{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal double PadV
+		public double PadV
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal int PaddingContext
+		public int PaddingContext
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal PaddingSharedInfo(int paddingContext, double padH, double padV)
+		public PaddingSharedInfo(int paddingContext, double padH, double padV)
 		{
 			this.m_padH = padH;
 			this.m_padV = padV;

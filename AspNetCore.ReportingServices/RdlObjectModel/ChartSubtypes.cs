@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartSubtypes
+	public enum ChartSubtypes
 	{
 		Plain,
 		Stacked,

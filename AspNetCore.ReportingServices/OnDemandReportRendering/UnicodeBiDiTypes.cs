@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum UnicodeBiDiTypes
+	public enum UnicodeBiDiTypes
 	{
 		Default,
 		Normal,

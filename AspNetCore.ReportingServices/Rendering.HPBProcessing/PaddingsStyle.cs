@@ -4,10 +4,10 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class PaddingsStyle
+	public sealed class PaddingsStyle
 	{
 		[Flags]
-		internal enum PaddingState : byte
+		public enum PaddingState : byte
 		{
 			Clear = 0,
 			Left = 1,
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private PaddingState m_state;
 
-		internal double PadHorizontal
+		public double PadHorizontal
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double PadTop
+		public double PadTop
 		{
 			set
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double PadVertical
+		public double PadVertical
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal PaddingState State
+		public PaddingState State
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return obj as ReportSize;
 		}
 
-		internal static void CreatePaddingsStyle(PageContext pageContext, ReportItem source, out double padVertical, out double padHorizontal, out double padTop)
+		public static void CreatePaddingsStyle(PageContext pageContext, ReportItem source, out double padVertical, out double padHorizontal, out double padTop)
 		{
 			padVertical = 0.0;
 			padHorizontal = 0.0;
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void GetPaddingValues(ReportItem source, out double padVertical, out double padHorizontal, out double padTop)
+		public void GetPaddingValues(ReportItem source, out double padVertical, out double padHorizontal, out double padTop)
 		{
 			padVertical = this.m_padVertical;
 			padHorizontal = this.m_padHorizontal;

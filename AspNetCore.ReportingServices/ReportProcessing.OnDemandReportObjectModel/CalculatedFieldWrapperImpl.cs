@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool ErrorOccurred
+		public bool ErrorOccurred
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal string ExceptionMessage
+		public string ExceptionMessage
 		{
 			get
 			{
@@ -70,18 +70,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal CalculatedFieldWrapperImpl()
+		public CalculatedFieldWrapperImpl()
 		{
 		}
 
-		internal CalculatedFieldWrapperImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.Field fieldDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT)
+		public CalculatedFieldWrapperImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.Field fieldDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT)
 		{
 			this.m_fieldDef = fieldDef;
 			this.m_reportRT = reportRT;
 			this.m_iErrorContext = reportRT;
 		}
 
-		internal void ResetValue()
+		public void ResetValue()
 		{
 			this.m_isValueReady = false;
 			this.m_isVisited = false;

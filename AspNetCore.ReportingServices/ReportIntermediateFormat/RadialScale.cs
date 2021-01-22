@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class RadialScale : GaugeScale, IPersistable
+	public sealed class RadialScale : GaugeScale, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = RadialScale.GetDeclaration();
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_sweepAngle;
 
-		internal List<RadialPointer> GaugePointers
+		public List<RadialPointer> GaugePointers
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Radius
+		public ExpressionInfo Radius
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo StartAngle
+		public ExpressionInfo StartAngle
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo SweepAngle
+		public ExpressionInfo SweepAngle
 		{
 			get
 			{
@@ -72,16 +72,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RadialScale()
+		public RadialScale()
 		{
 		}
 
-		internal RadialScale(GaugePanel gaugePanel, int id)
+		public RadialScale(GaugePanel gaugePanel, int id)
 			: base(gaugePanel, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.RadialScaleStart(base.m_name);
 			base.Initialize(context);
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.RadialScaleEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			RadialScale radialScale = (RadialScale)base.PublishClone(context);
 			if (this.m_gaugePointers != null)
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return radialScale;
 		}
 
-		internal void SetExprHost(RadialScaleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(RadialScaleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.GaugePointers, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RadialPointer));
@@ -224,19 +224,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RadialScale;
 		}
 
-		internal double EvaluateRadius(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateRadius(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateRadialScaleRadiusExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateStartAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateStartAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateRadialScaleStartAngleExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateSweepAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateSweepAngle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateRadialScaleSweepAngleExpression(this, base.m_gaugePanel.Name);

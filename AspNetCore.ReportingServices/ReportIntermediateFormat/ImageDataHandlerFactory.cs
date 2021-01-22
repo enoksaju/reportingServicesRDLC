@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal static class ImageDataHandlerFactory
+	public static class ImageDataHandlerFactory
 	{
 		public static ImageDataHandler Create(ReportElement reportElement, IBaseImage image)
 		{

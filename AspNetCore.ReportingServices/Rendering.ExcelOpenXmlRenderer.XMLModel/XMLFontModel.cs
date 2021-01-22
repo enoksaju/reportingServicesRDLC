@@ -7,7 +7,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLFontModel : IFontModel, ICloneable, IDeepCloneable<XMLFontModel>
+	public class XMLFontModel : IFontModel, ICloneable, IDeepCloneable<XMLFontModel>
 	{
 		private readonly CT_Font _font;
 

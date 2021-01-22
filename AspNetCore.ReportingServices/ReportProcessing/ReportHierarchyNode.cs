@@ -7,7 +7,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class ReportHierarchyNode : IDOwner, IPageBreakItem
+	public class ReportHierarchyNode : IDOwner, IPageBreakItem
 	{
 		protected Grouping m_grouping;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private DynamicGroupExprHost m_exprHost;
 
-		internal Grouping Grouping
+		public Grouping Grouping
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Sorting Sorting
+		public Sorting Sorting
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportHierarchyNode InnerHierarchy
+		public ReportHierarchyNode InnerHierarchy
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataRegion DataRegionDef
+		public DataRegion DataRegionDef
 		{
 			get
 			{
@@ -76,17 +76,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportHierarchyNode()
+		public ReportHierarchyNode()
 		{
 		}
 
-		internal ReportHierarchyNode(int id, DataRegion dataRegionDef)
+		public ReportHierarchyNode(int id, DataRegion dataRegionDef)
 			: base(id)
 		{
 			this.m_dataRegionDef = dataRegionDef;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_grouping != null)
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.ReportHierarchyNodeSetExprHost(this.m_exprHost.GroupingHost, this.m_exprHost.SortingHost, reportObjectModel);
 		}
 
-		internal void ReportHierarchyNodeSetExprHost(GroupingExprHost groupingExprHost, SortingExprHost sortingExprHost, ObjectModelImpl reportObjectModel)
+		public void ReportHierarchyNodeSetExprHost(GroupingExprHost groupingExprHost, SortingExprHost sortingExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (groupingExprHost != null)
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Grouping, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.Grouping));

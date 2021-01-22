@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixCornerRow : ReportElementCollectionBase<TablixCornerCell>
+	public sealed class TablixCornerRow : ReportElementCollectionBase<TablixCornerCell>
 	{
 		private Tablix m_owner;
 
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixCornerRow(Tablix owner, int rowIndex, List<AspNetCore.ReportingServices.ReportIntermediateFormat.TablixCornerCell> rowDef)
+		public TablixCornerRow(Tablix owner, int rowIndex, List<AspNetCore.ReportingServices.ReportIntermediateFormat.TablixCornerCell> rowDef)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_cellROMDefs = new TablixCornerCell[rowDef.Count];
 		}
 
-		internal TablixCornerRow(Tablix owner, int rowIndex, AspNetCore.ReportingServices.ReportRendering.ReportItem cornerDef)
+		public TablixCornerRow(Tablix owner, int rowIndex, AspNetCore.ReportingServices.ReportRendering.ReportItem cornerDef)
 		{
 			this.m_owner = owner;
 			this.m_rowIndex = rowIndex;
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_cellROMDefs = new TablixCornerCell[this.m_owner.Rows];
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (!this.m_owner.IsOldSnapshot)
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem cornerDef)
+		public void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem cornerDef)
 		{
 			this.m_cornerDef = cornerDef;
 		}

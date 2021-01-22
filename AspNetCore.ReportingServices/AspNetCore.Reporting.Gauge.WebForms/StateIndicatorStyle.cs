@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum StateIndicatorStyle
+	public enum StateIndicatorStyle
 	{
 		None,
 		RectangularLed,

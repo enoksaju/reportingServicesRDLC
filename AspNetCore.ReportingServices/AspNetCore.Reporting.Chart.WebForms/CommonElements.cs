@@ -8,23 +8,23 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class CommonElements
+	public class CommonElements
 	{
-		internal ChartAreaCollection chartAreaCollection;
+		public ChartAreaCollection chartAreaCollection;
 
-		internal ChartGraphics graph;
+		public ChartGraphics graph;
 
-		internal IServiceContainer container;
+		public IServiceContainer container;
 
-		internal bool processModePaint = true;
+		public bool processModePaint = true;
 
-		internal bool processModeRegions;
+		public bool processModeRegions;
 
 		private int width;
 
 		private int height;
 
-		internal DataManager DataManager
+		public DataManager DataManager
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ImageLoader ImageLoader
+		public ImageLoader ImageLoader
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Chart Chart
+		public Chart Chart
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal EventsManager EventsManager
+		public EventsManager EventsManager
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ChartTypeRegistry ChartTypeRegistry
+		public ChartTypeRegistry ChartTypeRegistry
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal BorderTypeRegistry BorderTypeRegistry
+		public BorderTypeRegistry BorderTypeRegistry
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal FormulaRegistry FormulaRegistry
+		public FormulaRegistry FormulaRegistry
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal int Width
+		public int Width
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal int Height
+		public int Height
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal static double ParseDouble(string stringToParse)
+		public static double ParseDouble(string stringToParse)
 		{
 			double num = 0.0;
 			try
@@ -182,7 +182,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal static float ParseFloat(string stringToParse)
+		public static float ParseFloat(string stringToParse)
 		{
 			float num = 0f;
 			try

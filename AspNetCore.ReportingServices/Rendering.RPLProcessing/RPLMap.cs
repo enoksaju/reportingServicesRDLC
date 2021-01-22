@@ -1,14 +1,14 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLMap : RPLItem
+	public sealed class RPLMap : RPLItem
 	{
-		internal RPLMap()
+		public RPLMap()
 		{
 			base.m_rplElementProps = new RPLMapProps();
 			base.m_rplElementProps.Definition = new RPLItemPropsDef();
 		}
 
-		internal RPLMap(long startOffset, RPLContext context)
+		public RPLMap(long startOffset, RPLContext context)
 			: base(startOffset, context)
 		{
 		}

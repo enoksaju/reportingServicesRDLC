@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ElementTypeMismatchException : ReportCatalogException
+	public sealed class ElementTypeMismatchException : ReportCatalogException
 	{
 		public ElementTypeMismatchException(string elementName)
 			: base(ErrorCode.rsElementTypeMismatch, ErrorStrings.rsElementTypeMismatch(elementName), null, null)

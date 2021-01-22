@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class IndicatorImage : BaseGaugeImage
+	public class IndicatorImage : BaseGaugeImage
 	{
-		internal new class Definition : DefinitionStore<IndicatorImage, Definition.Properties>
+		public new class Definition : DefinitionStore<IndicatorImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Source,
 				Value,
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal IndicatorImage(IPropertyStore propertyStore)
+		public IndicatorImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

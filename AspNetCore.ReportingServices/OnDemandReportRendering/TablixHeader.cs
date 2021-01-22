@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixHeader : IDefinitionPath
+	public sealed class TablixHeader : IDefinitionPath
 	{
 		private Tablix m_owner;
 
@@ -89,13 +89,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixHeader(Tablix owner, TablixMember tablixMember)
+		public TablixHeader(Tablix owner, TablixMember tablixMember)
 		{
 			this.m_owner = owner;
 			this.m_tablixMember = tablixMember;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_cellContents != null)
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ResetCellContents()
+		public void ResetCellContents()
 		{
 			this.m_cacheRenderReportItem = null;
 		}

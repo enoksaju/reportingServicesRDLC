@@ -6,11 +6,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class DynamicSeries2005 : ReportObject
+	public class DynamicSeries2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<DynamicSeries2005, Definition.Properties>
+		public class Definition : DefinitionStore<DynamicSeries2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Grouping,
 				Sorting,

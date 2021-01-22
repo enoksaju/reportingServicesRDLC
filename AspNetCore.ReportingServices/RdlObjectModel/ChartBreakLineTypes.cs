@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartBreakLineTypes
+	public enum ChartBreakLineTypes
 	{
 		Ragged,
 		Wave,

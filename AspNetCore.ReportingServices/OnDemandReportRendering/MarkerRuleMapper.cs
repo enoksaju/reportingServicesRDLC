@@ -4,14 +4,14 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class MarkerRuleMapper : RuleMapper
+	public class MarkerRuleMapper : RuleMapper
 	{
-		internal MarkerRuleMapper(MapMarkerRule mapColorRule, VectorLayerMapper vectorLayerMapper, CoreSpatialElementManager coreSpatialElementManager)
+		public MarkerRuleMapper(MapMarkerRule mapColorRule, VectorLayerMapper vectorLayerMapper, CoreSpatialElementManager coreSpatialElementManager)
 			: base(mapColorRule, vectorLayerMapper, coreSpatialElementManager)
 		{
 		}
 
-		internal void RenderPointRule(PointTemplateMapper pointTemplateMapper, Color? color, int? size)
+		public void RenderPointRule(PointTemplateMapper pointTemplateMapper, Color? color, int? size)
 		{
 			SymbolRule symbolRule = (SymbolRule)base.m_coreRule;
 			base.SetRuleLegendProperties(symbolRule);
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override SymbolRule CreateSymbolRule()
+		public override SymbolRule CreateSymbolRule()
 		{
 			SymbolRule symbolRule = base.CreateSymbolRule();
 			symbolRule.AffectedAttributes = AffectedSymbolAttributes.MarkerOnly;

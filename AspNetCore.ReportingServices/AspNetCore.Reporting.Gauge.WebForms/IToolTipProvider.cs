@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface IToolTipProvider
+	public interface IToolTipProvider
 	{
 		string GetToolTip(HitTestResult ht);
 	}

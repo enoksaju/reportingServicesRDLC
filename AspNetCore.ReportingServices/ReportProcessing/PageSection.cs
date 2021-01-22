@@ -6,7 +6,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class PageSection : ReportItem
+	public sealed class PageSection : ReportItem
 	{
 		private bool m_printOnFirstPage;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private StyleExprHost m_exprHost;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PrintOnFirstPage
+		public bool PrintOnFirstPage
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PrintOnLastPage
+		public bool PrintOnLastPage
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PostProcessEvaluate
+		public bool PostProcessEvaluate
 		{
 			get
 			{
@@ -82,20 +82,20 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PageSection(bool isHeader, int id, int idForReportItems, Report report)
+		public PageSection(bool isHeader, int id, int idForReportItems, Report report)
 			: base(id, report)
 		{
 			this.m_reportItems = new ReportItemCollection(idForReportItems, true);
 			this.m_isHeader = isHeader;
 		}
 
-		internal PageSection(bool isHeader, ReportItem parent)
+		public PageSection(bool isHeader, ReportItem parent)
 			: base(parent)
 		{
 			this.m_isHeader = isHeader;
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.Location |= LocationFlags.InPageSection;
 			context.ObjectType = this.ObjectType;
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.PrintOnFirstPage, Token.Boolean));

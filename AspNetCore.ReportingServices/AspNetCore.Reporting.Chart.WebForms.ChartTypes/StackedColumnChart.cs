@@ -7,7 +7,7 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class StackedColumnChart : IChartType
+	public class StackedColumnChart : IChartType
 	{
 		protected double prevPosY = double.NaN;
 
@@ -15,11 +15,11 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 
 		protected bool hundredPercentStacked;
 
-		internal bool stackGroupNameUsed;
+		public bool stackGroupNameUsed;
 
-		internal ArrayList stackGroupNames;
+		public ArrayList stackGroupNames;
 
-		internal string currentStackGroup = string.Empty;
+		public string currentStackGroup = string.Empty;
 
 		public virtual string Name
 		{
@@ -456,7 +456,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal static Series[] GetSeriesByStackedGroupName(CommonElements common, string groupName, string chartTypeName, string chartAreaName)
+		public static Series[] GetSeriesByStackedGroupName(CommonElements common, string groupName, string chartTypeName, string chartAreaName)
 		{
 			ArrayList arrayList = new ArrayList();
 			foreach (Series item in common.DataManager.Series)
@@ -475,7 +475,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return array;
 		}
 
-		internal static string GetSeriesStackGroupName(Series series)
+		public static string GetSeriesStackGroupName(Series series)
 		{
 			string result = string.Empty;
 			if (series.IsAttributeSet("StackedGroupName"))
@@ -485,7 +485,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return result;
 		}
 
-		internal static bool IsSeriesStackGroupNameSupported(Series series)
+		public static bool IsSeriesStackGroupNameSupported(Series series)
 		{
 			if (series.ChartType != SeriesChartType.StackedColumn && series.ChartType != SeriesChartType.StackedColumn100 && series.ChartType != SeriesChartType.StackedBar && series.ChartType != SeriesChartType.StackedBar100)
 			{
@@ -884,7 +884,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal void DrawLabels3D(CommonElements common, ChartGraphics graph, ChartArea area, DataPoint3D pointEx, int pointIndex, Series series, RectangleF rectangle)
+		public void DrawLabels3D(CommonElements common, ChartGraphics graph, ChartArea area, DataPoint3D pointEx, int pointIndex, Series series, RectangleF rectangle)
 		{
 			DataPoint dataPoint = pointEx.dataPoint;
 			StringFormat stringFormat = new StringFormat();

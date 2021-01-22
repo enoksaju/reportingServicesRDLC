@@ -3,7 +3,7 @@ using System.Security.Principal;
 
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IAuthenticationExtension : IExtension
+	public interface IAuthenticationExtension : IExtension
 	{
 		void GetUserInfo(out IIdentity userIdentity, out IntPtr userId);
 

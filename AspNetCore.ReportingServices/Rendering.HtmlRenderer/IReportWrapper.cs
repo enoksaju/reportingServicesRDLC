@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal interface IReportWrapper
+	public interface IReportWrapper
 	{
 		bool HasBookmarks
 		{

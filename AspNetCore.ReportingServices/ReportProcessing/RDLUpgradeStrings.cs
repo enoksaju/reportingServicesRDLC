@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[CompilerGenerated]
-	internal class RDLUpgradeStrings
+	public class RDLUpgradeStrings
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string rdlInvalidTargetNamespace = "rdlInvalidTargetNamespace";
 

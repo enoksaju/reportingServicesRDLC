@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum VerticalAlignments
+	public enum VerticalAlignments
 	{
 		Default,
 		Top,

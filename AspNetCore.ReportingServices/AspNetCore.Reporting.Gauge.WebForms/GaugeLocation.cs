@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GaugeLocation : GaugeObject, ICloneable
+	public class GaugeLocation : GaugeObject, ICloneable
 	{
 		private PointF point = new PointF(0f, 0f);
 
@@ -61,7 +61,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool DefaultValues
+		public bool DefaultValues
 		{
 			get
 			{
@@ -78,12 +78,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal GaugeLocation(object parent)
+		public GaugeLocation(object parent)
 			: base(parent)
 		{
 		}
 
-		internal GaugeLocation(object parent, float x, float y)
+		public GaugeLocation(object parent, float x, float y)
 			: this(parent)
 		{
 			this.point.X = x;
@@ -118,7 +118,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return new GaugeLocation(this.Parent, this.X, this.Y);
 		}
 
-		internal PointF GetPointF()
+		public PointF GetPointF()
 		{
 			return this.point;
 		}

@@ -6,9 +6,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[DefaultProperty("Position")]
 	[SRDescription("DescriptionAttributeAxisDataView_AxisDataView")]
-	internal class AxisDataView
+	public class AxisDataView
 	{
-		internal Axis axis;
+		public Axis axis;
 
 		private double position = double.NaN;
 
@@ -342,7 +342,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.axis.maximum;
 		}
 
-		internal Chart GetChartObject()
+		public Chart GetChartObject()
 		{
 			if (this.axis != null)
 			{

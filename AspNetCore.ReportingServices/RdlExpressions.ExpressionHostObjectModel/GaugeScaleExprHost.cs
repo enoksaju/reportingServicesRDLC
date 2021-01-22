@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 
 		public ActionInfoExprHost ActionInfoHost;
 
-		internal IList<ScaleRangeExprHost> ScaleRangesHostsRemotable
+		public IList<ScaleRangeExprHost> ScaleRangesHostsRemotable
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<CustomLabelExprHost> CustomLabelsHostsRemotable
+		public IList<CustomLabelExprHost> CustomLabelsHostsRemotable
 		{
 			get
 			{

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class PointerCap : GaugePanelStyleContainer, IPersistable
+	public sealed class PointerCap : GaugePanelStyleContainer, IPersistable
 	{
 		[NonSerialized]
 		private PointerCapExprHost m_exprHost;
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_width;
 
-		internal CapImage CapImage
+		public CapImage CapImage
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo OnTop
+		public ExpressionInfo OnTop
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Reflection
+		public ExpressionInfo Reflection
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CapStyle
+		public ExpressionInfo CapStyle
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Width
+		public ExpressionInfo Width
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PointerCapExprHost ExprHost
+		public PointerCapExprHost ExprHost
 		{
 			get
 			{
@@ -119,16 +119,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PointerCap()
+		public PointerCap()
 		{
 		}
 
-		internal PointerCap(GaugePanel gaugePanel)
+		public PointerCap(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.PointerCapStart();
 			base.Initialize(context);
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.PointerCapEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			PointerCap pointerCap = (PointerCap)base.PublishClone(context);
 			if (this.m_capImage != null)
@@ -194,7 +194,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return pointerCap;
 		}
 
-		internal void SetExprHost(PointerCapExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(PointerCapExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.CapImage, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.CapImage));
@@ -288,31 +288,31 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.PointerCap;
 		}
 
-		internal bool EvaluateOnTop(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateOnTop(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluatePointerCapOnTopExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal bool EvaluateReflection(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateReflection(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluatePointerCapReflectionExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal GaugeCapStyles EvaluateCapStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeCapStyles EvaluateCapStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeCapStyles(context.ReportRuntime.EvaluatePointerCapCapStyleExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluatePointerCapHiddenExpression(this, base.m_gaugePanel.Name);
 		}
 
-		internal double EvaluateWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluatePointerCapWidthExpression(this, base.m_gaugePanel.Name);

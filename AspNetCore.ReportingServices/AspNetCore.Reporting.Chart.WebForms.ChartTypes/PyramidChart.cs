@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class PyramidChart : FunnelChart
+	public class PyramidChart : FunnelChart
 	{
 		public override string Name
 		{

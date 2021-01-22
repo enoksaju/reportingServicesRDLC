@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class ST_BlipCompression
+	public class ST_BlipCompression
 	{
 		private string _ooxmlEnumerationValue;
 

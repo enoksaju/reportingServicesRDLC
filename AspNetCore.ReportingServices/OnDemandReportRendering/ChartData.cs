@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartData
+	public sealed class ChartData
 	{
 		private Chart m_owner;
 
@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private ChartDerivedSeriesCollection m_chartDerivedSeriesCollection;
 
-		internal bool HasSeriesCollection
+		public bool HasSeriesCollection
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartData(Chart owner)
+		public ChartData(Chart owner)
 		{
 			this.m_owner = owner;
 		}

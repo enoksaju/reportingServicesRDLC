@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal struct ImageData : IXmlSerializable
+	public struct ImageData : IXmlSerializable
 	{
 		private byte[] m_data;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal interface IHtmlWriter
+	public interface IHtmlWriter
 	{
 		bool IsBrowserIE
 		{

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface IStorage : IDisposable
+	public interface IStorage : IDisposable
 	{
 		long StreamSize
 		{

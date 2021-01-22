@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class BookmarkInfo : HyperlinkInfo
+	public sealed class BookmarkInfo : HyperlinkInfo
 	{
-		internal override bool IsBookmark
+		public override bool IsBookmark
 		{
 			get
 			{
@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal BookmarkInfo(string url, string label, int firstRow, int lastRow, int firstCol, int lastCol)
+		public BookmarkInfo(string url, string label, int firstRow, int lastRow, int firstCol, int lastCol)
 			: base(url, label, firstRow, lastRow, firstCol, lastCol)
 		{
 		}

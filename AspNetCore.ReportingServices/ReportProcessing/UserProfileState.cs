@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Flags]
-	internal enum UserProfileState
+	public enum UserProfileState
 	{
 		None = 0,
 		InQuery = 1,

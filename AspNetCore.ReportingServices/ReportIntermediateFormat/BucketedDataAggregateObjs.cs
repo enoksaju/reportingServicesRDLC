@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class BucketedDataAggregateObjs : BucketedAggregatesCollection<DataAggregateObj>
+	public class BucketedDataAggregateObjs : BucketedAggregatesCollection<DataAggregateObj>
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = BucketedDataAggregateObjs.GetDeclaration();
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return ObjectType.BucketedDataAggregateObjs;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Buckets, ObjectType.RIFObjectList, ObjectType.DataAggregateObjBucket));

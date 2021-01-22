@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal sealed class NamespaceUpdater
+	public sealed class NamespaceUpdater
 	{
 		private sealed class ExtensionNamespaceCounter
 		{

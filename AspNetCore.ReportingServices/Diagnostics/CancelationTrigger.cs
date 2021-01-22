@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal enum CancelationTrigger
+	public enum CancelationTrigger
 	{
 		None,
 		AfterDsqParsing,

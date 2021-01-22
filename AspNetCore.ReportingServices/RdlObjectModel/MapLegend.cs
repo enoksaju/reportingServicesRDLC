@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapLegend : MapDockableSubItem, INamedObject
+	public class MapLegend : MapDockableSubItem, INamedObject
 	{
-		internal new class Definition : DefinitionStore<MapLegend, Definition.Properties>
+		public new class Definition : DefinitionStore<MapLegend, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				MapLocation,
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapLegend(IPropertyStore propertyStore)
+		public MapLegend(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

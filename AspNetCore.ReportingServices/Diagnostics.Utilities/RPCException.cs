@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class RPCException : ReportCatalogException
+	public sealed class RPCException : ReportCatalogException
 	{
 		public RPCException(Exception exceptionFromRPC)
 			: base(ErrorCode.rsRPCError, exceptionFromRPC.Message, exceptionFromRPC.InnerException, null)

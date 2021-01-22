@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class CaretInfo
+	public class CaretInfo
 	{
 		private Point m_position = Point.Empty;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private int m_lineYOffset;
 
-		internal Point Position
+		public Point Position
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool IsFirstLine
+		public bool IsFirstLine
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool IsLastLine
+		public bool IsLastLine
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int Ascent
+		public int Ascent
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int Descent
+		public int Descent
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int LineHeight
+		public int LineHeight
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int LineYOffset
+		public int LineYOffset
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal int Height
+		public int Height
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal CaretInfo()
+		public CaretInfo()
 		{
 		}
 	}

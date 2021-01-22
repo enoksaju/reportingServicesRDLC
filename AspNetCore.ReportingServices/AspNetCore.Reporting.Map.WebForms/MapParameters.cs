@@ -4,23 +4,23 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapParameters : SvgParameters
+	public class MapParameters : SvgParameters
 	{
-		internal Color mapBrushColor;
+		public Color mapBrushColor;
 
-		internal Color mapBrushSecondColor;
+		public Color mapBrushSecondColor;
 
-		internal Matrix mapMatrix;
+		public Matrix mapMatrix;
 
-		internal Font mapFont;
+		public Font mapFont;
 
-		internal StringFormat mapStringFormat;
+		public StringFormat mapStringFormat;
 
-		internal SvgGradientType mapSvgGradientType;
+		public SvgGradientType mapSvgGradientType;
 
-		internal Size mapPictureSize;
+		public Size mapPictureSize;
 
-		internal WrapMode imageWrapMode;
+		public WrapMode imageWrapMode;
 
 		private SvgFillType svgFillType;
 

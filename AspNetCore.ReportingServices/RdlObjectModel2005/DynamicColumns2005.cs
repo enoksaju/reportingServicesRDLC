@@ -5,11 +5,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class DynamicColumns2005 : ReportObject
+	public class DynamicColumns2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<DynamicColumns2005, Definition.Properties>
+		public class Definition : DefinitionStore<DynamicColumns2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Grouping,
 				Sorting,

@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal TextRunsImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.Paragraph paragraphDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, IErrorContext iErrorContext, IScope scope)
+		public TextRunsImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.Paragraph paragraphDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, IErrorContext iErrorContext, IScope scope)
 		{
 			this.m_textBoxDef = paragraphDef.TextBox;
 			this.m_paragraphDef = paragraphDef;
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			for (int i = 0; i < this.m_textRuns.Length; i++)
 			{

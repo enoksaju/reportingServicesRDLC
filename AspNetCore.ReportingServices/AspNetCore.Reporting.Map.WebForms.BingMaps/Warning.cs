@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class Warning
+	public class Warning
 	{
 		[DataMember(Name = "origin", EmitDefaultValue = false)]
 		public string Origin

@@ -5,7 +5,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableInstance : ReportItemInstance, IShowHideContainer, IPageItem
+	public sealed class TableInstance : ReportItemInstance, IShowHideContainer, IPageItem
 	{
 		private TableRowInstance[] m_headerRowInstances;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal TableRowInstance[] HeaderRowInstances
+		public TableRowInstance[] HeaderRowInstances
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableGroupInstanceList TableGroupInstances
+		public TableGroupInstanceList TableGroupInstances
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableDetailInstanceList TableDetailInstances
+		public TableDetailInstanceList TableDetailInstances
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowInstance[] FooterRowInstances
+		public TableRowInstance[] FooterRowInstances
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RenderingPagesRangesList ChildrenStartAndEndPages
+		public RenderingPagesRangesList ChildrenStartAndEndPages
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentPage
+		public int CurrentPage
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NumberOfChildrenOnThisPage
+		public int NumberOfChildrenOnThisPage
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableInstance(ReportProcessing.ProcessingContext pc, Table reportItemDef)
+		public TableInstance(ReportProcessing.ProcessingContext pc, Table reportItemDef)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			this.ConstructorHelper(pc, reportItemDef);
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			reportItemDef.CurrentPage = reportItemDef.StartPage;
 		}
 
-		internal TableInstance(ReportProcessing.ProcessingContext pc, Table reportItemDef, TableDetailInstanceList tableDetailInstances, RenderingPagesRangesList renderingPages)
+		public TableInstance(ReportProcessing.ProcessingContext pc, Table reportItemDef, TableDetailInstanceList tableDetailInstances, RenderingPagesRangesList renderingPages)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			this.ConstructorHelper(pc, reportItemDef);
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			reportItemDef.BottomInEndPage = pc.Pagination.CurrentPageHeight;
 		}
 
-		internal TableInstance()
+		public TableInstance()
 		{
 		}
 
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.EndProcessContainer(base.m_uniqueName, base.m_reportItemDef.Visibility);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.HeaderRowInstances, Token.Array, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.TableRowInstance));
@@ -271,7 +271,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance, memberInfoList);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadTableInstanceInfo((Table)base.m_reportItemDef);

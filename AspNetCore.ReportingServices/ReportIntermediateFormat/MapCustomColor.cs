@@ -12,7 +12,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapCustomColor : IPersistable
+	public sealed class MapCustomColor : IPersistable
 	{
 		private int m_exprHostID = -1;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_color;
 
-		internal ExpressionInfo Color
+		public ExpressionInfo Color
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapCustomColorExprHost ExprHost
+		public MapCustomColorExprHost ExprHost
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -63,16 +63,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapCustomColor()
+		public MapCustomColor()
 		{
 		}
 
-		internal MapCustomColor(Map map)
+		public MapCustomColor(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal void Initialize(InitializationContext context, int index)
+		public void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.MapCustomColorStart(index.ToString(CultureInfo.InvariantCulture.NumberFormat));
 			if (this.m_color != null)
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.MapCustomColorEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapCustomColor mapCustomColor = (MapCustomColor)base.MemberwiseClone();
 			mapCustomColor.m_map = context.CurrentMapClone;
@@ -94,14 +94,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapCustomColor;
 		}
 
-		internal void SetExprHost(MapCustomColorExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapCustomColorExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Color, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapCustomColor;
 		}
 
-		internal string EvaluateColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapCustomColorColorExpression(this, this.m_map.Name);

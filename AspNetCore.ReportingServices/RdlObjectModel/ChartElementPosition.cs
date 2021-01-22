@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartElementPosition : ReportObject
+	public class ChartElementPosition : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartElementPosition, Definition.Properties>
+		public class Definition : DefinitionStore<ChartElementPosition, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Top,
 				Left,
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartElementPosition(IPropertyStore propertyStore)
+		public ChartElementPosition(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

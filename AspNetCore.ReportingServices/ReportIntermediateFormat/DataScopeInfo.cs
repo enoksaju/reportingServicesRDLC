@@ -9,10 +9,10 @@ using System.Linq;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class DataScopeInfo : IPersistable
+	public class DataScopeInfo : IPersistable
 	{
 		[NonSerialized]
-		internal const int DataPipelineIDUnassigned = -1;
+		public const int DataPipelineIDUnassigned = -1;
 
 		private bool m_aggregatesSpanGroupFilter;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DataScopeInfo.GetDeclaration();
 
-		internal bool AggregatesSpanGroupFilter
+		public bool AggregatesSpanGroupFilter
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasAggregatesToUpdateAtRowScope
+		public bool HasAggregatesToUpdateAtRowScope
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NeedsSeparateAofAPass
+		public bool NeedsSeparateAofAPass
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal BucketedDataAggregateInfos AggregatesOfAggregates
+		public BucketedDataAggregateInfos AggregatesOfAggregates
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal BucketedDataAggregateInfos PostSortAggregatesOfAggregates
+		public BucketedDataAggregateInfos PostSortAggregatesOfAggregates
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<RunningValueInfo> RunningValuesOfAggregates
+		public List<RunningValueInfo> RunningValuesOfAggregates
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ScopeID
+		public int ScopeID
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataSet DataSet
+		public DataSet DataSet
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int DataPipelineID
+		public int DataPipelineID
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasAggregatesOrRunningValues
+		public bool HasAggregatesOrRunningValues
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasRunningValues
+		public bool HasRunningValues
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsDecomposable
+		public bool IsDecomposable
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NeedsIDC
+		public bool NeedsIDC
 		{
 			get
 			{
@@ -192,7 +192,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal JoinInfo JoinInfo
+		public JoinInfo JoinInfo
 		{
 			get
 			{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> GroupingFieldIndicesForServerAggregates
+		public List<int> GroupingFieldIndicesForServerAggregates
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_postSortAggregatesOfAggregates = new BucketedDataAggregateInfos();
 		}
 
-		internal void ApplyGroupingFieldsForServerAggregates(FieldsImpl fields)
+		public void ApplyGroupingFieldsForServerAggregates(FieldsImpl fields)
 		{
 			if (this.m_groupingFieldIndicesForServerAggregates != null)
 			{
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetRelationship(string dataSetName, IdcRelationship relationship)
+		public void SetRelationship(string dataSetName, IdcRelationship relationship)
 		{
 			this.m_dataSetName = dataSetName;
 			if (relationship != null)
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetRelationship(string dataSetName, List<IdcRelationship> relationships)
+		public void SetRelationship(string dataSetName, List<IdcRelationship> relationships)
 		{
 			this.m_dataSetName = dataSetName;
 			if (relationships != null)
@@ -249,7 +249,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ValidateScopeRulesForIdc(InitializationContext context, IRIFDataScope dataScope)
+		public void ValidateScopeRulesForIdc(InitializationContext context, IRIFDataScope dataScope)
 		{
 			if (this.m_dataSet != null && this.NeedsIDC)
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ValidateDataSetBindingAndRelationships(ScopeTree scopeTree, IRIFReportDataScope scope, ErrorContext errorContext)
+		public void ValidateDataSetBindingAndRelationships(ScopeTree scopeTree, IRIFReportDataScope scope, ErrorContext errorContext)
 		{
 			if (this.m_dataSet == null)
 			{
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ClearAggregatesIfEmpty()
+		public void ClearAggregatesIfEmpty()
 		{
 			Global.Tracer.Assert(null != this.m_aggregatesOfAggregates, "(null != m_aggregatesOfAggregates)");
 			if (this.m_aggregatesOfAggregates.IsEmpty)
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void ClearRunningValuesIfEmpty()
+		public void ClearRunningValuesIfEmpty()
 		{
 			Global.Tracer.Assert(null != this.m_runningValuesOfAggregates, "(null != m_runningValuesOfAggregates)");
 			if (this.m_runningValuesOfAggregates.Count == 0)
@@ -419,7 +419,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_postSortAggregatesOfAggregates.MergeFrom(otherScope.m_postSortAggregatesOfAggregates);
 		}
 
-		internal DataScopeInfo PublishClone(AutomaticSubtotalContext context, int scopeID)
+		public DataScopeInfo PublishClone(AutomaticSubtotalContext context, int scopeID)
 		{
 			DataScopeInfo dataScopeInfo = new DataScopeInfo(scopeID);
 			dataScopeInfo.m_dataSetName = this.m_dataSetName;
@@ -430,7 +430,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return dataScopeInfo;
 		}
 
-		internal void Initialize(InitializationContext context, IRIFDataScope scope)
+		public void Initialize(InitializationContext context, IRIFDataScope scope)
 		{
 			if (this.m_joinInfo != null)
 			{
@@ -523,30 +523,30 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal long AssignScopeInstanceNumber()
+		public long AssignScopeInstanceNumber()
 		{
 			this.m_lastScopeInstanceNumber += 1L;
 			return this.m_lastScopeInstanceNumber;
 		}
 
-		internal bool IsLastScopeInstanceNumber(long scopeInstanceNumber)
+		public bool IsLastScopeInstanceNumber(long scopeInstanceNumber)
 		{
 			return this.m_lastScopeInstanceNumber == scopeInstanceNumber;
 		}
 
-		internal void ResetAggregates(AggregatesImpl reportOmAggregates)
+		public void ResetAggregates(AggregatesImpl reportOmAggregates)
 		{
 			reportOmAggregates.ResetAll(this.m_aggregatesOfAggregates);
 			reportOmAggregates.ResetAll(this.m_postSortAggregatesOfAggregates);
 			reportOmAggregates.ResetAll(this.m_runningValuesOfAggregates);
 		}
 
-		internal bool IsSameScope(DataScopeInfo candidateScopeInfo)
+		public bool IsSameScope(DataScopeInfo candidateScopeInfo)
 		{
 			return this.m_scopeID == candidateScopeInfo.ScopeID;
 		}
 
-		internal static bool IsSameOrChildScope(IRIFReportDataScope childCandidate, IRIFReportDataScope parentCandidate)
+		public static bool IsSameOrChildScope(IRIFReportDataScope childCandidate, IRIFReportDataScope parentCandidate)
 		{
 			while (childCandidate != null)
 			{
@@ -568,7 +568,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static bool IsChildScopeOf(IRIFReportDataScope childCandidate, IRIFReportDataScope parentCandidate)
+		public static bool IsChildScopeOf(IRIFReportDataScope childCandidate, IRIFReportDataScope parentCandidate)
 		{
 			if (!childCandidate.DataScopeInfo.IsSameScope(parentCandidate.DataScopeInfo))
 			{
@@ -577,7 +577,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static bool HasDecomposableAncestorWithNonLatestInstanceBinding(IRIFReportDataScope candidate)
+		public static bool HasDecomposableAncestorWithNonLatestInstanceBinding(IRIFReportDataScope candidate)
 		{
 			while (candidate != null)
 			{
@@ -599,7 +599,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static bool TryGetInnermostParentScopeRelatedToTargetDataSet(DataSet targetDataSet, IRIFReportDataScope candidate, out IRIFReportDataScope targetScope)
+		public static bool TryGetInnermostParentScopeRelatedToTargetDataSet(DataSet targetDataSet, IRIFReportDataScope candidate, out IRIFReportDataScope targetScope)
 		{
 			while (candidate != null)
 			{
@@ -623,7 +623,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static bool HasAggregates<T>(List<T> aggs) where T : DataAggregateInfo
+		public static bool HasAggregates<T>(List<T> aggs) where T : DataAggregateInfo
 		{
 			if (aggs != null)
 			{
@@ -632,7 +632,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static bool HasNonServerAggregates<T>(List<T> aggs) where T : DataAggregateInfo
+		public static bool HasNonServerAggregates<T>(List<T> aggs) where T : DataAggregateInfo
 		{
 			if (aggs != null)
 			{
@@ -641,7 +641,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static bool HasAggregates<T>(BucketedAggregatesCollection<T> aggs) where T : IPersistable
+		public static bool HasAggregates<T>(BucketedAggregatesCollection<T> aggs) where T : IPersistable
 		{
 			if (aggs != null)
 			{
@@ -650,7 +650,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static bool ContainsServerAggregate<T>(List<T> aggs, string aggregateName) where T : DataAggregateInfo
+		public static bool ContainsServerAggregate<T>(List<T> aggs, string aggregateName) where T : DataAggregateInfo
 		{
 			if (aggs != null)
 			{
@@ -659,7 +659,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static bool IsTargetServerAggregate(DataAggregateInfo agg, string aggregateName)
+		public static bool IsTargetServerAggregate(DataAggregateInfo agg, string aggregateName)
 		{
 			if (agg.AggregateType == DataAggregateInfo.AggregateTypes.Aggregate)
 			{
@@ -676,7 +676,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.AggregatesSpanGroupFilter, Token.Boolean));

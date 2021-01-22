@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class MillimeterSize : ISize
+	public sealed class MillimeterSize : ISize
 	{
 		private float m_sizeInMm;
 

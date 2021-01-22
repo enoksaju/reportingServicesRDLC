@@ -7,11 +7,11 @@ using System.Resources;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Borders3D
 {
-	internal class BorderTypeRegistry : IServiceProvider
+	public class BorderTypeRegistry : IServiceProvider
 	{
 		private ResourceManager resourceManager;
 
-		internal Hashtable registeredBorderTypes = new Hashtable(StringComparer.OrdinalIgnoreCase);
+		public Hashtable registeredBorderTypes = new Hashtable(StringComparer.OrdinalIgnoreCase);
 
 		private Hashtable createdBorderTypes = new Hashtable(StringComparer.OrdinalIgnoreCase);
 

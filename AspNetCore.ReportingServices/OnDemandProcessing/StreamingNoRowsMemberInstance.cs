@@ -7,7 +7,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
 	[PersistedWithinRequestOnly]
 	[SkipStaticValidation]
-	internal class StreamingNoRowsMemberInstance : StreamingNoRowsScopeInstanceBase, IOnDemandMemberInstance, IOnDemandMemberOwnerInstance, IOnDemandScopeInstance, IStorable, IPersistable
+	public class StreamingNoRowsMemberInstance : StreamingNoRowsScopeInstanceBase, IOnDemandMemberInstance, IOnDemandMemberOwnerInstance, IOnDemandScopeInstance, IStorable, IPersistable
 	{
 		public List<object> GroupExprValues
 		{

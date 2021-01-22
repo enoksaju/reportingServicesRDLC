@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Body : ReportElement
+	public sealed class Body : ReportElement
 	{
 		private AspNetCore.ReportingServices.ReportRendering.Report m_renderReport;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private bool m_subreportInSubtotal;
 
-		internal override bool UseRenderStyle
+		public override bool UseRenderStyle
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportRendering.ReportItem RenderReportItem
+		public override AspNetCore.ReportingServices.ReportRendering.ReportItem RenderReportItem
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.Report RenderReport
+		public AspNetCore.ReportingServices.ReportRendering.Report RenderReport
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSection SectionDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSection SectionDef
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override string InstanceUniqueName
+		public override string InstanceUniqueName
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportElementInstance ReportElementInstance
+		public override ReportElementInstance ReportElementInstance
 		{
 			get
 			{
@@ -147,12 +147,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Body(IReportScope reportScope, IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSection sectionDef, RenderingContext renderingContext)
+		public Body(IReportScope reportScope, IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportSection sectionDef, RenderingContext renderingContext)
 			: base(reportScope, parentDefinitionPath, sectionDef, renderingContext)
 		{
 		}
 
-		internal Body(IDefinitionPath parentDefinitionPath, bool subreportInSubtotal, AspNetCore.ReportingServices.ReportRendering.Report renderReport, RenderingContext renderingContext)
+		public Body(IDefinitionPath parentDefinitionPath, bool subreportInSubtotal, AspNetCore.ReportingServices.ReportRendering.Report renderReport, RenderingContext renderingContext)
 			: base(parentDefinitionPath, renderingContext)
 		{
 			base.m_isOldSnapshot = true;
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			base.m_renderingContext = renderingContext;
 		}
 
-		internal void UpdateSubReportContents(AspNetCore.ReportingServices.ReportRendering.Report newRenderSubreport)
+		public void UpdateSubReportContents(AspNetCore.ReportingServices.ReportRendering.Report newRenderSubreport)
 		{
 			this.m_renderReport = newRenderSubreport;
 			if (this.m_reportItems != null)
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			base.SetNewContext();
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_reportItems != null)
 			{

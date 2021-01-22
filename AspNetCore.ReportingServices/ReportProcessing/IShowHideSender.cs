@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IShowHideSender
+	public interface IShowHideSender
 	{
 		void ProcessSender(ReportProcessing.ProcessingContext context, int uniqueName);
 	}

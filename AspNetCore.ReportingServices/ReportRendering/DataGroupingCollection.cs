@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class DataGroupingCollection
+	public sealed class DataGroupingCollection
 	{
 		private CustomReportItem m_owner;
 
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal DataGroupingCollection(CustomReportItem owner, DataMember parent, CustomReportItemHeadingList headingDef, CustomReportItemHeadingInstanceList headingInstances)
+		public DataGroupingCollection(CustomReportItem owner, DataMember parent, CustomReportItemHeadingList headingDef, CustomReportItemHeadingInstanceList headingInstances)
 		{
 			this.m_owner = owner;
 			this.m_parent = parent;

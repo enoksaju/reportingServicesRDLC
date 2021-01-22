@@ -4,9 +4,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public sealed class ParametersImpl : Parameters
 	{
-		internal const string Name = "Parameters";
+		public const string Name = "Parameters";
 
-		internal const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.Parameters";
+		public const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.Parameters";
 
 		private Hashtable m_nameMap;
 
@@ -33,14 +33,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ParametersImpl(int size)
+		public ParametersImpl(int size)
 		{
 			this.m_collection = new ParameterImpl[size];
 			this.m_nameMap = new Hashtable(size);
 			this.m_count = 0;
 		}
 
-		internal void Add(string name, ParameterImpl parameter)
+		public void Add(string name, ParameterImpl parameter)
 		{
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
 			Global.Tracer.Assert(null != this.m_nameMap, "(null != m_nameMap)");

@@ -8,7 +8,7 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class DataSourceInfoCollection : IPowerViewDataSourceCollection, IEnumerable
+	public sealed class DataSourceInfoCollection : IPowerViewDataSourceCollection, IEnumerable
 	{
 		private Hashtable m_collection = new Hashtable();
 

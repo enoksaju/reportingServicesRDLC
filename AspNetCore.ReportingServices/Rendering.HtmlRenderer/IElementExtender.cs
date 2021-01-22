@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal interface IElementExtender
+	public interface IElementExtender
 	{
 		bool HasSetupRequirements();
 

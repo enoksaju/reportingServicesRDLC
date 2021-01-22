@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RichTextHelpers
+	public sealed class RichTextHelpers
 	{
-		internal static MarkupType TranslateMarkupType(string value)
+		public static MarkupType TranslateMarkupType(string value)
 		{
 			if (AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.CompareWithInvariantCulture(value, "None", false) == 0)
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MarkupType.None;
 		}
 
-		internal static ListStyle TranslateListStyle(string value)
+		public static ListStyle TranslateListStyle(string value)
 		{
 			if (AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.CompareWithInvariantCulture(value, "None", false) == 0)
 			{

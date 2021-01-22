@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 namespace AspNetCore.Reporting
 {
 	[ComVisible(false)]
-	internal sealed class ReportDataSourceInfoCollection : ReadOnlyCollection<ReportDataSourceInfo>
+	public sealed class ReportDataSourceInfoCollection : ReadOnlyCollection<ReportDataSourceInfo>
 	{
 		public ReportDataSourceInfo this[string name]
 		{
@@ -24,17 +24,17 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal ReportDataSourceInfoCollection(IList<ReportDataSourceInfo> dsInfos)
+		public ReportDataSourceInfoCollection(IList<ReportDataSourceInfo> dsInfos)
 			: base(dsInfos)
 		{
 		}
 
-		internal ReportDataSourceInfoCollection()
+		public ReportDataSourceInfoCollection()
 			: base((IList<ReportDataSourceInfo>)new ReportDataSourceInfo[0])
 		{
 		}
 
-		//internal static ReportDataSourceInfoCollection FromSoapDataSourcePrompts(DataSourcePrompt[] soapPrompts)
+		//public static ReportDataSourceInfoCollection FromSoapDataSourcePrompts(DataSourcePrompt[] soapPrompts)
 		//{
 		//	if (soapPrompts == null)
 		//	{

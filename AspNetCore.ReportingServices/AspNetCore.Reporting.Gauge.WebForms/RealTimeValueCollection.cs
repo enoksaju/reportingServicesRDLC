@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class RealTimeValueCollection : CollectionBase
+	public class RealTimeValueCollection : CollectionBase
 	{
 		public RealTimeValue this[int index]
 		{

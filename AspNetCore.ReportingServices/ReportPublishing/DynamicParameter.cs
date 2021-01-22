@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class DynamicParameter
+	public sealed class DynamicParameter
 	{
 		private DataSetReference m_validValueDataSet;
 
@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private bool m_isComplex;
 
-		internal DataSetReference ValidValueDataSet
+		public DataSetReference ValidValueDataSet
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal DataSetReference DefaultDataSet
+		public DataSetReference DefaultDataSet
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int Index
+		public int Index
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool IsComplex
+		public bool IsComplex
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal DynamicParameter(DataSetReference validValueDataSet, DataSetReference defaultDataSet, int index, bool isComplex)
+		public DynamicParameter(DataSetReference validValueDataSet, DataSetReference defaultDataSet, int index, bool isComplex)
 		{
 			this.m_validValueDataSet = validValueDataSet;
 			this.m_defaultDataSet = defaultDataSet;

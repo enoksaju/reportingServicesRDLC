@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IConfiguration
+	public interface IConfiguration
 	{
 		IRdlSandboxConfig RdlSandboxing
 		{

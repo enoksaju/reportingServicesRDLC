@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class StyleWriterStream : StyleWriter
+	public class StyleWriterStream : StyleWriter
 	{
 		private BinaryWriter m_writer;
 

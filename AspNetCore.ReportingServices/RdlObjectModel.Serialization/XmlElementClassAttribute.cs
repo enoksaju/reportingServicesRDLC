@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
 	[AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
-	internal sealed class XmlElementClassAttribute : XmlElementAttribute
+	public sealed class XmlElementClassAttribute : XmlElementAttribute
 	{
 		public XmlElementClassAttribute(string elementName)
 			: base(elementName)

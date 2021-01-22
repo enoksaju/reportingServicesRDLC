@@ -7,7 +7,7 @@ using System.Xml.XPath;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class RdlWriter : RdlReaderWriterBase
+	public class RdlWriter : RdlReaderWriterBase
 	{
 		public RdlWriter(RdlSerializerSettings settings)
 			: base(settings)

@@ -2,14 +2,14 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class VariableNameValidator : NameValidator
+	public sealed class VariableNameValidator : NameValidator
 	{
-		internal VariableNameValidator()
+		public VariableNameValidator()
 			: base(false)
 		{
 		}
 
-		internal bool Validate(string name, ObjectType objectType, string objectName, ErrorContext errorContext, bool isGrouping, string groupingName)
+		public bool Validate(string name, ObjectType objectType, string objectName, ErrorContext errorContext, bool isGrouping, string groupingName)
 		{
 			bool result = true;
 			if (string.IsNullOrEmpty(name) || name.Length > 256)

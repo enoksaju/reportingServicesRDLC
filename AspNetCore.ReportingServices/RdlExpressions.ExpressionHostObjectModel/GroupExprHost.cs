@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<FilterExprHost> FilterHostsRemotable
+		public IList<FilterExprHost> FilterHostsRemotable
 		{
 			get
 			{

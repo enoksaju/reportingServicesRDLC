@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlParagraphIndentationModel
+	public sealed class OpenXmlParagraphIndentationModel
 	{
 		private double? _hanging;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 
 		private double? _right;
 
-		internal double Hanging
+		public double Hanging
 		{
 			set
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal double First
+		public double First
 		{
 			set
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal double Left
+		public double Left
 		{
 			set
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal double Right
+		public double Right
 		{
 			set
 			{

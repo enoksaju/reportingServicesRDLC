@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum PaletteHatchBehavior
+	public enum PaletteHatchBehavior
 	{
 		Default,
 		None,

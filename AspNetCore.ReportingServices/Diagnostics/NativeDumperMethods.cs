@@ -3,10 +3,10 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class _NativeDumperMethods
+	public static class _NativeDumperMethods
 	{
 		[Flags]
-		internal enum DumperFlags
+		public enum DumperFlags
 		{
 			Default = 0,
 			NoMiniDump = 2,

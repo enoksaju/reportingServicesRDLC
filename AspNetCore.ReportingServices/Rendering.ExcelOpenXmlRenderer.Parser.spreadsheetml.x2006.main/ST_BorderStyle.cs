@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_BorderStyle
+	public class ST_BorderStyle
 	{
 		private string _ooxmlEnumerationValue;
 

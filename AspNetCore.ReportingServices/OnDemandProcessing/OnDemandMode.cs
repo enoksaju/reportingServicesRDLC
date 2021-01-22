@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal enum OnDemandMode
+	public enum OnDemandMode
 	{
 		FullSetup,
 		InScope

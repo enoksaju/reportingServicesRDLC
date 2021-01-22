@@ -2,8 +2,8 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal abstract class ReportUpgradeStrategy
+	public abstract class ReportUpgradeStrategy
 	{
-		internal abstract Stream Upgrade(Stream definitionStream);
+		public abstract Stream Upgrade(Stream definitionStream);
 	}
 }

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum ScriptStyle
+	public enum ScriptStyle
 	{
 		None,
 		Superscript,

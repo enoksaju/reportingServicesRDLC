@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum WidthSensitivities
+	public enum WidthSensitivities
 	{
 		Auto,
 		True,

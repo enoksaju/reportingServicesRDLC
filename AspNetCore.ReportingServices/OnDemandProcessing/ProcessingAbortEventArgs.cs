@@ -2,11 +2,11 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class ProcessingAbortEventArgs : EventArgs
+	public sealed class ProcessingAbortEventArgs : EventArgs
 	{
 		private string m_uniqueName;
 
-		internal string UniqueName
+		public string UniqueName
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ProcessingAbortEventArgs(string uniqueName)
+		public ProcessingAbortEventArgs(string uniqueName)
 		{
 			this.m_uniqueName = uniqueName;
 		}

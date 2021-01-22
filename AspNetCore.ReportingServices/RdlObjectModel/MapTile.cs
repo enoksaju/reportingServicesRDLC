@@ -2,11 +2,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapTile : ReportObject, INamedObject
+	public class MapTile : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<MapTile, Definition.Properties>
+		public class Definition : DefinitionStore<MapTile, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				TileData,
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapTile(IPropertyStore propertyStore)
+		public MapTile(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

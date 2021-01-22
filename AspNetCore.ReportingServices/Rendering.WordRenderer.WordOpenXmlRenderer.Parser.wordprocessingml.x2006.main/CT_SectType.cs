@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_SectType : OoxmlComplexType, IOoxmlComplexType
+	public class CT_SectType : OoxmlComplexType, IOoxmlComplexType
 	{
 		private ST_SectionMark _val_attr;
 

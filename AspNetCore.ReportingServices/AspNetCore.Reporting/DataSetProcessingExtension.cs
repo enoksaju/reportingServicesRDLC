@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting
 {
-	internal class DataSetProcessingExtension : AspNetCore.ReportingServices.DataProcessing.IDbConnection, IDisposable, IExtension
+	public class DataSetProcessingExtension : AspNetCore.ReportingServices.DataProcessing.IDbConnection, IDisposable, IExtension
 	{
 		private string m_dataSetName;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal void CreateDataReaderFromObject(object dataSourceValue)
+		public void CreateDataReaderFromObject(object dataSourceValue)
 		{
 			IEnumerable enumerable = dataSourceValue as IEnumerable;
 			if (enumerable != null)

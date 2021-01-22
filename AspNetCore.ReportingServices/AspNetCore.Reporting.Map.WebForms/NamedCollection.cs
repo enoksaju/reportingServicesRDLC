@@ -7,15 +7,15 @@ using System.Reflection;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[ListBindable(false)]
-	internal class NamedCollection : CollectionBase, IDisposable, ICloneable
+	public class NamedCollection : CollectionBase, IDisposable, ICloneable
 	{
-		internal CommonElements common;
+		public CommonElements common;
 
-		internal Type elementType = typeof(NamedElement);
+		public Type elementType = typeof(NamedElement);
 
-		internal NamedElement parent;
+		public NamedElement parent;
 
-		internal bool editModeActive;
+		public bool editModeActive;
 
 		private Hashtable nameToObject;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal CommonElements Common
+		public CommonElements Common
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool SuppressAddedAndRemovedEvents
+		public bool SuppressAddedAndRemovedEvents
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsSuspended
+		public bool IsSuspended
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal NamedCollection(NamedElement parent, CommonElements common)
+		public NamedCollection(NamedElement parent, CommonElements common)
 		{
 			this.Common = common;
 			this.parent = parent;
@@ -111,12 +111,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return base.List.IndexOf(o);
 		}
 
-		internal void SuspendUpdates()
+		public void SuspendUpdates()
 		{
 			this.suspendUpdatesCount++;
 		}
 
-		internal void ResumeUpdates()
+		public void ResumeUpdates()
 		{
 			if (this.suspendUpdatesCount > 0)
 			{
@@ -232,7 +232,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void IsValidNameCheck(string name, NamedElement element)
+		public virtual void IsValidNameCheck(string name, NamedElement element)
 		{
 			if (name != null && !(name == string.Empty))
 			{
@@ -250,12 +250,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			throw new ArgumentException(SR.empty_name_failed(this.elementType.Name));
 		}
 
-		internal virtual bool IsUniqueName(string name)
+		public virtual bool IsUniqueName(string name)
 		{
 			return !this.nameToObject.ContainsKey(name);
 		}
 
-		internal string GenerateUniqueName(NamedElement element)
+		public string GenerateUniqueName(NamedElement element)
 		{
 			string elementNameFormat = this.GetElementNameFormat(element);
 			for (int i = base.Count + 1; i < 2147483647; i++)
@@ -269,7 +269,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			throw new ApplicationException(SR.generate_name_failed);
 		}
 
-		internal NamedElement GetByNameCheck(string name)
+		public NamedElement GetByNameCheck(string name)
 		{
 			NamedElement byName = this.GetByName(name);
 			if (byName == null)
@@ -279,7 +279,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return byName;
 		}
 
-		internal bool SetByName(string name, NamedElement element)
+		public bool SetByName(string name, NamedElement element)
 		{
 			int index = this.GetIndex(name);
 			if (index != -1)
@@ -290,7 +290,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return false;
 		}
 
-		internal void SetByNameCheck(string name, NamedElement element)
+		public void SetByNameCheck(string name, NamedElement element)
 		{
 			if (this.SetByName(name, element))
 			{
@@ -299,12 +299,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			throw new ArgumentException(SR.element_not_found(this.elementType.Name, name, base.GetType().Name));
 		}
 
-		internal virtual bool IsCorrectType(object value)
+		public virtual bool IsCorrectType(object value)
 		{
 			return this.elementType.IsInstanceOfType(value);
 		}
 
-		internal virtual void BeginInit()
+		public virtual void BeginInit()
 		{
 			foreach (NamedElement item in this)
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void EndInit()
+		public virtual void EndInit()
 		{
 			foreach (NamedElement item in this)
 			{
@@ -320,7 +320,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual void ReconnectData(bool exact)
+		public virtual void ReconnectData(bool exact)
 		{
 			foreach (NamedElement item in this)
 			{
@@ -328,7 +328,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual string GetElementNameFormat(NamedElement el)
+		public virtual string GetElementNameFormat(NamedElement el)
 		{
 			string text = el.DefaultName;
 			if (text == string.Empty)
@@ -338,12 +338,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return text + "{0}";
 		}
 
-		internal virtual string GetDefaultElementName(NamedElement el)
+		public virtual string GetDefaultElementName(NamedElement el)
 		{
 			return "Default";
 		}
 
-		internal virtual void Invalidate()
+		public virtual void Invalidate()
 		{
 			if (this.Common != null && !this.IsSuspended)
 			{
@@ -351,12 +351,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal virtual string GetCollectionName()
+		public virtual string GetCollectionName()
 		{
 			return base.GetType().Name.Replace("Collection", "s");
 		}
 
-		internal virtual void Notify(MessageType msg, NamedElement element, object param)
+		public virtual void Notify(MessageType msg, NamedElement element, object param)
 		{
 			if (!this.IsSuspended)
 			{

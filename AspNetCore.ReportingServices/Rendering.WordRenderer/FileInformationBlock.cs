@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class FileInformationBlock
+	public class FileInformationBlock
 	{
-		internal static readonly byte[] StartBuffer = new byte[152]
+		public static readonly byte[] StartBuffer = new byte[152]
 		{
 			236,
 			165,
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			0
 		};
 
-		internal static readonly byte[] EndBuffer = new byte[6]
+		public static readonly byte[] EndBuffer = new byte[6]
 		{
 			2,
 			0,
@@ -168,6 +168,6 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			0
 		};
 
-		internal static readonly int FieldsSize = 864;
+		public static readonly int FieldsSize = 864;
 	}
 }

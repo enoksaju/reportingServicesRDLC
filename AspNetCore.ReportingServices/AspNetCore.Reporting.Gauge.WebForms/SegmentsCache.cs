@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class SegmentsCache
+	public class SegmentsCache
 	{
 		private Hashtable cacheTable = new Hashtable();
 
@@ -13,7 +13,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private float size = -1f;
 
-		internal GraphicsPath GetSegment(Enum segments, PointF p, float size)
+		public GraphicsPath GetSegment(Enum segments, PointF p, float size)
 		{
 			this.CheckCache(size);
 			if (this.cacheTable.Contains(segments))
@@ -27,7 +27,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return null;
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			foreach (object value in this.cacheTable.Values)
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void SetSegment(Enum segment, GraphicsPath path, PointF p, float size)
+		public void SetSegment(Enum segment, GraphicsPath path, PointF p, float size)
 		{
 			this.CheckCache(size);
 			GraphicsPath graphicsPath = (GraphicsPath)path.Clone();

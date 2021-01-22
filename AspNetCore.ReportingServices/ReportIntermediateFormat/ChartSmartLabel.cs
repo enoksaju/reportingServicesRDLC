@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartSmartLabel : IPersistable
+	public sealed class ChartSmartLabel : IPersistable
 	{
 		[Reference]
 		private Chart m_chart;
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartSmartLabelExprHost m_exprHost;
 
-		internal ChartSmartLabelExprHost ExprHost
+		public ChartSmartLabelExprHost ExprHost
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AllowOutSidePlotArea
+		public ExpressionInfo AllowOutSidePlotArea
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CalloutBackColor
+		public ExpressionInfo CalloutBackColor
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CalloutLineAnchor
+		public ExpressionInfo CalloutLineAnchor
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CalloutLineColor
+		public ExpressionInfo CalloutLineColor
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CalloutLineStyle
+		public ExpressionInfo CalloutLineStyle
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CalloutLineWidth
+		public ExpressionInfo CalloutLineWidth
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CalloutStyle
+		public ExpressionInfo CalloutStyle
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ShowOverlapped
+		public ExpressionInfo ShowOverlapped
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MarkerOverlapping
+		public ExpressionInfo MarkerOverlapping
 		{
 			get
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MaxMovingDistance
+		public ExpressionInfo MaxMovingDistance
 		{
 			get
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MinMovingDistance
+		public ExpressionInfo MinMovingDistance
 		{
 			get
 			{
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartNoMoveDirections NoMoveDirections
+		public ChartNoMoveDirections NoMoveDirections
 		{
 			get
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Disabled
+		public ExpressionInfo Disabled
 		{
 			get
 			{
@@ -227,17 +227,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartSmartLabel()
+		public ChartSmartLabel()
 		{
 		}
 
-		internal ChartSmartLabel(Chart chart, ChartSeries chartSeries)
+		public ChartSmartLabel(Chart chart, ChartSeries chartSeries)
 		{
 			this.m_chart = chart;
 			this.m_chartSeries = chartSeries;
 		}
 
-		internal void SetExprHost(ChartSmartLabelExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartSmartLabelExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartSmartLabelStart();
 			if (this.m_allowOutSidePlotArea != null)
@@ -318,7 +318,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartSmartLabelEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartSmartLabel chartSmartLabel = (ChartSmartLabel)base.MemberwiseClone();
 			chartSmartLabel.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -377,7 +377,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartSmartLabel;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.AllowOutSidePlotArea, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -398,73 +398,73 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartSmartLabel, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.None, list);
 		}
 
-		internal ChartAllowOutsideChartArea EvaluateAllowOutSidePlotArea(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartAllowOutsideChartArea EvaluateAllowOutSidePlotArea(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateChartAllowOutsideChartArea(context.ReportRuntime.EvaluateChartSmartLabelAllowOutSidePlotAreaExpression(this, this.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateCalloutBackColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateCalloutBackColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSmartLabelCalloutBackColorExpression(this, this.m_chart.Name);
 		}
 
-		internal ChartCalloutLineAnchor EvaluateCalloutLineAnchor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartCalloutLineAnchor EvaluateCalloutLineAnchor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateChartCalloutLineAnchor(context.ReportRuntime.EvaluateChartSmartLabelCalloutLineAnchorExpression(this, this.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateCalloutLineColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateCalloutLineColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSmartLabelCalloutLineColorExpression(this, this.m_chart.Name);
 		}
 
-		internal ChartCalloutLineStyle EvaluateCalloutLineStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartCalloutLineStyle EvaluateCalloutLineStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateChartCalloutLineStyle(context.ReportRuntime.EvaluateChartSmartLabelCalloutLineStyleExpression(this, this.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateCalloutLineWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateCalloutLineWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSmartLabelCalloutLineWidthExpression(this, this.m_chart.Name);
 		}
 
-		internal ChartCalloutStyle EvaluateCalloutStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartCalloutStyle EvaluateCalloutStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateChartCalloutStyle(context.ReportRuntime.EvaluateChartSmartLabelCalloutStyleExpression(this, this.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateShowOverlapped(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateShowOverlapped(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSmartLabelShowOverlappedExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateMarkerOverlapping(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateMarkerOverlapping(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSmartLabelMarkerOverlappingExpression(this, this.m_chart.Name);
 		}
 
-		internal string EvaluateMaxMovingDistance(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMaxMovingDistance(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSmartLabelMaxMovingDistanceExpression(this, this.m_chart.Name);
 		}
 
-		internal string EvaluateMinMovingDistance(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMinMovingDistance(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSmartLabelMinMovingDistanceExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateDisabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateDisabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSmartLabelDisabledExpression(this, this.m_chart.Name);

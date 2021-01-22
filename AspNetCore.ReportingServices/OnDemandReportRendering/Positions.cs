@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum Positions
+	public enum Positions
 	{
 		Default,
 		Top,

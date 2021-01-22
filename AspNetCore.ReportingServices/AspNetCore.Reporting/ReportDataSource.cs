@@ -6,7 +6,7 @@ using System.Data;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ReportDataSource
+	public sealed class ReportDataSource
 	{
 		private string m_dataSourceID = "";
 
@@ -78,7 +78,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal event EventHandler Changed;
+		public event EventHandler Changed;
 
 		public ReportDataSource()
 		{
@@ -113,7 +113,7 @@ namespace AspNetCore.Reporting
 			this.Value = dataSourceValue;
 		}
 
-		internal void OnChanged()
+		public void OnChanged()
 		{
 			if (this.Changed != null)
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal void SetValueWithoutChange(object dsValue)
+		public void SetValueWithoutChange(object dsValue)
 		{
 			this.m_value = dsValue;
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PointerCapInstance : BaseInstance
+	public sealed class PointerCapInstance : BaseInstance
 	{
 		private PointerCap m_defObject;
 
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PointerCapInstance(PointerCap defObject)
+		public PointerCapInstance(PointerCap defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

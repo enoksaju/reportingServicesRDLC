@@ -3,7 +3,7 @@ using System.Drawing.Imaging;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class OWCChart : DataRegion
+	public sealed class OWCChart : DataRegion
 	{
 		private OWCChartColumnCollection m_chartData;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override string InstanceInfoNoRowMessage
+		public override string InstanceInfoNoRowMessage
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal OWCChart(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.OWCChart reportItemDef, OWCChartInstance reportItemInstance, RenderingContext renderingContext)
+		public OWCChart(int intUniqueName, AspNetCore.ReportingServices.ReportProcessing.OWCChart reportItemDef, OWCChartInstance reportItemInstance, RenderingContext renderingContext)
 			: base(intUniqueName, reportItemDef, reportItemInstance, renderingContext)
 		{
 		}
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			((OWCChartInstanceInfo)base.InstanceInfo).ChartDataXML(chartStream);
 		}
 
-		internal bool ProcessChartXMLPivotList(ref string newDefinition, string chartDataUrl)
+		public bool ProcessChartXMLPivotList(ref string newDefinition, string chartDataUrl)
 		{
 			return false;
 		}

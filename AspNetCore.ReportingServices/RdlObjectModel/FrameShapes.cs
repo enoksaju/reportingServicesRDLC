@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum FrameShapes
+	public enum FrameShapes
 	{
 		Default,
 		Circular,

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Chart : DataRegion
+	public sealed class Chart : DataRegion
 	{
 		private int m_memberCellDefinitionIndex;
 
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Chart ChartDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Chart ChartDef
 		{
 			get
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool HasDataCells
+		public override bool HasDataCells
 		{
 			get
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IDataRegionRowCollection RowCollection
+		public override IDataRegionRowCollection RowCollection
 		{
 			get
 			{
@@ -344,7 +344,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartInstanceInfo ChartInstanceInfo
+		public ChartInstanceInfo ChartInstanceInfo
 		{
 			get
 			{
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.Chart RenderChartDef
+		public AspNetCore.ReportingServices.ReportProcessing.Chart RenderChartDef
 		{
 			get
 			{
@@ -360,7 +360,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.Chart RenderChart
+		public AspNetCore.ReportingServices.ReportRendering.Chart RenderChart
 		{
 			get
 			{
@@ -372,18 +372,18 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Chart reportItemDef, RenderingContext renderingContext)
+		public Chart(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Chart reportItemDef, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 		}
 
-		internal Chart(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Chart renderChart, RenderingContext renderingContext)
+		public Chart(IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.Chart renderChart, RenderingContext renderingContext)
 			: base(parentDefinitionPath, indexIntoParentCollectionDef, inSubtotal, renderChart, renderingContext)
 		{
 			base.m_snapshotDataRegionType = Type.Chart;
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_categories != null)
 			{
@@ -428,7 +428,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			base.UpdateRenderReportItem(renderReportItem);
 			if (renderReportItem != null)
@@ -455,22 +455,22 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_borderSkin = null;
 		}
 
-		internal int GetCurrentMemberCellDefinitionIndex()
+		public int GetCurrentMemberCellDefinitionIndex()
 		{
 			return this.m_memberCellDefinitionIndex;
 		}
 
-		internal int GetAndIncrementMemberCellDefinitionIndex()
+		public int GetAndIncrementMemberCellDefinitionIndex()
 		{
 			return this.m_memberCellDefinitionIndex++;
 		}
 
-		internal void ResetMemberCellDefinitionIndex(int startIndex)
+		public void ResetMemberCellDefinitionIndex(int startIndex)
 		{
 			this.m_memberCellDefinitionIndex = startIndex;
 		}
 
-		internal ChartMember GetChartMember(ChartSeries chartSeries)
+		public ChartMember GetChartMember(ChartSeries chartSeries)
 		{
 			return this.GetChartMember(this.SeriesHierarchy.MemberCollection, this.GetSeriesIndex(chartSeries));
 		}
@@ -488,7 +488,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return -1;
 		}
 
-		internal ChartMember GetChartMember(ChartMemberCollection chartMemberCollection, int memberCellIndex)
+		public ChartMember GetChartMember(ChartMemberCollection chartMemberCollection, int memberCellIndex)
 		{
 			foreach (ChartMember item in chartMemberCollection)
 			{
@@ -514,7 +514,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal List<ChartDerivedSeries> GetChildrenDerivedSeries(string chartSeriesName)
+		public List<ChartDerivedSeries> GetChildrenDerivedSeries(string chartSeriesName)
 		{
 			ChartDerivedSeriesCollection derivedSeriesCollection = this.ChartData.DerivedSeriesCollection;
 			if (derivedSeriesCollection == null)

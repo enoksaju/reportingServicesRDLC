@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapBorderSkinInstance : BaseInstance
+	public sealed class MapBorderSkinInstance : BaseInstance
 	{
 		private MapBorderSkin m_defObject;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapBorderSkinInstance(MapBorderSkin defObject)
+		public MapBorderSkinInstance(MapBorderSkin defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

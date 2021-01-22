@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.RdlObjectModel.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class PageBreak : ReportObject, IShouldSerialize
+	public class PageBreak : ReportObject, IShouldSerialize
 	{
-		internal class Definition : DefinitionStore<PageBreak, Definition.Properties>
+		public class Definition : DefinitionStore<PageBreak, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				BreakLocation,
 				Disabled,
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal PageBreak(IPropertyStore propertyStore)
+		public PageBreak(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

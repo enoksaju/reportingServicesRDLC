@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportPublishing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class ScopeTreeBuilderForDataScopeDataSet : ScopeTreeBuilder
+	public sealed class ScopeTreeBuilderForDataScopeDataSet : ScopeTreeBuilder
 	{
 		private readonly ErrorContext m_errorContext;
 

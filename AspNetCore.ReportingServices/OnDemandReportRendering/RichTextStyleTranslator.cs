@@ -2,67 +2,67 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RichTextStyleTranslator
+	public sealed class RichTextStyleTranslator
 	{
-		internal class StyleEnumConstants
+		public class StyleEnumConstants
 		{
-			internal const string Default = "Default";
+			public const string Default = "Default";
 
-			internal const string Normal = "Normal";
+			public const string Normal = "Normal";
 
-			internal const string General = "General";
+			public const string General = "General";
 
-			internal const string Center = "Center";
+			public const string Center = "Center";
 
-			internal const string Left = "Left";
+			public const string Left = "Left";
 
-			internal const string Right = "Right";
+			public const string Right = "Right";
 
-			internal const string Thin = "Thin";
+			public const string Thin = "Thin";
 
-			internal const string ExtraLight = "ExtraLight";
+			public const string ExtraLight = "ExtraLight";
 
-			internal const string Light = "Light";
+			public const string Light = "Light";
 
-			internal const string Lighter = "Lighter";
+			public const string Lighter = "Lighter";
 
-			internal const string Medium = "Medium";
+			public const string Medium = "Medium";
 
-			internal const string SemiBold = "SemiBold";
+			public const string SemiBold = "SemiBold";
 
-			internal const string Bold = "Bold";
+			public const string Bold = "Bold";
 
-			internal const string Bolder = "Bolder";
+			public const string Bolder = "Bolder";
 
-			internal const string ExtraBold = "ExtraBold";
+			public const string ExtraBold = "ExtraBold";
 
-			internal const string Heavy = "Heavy";
+			public const string Heavy = "Heavy";
 
-			internal const string FontWeight100 = "100";
+			public const string FontWeight100 = "100";
 
-			internal const string FontWeight200 = "200";
+			public const string FontWeight200 = "200";
 
-			internal const string FontWeight300 = "300";
+			public const string FontWeight300 = "300";
 
-			internal const string FontWeight400 = "400";
+			public const string FontWeight400 = "400";
 
-			internal const string FontWeight500 = "500";
+			public const string FontWeight500 = "500";
 
-			internal const string FontWeight600 = "600";
+			public const string FontWeight600 = "600";
 
-			internal const string FontWeight700 = "700";
+			public const string FontWeight700 = "700";
 
-			internal const string FontWeight800 = "800";
+			public const string FontWeight800 = "800";
 
-			internal const string FontWeight900 = "900";
+			public const string FontWeight900 = "900";
 		}
 
-		internal static bool CompareWithInvariantCulture(string str1, string str2)
+		public static bool CompareWithInvariantCulture(string str1, string str2)
 		{
 			return string.Compare(str1, str2, StringComparison.OrdinalIgnoreCase) == 0;
 		}
 
-		internal static bool TranslateHtmlFontSize(string value, out string translatedSize)
+		public static bool TranslateHtmlFontSize(string value, out string translatedSize)
 		{
 			int num = default(int);
 			if (int.TryParse(value, out num))
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal static string TranslateHtmlColor(string value)
+		public static string TranslateHtmlColor(string value)
 		{
 			if (!string.IsNullOrEmpty(value))
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return value;
 		}
 
-		internal static bool TranslateFontWeight(string styleString, out FontWeights fontWieght)
+		public static bool TranslateFontWeight(string styleString, out FontWeights fontWieght)
 		{
 			fontWieght = FontWeights.Normal;
 			if (!string.IsNullOrEmpty(styleString))
@@ -237,7 +237,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return true;
 		}
 
-		internal static bool TranslateTextAlign(string styleString, out TextAlignments textAlignment)
+		public static bool TranslateTextAlign(string styleString, out TextAlignments textAlignment)
 		{
 			textAlignment = TextAlignments.General;
 			if (!string.IsNullOrEmpty(styleString))

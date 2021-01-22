@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class SizeAttribute
+	public sealed class SizeAttribute
 	{
 		public ISize Width
 		{

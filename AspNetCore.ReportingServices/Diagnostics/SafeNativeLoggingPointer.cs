@@ -3,7 +3,7 @@ using System.Runtime.ConstrainedExecution;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal class SafeNativeLoggingPointer : SafeHandleZeroOrMinusOneIsInvalid
+	public class SafeNativeLoggingPointer : SafeHandleZeroOrMinusOneIsInvalid
 	{
 		private SafeNativeLoggingPointer()
 			: base(true)

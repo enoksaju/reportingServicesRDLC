@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum IntervalAutoMode
+	public enum IntervalAutoMode
 	{
 		FixedCount,
 		VariableCount

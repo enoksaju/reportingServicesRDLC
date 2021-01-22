@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapPolygonLabelPlacements
+	public enum MapPolygonLabelPlacements
 	{
 		MiddleCenter,
 		MiddleLeft,

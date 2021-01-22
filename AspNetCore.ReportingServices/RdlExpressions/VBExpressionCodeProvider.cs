@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 {
 
 
-    internal sealed class VBExpressionCodeProvider : VBCodeProvider
+    public sealed class VBExpressionCodeProvider : VBCodeProvider
     {
         private const string LineContinuation = " _";
 

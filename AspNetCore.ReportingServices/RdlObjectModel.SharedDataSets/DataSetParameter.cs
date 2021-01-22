@@ -2,11 +2,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.SharedDataSets
 {
-	internal class DataSetParameter : ReportObject, INamedObject
+	public class DataSetParameter : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<DataSetParameter, Definition.Properties>
+		public class Definition : DefinitionStore<DataSetParameter, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				DefaultValue,
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel.SharedDataSets
 		{
 		}
 
-		internal DataSetParameter(IPropertyStore propertyStore)
+		public DataSetParameter(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

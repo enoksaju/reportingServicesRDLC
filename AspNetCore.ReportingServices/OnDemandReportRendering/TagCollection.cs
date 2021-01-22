@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TagCollection : ReportElementCollectionBase<Tag>
+	public sealed class TagCollection : ReportElementCollectionBase<Tag>
 	{
 		private readonly Image m_image;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TagCollection(Image image)
+		public TagCollection(Image image)
 		{
 			this.m_image = image;
 			List<ExpressionInfo> tags = this.m_image.ImageDef.Tags;
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			for (int i = 0; i < this.m_collection.Count; i++)
 			{

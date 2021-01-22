@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class CT_RelativeRect : OoxmlComplexType, IOoxmlComplexType
+	public class CT_RelativeRect : OoxmlComplexType, IOoxmlComplexType
 	{
 		private string _r_attr;
 

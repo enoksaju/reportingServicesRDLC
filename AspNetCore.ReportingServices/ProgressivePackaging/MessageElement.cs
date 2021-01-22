@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal class MessageElement
+	public class MessageElement
 	{
 		private string m_name;
 
 		private object m_value;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			}
 		}
 
-		internal object Value
+		public object Value
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			}
 		}
 
-		internal MessageElement(string name, object value)
+		public MessageElement(string name, object value)
 		{
 			this.m_name = name;
 			this.m_value = value;

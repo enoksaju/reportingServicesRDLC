@@ -2,7 +2,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal interface IPowerViewDataSourceCollection : IEnumerable
+	public interface IPowerViewDataSourceCollection : IEnumerable
 	{
 		int Count
 		{

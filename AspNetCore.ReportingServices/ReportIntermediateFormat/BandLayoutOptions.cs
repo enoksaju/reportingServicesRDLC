@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class BandLayoutOptions : IPersistable
+	public sealed class BandLayoutOptions : IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = BandLayoutOptions.GetDeclaration();
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private Navigation m_navigation;
 
-		internal int RowCount
+		public int RowCount
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ColumnCount
+		public int ColumnCount
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Navigation Navigation
+		public Navigation Navigation
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(Tablix tablix, InitializationContext context)
+		public void Initialize(Tablix tablix, InitializationContext context)
 		{
 			if (this.m_navigation != null)
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.RowCount, Token.Int32));

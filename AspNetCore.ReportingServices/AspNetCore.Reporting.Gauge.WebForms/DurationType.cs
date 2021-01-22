@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[Serializable]
-	internal enum DurationType
+	public enum DurationType
 	{
 		Infinite,
 		Milliseconds,

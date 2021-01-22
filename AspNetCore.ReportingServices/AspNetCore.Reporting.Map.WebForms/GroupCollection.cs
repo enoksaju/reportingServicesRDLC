@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class GroupCollection : NamedCollection
+	public class GroupCollection : NamedCollection
 	{
 		private Group this[int index]
 		{
@@ -60,7 +60,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal GroupCollection(NamedElement parent, CommonElements common)
+		public GroupCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(Group);
@@ -164,17 +164,17 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return arrayList;
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Group1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Group{0}";
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (base.Common != null)
 			{

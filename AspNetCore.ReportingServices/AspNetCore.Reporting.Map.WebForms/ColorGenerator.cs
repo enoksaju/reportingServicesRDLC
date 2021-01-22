@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ColorGenerator
+	public class ColorGenerator
 	{
 		private static Color[] colorsDundas = new Color[15]
 		{
@@ -38,7 +38,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			Color.FromArgb(223, 191, 191)
 		};
 
-		internal Color[] GenerateColors(MapColorPalette palette, int colorCount)
+		public Color[] GenerateColors(MapColorPalette palette, int colorCount)
 		{
 			Color[] array = new Color[colorCount];
 			if (palette == MapColorPalette.Random)

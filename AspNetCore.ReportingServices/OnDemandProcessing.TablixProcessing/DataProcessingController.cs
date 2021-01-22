@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class DataProcessingController
+	public sealed class DataProcessingController
 	{
 		private readonly OnDemandProcessingContext m_odpContext;
 

@@ -4,18 +4,18 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class ChartNoDataMessage : ChartTitle
+	public class ChartNoDataMessage : ChartTitle
 	{
-		internal ChartNoDataMessage()
+		public ChartNoDataMessage()
 		{
 		}
 
-		internal ChartNoDataMessage(Chart chart)
+		public ChartNoDataMessage(Chart chart)
 			: base(chart)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartNoDataMessageStart();
 			base.InitializeInternal(context);

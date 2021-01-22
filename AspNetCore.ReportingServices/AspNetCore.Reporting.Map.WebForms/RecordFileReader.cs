@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal abstract class RecordFileReader : IDisposable
+	public abstract class RecordFileReader : IDisposable
 	{
 		private readonly SqlBytesReader _reader;
 

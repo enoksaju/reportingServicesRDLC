@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class RuntimeOnDemandIncrementalDataSet : RuntimeIncrementalDataSetWithProcessingController
+	public sealed class RuntimeOnDemandIncrementalDataSet : RuntimeIncrementalDataSetWithProcessingController
 	{
 		public RuntimeOnDemandIncrementalDataSet(DataSource dataSource, DataSet dataSet, DataSetInstance dataSetInstance, OnDemandProcessingContext odpContext)
 			: base(dataSource, dataSet, dataSetInstance, odpContext)

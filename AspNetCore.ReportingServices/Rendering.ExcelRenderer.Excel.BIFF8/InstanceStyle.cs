@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class InstanceStyle : StyleState
+	public sealed class InstanceStyle : StyleState
 	{
 		private BIFF8Style m_xf;
 
@@ -300,7 +300,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal InstanceStyle(StyleContainer parent, StyleProperties props)
+		public InstanceStyle(StyleContainer parent, StyleProperties props)
 			: base(parent)
 		{
 			if (props.Ixfe != 0)
@@ -316,13 +316,13 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal InstanceStyle(StyleContainer aParent)
+		public InstanceStyle(StyleContainer aParent)
 			: base(aParent)
 		{
 			this.m_xf = new BIFF8Style();
 		}
 
-		internal override void Finished()
+		public override void Finished()
 		{
 			if (this.m_font != null)
 			{

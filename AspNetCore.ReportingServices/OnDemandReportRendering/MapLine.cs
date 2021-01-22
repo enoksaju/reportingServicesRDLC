@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLine : MapSpatialElement
+	public sealed class MapLine : MapSpatialElement
 	{
 		private ReportBoolProperty m_useCustomLineTemplate;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapLine MapLineDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapLine MapLineDef
 		{
 			get
 			{
@@ -48,12 +48,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLine(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLine defObject, MapLineLayer mapVectorLayer, Map map)
+		public MapLine(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLine defObject, MapLineLayer mapVectorLayer, Map map)
 			: base(defObject, mapVectorLayer, map)
 		{
 		}
 
-		internal override MapSpatialElementInstance GetInstance()
+		public override MapSpatialElementInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapSpatialElementInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 {
-	internal interface IVisibilityHiddenExprHost
+	public interface IVisibilityHiddenExprHost
 	{
 		object VisibilityHiddenExpr
 		{

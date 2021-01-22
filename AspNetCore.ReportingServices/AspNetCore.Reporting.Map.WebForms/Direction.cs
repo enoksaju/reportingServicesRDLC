@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum Direction
+	public enum Direction
 	{
 		Forward,
 		Backward

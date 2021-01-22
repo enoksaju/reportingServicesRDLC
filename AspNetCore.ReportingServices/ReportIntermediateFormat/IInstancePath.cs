@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IInstancePath
+	public interface IInstancePath
 	{
 		List<InstancePathItem> InstancePath
 		{

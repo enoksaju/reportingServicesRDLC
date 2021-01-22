@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface IImageMapProvider
+	public interface IImageMapProvider
 	{
 		object Tag
 		{

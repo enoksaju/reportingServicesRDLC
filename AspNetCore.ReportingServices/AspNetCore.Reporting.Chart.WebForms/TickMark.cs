@@ -8,7 +8,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[DefaultProperty("Enabled")]
 	[SRDescription("DescriptionAttributeTickMark_TickMark")]
-	internal class TickMark : Grid
+	public class TickMark : Grid
 	{
 		private TickMarkStyle style = TickMarkStyle.Outside;
 
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal void Paint(ChartGraphics graph, bool backElements)
+		public void Paint(ChartGraphics graph, bool backElements)
 		{
 			PointF empty = PointF.Empty;
 			PointF empty2 = PointF.Empty;
@@ -351,7 +351,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num + Math.Floor(current - num);
 		}
 
-		internal void PaintCustom(ChartGraphics graph, bool backElements)
+		public void PaintCustom(ChartGraphics graph, bool backElements)
 		{
 			PointF empty = PointF.Empty;
 			PointF empty2 = PointF.Empty;
@@ -492,12 +492,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Draw3DTickLine(ChartGraphics graph, PointF point1, PointF point2, bool horizontal, float scrollBarSize, bool backElements)
+		public void Draw3DTickLine(ChartGraphics graph, PointF point1, PointF point2, bool horizontal, float scrollBarSize, bool backElements)
 		{
 			this.Draw3DTickLine(graph, point1, point2, horizontal, scrollBarSize, backElements, false);
 		}
 
-		internal void Draw3DTickLine(ChartGraphics graph, PointF point1, PointF point2, bool horizontal, float scrollBarSize, bool backElements, bool selectionMode)
+		public void Draw3DTickLine(ChartGraphics graph, PointF point1, PointF point2, bool horizontal, float scrollBarSize, bool backElements, bool selectionMode)
 		{
 			ChartArea chartArea = base.axis.chartArea;
 			bool flag = default(bool);

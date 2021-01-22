@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartSmartLabel : ReportObject
+	public class ChartSmartLabel : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartSmartLabel, Definition.Properties>
+		public class Definition : DefinitionStore<ChartSmartLabel, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Disabled,
 				AllowOutSidePlotArea,
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartSmartLabel(IPropertyStore propertyStore)
+		public ChartSmartLabel(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

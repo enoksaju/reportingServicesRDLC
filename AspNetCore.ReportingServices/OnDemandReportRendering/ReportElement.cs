@@ -4,9 +4,9 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ReportElement : IDefinitionPath, IROMStyleDefinitionContainer
+	public abstract class ReportElement : IDefinitionPath, IROMStyleDefinitionContainer
 	{
-		internal enum CriGenerationPhases
+		public enum CriGenerationPhases
 		{
 			None,
 			Definition,
@@ -15,11 +15,11 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		protected bool m_isOldSnapshot;
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem m_reportItemDef;
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem m_reportItemDef;
 
-		internal RenderingContext m_renderingContext;
+		public RenderingContext m_renderingContext;
 
-		internal AspNetCore.ReportingServices.ReportRendering.ReportItem m_renderReportItem;
+		public AspNetCore.ReportingServices.ReportRendering.ReportItem m_renderReportItem;
 
 		protected IDefinitionPath m_parentDefinitionPath;
 
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal abstract string InstanceUniqueName
+		public abstract string InstanceUniqueName
 		{
 			get;
 		}
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal abstract ReportElementInstance ReportElementInstance
+		public abstract ReportElementInstance ReportElementInstance
 		{
 			get;
 		}
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal virtual bool UseRenderStyle
+		public virtual bool UseRenderStyle
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual IStyleContainer StyleContainer
+		public virtual IStyleContainer StyleContainer
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem ReportItemDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem ReportItemDef
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual AspNetCore.ReportingServices.ReportRendering.ReportItem RenderReportItem
+		public virtual AspNetCore.ReportingServices.ReportRendering.ReportItem RenderReportItem
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual IReportScope ReportScope
+		public virtual IReportScope ReportScope
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomReportItem CriOwner
+		public CustomReportItem CriOwner
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CriGenerationPhases CriGenerationPhase
+		public CriGenerationPhases CriGenerationPhase
 		{
 			get
 			{
@@ -174,12 +174,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportElement(IDefinitionPath parentDefinitionPath)
+		public ReportElement(IDefinitionPath parentDefinitionPath)
 		{
 			this.m_parentDefinitionPath = parentDefinitionPath;
 		}
 
-		internal ReportElement(IReportScope reportScope, IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
+		public ReportElement(IReportScope reportScope, IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItemDef, RenderingContext renderingContext)
 		{
 			this.m_reportScope = reportScope;
 			this.m_parentDefinitionPath = parentDefinitionPath;
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_isOldSnapshot = false;
 		}
 
-		internal ReportElement(IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext)
+		public ReportElement(IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, RenderingContext renderingContext)
 		{
 			this.m_parentDefinitionPath = parentDefinitionPath;
 			this.m_renderReportItem = renderReportItem;
@@ -196,14 +196,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_isOldSnapshot = true;
 		}
 
-		internal ReportElement(IDefinitionPath parentDefinitionPath, RenderingContext renderingContext)
+		public ReportElement(IDefinitionPath parentDefinitionPath, RenderingContext renderingContext)
 		{
 			this.m_parentDefinitionPath = parentDefinitionPath;
 			this.m_renderingContext = renderingContext;
 			this.m_isOldSnapshot = true;
 		}
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_style != null)
 			{
@@ -212,9 +212,9 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.SetNewContextChildren();
 		}
 
-		internal abstract void SetNewContextChildren();
+		public abstract void SetNewContextChildren();
 
-		internal void ConstructReportElementDefinitionImpl()
+		public void ConstructReportElementDefinitionImpl()
 		{
 			Global.Tracer.Assert(this.CriGenerationPhase == CriGenerationPhases.Definition, "(CriGenerationPhase == CriGenerationPhases.Definition)");
 			this.Style.ConstructStyleDefinition();

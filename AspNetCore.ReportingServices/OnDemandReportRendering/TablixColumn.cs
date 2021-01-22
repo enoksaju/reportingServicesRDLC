@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixColumn
+	public sealed class TablixColumn
 	{
 		private Tablix m_owner;
 
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixColumn(Tablix owner, int columnIndex)
+		public TablixColumn(Tablix owner, int columnIndex)
 		{
 			this.m_owner = owner;
 			this.m_columnIndex = columnIndex;

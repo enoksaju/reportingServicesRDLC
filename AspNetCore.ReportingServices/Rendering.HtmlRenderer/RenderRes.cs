@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
 	[CompilerGenerated]
-	internal class RenderRes
+	public class RenderRes
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string AccessibleChartLabel = "AccessibleChartLabel";
 

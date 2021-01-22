@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum EvaluationMode
+	public enum EvaluationMode
 	{
 		Auto,
 		Constant

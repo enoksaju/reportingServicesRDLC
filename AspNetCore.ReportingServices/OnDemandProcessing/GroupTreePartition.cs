@@ -7,14 +7,14 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class GroupTreePartition : IPersistable
+	public class GroupTreePartition : IPersistable
 	{
 		private List<IReference<ScopeInstance>> m_topLevelScopeInstances;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = GroupTreePartition.GetDeclaration();
 
-		internal bool IsEmpty
+		public bool IsEmpty
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal List<IReference<ScopeInstance>> TopLevelScopeInstances
+		public List<IReference<ScopeInstance>> TopLevelScopeInstances
 		{
 			get
 			{
@@ -30,11 +30,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal GroupTreePartition()
+		public GroupTreePartition()
 		{
 		}
 
-		internal void AddTopLevelScopeInstance(IReference<ScopeInstance> instance)
+		public void AddTopLevelScopeInstance(IReference<ScopeInstance> instance)
 		{
 			if (this.m_topLevelScopeInstances == null)
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_topLevelScopeInstances.Add(instance);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.TopLevelScopeInstances, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ScopeInstanceReference));

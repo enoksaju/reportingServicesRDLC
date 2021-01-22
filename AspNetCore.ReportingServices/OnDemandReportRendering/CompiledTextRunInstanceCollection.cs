@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CompiledTextRunInstanceCollection : ReportElementInstanceCollectionBase<CompiledTextRunInstance>, IList<ICompiledTextRunInstance>, ICollection<ICompiledTextRunInstance>, IEnumerable<ICompiledTextRunInstance>, IEnumerable
+	public sealed class CompiledTextRunInstanceCollection : ReportElementInstanceCollectionBase<CompiledTextRunInstance>, IList<ICompiledTextRunInstance>, ICollection<ICompiledTextRunInstance>, IEnumerable<ICompiledTextRunInstance>, IEnumerable
 	{
 		private CompiledRichTextInstance m_compiledRichTextInstance;
 
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CompiledTextRunInstanceCollection(CompiledRichTextInstance compiledRichTextInstance)
+		public CompiledTextRunInstanceCollection(CompiledRichTextInstance compiledRichTextInstance)
 		{
 			this.m_compiledRichTextInstance = compiledRichTextInstance;
 			this.m_compiledTextRunInstances = new List<CompiledTextRunInstance>();

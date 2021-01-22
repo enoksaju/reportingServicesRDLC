@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class DataSourceCredentialsCollection : Collection<DataSourceCredentials>
+	public sealed class DataSourceCredentialsCollection : Collection<DataSourceCredentials>
 	{
 		public DataSourceCredentials this[string name]
 		{

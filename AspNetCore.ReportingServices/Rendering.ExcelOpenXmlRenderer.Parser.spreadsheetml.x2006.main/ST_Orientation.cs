@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_Orientation
+	public class ST_Orientation
 	{
 		private string _ooxmlEnumerationValue;
 

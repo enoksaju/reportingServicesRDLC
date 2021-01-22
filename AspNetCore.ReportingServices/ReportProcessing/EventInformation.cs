@@ -10,21 +10,21 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class EventInformation
+	public sealed class EventInformation
 	{
 		[Serializable]
-		internal class SortEventInfo
+		public class SortEventInfo
 		{
 			[Serializable]
 			private struct SortInfoStruct
 			{
-				internal int ReportItemUniqueName;
+				public int ReportItemUniqueName;
 
-				internal bool SortDirection;
+				public bool SortDirection;
 
-				internal Hashtable PeerSorts;
+				public Hashtable PeerSorts;
 
-				internal SortInfoStruct(int uniqueName, bool direction, Hashtable peerSorts)
+				public SortInfoStruct(int uniqueName, bool direction, Hashtable peerSorts)
 				{
 					this.ReportItemUniqueName = uniqueName;
 					this.SortDirection = direction;
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private Hashtable m_nameMap;
 
-			internal int Count
+			public int Count
 			{
 				get
 				{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal SortEventInfo()
+			public SortEventInfo()
 			{
 				this.m_collection = new ArrayList();
 				this.m_nameMap = new Hashtable();
@@ -56,14 +56,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_nameMap = (Hashtable)copy.m_nameMap.Clone();
 			}
 
-			internal void Add(int uniqueName, bool direction, Hashtable peerSorts)
+			public void Add(int uniqueName, bool direction, Hashtable peerSorts)
 			{
 				this.Remove(uniqueName);
 				this.m_nameMap.Add(uniqueName, this.m_collection.Count);
 				this.m_collection.Add(new SortInfoStruct(uniqueName, direction, peerSorts));
 			}
 
-			internal bool Remove(int uniqueName)
+			public bool Remove(int uniqueName)
 			{
 				object obj = this.m_nameMap[uniqueName];
 				if (obj != null)
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal bool ClearPeerSorts(int uniqueName)
+			public bool ClearPeerSorts(int uniqueName)
 			{
 				bool result = false;
 				IntList intList = null;
@@ -120,19 +120,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal int GetUniqueNameAt(int index)
+			public int GetUniqueNameAt(int index)
 			{
 				Global.Tracer.Assert(0 <= index && index < this.m_collection.Count, "(0 <= index && index < m_collection.Count)");
 				return ((SortInfoStruct)this.m_collection[index]).ReportItemUniqueName;
 			}
 
-			internal bool GetSortDirectionAt(int index)
+			public bool GetSortDirectionAt(int index)
 			{
 				Global.Tracer.Assert(0 <= index && index < this.m_collection.Count, "(0 <= index && index < m_collection.Count)");
 				return ((SortInfoStruct)this.m_collection[index]).SortDirection;
 			}
 
-			internal SortOptions GetSortState(int uniqueName)
+			public SortOptions GetSortState(int uniqueName)
 			{
 				if (this.m_nameMap != null)
 				{
@@ -151,25 +151,25 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return SortOptions.None;
 			}
 
-			internal SortEventInfo Clone()
+			public SortEventInfo Clone()
 			{
 				return new SortEventInfo(this);
 			}
 		}
 
 		[Serializable]
-		internal class OdpSortEventInfo
+		public class OdpSortEventInfo
 		{
 			[Serializable]
 			private struct SortInfoStruct
 			{
-				internal string EventSourceUniqueName;
+				public string EventSourceUniqueName;
 
-				internal bool SortDirection;
+				public bool SortDirection;
 
-				internal Hashtable PeerSorts;
+				public Hashtable PeerSorts;
 
-				internal SortInfoStruct(string uniqueName, bool direction, Hashtable peerSorts)
+				public SortInfoStruct(string uniqueName, bool direction, Hashtable peerSorts)
 				{
 					this.EventSourceUniqueName = uniqueName;
 					this.SortDirection = direction;
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private Dictionary<string, int> m_uniqueNameMap;
 
-			internal int Count
+			public int Count
 			{
 				get
 				{
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal OdpSortEventInfo()
+			public OdpSortEventInfo()
 			{
 				this.m_collection = new ArrayList();
 				this.m_uniqueNameMap = new Dictionary<string, int>();
@@ -212,19 +212,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Add(string uniqueNameString, bool direction, Hashtable peerSorts)
+			public void Add(string uniqueNameString, bool direction, Hashtable peerSorts)
 			{
 				this.Remove(uniqueNameString);
 				this.m_uniqueNameMap.Add(uniqueNameString, this.m_collection.Count);
 				this.m_collection.Add(new SortInfoStruct(uniqueNameString, direction, peerSorts));
 			}
 
-			internal bool Remove(int id, List<InstancePathItem> instancePath)
+			public bool Remove(int id, List<InstancePathItem> instancePath)
 			{
 				return this.Remove(InstancePathItem.GenerateUniqueNameString(id, instancePath));
 			}
 
-			internal bool Remove(string uniqueNameString)
+			public bool Remove(string uniqueNameString)
 			{
 				int num = default(int);
 				if (!this.m_uniqueNameMap.TryGetValue(uniqueNameString, out num))
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return true;
 			}
 
-			internal bool ClearPeerSorts(string uniqueNameString)
+			public bool ClearPeerSorts(string uniqueNameString)
 			{
 				bool result = false;
 				List<string> list = null;
@@ -274,19 +274,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal string GetUniqueNameAt(int index)
+			public string GetUniqueNameAt(int index)
 			{
 				Global.Tracer.Assert(0 <= index && index < this.m_collection.Count, "(0 <= index && index < m_collection.Count)");
 				return ((SortInfoStruct)this.m_collection[index]).EventSourceUniqueName;
 			}
 
-			internal bool GetSortDirectionAt(int index)
+			public bool GetSortDirectionAt(int index)
 			{
 				Global.Tracer.Assert(0 <= index && index < this.m_collection.Count, "(0 <= index && index < m_collection.Count)");
 				return ((SortInfoStruct)this.m_collection[index]).SortDirection;
 			}
 
-			internal SortOptions GetSortState(string eventSourceUniqueName)
+			public SortOptions GetSortState(string eventSourceUniqueName)
 			{
 				if (this.m_uniqueNameMap != null)
 				{
@@ -305,20 +305,20 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return SortOptions.None;
 			}
 
-			internal OdpSortEventInfo Clone()
+			public OdpSortEventInfo Clone()
 			{
 				return new OdpSortEventInfo(this);
 			}
 		}
 
 		[Serializable]
-		internal class RendererEventInformation
+		public class RendererEventInformation
 		{
 			private Hashtable m_validToggleSenders;
 
 			private Hashtable m_drillthroughInfo;
 
-			internal Hashtable ValidToggleSenders
+			public Hashtable ValidToggleSenders
 			{
 				get
 				{
@@ -330,7 +330,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Hashtable DrillthroughInfo
+			public Hashtable DrillthroughInfo
 			{
 				get
 				{
@@ -342,11 +342,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RendererEventInformation()
+			public RendererEventInformation()
 			{
 			}
 
-			internal RendererEventInformation(RendererEventInformation copy)
+			public RendererEventInformation(RendererEventInformation copy)
 			{
 				Global.Tracer.Assert(null != copy, "(null != copy)");
 				if (copy.m_validToggleSenders != null)
@@ -359,13 +359,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Reset()
+			public void Reset()
 			{
 				this.m_validToggleSenders = null;
 				this.m_drillthroughInfo = null;
 			}
 
-			internal bool ValidToggleSender(string senderId)
+			public bool ValidToggleSender(string senderId)
 			{
 				if (this.m_validToggleSenders != null)
 				{
@@ -374,7 +374,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal DrillthroughInfo GetDrillthroughInfo(string drillthroughId)
+			public DrillthroughInfo GetDrillthroughInfo(string drillthroughId)
 			{
 				if (this.m_drillthroughInfo != null)
 				{
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_changed;
 
-		internal Hashtable ToggleStateInfo
+		public Hashtable ToggleStateInfo
 		{
 			get
 			{
@@ -414,7 +414,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Hashtable HiddenInfo
+		public Hashtable HiddenInfo
 		{
 			get
 			{
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SortEventInfo SortInfo
+		public SortEventInfo SortInfo
 		{
 			get
 			{
@@ -439,7 +439,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OdpSortEventInfo OdpSortInfo
+		public OdpSortEventInfo OdpSortInfo
 		{
 			get
 			{
@@ -452,7 +452,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Changed
+		public bool Changed
 		{
 			get
 			{
@@ -464,7 +464,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal EventInformation()
+		public EventInformation()
 		{
 		}
 
@@ -562,7 +562,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal RendererEventInformation GetRendererEventInformation(string aRenderFormat)
+		public RendererEventInformation GetRendererEventInformation(string aRenderFormat)
 		{
 			if (this.m_rendererEventInformation == null)
 			{
@@ -577,7 +577,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return rendererEventInformation;
 		}
 
-		internal bool ValidToggleSender(string senderId)
+		public bool ValidToggleSender(string senderId)
 		{
 			if (this.m_rendererEventInformation == null)
 			{
@@ -593,7 +593,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal DrillthroughInfo GetDrillthroughInfo(string drillthroughId)
+		public DrillthroughInfo GetDrillthroughInfo(string drillthroughId)
 		{
 			if (this.m_rendererEventInformation != null)
 			{

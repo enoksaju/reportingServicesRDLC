@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface ISemanticModelGenerator : IExtension
+	public interface ISemanticModelGenerator : IExtension
 	{
 		void Generate(IDbConnection connection, XmlWriter newModelWriter);
 

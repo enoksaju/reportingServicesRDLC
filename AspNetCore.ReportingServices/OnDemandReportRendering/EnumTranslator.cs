@@ -3,9 +3,9 @@ using AspNetCore.ReportingServices.ReportPublishing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class EnumTranslator
+	public class EnumTranslator
 	{
-		internal static GaugeFrameShapes TranslateGaugeFrameShapes(string val, IErrorContext errorContext)
+		public static GaugeFrameShapes TranslateGaugeFrameShapes(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeFrameShapes.Default;
 		}
 
-		internal static GaugeFrameStyles TranslateGaugeFrameStyles(string val, IErrorContext errorContext)
+		public static GaugeFrameStyles TranslateGaugeFrameStyles(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -251,7 +251,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeFrameStyles.None;
 		}
 
-		internal static GaugeAntiAliasings TranslateGaugeAntiAliasings(string val, IErrorContext errorContext)
+		public static GaugeAntiAliasings TranslateGaugeAntiAliasings(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeAntiAliasings.All;
 		}
 
-		internal static GaugeGlassEffects TranslateGaugeGlassEffects(string val, IErrorContext errorContext)
+		public static GaugeGlassEffects TranslateGaugeGlassEffects(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeGlassEffects.None;
 		}
 
-		internal static GaugeBarStarts TranslateGaugeBarStarts(string val, IErrorContext errorContext)
+		public static GaugeBarStarts TranslateGaugeBarStarts(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -322,7 +322,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeBarStarts.ScaleStart;
 		}
 
-		internal static GaugeCapStyles TranslateGaugeCapStyles(string val, IErrorContext errorContext)
+		public static GaugeCapStyles TranslateGaugeCapStyles(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeCapStyles.RoundedDark;
 		}
 
-		internal static GaugeInputValueFormulas TranslateGaugeInputValueFormulas(string val, IErrorContext errorContext)
+		public static GaugeInputValueFormulas TranslateGaugeInputValueFormulas(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -428,7 +428,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeInputValueFormulas.None;
 		}
 
-		internal static GaugeLabelPlacements TranslateGaugeLabelPlacements(string val, IErrorContext errorContext)
+		public static GaugeLabelPlacements TranslateGaugeLabelPlacements(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -453,7 +453,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeLabelPlacements.Inside;
 		}
 
-		internal static GaugeMarkerStyles TranslateGaugeMarkerStyles(string val, IErrorContext errorContext)
+		public static GaugeMarkerStyles TranslateGaugeMarkerStyles(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -502,7 +502,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeMarkerStyles.Triangle;
 		}
 
-		internal static GaugeOrientations TranslateGaugeOrientations(string val, IErrorContext errorContext)
+		public static GaugeOrientations TranslateGaugeOrientations(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -527,7 +527,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeOrientations.Auto;
 		}
 
-		internal static GaugePointerPlacements TranslateGaugePointerPlacements(string val, IErrorContext errorContext)
+		public static GaugePointerPlacements TranslateGaugePointerPlacements(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -552,7 +552,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugePointerPlacements.Cross;
 		}
 
-		internal static GaugeThermometerStyles TranslateGaugeThermometerStyles(string val, IErrorContext errorContext)
+		public static GaugeThermometerStyles TranslateGaugeThermometerStyles(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -573,7 +573,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeThermometerStyles.Standard;
 		}
 
-		internal static GaugeTickMarkShapes TranslateGaugeTickMarkShapes(string val, IErrorContext errorContext)
+		public static GaugeTickMarkShapes TranslateGaugeTickMarkShapes(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -622,7 +622,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeTickMarkShapes.Rectangle;
 		}
 
-		internal static LinearPointerTypes TranslateLinearPointerTypes(string val, IErrorContext errorContext)
+		public static LinearPointerTypes TranslateLinearPointerTypes(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -647,7 +647,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return LinearPointerTypes.Marker;
 		}
 
-		internal static RadialPointerNeedleStyles TranslateRadialPointerNeedleStyles(string val, IErrorContext errorContext)
+		public static RadialPointerNeedleStyles TranslateRadialPointerNeedleStyles(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -704,7 +704,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return RadialPointerNeedleStyles.Triangular;
 		}
 
-		internal static RadialPointerTypes TranslateRadialPointerTypes(string val, IErrorContext errorContext)
+		public static RadialPointerTypes TranslateRadialPointerTypes(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -729,7 +729,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return RadialPointerTypes.Needle;
 		}
 
-		internal static ScaleRangePlacements TranslateScaleRangePlacements(string val, IErrorContext errorContext)
+		public static ScaleRangePlacements TranslateScaleRangePlacements(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -754,7 +754,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ScaleRangePlacements.Inside;
 		}
 
-		internal static BackgroundGradientTypes TranslateBackgroundGradientTypes(string val, IErrorContext errorContext)
+		public static BackgroundGradientTypes TranslateBackgroundGradientTypes(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -803,7 +803,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return BackgroundGradientTypes.StartToEnd;
 		}
 
-		internal static TextAntiAliasingQualities TranslateTextAntiAliasingQualities(string val, IErrorContext errorContext)
+		public static TextAntiAliasingQualities TranslateTextAntiAliasingQualities(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -828,7 +828,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return TextAntiAliasingQualities.High;
 		}
 
-		internal static GaugeResizeModes TranslateGaugeResizeModes(string val, IErrorContext errorContext)
+		public static GaugeResizeModes TranslateGaugeResizeModes(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -849,7 +849,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeResizeModes.AutoFit;
 		}
 
-		internal static GaugeIndicatorStyles TranslateGaugeIndicatorStyles(string val, IErrorContext errorContext)
+		public static GaugeIndicatorStyles TranslateGaugeIndicatorStyles(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -874,7 +874,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeIndicatorStyles.Mechanical;
 		}
 
-		internal static GaugeShowSigns TranslateGaugeShowSigns(string val, IErrorContext errorContext)
+		public static GaugeShowSigns TranslateGaugeShowSigns(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -899,7 +899,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeShowSigns.NegativeOnly;
 		}
 
-		internal static GaugeStateIndicatorStyles TranslateGaugeStateIndicatorStyles(string val, IErrorContext errorContext)
+		public static GaugeStateIndicatorStyles TranslateGaugeStateIndicatorStyles(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1128,7 +1128,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeStateIndicatorStyles.Circle;
 		}
 
-		internal static GaugeTransformationType TranslateGaugeTransformationType(string val, IErrorContext errorContext)
+		public static GaugeTransformationType TranslateGaugeTransformationType(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1149,7 +1149,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return GaugeTransformationType.Percentage;
 		}
 
-		internal static MapLegendTitleSeparator TranslateMapLegendTitleSeparator(string val, IErrorContext errorContext)
+		public static MapLegendTitleSeparator TranslateMapLegendTitleSeparator(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1194,7 +1194,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapLegendTitleSeparator.None;
 		}
 
-		internal static MapLegendLayout TranslateMapLegendLayout(string val, IErrorContext errorContext)
+		public static MapLegendLayout TranslateMapLegendLayout(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1227,7 +1227,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapLegendLayout.AutoTable;
 		}
 
-		internal static MapAutoBool TranslateMapAutoBool(string val, IErrorContext errorContext)
+		public static MapAutoBool TranslateMapAutoBool(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1252,7 +1252,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapAutoBool.Auto;
 		}
 
-		internal static MapLabelPlacement TranslateLabelPlacement(string val, IErrorContext errorContext)
+		public static MapLabelPlacement TranslateLabelPlacement(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1277,7 +1277,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapLabelPlacement.Alternate;
 		}
 
-		internal static MapLabelBehavior TranslateLabelBehavior(string val, IErrorContext errorContext)
+		public static MapLabelBehavior TranslateLabelBehavior(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1302,7 +1302,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapLabelBehavior.Auto;
 		}
 
-		internal static Unit TranslateUnit(string val, IErrorContext errorContext)
+		public static Unit TranslateUnit(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1339,7 +1339,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return Unit.Percentage;
 		}
 
-		internal static MapLabelPosition TranslateLabelPosition(string val, IErrorContext errorContext)
+		public static MapLabelPosition TranslateLabelPosition(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1372,7 +1372,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapLabelPosition.Near;
 		}
 
-		internal static MapPosition TranslateMapPosition(string val, IErrorContext errorContext)
+		public static MapPosition TranslateMapPosition(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1433,7 +1433,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapPosition.TopCenter;
 		}
 
-		internal static MapCoordinateSystem TranslateMapCoordinateSystem(string val, IErrorContext errorContext)
+		public static MapCoordinateSystem TranslateMapCoordinateSystem(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1454,7 +1454,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapCoordinateSystem.Planar;
 		}
 
-		internal static MapProjection TranslateMapProjection(string val, IErrorContext errorContext)
+		public static MapProjection TranslateMapProjection(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1503,7 +1503,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapProjection.Equirectangular;
 		}
 
-		internal static MapRuleDistributionType TranslateMapRuleDistributionType(string val, IErrorContext errorContext)
+		public static MapRuleDistributionType TranslateMapRuleDistributionType(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1532,7 +1532,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapRuleDistributionType.Optimal;
 		}
 
-		internal static MapMarkerStyle TranslateMapMarkerStyle(string val, IErrorContext errorContext)
+		public static MapMarkerStyle TranslateMapMarkerStyle(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1589,7 +1589,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapMarkerStyle.None;
 		}
 
-		internal static MapResizeMode TranslateMapResizeMode(string val, IErrorContext errorContext)
+		public static MapResizeMode TranslateMapResizeMode(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1610,7 +1610,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapResizeMode.AutoFit;
 		}
 
-		internal static MapPalette TranslateMapPalette(string val, IErrorContext errorContext)
+		public static MapPalette TranslateMapPalette(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1643,7 +1643,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapPalette.Random;
 		}
 
-		internal static MapLineLabelPlacement TranslateMapLineLabelPlacement(string val, IErrorContext errorContext)
+		public static MapLineLabelPlacement TranslateMapLineLabelPlacement(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1668,7 +1668,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapLineLabelPlacement.Above;
 		}
 
-		internal static MapPolygonLabelPlacement TranslateMapPolygonLabelPlacement(string val, IErrorContext errorContext)
+		public static MapPolygonLabelPlacement TranslateMapPolygonLabelPlacement(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1717,7 +1717,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapPolygonLabelPlacement.MiddleCenter;
 		}
 
-		internal static MapPointLabelPlacement TranslateMapPointLabelPlacement(string val, IErrorContext errorContext)
+		public static MapPointLabelPlacement TranslateMapPointLabelPlacement(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1750,7 +1750,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapPointLabelPlacement.Bottom;
 		}
 
-		internal static MapTileStyle TranslateMapTileStyle(string val, IErrorContext errorContext)
+		public static MapTileStyle TranslateMapTileStyle(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1775,7 +1775,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapTileStyle.Road;
 		}
 
-		internal static MapVisibilityMode TranslateMapVisibilityMode(string val, IErrorContext errorContext)
+		public static MapVisibilityMode TranslateMapVisibilityMode(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1800,7 +1800,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapVisibilityMode.Visible;
 		}
 
-		internal static MapDataType TranslateDataType(string val, IErrorContext errorContext)
+		public static MapDataType TranslateDataType(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1837,7 +1837,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapDataType.String;
 		}
 
-		internal static MapAntiAliasing TranslateMapAntiAliasing(string val, IErrorContext errorContext)
+		public static MapAntiAliasing TranslateMapAntiAliasing(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1866,7 +1866,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapAntiAliasing.All;
 		}
 
-		internal static MapTextAntiAliasingQuality TranslateMapTextAntiAliasingQuality(string val, IErrorContext errorContext)
+		public static MapTextAntiAliasingQuality TranslateMapTextAntiAliasingQuality(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1891,7 +1891,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapTextAntiAliasingQuality.High;
 		}
 
-		internal static MapBorderSkinType TranslateMapBorderSkinType(string val, IErrorContext errorContext)
+		public static MapBorderSkinType TranslateMapBorderSkinType(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -1976,7 +1976,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MapBorderSkinType.None;
 		}
 
-		internal static ChartBreakLineType TranslateChartBreakLineType(string val, IErrorContext errorContext)
+		public static ChartBreakLineType TranslateChartBreakLineType(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2004,7 +2004,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartBreakLineType.Ragged;
 		}
 
-		internal static ChartIntervalType TranslateChartIntervalType(string val, IErrorContext errorContext)
+		public static ChartIntervalType TranslateChartIntervalType(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2060,7 +2060,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartIntervalType.Default;
 		}
 
-		internal static ChartAutoBool TranslateChartAutoBool(string val, IErrorContext errorContext)
+		public static ChartAutoBool TranslateChartAutoBool(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2084,7 +2084,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartAutoBool.Auto;
 		}
 
-		internal static ChartAxisLabelRotation TranslateChartAxisLabelRotation(string val, IErrorContext errorContext)
+		public static ChartAxisLabelRotation TranslateChartAxisLabelRotation(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2112,7 +2112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartAxisLabelRotation.None;
 		}
 
-		internal static ChartAxisLocation TranslateChartAxisLocation(string val, IErrorContext errorContext)
+		public static ChartAxisLocation TranslateChartAxisLocation(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2132,7 +2132,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartAxisLocation.Default;
 		}
 
-		internal static ChartAxisArrow TranslateChartAxisArrow(string val, IErrorContext errorContext)
+		public static ChartAxisArrow TranslateChartAxisArrow(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2160,7 +2160,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartAxisArrow.None;
 		}
 
-		internal static ChartTickMarksType TranslateChartTickMarksType(string val, IErrorContext errorContext)
+		public static ChartTickMarksType TranslateChartTickMarksType(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2188,7 +2188,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartTickMarksType.None;
 		}
 
-		internal static ChartColumnType TranslateChartColumnType(string val, IErrorContext errorContext)
+		public static ChartColumnType TranslateChartColumnType(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2208,7 +2208,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartColumnType.Text;
 		}
 
-		internal static ChartCellType TranslateChartCellType(string val, IErrorContext errorContext)
+		public static ChartCellType TranslateChartCellType(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2232,7 +2232,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartCellType.Text;
 		}
 
-		internal static ChartCellAlignment TranslateChartCellAlignment(string val, IErrorContext errorContext)
+		public static ChartCellAlignment TranslateChartCellAlignment(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2280,7 +2280,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartCellAlignment.Center;
 		}
 
-		internal static ChartAllowOutsideChartArea TranslateChartAllowOutsideChartArea(string val, IErrorContext errorContext)
+		public static ChartAllowOutsideChartArea TranslateChartAllowOutsideChartArea(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2304,7 +2304,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartAllowOutsideChartArea.Partial;
 		}
 
-		internal static ChartCalloutLineAnchor TranslateChartCalloutLineAnchor(string val, IErrorContext errorContext)
+		public static ChartCalloutLineAnchor TranslateChartCalloutLineAnchor(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2336,7 +2336,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartCalloutLineAnchor.Arrow;
 		}
 
-		internal static ChartCalloutLineStyle TranslateChartCalloutLineStyle(string val, IErrorContext errorContext)
+		public static ChartCalloutLineStyle TranslateChartCalloutLineStyle(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2376,7 +2376,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartCalloutLineStyle.Solid;
 		}
 
-		internal static ChartCalloutStyle TranslateChartCalloutStyle(string val, IErrorContext errorContext)
+		public static ChartCalloutStyle TranslateChartCalloutStyle(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2400,7 +2400,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartCalloutStyle.Underline;
 		}
 
-		internal static ChartSeriesFormula TranslateChartSeriesFormula(string val)
+		public static ChartSeriesFormula TranslateChartSeriesFormula(string val)
 		{
 			if (val == null)
 			{
@@ -2469,7 +2469,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartSeriesFormula.BollingerBands;
 		}
 
-		internal static ChartTitlePositions TranslateChartTitlePosition(string val, IErrorContext errorContext)
+		public static ChartTitlePositions TranslateChartTitlePosition(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2529,7 +2529,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartTitlePositions.TopCenter;
 		}
 
-		internal static ChartTitleDockings TranslateChartTitleDocking(string val, IErrorContext errorContext)
+		public static ChartTitleDockings TranslateChartTitleDocking(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2557,7 +2557,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartTitleDockings.Top;
 		}
 
-		internal static ChartAxisTitlePositions TranslateChartAxisTitlePosition(string val, IErrorContext errorContext)
+		public static ChartAxisTitlePositions TranslateChartAxisTitlePosition(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2581,7 +2581,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartAxisTitlePositions.Center;
 		}
 
-		internal static ChartSeparators TranslateChartSeparator(string val, IErrorContext errorContext)
+		public static ChartSeparators TranslateChartSeparator(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2625,7 +2625,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartSeparators.None;
 		}
 
-		internal static ChartLegendLayouts TranslateChartLegendLayout(string val, IErrorContext errorContext)
+		public static ChartLegendLayouts TranslateChartLegendLayout(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2657,7 +2657,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartLegendLayouts.AutoTable;
 		}
 
-		internal static ChartLegendPositions TranslateChartLegendPositions(string val, IErrorContext errorContext)
+		public static ChartLegendPositions TranslateChartLegendPositions(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2717,7 +2717,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartLegendPositions.RightTop;
 		}
 
-		internal static ChartAreaAlignOrientations TranslateChartAreaAlignOrientation(string val, IErrorContext errorContext)
+		public static ChartAreaAlignOrientations TranslateChartAreaAlignOrientation(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2745,7 +2745,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartAreaAlignOrientations.None;
 		}
 
-		internal static ChartThreeDProjectionModes TranslateChartThreeDProjectionMode(string val, IErrorContext errorContext)
+		public static ChartThreeDProjectionModes TranslateChartThreeDProjectionMode(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2765,7 +2765,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartThreeDProjectionModes.Oblique;
 		}
 
-		internal static ChartThreeDShadingTypes TranslateChartThreeDShading(string val, IErrorContext errorContext)
+		public static ChartThreeDShadingTypes TranslateChartThreeDShading(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2789,7 +2789,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartThreeDShadingTypes.Real;
 		}
 
-		internal static ChartBorderSkinType TranslateChartBorderSkinType(string val, IErrorContext errorContext)
+		public static ChartBorderSkinType TranslateChartBorderSkinType(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2873,7 +2873,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartBorderSkinType.None;
 		}
 
-		internal static ChartSeriesType TranslateChartSeriesType(string val, IErrorContext errorContext)
+		public static ChartSeriesType TranslateChartSeriesType(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -2917,7 +2917,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartSeriesType.Column;
 		}
 
-		internal static ChartSeriesSubtype TranslateChartSeriesSubtype(string val, IErrorContext errorContext)
+		public static ChartSeriesSubtype TranslateChartSeriesSubtype(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -3013,7 +3013,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartSeriesSubtype.Plain;
 		}
 
-		internal static ChartDataLabelPositions TranslateChartDataLabelPosition(string val, IErrorContext errorContext)
+		public static ChartDataLabelPositions TranslateChartDataLabelPosition(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -3069,7 +3069,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartDataLabelPositions.Auto;
 		}
 
-		internal static ChartMarkerTypes TranslateChartMarkerType(string val, IErrorContext errorContext)
+		public static ChartMarkerTypes TranslateChartMarkerType(string val, IErrorContext errorContext)
 		{
 			if (val != null)
 			{
@@ -3125,7 +3125,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartMarkerTypes.None;
 		}
 
-		internal static ChartPalette TranslateChartPalette(string val, IErrorContext errorContext)
+		public static ChartPalette TranslateChartPalette(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -3202,7 +3202,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return ChartPalette.Default;
 		}
 
-		internal static PaletteHatchBehavior TranslatePaletteHatchBehavior(string val, IErrorContext errorContext)
+		public static PaletteHatchBehavior TranslatePaletteHatchBehavior(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -3227,7 +3227,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return PaletteHatchBehavior.Default;
 		}
 
-		internal static Image.SourceType TranslateImageSourceType(string val, IErrorContext errorContext)
+		public static Image.SourceType TranslateImageSourceType(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{
@@ -3252,7 +3252,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return Image.SourceType.External;
 		}
 
-		internal static TextOrientations TranslateTextOrientations(string val, IErrorContext errorContext)
+		public static TextOrientations TranslateTextOrientations(string val, IErrorContext errorContext)
 		{
 			if (val == null)
 			{

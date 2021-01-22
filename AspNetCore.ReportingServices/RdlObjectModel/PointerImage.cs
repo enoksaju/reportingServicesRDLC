@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class PointerImage : BaseGaugeImage
+	public class PointerImage : BaseGaugeImage
 	{
-		internal new class Definition : DefinitionStore<PointerImage, Definition.Properties>
+		public new class Definition : DefinitionStore<PointerImage, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Source,
 				Value,
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal PointerImage(IPropertyStore propertyStore)
+		public PointerImage(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

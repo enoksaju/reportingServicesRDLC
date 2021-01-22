@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapAppearanceRule
+	public abstract class MapAppearanceRule
 	{
 		protected Map m_map;
 
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapAppearanceRule MapAppearanceRuleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapAppearanceRule MapAppearanceRuleDef
 		{
 			get
 			{
@@ -166,16 +166,16 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapAppearanceRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapAppearanceRule defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapAppearanceRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapAppearanceRule defObject, MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_mapVectorLayer = mapVectorLayer;
 			this.m_map = map;
 		}
 
-		internal abstract MapAppearanceRuleInstance GetInstance();
+		public abstract MapAppearanceRuleInstance GetInstance();
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

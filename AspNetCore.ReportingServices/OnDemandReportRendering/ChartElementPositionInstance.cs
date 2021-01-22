@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartElementPositionInstance : BaseInstance
+	public sealed class ChartElementPositionInstance : BaseInstance
 	{
 		private ChartElementPosition m_defObject;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartElementPositionInstance(ChartElementPosition defObject)
+		public ChartElementPositionInstance(ChartElementPosition defObject)
 			: base(defObject.ChartDef)
 		{
 			this.m_defObject = defObject;

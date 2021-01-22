@@ -8,16 +8,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeCriObj : RuntimeChartCriObj
+	public sealed class RuntimeCriObj : RuntimeChartCriObj
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeCriObj.GetDeclaration();
 
-		internal RuntimeCriObj()
+		public RuntimeCriObj()
 		{
 		}
 
-		internal RuntimeCriObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.CustomReportItem criDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess)
+		public RuntimeCriObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.CustomReportItem criDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess)
 			: base(outerScope, (AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion)criDef, ref dataAction, odpContext, onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType.CustomReportItem)
 		{
 		}

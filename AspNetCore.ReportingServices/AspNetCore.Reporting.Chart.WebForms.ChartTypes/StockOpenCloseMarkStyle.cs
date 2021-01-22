@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal enum StockOpenCloseMarkStyle
+	public enum StockOpenCloseMarkStyle
 	{
 		Line,
 		Triangle,

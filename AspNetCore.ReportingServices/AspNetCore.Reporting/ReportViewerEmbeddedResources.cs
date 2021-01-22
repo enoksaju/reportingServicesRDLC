@@ -4,7 +4,7 @@ using AspNetCore.Reporting.Common;
 
 namespace AspNetCore.Reporting
 {
-	internal static class ReportViewerEmbeddedResources
+	public static class ReportViewerEmbeddedResources
 	{
 		public const string ResourceNamespace = "AspNetCore.Reporting.WebForms.";
 

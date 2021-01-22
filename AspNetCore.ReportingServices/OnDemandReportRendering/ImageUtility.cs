@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal static class ImageUtility
+	public static class ImageUtility
 	{
 		private static ImageFormat GetTargetImageFormat(ImageFormat imageFormat)
 		{
@@ -33,13 +33,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return num * 96.0 / 25.4;
 		}
 
-		internal static byte[] ScaleImage(byte[] sourceImageBytes, RVUnit frameWidth, RVUnit frameHeight)
+		public static byte[] ScaleImage(byte[] sourceImageBytes, RVUnit frameWidth, RVUnit frameHeight)
 		{
 			ImageFormat imageFormat = default(ImageFormat);
 			return ImageUtility.ScaleImage(sourceImageBytes, (int)ImageUtility.ConvertToPixels(frameWidth), (int)ImageUtility.ConvertToPixels(frameHeight), out imageFormat);
 		}
 
-		internal static byte[] ScaleImage(byte[] sourceImageBytes, int frameWidth, int frameHeight, out ImageFormat imageFormat)
+		public static byte[] ScaleImage(byte[] sourceImageBytes, int frameWidth, int frameHeight, out ImageFormat imageFormat)
 		{
 			System.Drawing.Image image;
 			try

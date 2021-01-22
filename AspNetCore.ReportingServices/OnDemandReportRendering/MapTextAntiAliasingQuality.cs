@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapTextAntiAliasingQuality
+	public enum MapTextAntiAliasingQuality
 	{
 		High,
 		Normal,

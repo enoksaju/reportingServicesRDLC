@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CircularMinorTickMark : TickMark
+	public class CircularMinorTickMark : TickMark
 	{
 		[DefaultValue(MarkerStyle.Rectangle)]
 		[SRCategory("CategoryAppearance")]

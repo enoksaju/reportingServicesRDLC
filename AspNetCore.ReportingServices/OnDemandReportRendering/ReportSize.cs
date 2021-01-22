@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportSize
+	public sealed class ReportSize
 	{
 		private const string m_zeroMM = "0mm";
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 		{
 		}
 
-		internal ReportSize(string size, bool validate, bool allowNegative)
+		public ReportSize(string size, bool validate, bool allowNegative)
 		{
 			if (string.IsNullOrEmpty(size))
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize(string size, double sizeInMM)
+		public ReportSize(string size, double sizeInMM)
 		{
 			this.m_sizeInMM = sizeInMM;
 			this.m_parsed = true;
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSize(AspNetCore.ReportingServices.ReportRendering.ReportSize oldSize)
+		public ReportSize(AspNetCore.ReportingServices.ReportRendering.ReportSize oldSize)
 		{
 			this.m_size = oldSize.ToString();
 			this.m_parsed = oldSize.Parsed;
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return Convert.ToString(millimeters, CultureInfo.InvariantCulture) + "mm";
 		}
 
-		internal void ParseSize()
+		public void ParseSize()
 		{
 			if (!this.m_parsed)
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void Validate()
+		public void Validate()
 		{
 			RVUnit rVUnit = default(RVUnit);
 			if (!AspNetCore.ReportingServices.ReportPublishing.Validator.ValidateSizeString(this.m_size, out rVUnit))
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_sizeInMM = sizeInMM;
 		}
 
-		internal ReportSize DeepClone()
+		public ReportSize DeepClone()
 		{
 			ReportSize reportSize = new ReportSize();
 			if (this.m_size != null)

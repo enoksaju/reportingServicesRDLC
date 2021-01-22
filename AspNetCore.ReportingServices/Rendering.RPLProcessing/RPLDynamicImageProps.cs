@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLDynamicImageProps : RPLItemProps
+	public class RPLDynamicImageProps : RPLItemProps
 	{
 		private string m_streamName;
 
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLDynamicImageProps()
+		public RPLDynamicImageProps()
 		{
 		}
 	}

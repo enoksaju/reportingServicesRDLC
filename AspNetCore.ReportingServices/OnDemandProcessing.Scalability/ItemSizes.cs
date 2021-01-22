@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal static class ItemSizes
+	public static class ItemSizes
 	{
 		public const int BoolSize = 1;
 

@@ -12,7 +12,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class RdlReader : RdlReaderWriterBase
+	public class RdlReader : RdlReaderWriterBase
 	{
 		private const string m_xsdResourceId = "AspNetCore.ReportingServices.RdlObjectModel.Serialization.ReportDefinition.xsd";
 

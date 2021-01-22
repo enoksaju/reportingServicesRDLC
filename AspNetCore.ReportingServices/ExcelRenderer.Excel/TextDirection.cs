@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum TextDirection
+	public enum TextDirection
 	{
 		Context,
 		LeftToRight,

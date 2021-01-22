@@ -6,16 +6,16 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Legend
+	public sealed class Legend
 	{
-		internal enum LegendLayout
+		public enum LegendLayout
 		{
 			Column,
 			Row,
 			Table
 		}
 
-		internal enum Positions
+		public enum Positions
 		{
 			RightTop,
 			TopLeft,
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private bool m_insidePlotArea;
 
-		internal bool Visible
+		public bool Visible
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Style StyleClass
+		public Style StyleClass
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Positions Position
+		public Positions Position
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal LegendLayout Layout
+		public LegendLayout Layout
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InsidePlotArea
+		public bool InsidePlotArea
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && null != reportObjectModel);
 			exprHost.SetReportObjectModel(reportObjectModel);
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ChartLegendStart();
 			if (this.m_styleClass != null)
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.ExprHostBuilder.ChartLegendEnd();
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Visible, Token.Boolean));

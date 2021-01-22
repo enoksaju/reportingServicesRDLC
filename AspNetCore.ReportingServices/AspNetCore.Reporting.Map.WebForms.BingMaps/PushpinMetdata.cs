@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract(Namespace = "http://schemas.microsoft.com/search/local/ws/rest/v1")]
-	internal class PushpinMetdata
+	public class PushpinMetdata
 	{
 		[DataMember(Name = "anchor", EmitDefaultValue = false)]
 		public Pixel Anchor

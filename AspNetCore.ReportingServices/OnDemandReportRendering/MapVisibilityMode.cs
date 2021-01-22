@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapVisibilityMode
+	public enum MapVisibilityMode
 	{
 		Visible,
 		Hidden,

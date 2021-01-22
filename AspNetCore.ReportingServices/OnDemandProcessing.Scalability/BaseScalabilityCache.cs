@@ -6,11 +6,11 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal abstract class BaseScalabilityCache : IScalabilityCache, PersistenceHelper, IDisposable
+	public abstract class BaseScalabilityCache : IScalabilityCache, PersistenceHelper, IDisposable
 	{
-		internal const long DefaultCacheExpansionMaxBytes = 15728640L;
+		public const long DefaultCacheExpansionMaxBytes = 15728640L;
 
-		internal const long CacheExpansionMinBytes = 1048576L;
+		public const long CacheExpansionMinBytes = 1048576L;
 
 		protected bool m_disposed;
 
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			get;
 		}
 
-		internal long TotalSerializedHeapBytes
+		public long TotalSerializedHeapBytes
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal BaseScalabilityCache(IStorage storage, long cacheExpansionIntervalMs, double cacheExpansionRatio, ComponentType ownerComponent, long minReservedMemoryBytes)
+		public BaseScalabilityCache(IStorage storage, long cacheExpansionIntervalMs, double cacheExpansionRatio, ComponentType ownerComponent, long minReservedMemoryBytes)
 		{
 			this.m_cacheSizeBytes = 0L;
 			this.m_storage = storage;
@@ -213,28 +213,28 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal abstract void Free(BaseReference reference);
+		public abstract void Free(BaseReference reference);
 
-		internal abstract IStorable Retrieve(BaseReference reference);
+		public abstract IStorable Retrieve(BaseReference reference);
 
 		[DebuggerStepThrough]
-		internal virtual void ReferenceValueCallback(BaseReference reference)
+		public virtual void ReferenceValueCallback(BaseReference reference)
 		{
 			this.PeriodicOperationCheck();
 		}
 
-		internal abstract void UnPin(BaseReference reference);
+		public abstract void UnPin(BaseReference reference);
 
-		internal abstract void Pin(BaseReference reference);
+		public abstract void Pin(BaseReference reference);
 
-		internal abstract void ReferenceSerializeCallback(BaseReference reference);
+		public abstract void ReferenceSerializeCallback(BaseReference reference);
 
-		internal abstract void UpdateTargetSize(BaseReference reference, int sizeDeltaBytes);
+		public abstract void UpdateTargetSize(BaseReference reference, int sizeDeltaBytes);
 
-		internal abstract BaseReference TransferTo(BaseReference reference);
+		public abstract BaseReference TransferTo(BaseReference reference);
 
 		[DebuggerStepThrough]
-		internal void PeriodicOperationCheck()
+		public void PeriodicOperationCheck()
 		{
 			if (this.m_pendingNotificationCount > 0)
 			{
@@ -385,7 +385,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			BaseScalabilityCache.DefaultCacheCapacityBytes = defaultCapacityBytes;
 		}
 
-		internal static long ComputeMaxExpansionBytes(int processorCount)
+		public static long ComputeMaxExpansionBytes(int processorCount)
 		{
 			long num = Math.Max(1, processorCount / 4 * 2);
 			long val = 15728640 / num;

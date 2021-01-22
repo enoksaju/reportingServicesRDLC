@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IAggregateHolder
+	public interface IAggregateHolder
 	{
 		DataAggregateInfoList[] GetAggregateLists();
 

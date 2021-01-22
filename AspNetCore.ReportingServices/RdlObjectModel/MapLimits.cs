@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapLimits : ReportObject
+	public class MapLimits : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapLimits, Definition.Properties>
+		public class Definition : DefinitionStore<MapLimits, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				MinimumX,
 				MinimumY,
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapLimits(IPropertyStore propertyStore)
+		public MapLimits(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

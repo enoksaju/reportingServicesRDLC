@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartShadings
+	public enum ChartShadings
 	{
 		Real,
 		Simple,

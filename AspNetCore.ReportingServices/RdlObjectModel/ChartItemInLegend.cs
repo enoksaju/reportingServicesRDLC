@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartItemInLegend : ReportObject
+	public class ChartItemInLegend : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartItemInLegend, Definition.Properties>
+		public class Definition : DefinitionStore<ChartItemInLegend, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				LegendText,
 				ToolTip,
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartItemInLegend(IPropertyStore propertyStore)
+		public ChartItemInLegend(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models.Relationships
 {
-	internal enum ContentTypeAction
+	public enum ContentTypeAction
 	{
 		Override,
 		Default

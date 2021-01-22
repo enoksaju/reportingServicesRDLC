@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Chart : DataRegion, IPersistable
+	public sealed class Chart : DataRegion, IPersistable
 	{
 		private ChartMemberList m_categoryMembers;
 
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartExprHost m_chartExprHost;
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList ColumnMembers
+		public override HierarchyNodeList ColumnMembers
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList RowMembers
+		public override HierarchyNodeList RowMembers
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override RowList Rows
+		public override RowList Rows
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMemberList CategoryMembers
+		public ChartMemberList CategoryMembers
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMemberList SeriesMembers
+		public ChartMemberList SeriesMembers
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartSeriesList ChartSeriesCollection
+		public ChartSeriesList ChartSeriesCollection
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartDerivedSeries> DerivedSeriesCollection
+		public List<ChartDerivedSeries> DerivedSeriesCollection
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasStaticColumns
+		public bool HasStaticColumns
 		{
 			get
 			{
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasStaticRows
+		public bool HasStaticRows
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DynamicWidth
+		public ExpressionInfo DynamicWidth
 		{
 			get
 			{
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DynamicHeight
+		public ExpressionInfo DynamicHeight
 		{
 			get
 			{
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartArea> ChartAreas
+		public List<ChartArea> ChartAreas
 		{
 			get
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartLegend> Legends
+		public List<ChartLegend> Legends
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartTitle> Titles
+		public List<ChartTitle> Titles
 		{
 			get
 			{
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Palette
+		public ExpressionInfo Palette
 		{
 			get
 			{
@@ -276,7 +276,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo PaletteHatchBehavior
+		public ExpressionInfo PaletteHatchBehavior
 		{
 			get
 			{
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataValueList CodeParameters
+		public DataValueList CodeParameters
 		{
 			get
 			{
@@ -300,7 +300,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartCustomPaletteColor> CustomPaletteColors
+		public List<ChartCustomPaletteColor> CustomPaletteColors
 		{
 			get
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartBorderSkin BorderSkin
+		public ChartBorderSkin BorderSkin
 		{
 			get
 			{
@@ -324,7 +324,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartNoDataMessage NoDataMessage
+		public ChartNoDataMessage NoDataMessage
 		{
 			get
 			{
@@ -336,7 +336,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartExprHost ChartExprHost
+		public ChartExprHost ChartExprHost
 		{
 			get
 			{
@@ -356,7 +356,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasSeriesPlotTypeLine
+		public bool HasSeriesPlotTypeLine
 		{
 			get
 			{
@@ -368,7 +368,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasDataValueAggregates
+		public bool HasDataValueAggregates
 		{
 			get
 			{
@@ -380,7 +380,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int SeriesCount
+		public int SeriesCount
 		{
 			get
 			{
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int CategoryCount
+		public int CategoryCount
 		{
 			get
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool DataValueSequenceRendering
+		public bool DataValueSequenceRendering
 		{
 			get
 			{
@@ -412,7 +412,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool EnableCategoryDrilldown
+		public bool EnableCategoryDrilldown
 		{
 			get
 			{
@@ -424,17 +424,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Chart(ReportItem parent)
+		public Chart(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Chart(int id, ReportItem parent)
+		public Chart(int id, ReportItem parent)
 			: base(id, parent)
 		{
 		}
 
-		internal void SetColumnGroupingDirection(bool isOuter)
+		public void SetColumnGroupingDirection(bool isOuter)
 		{
 			this.m_columnGroupingIsSwitched = isOuter;
 		}
@@ -463,7 +463,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -620,19 +620,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal ChartDataPoint GetDataPoint(int seriesIndex, int categoryIndex)
+		public ChartDataPoint GetDataPoint(int seriesIndex, int categoryIndex)
 		{
 			return this.m_chartSeriesCollection[seriesIndex].DataPoints[categoryIndex];
 		}
 
-		internal ChartDataPoint GetDataPoint(int cellIndex)
+		public ChartDataPoint GetDataPoint(int cellIndex)
 		{
 			int index = cellIndex / this.CategoryCount;
 			int index2 = cellIndex % this.CategoryCount;
 			return this.m_chartSeriesCollection[index].DataPoints[index2];
 		}
 
-		internal ChartMember GetChartMember(ChartSeries chartSeries)
+		public ChartMember GetChartMember(ChartSeries chartSeries)
 		{
 			try
 			{
@@ -649,7 +649,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMember GetChartMember(ChartMemberList chartMemberList, int memberCellIndex)
+		public ChartMember GetChartMember(ChartMemberList chartMemberList, int memberCellIndex)
 		{
 			foreach (ChartMember chartMember3 in chartMemberList)
 			{
@@ -672,7 +672,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal List<ChartDerivedSeries> GetChildrenDerivedSeries(string chartSeriesName)
+		public List<ChartDerivedSeries> GetChildrenDerivedSeries(string chartSeriesName)
 		{
 			if (this.m_chartDerivedSeriesCollection == null)
 			{
@@ -693,7 +693,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return list;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			Chart chart = (Chart)(context.CurrentDataRegionClone = (Chart)base.PublishClone(context));
 			if (this.m_categoryMembers != null)
@@ -795,7 +795,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chart;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.CategoryMembers, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartMember));
@@ -819,7 +819,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Chart, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataRegion, list);
 		}
 
-		internal int GenerateActionOwnerID()
+		public int GenerateActionOwnerID()
 		{
 			return ++this.m_actionOwnerCounter;
 		}
@@ -972,7 +972,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Chart;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -982,7 +982,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
+		public override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
 		{
 			if (this.m_chartExprHost != null)
 			{
@@ -1074,12 +1074,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object EvaluateNoRowsMessageExpression()
+		public override object EvaluateNoRowsMessageExpression()
 		{
 			return this.m_chartExprHost.NoRowsExpr;
 		}
 
-		internal string EvaluateDynamicWidth(AspNetCore.ReportingServices.OnDemandReportRendering.ChartInstance chartInstance, OnDemandProcessingContext context)
+		public string EvaluateDynamicWidth(AspNetCore.ReportingServices.OnDemandReportRendering.ChartInstance chartInstance, OnDemandProcessingContext context)
 		{
 			if (this.m_dynamicWidth == null)
 			{
@@ -1089,7 +1089,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return context.ReportRuntime.EvaluateChartDynamicSizeExpression(this, this.m_dynamicWidth, "DynamicWidth", true);
 		}
 
-		internal string EvaluateDynamicHeight(AspNetCore.ReportingServices.OnDemandReportRendering.ChartInstance chartInstance, OnDemandProcessingContext context)
+		public string EvaluateDynamicHeight(AspNetCore.ReportingServices.OnDemandReportRendering.ChartInstance chartInstance, OnDemandProcessingContext context)
 		{
 			if (this.m_dynamicHeight == null)
 			{
@@ -1099,13 +1099,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return context.ReportRuntime.EvaluateChartDynamicSizeExpression(this, this.m_dynamicHeight, "DynamicHeight", false);
 		}
 
-		internal ChartPalette EvaluatePalette(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartPalette EvaluatePalette(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return EnumTranslator.TranslateChartPalette(context.ReportRuntime.EvaluateChartPaletteExpression(this, base.Name), context.ReportRuntime);
 		}
 
-		internal PaletteHatchBehavior EvaluatePaletteHatchBehavior(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public PaletteHatchBehavior EvaluatePaletteHatchBehavior(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return EnumTranslator.TranslatePaletteHatchBehavior(context.ReportRuntime.EvaluateChartPaletteHatchBehaviorExpression(this, base.Name), context.ReportRuntime);

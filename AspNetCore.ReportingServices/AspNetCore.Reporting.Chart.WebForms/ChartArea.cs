@@ -11,13 +11,13 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeChartArea_ChartArea")]
 	[DefaultProperty("Axes")]
-	internal class ChartArea : ChartArea3D
+	public class ChartArea : ChartArea3D
 	{
-		internal class ChartTypeAndSeriesInfo
+		public class ChartTypeAndSeriesInfo
 		{
-			internal string ChartType = string.Empty;
+			public string ChartType = string.Empty;
 
-			internal Series Series;
+			public Series Series;
 
 			public ChartTypeAndSeriesInfo()
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Chart chart;
+		public Chart chart;
 
 		private Axis[] axisArray = new Axis[4];
 
@@ -73,11 +73,11 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private Cursor cursorY = new Cursor();
 
-		internal int IterationCounter;
+		public int IterationCounter;
 
 		private bool equallySizedAxesFont;
 
-		internal float axesAutoFontSize = 8f;
+		public float axesAutoFontSize = 8f;
 
 		private string alignWithChartArea = "NotSet";
 
@@ -89,17 +89,17 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private int circularUsePolygons = -2147483648;
 
-		internal bool alignmentInProcess;
+		public bool alignmentInProcess;
 
-		internal RectangleF originalAreaPosition = RectangleF.Empty;
+		public RectangleF originalAreaPosition = RectangleF.Empty;
 
-		internal RectangleF originalInnerPlotPosition = RectangleF.Empty;
+		public RectangleF originalInnerPlotPosition = RectangleF.Empty;
 
-		internal PointF circularCenter = PointF.Empty;
+		public PointF circularCenter = PointF.Empty;
 
 		private ArrayList circularAxisList;
 
-		internal SmartLabels smartLabels = new SmartLabels();
+		public SmartLabels smartLabels = new SmartLabels();
 
 		private bool visible = true;
 
@@ -694,7 +694,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			set;
 		}
 
-		internal bool CircularUsePolygons
+		public bool CircularUsePolygons
 		{
 			get
 			{
@@ -723,7 +723,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal int CircularSectorsNumber
+		public int CircularSectorsNumber
 		{
 			get
 			{
@@ -745,11 +745,11 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Initialize();
 		}
 
-		internal void Invalidate(bool invalidateAreaOnly)
+		public void Invalidate(bool invalidateAreaOnly)
 		{
 		}
 
-		internal void Restore3DAnglesAndReverseMode()
+		public void Restore3DAnglesAndReverseMode()
 		{
 			if (base.Area3DStyle.Enable3D && !base.chartAreaIsCurcular)
 			{
@@ -761,7 +761,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Set3DAnglesAndReverseMode()
+		public void Set3DAnglesAndReverseMode()
 		{
 			base.reverseSeriesOrder = false;
 			if (base.Area3DStyle.Enable3D)
@@ -797,7 +797,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetTempValues()
+		public void SetTempValues()
 		{
 			if (!this.Position.Auto)
 			{
@@ -816,7 +816,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.axisY2.StoreAxisValues();
 		}
 
-		internal void GetTempValues()
+		public void GetTempValues()
 		{
 			base.axisX.ResetAxisValues();
 			base.axisX2.ResetAxisValues();
@@ -834,7 +834,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Initialize()
+		public void Initialize()
 		{
 			base.axisY = new Axis();
 			base.axisX = new Axis();
@@ -857,7 +857,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.cursorY.Initialize(this, AxisName.Y);
 		}
 
-		internal void ResetMinMaxFromData()
+		public void ResetMinMaxFromData()
 		{
 			this.axisArray[0].refreshMinMaxFromData = true;
 			this.axisArray[1].refreshMinMaxFromData = true;
@@ -875,7 +875,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.SetData();
 		}
 
-		internal void ReCalcInternal()
+		public void ReCalcInternal()
 		{
 			this.axisArray[0].ReCalc(base.PlotAreaPosition);
 			this.axisArray[1].ReCalc(base.PlotAreaPosition);
@@ -884,7 +884,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.SetData();
 		}
 
-		internal void ResetAutoValues()
+		public void ResetAutoValues()
 		{
 			this.axisArray[0].ResetAutoValues();
 			this.axisArray[1].ResetAutoValues();
@@ -892,7 +892,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.axisArray[3].ResetAutoValues();
 		}
 
-		internal RectangleF GetBackgroundPosition(bool withScrollBars)
+		public RectangleF GetBackgroundPosition(bool withScrollBars)
 		{
 			RectangleF result = base.PlotAreaPosition.ToRectangleF();
 			if (!base.requireAxes)
@@ -935,7 +935,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result2;
 		}
 
-		internal void SetCommon(CommonElements common)
+		public void SetCommon(CommonElements common)
 		{
 			base.Common = common;
 			base.axisX.Common = common;
@@ -956,7 +956,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.cursorY.Initialize(this, AxisName.Y);
 		}
 
-		internal void Resize(ChartGraphics chartGraph)
+		public void Resize(ChartGraphics chartGraph)
 		{
 			RectangleF rectangleF = this.Position.ToRectangleF();
 			if (!this.InnerPlotPosition.Auto)
@@ -1372,7 +1372,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Paint(ChartGraphics graph)
+		public void Paint(ChartGraphics graph)
 		{
 			if (base.PlotAreaPosition.Width == 0.0 && base.PlotAreaPosition.Height == 0.0 && !this.InnerPlotPosition.Auto && !this.Position.Auto)
 			{
@@ -1606,7 +1606,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal void PaintCursors(ChartGraphics graph, bool cursorOnly)
+		public void PaintCursors(ChartGraphics graph, bool cursorOnly)
 		{
 			if (!base.Area3DStyle.Enable3D && base.requireAxes && !base.chartAreaIsCurcular && (base.Common == null || base.Common.ChartPicture == null || !base.Common.ChartPicture.isPrinting) && this.Position.Width != 0.0 && this.Position.Height != 0.0 && double.IsNaN(this.cursorX.SelectionStart) && double.IsNaN(this.cursorX.SelectionEnd) && double.IsNaN(this.cursorX.Position) && double.IsNaN(this.cursorY.SelectionStart) && double.IsNaN(this.cursorY.SelectionEnd))
 			{
@@ -1614,7 +1614,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ICircularChartType GetCircularChartType()
+		public ICircularChartType GetCircularChartType()
 		{
 			foreach (Series item in base.Common.DataManager.Series)
 			{
@@ -1630,7 +1630,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return null;
 		}
 
-		internal void FitCircularLabels(ChartGraphics chartGraph, ElementPosition chartAreaPosition, ref RectangleF plotArea, float xTitleSize, float yTitleSize)
+		public void FitCircularLabels(ChartGraphics chartGraph, ElementPosition chartAreaPosition, ref RectangleF plotArea, float xTitleSize, float yTitleSize)
 		{
 			if (this.AxisX.LabelStyle.Enabled)
 			{
@@ -1672,7 +1672,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal float GetCircularLabelsSize(ChartGraphics chartGraph, RectangleF areaRectAbs, RectangleF plotAreaRectAbs, SizeF titleSize)
+		public float GetCircularLabelsSize(ChartGraphics chartGraph, RectangleF areaRectAbs, RectangleF plotAreaRectAbs, SizeF titleSize)
 		{
 			SizeF sizeF = new SizeF(plotAreaRectAbs.X - areaRectAbs.X, plotAreaRectAbs.Y - areaRectAbs.Y);
 			sizeF.Width -= titleSize.Width;
@@ -1739,7 +1739,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num;
 		}
 
-		internal CircularAxisLabelsStyle GetCircularAxisLabelsStyle()
+		public CircularAxisLabelsStyle GetCircularAxisLabelsStyle()
 		{
 			CircularAxisLabelsStyle circularAxisLabelsStyle = CircularAxisLabelsStyle.Auto;
 			foreach (Series item in base.Common.DataManager.Series)
@@ -1792,7 +1792,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return 0;
 		}
 
-		internal ArrayList GetCircularAxisList()
+		public ArrayList GetCircularAxisList()
 		{
 			if (this.circularAxisList == null)
 			{
@@ -1826,7 +1826,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.circularAxisList;
 		}
 
-		internal float CircularPositionToAngle(double position)
+		public float CircularPositionToAngle(double position)
 		{
 			double num = 360.0 / Math.Abs(this.AxisX.Maximum - this.AxisX.Minimum);
 			return (float)(position * num + this.AxisX.Crossing);

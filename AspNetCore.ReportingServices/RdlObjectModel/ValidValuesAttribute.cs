@@ -5,7 +5,7 @@ using System.Reflection;
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[AttributeUsage(AttributeTargets.Property)]
-	internal sealed class ValidValuesAttribute : Attribute
+	public sealed class ValidValuesAttribute : Attribute
 	{
 		private object m_minimum;
 

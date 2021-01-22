@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartMarker : ChartStyleContainer, IPersistable
+	public sealed class ChartMarker : ChartStyleContainer, IPersistable
 	{
 		private ExpressionInfo m_markerType;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartMarkerExprHost m_exprHost;
 
-		internal ExpressionInfo Type
+		public ExpressionInfo Type
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Size
+		public ExpressionInfo Size
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMarkerExprHost ExprHost
+		public ChartMarkerExprHost ExprHost
 		{
 			get
 			{
@@ -77,23 +77,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMarker()
+		public ChartMarker()
 		{
 		}
 
-		internal ChartMarker(Chart chart, ChartDataPoint chartDataPoint)
+		public ChartMarker(Chart chart, ChartDataPoint chartDataPoint)
 			: base(chart)
 		{
 			this.m_chartDataPoint = chartDataPoint;
 		}
 
-		internal ChartMarker(Chart chart, ChartSeries chartSeries)
+		public ChartMarker(Chart chart, ChartSeries chartSeries)
 			: base(chart)
 		{
 			this.m_chartSeries = chartSeries;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Type, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartMarker;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartMarker chartMarker = (ChartMarker)base.PublishClone(context);
 			if (this.m_markerSize != null)
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartMarker;
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.DataPointMarkerStart();
 			base.Initialize(context);
@@ -219,20 +219,20 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.DataPointMarkerEnd();
 		}
 
-		internal void SetExprHost(ChartMarkerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartMarkerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = exprHost;
 		}
 
-		internal string EvaluateChartMarkerSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateChartMarkerSize(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartMarkerSize(this, base.m_chart.Name);
 		}
 
-		internal ChartMarkerTypes EvaluateChartMarkerType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartMarkerTypes EvaluateChartMarkerType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateChartMarkerType(context.ReportRuntime.EvaluateChartMarkerType(this, base.m_chart.Name), context.ReportRuntime);

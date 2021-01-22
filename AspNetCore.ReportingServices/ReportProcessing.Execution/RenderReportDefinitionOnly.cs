@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class RenderReportDefinitionOnly : RenderReportOdpInitial
+	public class RenderReportDefinitionOnly : RenderReportOdpInitial
 	{
 		public RenderReportDefinitionOnly(ProcessingContext pc, RenderingContext rc, DateTime executionTimeStamp, IConfiguration configuration)
 			: base(pc, rc, executionTimeStamp, configuration)

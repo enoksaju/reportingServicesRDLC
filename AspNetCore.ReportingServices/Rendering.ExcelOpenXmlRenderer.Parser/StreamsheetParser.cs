@@ -6,11 +6,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser
 {
-	internal sealed class StreamsheetParser : WorksheetPart
+	public sealed class StreamsheetParser : WorksheetPart
 	{
 		private delegate void WriteDelegate(TextWriter s, int depth, Dictionary<string, string> namespaces);
 
-		internal enum StreamSheetSection
+		public enum StreamSheetSection
 		{
 			Prelude,
 			SheetPr,

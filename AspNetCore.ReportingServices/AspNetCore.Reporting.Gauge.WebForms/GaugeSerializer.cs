@@ -8,7 +8,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[DefaultProperty("Format")]
 	[SRDescription("DescriptionAttributeGaugeSerializer_GaugeSerializer")]
-	internal class GaugeSerializer : IServiceProvider
+	public class GaugeSerializer : IServiceProvider
 	{
 		private IServiceContainer serviceContainer;
 
@@ -321,7 +321,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal string GetFlagContentString(SerializationContent flag, bool serializable)
+		public string GetFlagContentString(SerializationContent flag, bool serializable)
 		{
 			switch (flag)
 			{
@@ -338,7 +338,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GaugeCore GetGaugeObject()
+		public GaugeCore GetGaugeObject()
 		{
 			if (this.gaugeObject == null)
 			{

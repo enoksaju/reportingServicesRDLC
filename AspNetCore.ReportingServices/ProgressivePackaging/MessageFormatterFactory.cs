@@ -4,13 +4,13 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal class MessageFormatterFactory
+	public class MessageFormatterFactory
 	{
-		internal const string ProgressivePackagingMimeType = "application/progressive-report";
+		public const string ProgressivePackagingMimeType = "application/progressive-report";
 
-		internal const uint FileMarker = 1179510781u;
+		public const uint FileMarker = 1179510781u;
 
-		internal static IMessageReader CreateReader(Stream s)
+		public static IMessageReader CreateReader(Stream s)
 		{
 			if (s == null)
 			{
@@ -43,12 +43,12 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			}
 		}
 
-		internal static IMessageWriter CreateWriter(Stream s, string format, int majorVersion, int minorVersion)
+		public static IMessageWriter CreateWriter(Stream s, string format, int majorVersion, int minorVersion)
 		{
 			return MessageFormatterFactory.CreateWriter(s, format, majorVersion, minorVersion, true);
 		}
 
-		internal static IMessageWriter CreateWriter(Stream s, string format, int majorVersion, int minorVersion, bool writePackagePrefix)
+		public static IMessageWriter CreateWriter(Stream s, string format, int majorVersion, int minorVersion, bool writePackagePrefix)
 		{
 			if (s == null)
 			{

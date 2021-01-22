@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal class HyperlinkInfo : AreaInfo
+	public class HyperlinkInfo : AreaInfo
 	{
 		private string m_url;
 
 		private string m_label;
 
-		internal string URL
+		public string URL
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal virtual bool IsBookmark
+		public virtual bool IsBookmark
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal HyperlinkInfo(string url, string label, int firstRow, int lastRow, int firstCol, int lastCol)
+		public HyperlinkInfo(string url, string label, int firstRow, int lastRow, int firstCol, int lastCol)
 			: base(firstRow, lastRow, firstCol, lastCol)
 		{
 			this.m_url = url;

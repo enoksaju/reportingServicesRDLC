@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ChartSeries : ReportElementCollectionBase<ChartDataPoint>, IDataRegionRow, IROMStyleDefinitionContainer
+	public abstract class ChartSeries : ReportElementCollectionBase<ChartDataPoint>, IDataRegionRow, IROMStyleDefinitionContainer
 	{
 		protected Chart m_chart;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract ActionInfo ActionInfo
+		public abstract ActionInfo ActionInfo
 		{
 			get;
 		}
@@ -48,12 +48,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract ReportStringProperty LegendText
+		public abstract ReportStringProperty LegendText
 		{
 			get;
 		}
 
-		internal abstract ReportBoolProperty HideInLegend
+		public abstract ReportBoolProperty HideInLegend
 		{
 			get;
 		}
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal abstract ReportStringProperty ToolTip
+		public abstract ReportStringProperty ToolTip
 		{
 			get;
 		}
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal ChartSeries(Chart chart, int seriesIndex)
+		public ChartSeries(Chart chart, int seriesIndex)
 		{
 			this.m_chart = chart;
 			this.m_seriesIndex = seriesIndex;
@@ -123,6 +123,6 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal abstract void SetNewContext();
+		public abstract void SetNewContext();
 	}
 }

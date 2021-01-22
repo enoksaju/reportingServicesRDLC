@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapLocation : ReportObject
+	public class MapLocation : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapLocation, Definition.Properties>
+		public class Definition : DefinitionStore<MapLocation, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Left,
 				Top,
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapLocation(IPropertyStore propertyStore)
+		public MapLocation(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

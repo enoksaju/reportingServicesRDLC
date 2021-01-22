@@ -2,9 +2,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer
 {
-	internal struct Size
+	public struct Size
 	{
-		internal enum Strategy
+		public enum Strategy
 		{
 			AutoSize,
 			Fit,
@@ -12,13 +12,13 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			Clip
 		}
 
-		internal int Width
+		public int Width
 		{
 			get;
 			set;
 		}
 
-		internal int Height
+		public int Height
 		{
 			get;
 			set;

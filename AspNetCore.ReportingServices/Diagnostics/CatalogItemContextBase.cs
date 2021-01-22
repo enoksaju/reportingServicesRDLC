@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 namespace AspNetCore.ReportingServices.Diagnostics
 {
 	[Serializable]
-	internal abstract class CatalogItemContextBase<TPathStorageType> : ICatalogItemContext
+	public abstract class CatalogItemContextBase<TPathStorageType> : ICatalogItemContext
 	{
 		protected TPathStorageType m_reportDefinitionPath;
 

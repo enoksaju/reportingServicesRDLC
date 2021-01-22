@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface IValueConsumer
+	public interface IValueConsumer
 	{
 		void ProviderRemoved(IValueProvider provider);
 

@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ChartDataPoint
+	public sealed class ChartDataPoint
 	{
 		private Chart m_owner;
 
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ChartDataPointInstanceInfo InstanceInfo
+		public ChartDataPointInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ChartDataPoint(Chart owner, int seriesIndex, int categoryIndex)
+		public ChartDataPoint(Chart owner, int seriesIndex, int categoryIndex)
 		{
 			this.m_owner = owner;
 			this.m_seriesIndex = seriesIndex;

@@ -3,62 +3,62 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class HtmlParser : RichTextParser
+	public sealed class HtmlParser : RichTextParser
 	{
-		internal sealed class Constants
+		public sealed class Constants
 		{
-			internal const string HtmlSize = "size";
+			public const string HtmlSize = "size";
 
-			internal const string HtmlColor = "color";
+			public const string HtmlColor = "color";
 
-			internal const string HtmlAlign = "align";
+			public const string HtmlAlign = "align";
 
-			internal const string CssFontSize = "font-size";
+			public const string CssFontSize = "font-size";
 
-			internal const string CssFontStyle = "font-style";
+			public const string CssFontStyle = "font-style";
 
-			internal const string CssFontWeight = "font-weight";
+			public const string CssFontWeight = "font-weight";
 
-			internal const string CssTextAlign = "text-align";
+			public const string CssTextAlign = "text-align";
 
-			internal const string CssTextIndent = "text-indent";
+			public const string CssTextIndent = "text-indent";
 
-			internal const string CssPadding = "padding";
+			public const string CssPadding = "padding";
 
-			internal const string CssColor = "color";
+			public const string CssColor = "color";
 
-			internal const char NonBreakingSpace = '\u00a0';
+			public const char NonBreakingSpace = '\u00a0';
 		}
 
-		internal static class StyleDefaults
+		public static class StyleDefaults
 		{
-			internal static ReportSize H1FontSize = new ReportSize("24pt");
+			public static ReportSize H1FontSize = new ReportSize("24pt");
 
-			internal static ReportSize H2FontSize = new ReportSize("18pt");
+			public static ReportSize H2FontSize = new ReportSize("18pt");
 
-			internal static ReportSize H3FontSize = new ReportSize("14pt");
+			public static ReportSize H3FontSize = new ReportSize("14pt");
 
-			internal static ReportSize H4FontSize = new ReportSize("12pt");
+			public static ReportSize H4FontSize = new ReportSize("12pt");
 
-			internal static ReportSize H5FontSize = new ReportSize("10pt");
+			public static ReportSize H5FontSize = new ReportSize("10pt");
 
-			internal static ReportSize H6FontSize = new ReportSize("8pt");
+			public static ReportSize H6FontSize = new ReportSize("8pt");
 
-			internal static ReportSize PFontSize = new ReportSize("10pt");
+			public static ReportSize PFontSize = new ReportSize("10pt");
 
-			internal static ReportSize H1Margin = StyleDefaults.H1FontSize;
+			public static ReportSize H1Margin = StyleDefaults.H1FontSize;
 
-			internal static ReportSize H2Margin = StyleDefaults.H2FontSize;
+			public static ReportSize H2Margin = StyleDefaults.H2FontSize;
 
-			internal static ReportSize H3Margin = StyleDefaults.H3FontSize;
+			public static ReportSize H3Margin = StyleDefaults.H3FontSize;
 
-			internal static ReportSize H4Margin = StyleDefaults.H4FontSize;
+			public static ReportSize H4Margin = StyleDefaults.H4FontSize;
 
-			internal static ReportSize H5Margin = StyleDefaults.H5FontSize;
+			public static ReportSize H5Margin = StyleDefaults.H5FontSize;
 
-			internal static ReportSize H6Margin = StyleDefaults.H6FontSize;
+			public static ReportSize H6Margin = StyleDefaults.H6FontSize;
 
-			internal static ReportSize PMargin = StyleDefaults.PFontSize;
+			public static ReportSize PMargin = StyleDefaults.PFontSize;
 		}
 
 		private HtmlElement m_currentHtmlElement;
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private HtmlLexer m_htmlLexer;
 
-		internal HtmlParser(bool multipleParagraphsAllowed, IRichTextInstanceCreator iRichTextInstanceCreator, IRichTextLogger richTextLogger)
+		public HtmlParser(bool multipleParagraphsAllowed, IRichTextInstanceCreator iRichTextInstanceCreator, IRichTextLogger richTextLogger)
 			: base(multipleParagraphsAllowed, iRichTextInstanceCreator, richTextLogger)
 		{
 		}

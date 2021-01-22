@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace AspNetCore.ReportingServices.DataExtensions
 {
 	[Serializable]
-	internal sealed class RuntimeDataSetInfoCollection
+	public sealed class RuntimeDataSetInfoCollection
 	{
 		private Dictionary<Guid, DataSetInfo> m_collectionByID;
 
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			}
 		}
 
-		internal DataSetInfo GetByID(Guid ID)
+		public DataSetInfo GetByID(Guid ID)
 		{
 			DataSetInfo result = null;
 			if (this.m_collectionByID != null)
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return result;
 		}
 
-		internal DataSetInfo GetByName(string name, ICatalogItemContext item)
+		public DataSetInfo GetByName(string name, ICatalogItemContext item)
 		{
 			DataSetInfo result = null;
 			if (this.m_collectionByReport != null)
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.DataExtensions
 			return result;
 		}
 
-		internal void Add(DataSetInfo dataSet, ICatalogItemContext report)
+		public void Add(DataSetInfo dataSet, ICatalogItemContext report)
 		{
 			if (Guid.Empty == dataSet.ID)
 			{

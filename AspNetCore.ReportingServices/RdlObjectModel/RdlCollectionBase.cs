@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class RdlCollectionBase<T> : Collection<T>, IList<T>, ICollection<T>, IEnumerable<T>, IList, ICollection, IEnumerable, IContainedObject
+	public abstract class RdlCollectionBase<T> : Collection<T>, IList<T>, ICollection<T>, IEnumerable<T>, IList, ICollection, IEnumerable, IContainedObject
 	{
 		private IContainedObject m_parent;
 

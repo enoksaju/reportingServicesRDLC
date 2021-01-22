@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartAreaCollection : ChartObjectCollectionBase<ChartArea, ChartAreaInstance>
+	public sealed class ChartAreaCollection : ChartObjectCollectionBase<ChartArea, ChartAreaInstance>
 	{
 		private Chart m_chart;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartAreaCollection(Chart chart)
+		public ChartAreaCollection(Chart chart)
 		{
 			this.m_chart = chart;
 		}
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return new ChartArea(this.m_chart.ChartDef.ChartAreas[index], this.m_chart);
 		}
 
-		internal ChartArea GetByName(string areaName)
+		public ChartArea GetByName(string areaName)
 		{
 			for (int i = 0; i < this.Count; i++)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class TablixMemberCollection : DataRegionMemberCollection<TablixMember>
+	public abstract class TablixMemberCollection : DataRegionMemberCollection<TablixMember>
 	{
 		public override string DefinitionPath
 		{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Tablix OwnerTablix
+		public Tablix OwnerTablix
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal virtual double SizeDelta
+		public virtual double SizeDelta
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner)
+		public TablixMemberCollection(IDefinitionPath parentDefinitionPath, Tablix owner)
 			: base(parentDefinitionPath, (ReportItem)owner)
 		{
 		}

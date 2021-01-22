@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class LinearGauge : Gauge, IPersistable
+	public sealed class LinearGauge : Gauge, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = LinearGauge.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_orientation;
 
-		internal List<LinearScale> GaugeScales
+		public List<LinearScale> GaugeScales
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Orientation
+		public ExpressionInfo Orientation
 		{
 			get
 			{
@@ -44,16 +44,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LinearGauge()
+		public LinearGauge()
 		{
 		}
 
-		internal LinearGauge(GaugePanel gaugePanel, int id)
+		public LinearGauge(GaugePanel gaugePanel, int id)
 			: base(gaugePanel, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.LinearGaugeStart(base.m_name);
 			base.Initialize(context);
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.LinearGaugeEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			LinearGauge linearGauge = (LinearGauge)base.PublishClone(context);
 			if (this.m_gaugeScales != null)
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return linearGauge;
 		}
 
-		internal void SetExprHost(LinearGaugeExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(LinearGaugeExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.GaugeScales, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.LinearScale));
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.LinearGauge;
 		}
 
-		internal GaugeOrientations EvaluateOrientation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public GaugeOrientations EvaluateOrientation(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateGaugeOrientations(context.ReportRuntime.EvaluateLinearGaugeOrientationExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimTextRunInstance : TextRunInstance
+	public sealed class ShimTextRunInstance : TextRunInstance
 	{
 		private TextBoxInstance m_textBoxInstance;
 
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimTextRunInstance(TextRun textRunDef, TextBoxInstance textBoxInstance)
+		public ShimTextRunInstance(TextRun textRunDef, TextBoxInstance textBoxInstance)
 			: base(textRunDef)
 		{
 			this.m_textBoxInstance = textBoxInstance;

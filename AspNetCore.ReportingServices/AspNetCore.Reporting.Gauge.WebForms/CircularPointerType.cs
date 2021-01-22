@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum CircularPointerType
+	public enum CircularPointerType
 	{
 		Needle,
 		Marker,

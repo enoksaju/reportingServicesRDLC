@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal static class SPUrlUtility
+	public static class SPUrlUtility
 	{
 		private static readonly string[] m_rgstrAllowedProtocols = new string[12]
 		{

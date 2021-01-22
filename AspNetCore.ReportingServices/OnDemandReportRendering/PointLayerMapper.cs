@@ -2,7 +2,7 @@ using AspNetCore.Reporting.Map.WebForms;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class PointLayerMapper : VectorLayerMapper
+	public class PointLayerMapper : VectorLayerMapper
 	{
 		private CoreSymbolManager m_symbolManager;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PointLayerMapper(MapPointLayer mapPointLayer, MapControl coreMap, MapMapper mapMapper)
+		public PointLayerMapper(MapPointLayer mapPointLayer, MapControl coreMap, MapMapper mapMapper)
 			: base(mapPointLayer, coreMap, mapMapper)
 		{
 			if (mapPointLayer.MapPointTemplate != null)
@@ -69,22 +69,22 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			base.m_pointTemplateMapper.Render((MapPoint)mapSpatialElement, coreSymbol, hasScope);
 		}
 
-		internal override MapPointRules GetMapPointRules()
+		public override MapPointRules GetMapPointRules()
 		{
 			return this.MapPointLayer.MapPointRules;
 		}
 
-		internal override MapPointTemplate GetMapPointTemplate()
+		public override MapPointTemplate GetMapPointTemplate()
 		{
 			return this.MapPointLayer.MapPointTemplate;
 		}
 
-		internal override bool IsValidSpatialElement(ISpatialElement spatialElement)
+		public override bool IsValidSpatialElement(ISpatialElement spatialElement)
 		{
 			return spatialElement is Symbol;
 		}
 
-		internal override void OnSpatialElementAdded(ISpatialElement spatialElement)
+		public override void OnSpatialElementAdded(ISpatialElement spatialElement)
 		{
 		}
 	}

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbPoolableConnection : IDbConnection, IDisposable, IExtension
+	public interface IDbPoolableConnection : IDbConnection, IDisposable, IExtension
 	{
 		bool IsAlive
 		{

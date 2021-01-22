@@ -5,13 +5,13 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeCustomLabelsCollection_CustomLabelsCollection")]
-	internal class LegendItemsCollection : IList, ICollection, IEnumerable
+	public class LegendItemsCollection : IList, ICollection, IEnumerable
 	{
 		private ArrayList array = new ArrayList();
 
-		internal CommonElements common;
+		public CommonElements common;
 
-		internal Legend legend;
+		public Legend legend;
 
 		public LegendItem this[int index]
 		{

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum GaugeImageWrapMode
+	public enum GaugeImageWrapMode
 	{
 		Scaled = 4,
 		Tile = 0,

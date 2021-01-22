@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal abstract class RenderReportOdp : RenderReport
+	public abstract class RenderReportOdp : RenderReport
 	{
 		protected OnDemandProcessingContext m_odpContext;
 

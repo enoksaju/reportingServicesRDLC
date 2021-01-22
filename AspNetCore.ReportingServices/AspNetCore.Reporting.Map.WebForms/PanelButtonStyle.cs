@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum PanelButtonStyle
+	public enum PanelButtonStyle
 	{
 		Rectangle,
 		RoundedRectangle,

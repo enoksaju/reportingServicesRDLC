@@ -4,7 +4,7 @@ using System.Web;
 
 namespace AspNetCore.Reporting
 {
-    internal abstract class ViewerDataOperation : HandlerOperation
+    public abstract class ViewerDataOperation : HandlerOperation
     {
         public ViewerDataOperation(IReportServerConnectionProvider connectionProvider)
         {

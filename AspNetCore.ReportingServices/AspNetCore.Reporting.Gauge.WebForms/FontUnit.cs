@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum FontUnit
+	public enum FontUnit
 	{
 		Percent,
 		Default

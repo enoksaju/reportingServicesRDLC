@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IChunkFactory
+	public interface IChunkFactory
 	{
 		ReportProcessingFlags ReportProcessingFlags
 		{

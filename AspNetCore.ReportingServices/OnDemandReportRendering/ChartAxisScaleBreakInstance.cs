@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartAxisScaleBreakInstance : BaseInstance
+	public sealed class ChartAxisScaleBreakInstance : BaseInstance
 	{
 		private ChartAxisScaleBreak m_chartAxisScaleBreakDef;
 
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartAxisScaleBreakInstance(ChartAxisScaleBreak chartAxisScaleBreakDef)
+		public ChartAxisScaleBreakInstance(ChartAxisScaleBreak chartAxisScaleBreakDef)
 			: base(chartAxisScaleBreakDef.ChartDef)
 		{
 			this.m_chartAxisScaleBreakDef = chartAxisScaleBreakDef;

@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class SenderInformation
+	public sealed class SenderInformation
 	{
 		private bool m_startHidden;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private int[] m_containerUniqueNames;
 
-		internal bool StartHidden
+		public bool StartHidden
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList ReceiverUniqueNames
+		public IntList ReceiverUniqueNames
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int[] ContainerUniqueNames
+		public int[] ContainerUniqueNames
 		{
 			get
 			{
@@ -48,18 +48,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SenderInformation()
+		public SenderInformation()
 		{
 		}
 
-		internal SenderInformation(bool startHidden, int[] containerUniqueNames)
+		public SenderInformation(bool startHidden, int[] containerUniqueNames)
 		{
 			this.m_startHidden = startHidden;
 			this.m_receiverUniqueNames = new IntList();
 			this.m_containerUniqueNames = containerUniqueNames;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Hidden, Token.Boolean));

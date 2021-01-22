@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartStripLine : ReportObject
+	public class ChartStripLine : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartStripLine, Definition.Properties>
+		public class Definition : DefinitionStore<ChartStripLine, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Title,
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartStripLine(IPropertyStore propertyStore)
+		public ChartStripLine(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

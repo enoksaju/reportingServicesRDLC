@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ReportServerHttpRuntimeClientDisconnectionException : RSException
+	public sealed class ReportServerHttpRuntimeClientDisconnectionException : RSException
 	{
 		public ReportServerHttpRuntimeClientDisconnectionException(Exception innerException, string appDomain, int hr)
 			: base(ErrorCode.rsHttpRuntimeClientDisconnectionError, ErrorStrings.rsHttpRuntimeClientDisconnectionError(appDomain, hr.ToString("X", CultureInfo.CurrentCulture)), innerException, RSTrace.IsTraceInitialized ? RSTrace.HttpRuntimeTracer : null, null, TraceLevel.Verbose)

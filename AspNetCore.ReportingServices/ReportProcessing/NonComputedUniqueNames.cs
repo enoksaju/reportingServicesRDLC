@@ -4,13 +4,13 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class NonComputedUniqueNames
+	public sealed class NonComputedUniqueNames
 	{
 		private int m_uniqueName;
 
 		private NonComputedUniqueNames[] m_childrenUniqueNames;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal NonComputedUniqueNames[] ChildrenUniqueNames
+		public NonComputedUniqueNames[] ChildrenUniqueNames
 		{
 			get
 			{
@@ -40,11 +40,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_childrenUniqueNames = childrenUniqueNames;
 		}
 
-		internal NonComputedUniqueNames()
+		public NonComputedUniqueNames()
 		{
 		}
 
-		internal static NonComputedUniqueNames[] CreateNonComputedUniqueNames(ReportProcessing.ProcessingContext pc, ReportItemCollection reportItemsDef)
+		public static NonComputedUniqueNames[] CreateNonComputedUniqueNames(ReportProcessing.ProcessingContext pc, ReportItemCollection reportItemsDef)
 		{
 			if (reportItemsDef != null && pc != null)
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal static NonComputedUniqueNames CreateNonComputedUniqueNames(ReportProcessing.ProcessingContext pc, ReportItem reportItemDef)
+		public static NonComputedUniqueNames CreateNonComputedUniqueNames(ReportProcessing.ProcessingContext pc, ReportItem reportItemDef)
 		{
 			if (reportItemDef != null && pc != null)
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));

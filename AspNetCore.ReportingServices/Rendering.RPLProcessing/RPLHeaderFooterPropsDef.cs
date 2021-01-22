@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLHeaderFooterPropsDef : RPLItemPropsDef
+	public sealed class RPLHeaderFooterPropsDef : RPLItemPropsDef
 	{
 		private bool m_printOnFirstPage;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLHeaderFooterPropsDef()
+		public RPLHeaderFooterPropsDef()
 		{
 		}
 	}

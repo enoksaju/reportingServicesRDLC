@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal interface IReportViewerMessages
+	public interface IReportViewerMessages
 	{
 		string DocumentMapButtonToolTip
 		{

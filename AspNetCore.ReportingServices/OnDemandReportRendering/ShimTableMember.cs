@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimTableMember : ShimTablixMember
+	public sealed class ShimTableMember : ShimTablixMember
 	{
 		private bool m_isDetailGroup;
 
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override int RowSpan
+		public override int RowSpan
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override int ColSpan
+		public override int ColSpan
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override PageBreakLocation PropagatedGroupBreak
+		public override PageBreakLocation PropagatedGroupBreak
 		{
 			get
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int RowDefinitionEndIndex
+		public int RowDefinitionEndIndex
 		{
 			get
 			{
@@ -231,7 +231,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string DetailInstanceUniqueName
+		public string DetailInstanceUniqueName
 		{
 			get
 			{
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TableRowsCollection RenderTableDetails
+		public TableRowsCollection RenderTableDetails
 		{
 			get
 			{
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TableGroup RenderTableGroup
+		public TableGroup RenderTableGroup
 		{
 			get
 			{
@@ -272,7 +272,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TableRow RenderTableRow
+		public TableRow RenderTableRow
 		{
 			get
 			{
@@ -284,7 +284,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TableColumn RenderTableColumn
+		public TableColumn RenderTableColumn
 		{
 			get
 			{
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimTableMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, int parentCollectionIndex, TableRow staticRow, KeepWithGroup keepWithGroup, bool isFixedTableHeader)
+		public ShimTableMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, int parentCollectionIndex, TableRow staticRow, KeepWithGroup keepWithGroup, bool isFixedTableHeader)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex, false)
 		{
 			this.m_innerStaticRow = staticRow;
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_isFixedHeader = isFixedTableHeader;
 		}
 
-		internal ShimTableMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, int parentCollectionIndex, ShimRenderGroups renderGroups)
+		public ShimTableMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, int parentCollectionIndex, ShimRenderGroups renderGroups)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex, false)
 		{
 			this.m_rowDefinitionStartIndex = owner.GetCurrentMemberCellDefinitionIndex();
@@ -318,7 +318,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_rowDefinitionEndIndex = owner.GetCurrentMemberCellDefinitionIndex();
 		}
 
-		internal ShimTableMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, int parentCollectionIndex, TableRowsCollection renderRows)
+		public ShimTableMember(IDefinitionPath parentDefinitionPath, Tablix owner, ShimTableMember parent, int parentCollectionIndex, TableRowsCollection renderRows)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex, false)
 		{
 			this.m_rowDefinitionStartIndex = owner.GetCurrentMemberCellDefinitionIndex();
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_rowDefinitionEndIndex = owner.GetCurrentMemberCellDefinitionIndex();
 		}
 
-		internal ShimTableMember(IDefinitionPath parentDefinitionPath, Tablix owner, int columnIndex, TableColumnCollection columns)
+		public ShimTableMember(IDefinitionPath parentDefinitionPath, Tablix owner, int columnIndex, TableColumnCollection columns)
 			: base(parentDefinitionPath, owner, null, columnIndex, true)
 		{
 			this.m_column = columns[columnIndex];
@@ -337,7 +337,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_rowDefinitionStartIndex = (this.m_rowDefinitionEndIndex = columnIndex);
 		}
 
-		internal override bool SetNewContext(int index)
+		public override bool SetNewContext(int index)
 		{
 			base.ResetContext();
 			if (base.m_instance != null)
@@ -385,13 +385,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return index <= 1;
 		}
 
-		internal void UpdateRow(TableRow newTableRow)
+		public void UpdateRow(TableRow newTableRow)
 		{
 			this.m_innerStaticRow = newTableRow;
 			((ShimTableRow)((ReportElementCollectionBase<TablixRow>)(ShimTableRowCollection)base.OwnerTablix.Body.RowCollection)[this.m_rowDefinitionStartIndex]).UpdateCells(newTableRow);
 		}
 
-		internal override void ResetContext()
+		public override void ResetContext()
 		{
 			base.ResetContext();
 			if (base.m_group.CurrentRenderGroupIndex >= 0)
@@ -400,7 +400,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ResetContext(TableGroupCollection newRenderSubGroups, TableRowsCollection newRenderDetails)
+		public void ResetContext(TableGroupCollection newRenderSubGroups, TableRowsCollection newRenderDetails)
 		{
 			if (this.m_isDetailGroup)
 			{

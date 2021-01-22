@@ -11,9 +11,9 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.RdlExpressions
 {
-	internal sealed class ExprHostBuilder
+	public sealed class ExprHostBuilder
 	{
-		internal enum ErrorSource
+		public enum ErrorSource
 		{
 			Expression,
 			CodeModuleClassInstanceDecl,
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			Unknown
 		}
 
-		internal enum DataRegionMode
+		public enum DataRegionMode
 		{
 			Tablix,
 			Chart,
@@ -33,1475 +33,1475 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private static class Constants
 		{
-			internal const string ReportObjectModelNS = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel";
+			public const string ReportObjectModelNS = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel";
 
-			internal const string ExprHostObjectModelNS = "AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel";
+			public const string ExprHostObjectModelNS = "AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel";
 
-			internal const string ReportExprHost = "ReportExprHost";
+			public const string ReportExprHost = "ReportExprHost";
 
-			internal const string IndexedExprHost = "IndexedExprHost";
+			public const string IndexedExprHost = "IndexedExprHost";
 
-			internal const string ReportParamExprHost = "ReportParamExprHost";
+			public const string ReportParamExprHost = "ReportParamExprHost";
 
-			internal const string CalcFieldExprHost = "CalcFieldExprHost";
+			public const string CalcFieldExprHost = "CalcFieldExprHost";
 
-			internal const string DataSourceExprHost = "DataSourceExprHost";
+			public const string DataSourceExprHost = "DataSourceExprHost";
 
-			internal const string DataSetExprHost = "DataSetExprHost";
+			public const string DataSetExprHost = "DataSetExprHost";
 
-			internal const string ReportItemExprHost = "ReportItemExprHost";
+			public const string ReportItemExprHost = "ReportItemExprHost";
 
-			internal const string ActionExprHost = "ActionExprHost";
+			public const string ActionExprHost = "ActionExprHost";
 
-			internal const string ActionInfoExprHost = "ActionInfoExprHost";
+			public const string ActionInfoExprHost = "ActionInfoExprHost";
 
-			internal const string TextBoxExprHost = "TextBoxExprHost";
+			public const string TextBoxExprHost = "TextBoxExprHost";
 
-			internal const string ImageExprHost = "ImageExprHost";
+			public const string ImageExprHost = "ImageExprHost";
 
-			internal const string ParamExprHost = "ParamExprHost";
+			public const string ParamExprHost = "ParamExprHost";
 
-			internal const string SubreportExprHost = "SubreportExprHost";
+			public const string SubreportExprHost = "SubreportExprHost";
 
-			internal const string SortExprHost = "SortExprHost";
+			public const string SortExprHost = "SortExprHost";
 
-			internal const string FilterExprHost = "FilterExprHost";
+			public const string FilterExprHost = "FilterExprHost";
 
-			internal const string GroupExprHost = "GroupExprHost";
+			public const string GroupExprHost = "GroupExprHost";
 
-			internal const string StyleExprHost = "StyleExprHost";
+			public const string StyleExprHost = "StyleExprHost";
 
-			internal const string AggregateParamExprHost = "AggregateParamExprHost";
+			public const string AggregateParamExprHost = "AggregateParamExprHost";
 
-			internal const string LookupExprHost = "LookupExprHost";
+			public const string LookupExprHost = "LookupExprHost";
 
-			internal const string LookupDestExprHost = "LookupDestExprHost";
+			public const string LookupDestExprHost = "LookupDestExprHost";
 
-			internal const string ReportSectionExprHost = "ReportSectionExprHost";
+			public const string ReportSectionExprHost = "ReportSectionExprHost";
 
-			internal const string JoinConditionExprHost = "JoinConditionExprHost";
+			public const string JoinConditionExprHost = "JoinConditionExprHost";
 
-			internal const string IncludeParametersParam = "includeParameters";
+			public const string IncludeParametersParam = "includeParameters";
 
-			internal const string ParametersOnlyParam = "parametersOnly";
+			public const string ParametersOnlyParam = "parametersOnly";
 
-			internal const string CustomCodeProxy = "CustomCodeProxy";
+			public const string CustomCodeProxy = "CustomCodeProxy";
 
-			internal const string CustomCodeProxyBase = "CustomCodeProxyBase";
+			public const string CustomCodeProxyBase = "CustomCodeProxyBase";
 
-			internal const string ReportObjectModelParam = "reportObjectModel";
+			public const string ReportObjectModelParam = "reportObjectModel";
 
-			internal const string SetReportObjectModel = "SetReportObjectModel";
+			public const string SetReportObjectModel = "SetReportObjectModel";
 
-			internal const string Code = "Code";
+			public const string Code = "Code";
 
-			internal const string CodeProxyBase = "m_codeProxyBase";
+			public const string CodeProxyBase = "m_codeProxyBase";
 
-			internal const string CodeParam = "code";
+			public const string CodeParam = "code";
 
-			internal const string Report = "Report";
+			public const string Report = "Report";
 
-			internal const string RemoteArrayWrapper = "RemoteArrayWrapper";
+			public const string RemoteArrayWrapper = "RemoteArrayWrapper";
 
-			internal const string RemoteMemberArrayWrapper = "RemoteMemberArrayWrapper";
+			public const string RemoteMemberArrayWrapper = "RemoteMemberArrayWrapper";
 
-			internal const string LabelExpr = "LabelExpr";
+			public const string LabelExpr = "LabelExpr";
 
-			internal const string ValueExpr = "ValueExpr";
+			public const string ValueExpr = "ValueExpr";
 
-			internal const string NoRowsExpr = "NoRowsExpr";
+			public const string NoRowsExpr = "NoRowsExpr";
 
-			internal const string ParameterHosts = "m_parameterHostsRemotable";
+			public const string ParameterHosts = "m_parameterHostsRemotable";
 
-			internal const string IndexParam = "index";
+			public const string IndexParam = "index";
 
-			internal const string FilterHosts = "m_filterHostsRemotable";
+			public const string FilterHosts = "m_filterHostsRemotable";
 
-			internal const string SortHost = "m_sortHost";
+			public const string SortHost = "m_sortHost";
 
-			internal const string GroupHost = "m_groupHost";
+			public const string GroupHost = "m_groupHost";
 
-			internal const string VisibilityHiddenExpr = "VisibilityHiddenExpr";
+			public const string VisibilityHiddenExpr = "VisibilityHiddenExpr";
 
-			internal const string SortDirectionHosts = "SortDirectionHosts";
+			public const string SortDirectionHosts = "SortDirectionHosts";
 
-			internal const string DataValueHosts = "m_dataValueHostsRemotable";
+			public const string DataValueHosts = "m_dataValueHostsRemotable";
 
-			internal const string CustomPropertyHosts = "m_customPropertyHostsRemotable";
+			public const string CustomPropertyHosts = "m_customPropertyHostsRemotable";
 
-			internal const string VariableValueHosts = "VariableValueHosts";
+			public const string VariableValueHosts = "VariableValueHosts";
 
-			internal const string ReportLanguageExpr = "ReportLanguageExpr";
+			public const string ReportLanguageExpr = "ReportLanguageExpr";
 
-			internal const string AutoRefreshExpr = "AutoRefreshExpr";
+			public const string AutoRefreshExpr = "AutoRefreshExpr";
 
-			internal const string AggregateParamHosts = "m_aggregateParamHostsRemotable";
+			public const string AggregateParamHosts = "m_aggregateParamHostsRemotable";
 
-			internal const string ReportParameterHosts = "m_reportParameterHostsRemotable";
+			public const string ReportParameterHosts = "m_reportParameterHostsRemotable";
 
-			internal const string DataSourceHosts = "m_dataSourceHostsRemotable";
+			public const string DataSourceHosts = "m_dataSourceHostsRemotable";
 
-			internal const string DataSetHosts = "m_dataSetHostsRemotable";
+			public const string DataSetHosts = "m_dataSetHostsRemotable";
 
-			internal const string PageSectionHosts = "m_pageSectionHostsRemotable";
+			public const string PageSectionHosts = "m_pageSectionHostsRemotable";
 
-			internal const string PageHosts = "m_pageHostsRemotable";
+			public const string PageHosts = "m_pageHostsRemotable";
 
-			internal const string ReportSectionHosts = "m_reportSectionHostsRemotable";
+			public const string ReportSectionHosts = "m_reportSectionHostsRemotable";
 
-			internal const string LineHosts = "m_lineHostsRemotable";
+			public const string LineHosts = "m_lineHostsRemotable";
 
-			internal const string RectangleHosts = "m_rectangleHostsRemotable";
+			public const string RectangleHosts = "m_rectangleHostsRemotable";
 
-			internal const string TextBoxHosts = "m_textBoxHostsRemotable";
+			public const string TextBoxHosts = "m_textBoxHostsRemotable";
 
-			internal const string ImageHosts = "m_imageHostsRemotable";
+			public const string ImageHosts = "m_imageHostsRemotable";
 
-			internal const string SubreportHosts = "m_subreportHostsRemotable";
+			public const string SubreportHosts = "m_subreportHostsRemotable";
 
-			internal const string TablixHosts = "m_tablixHostsRemotable";
+			public const string TablixHosts = "m_tablixHostsRemotable";
 
-			internal const string ChartHosts = "m_chartHostsRemotable";
+			public const string ChartHosts = "m_chartHostsRemotable";
 
-			internal const string GaugePanelHosts = "m_gaugePanelHostsRemotable";
+			public const string GaugePanelHosts = "m_gaugePanelHostsRemotable";
 
-			internal const string CustomReportItemHosts = "m_customReportItemHostsRemotable";
+			public const string CustomReportItemHosts = "m_customReportItemHostsRemotable";
 
-			internal const string LookupExprHosts = "m_lookupExprHostsRemotable";
+			public const string LookupExprHosts = "m_lookupExprHostsRemotable";
 
-			internal const string LookupDestExprHosts = "m_lookupDestExprHostsRemotable";
+			public const string LookupDestExprHosts = "m_lookupDestExprHostsRemotable";
 
-			internal const string ReportInitialPageName = "InitialPageNameExpr";
+			public const string ReportInitialPageName = "InitialPageNameExpr";
 
-			internal const string ConnectStringExpr = "ConnectStringExpr";
+			public const string ConnectStringExpr = "ConnectStringExpr";
 
-			internal const string FieldHosts = "m_fieldHostsRemotable";
+			public const string FieldHosts = "m_fieldHostsRemotable";
 
-			internal const string QueryParametersHost = "QueryParametersHost";
+			public const string QueryParametersHost = "QueryParametersHost";
 
-			internal const string QueryCommandTextExpr = "QueryCommandTextExpr";
+			public const string QueryCommandTextExpr = "QueryCommandTextExpr";
 
-			internal const string JoinConditionHosts = "m_joinConditionExprHostsRemotable";
+			public const string JoinConditionHosts = "m_joinConditionExprHostsRemotable";
 
-			internal const string PromptExpr = "PromptExpr";
+			public const string PromptExpr = "PromptExpr";
 
-			internal const string ValidValuesHost = "ValidValuesHost";
+			public const string ValidValuesHost = "ValidValuesHost";
 
-			internal const string ValidValueLabelsHost = "ValidValueLabelsHost";
+			public const string ValidValueLabelsHost = "ValidValueLabelsHost";
 
-			internal const string ValidationExpressionExpr = "ValidationExpressionExpr";
+			public const string ValidationExpressionExpr = "ValidationExpressionExpr";
 
-			internal const string ActionInfoHost = "ActionInfoHost";
+			public const string ActionInfoHost = "ActionInfoHost";
 
-			internal const string ActionHost = "ActionHost";
+			public const string ActionHost = "ActionHost";
 
-			internal const string ActionItemHosts = "m_actionItemHostsRemotable";
+			public const string ActionItemHosts = "m_actionItemHostsRemotable";
 
-			internal const string BookmarkExpr = "BookmarkExpr";
+			public const string BookmarkExpr = "BookmarkExpr";
 
-			internal const string ToolTipExpr = "ToolTipExpr";
+			public const string ToolTipExpr = "ToolTipExpr";
 
-			internal const string ToggleImageInitialStateExpr = "ToggleImageInitialStateExpr";
+			public const string ToggleImageInitialStateExpr = "ToggleImageInitialStateExpr";
 
-			internal const string UserSortExpressionsHost = "UserSortExpressionsHost";
+			public const string UserSortExpressionsHost = "UserSortExpressionsHost";
 
-			internal const string MIMETypeExpr = "MIMETypeExpr";
+			public const string MIMETypeExpr = "MIMETypeExpr";
 
-			internal const string TagExpr = "TagExpr";
+			public const string TagExpr = "TagExpr";
 
-			internal const string OmitExpr = "OmitExpr";
+			public const string OmitExpr = "OmitExpr";
 
-			internal const string HyperlinkExpr = "HyperlinkExpr";
+			public const string HyperlinkExpr = "HyperlinkExpr";
 
-			internal const string DrillThroughReportNameExpr = "DrillThroughReportNameExpr";
+			public const string DrillThroughReportNameExpr = "DrillThroughReportNameExpr";
 
-			internal const string DrillThroughParameterHosts = "m_drillThroughParameterHostsRemotable";
+			public const string DrillThroughParameterHosts = "m_drillThroughParameterHostsRemotable";
 
-			internal const string DrillThroughBookmakLinkExpr = "DrillThroughBookmarkLinkExpr";
+			public const string DrillThroughBookmakLinkExpr = "DrillThroughBookmarkLinkExpr";
 
-			internal const string BookmarkLinkExpr = "BookmarkLinkExpr";
+			public const string BookmarkLinkExpr = "BookmarkLinkExpr";
 
-			internal const string FilterExpressionExpr = "FilterExpressionExpr";
+			public const string FilterExpressionExpr = "FilterExpressionExpr";
 
-			internal const string ParentExpressionsHost = "ParentExpressionsHost";
+			public const string ParentExpressionsHost = "ParentExpressionsHost";
 
-			internal const string ReGroupExpressionsHost = "ReGroupExpressionsHost";
+			public const string ReGroupExpressionsHost = "ReGroupExpressionsHost";
 
-			internal const string DataValueExprHost = "DataValueExprHost";
+			public const string DataValueExprHost = "DataValueExprHost";
 
-			internal const string DataValueNameExpr = "DataValueNameExpr";
+			public const string DataValueNameExpr = "DataValueNameExpr";
 
-			internal const string DataValueValueExpr = "DataValueValueExpr";
+			public const string DataValueValueExpr = "DataValueValueExpr";
 
-			internal const string TablixExprHost = "TablixExprHost";
+			public const string TablixExprHost = "TablixExprHost";
 
-			internal const string DataShapeExprHost = "DataShapeExprHost";
+			public const string DataShapeExprHost = "DataShapeExprHost";
 
-			internal const string ChartExprHost = "ChartExprHost";
+			public const string ChartExprHost = "ChartExprHost";
 
-			internal const string GaugePanelExprHost = "GaugePanelExprHost";
+			public const string GaugePanelExprHost = "GaugePanelExprHost";
 
-			internal const string CustomReportItemExprHost = "CustomReportItemExprHost";
+			public const string CustomReportItemExprHost = "CustomReportItemExprHost";
 
-			internal const string MapDataRegionExprHost = "MapDataRegionExprHost";
+			public const string MapDataRegionExprHost = "MapDataRegionExprHost";
 
-			internal const string TablixMemberExprHost = "TablixMemberExprHost";
+			public const string TablixMemberExprHost = "TablixMemberExprHost";
 
-			internal const string DataShapeMemberExprHost = "DataShapeMemberExprHost";
+			public const string DataShapeMemberExprHost = "DataShapeMemberExprHost";
 
-			internal const string ChartMemberExprHost = "ChartMemberExprHost";
+			public const string ChartMemberExprHost = "ChartMemberExprHost";
 
-			internal const string GaugeMemberExprHost = "GaugeMemberExprHost";
+			public const string GaugeMemberExprHost = "GaugeMemberExprHost";
 
-			internal const string DataGroupExprHost = "DataGroupExprHost";
+			public const string DataGroupExprHost = "DataGroupExprHost";
 
-			internal const string TablixCellExprHost = "TablixCellExprHost";
+			public const string TablixCellExprHost = "TablixCellExprHost";
 
-			internal const string DataShapeIntersectionExprHost = "DataShapeIntersectionExprHost";
+			public const string DataShapeIntersectionExprHost = "DataShapeIntersectionExprHost";
 
-			internal const string ChartDataPointExprHost = "ChartDataPointExprHost";
+			public const string ChartDataPointExprHost = "ChartDataPointExprHost";
 
-			internal const string GaugeCellExprHost = "GaugeCellExprHost";
+			public const string GaugeCellExprHost = "GaugeCellExprHost";
 
-			internal const string DataCellExprHost = "DataCellExprHost";
+			public const string DataCellExprHost = "DataCellExprHost";
 
-			internal const string MemberTreeHosts = "m_memberTreeHostsRemotable";
+			public const string MemberTreeHosts = "m_memberTreeHostsRemotable";
 
-			internal const string DataCellHosts = "m_cellHostsRemotable";
+			public const string DataCellHosts = "m_cellHostsRemotable";
 
-			internal const string MapMemberExprHost = "MapMemberExprHost";
+			public const string MapMemberExprHost = "MapMemberExprHost";
 
-			internal const string TablixCornerCellHosts = "m_cornerCellHostsRemotable";
+			public const string TablixCornerCellHosts = "m_cornerCellHostsRemotable";
 
-			internal const string ChartTitleExprHost = "ChartTitleExprHost";
+			public const string ChartTitleExprHost = "ChartTitleExprHost";
 
-			internal const string ChartAxisTitleExprHost = "ChartAxisTitleExprHost";
+			public const string ChartAxisTitleExprHost = "ChartAxisTitleExprHost";
 
-			internal const string ChartLegendTitleExprHost = "ChartLegendTitleExprHost";
+			public const string ChartLegendTitleExprHost = "ChartLegendTitleExprHost";
 
-			internal const string ChartLegendExprHost = "ChartLegendExprHost";
+			public const string ChartLegendExprHost = "ChartLegendExprHost";
 
-			internal const string ChartTitleHost = "TitleHost";
+			public const string ChartTitleHost = "TitleHost";
 
-			internal const string ChartNoDataMessageHost = "NoDataMessageHost";
+			public const string ChartNoDataMessageHost = "NoDataMessageHost";
 
-			internal const string ChartLegendTitleHost = "TitleExprHost";
+			public const string ChartLegendTitleHost = "TitleExprHost";
 
-			internal const string PaletteExpr = "PaletteExpr";
+			public const string PaletteExpr = "PaletteExpr";
 
-			internal const string PaletteHatchBehaviorExpr = "PaletteHatchBehaviorExpr";
+			public const string PaletteHatchBehaviorExpr = "PaletteHatchBehaviorExpr";
 
-			internal const string ChartAreaExprHost = "ChartAreaExprHost";
+			public const string ChartAreaExprHost = "ChartAreaExprHost";
 
-			internal const string ChartNoMoveDirectionsExprHost = "ChartNoMoveDirectionsExprHost";
+			public const string ChartNoMoveDirectionsExprHost = "ChartNoMoveDirectionsExprHost";
 
-			internal const string ChartNoMoveDirectionsHost = "NoMoveDirectionsHost";
+			public const string ChartNoMoveDirectionsHost = "NoMoveDirectionsHost";
 
-			internal const string UpExpr = "UpExpr";
+			public const string UpExpr = "UpExpr";
 
-			internal const string DownExpr = "DownExpr";
+			public const string DownExpr = "DownExpr";
 
-			internal const string LeftExpr = "LeftExpr";
+			public const string LeftExpr = "LeftExpr";
 
-			internal const string RightExpr = "RightExpr";
+			public const string RightExpr = "RightExpr";
 
-			internal const string UpLeftExpr = "UpLeftExpr";
+			public const string UpLeftExpr = "UpLeftExpr";
 
-			internal const string UpRightExpr = "UpRightExpr";
+			public const string UpRightExpr = "UpRightExpr";
 
-			internal const string DownLeftExpr = "DownLeftExpr";
+			public const string DownLeftExpr = "DownLeftExpr";
 
-			internal const string DownRightExpr = "DownRightExpr";
+			public const string DownRightExpr = "DownRightExpr";
 
-			internal const string ChartSmartLabelExprHost = "ChartSmartLabelExprHost";
+			public const string ChartSmartLabelExprHost = "ChartSmartLabelExprHost";
 
-			internal const string ChartSmartLabelHost = "SmartLabelHost";
+			public const string ChartSmartLabelHost = "SmartLabelHost";
 
-			internal const string AllowOutSidePlotAreaExpr = "AllowOutSidePlotAreaExpr";
+			public const string AllowOutSidePlotAreaExpr = "AllowOutSidePlotAreaExpr";
 
-			internal const string CalloutBackColorExpr = "CalloutBackColorExpr";
+			public const string CalloutBackColorExpr = "CalloutBackColorExpr";
 
-			internal const string CalloutLineAnchorExpr = "CalloutLineAnchorExpr";
+			public const string CalloutLineAnchorExpr = "CalloutLineAnchorExpr";
 
-			internal const string CalloutLineColorExpr = "CalloutLineColorExpr";
+			public const string CalloutLineColorExpr = "CalloutLineColorExpr";
 
-			internal const string CalloutLineStyleExpr = "CalloutLineStyleExpr";
+			public const string CalloutLineStyleExpr = "CalloutLineStyleExpr";
 
-			internal const string CalloutLineWidthExpr = "CalloutLineWidthExpr";
+			public const string CalloutLineWidthExpr = "CalloutLineWidthExpr";
 
-			internal const string CalloutStyleExpr = "CalloutStyleExpr";
+			public const string CalloutStyleExpr = "CalloutStyleExpr";
 
-			internal const string HideOverlappedExpr = "HideOverlappedExpr";
+			public const string HideOverlappedExpr = "HideOverlappedExpr";
 
-			internal const string MarkerOverlappingExpr = "MarkerOverlappingExpr";
+			public const string MarkerOverlappingExpr = "MarkerOverlappingExpr";
 
-			internal const string MaxMovingDistanceExpr = "MaxMovingDistanceExpr";
+			public const string MaxMovingDistanceExpr = "MaxMovingDistanceExpr";
 
-			internal const string MinMovingDistanceExpr = "MinMovingDistanceExpr";
+			public const string MinMovingDistanceExpr = "MinMovingDistanceExpr";
 
-			internal const string DisabledExpr = "DisabledExpr";
+			public const string DisabledExpr = "DisabledExpr";
 
-			internal const string ChartAxisScaleBreakExprHost = "ChartAxisScaleBreakExprHost";
+			public const string ChartAxisScaleBreakExprHost = "ChartAxisScaleBreakExprHost";
 
-			internal const string ChartAxisScaleBreakHost = "AxisScaleBreakHost";
+			public const string ChartAxisScaleBreakHost = "AxisScaleBreakHost";
 
-			internal const string ChartBorderSkinExprHost = "ChartBorderSkinExprHost";
+			public const string ChartBorderSkinExprHost = "ChartBorderSkinExprHost";
 
-			internal const string ChartBorderSkinHost = "BorderSkinHost";
+			public const string ChartBorderSkinHost = "BorderSkinHost";
 
-			internal const string TitleSeparatorExpr = "TitleSeparatorExpr";
+			public const string TitleSeparatorExpr = "TitleSeparatorExpr";
 
-			internal const string ColumnTypeExpr = "ColumnTypeExpr";
+			public const string ColumnTypeExpr = "ColumnTypeExpr";
 
-			internal const string MinimumWidthExpr = "MinimumWidthExpr";
+			public const string MinimumWidthExpr = "MinimumWidthExpr";
 
-			internal const string MaximumWidthExpr = "MaximumWidthExpr";
+			public const string MaximumWidthExpr = "MaximumWidthExpr";
 
-			internal const string SeriesSymbolWidthExpr = "SeriesSymbolWidthExpr";
+			public const string SeriesSymbolWidthExpr = "SeriesSymbolWidthExpr";
 
-			internal const string SeriesSymbolHeightExpr = "SeriesSymbolHeightExpr";
+			public const string SeriesSymbolHeightExpr = "SeriesSymbolHeightExpr";
 
-			internal const string CellTypeExpr = "CellTypeExpr";
+			public const string CellTypeExpr = "CellTypeExpr";
 
-			internal const string TextExpr = "TextExpr";
+			public const string TextExpr = "TextExpr";
 
-			internal const string CellSpanExpr = "CellSpanExpr";
+			public const string CellSpanExpr = "CellSpanExpr";
 
-			internal const string ImageWidthExpr = "ImageWidthExpr";
+			public const string ImageWidthExpr = "ImageWidthExpr";
 
-			internal const string ImageHeightExpr = "ImageHeightExpr";
+			public const string ImageHeightExpr = "ImageHeightExpr";
 
-			internal const string SymbolHeightExpr = "SymbolHeightExpr";
+			public const string SymbolHeightExpr = "SymbolHeightExpr";
 
-			internal const string SymbolWidthExpr = "SymbolWidthExpr";
+			public const string SymbolWidthExpr = "SymbolWidthExpr";
 
-			internal const string AlignmentExpr = "AlignmentExpr";
+			public const string AlignmentExpr = "AlignmentExpr";
 
-			internal const string TopMarginExpr = "TopMarginExpr";
+			public const string TopMarginExpr = "TopMarginExpr";
 
-			internal const string BottomMarginExpr = "BottomMarginExpr";
+			public const string BottomMarginExpr = "BottomMarginExpr";
 
-			internal const string LeftMarginExpr = "LeftMarginExpr";
+			public const string LeftMarginExpr = "LeftMarginExpr";
 
-			internal const string RightMarginExpr = "RightMarginExpr";
+			public const string RightMarginExpr = "RightMarginExpr";
 
-			internal const string VisibleExpr = "VisibleExpr";
+			public const string VisibleExpr = "VisibleExpr";
 
-			internal const string MarginExpr = "MarginExpr";
+			public const string MarginExpr = "MarginExpr";
 
-			internal const string IntervalExpr = "IntervalExpr";
+			public const string IntervalExpr = "IntervalExpr";
 
-			internal const string IntervalTypeExpr = "IntervalTypeExpr";
+			public const string IntervalTypeExpr = "IntervalTypeExpr";
 
-			internal const string IntervalOffsetExpr = "IntervalOffsetExpr";
+			public const string IntervalOffsetExpr = "IntervalOffsetExpr";
 
-			internal const string IntervalOffsetTypeExpr = "IntervalOffsetTypeExpr";
+			public const string IntervalOffsetTypeExpr = "IntervalOffsetTypeExpr";
 
-			internal const string MarksAlwaysAtPlotEdgeExpr = "MarksAlwaysAtPlotEdgeExpr";
+			public const string MarksAlwaysAtPlotEdgeExpr = "MarksAlwaysAtPlotEdgeExpr";
 
-			internal const string ReverseExpr = "ReverseExpr";
+			public const string ReverseExpr = "ReverseExpr";
 
-			internal const string LocationExpr = "LocationExpr";
+			public const string LocationExpr = "LocationExpr";
 
-			internal const string InterlacedExpr = "InterlacedExpr";
+			public const string InterlacedExpr = "InterlacedExpr";
 
-			internal const string InterlacedColorExpr = "InterlacedColorExpr";
+			public const string InterlacedColorExpr = "InterlacedColorExpr";
 
-			internal const string LogScaleExpr = "LogScaleExpr";
+			public const string LogScaleExpr = "LogScaleExpr";
 
-			internal const string LogBaseExpr = "LogBaseExpr";
+			public const string LogBaseExpr = "LogBaseExpr";
 
-			internal const string HideLabelsExpr = "HideLabelsExpr";
+			public const string HideLabelsExpr = "HideLabelsExpr";
 
-			internal const string AngleExpr = "AngleExpr";
+			public const string AngleExpr = "AngleExpr";
 
-			internal const string ArrowsExpr = "ArrowsExpr";
+			public const string ArrowsExpr = "ArrowsExpr";
 
-			internal const string PreventFontShrinkExpr = "PreventFontShrinkExpr";
+			public const string PreventFontShrinkExpr = "PreventFontShrinkExpr";
 
-			internal const string PreventFontGrowExpr = "PreventFontGrowExpr";
+			public const string PreventFontGrowExpr = "PreventFontGrowExpr";
 
-			internal const string PreventLabelOffsetExpr = "PreventLabelOffsetExpr";
+			public const string PreventLabelOffsetExpr = "PreventLabelOffsetExpr";
 
-			internal const string PreventWordWrapExpr = "PreventWordWrapExpr";
+			public const string PreventWordWrapExpr = "PreventWordWrapExpr";
 
-			internal const string AllowLabelRotationExpr = "AllowLabelRotationExpr";
+			public const string AllowLabelRotationExpr = "AllowLabelRotationExpr";
 
-			internal const string IncludeZeroExpr = "IncludeZeroExpr";
+			public const string IncludeZeroExpr = "IncludeZeroExpr";
 
-			internal const string LabelsAutoFitDisabledExpr = "LabelsAutoFitDisabledExpr";
+			public const string LabelsAutoFitDisabledExpr = "LabelsAutoFitDisabledExpr";
 
-			internal const string MinFontSizeExpr = "MinFontSizeExpr";
+			public const string MinFontSizeExpr = "MinFontSizeExpr";
 
-			internal const string MaxFontSizeExpr = "MaxFontSizeExpr";
+			public const string MaxFontSizeExpr = "MaxFontSizeExpr";
 
-			internal const string OffsetLabelsExpr = "OffsetLabelsExpr";
+			public const string OffsetLabelsExpr = "OffsetLabelsExpr";
 
-			internal const string HideEndLabelsExpr = "HideEndLabelsExpr";
+			public const string HideEndLabelsExpr = "HideEndLabelsExpr";
 
-			internal const string ChartTickMarksExprHost = "ChartTickMarksExprHost";
+			public const string ChartTickMarksExprHost = "ChartTickMarksExprHost";
 
-			internal const string ChartTickMarksHost = "TickMarksHost";
+			public const string ChartTickMarksHost = "TickMarksHost";
 
-			internal const string ChartGridLinesExprHost = "ChartGridLinesExprHost";
+			public const string ChartGridLinesExprHost = "ChartGridLinesExprHost";
 
-			internal const string ChartGridLinesHost = "GridLinesHost";
+			public const string ChartGridLinesHost = "GridLinesHost";
 
-			internal const string ChartDataPointInLegendExprHost = "ChartDataPointInLegendExprHost";
+			public const string ChartDataPointInLegendExprHost = "ChartDataPointInLegendExprHost";
 
-			internal const string ChartDataPointInLegendHost = "DataPointInLegendHost";
+			public const string ChartDataPointInLegendHost = "DataPointInLegendHost";
 
-			internal const string ChartEmptyPointsExprHost = "ChartEmptyPointsExprHost";
+			public const string ChartEmptyPointsExprHost = "ChartEmptyPointsExprHost";
 
-			internal const string ChartEmptyPointsHost = "EmptyPointsHost";
+			public const string ChartEmptyPointsHost = "EmptyPointsHost";
 
-			internal const string AxisLabelExpr = "AxisLabelExpr";
+			public const string AxisLabelExpr = "AxisLabelExpr";
 
-			internal const string LegendTextExpr = "LegendTextExpr";
+			public const string LegendTextExpr = "LegendTextExpr";
 
-			internal const string ChartLegendColumnHeaderExprHost = "ChartLegendColumnHeaderExprHost";
+			public const string ChartLegendColumnHeaderExprHost = "ChartLegendColumnHeaderExprHost";
 
-			internal const string ChartLegendColumnHeaderHost = "ChartLegendColumnHeaderHost";
+			public const string ChartLegendColumnHeaderHost = "ChartLegendColumnHeaderHost";
 
-			internal const string ChartCustomPaletteColorExprHost = "ChartCustomPaletteColorExprHost";
+			public const string ChartCustomPaletteColorExprHost = "ChartCustomPaletteColorExprHost";
 
-			internal const string ChartCustomPaletteColorHosts = "m_customPaletteColorHostsRemotable";
+			public const string ChartCustomPaletteColorHosts = "m_customPaletteColorHostsRemotable";
 
-			internal const string ChartLegendCustomItemCellExprHost = "ChartLegendCustomItemCellExprHost";
+			public const string ChartLegendCustomItemCellExprHost = "ChartLegendCustomItemCellExprHost";
 
-			internal const string ChartLegendCustomItemCellsHosts = "m_legendCustomItemCellHostsRemotable";
+			public const string ChartLegendCustomItemCellsHosts = "m_legendCustomItemCellHostsRemotable";
 
-			internal const string ChartDerivedSeriesExprHost = "ChartDerivedSeriesExprHost";
+			public const string ChartDerivedSeriesExprHost = "ChartDerivedSeriesExprHost";
 
-			internal const string ChartDerivedSeriesCollectionHosts = "m_derivedSeriesCollectionHostsRemotable";
+			public const string ChartDerivedSeriesCollectionHosts = "m_derivedSeriesCollectionHostsRemotable";
 
-			internal const string SourceChartSeriesNameExpr = "SourceChartSeriesNameExpr";
+			public const string SourceChartSeriesNameExpr = "SourceChartSeriesNameExpr";
 
-			internal const string DerivedSeriesFormulaExpr = "DerivedSeriesFormulaExpr";
+			public const string DerivedSeriesFormulaExpr = "DerivedSeriesFormulaExpr";
 
-			internal const string SizeExpr = "SizeExpr";
+			public const string SizeExpr = "SizeExpr";
 
-			internal const string TypeExpr = "TypeExpr";
+			public const string TypeExpr = "TypeExpr";
 
-			internal const string SubtypeExpr = "SubtypeExpr";
+			public const string SubtypeExpr = "SubtypeExpr";
 
-			internal const string LegendNameExpr = "LegendNameExpr";
+			public const string LegendNameExpr = "LegendNameExpr";
 
-			internal const string ChartAreaNameExpr = "ChartAreaNameExpr";
+			public const string ChartAreaNameExpr = "ChartAreaNameExpr";
 
-			internal const string ValueAxisNameExpr = "ValueAxisNameExpr";
+			public const string ValueAxisNameExpr = "ValueAxisNameExpr";
 
-			internal const string CategoryAxisNameExpr = "CategoryAxisNameExpr";
+			public const string CategoryAxisNameExpr = "CategoryAxisNameExpr";
 
-			internal const string ChartStripLineExprHost = "ChartStripLineExprHost";
+			public const string ChartStripLineExprHost = "ChartStripLineExprHost";
 
-			internal const string ChartStripLinesHosts = "m_stripLinesHostsRemotable";
+			public const string ChartStripLinesHosts = "m_stripLinesHostsRemotable";
 
-			internal const string ChartSeriesExprHost = "ChartSeriesExprHost";
+			public const string ChartSeriesExprHost = "ChartSeriesExprHost";
 
-			internal const string ChartSeriesHost = "ChartSeriesHost";
+			public const string ChartSeriesHost = "ChartSeriesHost";
 
-			internal const string TitleExpr = "TitleExpr";
+			public const string TitleExpr = "TitleExpr";
 
-			internal const string TitleAngleExpr = "TitleAngleExpr";
+			public const string TitleAngleExpr = "TitleAngleExpr";
 
-			internal const string StripWidthExpr = "StripWidthExpr";
+			public const string StripWidthExpr = "StripWidthExpr";
 
-			internal const string StripWidthTypeExpr = "StripWidthTypeExpr";
+			public const string StripWidthTypeExpr = "StripWidthTypeExpr";
 
-			internal const string HiddenExpr = "HiddenExpr";
+			public const string HiddenExpr = "HiddenExpr";
 
-			internal const string ChartFormulaParameterExprHost = "ChartFormulaParameterExprHost";
+			public const string ChartFormulaParameterExprHost = "ChartFormulaParameterExprHost";
 
-			internal const string ChartFormulaParametersHosts = "m_formulaParametersHostsRemotable";
+			public const string ChartFormulaParametersHosts = "m_formulaParametersHostsRemotable";
 
-			internal const string ChartLegendColumnExprHost = "ChartLegendColumnExprHost";
+			public const string ChartLegendColumnExprHost = "ChartLegendColumnExprHost";
 
-			internal const string ChartLegendColumnsHosts = "m_legendColumnsHostsRemotable";
+			public const string ChartLegendColumnsHosts = "m_legendColumnsHostsRemotable";
 
-			internal const string ChartLegendCustomItemExprHost = "ChartLegendCustomItemExprHost";
+			public const string ChartLegendCustomItemExprHost = "ChartLegendCustomItemExprHost";
 
-			internal const string ChartLegendCustomItemsHosts = "m_legendCustomItemsHostsRemotable";
+			public const string ChartLegendCustomItemsHosts = "m_legendCustomItemsHostsRemotable";
 
-			internal const string SeparatorExpr = "SeparatorExpr";
+			public const string SeparatorExpr = "SeparatorExpr";
 
-			internal const string SeparatorColorExpr = "SeparatorColorExpr";
+			public const string SeparatorColorExpr = "SeparatorColorExpr";
 
-			internal const string ChartValueAxesHosts = "m_valueAxesHostsRemotable";
+			public const string ChartValueAxesHosts = "m_valueAxesHostsRemotable";
 
-			internal const string ChartCategoryAxesHosts = "m_categoryAxesHostsRemotable";
+			public const string ChartCategoryAxesHosts = "m_categoryAxesHostsRemotable";
 
-			internal const string ChartTitlesHosts = "m_titlesHostsRemotable";
+			public const string ChartTitlesHosts = "m_titlesHostsRemotable";
 
-			internal const string ChartLegendsHosts = "m_legendsHostsRemotable";
+			public const string ChartLegendsHosts = "m_legendsHostsRemotable";
 
-			internal const string ChartAreasHosts = "m_chartAreasHostsRemotable";
+			public const string ChartAreasHosts = "m_chartAreasHostsRemotable";
 
-			internal const string ChartAxisExprHost = "ChartAxisExprHost";
+			public const string ChartAxisExprHost = "ChartAxisExprHost";
 
-			internal const string MemberLabelExpr = "MemberLabelExpr";
+			public const string MemberLabelExpr = "MemberLabelExpr";
 
-			internal const string MemberStyleHost = "MemberStyleHost";
+			public const string MemberStyleHost = "MemberStyleHost";
 
-			internal const string DataLabelStyleHost = "DataLabelStyleHost";
+			public const string DataLabelStyleHost = "DataLabelStyleHost";
 
-			internal const string StyleHost = "StyleHost";
+			public const string StyleHost = "StyleHost";
 
-			internal const string MarkerStyleHost = "MarkerStyleHost";
+			public const string MarkerStyleHost = "MarkerStyleHost";
 
-			internal const string CaptionExpr = "CaptionExpr";
+			public const string CaptionExpr = "CaptionExpr";
 
-			internal const string CategoryAxisHost = "CategoryAxisHost";
+			public const string CategoryAxisHost = "CategoryAxisHost";
 
-			internal const string PlotAreaHost = "PlotAreaHost";
+			public const string PlotAreaHost = "PlotAreaHost";
 
-			internal const string AxisMinExpr = "AxisMinExpr";
+			public const string AxisMinExpr = "AxisMinExpr";
 
-			internal const string AxisMaxExpr = "AxisMaxExpr";
+			public const string AxisMaxExpr = "AxisMaxExpr";
 
-			internal const string AxisCrossAtExpr = "AxisCrossAtExpr";
+			public const string AxisCrossAtExpr = "AxisCrossAtExpr";
 
-			internal const string AxisMajorIntervalExpr = "AxisMajorIntervalExpr";
+			public const string AxisMajorIntervalExpr = "AxisMajorIntervalExpr";
 
-			internal const string AxisMinorIntervalExpr = "AxisMinorIntervalExpr";
+			public const string AxisMinorIntervalExpr = "AxisMinorIntervalExpr";
 
-			internal const string ChartDataPointValueXExpr = "DataPointValuesXExpr";
+			public const string ChartDataPointValueXExpr = "DataPointValuesXExpr";
 
-			internal const string ChartDataPointValueYExpr = "DataPointValuesYExpr";
+			public const string ChartDataPointValueYExpr = "DataPointValuesYExpr";
 
-			internal const string ChartDataPointValueSizeExpr = "DataPointValuesSizeExpr";
+			public const string ChartDataPointValueSizeExpr = "DataPointValuesSizeExpr";
 
-			internal const string ChartDataPointValueHighExpr = "DataPointValuesHighExpr";
+			public const string ChartDataPointValueHighExpr = "DataPointValuesHighExpr";
 
-			internal const string ChartDataPointValueLowExpr = "DataPointValuesLowExpr";
+			public const string ChartDataPointValueLowExpr = "DataPointValuesLowExpr";
 
-			internal const string ChartDataPointValueStartExpr = "DataPointValuesStartExpr";
+			public const string ChartDataPointValueStartExpr = "DataPointValuesStartExpr";
 
-			internal const string ChartDataPointValueEndExpr = "DataPointValuesEndExpr";
+			public const string ChartDataPointValueEndExpr = "DataPointValuesEndExpr";
 
-			internal const string ChartDataPointValueMeanExpr = "DataPointValuesMeanExpr";
+			public const string ChartDataPointValueMeanExpr = "DataPointValuesMeanExpr";
 
-			internal const string ChartDataPointValueMedianExpr = "DataPointValuesMedianExpr";
+			public const string ChartDataPointValueMedianExpr = "DataPointValuesMedianExpr";
 
-			internal const string ChartDataPointValueHighlightXExpr = "DataPointValuesHighlightXExpr";
+			public const string ChartDataPointValueHighlightXExpr = "DataPointValuesHighlightXExpr";
 
-			internal const string ChartDataPointValueHighlightYExpr = "DataPointValuesHighlightYExpr";
+			public const string ChartDataPointValueHighlightYExpr = "DataPointValuesHighlightYExpr";
 
-			internal const string ChartDataPointValueHighlightSizeExpr = "DataPointValuesHighlightSizeExpr";
+			public const string ChartDataPointValueHighlightSizeExpr = "DataPointValuesHighlightSizeExpr";
 
-			internal const string ChartDataPointValueFormatXExpr = "ChartDataPointValueFormatXExpr";
+			public const string ChartDataPointValueFormatXExpr = "ChartDataPointValueFormatXExpr";
 
-			internal const string ChartDataPointValueFormatYExpr = "ChartDataPointValueFormatYExpr";
+			public const string ChartDataPointValueFormatYExpr = "ChartDataPointValueFormatYExpr";
 
-			internal const string ChartDataPointValueFormatSizeExpr = "ChartDataPointValueFormatSizeExpr";
+			public const string ChartDataPointValueFormatSizeExpr = "ChartDataPointValueFormatSizeExpr";
 
-			internal const string ChartDataPointValueCurrencyLanguageXExpr = "ChartDataPointValueCurrencyLanguageXExpr";
+			public const string ChartDataPointValueCurrencyLanguageXExpr = "ChartDataPointValueCurrencyLanguageXExpr";
 
-			internal const string ChartDataPointValueCurrencyLanguageYExpr = "ChartDataPointValueCurrencyLanguageYExpr";
+			public const string ChartDataPointValueCurrencyLanguageYExpr = "ChartDataPointValueCurrencyLanguageYExpr";
 
-			internal const string ChartDataPointValueCurrencyLanguageSizeExpr = "ChartDataPointValueCurrencyLanguageSizeExpr";
+			public const string ChartDataPointValueCurrencyLanguageSizeExpr = "ChartDataPointValueCurrencyLanguageSizeExpr";
 
-			internal const string ColorExpr = "ColorExpr";
+			public const string ColorExpr = "ColorExpr";
 
-			internal const string BorderSkinTypeExpr = "BorderSkinTypeExpr";
+			public const string BorderSkinTypeExpr = "BorderSkinTypeExpr";
 
-			internal const string LengthExpr = "LengthExpr";
+			public const string LengthExpr = "LengthExpr";
 
-			internal const string EnabledExpr = "EnabledExpr";
+			public const string EnabledExpr = "EnabledExpr";
 
-			internal const string BreakLineTypeExpr = "BreakLineTypeExpr";
+			public const string BreakLineTypeExpr = "BreakLineTypeExpr";
 
-			internal const string CollapsibleSpaceThresholdExpr = "CollapsibleSpaceThresholdExpr";
+			public const string CollapsibleSpaceThresholdExpr = "CollapsibleSpaceThresholdExpr";
 
-			internal const string MaxNumberOfBreaksExpr = "MaxNumberOfBreaksExpr";
+			public const string MaxNumberOfBreaksExpr = "MaxNumberOfBreaksExpr";
 
-			internal const string SpacingExpr = "SpacingExpr";
+			public const string SpacingExpr = "SpacingExpr";
 
-			internal const string AxesViewExpr = "AxesViewExpr";
+			public const string AxesViewExpr = "AxesViewExpr";
 
-			internal const string CursorExpr = "CursorExpr";
+			public const string CursorExpr = "CursorExpr";
 
-			internal const string InnerPlotPositionExpr = "InnerPlotPositionExpr";
+			public const string InnerPlotPositionExpr = "InnerPlotPositionExpr";
 
-			internal const string ChartAlignTypePositionExpr = "ChartAlignTypePositionExpr";
+			public const string ChartAlignTypePositionExpr = "ChartAlignTypePositionExpr";
 
-			internal const string EquallySizedAxesFontExpr = "EquallySizedAxesFontExpr";
+			public const string EquallySizedAxesFontExpr = "EquallySizedAxesFontExpr";
 
-			internal const string AlignOrientationExpr = "AlignOrientationExpr";
+			public const string AlignOrientationExpr = "AlignOrientationExpr";
 
-			internal const string Chart3DPropertiesExprHost = "Chart3DPropertiesExprHost";
+			public const string Chart3DPropertiesExprHost = "Chart3DPropertiesExprHost";
 
-			internal const string Chart3DPropertiesHost = "Chart3DPropertiesHost";
+			public const string Chart3DPropertiesHost = "Chart3DPropertiesHost";
 
-			internal const string LayoutExpr = "LayoutExpr";
+			public const string LayoutExpr = "LayoutExpr";
 
-			internal const string DockOutsideChartAreaExpr = "DockOutsideChartAreaExpr";
+			public const string DockOutsideChartAreaExpr = "DockOutsideChartAreaExpr";
 
-			internal const string TitleExprHost = "TitleExprHost";
+			public const string TitleExprHost = "TitleExprHost";
 
-			internal const string AutoFitTextDisabledExpr = "AutoFitTextDisabledExpr";
+			public const string AutoFitTextDisabledExpr = "AutoFitTextDisabledExpr";
 
-			internal const string HeaderSeparatorExpr = "HeaderSeparatorExpr";
+			public const string HeaderSeparatorExpr = "HeaderSeparatorExpr";
 
-			internal const string HeaderSeparatorColorExpr = "HeaderSeparatorColorExpr";
+			public const string HeaderSeparatorColorExpr = "HeaderSeparatorColorExpr";
 
-			internal const string ColumnSeparatorExpr = "ColumnSeparatorExpr";
+			public const string ColumnSeparatorExpr = "ColumnSeparatorExpr";
 
-			internal const string ColumnSeparatorColorExpr = "ColumnSeparatorColorExpr";
+			public const string ColumnSeparatorColorExpr = "ColumnSeparatorColorExpr";
 
-			internal const string ColumnSpacingExpr = "ColumnSpacingExpr";
+			public const string ColumnSpacingExpr = "ColumnSpacingExpr";
 
-			internal const string InterlacedRowsExpr = "InterlacedRowsExpr";
+			public const string InterlacedRowsExpr = "InterlacedRowsExpr";
 
-			internal const string InterlacedRowsColorExpr = "InterlacedRowsColorExpr";
+			public const string InterlacedRowsColorExpr = "InterlacedRowsColorExpr";
 
-			internal const string EquallySpacedItemsExpr = "EquallySpacedItemsExpr";
+			public const string EquallySpacedItemsExpr = "EquallySpacedItemsExpr";
 
-			internal const string ReversedExpr = "ReversedExpr";
+			public const string ReversedExpr = "ReversedExpr";
 
-			internal const string MaxAutoSizeExpr = "MaxAutoSizeExpr";
+			public const string MaxAutoSizeExpr = "MaxAutoSizeExpr";
 
-			internal const string TextWrapThresholdExpr = "TextWrapThresholdExpr";
+			public const string TextWrapThresholdExpr = "TextWrapThresholdExpr";
 
-			internal const string DockingExpr = "DockingExpr";
+			public const string DockingExpr = "DockingExpr";
 
-			internal const string ChartTitlePositionExpr = "ChartTitlePositionExpr";
+			public const string ChartTitlePositionExpr = "ChartTitlePositionExpr";
 
-			internal const string DockingOffsetExpr = "DockingOffsetExpr";
+			public const string DockingOffsetExpr = "DockingOffsetExpr";
 
-			internal const string ChartLegendPositionExpr = "ChartLegendPositionExpr";
+			public const string ChartLegendPositionExpr = "ChartLegendPositionExpr";
 
-			internal const string DockOutsideChartArea = "DockOutsideChartArea";
+			public const string DockOutsideChartArea = "DockOutsideChartArea";
 
-			internal const string AutoFitTextDisabled = "AutoFitTextDisabled";
+			public const string AutoFitTextDisabled = "AutoFitTextDisabled";
 
-			internal const string MinFontSize = "MinFontSize";
+			public const string MinFontSize = "MinFontSize";
 
-			internal const string HeaderSeparator = "HeaderSeparator";
+			public const string HeaderSeparator = "HeaderSeparator";
 
-			internal const string HeaderSeparatorColor = "HeaderSeparatorColor";
+			public const string HeaderSeparatorColor = "HeaderSeparatorColor";
 
-			internal const string ColumnSeparator = "ColumnSeparator";
+			public const string ColumnSeparator = "ColumnSeparator";
 
-			internal const string ColumnSeparatorColor = "ColumnSeparatorColor";
+			public const string ColumnSeparatorColor = "ColumnSeparatorColor";
 
-			internal const string ColumnSpacing = "ColumnSpacing";
+			public const string ColumnSpacing = "ColumnSpacing";
 
-			internal const string InterlacedRows = "InterlacedRows";
+			public const string InterlacedRows = "InterlacedRows";
 
-			internal const string InterlacedRowsColor = "InterlacedRowsColor";
+			public const string InterlacedRowsColor = "InterlacedRowsColor";
 
-			internal const string EquallySpacedItems = "EquallySpacedItems";
+			public const string EquallySpacedItems = "EquallySpacedItems";
 
-			internal const string HideInLegendExpr = "HideInLegendExpr";
+			public const string HideInLegendExpr = "HideInLegendExpr";
 
-			internal const string ShowOverlappedExpr = "ShowOverlappedExpr";
+			public const string ShowOverlappedExpr = "ShowOverlappedExpr";
 
-			internal const string MajorChartTickMarksHost = "MajorTickMarksHost";
+			public const string MajorChartTickMarksHost = "MajorTickMarksHost";
 
-			internal const string MinorChartTickMarksHost = "MinorTickMarksHost";
+			public const string MinorChartTickMarksHost = "MinorTickMarksHost";
 
-			internal const string MajorChartGridLinesHost = "MajorGridLinesHost";
+			public const string MajorChartGridLinesHost = "MajorGridLinesHost";
 
-			internal const string MinorChartGridLinesHost = "MinorGridLinesHost";
+			public const string MinorChartGridLinesHost = "MinorGridLinesHost";
 
-			internal const string RotationExpr = "RotationExpr";
+			public const string RotationExpr = "RotationExpr";
 
-			internal const string ProjectionModeExpr = "ProjectionModeExpr";
+			public const string ProjectionModeExpr = "ProjectionModeExpr";
 
-			internal const string InclinationExpr = "InclinationExpr";
+			public const string InclinationExpr = "InclinationExpr";
 
-			internal const string PerspectiveExpr = "PerspectiveExpr";
+			public const string PerspectiveExpr = "PerspectiveExpr";
 
-			internal const string DepthRatioExpr = "DepthRatioExpr";
+			public const string DepthRatioExpr = "DepthRatioExpr";
 
-			internal const string ShadingExpr = "ShadingExpr";
+			public const string ShadingExpr = "ShadingExpr";
 
-			internal const string GapDepthExpr = "GapDepthExpr";
+			public const string GapDepthExpr = "GapDepthExpr";
 
-			internal const string WallThicknessExpr = "WallThicknessExpr";
+			public const string WallThicknessExpr = "WallThicknessExpr";
 
-			internal const string ClusteredExpr = "ClusteredExpr";
+			public const string ClusteredExpr = "ClusteredExpr";
 
-			internal const string ChartDataLabelExprHost = "ChartDataLabelExprHost";
+			public const string ChartDataLabelExprHost = "ChartDataLabelExprHost";
 
-			internal const string ChartDataLabelPositionExpr = "ChartDataLabelPositionExpr";
+			public const string ChartDataLabelPositionExpr = "ChartDataLabelPositionExpr";
 
-			internal const string UseValueAsLabelExpr = "UseValueAsLabelExpr";
+			public const string UseValueAsLabelExpr = "UseValueAsLabelExpr";
 
-			internal const string ChartDataLabelHost = "DataLabelHost";
+			public const string ChartDataLabelHost = "DataLabelHost";
 
-			internal const string ChartMarkerExprHost = "ChartMarkerExprHost";
+			public const string ChartMarkerExprHost = "ChartMarkerExprHost";
 
-			internal const string ChartMarkerHost = "ChartMarkerHost";
+			public const string ChartMarkerHost = "ChartMarkerHost";
 
-			internal const string VariableAutoIntervalExpr = "VariableAutoIntervalExpr";
+			public const string VariableAutoIntervalExpr = "VariableAutoIntervalExpr";
 
-			internal const string LabelIntervalExpr = "LabelIntervalExpr";
+			public const string LabelIntervalExpr = "LabelIntervalExpr";
 
-			internal const string LabelIntervalTypeExpr = "LabelIntervalTypeExpr";
+			public const string LabelIntervalTypeExpr = "LabelIntervalTypeExpr";
 
-			internal const string LabelIntervalOffsetExpr = "LabelIntervalOffsetExpr";
+			public const string LabelIntervalOffsetExpr = "LabelIntervalOffsetExpr";
 
-			internal const string LabelIntervalOffsetTypeExpr = "LabelIntervalOffsetTypeExpr";
+			public const string LabelIntervalOffsetTypeExpr = "LabelIntervalOffsetTypeExpr";
 
-			internal const string DynamicWidthExpr = "DynamicWidthExpr";
+			public const string DynamicWidthExpr = "DynamicWidthExpr";
 
-			internal const string DynamicHeightExpr = "DynamicHeightExpr";
+			public const string DynamicHeightExpr = "DynamicHeightExpr";
 
-			internal const string TextOrientationExpr = "TextOrientationExpr";
+			public const string TextOrientationExpr = "TextOrientationExpr";
 
-			internal const string ChartElementPositionExprHost = "ChartElementPositionExprHost";
+			public const string ChartElementPositionExprHost = "ChartElementPositionExprHost";
 
-			internal const string ChartElementPositionHost = "ChartElementPositionHost";
+			public const string ChartElementPositionHost = "ChartElementPositionHost";
 
-			internal const string ChartInnerPlotPositionHost = "ChartInnerPlotPositionHost";
+			public const string ChartInnerPlotPositionHost = "ChartInnerPlotPositionHost";
 
-			internal const string BaseGaugeImageExprHost = "BaseGaugeImageExprHost";
+			public const string BaseGaugeImageExprHost = "BaseGaugeImageExprHost";
 
-			internal const string BaseGaugeImageHost = "BaseGaugeImageHost";
+			public const string BaseGaugeImageHost = "BaseGaugeImageHost";
 
-			internal const string SourceExpr = "SourceExpr";
+			public const string SourceExpr = "SourceExpr";
 
-			internal const string TransparentColorExpr = "TransparentColorExpr";
+			public const string TransparentColorExpr = "TransparentColorExpr";
 
-			internal const string CapImageExprHost = "CapImageExprHost";
+			public const string CapImageExprHost = "CapImageExprHost";
 
-			internal const string CapImageHost = "CapImageHost";
+			public const string CapImageHost = "CapImageHost";
 
-			internal const string TopImageHost = "TopImageHost";
+			public const string TopImageHost = "TopImageHost";
 
-			internal const string TopImageExprHost = "TopImageExprHost";
+			public const string TopImageExprHost = "TopImageExprHost";
 
-			internal const string HueColorExpr = "HueColorExpr";
+			public const string HueColorExpr = "HueColorExpr";
 
-			internal const string OffsetXExpr = "OffsetXExpr";
+			public const string OffsetXExpr = "OffsetXExpr";
 
-			internal const string OffsetYExpr = "OffsetYExpr";
+			public const string OffsetYExpr = "OffsetYExpr";
 
-			internal const string FrameImageExprHost = "FrameImageExprHost";
+			public const string FrameImageExprHost = "FrameImageExprHost";
 
-			internal const string FrameImageHost = "FrameImageHost";
+			public const string FrameImageHost = "FrameImageHost";
 
-			internal const string IndicatorImageExprHost = "IndicatorImageExprHost";
+			public const string IndicatorImageExprHost = "IndicatorImageExprHost";
 
-			internal const string IndicatorImageHost = "IndicatorImageHost";
+			public const string IndicatorImageHost = "IndicatorImageHost";
 
-			internal const string TransparencyExpr = "TransparencyExpr";
+			public const string TransparencyExpr = "TransparencyExpr";
 
-			internal const string ClipImageExpr = "ClipImageExpr";
+			public const string ClipImageExpr = "ClipImageExpr";
 
-			internal const string PointerImageExprHost = "PointerImageExprHost";
+			public const string PointerImageExprHost = "PointerImageExprHost";
 
-			internal const string PointerImageHost = "PointerImageHost";
+			public const string PointerImageHost = "PointerImageHost";
 
-			internal const string BackFrameExprHost = "BackFrameExprHost";
+			public const string BackFrameExprHost = "BackFrameExprHost";
 
-			internal const string BackFrameHost = "BackFrameHost";
+			public const string BackFrameHost = "BackFrameHost";
 
-			internal const string FrameStyleExpr = "FrameStyleExpr";
+			public const string FrameStyleExpr = "FrameStyleExpr";
 
-			internal const string FrameShapeExpr = "FrameShapeExpr";
+			public const string FrameShapeExpr = "FrameShapeExpr";
 
-			internal const string FrameWidthExpr = "FrameWidthExpr";
+			public const string FrameWidthExpr = "FrameWidthExpr";
 
-			internal const string GlassEffectExpr = "GlassEffectExpr";
+			public const string GlassEffectExpr = "GlassEffectExpr";
 
-			internal const string FrameBackgroundExprHost = "FrameBackgroundExprHost";
+			public const string FrameBackgroundExprHost = "FrameBackgroundExprHost";
 
-			internal const string FrameBackgroundHost = "FrameBackgroundHost";
+			public const string FrameBackgroundHost = "FrameBackgroundHost";
 
-			internal const string CustomLabelExprHost = "CustomLabelExprHost";
+			public const string CustomLabelExprHost = "CustomLabelExprHost";
 
-			internal const string FontAngleExpr = "FontAngleExpr";
+			public const string FontAngleExpr = "FontAngleExpr";
 
-			internal const string UseFontPercentExpr = "UseFontPercentExpr";
+			public const string UseFontPercentExpr = "UseFontPercentExpr";
 
-			internal const string GaugeExprHost = "GaugeExprHost";
+			public const string GaugeExprHost = "GaugeExprHost";
 
-			internal const string ClipContentExpr = "ClipContentExpr";
+			public const string ClipContentExpr = "ClipContentExpr";
 
-			internal const string GaugeImageExprHost = "GaugeImageExprHost";
+			public const string GaugeImageExprHost = "GaugeImageExprHost";
 
-			internal const string AspectRatioExpr = "AspectRatioExpr";
+			public const string AspectRatioExpr = "AspectRatioExpr";
 
-			internal const string GaugeInputValueExprHost = "GaugeInputValueExprHost";
+			public const string GaugeInputValueExprHost = "GaugeInputValueExprHost";
 
-			internal const string FormulaExpr = "FormulaExpr";
+			public const string FormulaExpr = "FormulaExpr";
 
-			internal const string MinPercentExpr = "MinPercentExpr";
+			public const string MinPercentExpr = "MinPercentExpr";
 
-			internal const string MaxPercentExpr = "MaxPercentExpr";
+			public const string MaxPercentExpr = "MaxPercentExpr";
 
-			internal const string MultiplierExpr = "MultiplierExpr";
+			public const string MultiplierExpr = "MultiplierExpr";
 
-			internal const string AddConstantExpr = "AddConstantExpr";
+			public const string AddConstantExpr = "AddConstantExpr";
 
-			internal const string GaugeLabelExprHost = "GaugeLabelExprHost";
+			public const string GaugeLabelExprHost = "GaugeLabelExprHost";
 
-			internal const string AntiAliasingExpr = "AntiAliasingExpr";
+			public const string AntiAliasingExpr = "AntiAliasingExpr";
 
-			internal const string AutoLayoutExpr = "AutoLayoutExpr";
+			public const string AutoLayoutExpr = "AutoLayoutExpr";
 
-			internal const string ShadowIntensityExpr = "ShadowIntensityExpr";
+			public const string ShadowIntensityExpr = "ShadowIntensityExpr";
 
-			internal const string TileLanguageExpr = "TileLanguageExpr";
+			public const string TileLanguageExpr = "TileLanguageExpr";
 
-			internal const string TextAntiAliasingQualityExpr = "TextAntiAliasingQualityExpr";
+			public const string TextAntiAliasingQualityExpr = "TextAntiAliasingQualityExpr";
 
-			internal const string GaugePanelItemExprHost = "GaugePanelItemExprHost";
+			public const string GaugePanelItemExprHost = "GaugePanelItemExprHost";
 
-			internal const string TopExpr = "TopExpr";
+			public const string TopExpr = "TopExpr";
 
-			internal const string HeightExpr = "HeightExpr";
+			public const string HeightExpr = "HeightExpr";
 
-			internal const string GaugePointerExprHost = "GaugePointerExprHost";
+			public const string GaugePointerExprHost = "GaugePointerExprHost";
 
-			internal const string BarStartExpr = "BarStartExpr";
+			public const string BarStartExpr = "BarStartExpr";
 
-			internal const string MarkerLengthExpr = "MarkerLengthExpr";
+			public const string MarkerLengthExpr = "MarkerLengthExpr";
 
-			internal const string MarkerStyleExpr = "MarkerStyleExpr";
+			public const string MarkerStyleExpr = "MarkerStyleExpr";
 
-			internal const string SnappingEnabledExpr = "SnappingEnabledExpr";
+			public const string SnappingEnabledExpr = "SnappingEnabledExpr";
 
-			internal const string SnappingIntervalExpr = "SnappingIntervalExpr";
+			public const string SnappingIntervalExpr = "SnappingIntervalExpr";
 
-			internal const string GaugeScaleExprHost = "GaugeScaleExprHost";
+			public const string GaugeScaleExprHost = "GaugeScaleExprHost";
 
-			internal const string LogarithmicExpr = "LogarithmicExpr";
+			public const string LogarithmicExpr = "LogarithmicExpr";
 
-			internal const string LogarithmicBaseExpr = "LogarithmicBaseExpr";
+			public const string LogarithmicBaseExpr = "LogarithmicBaseExpr";
 
-			internal const string TickMarksOnTopExpr = "TickMarksOnTopExpr";
+			public const string TickMarksOnTopExpr = "TickMarksOnTopExpr";
 
-			internal const string GaugeTickMarksExprHost = "GaugeTickMarksExprHost";
+			public const string GaugeTickMarksExprHost = "GaugeTickMarksExprHost";
 
-			internal const string LinearGaugeExprHost = "LinearGaugeExprHost";
+			public const string LinearGaugeExprHost = "LinearGaugeExprHost";
 
-			internal const string OrientationExpr = "OrientationExpr";
+			public const string OrientationExpr = "OrientationExpr";
 
-			internal const string LinearPointerExprHost = "LinearPointerExprHost";
+			public const string LinearPointerExprHost = "LinearPointerExprHost";
 
-			internal const string LinearScaleExprHost = "LinearScaleExprHost";
+			public const string LinearScaleExprHost = "LinearScaleExprHost";
 
-			internal const string StartMarginExpr = "StartMarginExpr";
+			public const string StartMarginExpr = "StartMarginExpr";
 
-			internal const string EndMarginExpr = "EndMarginExpr";
+			public const string EndMarginExpr = "EndMarginExpr";
 
-			internal const string NumericIndicatorExprHost = "NumericIndicatorExprHost";
+			public const string NumericIndicatorExprHost = "NumericIndicatorExprHost";
 
-			internal const string PinLabelExprHost = "PinLabelExprHost";
+			public const string PinLabelExprHost = "PinLabelExprHost";
 
-			internal const string AllowUpsideDownExpr = "AllowUpsideDownExpr";
+			public const string AllowUpsideDownExpr = "AllowUpsideDownExpr";
 
-			internal const string RotateLabelExpr = "RotateLabelExpr";
+			public const string RotateLabelExpr = "RotateLabelExpr";
 
-			internal const string PointerCapExprHost = "PointerCapExprHost";
+			public const string PointerCapExprHost = "PointerCapExprHost";
 
-			internal const string OnTopExpr = "OnTopExpr";
+			public const string OnTopExpr = "OnTopExpr";
 
-			internal const string ReflectionExpr = "ReflectionExpr";
+			public const string ReflectionExpr = "ReflectionExpr";
 
-			internal const string CapStyleExpr = "CapStyleExpr";
+			public const string CapStyleExpr = "CapStyleExpr";
 
-			internal const string RadialGaugeExprHost = "RadialGaugeExprHost";
+			public const string RadialGaugeExprHost = "RadialGaugeExprHost";
 
-			internal const string PivotXExpr = "PivotXExpr";
+			public const string PivotXExpr = "PivotXExpr";
 
-			internal const string PivotYExpr = "PivotYExpr";
+			public const string PivotYExpr = "PivotYExpr";
 
-			internal const string RadialPointerExprHost = "RadialPointerExprHost";
+			public const string RadialPointerExprHost = "RadialPointerExprHost";
 
-			internal const string NeedleStyleExpr = "NeedleStyleExpr";
+			public const string NeedleStyleExpr = "NeedleStyleExpr";
 
-			internal const string RadialScaleExprHost = "RadialScaleExprHost";
+			public const string RadialScaleExprHost = "RadialScaleExprHost";
 
-			internal const string RadiusExpr = "RadiusExpr";
+			public const string RadiusExpr = "RadiusExpr";
 
-			internal const string StartAngleExpr = "StartAngleExpr";
+			public const string StartAngleExpr = "StartAngleExpr";
 
-			internal const string SweepAngleExpr = "SweepAngleExpr";
+			public const string SweepAngleExpr = "SweepAngleExpr";
 
-			internal const string ScaleLabelsExprHost = "ScaleLabelsExprHost";
+			public const string ScaleLabelsExprHost = "ScaleLabelsExprHost";
 
-			internal const string RotateLabelsExpr = "RotateLabelsExpr";
+			public const string RotateLabelsExpr = "RotateLabelsExpr";
 
-			internal const string ShowEndLabelsExpr = "ShowEndLabelsExpr";
+			public const string ShowEndLabelsExpr = "ShowEndLabelsExpr";
 
-			internal const string ScalePinExprHost = "ScalePinExprHost";
+			public const string ScalePinExprHost = "ScalePinExprHost";
 
-			internal const string EnableExpr = "EnableExpr";
+			public const string EnableExpr = "EnableExpr";
 
-			internal const string ScaleRangeExprHost = "ScaleRangeExprHost";
+			public const string ScaleRangeExprHost = "ScaleRangeExprHost";
 
-			internal const string DistanceFromScaleExpr = "DistanceFromScaleExpr";
+			public const string DistanceFromScaleExpr = "DistanceFromScaleExpr";
 
-			internal const string StartWidthExpr = "StartWidthExpr";
+			public const string StartWidthExpr = "StartWidthExpr";
 
-			internal const string EndWidthExpr = "EndWidthExpr";
+			public const string EndWidthExpr = "EndWidthExpr";
 
-			internal const string InRangeBarPointerColorExpr = "InRangeBarPointerColorExpr";
+			public const string InRangeBarPointerColorExpr = "InRangeBarPointerColorExpr";
 
-			internal const string InRangeLabelColorExpr = "InRangeLabelColorExpr";
+			public const string InRangeLabelColorExpr = "InRangeLabelColorExpr";
 
-			internal const string InRangeTickMarksColorExpr = "InRangeTickMarksColorExpr";
+			public const string InRangeTickMarksColorExpr = "InRangeTickMarksColorExpr";
 
-			internal const string BackgroundGradientTypeExpr = "BackgroundGradientTypeExpr";
+			public const string BackgroundGradientTypeExpr = "BackgroundGradientTypeExpr";
 
-			internal const string PlacementExpr = "PlacementExpr";
+			public const string PlacementExpr = "PlacementExpr";
 
-			internal const string StateIndicatorExprHost = "StateIndicatorExprHost";
+			public const string StateIndicatorExprHost = "StateIndicatorExprHost";
 
-			internal const string ThermometerExprHost = "ThermometerExprHost";
+			public const string ThermometerExprHost = "ThermometerExprHost";
 
-			internal const string BulbOffsetExpr = "BulbOffsetExpr";
+			public const string BulbOffsetExpr = "BulbOffsetExpr";
 
-			internal const string BulbSizeExpr = "BulbSizeExpr";
+			public const string BulbSizeExpr = "BulbSizeExpr";
 
-			internal const string ThermometerStyleExpr = "ThermometerStyleExpr";
+			public const string ThermometerStyleExpr = "ThermometerStyleExpr";
 
-			internal const string TickMarkStyleExprHost = "TickMarkStyleExprHost";
+			public const string TickMarkStyleExprHost = "TickMarkStyleExprHost";
 
-			internal const string EnableGradientExpr = "EnableGradientExpr";
+			public const string EnableGradientExpr = "EnableGradientExpr";
 
-			internal const string GradientDensityExpr = "GradientDensityExpr";
+			public const string GradientDensityExpr = "GradientDensityExpr";
 
-			internal const string GaugeMajorTickMarksHost = "GaugeMajorTickMarksHost";
+			public const string GaugeMajorTickMarksHost = "GaugeMajorTickMarksHost";
 
-			internal const string GaugeMinorTickMarksHost = "GaugeMinorTickMarksHost";
+			public const string GaugeMinorTickMarksHost = "GaugeMinorTickMarksHost";
 
-			internal const string GaugeMaximumPinHost = "MaximumPinHost";
+			public const string GaugeMaximumPinHost = "MaximumPinHost";
 
-			internal const string GaugeMinimumPinHost = "MinimumPinHost";
+			public const string GaugeMinimumPinHost = "MinimumPinHost";
 
-			internal const string GaugeInputValueHost = "GaugeInputValueHost";
+			public const string GaugeInputValueHost = "GaugeInputValueHost";
 
-			internal const string WidthExpr = "WidthExpr";
+			public const string WidthExpr = "WidthExpr";
 
-			internal const string ZIndexExpr = "ZIndexExpr";
+			public const string ZIndexExpr = "ZIndexExpr";
 
-			internal const string PositionExpr = "PositionExpr";
+			public const string PositionExpr = "PositionExpr";
 
-			internal const string ShapeExpr = "ShapeExpr";
+			public const string ShapeExpr = "ShapeExpr";
 
-			internal const string ScaleLabelsHost = "ScaleLabelsHost";
+			public const string ScaleLabelsHost = "ScaleLabelsHost";
 
-			internal const string ScalePinHost = "ScalePinHost";
+			public const string ScalePinHost = "ScalePinHost";
 
-			internal const string PinLabelHost = "PinLabelHost";
+			public const string PinLabelHost = "PinLabelHost";
 
-			internal const string PointerCapHost = "PointerCapHost";
+			public const string PointerCapHost = "PointerCapHost";
 
-			internal const string ThermometerHost = "ThermometerHost";
+			public const string ThermometerHost = "ThermometerHost";
 
-			internal const string TickMarkStyleHost = "TickMarkStyleHost";
+			public const string TickMarkStyleHost = "TickMarkStyleHost";
 
-			internal const string ResizeModeExpr = "ResizeModeExpr";
+			public const string ResizeModeExpr = "ResizeModeExpr";
 
-			internal const string TextShadowOffsetExpr = "TextShadowOffsetExpr";
+			public const string TextShadowOffsetExpr = "TextShadowOffsetExpr";
 
-			internal const string CustomLabelsHosts = "m_customLabelsHostsRemotable";
+			public const string CustomLabelsHosts = "m_customLabelsHostsRemotable";
 
-			internal const string GaugeImagesHosts = "m_gaugeImagesHostsRemotable";
+			public const string GaugeImagesHosts = "m_gaugeImagesHostsRemotable";
 
-			internal const string GaugeLabelsHosts = "m_gaugeLabelsHostsRemotable";
+			public const string GaugeLabelsHosts = "m_gaugeLabelsHostsRemotable";
 
-			internal const string LinearGaugesHosts = "m_linearGaugesHostsRemotable";
+			public const string LinearGaugesHosts = "m_linearGaugesHostsRemotable";
 
-			internal const string RadialGaugesHosts = "m_radialGaugesHostsRemotable";
+			public const string RadialGaugesHosts = "m_radialGaugesHostsRemotable";
 
-			internal const string LinearPointersHosts = "m_linearPointersHostsRemotable";
+			public const string LinearPointersHosts = "m_linearPointersHostsRemotable";
 
-			internal const string RadialPointersHosts = "m_radialPointersHostsRemotable";
+			public const string RadialPointersHosts = "m_radialPointersHostsRemotable";
 
-			internal const string LinearScalesHosts = "m_linearScalesHostsRemotable";
+			public const string LinearScalesHosts = "m_linearScalesHostsRemotable";
 
-			internal const string RadialScalesHosts = "m_radialScalesHostsRemotable";
+			public const string RadialScalesHosts = "m_radialScalesHostsRemotable";
 
-			internal const string ScaleRangesHosts = "m_scaleRangesHostsRemotable";
+			public const string ScaleRangesHosts = "m_scaleRangesHostsRemotable";
 
-			internal const string NumericIndicatorsHosts = "m_numericIndicatorsHostsRemotable";
+			public const string NumericIndicatorsHosts = "m_numericIndicatorsHostsRemotable";
 
-			internal const string StateIndicatorsHosts = "m_stateIndicatorsHostsRemotable";
+			public const string StateIndicatorsHosts = "m_stateIndicatorsHostsRemotable";
 
-			internal const string GaugeInputValuesHosts = "m_gaugeInputValueHostsRemotable";
+			public const string GaugeInputValuesHosts = "m_gaugeInputValueHostsRemotable";
 
-			internal const string NumericIndicatorRangesHosts = "m_numericIndicatorRangesHostsRemotable";
+			public const string NumericIndicatorRangesHosts = "m_numericIndicatorRangesHostsRemotable";
 
-			internal const string IndicatorStatesHosts = "m_indicatorStatesHostsRemotable";
+			public const string IndicatorStatesHosts = "m_indicatorStatesHostsRemotable";
 
-			internal const string NumericIndicatorHost = "NumericIndicatorHost";
+			public const string NumericIndicatorHost = "NumericIndicatorHost";
 
-			internal const string DecimalDigitColorExpr = "DecimalDigitColorExpr";
+			public const string DecimalDigitColorExpr = "DecimalDigitColorExpr";
 
-			internal const string DigitColorExpr = "DigitColorExpr";
+			public const string DigitColorExpr = "DigitColorExpr";
 
-			internal const string DecimalDigitsExpr = "DecimalDigitsExpr";
+			public const string DecimalDigitsExpr = "DecimalDigitsExpr";
 
-			internal const string DigitsExpr = "DigitsExpr";
+			public const string DigitsExpr = "DigitsExpr";
 
-			internal const string NonNumericStringExpr = "NonNumericStringExpr";
+			public const string NonNumericStringExpr = "NonNumericStringExpr";
 
-			internal const string OutOfRangeStringExpr = "OutOfRangeStringExpr";
+			public const string OutOfRangeStringExpr = "OutOfRangeStringExpr";
 
-			internal const string ShowDecimalPointExpr = "ShowDecimalPointExpr";
+			public const string ShowDecimalPointExpr = "ShowDecimalPointExpr";
 
-			internal const string ShowLeadingZerosExpr = "ShowLeadingZerosExpr";
+			public const string ShowLeadingZerosExpr = "ShowLeadingZerosExpr";
 
-			internal const string IndicatorStyleExpr = "IndicatorStyleExpr";
+			public const string IndicatorStyleExpr = "IndicatorStyleExpr";
 
-			internal const string ShowSignExpr = "ShowSignExpr";
+			public const string ShowSignExpr = "ShowSignExpr";
 
-			internal const string LedDimColorExpr = "LedDimColorExpr";
+			public const string LedDimColorExpr = "LedDimColorExpr";
 
-			internal const string SeparatorWidthExpr = "SeparatorWidthExpr";
+			public const string SeparatorWidthExpr = "SeparatorWidthExpr";
 
-			internal const string NumericIndicatorRangeExprHost = "NumericIndicatorRangeExprHost";
+			public const string NumericIndicatorRangeExprHost = "NumericIndicatorRangeExprHost";
 
-			internal const string NumericIndicatorRangeHost = "NumericIndicatorRangeHost";
+			public const string NumericIndicatorRangeHost = "NumericIndicatorRangeHost";
 
-			internal const string StateIndicatorHost = "StateIndicatorHost";
+			public const string StateIndicatorHost = "StateIndicatorHost";
 
-			internal const string IndicatorStateExprHost = "IndicatorStateExprHost";
+			public const string IndicatorStateExprHost = "IndicatorStateExprHost";
 
-			internal const string IndicatorStateHost = "IndicatorStateHost";
+			public const string IndicatorStateHost = "IndicatorStateHost";
 
-			internal const string TransformationTypeExpr = "TransformationTypeExpr";
+			public const string TransformationTypeExpr = "TransformationTypeExpr";
 
-			internal const string MapViewExprHost = "MapViewExprHost";
+			public const string MapViewExprHost = "MapViewExprHost";
 
-			internal const string MapViewHost = "MapViewHost";
+			public const string MapViewHost = "MapViewHost";
 
-			internal const string ZoomExpr = "ZoomExpr";
+			public const string ZoomExpr = "ZoomExpr";
 
-			internal const string MapElementViewExprHost = "MapElementViewExprHost";
+			public const string MapElementViewExprHost = "MapElementViewExprHost";
 
-			internal const string MapElementViewHost = "MapElementViewHost";
+			public const string MapElementViewHost = "MapElementViewHost";
 
-			internal const string LayerNameExpr = "LayerNameExpr";
+			public const string LayerNameExpr = "LayerNameExpr";
 
-			internal const string MapDataBoundViewExprHost = "MapDataBoundViewExprHost";
+			public const string MapDataBoundViewExprHost = "MapDataBoundViewExprHost";
 
-			internal const string MapDataBoundViewHost = "MapDataBoundViewHost";
+			public const string MapDataBoundViewHost = "MapDataBoundViewHost";
 
-			internal const string MapCustomViewExprHost = "MapCustomViewExprHost";
+			public const string MapCustomViewExprHost = "MapCustomViewExprHost";
 
-			internal const string MapCustomViewHost = "MapCustomViewHost";
+			public const string MapCustomViewHost = "MapCustomViewHost";
 
-			internal const string CenterXExpr = "CenterXExpr";
+			public const string CenterXExpr = "CenterXExpr";
 
-			internal const string CenterYExpr = "CenterYExpr";
+			public const string CenterYExpr = "CenterYExpr";
 
-			internal const string MapBorderSkinExprHost = "MapBorderSkinExprHost";
+			public const string MapBorderSkinExprHost = "MapBorderSkinExprHost";
 
-			internal const string MapBorderSkinHost = "MapBorderSkinHost";
+			public const string MapBorderSkinHost = "MapBorderSkinHost";
 
-			internal const string MapBorderSkinTypeExpr = "MapBorderSkinTypeExpr";
+			public const string MapBorderSkinTypeExpr = "MapBorderSkinTypeExpr";
 
-			internal const string MapDataRegionNameExpr = "MapDataRegionNameExpr";
+			public const string MapDataRegionNameExpr = "MapDataRegionNameExpr";
 
-			internal const string MapTileLayerExprHost = "MapTileLayerExprHost";
+			public const string MapTileLayerExprHost = "MapTileLayerExprHost";
 
-			internal const string MapTileLayerHost = "MapTileLayerHost";
+			public const string MapTileLayerHost = "MapTileLayerHost";
 
-			internal const string ServiceUrlExpr = "ServiceUrlExpr";
+			public const string ServiceUrlExpr = "ServiceUrlExpr";
 
-			internal const string TileStyleExpr = "TileStyleExpr";
+			public const string TileStyleExpr = "TileStyleExpr";
 
-			internal const string MapTileExprHost = "MapTileExprHost";
+			public const string MapTileExprHost = "MapTileExprHost";
 
-			internal const string MapTileHost = "MapTileHost";
+			public const string MapTileHost = "MapTileHost";
 
-			internal const string UseSecureConnectionExpr = "UseSecureConnectionExpr";
+			public const string UseSecureConnectionExpr = "UseSecureConnectionExpr";
 
-			internal const string MapPolygonLayerExprHost = "MapPolygonLayerExprHost";
+			public const string MapPolygonLayerExprHost = "MapPolygonLayerExprHost";
 
-			internal const string MapPointLayerExprHost = "MapPointLayerExprHost";
+			public const string MapPointLayerExprHost = "MapPointLayerExprHost";
 
-			internal const string MapLineLayerExprHost = "MapLineLayerExprHost";
+			public const string MapLineLayerExprHost = "MapLineLayerExprHost";
 
-			internal const string MapSpatialDataSetExprHost = "MapSpatialDataSetExprHost";
+			public const string MapSpatialDataSetExprHost = "MapSpatialDataSetExprHost";
 
-			internal const string DataSetNameExpr = "DataSetNameExpr";
+			public const string DataSetNameExpr = "DataSetNameExpr";
 
-			internal const string SpatialFieldExpr = "SpatialFieldExpr";
+			public const string SpatialFieldExpr = "SpatialFieldExpr";
 
-			internal const string MapSpatialDataRegionExprHost = "MapSpatialDataRegionExprHost";
+			public const string MapSpatialDataRegionExprHost = "MapSpatialDataRegionExprHost";
 
-			internal const string VectorDataExpr = "VectorDataExpr";
+			public const string VectorDataExpr = "VectorDataExpr";
 
-			internal const string MapSpatialDataExprHost = "MapSpatialDataExprHost";
+			public const string MapSpatialDataExprHost = "MapSpatialDataExprHost";
 
-			internal const string MapSpatialDataHost = "MapSpatialDataHost";
+			public const string MapSpatialDataHost = "MapSpatialDataHost";
 
-			internal const string SimplificationResolutionExpr = "SimplificationResolutionExpr";
+			public const string SimplificationResolutionExpr = "SimplificationResolutionExpr";
 
-			internal const string MapShapefileExprHost = "MapShapefileExprHost";
+			public const string MapShapefileExprHost = "MapShapefileExprHost";
 
-			internal const string MapLayerExprHost = "MapLayerExprHost";
+			public const string MapLayerExprHost = "MapLayerExprHost";
 
-			internal const string MapLayerHost = "MapLayerHost";
+			public const string MapLayerHost = "MapLayerHost";
 
-			internal const string VisibilityModeExpr = "VisibilityModeExpr";
+			public const string VisibilityModeExpr = "VisibilityModeExpr";
 
-			internal const string MapFieldNameExprHost = "MapFieldNameExprHost";
+			public const string MapFieldNameExprHost = "MapFieldNameExprHost";
 
-			internal const string MapFieldNameHost = "MapFieldNameHost";
+			public const string MapFieldNameHost = "MapFieldNameHost";
 
-			internal const string NameExpr = "NameExpr";
+			public const string NameExpr = "NameExpr";
 
-			internal const string MapFieldDefinitionExprHost = "MapFieldDefinitionExprHost";
+			public const string MapFieldDefinitionExprHost = "MapFieldDefinitionExprHost";
 
-			internal const string MapFieldDefinitionHost = "MapFieldDefinitionHost";
+			public const string MapFieldDefinitionHost = "MapFieldDefinitionHost";
 
-			internal const string MapPointExprHost = "MapPointExprHost";
+			public const string MapPointExprHost = "MapPointExprHost";
 
-			internal const string MapPointHost = "MapPointHost";
+			public const string MapPointHost = "MapPointHost";
 
-			internal const string MapSpatialElementExprHost = "MapSpatialElementExprHost";
+			public const string MapSpatialElementExprHost = "MapSpatialElementExprHost";
 
-			internal const string MapSpatialElementHost = "MapSpatialElementHost";
+			public const string MapSpatialElementHost = "MapSpatialElementHost";
 
-			internal const string MapPolygonExprHost = "MapPolygonExprHost";
+			public const string MapPolygonExprHost = "MapPolygonExprHost";
 
-			internal const string MapPolygonHost = "MapPolygonHost";
+			public const string MapPolygonHost = "MapPolygonHost";
 
-			internal const string UseCustomPolygonTemplateExpr = "UseCustomPolygonTemplateExpr";
+			public const string UseCustomPolygonTemplateExpr = "UseCustomPolygonTemplateExpr";
 
-			internal const string UseCustomPointTemplateExpr = "UseCustomPointTemplateExpr";
+			public const string UseCustomPointTemplateExpr = "UseCustomPointTemplateExpr";
 
-			internal const string MapLineExprHost = "MapLineExprHost";
+			public const string MapLineExprHost = "MapLineExprHost";
 
-			internal const string MapLineHost = "MapLineHost";
+			public const string MapLineHost = "MapLineHost";
 
-			internal const string UseCustomLineTemplateExpr = "UseCustomLineTemplateExpr";
+			public const string UseCustomLineTemplateExpr = "UseCustomLineTemplateExpr";
 
-			internal const string MapFieldExprHost = "MapFieldExprHost";
+			public const string MapFieldExprHost = "MapFieldExprHost";
 
-			internal const string MapFieldHost = "MapFieldHost";
+			public const string MapFieldHost = "MapFieldHost";
 
-			internal const string MapPointTemplateExprHost = "MapPointTemplateExprHost";
+			public const string MapPointTemplateExprHost = "MapPointTemplateExprHost";
 
-			internal const string MapPointTemplateHost = "MapPointTemplateHost";
+			public const string MapPointTemplateHost = "MapPointTemplateHost";
 
-			internal const string MapMarkerTemplateExprHost = "MapMarkerTemplateExprHost";
+			public const string MapMarkerTemplateExprHost = "MapMarkerTemplateExprHost";
 
-			internal const string MapMarkerTemplateHost = "MapMarkerTemplateHost";
+			public const string MapMarkerTemplateHost = "MapMarkerTemplateHost";
 
-			internal const string MapPolygonTemplateExprHost = "MapPolygonTemplateExprHost";
+			public const string MapPolygonTemplateExprHost = "MapPolygonTemplateExprHost";
 
-			internal const string MapPolygonTemplateHost = "MapPolygonTemplateHost";
+			public const string MapPolygonTemplateHost = "MapPolygonTemplateHost";
 
-			internal const string ScaleFactorExpr = "ScaleFactorExpr";
+			public const string ScaleFactorExpr = "ScaleFactorExpr";
 
-			internal const string CenterPointOffsetXExpr = "CenterPointOffsetXExpr";
+			public const string CenterPointOffsetXExpr = "CenterPointOffsetXExpr";
 
-			internal const string CenterPointOffsetYExpr = "CenterPointOffsetYExpr";
+			public const string CenterPointOffsetYExpr = "CenterPointOffsetYExpr";
 
-			internal const string ShowLabelExpr = "ShowLabelExpr";
+			public const string ShowLabelExpr = "ShowLabelExpr";
 
-			internal const string MapLineTemplateExprHost = "MapLineTemplateExprHost";
+			public const string MapLineTemplateExprHost = "MapLineTemplateExprHost";
 
-			internal const string MapLineTemplateHost = "MapLineTemplateHost";
+			public const string MapLineTemplateHost = "MapLineTemplateHost";
 
-			internal const string MapCustomColorRuleExprHost = "MapCustomColorRuleExprHost";
+			public const string MapCustomColorRuleExprHost = "MapCustomColorRuleExprHost";
 
-			internal const string MapCustomColorExprHost = "MapCustomColorExprHost";
+			public const string MapCustomColorExprHost = "MapCustomColorExprHost";
 
-			internal const string MapCustomColorHost = "MapCustomColorHost";
+			public const string MapCustomColorHost = "MapCustomColorHost";
 
-			internal const string MapPointRulesExprHost = "MapPointRulesExprHost";
+			public const string MapPointRulesExprHost = "MapPointRulesExprHost";
 
-			internal const string MapPointRulesHost = "MapPointRulesHost";
+			public const string MapPointRulesHost = "MapPointRulesHost";
 
-			internal const string MapMarkerRuleExprHost = "MapMarkerRuleExprHost";
+			public const string MapMarkerRuleExprHost = "MapMarkerRuleExprHost";
 
-			internal const string MapMarkerRuleHost = "MapMarkerRuleHost";
+			public const string MapMarkerRuleHost = "MapMarkerRuleHost";
 
-			internal const string MapMarkerExprHost = "MapMarkerExprHost";
+			public const string MapMarkerExprHost = "MapMarkerExprHost";
 
-			internal const string MapMarkerHost = "MapMarkerHost";
+			public const string MapMarkerHost = "MapMarkerHost";
 
-			internal const string MapMarkerStyleExpr = "MapMarkerStyleExpr";
+			public const string MapMarkerStyleExpr = "MapMarkerStyleExpr";
 
-			internal const string MapMarkerImageExprHost = "MapMarkerImageExprHost";
+			public const string MapMarkerImageExprHost = "MapMarkerImageExprHost";
 
-			internal const string MapMarkerImageHost = "MapMarkerImageHost";
+			public const string MapMarkerImageHost = "MapMarkerImageHost";
 
-			internal const string MapSizeRuleExprHost = "MapSizeRuleExprHost";
+			public const string MapSizeRuleExprHost = "MapSizeRuleExprHost";
 
-			internal const string MapSizeRuleHost = "MapSizeRuleHost";
+			public const string MapSizeRuleHost = "MapSizeRuleHost";
 
-			internal const string StartSizeExpr = "StartSizeExpr";
+			public const string StartSizeExpr = "StartSizeExpr";
 
-			internal const string EndSizeExpr = "EndSizeExpr";
+			public const string EndSizeExpr = "EndSizeExpr";
 
-			internal const string MapPolygonRulesExprHost = "MapPolygonRulesExprHost";
+			public const string MapPolygonRulesExprHost = "MapPolygonRulesExprHost";
 
-			internal const string MapPolygonRulesHost = "MapPolygonRulesHost";
+			public const string MapPolygonRulesHost = "MapPolygonRulesHost";
 
-			internal const string MapLineRulesExprHost = "MapLineRulesExprHost";
+			public const string MapLineRulesExprHost = "MapLineRulesExprHost";
 
-			internal const string MapLineRulesHost = "MapLineRulesHost";
+			public const string MapLineRulesHost = "MapLineRulesHost";
 
-			internal const string MapColorRuleExprHost = "MapColorRuleExprHost";
+			public const string MapColorRuleExprHost = "MapColorRuleExprHost";
 
-			internal const string MapColorRuleHost = "MapColorRuleHost";
+			public const string MapColorRuleHost = "MapColorRuleHost";
 
-			internal const string ShowInColorScaleExpr = "ShowInColorScaleExpr";
+			public const string ShowInColorScaleExpr = "ShowInColorScaleExpr";
 
-			internal const string MapColorRangeRuleExprHost = "MapColorRangeRuleExprHost";
+			public const string MapColorRangeRuleExprHost = "MapColorRangeRuleExprHost";
 
-			internal const string StartColorExpr = "StartColorExpr";
+			public const string StartColorExpr = "StartColorExpr";
 
-			internal const string MiddleColorExpr = "MiddleColorExpr";
+			public const string MiddleColorExpr = "MiddleColorExpr";
 
-			internal const string EndColorExpr = "EndColorExpr";
+			public const string EndColorExpr = "EndColorExpr";
 
-			internal const string MapColorPaletteRuleExprHost = "MapColorPaletteRuleExprHost";
+			public const string MapColorPaletteRuleExprHost = "MapColorPaletteRuleExprHost";
 
-			internal const string MapBucketExprHost = "MapBucketExprHost";
+			public const string MapBucketExprHost = "MapBucketExprHost";
 
-			internal const string MapBucketHost = "MapBucketHost";
+			public const string MapBucketHost = "MapBucketHost";
 
-			internal const string MapAppearanceRuleExprHost = "MapAppearanceRuleExprHost";
+			public const string MapAppearanceRuleExprHost = "MapAppearanceRuleExprHost";
 
-			internal const string MapAppearanceRuleHost = "MapAppearanceRuleHost";
+			public const string MapAppearanceRuleHost = "MapAppearanceRuleHost";
 
-			internal const string DataValueExpr = "DataValueExpr";
+			public const string DataValueExpr = "DataValueExpr";
 
-			internal const string DistributionTypeExpr = "DistributionTypeExpr";
+			public const string DistributionTypeExpr = "DistributionTypeExpr";
 
-			internal const string BucketCountExpr = "BucketCountExpr";
+			public const string BucketCountExpr = "BucketCountExpr";
 
-			internal const string StartValueExpr = "StartValueExpr";
+			public const string StartValueExpr = "StartValueExpr";
 
-			internal const string EndValueExpr = "EndValueExpr";
+			public const string EndValueExpr = "EndValueExpr";
 
-			internal const string MapLegendTitleExprHost = "MapLegendTitleExprHost";
+			public const string MapLegendTitleExprHost = "MapLegendTitleExprHost";
 
-			internal const string MapLegendTitleHost = "MapLegendTitleHost";
+			public const string MapLegendTitleHost = "MapLegendTitleHost";
 
-			internal const string TitleSeparatorColorExpr = "TitleSeparatorColorExpr";
+			public const string TitleSeparatorColorExpr = "TitleSeparatorColorExpr";
 
-			internal const string MapLegendExprHost = "MapLegendExprHost";
+			public const string MapLegendExprHost = "MapLegendExprHost";
 
-			internal const string MapLegendHost = "MapLegendHost";
+			public const string MapLegendHost = "MapLegendHost";
 
-			internal const string MapLocationExprHost = "MapLocationExprHost";
+			public const string MapLocationExprHost = "MapLocationExprHost";
 
-			internal const string MapLocationHost = "MapLocationHost";
+			public const string MapLocationHost = "MapLocationHost";
 
-			internal const string MapSizeExprHost = "MapSizeExprHost";
+			public const string MapSizeExprHost = "MapSizeExprHost";
 
-			internal const string MapSizeHost = "MapSizeHost";
+			public const string MapSizeHost = "MapSizeHost";
 
-			internal const string UnitExpr = "UnitExpr";
+			public const string UnitExpr = "UnitExpr";
 
-			internal const string MapGridLinesExprHost = "MapGridLinesExprHost";
+			public const string MapGridLinesExprHost = "MapGridLinesExprHost";
 
-			internal const string MapMeridiansHost = "MapMeridiansHost";
+			public const string MapMeridiansHost = "MapMeridiansHost";
 
-			internal const string MapParallelsHost = "MapParallelsHost";
+			public const string MapParallelsHost = "MapParallelsHost";
 
-			internal const string ShowLabelsExpr = "ShowLabelsExpr";
+			public const string ShowLabelsExpr = "ShowLabelsExpr";
 
-			internal const string LabelPositionExpr = "LabelPositionExpr";
+			public const string LabelPositionExpr = "LabelPositionExpr";
 
-			internal const string MapHosts = "m_mapHostsRemotable";
+			public const string MapHosts = "m_mapHostsRemotable";
 
-			internal const string MapDataRegionHosts = "m_mapDataRegionHostsRemotable";
+			public const string MapDataRegionHosts = "m_mapDataRegionHostsRemotable";
 
-			internal const string MapDockableSubItemExprHost = "MapDockableSubItemExprHost";
+			public const string MapDockableSubItemExprHost = "MapDockableSubItemExprHost";
 
-			internal const string MapDockableSubItemHost = "MapDockableSubItemHost";
+			public const string MapDockableSubItemHost = "MapDockableSubItemHost";
 
-			internal const string DockOutsideViewportExpr = "DockOutsideViewportExpr";
+			public const string DockOutsideViewportExpr = "DockOutsideViewportExpr";
 
-			internal const string MapSubItemExprHost = "MapSubItemExprHost";
+			public const string MapSubItemExprHost = "MapSubItemExprHost";
 
-			internal const string MapSubItemHost = "MapSubItemHost";
+			public const string MapSubItemHost = "MapSubItemHost";
 
-			internal const string MapBindingFieldPairExprHost = "MapBindingFieldPairExprHost";
+			public const string MapBindingFieldPairExprHost = "MapBindingFieldPairExprHost";
 
-			internal const string MapBindingFieldPairHost = "MapBindingFieldPairHost";
+			public const string MapBindingFieldPairHost = "MapBindingFieldPairHost";
 
-			internal const string FieldNameExpr = "FieldNameExpr";
+			public const string FieldNameExpr = "FieldNameExpr";
 
-			internal const string BindingExpressionExpr = "BindingExpressionExpr";
+			public const string BindingExpressionExpr = "BindingExpressionExpr";
 
-			internal const string ZoomEnabledExpr = "ZoomEnabledExpr";
+			public const string ZoomEnabledExpr = "ZoomEnabledExpr";
 
-			internal const string MapViewportExprHost = "MapViewportExprHost";
+			public const string MapViewportExprHost = "MapViewportExprHost";
 
-			internal const string MapViewportHost = "MapViewportHost";
+			public const string MapViewportHost = "MapViewportHost";
 
-			internal const string MapCoordinateSystemExpr = "MapCoordinateSystemExpr";
+			public const string MapCoordinateSystemExpr = "MapCoordinateSystemExpr";
 
-			internal const string MapProjectionExpr = "MapProjectionExpr";
+			public const string MapProjectionExpr = "MapProjectionExpr";
 
-			internal const string ProjectionCenterXExpr = "ProjectionCenterXExpr";
+			public const string ProjectionCenterXExpr = "ProjectionCenterXExpr";
 
-			internal const string ProjectionCenterYExpr = "ProjectionCenterYExpr";
+			public const string ProjectionCenterYExpr = "ProjectionCenterYExpr";
 
-			internal const string MaximumZoomExpr = "MaximumZoomExpr";
+			public const string MaximumZoomExpr = "MaximumZoomExpr";
 
-			internal const string MinimumZoomExpr = "MinimumZoomExpr";
+			public const string MinimumZoomExpr = "MinimumZoomExpr";
 
-			internal const string ContentMarginExpr = "ContentMarginExpr";
+			public const string ContentMarginExpr = "ContentMarginExpr";
 
-			internal const string GridUnderContentExpr = "GridUnderContentExpr";
+			public const string GridUnderContentExpr = "GridUnderContentExpr";
 
-			internal const string MapBindingFieldPairsHosts = "m_mapBindingFieldPairsHostsRemotable";
+			public const string MapBindingFieldPairsHosts = "m_mapBindingFieldPairsHostsRemotable";
 
-			internal const string MapLimitsExprHost = "MapLimitsExprHost";
+			public const string MapLimitsExprHost = "MapLimitsExprHost";
 
-			internal const string MapLimitsHost = "MapLimitsHost";
+			public const string MapLimitsHost = "MapLimitsHost";
 
-			internal const string MinimumXExpr = "MinimumXExpr";
+			public const string MinimumXExpr = "MinimumXExpr";
 
-			internal const string MinimumYExpr = "MinimumYExpr";
+			public const string MinimumYExpr = "MinimumYExpr";
 
-			internal const string MaximumXExpr = "MaximumXExpr";
+			public const string MaximumXExpr = "MaximumXExpr";
 
-			internal const string MaximumYExpr = "MaximumYExpr";
+			public const string MaximumYExpr = "MaximumYExpr";
 
-			internal const string LimitToDataExpr = "LimitToDataExpr";
+			public const string LimitToDataExpr = "LimitToDataExpr";
 
-			internal const string MapColorScaleExprHost = "MapColorScaleExprHost";
+			public const string MapColorScaleExprHost = "MapColorScaleExprHost";
 
-			internal const string MapColorScaleHost = "MapColorScaleHost";
+			public const string MapColorScaleHost = "MapColorScaleHost";
 
-			internal const string TickMarkLengthExpr = "TickMarkLengthExpr";
+			public const string TickMarkLengthExpr = "TickMarkLengthExpr";
 
-			internal const string ColorBarBorderColorExpr = "ColorBarBorderColorExpr";
+			public const string ColorBarBorderColorExpr = "ColorBarBorderColorExpr";
 
-			internal const string LabelFormatExpr = "LabelFormatExpr";
+			public const string LabelFormatExpr = "LabelFormatExpr";
 
-			internal const string LabelPlacementExpr = "LabelPlacementExpr";
+			public const string LabelPlacementExpr = "LabelPlacementExpr";
 
-			internal const string LabelBehaviorExpr = "LabelBehaviorExpr";
+			public const string LabelBehaviorExpr = "LabelBehaviorExpr";
 
-			internal const string RangeGapColorExpr = "RangeGapColorExpr";
+			public const string RangeGapColorExpr = "RangeGapColorExpr";
 
-			internal const string NoDataTextExpr = "NoDataTextExpr";
+			public const string NoDataTextExpr = "NoDataTextExpr";
 
-			internal const string MapColorScaleTitleExprHost = "MapColorScaleTitleExprHost";
+			public const string MapColorScaleTitleExprHost = "MapColorScaleTitleExprHost";
 
-			internal const string MapColorScaleTitleHost = "MapColorScaleTitleHost";
+			public const string MapColorScaleTitleHost = "MapColorScaleTitleHost";
 
-			internal const string MapDistanceScaleExprHost = "MapDistanceScaleExprHost";
+			public const string MapDistanceScaleExprHost = "MapDistanceScaleExprHost";
 
-			internal const string MapDistanceScaleHost = "MapDistanceScaleHost";
+			public const string MapDistanceScaleHost = "MapDistanceScaleHost";
 
-			internal const string ScaleColorExpr = "ScaleColorExpr";
+			public const string ScaleColorExpr = "ScaleColorExpr";
 
-			internal const string ScaleBorderColorExpr = "ScaleBorderColorExpr";
+			public const string ScaleBorderColorExpr = "ScaleBorderColorExpr";
 
-			internal const string MapTitleExprHost = "MapTitleExprHost";
+			public const string MapTitleExprHost = "MapTitleExprHost";
 
-			internal const string MapTitleHost = "MapTitleHost";
+			public const string MapTitleHost = "MapTitleHost";
 
-			internal const string MapLegendsHosts = "m_mapLegendsHostsRemotable";
+			public const string MapLegendsHosts = "m_mapLegendsHostsRemotable";
 
-			internal const string MapTitlesHosts = "m_mapTitlesHostsRemotable";
+			public const string MapTitlesHosts = "m_mapTitlesHostsRemotable";
 
-			internal const string MapMarkersHosts = "m_mapMarkersHostsRemotable";
+			public const string MapMarkersHosts = "m_mapMarkersHostsRemotable";
 
-			internal const string MapBucketsHosts = "m_mapBucketsHostsRemotable";
+			public const string MapBucketsHosts = "m_mapBucketsHostsRemotable";
 
-			internal const string MapCustomColorsHosts = "m_mapCustomColorsHostsRemotable";
+			public const string MapCustomColorsHosts = "m_mapCustomColorsHostsRemotable";
 
-			internal const string MapPointsHosts = "m_mapPointsHostsRemotable";
+			public const string MapPointsHosts = "m_mapPointsHostsRemotable";
 
-			internal const string MapPolygonsHosts = "m_mapPolygonsHostsRemotable";
+			public const string MapPolygonsHosts = "m_mapPolygonsHostsRemotable";
 
-			internal const string MapLinesHosts = "m_mapLinesHostsRemotable";
+			public const string MapLinesHosts = "m_mapLinesHostsRemotable";
 
-			internal const string MapTileLayersHosts = "m_mapTileLayersHostsRemotable";
+			public const string MapTileLayersHosts = "m_mapTileLayersHostsRemotable";
 
-			internal const string MapTilesHosts = "m_mapTilesHostsRemotable";
+			public const string MapTilesHosts = "m_mapTilesHostsRemotable";
 
-			internal const string MapPointLayersHosts = "m_mapPointLayersHostsRemotable";
+			public const string MapPointLayersHosts = "m_mapPointLayersHostsRemotable";
 
-			internal const string MapPolygonLayersHosts = "m_mapPolygonLayersHostsRemotable";
+			public const string MapPolygonLayersHosts = "m_mapPolygonLayersHostsRemotable";
 
-			internal const string MapLineLayersHosts = "m_mapLineLayersHostsRemotable";
+			public const string MapLineLayersHosts = "m_mapLineLayersHostsRemotable";
 
-			internal const string MapFieldNamesHosts = "m_mapFieldNamesHostsRemotable";
+			public const string MapFieldNamesHosts = "m_mapFieldNamesHostsRemotable";
 
-			internal const string MapExprHost = "MapExprHost";
+			public const string MapExprHost = "MapExprHost";
 
-			internal const string DataElementLabelExpr = "DataElementLabelExpr";
+			public const string DataElementLabelExpr = "DataElementLabelExpr";
 
-			internal const string ParagraphExprHost = "ParagraphExprHost";
+			public const string ParagraphExprHost = "ParagraphExprHost";
 
-			internal const string ParagraphHosts = "m_paragraphHostsRemotable";
+			public const string ParagraphHosts = "m_paragraphHostsRemotable";
 
-			internal const string LeftIndentExpr = "LeftIndentExpr";
+			public const string LeftIndentExpr = "LeftIndentExpr";
 
-			internal const string RightIndentExpr = "RightIndentExpr";
+			public const string RightIndentExpr = "RightIndentExpr";
 
-			internal const string HangingIndentExpr = "HangingIndentExpr";
+			public const string HangingIndentExpr = "HangingIndentExpr";
 
-			internal const string SpaceBeforeExpr = "SpaceBeforeExpr";
+			public const string SpaceBeforeExpr = "SpaceBeforeExpr";
 
-			internal const string SpaceAfterExpr = "SpaceAfterExpr";
+			public const string SpaceAfterExpr = "SpaceAfterExpr";
 
-			internal const string ListStyleExpr = "ListStyleExpr";
+			public const string ListStyleExpr = "ListStyleExpr";
 
-			internal const string ListLevelExpr = "ListLevelExpr";
+			public const string ListLevelExpr = "ListLevelExpr";
 
-			internal const string TextRunExprHost = "TextRunExprHost";
+			public const string TextRunExprHost = "TextRunExprHost";
 
-			internal const string TextRunHosts = "m_textRunHostsRemotable";
+			public const string TextRunHosts = "m_textRunHostsRemotable";
 
-			internal const string MarkupTypeExpr = "MarkupTypeExpr";
+			public const string MarkupTypeExpr = "MarkupTypeExpr";
 
-			internal const string LookupSourceExpr = "SourceExpr";
+			public const string LookupSourceExpr = "SourceExpr";
 
-			internal const string LookupDestExpr = "DestExpr";
+			public const string LookupDestExpr = "DestExpr";
 
-			internal const string LookupResultExpr = "ResultExpr";
+			public const string LookupResultExpr = "ResultExpr";
 
-			internal const string PageBreakExprHost = "PageBreakExprHost";
+			public const string PageBreakExprHost = "PageBreakExprHost";
 
-			internal const string PageBreakDisabledExpr = "DisabledExpr";
+			public const string PageBreakDisabledExpr = "DisabledExpr";
 
-			internal const string PageBreakPageNameExpr = "PageNameExpr";
+			public const string PageBreakPageNameExpr = "PageNameExpr";
 
-			internal const string PageBreakResetPageNumberExpr = "ResetPageNumberExpr";
+			public const string PageBreakResetPageNumberExpr = "ResetPageNumberExpr";
 
-			internal const string JoinConditionForeignKeyExpr = "ForeignKeyExpr";
+			public const string JoinConditionForeignKeyExpr = "ForeignKeyExpr";
 
-			internal const string JoinConditionPrimaryKeyExpr = "PrimaryKeyExpr";
+			public const string JoinConditionPrimaryKeyExpr = "PrimaryKeyExpr";
 		}
 
 		private abstract class TypeDecl
 		{
-			internal CodeTypeDeclaration Type;
+			public CodeTypeDeclaration Type;
 
-			internal string BaseTypeName;
+			public string BaseTypeName;
 
-			internal TypeDecl Parent;
+			public TypeDecl Parent;
 
-			internal CodeConstructor Constructor;
+			public CodeConstructor Constructor;
 
-			internal bool HasExpressions;
+			public bool HasExpressions;
 
-			internal CodeExpressionCollection DataValues;
+			public CodeExpressionCollection DataValues;
 
 			protected readonly bool m_setCode;
 
-			internal void NestedTypeAdd(string name, CodeTypeDeclaration nestedType)
+			public void NestedTypeAdd(string name, CodeTypeDeclaration nestedType)
 			{
 				this.ConstructorCreate();
 				this.Type.Members.Add(nestedType);
 				this.Constructor.Statements.Add(new CodeAssignStatement(new CodePropertyReferenceExpression(new CodeThisReferenceExpression(), name), this.CreateTypeCreateExpression(nestedType.Name)));
 			}
 
-			internal int NestedTypeColAdd(string name, string baseTypeName, ref CodeExpressionCollection initializers, CodeTypeDeclaration nestedType)
+			public int NestedTypeColAdd(string name, string baseTypeName, ref CodeExpressionCollection initializers, CodeTypeDeclaration nestedType)
 			{
 				this.Type.Members.Add(nestedType);
 				this.TypeColInit(name, baseTypeName, ref initializers);
@@ -1577,47 +1577,47 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private sealed class RootTypeDecl : TypeDecl
 		{
-			internal CodeExpressionCollection Aggregates;
+			public CodeExpressionCollection Aggregates;
 
-			internal CodeExpressionCollection PageSections;
+			public CodeExpressionCollection PageSections;
 
-			internal CodeExpressionCollection ReportParameters;
+			public CodeExpressionCollection ReportParameters;
 
-			internal CodeExpressionCollection DataSources;
+			public CodeExpressionCollection DataSources;
 
-			internal CodeExpressionCollection DataSets;
+			public CodeExpressionCollection DataSets;
 
-			internal CodeExpressionCollection Lines;
+			public CodeExpressionCollection Lines;
 
-			internal CodeExpressionCollection Rectangles;
+			public CodeExpressionCollection Rectangles;
 
-			internal CodeExpressionCollection TextBoxes;
+			public CodeExpressionCollection TextBoxes;
 
-			internal CodeExpressionCollection Images;
+			public CodeExpressionCollection Images;
 
-			internal CodeExpressionCollection Subreports;
+			public CodeExpressionCollection Subreports;
 
-			internal CodeExpressionCollection Tablices;
+			public CodeExpressionCollection Tablices;
 
-			internal CodeExpressionCollection DataShapes;
+			public CodeExpressionCollection DataShapes;
 
-			internal CodeExpressionCollection Charts;
+			public CodeExpressionCollection Charts;
 
-			internal CodeExpressionCollection GaugePanels;
+			public CodeExpressionCollection GaugePanels;
 
-			internal CodeExpressionCollection CustomReportItems;
+			public CodeExpressionCollection CustomReportItems;
 
-			internal CodeExpressionCollection Lookups;
+			public CodeExpressionCollection Lookups;
 
-			internal CodeExpressionCollection LookupDests;
+			public CodeExpressionCollection LookupDests;
 
-			internal CodeExpressionCollection Pages;
+			public CodeExpressionCollection Pages;
 
-			internal CodeExpressionCollection ReportSections;
+			public CodeExpressionCollection ReportSections;
 
-			internal CodeExpressionCollection Maps;
+			public CodeExpressionCollection Maps;
 
-			internal RootTypeDecl(bool setCode)
+			public RootTypeDecl(bool setCode)
 				: base("ReportExprHostImpl", "ReportExprHost", null, setCode)
 			{
 			}
@@ -1648,7 +1648,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				return codeTypeDeclaration;
 			}
 
-			internal void CompleteConstructorCreation()
+			public void CompleteConstructorCreation()
 			{
 				if (base.HasExpressions)
 				{
@@ -1695,131 +1695,131 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private sealed class NonRootTypeDecl : TypeDecl
 		{
-			internal CodeExpressionCollection Parameters;
+			public CodeExpressionCollection Parameters;
 
-			internal CodeExpressionCollection Filters;
+			public CodeExpressionCollection Filters;
 
-			internal CodeExpressionCollection Actions;
+			public CodeExpressionCollection Actions;
 
-			internal CodeExpressionCollection Fields;
+			public CodeExpressionCollection Fields;
 
-			internal CodeExpressionCollection ValueAxes;
+			public CodeExpressionCollection ValueAxes;
 
-			internal CodeExpressionCollection CategoryAxes;
+			public CodeExpressionCollection CategoryAxes;
 
-			internal CodeExpressionCollection ChartTitles;
+			public CodeExpressionCollection ChartTitles;
 
-			internal CodeExpressionCollection ChartLegends;
+			public CodeExpressionCollection ChartLegends;
 
-			internal CodeExpressionCollection ChartAreas;
+			public CodeExpressionCollection ChartAreas;
 
-			internal CodeExpressionCollection TablixMembers;
+			public CodeExpressionCollection TablixMembers;
 
-			internal CodeExpressionCollection DataShapeMembers;
+			public CodeExpressionCollection DataShapeMembers;
 
-			internal CodeExpressionCollection ChartMembers;
+			public CodeExpressionCollection ChartMembers;
 
-			internal CodeExpressionCollection GaugeMembers;
+			public CodeExpressionCollection GaugeMembers;
 
-			internal CodeExpressionCollection DataGroups;
+			public CodeExpressionCollection DataGroups;
 
-			internal CodeExpressionCollection TablixCells;
+			public CodeExpressionCollection TablixCells;
 
-			internal CodeExpressionCollection DataShapeIntersections;
+			public CodeExpressionCollection DataShapeIntersections;
 
-			internal CodeExpressionCollection DataPoints;
+			public CodeExpressionCollection DataPoints;
 
-			internal CodeExpressionCollection DataCells;
+			public CodeExpressionCollection DataCells;
 
-			internal CodeExpressionCollection ChartLegendCustomItemCells;
+			public CodeExpressionCollection ChartLegendCustomItemCells;
 
-			internal CodeExpressionCollection ChartCustomPaletteColors;
+			public CodeExpressionCollection ChartCustomPaletteColors;
 
-			internal CodeExpressionCollection ChartStripLines;
+			public CodeExpressionCollection ChartStripLines;
 
-			internal CodeExpressionCollection ChartSeriesCollection;
+			public CodeExpressionCollection ChartSeriesCollection;
 
-			internal CodeExpressionCollection ChartDerivedSeriesCollection;
+			public CodeExpressionCollection ChartDerivedSeriesCollection;
 
-			internal CodeExpressionCollection ChartFormulaParameters;
+			public CodeExpressionCollection ChartFormulaParameters;
 
-			internal CodeExpressionCollection ChartLegendColumns;
+			public CodeExpressionCollection ChartLegendColumns;
 
-			internal CodeExpressionCollection ChartLegendCustomItems;
+			public CodeExpressionCollection ChartLegendCustomItems;
 
-			internal CodeExpressionCollection Paragraphs;
+			public CodeExpressionCollection Paragraphs;
 
-			internal CodeExpressionCollection TextRuns;
+			public CodeExpressionCollection TextRuns;
 
-			internal CodeExpressionCollection GaugeCells;
+			public CodeExpressionCollection GaugeCells;
 
-			internal CodeExpressionCollection CustomLabels;
+			public CodeExpressionCollection CustomLabels;
 
-			internal CodeExpressionCollection GaugeImages;
+			public CodeExpressionCollection GaugeImages;
 
-			internal CodeExpressionCollection GaugeLabels;
+			public CodeExpressionCollection GaugeLabels;
 
-			internal CodeExpressionCollection LinearGauges;
+			public CodeExpressionCollection LinearGauges;
 
-			internal CodeExpressionCollection RadialGauges;
+			public CodeExpressionCollection RadialGauges;
 
-			internal CodeExpressionCollection RadialPointers;
+			public CodeExpressionCollection RadialPointers;
 
-			internal CodeExpressionCollection LinearPointers;
+			public CodeExpressionCollection LinearPointers;
 
-			internal CodeExpressionCollection LinearScales;
+			public CodeExpressionCollection LinearScales;
 
-			internal CodeExpressionCollection RadialScales;
+			public CodeExpressionCollection RadialScales;
 
-			internal CodeExpressionCollection ScaleRanges;
+			public CodeExpressionCollection ScaleRanges;
 
-			internal CodeExpressionCollection NumericIndicators;
+			public CodeExpressionCollection NumericIndicators;
 
-			internal CodeExpressionCollection StateIndicators;
+			public CodeExpressionCollection StateIndicators;
 
-			internal CodeExpressionCollection GaugeInputValues;
+			public CodeExpressionCollection GaugeInputValues;
 
-			internal CodeExpressionCollection NumericIndicatorRanges;
+			public CodeExpressionCollection NumericIndicatorRanges;
 
-			internal CodeExpressionCollection IndicatorStates;
+			public CodeExpressionCollection IndicatorStates;
 
-			internal CodeExpressionCollection MapMembers;
+			public CodeExpressionCollection MapMembers;
 
-			internal CodeExpressionCollection MapBindingFieldPairs;
+			public CodeExpressionCollection MapBindingFieldPairs;
 
-			internal CodeExpressionCollection MapLegends;
+			public CodeExpressionCollection MapLegends;
 
-			internal CodeExpressionCollection MapTitles;
+			public CodeExpressionCollection MapTitles;
 
-			internal CodeExpressionCollection MapMarkers;
+			public CodeExpressionCollection MapMarkers;
 
-			internal CodeExpressionCollection MapBuckets;
+			public CodeExpressionCollection MapBuckets;
 
-			internal CodeExpressionCollection MapCustomColors;
+			public CodeExpressionCollection MapCustomColors;
 
-			internal CodeExpressionCollection MapPoints;
+			public CodeExpressionCollection MapPoints;
 
-			internal CodeExpressionCollection MapPolygons;
+			public CodeExpressionCollection MapPolygons;
 
-			internal CodeExpressionCollection MapLines;
+			public CodeExpressionCollection MapLines;
 
-			internal CodeExpressionCollection MapTileLayers;
+			public CodeExpressionCollection MapTileLayers;
 
-			internal CodeExpressionCollection MapTiles;
+			public CodeExpressionCollection MapTiles;
 
-			internal CodeExpressionCollection MapPointLayers;
+			public CodeExpressionCollection MapPointLayers;
 
-			internal CodeExpressionCollection MapPolygonLayers;
+			public CodeExpressionCollection MapPolygonLayers;
 
-			internal CodeExpressionCollection MapLineLayers;
+			public CodeExpressionCollection MapLineLayers;
 
-			internal CodeExpressionCollection MapFieldNames;
+			public CodeExpressionCollection MapFieldNames;
 
-			internal CodeExpressionCollection JoinConditions;
+			public CodeExpressionCollection JoinConditions;
 
-			internal ReturnStatementList IndexedExpressions;
+			public ReturnStatementList IndexedExpressions;
 
-			internal NonRootTypeDecl(string typeName, string baseTypeName, TypeDecl parent, bool setCode)
+			public NonRootTypeDecl(string typeName, string baseTypeName, TypeDecl parent, bool setCode)
 				: base(typeName, baseTypeName, parent, setCode)
 			{
 				if (setCode)
@@ -1854,7 +1854,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private sealed class CustomCodeProxyDecl : TypeDecl
 		{
-			internal CustomCodeProxyDecl(TypeDecl parent)
+			public CustomCodeProxyDecl(TypeDecl parent)
 				: base("CustomCodeProxy", "CustomCodeProxyBase", parent, false)
 			{
 				base.ConstructorCreate();
@@ -1868,7 +1868,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				return codeConstructor;
 			}
 
-			internal void AddClassInstance(string className, string instanceName, int id)
+			public void AddClassInstance(string className, string instanceName, int id)
 			{
 				string fileName = "CMCID" + id.ToString(CultureInfo.InvariantCulture) + "end";
 				CodeMemberField codeMemberField = new CodeMemberField(className, "m_" + instanceName);
@@ -1885,7 +1885,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				base.Type.Members.Add(codeMemberProperty);
 			}
 
-			internal void AddCode(string code)
+			public void AddCode(string code)
 			{
 				CodeTypeMember codeTypeMember = new CodeSnippetTypeMember(code);
 				codeTypeMember.LinePragma = new CodeLinePragma("CustomCode", 0);
@@ -1897,7 +1897,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 		{
 			private ArrayList m_list = new ArrayList();
 
-			internal CodeMethodReturnStatement this[int index]
+			public CodeMethodReturnStatement this[int index]
 			{
 				get
 				{
@@ -1905,7 +1905,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal int Count
+			public int Count
 			{
 				get
 				{
@@ -1913,15 +1913,15 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 				}
 			}
 
-			internal int Add(CodeMethodReturnStatement retStatement)
+			public int Add(CodeMethodReturnStatement retStatement)
 			{
                 return this.m_list.Add(retStatement);
 			}
 		}
 
-		internal const string RootType = "ReportExprHostImpl";
+		public const string RootType = "ReportExprHostImpl";
 
-		internal const int InvalidExprHostId = -1;
+		public const int InvalidExprHostId = -1;
 
 		private const string EndSrcMarker = "end";
 
@@ -1941,7 +1941,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 
 		private static readonly Regex m_findCodeModuleClassInstanceDeclNumber = new Regex("^CMCID([0-9]+)end", RegexOptions.Compiled);
 
-		internal bool HasExpressions
+		public bool HasExpressions
 		{
 			get
 			{
@@ -1953,7 +1953,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal bool CustomCode
+		public bool CustomCode
 		{
 			get
 			{
@@ -1961,16 +1961,16 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal ExprHostBuilder()
+		public ExprHostBuilder()
 		{
 		}
 
-		internal void SetCustomCode()
+		public void SetCustomCode()
 		{
 			this.m_setCode = true;
 		}
 
-		internal CodeCompileUnit GetExprHost(ProcessingIntermediateFormatVersion version, bool refusePermissions)
+		public CodeCompileUnit GetExprHost(ProcessingIntermediateFormatVersion version, bool refusePermissions)
 		{
 			Global.Tracer.Assert(this.m_rootTypeDecl != null && this.m_currentTypeDecl.Parent == null, "(m_rootTypeDecl != null && m_currentTypeDecl.Parent == null)");
 			CodeCompileUnit codeCompileUnit = null;
@@ -1999,7 +1999,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			return codeCompileUnit;
 		}
 
-		internal ErrorSource ParseErrorSource(CompilerError error, out int id)
+		public ErrorSource ParseErrorSource(CompilerError error, out int id)
 		{
 			Global.Tracer.Assert(error.FileName != null, "(error.FileName != null)");
 			id = -1;
@@ -2028,514 +2028,514 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			return ErrorSource.Unknown;
 		}
 
-		internal void SharedDataSetStart()
+		public void SharedDataSetStart()
 		{
 			this.m_currentTypeDecl = (this.m_rootTypeDecl = new RootTypeDecl(this.m_setCode));
 		}
 
-		internal void SharedDataSetEnd()
+		public void SharedDataSetEnd()
 		{
 			this.m_rootTypeDecl.CompleteConstructorCreation();
 		}
 
-		internal void ReportStart()
+		public void ReportStart()
 		{
 			this.m_currentTypeDecl = (this.m_rootTypeDecl = new RootTypeDecl(this.m_setCode));
 		}
 
-		internal void ReportEnd()
+		public void ReportEnd()
 		{
 			this.m_rootTypeDecl.CompleteConstructorCreation();
 		}
 
-		internal void ReportLanguage(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportLanguage(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ReportLanguageExpr", expression);
 		}
 
-		internal void ReportAutoRefresh(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportAutoRefresh(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AutoRefreshExpr", expression);
 		}
 
-		internal void ReportInitialPageName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportInitialPageName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InitialPageNameExpr", expression);
 		}
 
-		internal void GenericLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GenericLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelExpr", expression);
 		}
 
-		internal void GenericValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GenericValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal void GenericNoRows(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GenericNoRows(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("NoRowsExpr", expression);
 		}
 
-		internal void GenericVisibilityHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GenericVisibilityHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("VisibilityHiddenExpr", expression);
 		}
 
-		internal void AggregateParamExprAdd(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void AggregateParamExprAdd(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.AggregateStart();
 			this.GenericValue(expression);
 			expression.ExprHostID = this.AggregateEnd();
 		}
 
-		internal void CustomCodeProxyStart()
+		public void CustomCodeProxyStart()
 		{
 			Global.Tracer.Assert(this.m_setCode, "(m_setCode)");
 			this.m_currentTypeDecl = new CustomCodeProxyDecl(this.m_currentTypeDecl);
 			this.m_currentTypeDecl.HasExpressions = true;
 		}
 
-		internal void CustomCodeProxyEnd()
+		public void CustomCodeProxyEnd()
 		{
 			this.m_rootTypeDecl.Type.Members.Add(this.m_currentTypeDecl.Type);
 			this.TypeEnd(this.m_rootTypeDecl);
 		}
 
-		internal void CustomCodeClassInstance(string className, string instanceName, int id)
+		public void CustomCodeClassInstance(string className, string instanceName, int id)
 		{
 			((CustomCodeProxyDecl)this.m_currentTypeDecl).AddClassInstance(className, instanceName, id);
 		}
 
-		internal void ReportCode(string code)
+		public void ReportCode(string code)
 		{
 			((CustomCodeProxyDecl)this.m_currentTypeDecl).AddCode(code);
 		}
 
-		internal void ReportParameterStart(string name)
+		public void ReportParameterStart(string name)
 		{
 			this.TypeStart(name, "ReportParamExprHost");
 		}
 
-		internal int ReportParameterEnd()
+		public int ReportParameterEnd()
 		{
 			this.ExprIndexerCreate();
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_reportParameterHostsRemotable", ref this.m_rootTypeDecl.ReportParameters);
 		}
 
-		internal void ReportParameterValidationExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportParameterValidationExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValidationExpressionExpr", expression);
 		}
 
-		internal void ReportParameterPromptExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportParameterPromptExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PromptExpr", expression);
 		}
 
-		internal void ReportParameterDefaultValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportParameterDefaultValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void ReportParameterValidValuesStart()
+		public void ReportParameterValidValuesStart()
 		{
 			this.TypeStart("ReportParameterValidValues", "IndexedExprHost");
 		}
 
-		internal void ReportParameterValidValuesEnd()
+		public void ReportParameterValidValuesEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ValidValuesHost");
 		}
 
-		internal void ReportParameterValidValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportParameterValidValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void ReportParameterValidValueLabelsStart()
+		public void ReportParameterValidValueLabelsStart()
 		{
 			this.TypeStart("ReportParameterValidValueLabels", "IndexedExprHost");
 		}
 
-		internal void ReportParameterValidValueLabelsEnd()
+		public void ReportParameterValidValueLabelsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ValidValueLabelsHost");
 		}
 
-		internal void ReportParameterValidValueLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportParameterValidValueLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void CalcFieldStart(string name)
+		public void CalcFieldStart(string name)
 		{
 			this.TypeStart(name, "CalcFieldExprHost");
 		}
 
-		internal int CalcFieldEnd()
+		public int CalcFieldEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_fieldHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).Fields);
 		}
 
-		internal void QueryParametersStart()
+		public void QueryParametersStart()
 		{
 			this.TypeStart("QueryParameters", "IndexedExprHost");
 		}
 
-		internal void QueryParametersEnd()
+		public void QueryParametersEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "QueryParametersHost");
 		}
 
-		internal void QueryParameterValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void QueryParameterValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void DataSourceStart(string name)
+		public void DataSourceStart(string name)
 		{
 			this.TypeStart(name, "DataSourceExprHost");
 		}
 
-		internal int DataSourceEnd()
+		public int DataSourceEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_dataSourceHostsRemotable", ref this.m_rootTypeDecl.DataSources);
 		}
 
-		internal void DataSourceConnectString(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataSourceConnectString(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ConnectStringExpr", expression);
 		}
 
-		internal void DataSetStart(string name)
+		public void DataSetStart(string name)
 		{
 			this.TypeStart(name, "DataSetExprHost");
 		}
 
-		internal int DataSetEnd()
+		public int DataSetEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_dataSetHostsRemotable", ref this.m_rootTypeDecl.DataSets);
 		}
 
-		internal void DataSetQueryCommandText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataSetQueryCommandText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("QueryCommandTextExpr", expression);
 		}
 
-		internal void PageSectionStart()
+		public void PageSectionStart()
 		{
 			this.TypeStart(this.CreateTypeName("PageSection", this.m_rootTypeDecl.PageSections), "StyleExprHost");
 		}
 
-		internal int PageSectionEnd()
+		public int PageSectionEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_pageSectionHostsRemotable", ref this.m_rootTypeDecl.PageSections);
 		}
 
-		internal void PageStart()
+		public void PageStart()
 		{
 			this.TypeStart(this.CreateTypeName("Page", this.m_rootTypeDecl.Pages), "StyleExprHost");
 		}
 
-		internal int PageEnd()
+		public int PageEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_pageHostsRemotable", ref this.m_rootTypeDecl.Pages);
 		}
 
-		internal void ReportSectionStart()
+		public void ReportSectionStart()
 		{
 			this.TypeStart(this.CreateTypeName("ReportSection", this.m_rootTypeDecl.ReportSections), "ReportSectionExprHost");
 		}
 
-		internal int ReportSectionEnd()
+		public int ReportSectionEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_reportSectionHostsRemotable", ref this.m_rootTypeDecl.ReportSections);
 		}
 
-		internal void ParameterOmit(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ParameterOmit(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OmitExpr", expression);
 		}
 
-		internal void StyleAttribute(string name, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void StyleAttribute(string name, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd(name + "Expr", expression);
 		}
 
-		internal void ActionInfoStart()
+		public void ActionInfoStart()
 		{
 			this.TypeStart("ActionInfo", "ActionInfoExprHost");
 		}
 
-		internal void ActionInfoEnd()
+		public void ActionInfoEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ActionInfoHost");
 		}
 
-		internal void ActionStart()
+		public void ActionStart()
 		{
 			this.TypeStart(this.CreateTypeName("Action", ((NonRootTypeDecl)this.m_currentTypeDecl).Actions), "ActionExprHost");
 		}
 
-		internal int ActionEnd()
+		public int ActionEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_actionItemHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).Actions);
 		}
 
-		internal void ActionHyperlink(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ActionHyperlink(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HyperlinkExpr", expression);
 		}
 
-		internal void ActionDrillThroughReportName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ActionDrillThroughReportName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DrillThroughReportNameExpr", expression);
 		}
 
-		internal void ActionDrillThroughBookmarkLink(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ActionDrillThroughBookmarkLink(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DrillThroughBookmarkLinkExpr", expression);
 		}
 
-		internal void ActionBookmarkLink(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ActionBookmarkLink(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BookmarkLinkExpr", expression);
 		}
 
-		internal void ActionDrillThroughParameterStart()
+		public void ActionDrillThroughParameterStart()
 		{
 			this.ParameterStart();
 		}
 
-		internal int ActionDrillThroughParameterEnd()
+		public int ActionDrillThroughParameterEnd()
 		{
 			return this.ParameterEnd("m_drillThroughParameterHostsRemotable");
 		}
 
-		internal void ReportItemBookmark(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportItemBookmark(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BookmarkExpr", expression);
 		}
 
-		internal void ReportItemToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReportItemToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void LineStart(string name)
+		public void LineStart(string name)
 		{
 			this.TypeStart(name, "ReportItemExprHost");
 		}
 
-		internal int LineEnd()
+		public int LineEnd()
 		{
 			return this.ReportItemEnd("m_lineHostsRemotable", ref this.m_rootTypeDecl.Lines);
 		}
 
-		internal void RectangleStart(string name)
+		public void RectangleStart(string name)
 		{
 			this.TypeStart(name, "ReportItemExprHost");
 		}
 
-		internal int RectangleEnd()
+		public int RectangleEnd()
 		{
 			return this.ReportItemEnd("m_rectangleHostsRemotable", ref this.m_rootTypeDecl.Rectangles);
 		}
 
-		internal void TextBoxStart(string name)
+		public void TextBoxStart(string name)
 		{
 			this.TypeStart(name, "TextBoxExprHost");
 		}
 
-		internal int TextBoxEnd()
+		public int TextBoxEnd()
 		{
 			return this.ReportItemEnd("m_textBoxHostsRemotable", ref this.m_rootTypeDecl.TextBoxes);
 		}
 
-		internal void TextBoxToggleImageInitialState(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TextBoxToggleImageInitialState(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToggleImageInitialStateExpr", expression);
 		}
 
-		internal void UserSortExpressionsStart()
+		public void UserSortExpressionsStart()
 		{
 			this.TypeStart("UserSort", "IndexedExprHost");
 		}
 
-		internal void UserSortExpressionsEnd()
+		public void UserSortExpressionsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "UserSortExpressionsHost");
 		}
 
-		internal void UserSortExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void UserSortExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void ImageStart(string name)
+		public void ImageStart(string name)
 		{
 			this.TypeStart(name, "ImageExprHost");
 		}
 
-		internal int ImageEnd()
+		public int ImageEnd()
 		{
 			return this.ReportItemEnd("m_imageHostsRemotable", ref this.m_rootTypeDecl.Images);
 		}
 
-		internal void ImageMIMEType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ImageMIMEType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MIMETypeExpr", expression);
 		}
 
-		internal void ImageTag(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ImageTag(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TagExpr", expression);
 		}
 
-		internal void SubreportStart(string name)
+		public void SubreportStart(string name)
 		{
 			this.TypeStart(name, "SubreportExprHost");
 		}
 
-		internal int SubreportEnd()
+		public int SubreportEnd()
 		{
 			return this.ReportItemEnd("m_subreportHostsRemotable", ref this.m_rootTypeDecl.Subreports);
 		}
 
-		internal void SubreportParameterStart()
+		public void SubreportParameterStart()
 		{
 			this.ParameterStart();
 		}
 
-		internal int SubreportParameterEnd()
+		public int SubreportParameterEnd()
 		{
 			return this.ParameterEnd("m_parameterHostsRemotable");
 		}
 
-		internal void SortStart()
+		public void SortStart()
 		{
 			this.TypeStart("Sort", "SortExprHost");
 		}
 
-		internal void SortEnd()
+		public void SortEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "m_sortHost");
 		}
 
-		internal void SortExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void SortExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void SortDirectionsStart()
+		public void SortDirectionsStart()
 		{
 			this.TypeStart("SortDirections", "IndexedExprHost");
 		}
 
-		internal void SortDirectionsEnd()
+		public void SortDirectionsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "SortDirectionHosts");
 		}
 
-		internal void SortDirection(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void SortDirection(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void FilterStart()
+		public void FilterStart()
 		{
 			this.TypeStart(this.CreateTypeName("Filter", ((NonRootTypeDecl)this.m_currentTypeDecl).Filters), "FilterExprHost");
 		}
 
-		internal int FilterEnd()
+		public int FilterEnd()
 		{
 			this.ExprIndexerCreate();
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_filterHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).Filters);
 		}
 
-		internal void FilterExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void FilterExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FilterExpressionExpr", expression);
 		}
 
-		internal void FilterValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void FilterValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void GroupStart(string typeName)
+		public void GroupStart(string typeName)
 		{
 			this.TypeStart(typeName, "GroupExprHost");
 		}
 
-		internal void GroupEnd()
+		public void GroupEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "m_groupHost");
 		}
 
-		internal void GroupExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GroupExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void GroupParentExpressionsStart()
+		public void GroupParentExpressionsStart()
 		{
 			this.TypeStart("Parent", "IndexedExprHost");
 		}
 
-		internal void GroupParentExpressionsEnd()
+		public void GroupParentExpressionsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ParentExpressionsHost");
 		}
 
-		internal void GroupParentExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GroupParentExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void ReGroupExpressionsStart()
+		public void ReGroupExpressionsStart()
 		{
 			this.TypeStart("ReGroup", "IndexedExprHost");
 		}
 
-		internal void ReGroupExpressionsEnd()
+		public void ReGroupExpressionsEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ReGroupExpressionsHost");
 		}
 
-		internal void ReGroupExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ReGroupExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void VariableValuesStart()
+		public void VariableValuesStart()
 		{
 			this.TypeStart("Variables", "IndexedExprHost");
 		}
 
-		internal void VariableValuesEnd()
+		public void VariableValuesEnd()
 		{
 			this.ExprIndexerCreate();
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "VariableValueHosts");
 		}
 
-		internal void VariableValueExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void VariableValueExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.IndexedExpressionAdd(expression);
 		}
 
-		internal void DataRegionStart(DataRegionMode mode, string dataregionName)
+		public void DataRegionStart(DataRegionMode mode, string dataregionName)
 		{
 			switch (mode)
 			{
@@ -2560,7 +2560,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal int DataRegionEnd(DataRegionMode mode)
+		public int DataRegionEnd(DataRegionMode mode)
 		{
 			int result = -1;
 			switch (mode)
@@ -2587,7 +2587,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			return result;
 		}
 
-		internal void DataGroupStart(DataRegionMode mode, bool column)
+		public void DataGroupStart(DataRegionMode mode, bool column)
 		{
 			string str = column ? "Column" : "Row";
 			switch (mode)
@@ -2613,7 +2613,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal int DataGroupEnd(DataRegionMode mode, bool column)
+		public int DataGroupEnd(DataRegionMode mode, bool column)
 		{
 			switch (mode)
 			{
@@ -2634,7 +2634,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal void DataCellStart(DataRegionMode mode)
+		public void DataCellStart(DataRegionMode mode)
 		{
 			switch (mode)
 			{
@@ -2658,7 +2658,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal int DataCellEnd(DataRegionMode mode)
+		public int DataCellEnd(DataRegionMode mode)
 		{
 			switch (mode)
 			{
@@ -2677,147 +2677,147 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal void MarginExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression, string marginPosition)
+		public void MarginExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression, string marginPosition)
 		{
 			this.ExpressionAdd(marginPosition + "Expr", expression);
 		}
 
-		internal void ChartTitleStart(string titleName)
+		public void ChartTitleStart(string titleName)
 		{
 			this.TypeStart(this.CreateTypeName("ChartTitle" + titleName, ((NonRootTypeDecl)this.m_currentTypeDecl).ChartTitles), "ChartTitleExprHost");
 		}
 
-		internal void ChartTitlePosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTitlePosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartTitlePositionExpr", expression);
 		}
 
-		internal void ChartTitleHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTitleHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void ChartTitleDocking(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTitleDocking(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DockingExpr", expression);
 		}
 
-		internal void ChartTitleDockOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTitleDockOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DockingOffsetExpr", expression);
 		}
 
-		internal void ChartTitleDockOutsideChartArea(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTitleDockOutsideChartArea(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DockOutsideChartAreaExpr", expression);
 		}
 
-		internal void ChartTitleToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTitleToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void ChartTitleTextOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTitleTextOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextOrientationExpr", expression);
 		}
 
-		internal int ChartTitleEnd()
+		public int ChartTitleEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_titlesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartTitles);
 		}
 
-		internal void ChartNoDataMessageStart()
+		public void ChartNoDataMessageStart()
 		{
 			this.TypeStart("ChartTitle", "ChartTitleExprHost");
 		}
 
-		internal void ChartNoDataMessageEnd()
+		public void ChartNoDataMessageEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "NoDataMessageHost");
 		}
 
-		internal void ChartCaption(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartCaption(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CaptionExpr", expression);
 		}
 
-		internal void ChartAxisTitleStart()
+		public void ChartAxisTitleStart()
 		{
 			this.TypeStart("ChartAxisTitle", "ChartAxisTitleExprHost");
 		}
 
-		internal void ChartAxisTitleTextOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisTitleTextOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextOrientationExpr", expression);
 		}
 
-		internal void ChartAxisTitleEnd()
+		public void ChartAxisTitleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "TitleHost");
 		}
 
-		internal void ChartLegendTitleStart()
+		public void ChartLegendTitleStart()
 		{
 			this.TypeStart("ChartLegendTitle", "ChartLegendTitleExprHost");
 		}
 
-		internal void ChartLegendTitleSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendTitleSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TitleSeparatorExpr", expression);
 		}
 
-		internal void ChartLegendTitleEnd()
+		public void ChartLegendTitleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "TitleExprHost");
 		}
 
-		internal void AxisMin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void AxisMin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisMinExpr", expression);
 		}
 
-		internal void AxisMax(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void AxisMax(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisMaxExpr", expression);
 		}
 
-		internal void AxisCrossAt(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void AxisCrossAt(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisCrossAtExpr", expression);
 		}
 
-		internal void AxisMajorInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void AxisMajorInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisMajorIntervalExpr", expression);
 		}
 
-		internal void AxisMinorInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void AxisMinorInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisMinorIntervalExpr", expression);
 		}
 
-		internal void ChartPalette(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartPalette(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PaletteExpr", expression);
 		}
 
-		internal void ChartPaletteHatchBehavior(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartPaletteHatchBehavior(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PaletteHatchBehaviorExpr", expression);
 		}
 
-		internal void DynamicWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DynamicWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DynamicWidthExpr", expression);
 		}
 
-		internal void DynamicHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DynamicHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DynamicHeightExpr", expression);
 		}
 
-		internal void ChartAxisStart(string axisName, bool isValueAxis)
+		public void ChartAxisStart(string axisName, bool isValueAxis)
 		{
 			if (isValueAxis)
 			{
@@ -2829,167 +2829,167 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			}
 		}
 
-		internal void ChartAxisVisible(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisVisible(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("VisibleExpr", expression);
 		}
 
-		internal void ChartAxisMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MarginExpr", expression);
 		}
 
-		internal void ChartAxisInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalExpr", expression);
 		}
 
-		internal void ChartAxisIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalTypeExpr", expression);
 		}
 
-		internal void ChartAxisIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetExpr", expression);
 		}
 
-		internal void ChartAxisIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetTypeExpr", expression);
 		}
 
-		internal void ChartAxisMarksAlwaysAtPlotEdge(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisMarksAlwaysAtPlotEdge(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MarksAlwaysAtPlotEdgeExpr", expression);
 		}
 
-		internal void ChartAxisReverse(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisReverse(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ReverseExpr", expression);
 		}
 
-		internal void ChartAxisLocation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisLocation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LocationExpr", expression);
 		}
 
-		internal void ChartAxisInterlaced(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisInterlaced(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InterlacedExpr", expression);
 		}
 
-		internal void ChartAxisInterlacedColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisInterlacedColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InterlacedColorExpr", expression);
 		}
 
-		internal void ChartAxisLogScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisLogScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LogScaleExpr", expression);
 		}
 
-		internal void ChartAxisLogBase(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisLogBase(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LogBaseExpr", expression);
 		}
 
-		internal void ChartAxisHideLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisHideLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HideLabelsExpr", expression);
 		}
 
-		internal void ChartAxisAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AngleExpr", expression);
 		}
 
-		internal void ChartAxisArrows(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisArrows(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ArrowsExpr", expression);
 		}
 
-		internal void ChartAxisPreventFontShrink(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisPreventFontShrink(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PreventFontShrinkExpr", expression);
 		}
 
-		internal void ChartAxisPreventFontGrow(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisPreventFontGrow(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PreventFontGrowExpr", expression);
 		}
 
-		internal void ChartAxisPreventLabelOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisPreventLabelOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PreventLabelOffsetExpr", expression);
 		}
 
-		internal void ChartAxisPreventWordWrap(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisPreventWordWrap(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PreventWordWrapExpr", expression);
 		}
 
-		internal void ChartAxisAllowLabelRotation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisAllowLabelRotation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AllowLabelRotationExpr", expression);
 		}
 
-		internal void ChartAxisIncludeZero(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisIncludeZero(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IncludeZeroExpr", expression);
 		}
 
-		internal void ChartAxisLabelsAutoFitDisabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisLabelsAutoFitDisabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelsAutoFitDisabledExpr", expression);
 		}
 
-		internal void ChartAxisMinFontSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisMinFontSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinFontSizeExpr", expression);
 		}
 
-		internal void ChartAxisMaxFontSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisMaxFontSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaxFontSizeExpr", expression);
 		}
 
-		internal void ChartAxisOffsetLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisOffsetLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OffsetLabelsExpr", expression);
 		}
 
-		internal void ChartAxisHideEndLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisHideEndLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HideEndLabelsExpr", expression);
 		}
 
-		internal void ChartAxisVariableAutoInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisVariableAutoInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("VariableAutoIntervalExpr", expression);
 		}
 
-		internal void ChartAxisLabelInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisLabelInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelIntervalExpr", expression);
 		}
 
-		internal void ChartAxisLabelIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisLabelIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelIntervalTypeExpr", expression);
 		}
 
-		internal void ChartAxisLabelIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisLabelIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelIntervalOffsetExpr", expression);
 		}
 
-		internal void ChartAxisLabelIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisLabelIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelIntervalOffsetTypeExpr", expression);
 		}
 
-		internal int ChartAxisEnd(bool isValueAxis)
+		public int ChartAxisEnd(bool isValueAxis)
 		{
 			if (isValueAxis)
 			{
@@ -2998,3377 +2998,3377 @@ namespace AspNetCore.ReportingServices.RdlExpressions
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_categoryAxesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).CategoryAxes);
 		}
 
-		internal void ChartGridLinesStart(bool isMajor)
+		public void ChartGridLinesStart(bool isMajor)
 		{
 			this.TypeStart("ChartGridLines" + (isMajor ? "MajorGridLinesHost" : "MinorGridLinesHost"), "ChartGridLinesExprHost");
 		}
 
-		internal void ChartGridLinesEnd(bool isMajor)
+		public void ChartGridLinesEnd(bool isMajor)
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, isMajor ? "MajorGridLinesHost" : "MinorGridLinesHost");
 		}
 
-		internal void ChartGridLinesIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartGridLinesIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetTypeExpr", expression);
 		}
 
-		internal void ChartGridLinesIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartGridLinesIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetExpr", expression);
 		}
 
-		internal void ChartGridLinesEnabledIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartGridLinesEnabledIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalTypeExpr", expression);
 		}
 
-		internal void ChartGridLinesInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartGridLinesInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalExpr", expression);
 		}
 
-		internal void ChartGridLinesEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartGridLinesEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EnabledExpr", expression);
 		}
 
-		internal void ChartLegendStart(string legendName)
+		public void ChartLegendStart(string legendName)
 		{
 			this.TypeStart(this.CreateTypeName("ChartLegend" + legendName, ((NonRootTypeDecl)this.m_currentTypeDecl).ChartLegends), "ChartLegendExprHost");
 		}
 
-		internal void ChartLegendHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void ChartLegendPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartLegendPositionExpr", expression);
 		}
 
-		internal void ChartLegendLayout(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendLayout(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LayoutExpr", expression);
 		}
 
-		internal void ChartLegendDockOutsideChartArea(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendDockOutsideChartArea(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DockOutsideChartAreaExpr", expression);
 		}
 
-		internal void ChartLegendAutoFitTextDisabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendAutoFitTextDisabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AutoFitTextDisabledExpr", expression);
 		}
 
-		internal void ChartLegendMinFontSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendMinFontSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinFontSizeExpr", expression);
 		}
 
-		internal void ChartLegendHeaderSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendHeaderSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HeaderSeparatorExpr", expression);
 		}
 
-		internal void ChartLegendHeaderSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendHeaderSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HeaderSeparatorColorExpr", expression);
 		}
 
-		internal void ChartLegendColumnSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ColumnSeparatorExpr", expression);
 		}
 
-		internal void ChartLegendColumnSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ColumnSeparatorColorExpr", expression);
 		}
 
-		internal void ChartLegendColumnSpacing(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnSpacing(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ColumnSpacingExpr", expression);
 		}
 
-		internal void ChartLegendInterlacedRows(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendInterlacedRows(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InterlacedRowsExpr", expression);
 		}
 
-		internal void ChartLegendInterlacedRowsColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendInterlacedRowsColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InterlacedRowsColorExpr", expression);
 		}
 
-		internal void ChartLegendEquallySpacedItems(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendEquallySpacedItems(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EquallySpacedItemsExpr", expression);
 		}
 
-		internal void ChartLegendReversed(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendReversed(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ReversedExpr", expression);
 		}
 
-		internal void ChartLegendMaxAutoSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendMaxAutoSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaxAutoSizeExpr", expression);
 		}
 
-		internal void ChartLegendTextWrapThreshold(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendTextWrapThreshold(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextWrapThresholdExpr", expression);
 		}
 
-		internal int ChartLegendEnd()
+		public int ChartLegendEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_legendsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartLegends);
 		}
 
-		internal void ChartSeriesStart()
+		public void ChartSeriesStart()
 		{
 			this.TypeStart("ChartSeries", "ChartSeriesExprHost");
 		}
 
-		internal void ChartSeriesType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TypeExpr", expression);
 		}
 
-		internal void ChartSeriesSubtype(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesSubtype(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SubtypeExpr", expression);
 		}
 
-		internal void ChartSeriesLegendName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesLegendName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LegendNameExpr", expression);
 		}
 
-		internal void ChartSeriesLegendText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesLegendText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LegendTextExpr", expression);
 		}
 
-		internal void ChartSeriesChartAreaName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesChartAreaName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartAreaNameExpr", expression);
 		}
 
-		internal void ChartSeriesValueAxisName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesValueAxisName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueAxisNameExpr", expression);
 		}
 
-		internal void ChartSeriesCategoryAxisName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesCategoryAxisName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CategoryAxisNameExpr", expression);
 		}
 
-		internal void ChartSeriesHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void ChartSeriesHideInLegend(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesHideInLegend(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HideInLegendExpr", expression);
 		}
 
-		internal void ChartSeriesToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSeriesToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void ChartSeriesEnd()
+		public void ChartSeriesEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ChartSeriesHost");
 		}
 
-		internal void ChartNoMoveDirectionsStart()
+		public void ChartNoMoveDirectionsStart()
 		{
 			this.TypeStart("ChartNoMoveDirections", "ChartNoMoveDirectionsExprHost");
 		}
 
-		internal void ChartNoMoveDirectionsUp(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartNoMoveDirectionsUp(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UpExpr", expression);
 		}
 
-		internal void ChartNoMoveDirectionsDown(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartNoMoveDirectionsDown(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DownExpr", expression);
 		}
 
-		internal void ChartNoMoveDirectionsLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartNoMoveDirectionsLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LeftExpr", expression);
 		}
 
-		internal void ChartNoMoveDirectionsRight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartNoMoveDirectionsRight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RightExpr", expression);
 		}
 
-		internal void ChartNoMoveDirectionsUpLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartNoMoveDirectionsUpLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UpLeftExpr", expression);
 		}
 
-		internal void ChartNoMoveDirectionsUpRight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartNoMoveDirectionsUpRight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UpRightExpr", expression);
 		}
 
-		internal void ChartNoMoveDirectionsDownLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartNoMoveDirectionsDownLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DownLeftExpr", expression);
 		}
 
-		internal void ChartNoMoveDirectionsDownRight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartNoMoveDirectionsDownRight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DownRightExpr", expression);
 		}
 
-		internal void ChartNoMoveDirectionsEnd()
+		public void ChartNoMoveDirectionsEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "NoMoveDirectionsHost");
 		}
 
-		internal void ChartElementPositionStart(bool innerPlot)
+		public void ChartElementPositionStart(bool innerPlot)
 		{
 			this.TypeStart(innerPlot ? "ChartInnerPlotPosition" : "ChartElementPosition", "ChartElementPositionExprHost");
 		}
 
-		internal void ChartElementPositionEnd(bool innerPlot)
+		public void ChartElementPositionEnd(bool innerPlot)
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, innerPlot ? "ChartInnerPlotPositionHost" : "ChartElementPositionHost");
 		}
 
-		internal void ChartElementPositionTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartElementPositionTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TopExpr", expression);
 		}
 
-		internal void ChartElementPositionLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartElementPositionLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LeftExpr", expression);
 		}
 
-		internal void ChartElementPositionHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartElementPositionHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HeightExpr", expression);
 		}
 
-		internal void ChartElementPositionWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartElementPositionWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("WidthExpr", expression);
 		}
 
-		internal void ChartSmartLabelStart()
+		public void ChartSmartLabelStart()
 		{
 			this.TypeStart("ChartSmartLabel", "ChartSmartLabelExprHost");
 		}
 
-		internal void ChartSmartLabelAllowOutSidePlotArea(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelAllowOutSidePlotArea(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AllowOutSidePlotAreaExpr", expression);
 		}
 
-		internal void ChartSmartLabelCalloutBackColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelCalloutBackColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CalloutBackColorExpr", expression);
 		}
 
-		internal void ChartSmartLabelCalloutLineAnchor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelCalloutLineAnchor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CalloutLineAnchorExpr", expression);
 		}
 
-		internal void ChartSmartLabelCalloutLineColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelCalloutLineColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CalloutLineColorExpr", expression);
 		}
 
-		internal void ChartSmartLabelCalloutLineStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelCalloutLineStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CalloutLineStyleExpr", expression);
 		}
 
-		internal void ChartSmartLabelCalloutLineWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelCalloutLineWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CalloutLineWidthExpr", expression);
 		}
 
-		internal void ChartSmartLabelCalloutStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelCalloutStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CalloutStyleExpr", expression);
 		}
 
-		internal void ChartSmartLabelShowOverlapped(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelShowOverlapped(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShowOverlappedExpr", expression);
 		}
 
-		internal void ChartSmartLabelMarkerOverlapping(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelMarkerOverlapping(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MarkerOverlappingExpr", expression);
 		}
 
-		internal void ChartSmartLabelDisabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelDisabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DisabledExpr", expression);
 		}
 
-		internal void ChartSmartLabelMaxMovingDistance(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelMaxMovingDistance(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaxMovingDistanceExpr", expression);
 		}
 
-		internal void ChartSmartLabelMinMovingDistance(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartSmartLabelMinMovingDistance(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinMovingDistanceExpr", expression);
 		}
 
-		internal void ChartSmartLabelEnd()
+		public void ChartSmartLabelEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "SmartLabelHost");
 		}
 
-		internal void ChartAxisScaleBreakStart()
+		public void ChartAxisScaleBreakStart()
 		{
 			this.TypeStart("ChartAxisScaleBreak", "ChartAxisScaleBreakExprHost");
 		}
 
-		internal void ChartAxisScaleBreakEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisScaleBreakEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EnabledExpr", expression);
 		}
 
-		internal void ChartAxisScaleBreakBreakLineType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisScaleBreakBreakLineType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BreakLineTypeExpr", expression);
 		}
 
-		internal void ChartAxisScaleBreakCollapsibleSpaceThreshold(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisScaleBreakCollapsibleSpaceThreshold(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CollapsibleSpaceThresholdExpr", expression);
 		}
 
-		internal void ChartAxisScaleBreakMaxNumberOfBreaks(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisScaleBreakMaxNumberOfBreaks(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaxNumberOfBreaksExpr", expression);
 		}
 
-		internal void ChartAxisScaleBreakSpacing(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisScaleBreakSpacing(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SpacingExpr", expression);
 		}
 
-		internal void ChartAxisScaleBreakIncludeZero(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAxisScaleBreakIncludeZero(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IncludeZeroExpr", expression);
 		}
 
-		internal void ChartAxisScaleBreakEnd()
+		public void ChartAxisScaleBreakEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "AxisScaleBreakHost");
 		}
 
-		internal void ChartBorderSkinStart()
+		public void ChartBorderSkinStart()
 		{
 			this.TypeStart("ChartBorderSkin", "ChartBorderSkinExprHost");
 		}
 
-		internal void ChartBorderSkinBorderSkinType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartBorderSkinBorderSkinType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BorderSkinTypeExpr", expression);
 		}
 
-		internal void ChartBorderSkinEnd()
+		public void ChartBorderSkinEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "BorderSkinHost");
 		}
 
-		internal void ChartItemInLegendStart()
+		public void ChartItemInLegendStart()
 		{
 			this.TypeStart("ChartItemInLegend", "ChartDataPointInLegendExprHost");
 		}
 
-		internal void ChartItemInLegendLegendText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartItemInLegendLegendText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LegendTextExpr", expression);
 		}
 
-		internal void ChartItemInLegendToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartItemInLegendToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void ChartItemInLegendHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartItemInLegendHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void ChartItemInLegendEnd()
+		public void ChartItemInLegendEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "DataPointInLegendHost");
 		}
 
-		internal void ChartTickMarksStart(bool isMajor)
+		public void ChartTickMarksStart(bool isMajor)
 		{
 			this.TypeStart("ChartTickMarks" + (isMajor ? "MajorTickMarksHost" : "MinorTickMarksHost"), "ChartTickMarksExprHost");
 		}
 
-		internal void ChartTickMarksEnd(bool isMajor)
+		public void ChartTickMarksEnd(bool isMajor)
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, isMajor ? "MajorTickMarksHost" : "MinorTickMarksHost");
 		}
 
-		internal void ChartTickMarksEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTickMarksEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EnabledExpr", expression);
 		}
 
-		internal void ChartTickMarksType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTickMarksType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TypeExpr", expression);
 		}
 
-		internal void ChartTickMarksLength(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTickMarksLength(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LengthExpr", expression);
 		}
 
-		internal void ChartTickMarksInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTickMarksInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalExpr", expression);
 		}
 
-		internal void ChartTickMarksIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTickMarksIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalTypeExpr", expression);
 		}
 
-		internal void ChartTickMarksIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTickMarksIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetExpr", expression);
 		}
 
-		internal void ChartTickMarksIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartTickMarksIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetTypeExpr", expression);
 		}
 
-		internal void ChartEmptyPointsStart()
+		public void ChartEmptyPointsStart()
 		{
 			this.TypeStart("ChartEmptyPoints", "ChartEmptyPointsExprHost");
 		}
 
-		internal void ChartEmptyPointsAxisLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartEmptyPointsAxisLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisLabelExpr", expression);
 		}
 
-		internal void ChartEmptyPointsToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartEmptyPointsToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void ChartEmptyPointsEnd()
+		public void ChartEmptyPointsEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "EmptyPointsHost");
 		}
 
-		internal void ChartLegendColumnHeaderStart()
+		public void ChartLegendColumnHeaderStart()
 		{
 			this.TypeStart("ChartLegendColumnHeader", "ChartLegendColumnHeaderExprHost");
 		}
 
-		internal void ChartLegendColumnHeaderValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnHeaderValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal void ChartLegendColumnHeaderEnd()
+		public void ChartLegendColumnHeaderEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ChartLegendColumnHeaderHost");
 		}
 
-		internal void ChartCustomPaletteColorStart(int index)
+		public void ChartCustomPaletteColorStart(int index)
 		{
 			this.TypeStart(this.CreateTypeName("ChartCustomPaletteColor" + index.ToString(CultureInfo.InvariantCulture), ((NonRootTypeDecl)this.m_currentTypeDecl).ChartCustomPaletteColors), "ChartCustomPaletteColorExprHost");
 		}
 
-		internal int ChartCustomPaletteColorEnd()
+		public int ChartCustomPaletteColorEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_customPaletteColorHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartCustomPaletteColors);
 		}
 
-		internal void ChartCustomPaletteColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartCustomPaletteColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ColorExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellStart(string name)
+		public void ChartLegendCustomItemCellStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("ChartLegendCustomItemCell" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).ChartLegendCustomItemCells), "ChartLegendCustomItemCellExprHost");
 		}
 
-		internal void ChartLegendCustomItemCellCellType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellCellType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CellTypeExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellCellSpan(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellCellSpan(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CellSpanExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellImageWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellImageWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ImageWidthExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellImageHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellImageHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ImageHeightExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellSymbolHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellSymbolHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SymbolHeightExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellSymbolWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellSymbolWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SymbolWidthExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellAlignment(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellAlignment(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AlignmentExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellTopMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellTopMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TopMarginExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellBottomMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellBottomMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BottomMarginExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellLeftMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellLeftMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LeftMarginExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemCellRightMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemCellRightMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RightMarginExpr", expression);
 		}
 
-		internal int ChartLegendCustomItemCellEnd()
+		public int ChartLegendCustomItemCellEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_legendCustomItemCellHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartLegendCustomItemCells);
 		}
 
-		internal void ChartDerivedSeriesStart(int index)
+		public void ChartDerivedSeriesStart(int index)
 		{
 			this.TypeStart(this.CreateTypeName("ChartDerivedSeries" + index.ToString(CultureInfo.InvariantCulture), ((NonRootTypeDecl)this.m_currentTypeDecl).ChartDerivedSeriesCollection), "ChartDerivedSeriesExprHost");
 		}
 
-		internal void ChartDerivedSeriesSourceChartSeriesName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDerivedSeriesSourceChartSeriesName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SourceChartSeriesNameExpr", expression);
 		}
 
-		internal void ChartDerivedSeriesDerivedSeriesFormula(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDerivedSeriesDerivedSeriesFormula(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DerivedSeriesFormulaExpr", expression);
 		}
 
-		internal int ChartDerivedSeriesEnd()
+		public int ChartDerivedSeriesEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_derivedSeriesCollectionHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartDerivedSeriesCollection);
 		}
 
-		internal void ChartStripLineStart(int index)
+		public void ChartStripLineStart(int index)
 		{
 			this.TypeStart(this.CreateTypeName("ChartStripLine" + index.ToString(CultureInfo.InvariantCulture), ((NonRootTypeDecl)this.m_currentTypeDecl).ChartStripLines), "ChartStripLineExprHost");
 		}
 
-		internal void ChartStripLineTitle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineTitle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TitleExpr", expression);
 		}
 
-		internal void ChartStripLineTitleAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineTitleAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TitleAngleExpr", expression);
 		}
 
-		internal void ChartStripLineTextOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineTextOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextOrientationExpr", expression);
 		}
 
-		internal void ChartStripLineToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void ChartStripLineInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalExpr", expression);
 		}
 
-		internal void ChartStripLineIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineIntervalType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalTypeExpr", expression);
 		}
 
-		internal void ChartStripLineIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetExpr", expression);
 		}
 
-		internal void ChartStripLineIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineIntervalOffsetType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetTypeExpr", expression);
 		}
 
-		internal void ChartStripLineStripWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineStripWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("StripWidthExpr", expression);
 		}
 
-		internal void ChartStripLineStripWidthType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartStripLineStripWidthType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("StripWidthTypeExpr", expression);
 		}
 
-		internal int ChartStripLineEnd()
+		public int ChartStripLineEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_stripLinesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartStripLines);
 		}
 
-		internal void ChartFormulaParameterStart(string name)
+		public void ChartFormulaParameterStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("ChartFormulaParameter" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).ChartFormulaParameters), "ChartFormulaParameterExprHost");
 		}
 
-		internal void ChartFormulaParameterValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartFormulaParameterValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal int ChartFormulaParameterEnd()
+		public int ChartFormulaParameterEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_formulaParametersHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartFormulaParameters);
 		}
 
-		internal void ChartLegendColumnStart(string name)
+		public void ChartLegendColumnStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("ChartLegendColumn" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).ChartLegendColumns), "ChartLegendColumnExprHost");
 		}
 
-		internal void ChartLegendColumnColumnType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnColumnType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ColumnTypeExpr", expression);
 		}
 
-		internal void ChartLegendColumnValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal void ChartLegendColumnToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void ChartLegendColumnMinimumWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnMinimumWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinimumWidthExpr", expression);
 		}
 
-		internal void ChartLegendColumnMaximumWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnMaximumWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaximumWidthExpr", expression);
 		}
 
-		internal void ChartLegendColumnSeriesSymbolWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnSeriesSymbolWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SeriesSymbolWidthExpr", expression);
 		}
 
-		internal void ChartLegendColumnSeriesSymbolHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendColumnSeriesSymbolHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SeriesSymbolHeightExpr", expression);
 		}
 
-		internal int ChartLegendColumnEnd()
+		public int ChartLegendColumnEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_legendColumnsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartLegendColumns);
 		}
 
-		internal void ChartLegendCustomItemStart(string name)
+		public void ChartLegendCustomItemStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("ChartLegendCustomItem" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).ChartLegendCustomItems), "ChartLegendCustomItemExprHost");
 		}
 
-		internal void ChartLegendCustomItemSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SeparatorExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SeparatorColorExpr", expression);
 		}
 
-		internal void ChartLegendCustomItemToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartLegendCustomItemToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal int ChartLegendCustomItemEnd()
+		public int ChartLegendCustomItemEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_legendCustomItemsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartLegendCustomItems);
 		}
 
-		internal void ChartAreaStart(string chartAreaName)
+		public void ChartAreaStart(string chartAreaName)
 		{
 			this.TypeStart(this.CreateTypeName("ChartArea" + chartAreaName, ((NonRootTypeDecl)this.m_currentTypeDecl).ChartAreas), "ChartAreaExprHost");
 		}
 
-		internal void Chart3DPropertiesStart()
+		public void Chart3DPropertiesStart()
 		{
 			this.TypeStart("Chart3DProperties", "Chart3DPropertiesExprHost");
 		}
 
-		internal void Chart3DPropertiesEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EnabledExpr", expression);
 		}
 
-		internal void Chart3DPropertiesRotation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesRotation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RotationExpr", expression);
 		}
 
-		internal void Chart3DPropertiesProjectionMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesProjectionMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ProjectionModeExpr", expression);
 		}
 
-		internal void Chart3DPropertiesInclination(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesInclination(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InclinationExpr", expression);
 		}
 
-		internal void Chart3DPropertiesPerspective(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesPerspective(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PerspectiveExpr", expression);
 		}
 
-		internal void Chart3DPropertiesDepthRatio(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesDepthRatio(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DepthRatioExpr", expression);
 		}
 
-		internal void Chart3DPropertiesShading(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesShading(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShadingExpr", expression);
 		}
 
-		internal void Chart3DPropertiesGapDepth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesGapDepth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("GapDepthExpr", expression);
 		}
 
-		internal void Chart3DPropertiesWallThickness(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesWallThickness(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("WallThicknessExpr", expression);
 		}
 
-		internal void Chart3DPropertiesClustered(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Chart3DPropertiesClustered(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ClusteredExpr", expression);
 		}
 
-		internal void Chart3DPropertiesEnd()
+		public void Chart3DPropertiesEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "Chart3DPropertiesHost");
 		}
 
-		internal void ChartAreaHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAreaHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void ChartAreaAlignOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAreaAlignOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AlignOrientationExpr", expression);
 		}
 
-		internal void ChartAreaEquallySizedAxesFont(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAreaEquallySizedAxesFont(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EquallySizedAxesFontExpr", expression);
 		}
 
-		internal void ChartAlignTypePosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAlignTypePosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartAlignTypePositionExpr", expression);
 		}
 
-		internal void ChartAlignTypeInnerPlotPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAlignTypeInnerPlotPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InnerPlotPositionExpr", expression);
 		}
 
-		internal void ChartAlignTypCursor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAlignTypCursor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CursorExpr", expression);
 		}
 
-		internal void ChartAlignTypeAxesView(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartAlignTypeAxesView(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxesViewExpr", expression);
 		}
 
-		internal int ChartAreaEnd()
+		public int ChartAreaEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_chartAreasHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ChartAreas);
 		}
 
-		internal void ChartDataPointValueX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesXExpr", expression);
 		}
 
-		internal void ChartDataPointValueY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesYExpr", expression);
 		}
 
-		internal void ChartDataPointValueSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesSizeExpr", expression);
 		}
 
-		internal void ChartDataPointValueHigh(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueHigh(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesHighExpr", expression);
 		}
 
-		internal void ChartDataPointValueLow(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueLow(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesLowExpr", expression);
 		}
 
-		internal void ChartDataPointValueStart(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueStart(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesStartExpr", expression);
 		}
 
-		internal void ChartDataPointValueEnd(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueEnd(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesEndExpr", expression);
 		}
 
-		internal void ChartDataPointValueMean(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueMean(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesMeanExpr", expression);
 		}
 
-		internal void ChartDataPointValueMedian(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueMedian(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesMedianExpr", expression);
 		}
 
-		internal void ChartDataPointValueHighlightX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueHighlightX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesHighlightXExpr", expression);
 		}
 
-		internal void ChartDataPointValueHighlightY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueHighlightY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesHighlightYExpr", expression);
 		}
 
-		internal void ChartDataPointValueHighlightSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueHighlightSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataPointValuesHighlightSizeExpr", expression);
 		}
 
-		internal void ChartDataPointValueFormatX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueFormatX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartDataPointValueFormatXExpr", expression);
 		}
 
-		internal void ChartDataPointValueFormatY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueFormatY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartDataPointValueFormatYExpr", expression);
 		}
 
-		internal void ChartDataPointValueFormatSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueFormatSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartDataPointValueFormatSizeExpr", expression);
 		}
 
-		internal void ChartDataPointValueCurrencyLanguageX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueCurrencyLanguageX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartDataPointValueCurrencyLanguageXExpr", expression);
 		}
 
-		internal void ChartDataPointValueCurrencyLanguageY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueCurrencyLanguageY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartDataPointValueCurrencyLanguageYExpr", expression);
 		}
 
-		internal void ChartDataPointValueCurrencyLanguageSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointValueCurrencyLanguageSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartDataPointValueCurrencyLanguageSizeExpr", expression);
 		}
 
-		internal void ChartDataPointAxisLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointAxisLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AxisLabelExpr", expression);
 		}
 
-		internal void ChartDataPointToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataPointToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void DataLabelStart()
+		public void DataLabelStart()
 		{
 			this.TypeStart("DataLabel", "ChartDataLabelExprHost");
 		}
 
-		internal void DataLabelLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataLabelLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelExpr", expression);
 		}
 
-		internal void DataLabelVisible(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataLabelVisible(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("VisibleExpr", expression);
 		}
 
-		internal void DataLabelPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataLabelPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ChartDataLabelPositionExpr", expression);
 		}
 
-		internal void DataLabelRotation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataLabelRotation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RotationExpr", expression);
 		}
 
-		internal void DataLabelUseValueAsLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataLabelUseValueAsLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseValueAsLabelExpr", expression);
 		}
 
-		internal void ChartDataLabelToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartDataLabelToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void DataLabelEnd()
+		public void DataLabelEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "DataLabelHost");
 		}
 
-		internal void DataPointStyleStart()
+		public void DataPointStyleStart()
 		{
 			this.StyleStart("Style");
 		}
 
-		internal void DataPointStyleEnd()
+		public void DataPointStyleEnd()
 		{
 			this.StyleEnd("StyleHost");
 		}
 
-		internal void DataPointMarkerStart()
+		public void DataPointMarkerStart()
 		{
 			this.TypeStart("ChartMarker", "ChartMarkerExprHost");
 		}
 
-		internal void DataPointMarkerSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataPointMarkerSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SizeExpr", expression);
 		}
 
-		internal void DataPointMarkerType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataPointMarkerType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TypeExpr", expression);
 		}
 
-		internal void DataPointMarkerEnd()
+		public void DataPointMarkerEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ChartMarkerHost");
 		}
 
-		internal void ChartMemberLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ChartMemberLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MemberLabelExpr", expression);
 		}
 
-		internal void ChartMemberStyleStart()
+		public void ChartMemberStyleStart()
 		{
 			this.StyleStart("MemberStyle");
 		}
 
-		internal void ChartMemberStyleEnd()
+		public void ChartMemberStyleEnd()
 		{
 			this.StyleEnd("MemberStyleHost");
 		}
 
-		internal void DataValueStart()
+		public void DataValueStart()
 		{
 			this.TypeStart(this.CreateTypeName("DataValue", this.m_currentTypeDecl.DataValues), "DataValueExprHost");
 		}
 
-		internal int DataValueEnd(bool isCustomProperty)
+		public int DataValueEnd(bool isCustomProperty)
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, isCustomProperty ? "m_customPropertyHostsRemotable" : "m_dataValueHostsRemotable", ref this.m_currentTypeDecl.Parent.DataValues);
 		}
 
-		internal void DataValueName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataValueName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataValueNameExpr", expression);
 		}
 
-		internal void DataValueValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void DataValueValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataValueValueExpr", expression);
 		}
 
-		internal void BaseGaugeImageSource(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void BaseGaugeImageSource(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SourceExpr", expression);
 		}
 
-		internal void BaseGaugeImageValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void BaseGaugeImageValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal void BaseGaugeImageMIMEType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void BaseGaugeImageMIMEType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MIMETypeExpr", expression);
 		}
 
-		internal void BaseGaugeImageTransparentColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void BaseGaugeImageTransparentColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TransparentColorExpr", expression);
 		}
 
-		internal void CapImageStart()
+		public void CapImageStart()
 		{
 			this.TypeStart("CapImage", "CapImageExprHost");
 		}
 
-		internal void CapImageEnd()
+		public void CapImageEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "CapImageHost");
 		}
 
-		internal void CapImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CapImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HueColorExpr", expression);
 		}
 
-		internal void CapImageOffsetX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CapImageOffsetX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OffsetXExpr", expression);
 		}
 
-		internal void CapImageOffsetY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CapImageOffsetY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OffsetYExpr", expression);
 		}
 
-		internal void FrameImageStart()
+		public void FrameImageStart()
 		{
 			this.TypeStart("FrameImage", "FrameImageExprHost");
 		}
 
-		internal void FrameImageEnd()
+		public void FrameImageEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "FrameImageHost");
 		}
 
-		internal void FrameImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void FrameImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HueColorExpr", expression);
 		}
 
-		internal void FrameImageTransparency(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void FrameImageTransparency(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TransparencyExpr", expression);
 		}
 
-		internal void FrameImageClipImage(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void FrameImageClipImage(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ClipImageExpr", expression);
 		}
 
-		internal void PointerImageStart()
+		public void PointerImageStart()
 		{
 			this.TypeStart("PointerImage", "PointerImageExprHost");
 		}
 
-		internal void PointerImageEnd()
+		public void PointerImageEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "PointerImageHost");
 		}
 
-		internal void PointerImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PointerImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HueColorExpr", expression);
 		}
 
-		internal void PointerImageTransparency(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PointerImageTransparency(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TransparencyExpr", expression);
 		}
 
-		internal void PointerImageOffsetX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PointerImageOffsetX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OffsetXExpr", expression);
 		}
 
-		internal void PointerImageOffsetY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PointerImageOffsetY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OffsetYExpr", expression);
 		}
 
-		internal void TopImageStart()
+		public void TopImageStart()
 		{
 			this.TypeStart("TopImage", "TopImageExprHost");
 		}
 
-		internal void TopImageEnd()
+		public void TopImageEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "TopImageHost");
 		}
 
-		internal void TopImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TopImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HueColorExpr", expression);
 		}
 
-		internal void BackFrameStart()
+		public void BackFrameStart()
 		{
 			this.TypeStart("BackFrame", "BackFrameExprHost");
 		}
 
-		internal void BackFrameEnd()
+		public void BackFrameEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "BackFrameHost");
 		}
 
-		internal void BackFrameFrameStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void BackFrameFrameStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FrameStyleExpr", expression);
 		}
 
-		internal void BackFrameFrameShape(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void BackFrameFrameShape(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FrameShapeExpr", expression);
 		}
 
-		internal void BackFrameFrameWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void BackFrameFrameWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FrameWidthExpr", expression);
 		}
 
-		internal void BackFrameGlassEffect(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void BackFrameGlassEffect(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("GlassEffectExpr", expression);
 		}
 
-		internal void FrameBackgroundStart()
+		public void FrameBackgroundStart()
 		{
 			this.TypeStart("FrameBackground", "FrameBackgroundExprHost");
 		}
 
-		internal void FrameBackgroundEnd()
+		public void FrameBackgroundEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "FrameBackgroundHost");
 		}
 
-		internal void CustomLabelStart(string name)
+		public void CustomLabelStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("CustomLabel" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).CustomLabels), "CustomLabelExprHost");
 		}
 
-		internal int CustomLabelEnd()
+		public int CustomLabelEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_customLabelsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).CustomLabels);
 		}
 
-		internal void CustomLabelText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CustomLabelText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextExpr", expression);
 		}
 
-		internal void CustomLabelAllowUpsideDown(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CustomLabelAllowUpsideDown(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AllowUpsideDownExpr", expression);
 		}
 
-		internal void CustomLabelDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CustomLabelDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DistanceFromScaleExpr", expression);
 		}
 
-		internal void CustomLabelFontAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CustomLabelFontAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FontAngleExpr", expression);
 		}
 
-		internal void CustomLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CustomLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PlacementExpr", expression);
 		}
 
-		internal void CustomLabelRotateLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CustomLabelRotateLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RotateLabelExpr", expression);
 		}
 
-		internal void CustomLabelValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CustomLabelValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal void CustomLabelHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CustomLabelHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void CustomLabelUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void CustomLabelUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseFontPercentExpr", expression);
 		}
 
-		internal void GaugeClipContent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeClipContent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ClipContentExpr", expression);
 		}
 
-		internal void GaugeImageStart(string name)
+		public void GaugeImageStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("GaugeImage" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).GaugeImages), "GaugeImageExprHost");
 		}
 
-		internal int GaugeImageEnd()
+		public int GaugeImageEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_gaugeImagesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).GaugeImages);
 		}
 
-		internal void GaugeAspectRatio(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeAspectRatio(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AspectRatioExpr", expression);
 		}
 
-		internal void GaugeInputValueStart(int index)
+		public void GaugeInputValueStart(int index)
 		{
 			this.TypeStart(this.CreateTypeName("GaugeInputValue" + index.ToString(CultureInfo.InvariantCulture), ((NonRootTypeDecl)this.m_currentTypeDecl).GaugeInputValues), "GaugeInputValueExprHost");
 		}
 
-		internal int GaugeInputValueEnd()
+		public int GaugeInputValueEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_gaugeInputValueHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).GaugeInputValues);
 		}
 
-		internal void GaugeInputValueValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeInputValueValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal void GaugeInputValueFormula(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeInputValueFormula(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FormulaExpr", expression);
 		}
 
-		internal void GaugeInputValueMinPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeInputValueMinPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinPercentExpr", expression);
 		}
 
-		internal void GaugeInputValueMaxPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeInputValueMaxPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaxPercentExpr", expression);
 		}
 
-		internal void GaugeInputValueMultiplier(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeInputValueMultiplier(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MultiplierExpr", expression);
 		}
 
-		internal void GaugeInputValueAddConstant(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeInputValueAddConstant(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AddConstantExpr", expression);
 		}
 
-		internal void GaugeLabelStart(string name)
+		public void GaugeLabelStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("GaugeLabel" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).GaugeLabels), "GaugeLabelExprHost");
 		}
 
-		internal int GaugeLabelEnd()
+		public int GaugeLabelEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_gaugeLabelsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).GaugeLabels);
 		}
 
-		internal void GaugeLabelText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeLabelText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextExpr", expression);
 		}
 
-		internal void GaugeLabelAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeLabelAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AngleExpr", expression);
 		}
 
-		internal void GaugeLabelResizeMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeLabelResizeMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ResizeModeExpr", expression);
 		}
 
-		internal void GaugeLabelTextShadowOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeLabelTextShadowOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextShadowOffsetExpr", expression);
 		}
 
-		internal void GaugeLabelUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeLabelUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseFontPercentExpr", expression);
 		}
 
-		internal void GaugePanelAntiAliasing(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelAntiAliasing(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AntiAliasingExpr", expression);
 		}
 
-		internal void GaugePanelAutoLayout(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelAutoLayout(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AutoLayoutExpr", expression);
 		}
 
-		internal void GaugePanelShadowIntensity(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelShadowIntensity(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShadowIntensityExpr", expression);
 		}
 
-		internal void GaugePanelTextAntiAliasingQuality(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelTextAntiAliasingQuality(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextAntiAliasingQualityExpr", expression);
 		}
 
-		internal void GaugePanelItemTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelItemTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TopExpr", expression);
 		}
 
-		internal void GaugePanelItemLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelItemLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LeftExpr", expression);
 		}
 
-		internal void GaugePanelItemHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelItemHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HeightExpr", expression);
 		}
 
-		internal void GaugePanelItemWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelItemWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("WidthExpr", expression);
 		}
 
-		internal void GaugePanelItemZIndex(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelItemZIndex(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ZIndexExpr", expression);
 		}
 
-		internal void GaugePanelItemHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelItemHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void GaugePanelItemToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePanelItemToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void GaugePointerBarStart(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerBarStart(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BarStartExpr", expression);
 		}
 
-		internal void GaugePointerDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DistanceFromScaleExpr", expression);
 		}
 
-		internal void GaugePointerMarkerLength(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerMarkerLength(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MarkerLengthExpr", expression);
 		}
 
-		internal void GaugePointerMarkerStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerMarkerStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MarkerStyleExpr", expression);
 		}
 
-		internal void GaugePointerPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PlacementExpr", expression);
 		}
 
-		internal void GaugePointerSnappingEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerSnappingEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SnappingEnabledExpr", expression);
 		}
 
-		internal void GaugePointerSnappingInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerSnappingInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SnappingIntervalExpr", expression);
 		}
 
-		internal void GaugePointerToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void GaugePointerHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void GaugePointerWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugePointerWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("WidthExpr", expression);
 		}
 
-		internal void GaugeScaleInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalExpr", expression);
 		}
 
-		internal void GaugeScaleIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetExpr", expression);
 		}
 
-		internal void GaugeScaleLogarithmic(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleLogarithmic(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LogarithmicExpr", expression);
 		}
 
-		internal void GaugeScaleLogarithmicBase(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleLogarithmicBase(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LogarithmicBaseExpr", expression);
 		}
 
-		internal void GaugeScaleMultiplier(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleMultiplier(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MultiplierExpr", expression);
 		}
 
-		internal void GaugeScaleReversed(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleReversed(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ReversedExpr", expression);
 		}
 
-		internal void GaugeScaleTickMarksOnTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleTickMarksOnTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TickMarksOnTopExpr", expression);
 		}
 
-		internal void GaugeScaleToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void GaugeScaleHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void GaugeScaleWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeScaleWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("WidthExpr", expression);
 		}
 
-		internal void GaugeTickMarksStart(bool isMajor)
+		public void GaugeTickMarksStart(bool isMajor)
 		{
 			this.TypeStart("GaugeTickMarks" + (isMajor ? "GaugeMajorTickMarksHost" : "GaugeMinorTickMarksHost"), "GaugeTickMarksExprHost");
 		}
 
-		internal void GaugeTickMarksEnd(bool isMajor)
+		public void GaugeTickMarksEnd(bool isMajor)
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, isMajor ? "GaugeMajorTickMarksHost" : "GaugeMinorTickMarksHost");
 		}
 
-		internal void TickMarkStyleStart()
+		public void TickMarkStyleStart()
 		{
 			this.TypeStart("TickMarkStyle", "TickMarkStyleExprHost");
 		}
 
-		internal void TickMarkStyleEnd()
+		public void TickMarkStyleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "TickMarkStyleHost");
 		}
 
-		internal void GaugeTickMarksInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeTickMarksInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalExpr", expression);
 		}
 
-		internal void GaugeTickMarksIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void GaugeTickMarksIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetExpr", expression);
 		}
 
-		internal void LinearGaugeStart(string name)
+		public void LinearGaugeStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("LinearGauge" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).LinearGauges), "LinearGaugeExprHost");
 		}
 
-		internal int LinearGaugeEnd()
+		public int LinearGaugeEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_linearGaugesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).LinearGauges);
 		}
 
-		internal void LinearGaugeOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void LinearGaugeOrientation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OrientationExpr", expression);
 		}
 
-		internal void LinearPointerStart(string name)
+		public void LinearPointerStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("LinearPointer" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).LinearPointers), "LinearPointerExprHost");
 		}
 
-		internal int LinearPointerEnd()
+		public int LinearPointerEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_linearPointersHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).LinearPointers);
 		}
 
-		internal void LinearPointerType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void LinearPointerType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TypeExpr", expression);
 		}
 
-		internal void LinearScaleStart(string name)
+		public void LinearScaleStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("LinearScale" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).LinearScales), "LinearScaleExprHost");
 		}
 
-		internal int LinearScaleEnd()
+		public int LinearScaleEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_linearScalesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).LinearScales);
 		}
 
-		internal void LinearScaleStartMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void LinearScaleStartMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("StartMarginExpr", expression);
 		}
 
-		internal void LinearScaleEndMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void LinearScaleEndMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EndMarginExpr", expression);
 		}
 
-		internal void LinearScalePosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void LinearScalePosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PositionExpr", expression);
 		}
 
-		internal void NumericIndicatorStart(string name)
+		public void NumericIndicatorStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("NumericIndicator" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).NumericIndicators), "NumericIndicatorExprHost");
 		}
 
-		internal int NumericIndicatorEnd()
+		public int NumericIndicatorEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_numericIndicatorsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).NumericIndicators);
 		}
 
-		internal void NumericIndicatorDecimalDigitColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorDecimalDigitColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DecimalDigitColorExpr", expression);
 		}
 
-		internal void NumericIndicatorDigitColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorDigitColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DigitColorExpr", expression);
 		}
 
-		internal void NumericIndicatorUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseFontPercentExpr", expression);
 		}
 
-		internal void NumericIndicatorDecimalDigits(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorDecimalDigits(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DecimalDigitsExpr", expression);
 		}
 
-		internal void NumericIndicatorDigits(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorDigits(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DigitsExpr", expression);
 		}
 
-		internal void NumericIndicatorMultiplier(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorMultiplier(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MultiplierExpr", expression);
 		}
 
-		internal void NumericIndicatorNonNumericString(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorNonNumericString(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("NonNumericStringExpr", expression);
 		}
 
-		internal void NumericIndicatorOutOfRangeString(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorOutOfRangeString(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OutOfRangeStringExpr", expression);
 		}
 
-		internal void NumericIndicatorResizeMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorResizeMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ResizeModeExpr", expression);
 		}
 
-		internal void NumericIndicatorShowDecimalPoint(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorShowDecimalPoint(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShowDecimalPointExpr", expression);
 		}
 
-		internal void NumericIndicatorShowLeadingZeros(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorShowLeadingZeros(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShowLeadingZerosExpr", expression);
 		}
 
-		internal void NumericIndicatorIndicatorStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorIndicatorStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IndicatorStyleExpr", expression);
 		}
 
-		internal void NumericIndicatorShowSign(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorShowSign(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShowSignExpr", expression);
 		}
 
-		internal void NumericIndicatorSnappingEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorSnappingEnabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SnappingEnabledExpr", expression);
 		}
 
-		internal void NumericIndicatorSnappingInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorSnappingInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SnappingIntervalExpr", expression);
 		}
 
-		internal void NumericIndicatorLedDimColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorLedDimColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LedDimColorExpr", expression);
 		}
 
-		internal void NumericIndicatorSeparatorWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorSeparatorWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SeparatorWidthExpr", expression);
 		}
 
-		internal void NumericIndicatorSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SeparatorColorExpr", expression);
 		}
 
-		internal void NumericIndicatorRangeStart(string name)
+		public void NumericIndicatorRangeStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("NumericIndicatorRange" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).NumericIndicatorRanges), "NumericIndicatorRangeExprHost");
 		}
 
-		internal int NumericIndicatorRangeEnd()
+		public int NumericIndicatorRangeEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_numericIndicatorRangesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).NumericIndicatorRanges);
 		}
 
-		internal void NumericIndicatorRangeDecimalDigitColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorRangeDecimalDigitColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DecimalDigitColorExpr", expression);
 		}
 
-		internal void NumericIndicatorRangeDigitColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void NumericIndicatorRangeDigitColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DigitColorExpr", expression);
 		}
 
-		internal void PinLabelStart()
+		public void PinLabelStart()
 		{
 			this.TypeStart("PinLabel", "PinLabelExprHost");
 		}
 
-		internal void PinLabelEnd()
+		public void PinLabelEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "PinLabelHost");
 		}
 
-		internal void PinLabelText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PinLabelText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextExpr", expression);
 		}
 
-		internal void PinLabelAllowUpsideDown(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PinLabelAllowUpsideDown(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AllowUpsideDownExpr", expression);
 		}
 
-		internal void PinLabelDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PinLabelDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DistanceFromScaleExpr", expression);
 		}
 
-		internal void PinLabelFontAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PinLabelFontAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FontAngleExpr", expression);
 		}
 
-		internal void PinLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PinLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PlacementExpr", expression);
 		}
 
-		internal void PinLabelRotateLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PinLabelRotateLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RotateLabelExpr", expression);
 		}
 
-		internal void PinLabelUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PinLabelUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseFontPercentExpr", expression);
 		}
 
-		internal void PointerCapStart()
+		public void PointerCapStart()
 		{
 			this.TypeStart("PointerCap", "PointerCapExprHost");
 		}
 
-		internal void PointerCapEnd()
+		public void PointerCapEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "PointerCapHost");
 		}
 
-		internal void PointerCapOnTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PointerCapOnTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OnTopExpr", expression);
 		}
 
-		internal void PointerCapReflection(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PointerCapReflection(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ReflectionExpr", expression);
 		}
 
-		internal void PointerCapCapStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PointerCapCapStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CapStyleExpr", expression);
 		}
 
-		internal void PointerCapHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PointerCapHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void PointerCapWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PointerCapWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("WidthExpr", expression);
 		}
 
-		internal void RadialGaugeStart(string name)
+		public void RadialGaugeStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("RadialGauge" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).RadialGauges), "RadialGaugeExprHost");
 		}
 
-		internal int RadialGaugeEnd()
+		public int RadialGaugeEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_radialGaugesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).RadialGauges);
 		}
 
-		internal void RadialGaugePivotX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void RadialGaugePivotX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PivotXExpr", expression);
 		}
 
-		internal void RadialGaugePivotY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void RadialGaugePivotY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PivotYExpr", expression);
 		}
 
-		internal void RadialPointerStart(string name)
+		public void RadialPointerStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("RadialPointer" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).RadialPointers), "RadialPointerExprHost");
 		}
 
-		internal int RadialPointerEnd()
+		public int RadialPointerEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_radialPointersHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).RadialPointers);
 		}
 
-		internal void RadialPointerType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void RadialPointerType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TypeExpr", expression);
 		}
 
-		internal void RadialPointerNeedleStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void RadialPointerNeedleStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("NeedleStyleExpr", expression);
 		}
 
-		internal void RadialScaleStart(string name)
+		public void RadialScaleStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("RadialScale" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).RadialScales), "RadialScaleExprHost");
 		}
 
-		internal int RadialScaleEnd()
+		public int RadialScaleEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_radialScalesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).RadialScales);
 		}
 
-		internal void RadialScaleRadius(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void RadialScaleRadius(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RadiusExpr", expression);
 		}
 
-		internal void RadialScaleStartAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void RadialScaleStartAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("StartAngleExpr", expression);
 		}
 
-		internal void RadialScaleSweepAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void RadialScaleSweepAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SweepAngleExpr", expression);
 		}
 
-		internal void ScaleLabelsStart()
+		public void ScaleLabelsStart()
 		{
 			this.TypeStart("ScaleLabels", "ScaleLabelsExprHost");
 		}
 
-		internal void ScaleLabelsEnd()
+		public void ScaleLabelsEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ScaleLabelsHost");
 		}
 
-		internal void ScaleLabelsInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalExpr", expression);
 		}
 
-		internal void ScaleLabelsIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsIntervalOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalOffsetExpr", expression);
 		}
 
-		internal void ScaleLabelsAllowUpsideDown(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsAllowUpsideDown(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AllowUpsideDownExpr", expression);
 		}
 
-		internal void ScaleLabelsDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DistanceFromScaleExpr", expression);
 		}
 
-		internal void ScaleLabelsFontAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsFontAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FontAngleExpr", expression);
 		}
 
-		internal void ScaleLabelsPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PlacementExpr", expression);
 		}
 
-		internal void ScaleLabelsRotateLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsRotateLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RotateLabelsExpr", expression);
 		}
 
-		internal void ScaleLabelsShowEndLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsShowEndLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShowEndLabelsExpr", expression);
 		}
 
-		internal void ScaleLabelsHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void ScaleLabelsUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleLabelsUseFontPercent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseFontPercentExpr", expression);
 		}
 
-		internal void ScalePinStart(bool isMaximum)
+		public void ScalePinStart(bool isMaximum)
 		{
 			this.TypeStart("ScalePin" + (isMaximum ? "MaximumPinHost" : "MinimumPinHost"), "ScalePinExprHost");
 		}
 
-		internal void ScalePinEnd(bool isMaximum)
+		public void ScalePinEnd(bool isMaximum)
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, isMaximum ? "MaximumPinHost" : "MinimumPinHost");
 		}
 
-		internal void ScalePinLocation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScalePinLocation(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LocationExpr", expression);
 		}
 
-		internal void ScalePinEnable(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScalePinEnable(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EnableExpr", expression);
 		}
 
-		internal void ScaleRangeStart(string name)
+		public void ScaleRangeStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("ScaleRange" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).ScaleRanges), "ScaleRangeExprHost");
 		}
 
-		internal int ScaleRangeEnd()
+		public int ScaleRangeEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_scaleRangesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).ScaleRanges);
 		}
 
-		internal void ScaleRangeDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangeDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DistanceFromScaleExpr", expression);
 		}
 
-		internal void ScaleRangeStartWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangeStartWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("StartWidthExpr", expression);
 		}
 
-		internal void ScaleRangeEndWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangeEndWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EndWidthExpr", expression);
 		}
 
-		internal void ScaleRangeInRangeBarPointerColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangeInRangeBarPointerColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InRangeBarPointerColorExpr", expression);
 		}
 
-		internal void ScaleRangeInRangeLabelColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangeInRangeLabelColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InRangeLabelColorExpr", expression);
 		}
 
-		internal void ScaleRangeInRangeTickMarksColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangeInRangeTickMarksColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InRangeTickMarksColorExpr", expression);
 		}
 
-		internal void ScaleRangeBackgroundGradientType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangeBackgroundGradientType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BackgroundGradientTypeExpr", expression);
 		}
 
-		internal void ScaleRangePlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangePlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PlacementExpr", expression);
 		}
 
-		internal void ScaleRangeToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangeToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void ScaleRangeHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ScaleRangeHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void IndicatorImageStart()
+		public void IndicatorImageStart()
 		{
 			this.TypeStart("IndicatorImage", "IndicatorImageExprHost");
 		}
 
-		internal void IndicatorImageEnd()
+		public void IndicatorImageEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "IndicatorImageHost");
 		}
 
-		internal void IndicatorImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void IndicatorImageHueColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HueColorExpr", expression);
 		}
 
-		internal void IndicatorImageTransparency(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void IndicatorImageTransparency(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TransparencyExpr", expression);
 		}
 
-		internal void StateIndicatorStart(string name)
+		public void StateIndicatorStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("StateIndicator" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).StateIndicators), "StateIndicatorExprHost");
 		}
 
-		internal int StateIndicatorEnd()
+		public int StateIndicatorEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_stateIndicatorsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).StateIndicators);
 		}
 
-		internal void StateIndicatorIndicatorStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void StateIndicatorIndicatorStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IndicatorStyleExpr", expression);
 		}
 
-		internal void StateIndicatorScaleFactor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void StateIndicatorScaleFactor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ScaleFactorExpr", expression);
 		}
 
-		internal void StateIndicatorResizeMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void StateIndicatorResizeMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ResizeModeExpr", expression);
 		}
 
-		internal void StateIndicatorAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void StateIndicatorAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AngleExpr", expression);
 		}
 
-		internal void StateIndicatorTransformationType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void StateIndicatorTransformationType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TransformationTypeExpr", expression);
 		}
 
-		internal void ThermometerStart()
+		public void ThermometerStart()
 		{
 			this.TypeStart("Thermometer", "ThermometerExprHost");
 		}
 
-		internal void ThermometerEnd()
+		public void ThermometerEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "ThermometerHost");
 		}
 
-		internal void ThermometerBulbOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ThermometerBulbOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BulbOffsetExpr", expression);
 		}
 
-		internal void ThermometerBulbSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ThermometerBulbSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BulbSizeExpr", expression);
 		}
 
-		internal void ThermometerThermometerStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ThermometerThermometerStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ThermometerStyleExpr", expression);
 		}
 
-		internal void TickMarkStyleDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TickMarkStyleDistanceFromScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DistanceFromScaleExpr", expression);
 		}
 
-		internal void TickMarkStylePlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TickMarkStylePlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PlacementExpr", expression);
 		}
 
-		internal void TickMarkStyleEnableGradient(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TickMarkStyleEnableGradient(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EnableGradientExpr", expression);
 		}
 
-		internal void TickMarkStyleGradientDensity(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TickMarkStyleGradientDensity(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("GradientDensityExpr", expression);
 		}
 
-		internal void TickMarkStyleLength(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TickMarkStyleLength(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LengthExpr", expression);
 		}
 
-		internal void TickMarkStyleWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TickMarkStyleWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("WidthExpr", expression);
 		}
 
-		internal void TickMarkStyleShape(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TickMarkStyleShape(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShapeExpr", expression);
 		}
 
-		internal void TickMarkStyleHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TickMarkStyleHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void IndicatorStateStart(string name)
+		public void IndicatorStateStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("IndicatorState" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).IndicatorStates), "IndicatorStateExprHost");
 		}
 
-		internal int IndicatorStateEnd()
+		public int IndicatorStateEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_indicatorStatesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).IndicatorStates);
 		}
 
-		internal void IndicatorStateColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void IndicatorStateColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ColorExpr", expression);
 		}
 
-		internal void IndicatorStateScaleFactor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void IndicatorStateScaleFactor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ScaleFactorExpr", expression);
 		}
 
-		internal void IndicatorStateIndicatorStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void IndicatorStateIndicatorStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IndicatorStyleExpr", expression);
 		}
 
-		internal void MapViewZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ZoomExpr", expression);
 		}
 
-		internal void MapElementViewStart()
+		public void MapElementViewStart()
 		{
 			this.TypeStart("MapElementView", "MapElementViewExprHost");
 		}
 
-		internal void MapElementViewEnd()
+		public void MapElementViewEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapViewHost");
 		}
 
-		internal void MapElementViewLayerName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapElementViewLayerName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LayerNameExpr", expression);
 		}
 
-		internal void MapCustomViewStart()
+		public void MapCustomViewStart()
 		{
 			this.TypeStart("MapCustomView", "MapCustomViewExprHost");
 		}
 
-		internal void MapCustomViewEnd()
+		public void MapCustomViewEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapViewHost");
 		}
 
-		internal void MapCustomViewCenterX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapCustomViewCenterX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CenterXExpr", expression);
 		}
 
-		internal void MapCustomViewCenterY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapCustomViewCenterY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CenterYExpr", expression);
 		}
 
-		internal void MapDataBoundViewStart()
+		public void MapDataBoundViewStart()
 		{
 			this.TypeStart("MapDataBoundView", "MapDataBoundViewExprHost");
 		}
 
-		internal void MapDataBoundViewEnd()
+		public void MapDataBoundViewEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapViewHost");
 		}
 
-		internal void MapBorderSkinStart()
+		public void MapBorderSkinStart()
 		{
 			this.TypeStart("MapBorderSkin", "MapBorderSkinExprHost");
 		}
 
-		internal void MapBorderSkinEnd()
+		public void MapBorderSkinEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapBorderSkinHost");
 		}
 
-		internal void MapBorderSkinMapBorderSkinType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapBorderSkinMapBorderSkinType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MapBorderSkinTypeExpr", expression);
 		}
 
-		internal void MapAntiAliasing(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapAntiAliasing(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AntiAliasingExpr", expression);
 		}
 
-		internal void MapTextAntiAliasingQuality(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapTextAntiAliasingQuality(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextAntiAliasingQualityExpr", expression);
 		}
 
-		internal void MapShadowIntensity(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapShadowIntensity(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShadowIntensityExpr", expression);
 		}
 
-		internal void MapTileLanguage(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapTileLanguage(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TileLanguageExpr", expression);
 		}
 
-		internal void MapVectorLayerMapDataRegionName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapVectorLayerMapDataRegionName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MapDataRegionNameExpr", expression);
 		}
 
-		internal void MapTileLayerStart(string name)
+		public void MapTileLayerStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapTileLayer" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapTileLayers), "MapTileLayerExprHost");
 		}
 
-		internal int MapTileLayerEnd()
+		public int MapTileLayerEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapTileLayersHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapTileLayers);
 		}
 
-		internal void MapTileLayerServiceUrl(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapTileLayerServiceUrl(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ServiceUrlExpr", expression);
 		}
 
-		internal void MapTileLayerTileStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapTileLayerTileStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TileStyleExpr", expression);
 		}
 
-		internal void MapTileLayerUseSecureConnection(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapTileLayerUseSecureConnection(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseSecureConnectionExpr", expression);
 		}
 
-		internal void MapTileStart(string name)
+		public void MapTileStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapTile" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapTiles), "MapTileExprHost");
 		}
 
-		internal int MapTileEnd()
+		public int MapTileEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapTilesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapTiles);
 		}
 
-		internal void MapPointLayerStart(string name)
+		public void MapPointLayerStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapPointLayer" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapPointLayers), "MapPointLayerExprHost");
 		}
 
-		internal int MapPointLayerEnd()
+		public int MapPointLayerEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapPointLayersHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapPointLayers);
 		}
 
-		internal void MapSpatialDataSetStart()
+		public void MapSpatialDataSetStart()
 		{
 			this.TypeStart("MapSpatialDataSet", "MapSpatialDataSetExprHost");
 		}
 
-		internal void MapSpatialDataSetEnd()
+		public void MapSpatialDataSetEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapSpatialDataHost");
 		}
 
-		internal void MapSpatialDataSetDataSetName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSpatialDataSetDataSetName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataSetNameExpr", expression);
 		}
 
-		internal void MapSpatialDataSetSpatialField(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSpatialDataSetSpatialField(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SpatialFieldExpr", expression);
 		}
 
-		internal void MapSpatialDataRegionStart()
+		public void MapSpatialDataRegionStart()
 		{
 			this.TypeStart("MapSpatialDataRegion", "MapSpatialDataRegionExprHost");
 		}
 
-		internal void MapSpatialDataRegionEnd()
+		public void MapSpatialDataRegionEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapSpatialDataHost");
 		}
 
-		internal void MapSpatialDataRegionVectorData(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSpatialDataRegionVectorData(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("VectorDataExpr", expression);
 		}
 
-		internal void MapPolygonLayerStart(string name)
+		public void MapPolygonLayerStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapPolygonLayer" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapPolygonLayers), "MapPolygonLayerExprHost");
 		}
 
-		internal int MapPolygonLayerEnd()
+		public int MapPolygonLayerEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapPolygonLayersHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapPolygonLayers);
 		}
 
-		internal void MapShapefileStart()
+		public void MapShapefileStart()
 		{
 			this.TypeStart("MapShapefile", "MapShapefileExprHost");
 		}
 
-		internal void MapShapefileEnd()
+		public void MapShapefileEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapSpatialDataHost");
 		}
 
-		internal void MapShapefileSource(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapShapefileSource(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SourceExpr", expression);
 		}
 
-		internal void MapLineLayerStart(string name)
+		public void MapLineLayerStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapLineLayer" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapLineLayers), "MapLineLayerExprHost");
 		}
 
-		internal int MapLineLayerEnd()
+		public int MapLineLayerEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapLineLayersHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapLineLayers);
 		}
 
-		internal void MapLayerVisibilityMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLayerVisibilityMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("VisibilityModeExpr", expression);
 		}
 
-		internal void MapLayerMinimumZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLayerMinimumZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinimumZoomExpr", expression);
 		}
 
-		internal void MapLayerMaximumZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLayerMaximumZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaximumZoomExpr", expression);
 		}
 
-		internal void MapLayerTransparency(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLayerTransparency(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TransparencyExpr", expression);
 		}
 
-		internal void MapFieldNameStart(string name)
+		public void MapFieldNameStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapFieldName" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapFieldNames), "MapFieldNameExprHost");
 		}
 
-		internal int MapFieldNameEnd()
+		public int MapFieldNameEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapFieldNamesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapFieldNames);
 		}
 
-		internal void MapFieldNameName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapFieldNameName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("NameExpr", expression);
 		}
 
-		internal void MapPointStart(string name)
+		public void MapPointStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapPoint" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapPoints), "MapPointExprHost");
 		}
 
-		internal int MapPointEnd()
+		public int MapPointEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapPointsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapPoints);
 		}
 
-		internal void MapPointUseCustomPointTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPointUseCustomPointTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseCustomPointTemplateExpr", expression);
 		}
 
-		internal void MapPolygonStart(string name)
+		public void MapPolygonStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapPolygon" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapPolygons), "MapPolygonExprHost");
 		}
 
-		internal int MapPolygonEnd()
+		public int MapPolygonEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapPolygonsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapPolygons);
 		}
 
-		internal void MapPolygonUseCustomPolygonTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPolygonUseCustomPolygonTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseCustomPolygonTemplateExpr", expression);
 		}
 
-		internal void MapPolygonUseCustomCenterPointTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPolygonUseCustomCenterPointTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseCustomPointTemplateExpr", expression);
 		}
 
-		internal void MapLineStart(string name)
+		public void MapLineStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapLine" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapLines), "MapLineExprHost");
 		}
 
-		internal int MapLineEnd()
+		public int MapLineEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapLinesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapLines);
 		}
 
-		internal void MapLineUseCustomLineTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLineUseCustomLineTemplate(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UseCustomLineTemplateExpr", expression);
 		}
 
-		internal void MapSpatialElementTemplateHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSpatialElementTemplateHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void MapSpatialElementTemplateOffsetX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSpatialElementTemplateOffsetX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OffsetXExpr", expression);
 		}
 
-		internal void MapSpatialElementTemplateOffsetY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSpatialElementTemplateOffsetY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("OffsetYExpr", expression);
 		}
 
-		internal void MapSpatialElementTemplateLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSpatialElementTemplateLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelExpr", expression);
 		}
 
-		internal void MapSpatialElementTemplateDataElementLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSpatialElementTemplateDataElementLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataElementLabelExpr", expression);
 		}
 
-		internal void MapSpatialElementTemplateToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSpatialElementTemplateToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void MapPointTemplateSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPointTemplateSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SizeExpr", expression);
 		}
 
-		internal void MapPointTemplateLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPointTemplateLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelPlacementExpr", expression);
 		}
 
-		internal void MapMarkerTemplateStart()
+		public void MapMarkerTemplateStart()
 		{
 			this.TypeStart("MapMarkerTemplate", "MapMarkerTemplateExprHost");
 		}
 
-		internal void MapMarkerTemplateEnd()
+		public void MapMarkerTemplateEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapPointTemplateHost");
 		}
 
-		internal void MapPolygonTemplateStart()
+		public void MapPolygonTemplateStart()
 		{
 			this.TypeStart("MapPolygonTemplate", "MapPolygonTemplateExprHost");
 		}
 
-		internal void MapPolygonTemplateEnd()
+		public void MapPolygonTemplateEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapPolygonTemplateHost");
 		}
 
-		internal void MapPolygonTemplateScaleFactor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPolygonTemplateScaleFactor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ScaleFactorExpr", expression);
 		}
 
-		internal void MapPolygonTemplateCenterPointOffsetX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPolygonTemplateCenterPointOffsetX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CenterPointOffsetXExpr", expression);
 		}
 
-		internal void MapPolygonTemplateCenterPointOffsetY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPolygonTemplateCenterPointOffsetY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CenterPointOffsetYExpr", expression);
 		}
 
-		internal void MapPolygonTemplateShowLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPolygonTemplateShowLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShowLabelExpr", expression);
 		}
 
-		internal void MapPolygonTemplateLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapPolygonTemplateLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelPlacementExpr", expression);
 		}
 
-		internal void MapLineTemplateStart()
+		public void MapLineTemplateStart()
 		{
 			this.TypeStart("MapLineTemplate", "MapLineTemplateExprHost");
 		}
 
-		internal void MapLineTemplateEnd()
+		public void MapLineTemplateEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapLineTemplateHost");
 		}
 
-		internal void MapLineTemplateWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLineTemplateWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("WidthExpr", expression);
 		}
 
-		internal void MapLineTemplateLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLineTemplateLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelPlacementExpr", expression);
 		}
 
-		internal void MapCustomColorRuleStart()
+		public void MapCustomColorRuleStart()
 		{
 			this.TypeStart("MapCustomColorRule", "MapCustomColorRuleExprHost");
 		}
 
-		internal void MapCustomColorRuleEnd()
+		public void MapCustomColorRuleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapColorRuleHost");
 		}
 
-		internal void MapCustomColorStart(string name)
+		public void MapCustomColorStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapCustomColor" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapCustomColors), "MapCustomColorExprHost");
 		}
 
-		internal int MapCustomColorEnd()
+		public int MapCustomColorEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapCustomColorsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapCustomColors);
 		}
 
-		internal void MapCustomColorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapCustomColorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ColorExpr", expression);
 		}
 
-		internal void MapPointRulesStart()
+		public void MapPointRulesStart()
 		{
 			this.TypeStart("MapPointRules", "MapPointRulesExprHost");
 		}
 
-		internal void MapPointRulesEnd()
+		public void MapPointRulesEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapPointRulesHost");
 		}
 
-		internal void MapMarkerRuleStart()
+		public void MapMarkerRuleStart()
 		{
 			this.TypeStart("MapMarkerRule", "MapMarkerRuleExprHost");
 		}
 
-		internal void MapMarkerRuleEnd()
+		public void MapMarkerRuleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapMarkerRuleHost");
 		}
 
-		internal void MapMarkerStart()
+		public void MapMarkerStart()
 		{
 			this.TypeStart("MapMarker", "MapMarkerExprHost");
 		}
 
-		internal void MapMarkerEnd()
+		public void MapMarkerEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapMarkerHost");
 		}
 
-		internal void MapMarkerInCollectionStart(string name)
+		public void MapMarkerInCollectionStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapMarker" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapMarkers), "MapMarkerExprHost");
 		}
 
-		internal int MapMarkerInCollectionEnd()
+		public int MapMarkerInCollectionEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapMarkersHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapMarkers);
 		}
 
-		internal void MapMarkerMapMarkerStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapMarkerMapMarkerStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MapMarkerStyleExpr", expression);
 		}
 
-		internal void MapMarkerImageStart()
+		public void MapMarkerImageStart()
 		{
 			this.TypeStart("MapMarkerImage", "MapMarkerImageExprHost");
 		}
 
-		internal void MapMarkerImageEnd()
+		public void MapMarkerImageEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapMarkerImageHost");
 		}
 
-		internal void MapMarkerImageSource(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapMarkerImageSource(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SourceExpr", expression);
 		}
 
-		internal void MapMarkerImageValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapMarkerImageValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal void MapMarkerImageMIMEType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapMarkerImageMIMEType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MIMETypeExpr", expression);
 		}
 
-		internal void MapMarkerImageTransparentColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapMarkerImageTransparentColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TransparentColorExpr", expression);
 		}
 
-		internal void MapMarkerImageResizeMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapMarkerImageResizeMode(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ResizeModeExpr", expression);
 		}
 
-		internal void MapSizeRuleStart()
+		public void MapSizeRuleStart()
 		{
 			this.TypeStart("MapSizeRule", "MapSizeRuleExprHost");
 		}
 
-		internal void MapSizeRuleEnd()
+		public void MapSizeRuleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapSizeRuleHost");
 		}
 
-		internal void MapSizeRuleStartSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSizeRuleStartSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("StartSizeExpr", expression);
 		}
 
-		internal void MapSizeRuleEndSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSizeRuleEndSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EndSizeExpr", expression);
 		}
 
-		internal void MapPolygonRulesStart()
+		public void MapPolygonRulesStart()
 		{
 			this.TypeStart("MapPolygonRules", "MapPolygonRulesExprHost");
 		}
 
-		internal void MapPolygonRulesEnd()
+		public void MapPolygonRulesEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapPolygonRulesHost");
 		}
 
-		internal void MapLineRulesStart()
+		public void MapLineRulesStart()
 		{
 			this.TypeStart("MapLineRules", "MapLineRulesExprHost");
 		}
 
-		internal void MapLineRulesEnd()
+		public void MapLineRulesEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapLineRulesHost");
 		}
 
-		internal void MapColorRuleShowInColorScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorRuleShowInColorScale(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShowInColorScaleExpr", expression);
 		}
 
-		internal void MapColorRangeRuleStart()
+		public void MapColorRangeRuleStart()
 		{
 			this.TypeStart("MapColorRangeRule", "MapColorRangeRuleExprHost");
 		}
 
-		internal void MapColorRangeRuleEnd()
+		public void MapColorRangeRuleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapColorRuleHost");
 		}
 
-		internal void MapColorRangeRuleStartColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorRangeRuleStartColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("StartColorExpr", expression);
 		}
 
-		internal void MapColorRangeRuleMiddleColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorRangeRuleMiddleColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MiddleColorExpr", expression);
 		}
 
-		internal void MapColorRangeRuleEndColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorRangeRuleEndColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EndColorExpr", expression);
 		}
 
-		internal void MapColorPaletteRuleStart()
+		public void MapColorPaletteRuleStart()
 		{
 			this.TypeStart("MapColorPaletteRule", "MapColorPaletteRuleExprHost");
 		}
 
-		internal void MapColorPaletteRuleEnd()
+		public void MapColorPaletteRuleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapColorRuleHost");
 		}
 
-		internal void MapColorPaletteRulePalette(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorPaletteRulePalette(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PaletteExpr", expression);
 		}
 
-		internal void MapBucketStart(string name)
+		public void MapBucketStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapBucket" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapBuckets), "MapBucketExprHost");
 		}
 
-		internal int MapBucketEnd()
+		public int MapBucketEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapBucketsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapBuckets);
 		}
 
-		internal void MapBucketStartValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapBucketStartValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("StartValueExpr", expression);
 		}
 
-		internal void MapBucketEndValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapBucketEndValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EndValueExpr", expression);
 		}
 
-		internal void MapAppearanceRuleDataValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapAppearanceRuleDataValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DataValueExpr", expression);
 		}
 
-		internal void MapAppearanceRuleDistributionType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapAppearanceRuleDistributionType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DistributionTypeExpr", expression);
 		}
 
-		internal void MapAppearanceRuleBucketCount(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapAppearanceRuleBucketCount(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BucketCountExpr", expression);
 		}
 
-		internal void MapAppearanceRuleStartValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapAppearanceRuleStartValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("StartValueExpr", expression);
 		}
 
-		internal void MapAppearanceRuleEndValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapAppearanceRuleEndValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EndValueExpr", expression);
 		}
 
-		internal void MapAppearanceRuleLegendText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapAppearanceRuleLegendText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LegendTextExpr", expression);
 		}
 
-		internal void MapLegendTitleStart()
+		public void MapLegendTitleStart()
 		{
 			this.TypeStart("MapLegendTitle", "MapLegendTitleExprHost");
 		}
 
-		internal void MapLegendTitleEnd()
+		public void MapLegendTitleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapLegendTitleHost");
 		}
 
-		internal void MapLegendTitleCaption(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendTitleCaption(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CaptionExpr", expression);
 		}
 
-		internal void MapLegendTitleTitleSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendTitleTitleSeparator(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TitleSeparatorExpr", expression);
 		}
 
-		internal void MapLegendTitleTitleSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendTitleTitleSeparatorColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TitleSeparatorColorExpr", expression);
 		}
 
-		internal void MapLegendStart(string name)
+		public void MapLegendStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapLegend" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapLegends), "MapLegendExprHost");
 		}
 
-		internal int MapLegendEnd()
+		public int MapLegendEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapLegendsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapLegends);
 		}
 
-		internal void MapLegendLayout(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendLayout(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LayoutExpr", expression);
 		}
 
-		internal void MapLegendAutoFitTextDisabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendAutoFitTextDisabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AutoFitTextDisabledExpr", expression);
 		}
 
-		internal void MapLegendMinFontSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendMinFontSize(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinFontSizeExpr", expression);
 		}
 
-		internal void MapLegendInterlacedRows(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendInterlacedRows(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InterlacedRowsExpr", expression);
 		}
 
-		internal void MapLegendInterlacedRowsColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendInterlacedRowsColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("InterlacedRowsColorExpr", expression);
 		}
 
-		internal void MapLegendEquallySpacedItems(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendEquallySpacedItems(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("EquallySpacedItemsExpr", expression);
 		}
 
-		internal void MapLegendTextWrapThreshold(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLegendTextWrapThreshold(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextWrapThresholdExpr", expression);
 		}
 
-		internal void MapTitleStart(string name)
+		public void MapTitleStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapTitle" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapTitles), "MapTitleExprHost");
 		}
 
-		internal int MapTitleEnd()
+		public int MapTitleEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapTitlesHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapTitles);
 		}
 
-		internal void MapTitleText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapTitleText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextExpr", expression);
 		}
 
-		internal void MapTitleAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapTitleAngle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("AngleExpr", expression);
 		}
 
-		internal void MapTitleTextShadowOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapTitleTextShadowOffset(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TextShadowOffsetExpr", expression);
 		}
 
-		internal void MapDistanceScaleStart()
+		public void MapDistanceScaleStart()
 		{
 			this.TypeStart("MapDistanceScale", "MapDistanceScaleExprHost");
 		}
 
-		internal void MapDistanceScaleEnd()
+		public void MapDistanceScaleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapDistanceScaleHost");
 		}
 
-		internal void MapDistanceScaleScaleColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapDistanceScaleScaleColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ScaleColorExpr", expression);
 		}
 
-		internal void MapDistanceScaleScaleBorderColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapDistanceScaleScaleBorderColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ScaleBorderColorExpr", expression);
 		}
 
-		internal void MapColorScaleTitleStart()
+		public void MapColorScaleTitleStart()
 		{
 			this.TypeStart("MapColorScaleTitle", "MapColorScaleTitleExprHost");
 		}
 
-		internal void MapColorScaleTitleEnd()
+		public void MapColorScaleTitleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapColorScaleTitleHost");
 		}
 
-		internal void MapColorScaleTitleCaption(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleTitleCaption(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("CaptionExpr", expression);
 		}
 
-		internal void MapColorScaleStart()
+		public void MapColorScaleStart()
 		{
 			this.TypeStart("MapColorScale", "MapColorScaleExprHost");
 		}
 
-		internal void MapColorScaleEnd()
+		public void MapColorScaleEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapColorScaleHost");
 		}
 
-		internal void MapColorScaleTickMarkLength(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleTickMarkLength(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TickMarkLengthExpr", expression);
 		}
 
-		internal void MapColorScaleColorBarBorderColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleColorBarBorderColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ColorBarBorderColorExpr", expression);
 		}
 
-		internal void MapColorScaleLabelInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleLabelInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelIntervalExpr", expression);
 		}
 
-		internal void MapColorScaleLabelFormat(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleLabelFormat(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelFormatExpr", expression);
 		}
 
-		internal void MapColorScaleLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleLabelPlacement(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelPlacementExpr", expression);
 		}
 
-		internal void MapColorScaleLabelBehavior(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleLabelBehavior(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelBehaviorExpr", expression);
 		}
 
-		internal void MapColorScaleHideEndLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleHideEndLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HideEndLabelsExpr", expression);
 		}
 
-		internal void MapColorScaleRangeGapColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleRangeGapColor(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RangeGapColorExpr", expression);
 		}
 
-		internal void MapColorScaleNoDataText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapColorScaleNoDataText(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("NoDataTextExpr", expression);
 		}
 
-		internal void MapStart(string name)
+		public void MapStart(string name)
 		{
 			this.TypeStart(name, "MapExprHost");
 		}
 
-		internal int MapEnd()
+		public int MapEnd()
 		{
 			return this.ReportItemEnd("m_mapHostsRemotable", ref this.m_rootTypeDecl.Maps);
 		}
 
-		internal void MapLocationStart()
+		public void MapLocationStart()
 		{
 			this.TypeStart("MapLocation", "MapLocationExprHost");
 		}
 
-		internal void MapLocationEnd()
+		public void MapLocationEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapLocationHost");
 		}
 
-		internal void MapLocationLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLocationLeft(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LeftExpr", expression);
 		}
 
-		internal void MapLocationTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLocationTop(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TopExpr", expression);
 		}
 
-		internal void MapLocationUnit(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLocationUnit(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UnitExpr", expression);
 		}
 
-		internal void MapSizeStart()
+		public void MapSizeStart()
 		{
 			this.TypeStart("MapSize", "MapSizeExprHost");
 		}
 
-		internal void MapSizeEnd()
+		public void MapSizeEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapSizeHost");
 		}
 
-		internal void MapSizeWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSizeWidth(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("WidthExpr", expression);
 		}
 
-		internal void MapSizeHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSizeHeight(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HeightExpr", expression);
 		}
 
-		internal void MapSizeUnit(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSizeUnit(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("UnitExpr", expression);
 		}
 
-		internal void MapGridLinesStart(bool isMeridian)
+		public void MapGridLinesStart(bool isMeridian)
 		{
 			this.TypeStart("MapGridLines" + (isMeridian ? "MapMeridiansHost" : "MapParallelsHost"), "MapGridLinesExprHost");
 		}
 
-		internal void MapGridLinesEnd(bool isMeridian)
+		public void MapGridLinesEnd(bool isMeridian)
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, isMeridian ? "MapMeridiansHost" : "MapParallelsHost");
 		}
 
-		internal void MapGridLinesHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapGridLinesHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void MapGridLinesInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapGridLinesInterval(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("IntervalExpr", expression);
 		}
 
-		internal void MapGridLinesShowLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapGridLinesShowLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ShowLabelsExpr", expression);
 		}
 
-		internal void MapGridLinesLabelPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapGridLinesLabelPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LabelPositionExpr", expression);
 		}
 
-		internal void MapDockableSubItemPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapDockableSubItemPosition(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PositionExpr", expression);
 		}
 
-		internal void MapDockableSubItemDockOutsideViewport(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapDockableSubItemDockOutsideViewport(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DockOutsideViewportExpr", expression);
 		}
 
-		internal void MapDockableSubItemHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapDockableSubItemHidden(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HiddenExpr", expression);
 		}
 
-		internal void MapDockableSubItemToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapDockableSubItemToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void MapSubItemLeftMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSubItemLeftMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LeftMarginExpr", expression);
 		}
 
-		internal void MapSubItemRightMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSubItemRightMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RightMarginExpr", expression);
 		}
 
-		internal void MapSubItemTopMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSubItemTopMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("TopMarginExpr", expression);
 		}
 
-		internal void MapSubItemBottomMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSubItemBottomMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BottomMarginExpr", expression);
 		}
 
-		internal void MapSubItemZIndex(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapSubItemZIndex(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ZIndexExpr", expression);
 		}
 
-		internal void MapBindingFieldPairStart(string name)
+		public void MapBindingFieldPairStart(string name)
 		{
 			this.TypeStart(this.CreateTypeName("MapBindingFieldPair" + name, ((NonRootTypeDecl)this.m_currentTypeDecl).MapBindingFieldPairs), "MapBindingFieldPairExprHost");
 		}
 
-		internal int MapBindingFieldPairEnd()
+		public int MapBindingFieldPairEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_mapBindingFieldPairsHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).MapBindingFieldPairs);
 		}
 
-		internal void MapBindingFieldPairFieldName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapBindingFieldPairFieldName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("FieldNameExpr", expression);
 		}
 
-		internal void MapBindingFieldPairBindingExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapBindingFieldPairBindingExpression(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("BindingExpressionExpr", expression);
 		}
 
-		internal void MapViewportStart()
+		public void MapViewportStart()
 		{
 			this.TypeStart("MapViewport", "MapViewportExprHost");
 		}
 
-		internal void MapViewportEnd()
+		public void MapViewportEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapViewportHost");
 		}
 
-		internal void MapViewportSimplificationResolution(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewportSimplificationResolution(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SimplificationResolutionExpr", expression);
 		}
 
-		internal void MapViewportMapCoordinateSystem(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewportMapCoordinateSystem(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MapCoordinateSystemExpr", expression);
 		}
 
-		internal void MapViewportMapProjection(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewportMapProjection(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MapProjectionExpr", expression);
 		}
 
-		internal void MapViewportProjectionCenterX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewportProjectionCenterX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ProjectionCenterXExpr", expression);
 		}
 
-		internal void MapViewportProjectionCenterY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewportProjectionCenterY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ProjectionCenterYExpr", expression);
 		}
 
-		internal void MapViewportMaximumZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewportMaximumZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaximumZoomExpr", expression);
 		}
 
-		internal void MapViewportMinimumZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewportMinimumZoom(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinimumZoomExpr", expression);
 		}
 
-		internal void MapViewportContentMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewportContentMargin(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ContentMarginExpr", expression);
 		}
 
-		internal void MapViewportGridUnderContent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapViewportGridUnderContent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("GridUnderContentExpr", expression);
 		}
 
-		internal void MapLimitsStart()
+		public void MapLimitsStart()
 		{
 			this.TypeStart("MapLimits", "MapLimitsExprHost");
 		}
 
-		internal void MapLimitsEnd()
+		public void MapLimitsEnd()
 		{
 			this.TypeEnd(this.m_currentTypeDecl.Parent, "MapLimitsHost");
 		}
 
-		internal void MapLimitsMinimumX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLimitsMinimumX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinimumXExpr", expression);
 		}
 
-		internal void MapLimitsMinimumY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLimitsMinimumY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MinimumYExpr", expression);
 		}
 
-		internal void MapLimitsMaximumX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLimitsMaximumX(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaximumXExpr", expression);
 		}
 
-		internal void MapLimitsMaximumY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLimitsMaximumY(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MaximumYExpr", expression);
 		}
 
-		internal void MapLimitsLimitToData(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void MapLimitsLimitToData(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LimitToDataExpr", expression);
 		}
 
-		internal void ParagraphStart(int index)
+		public void ParagraphStart(int index)
 		{
 			this.TypeStart(this.CreateTypeName("Paragraph" + index.ToString(CultureInfo.InvariantCulture), ((NonRootTypeDecl)this.m_currentTypeDecl).Paragraphs), "ParagraphExprHost");
 		}
 
-		internal int ParagraphEnd()
+		public int ParagraphEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_paragraphHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).Paragraphs);
 		}
 
-		internal void ParagraphLeftIndent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ParagraphLeftIndent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("LeftIndentExpr", expression);
 		}
 
-		internal void ParagraphRightIndent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ParagraphRightIndent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("RightIndentExpr", expression);
 		}
 
-		internal void ParagraphHangingIndent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ParagraphHangingIndent(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("HangingIndentExpr", expression);
 		}
 
-		internal void ParagraphSpaceBefore(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ParagraphSpaceBefore(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SpaceBeforeExpr", expression);
 		}
 
-		internal void ParagraphSpaceAfter(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ParagraphSpaceAfter(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SpaceAfterExpr", expression);
 		}
 
-		internal void ParagraphListStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ParagraphListStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ListStyleExpr", expression);
 		}
 
-		internal void ParagraphListLevel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ParagraphListLevel(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ListLevelExpr", expression);
 		}
 
-		internal void TextRunStart(int index)
+		public void TextRunStart(int index)
 		{
 			this.TypeStart(this.CreateTypeName("TextRun" + index.ToString(CultureInfo.InvariantCulture), ((NonRootTypeDecl)this.m_currentTypeDecl).TextRuns), "TextRunExprHost");
 		}
 
-		internal int TextRunEnd()
+		public int TextRunEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_textRunHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).TextRuns);
 		}
 
-		internal void TextRunToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TextRunToolTip(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ToolTipExpr", expression);
 		}
 
-		internal void TextRunValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TextRunValue(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ValueExpr", expression);
 		}
 
-		internal void TextRunMarkupType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void TextRunMarkupType(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("MarkupTypeExpr", expression);
 		}
 
-		internal void LookupStart()
+		public void LookupStart()
 		{
 			this.TypeStart(this.CreateTypeName("Lookup", this.m_rootTypeDecl.Lookups), "LookupExprHost");
 		}
 
-		internal void LookupSourceExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void LookupSourceExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("SourceExpr", expression);
 		}
 
-		internal void LookupResultExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void LookupResultExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ResultExpr", expression);
 		}
 
-		internal int LookupEnd()
+		public int LookupEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_lookupExprHostsRemotable", ref this.m_rootTypeDecl.Lookups);
 		}
 
-		internal void LookupDestStart()
+		public void LookupDestStart()
 		{
 			this.TypeStart(this.CreateTypeName("LookupDest", this.m_rootTypeDecl.LookupDests), "LookupDestExprHost");
 		}
 
-		internal void LookupDestExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void LookupDestExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DestExpr", expression);
 		}
 
-		internal int LookupDestEnd()
+		public int LookupDestEnd()
 		{
 			return this.TypeEnd((TypeDecl)this.m_rootTypeDecl, "m_lookupDestExprHostsRemotable", ref this.m_rootTypeDecl.LookupDests);
 		}
 
-		internal void PageBreakStart()
+		public void PageBreakStart()
 		{
 			this.TypeStart("PageBreak", "PageBreakExprHost");
 		}
 
-		internal bool PageBreakEnd()
+		public bool PageBreakEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "PageBreakExprHost");
 		}
 
-		internal void Disabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void Disabled(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("DisabledExpr", expression);
 		}
 
-		internal void PageName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void PageName(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PageNameExpr", expression);
 		}
 
-		internal void ResetPageNumber(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void ResetPageNumber(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ResetPageNumberExpr", expression);
 		}
 
-		internal void JoinConditionStart()
+		public void JoinConditionStart()
 		{
 			this.TypeStart(this.CreateTypeName("JoinCondition", ((NonRootTypeDecl)this.m_currentTypeDecl).JoinConditions), "JoinConditionExprHost");
 		}
 
-		internal void JoinConditionForeignKeyExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void JoinConditionForeignKeyExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("ForeignKeyExpr", expression);
 		}
 
-		internal void JoinConditionPrimaryKeyExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void JoinConditionPrimaryKeyExpr(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.ExpressionAdd("PrimaryKeyExpr", expression);
 		}
 
-		internal int JoinConditionEnd()
+		public int JoinConditionEnd()
 		{
 			return this.TypeEnd(this.m_currentTypeDecl.Parent, "m_joinConditionExprHostsRemotable", ref ((NonRootTypeDecl)this.m_currentTypeDecl.Parent).JoinConditions);
 		}

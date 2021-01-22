@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal static class HeaderFooterEval
+	public static class HeaderFooterEval
 	{
 		private enum TablixState
 		{
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			DetailRows
 		}
 
-		internal static void CollectTextBoxes(ReportItem reportItem, PageContext pageContext, bool useForPageHFEval, Dictionary<string, List<object>> textBoxes)
+		public static void CollectTextBoxes(ReportItem reportItem, PageContext pageContext, bool useForPageHFEval, Dictionary<string, List<object>> textBoxes)
 		{
 			if (reportItem != null && useForPageHFEval && HeaderFooterEval.ShouldBeCollected(reportItem))
 			{

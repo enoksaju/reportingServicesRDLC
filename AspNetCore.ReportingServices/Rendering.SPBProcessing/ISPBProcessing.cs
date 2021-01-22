@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal interface ISPBProcessing
+	public interface ISPBProcessing
 	{
 		bool Done
 		{

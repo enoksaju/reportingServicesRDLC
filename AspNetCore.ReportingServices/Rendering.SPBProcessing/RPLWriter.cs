@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class RPLWriter
+	public sealed class RPLWriter
 	{
 		private RPLReport m_rplReport;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private RPLTablixRow m_tablixRow;
 
-		internal RPLReport Report
+		public RPLReport Report
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLTablixRow TablixRow
+		public RPLTablixRow TablixRow
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal BinaryWriter BinaryWriter
+		public BinaryWriter BinaryWriter
 		{
 			get
 			{
@@ -47,11 +47,11 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLWriter()
+		public RPLWriter()
 		{
 		}
 
-		internal RPLWriter(BinaryWriter binaryWriter, RPLReport report, RPLTablixRow tablixRow)
+		public RPLWriter(BinaryWriter binaryWriter, RPLReport report, RPLTablixRow tablixRow)
 		{
 			this.BinaryWriter = binaryWriter;
 			this.Report = report;

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal interface IChartStream
+	public interface IChartStream
 	{
 		void Write(string theString);
 	}

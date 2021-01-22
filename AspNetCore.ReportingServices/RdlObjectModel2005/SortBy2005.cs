@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.RdlObjectModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class SortBy2005 : SortExpression
+	public class SortBy2005 : SortExpression
 	{
 		public ReportExpression SortExpression
 		{

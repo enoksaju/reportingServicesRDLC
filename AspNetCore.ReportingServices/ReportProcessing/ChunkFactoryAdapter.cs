@@ -2,11 +2,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class ChunkFactoryAdapter
+	public class ChunkFactoryAdapter
 	{
 		private IChunkFactory m_chunkFactory;
 
-		internal ChunkFactoryAdapter(IChunkFactory aFactory)
+		public ChunkFactoryAdapter(IChunkFactory aFactory)
 		{
 			this.m_chunkFactory = aFactory;
 		}

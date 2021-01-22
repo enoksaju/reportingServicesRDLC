@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class MarginExpandableObjectConverter : ExpandableObjectConverter
+	public class MarginExpandableObjectConverter : ExpandableObjectConverter
 	{
 		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
 		{

@@ -3,7 +3,7 @@ using System.Data;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal class ParameterMultiValueWrapper : ParameterWrapper, IDataMultiValueParameter, AspNetCore.ReportingServices.DataProcessing.IDataParameter
+	public class ParameterMultiValueWrapper : ParameterWrapper, IDataMultiValueParameter, AspNetCore.ReportingServices.DataProcessing.IDataParameter
 	{
 		private object[] m_values;
 

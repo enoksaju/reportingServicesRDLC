@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimParagraph : Paragraph
+	public sealed class ShimParagraph : Paragraph
 	{
 		public override string ID
 		{
@@ -60,12 +60,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimParagraph(TextBox textBox, RenderingContext renderingContext)
+		public ShimParagraph(TextBox textBox, RenderingContext renderingContext)
 			: base(textBox, renderingContext)
 		{
 		}
 
-		internal override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public override void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			base.UpdateRenderReportItem(renderReportItem);
 			if (base.m_style != null)

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum AxisPosition
+	public enum AxisPosition
 	{
 		Left,
 		Right,

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLContext
+	public sealed class RPLContext
 	{
 		private Hashtable m_sharedProps;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 
 		private RPLVersionEnum m_versionPicker;
 
-		internal BinaryReader BinaryReader
+		public BinaryReader BinaryReader
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal Hashtable SharedProps
+		public Hashtable SharedProps
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal Hashtable SharedImages
+		public Hashtable SharedImages
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLVersionEnum VersionPicker
+		public RPLVersionEnum VersionPicker
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLContext(BinaryReader reader)
+		public RPLContext(BinaryReader reader)
 		{
 			this.m_binaryReader = reader;
 		}

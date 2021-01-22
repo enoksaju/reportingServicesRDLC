@@ -1,9 +1,9 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ShimMemberVisibility : Visibility
+	public abstract class ShimMemberVisibility : Visibility
 	{
-		internal abstract bool GetInstanceHidden();
+		public abstract bool GetInstanceHidden();
 
-		internal abstract bool GetInstanceStartHidden();
+		public abstract bool GetInstanceStartHidden();
 	}
 }

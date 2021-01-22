@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartLabelRotationTypes
+	public enum ChartLabelRotationTypes
 	{
 		Rotate90,
 		Rotate45,

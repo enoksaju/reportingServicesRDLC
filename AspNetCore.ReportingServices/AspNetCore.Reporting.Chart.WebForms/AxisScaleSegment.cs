@@ -9,9 +9,9 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeAxisScaleSegment_AxisScaleSegment")]
-	internal class AxisScaleSegment
+	public class AxisScaleSegment
 	{
-		internal Axis axis;
+		public Axis axis;
 
 		private double position;
 
@@ -233,7 +233,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void PaintBreakLine(ChartGraphics graph, AxisScaleSegment nextSegment)
+		public void PaintBreakLine(ChartGraphics graph, AxisScaleSegment nextSegment)
 		{
 			RectangleF breakLinePosition = this.GetBreakLinePosition(graph, nextSegment);
 			GraphicsPath breakLinePath = this.GetBreakLinePath(breakLinePosition, true);
@@ -462,7 +462,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal RectangleF GetBreakLinePosition(ChartGraphics graph, AxisScaleSegment nextSegment)
+		public RectangleF GetBreakLinePosition(ChartGraphics graph, AxisScaleSegment nextSegment)
 		{
 			RectangleF rectangleF = this.axis.PlotAreaPosition.ToRectangleF();
 			double linearPosition = this.axis.GetLinearPosition(nextSegment.ScaleMinimum);
@@ -493,13 +493,13 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return rectangleF;
 		}
 
-		internal void GetScalePositionAndSize(double plotAreaSize, out double scalePosition, out double scaleSize)
+		public void GetScalePositionAndSize(double plotAreaSize, out double scalePosition, out double scaleSize)
 		{
 			scaleSize = (this.Size - this.Spacing) * (plotAreaSize / 100.0);
 			scalePosition = this.Position * (plotAreaSize / 100.0);
 		}
 
-		internal void SetTempAxisScaleAndInterval()
+		public void SetTempAxisScaleAndInterval()
 		{
 			if (this.oldAxisSettings.Count == 0)
 			{
@@ -534,7 +534,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.axis.LabelStyle.intervalOffsetType = this.IntervalOffsetType;
 		}
 
-		internal void RestoreAxisScaleAndInterval()
+		public void RestoreAxisScaleAndInterval()
 		{
 			if (this.oldAxisSettings.Count > 0)
 			{

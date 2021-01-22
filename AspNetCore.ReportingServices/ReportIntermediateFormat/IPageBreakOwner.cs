@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IPageBreakOwner
+	public interface IPageBreakOwner
 	{
 		PageBreak PageBreak
 		{

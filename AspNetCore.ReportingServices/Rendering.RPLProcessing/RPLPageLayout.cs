@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLPageLayout
+	public sealed class RPLPageLayout
 	{
 		private string m_pageName;
 
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLPageLayout()
+		public RPLPageLayout()
 		{
 		}
 	}

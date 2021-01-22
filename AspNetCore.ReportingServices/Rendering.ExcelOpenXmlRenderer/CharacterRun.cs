@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class CharacterRun
+	public sealed class CharacterRun
 	{
 		private readonly ICharacterRunModel _model;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal CharacterRun(ICharacterRunModel model)
+		public CharacterRun(ICharacterRunModel model)
 		{
 			this._model = model;
 		}

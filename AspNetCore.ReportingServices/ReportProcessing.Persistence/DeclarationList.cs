@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 {
-	internal sealed class DeclarationList
+	public sealed class DeclarationList
 	{
 		private Declaration[] m_declarations;
 
-		internal static readonly DeclarationList Current = DeclarationList.CreateCurrentDeclarations();
+		public static readonly DeclarationList Current = DeclarationList.CreateCurrentDeclarations();
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal Declaration this[ObjectType objectType]
+		public Declaration this[ObjectType objectType]
 		{
 			get
 			{
@@ -40,12 +40,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal DeclarationList()
+		public DeclarationList()
 		{
 			this.m_declarations = new Declaration[227];
 		}
 
-		internal bool ContainsKey(ObjectType objectType)
+		public bool ContainsKey(ObjectType objectType)
 		{
 			return null != this[objectType];
 		}

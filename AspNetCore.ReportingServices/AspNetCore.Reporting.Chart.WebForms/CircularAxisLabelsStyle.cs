@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum CircularAxisLabelsStyle
+	public enum CircularAxisLabelsStyle
 	{
 		Auto,
 		Circular,

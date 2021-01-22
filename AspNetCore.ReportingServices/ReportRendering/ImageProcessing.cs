@@ -1,14 +1,14 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ImageProcessing : ImageBase
+	public sealed class ImageProcessing : ImageBase
 	{
-		internal byte[] m_imageData;
+		public byte[] m_imageData;
 
-		internal string m_mimeType;
+		public string m_mimeType;
 
-		internal Image.Sizings m_sizing;
+		public Image.Sizings m_sizing;
 
-		internal ImageProcessing DeepClone()
+		public ImageProcessing DeepClone()
 		{
 			ImageProcessing imageProcessing = new ImageProcessing();
 			if (this.m_imageData != null)

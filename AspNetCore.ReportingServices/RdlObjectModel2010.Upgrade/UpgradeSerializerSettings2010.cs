@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2010.Upgrade
 {
-	internal class UpgradeSerializerSettings2010 : RdlSerializerSettings
+	public class UpgradeSerializerSettings2010 : RdlSerializerSettings
 	{
 		private const string m_xsdResourceId = "AspNetCore.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2010ObjectModel.ReportDefinition.xsd";
 

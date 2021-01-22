@@ -4,7 +4,7 @@ using System.Runtime.ConstrainedExecution;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class Win32DCSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
+	public sealed class Win32DCSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
 	{
 		private static Win32DCSafeHandle m_zero = new Win32DCSafeHandle(IntPtr.Zero, false);
 

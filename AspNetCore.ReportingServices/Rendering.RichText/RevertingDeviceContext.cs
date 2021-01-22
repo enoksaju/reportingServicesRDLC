@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class RevertingDeviceContext : IDisposable
+	public class RevertingDeviceContext : IDisposable
 	{
 		private Win32DCSafeHandle m_hdc;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private float m_pageScale;
 
-		internal Win32DCSafeHandle Hdc
+		public Win32DCSafeHandle Hdc
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal Win32.XFORM XForm
+		public Win32.XFORM XForm
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal RevertingDeviceContext(Graphics g, float dpi)
+		public RevertingDeviceContext(Graphics g, float dpi)
 		{
 			this.m_graphics = g;
 			this.m_matrix = this.m_graphics.Transform;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class DataShapeQueryAbortHelper : DataShapeAbortHelperBase, IDataShapeQueryAbortHelper, IDataShapeAbortHelper, IAbortHelper, IDisposable
+	public class DataShapeQueryAbortHelper : DataShapeAbortHelperBase, IDataShapeQueryAbortHelper, IDataShapeAbortHelper, IAbortHelper, IDisposable
 	{
 		private readonly List<IDataShapeAbortHelper> m_abortHelpers = new List<IDataShapeAbortHelper>();
 

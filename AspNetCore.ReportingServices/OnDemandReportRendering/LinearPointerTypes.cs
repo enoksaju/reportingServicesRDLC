@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum LinearPointerTypes
+	public enum LinearPointerTypes
 	{
 		Marker,
 		Bar,

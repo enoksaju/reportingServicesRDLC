@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum ConstructionPhase
+	public enum ConstructionPhase
 	{
 		Publishing,
 		Deserializing

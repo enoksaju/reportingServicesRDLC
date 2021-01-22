@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class DefaultRelationship : Relationship
+	public sealed class DefaultRelationship : Relationship
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DefaultRelationship.GetDeclaration();
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private string m_relatedDataSetName;
 
-		internal string RelatedDataSetName
+		public string RelatedDataSetName
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(DataSet thisDataSet, InitializationContext context)
+		public void Initialize(DataSet thisDataSet, InitializationContext context)
 		{
 			if (base.m_relatedDataSet == null)
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void BindAndValidate(DataSet thisDataSet, ErrorContext errorContext, Report report)
+		public void BindAndValidate(DataSet thisDataSet, ErrorContext errorContext, Report report)
 		{
 			if (base.m_joinConditions == null && !base.m_naturalJoin)
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DefaultRelationship, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Relationship, memberInfoList);

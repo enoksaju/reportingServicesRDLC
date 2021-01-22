@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class DataSetReference
+	public sealed class DataSetReference
 	{
 		private string m_dataSet;
 
@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private string m_labelAlias;
 
-		internal string DataSet
+		public string DataSet
 		{
 			get
 			{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal string ValueAlias
+		public string ValueAlias
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal string LabelAlias
+		public string LabelAlias
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal DataSetReference(string dataSet, string valueAlias, string labelAlias)
+		public DataSetReference(string dataSet, string valueAlias, string labelAlias)
 		{
 			this.m_dataSet = dataSet;
 			this.m_valueAlias = valueAlias;

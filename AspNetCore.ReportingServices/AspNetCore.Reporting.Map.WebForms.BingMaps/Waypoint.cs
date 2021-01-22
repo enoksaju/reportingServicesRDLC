@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class Waypoint : Point
+	public class Waypoint : Point
 	{
 		[DataMember(Name = "description", EmitDefaultValue = false)]
 		public string Description

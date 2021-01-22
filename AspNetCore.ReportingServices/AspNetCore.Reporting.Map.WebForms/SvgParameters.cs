@@ -3,16 +3,16 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal abstract class SvgParameters
+	public abstract class SvgParameters
 	{
-		internal enum SvgLineCapStyle
+		public enum SvgLineCapStyle
 		{
 			Butt,
 			Round,
 			Square
 		}
 
-		internal enum SvgDashStyle
+		public enum SvgDashStyle
 		{
 			Dash,
 			DashDot,
@@ -31,7 +31,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			Solid
 		}
 
-		internal enum SvgFillType
+		public enum SvgFillType
 		{
 			Solid,
 			Hatch,
@@ -40,7 +40,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			None
 		}
 
-		internal enum SvgGradientType
+		public enum SvgGradientType
 		{
 			None,
 			LeftRight,
@@ -52,7 +52,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			VerticalCenter
 		}
 
-		internal enum SvgImageWrapMode
+		public enum SvgImageWrapMode
 		{
 			ClampScaled = 4,
 			Tile = 0,

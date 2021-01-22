@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class LinearPointer : GaugePointer, IPersistable
+	public sealed class LinearPointer : GaugePointer, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = LinearPointer.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private Thermometer m_thermometer;
 
-		internal ExpressionInfo Type
+		public ExpressionInfo Type
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Thermometer Thermometer
+		public Thermometer Thermometer
 		{
 			get
 			{
@@ -44,16 +44,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LinearPointer()
+		public LinearPointer()
 		{
 		}
 
-		internal LinearPointer(GaugePanel gaugePanel, int id)
+		public LinearPointer(GaugePanel gaugePanel, int id)
 			: base(gaugePanel, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.LinearPointerStart(base.m_name);
 			base.Initialize(context);
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.LinearPointerEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			LinearPointer linearPointer = (LinearPointer)base.PublishClone(context);
 			if (this.m_type != null)
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return linearPointer;
 		}
 
-		internal void SetExprHost(LinearPointerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(LinearPointerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Type, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.LinearPointer;
 		}
 
-		internal LinearPointerTypes EvaluateType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public LinearPointerTypes EvaluateType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateLinearPointerTypes(context.ReportRuntime.EvaluateLinearPointerTypeExpression(this, base.m_gaugePanel.Name), context.ReportRuntime);

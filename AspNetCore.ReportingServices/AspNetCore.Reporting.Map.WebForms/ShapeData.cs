@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ShapeData
+	public class ShapeData
 	{
 		private MapPoint[] points;
 
@@ -67,7 +67,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int LargestSegmentIndex
+		public int LargestSegmentIndex
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool MultiPolygonWithHoles
+		public bool MultiPolygonWithHoles
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsEmpty
+		public bool IsEmpty
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void UpdateStoredParameters()
+		public void UpdateStoredParameters()
 		{
 			if (this.Segments != null)
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.MultiPolygonWithHoles = (num > 1 && num2 > 0);
 		}
 
-		internal void LoadFromStream(Stream stream)
+		public void LoadFromStream(Stream stream)
 		{
 			byte[] array = new byte[Marshal.SizeOf(typeof(byte))];
 			byte[] array2 = new byte[Marshal.SizeOf(typeof(int))];
@@ -235,7 +235,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void SaveToStream(Stream stream)
+		public void SaveToStream(Stream stream)
 		{
 			if (this.Segments != null && this.Points != null)
 			{
@@ -265,7 +265,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static string ShapeDataToString(ShapeData shapeData)
+		public static string ShapeDataToString(ShapeData shapeData)
 		{
 			MemoryStream memoryStream = new MemoryStream();
 			shapeData.SaveToStream(memoryStream);
@@ -275,7 +275,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return Convert.ToBase64String(inArray);
 		}
 
-		internal static ShapeData ShapeDataFromString(string data)
+		public static ShapeData ShapeDataFromString(string data)
 		{
 			byte[] array = new byte[1000];
 			MemoryStream memoryStream = new MemoryStream();
@@ -295,7 +295,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return shapeData;
 		}
 
-		internal double CalculateSignedPolygonArea(MapPoint[] polygon)
+		public double CalculateSignedPolygonArea(MapPoint[] polygon)
 		{
 			double num = 0.0;
 			for (int i = 0; i < polygon.Length; i++)
@@ -307,7 +307,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return num / 2.0;
 		}
 
-		internal MapPoint FindPolygonCentroid(MapPoint[] polygon)
+		public MapPoint FindPolygonCentroid(MapPoint[] polygon)
 		{
 			double num = 0.0;
 			double num2 = 0.0;

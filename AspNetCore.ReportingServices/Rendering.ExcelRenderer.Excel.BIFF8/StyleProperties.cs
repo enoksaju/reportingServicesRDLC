@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class StyleProperties
+	public sealed class StyleProperties
 	{
 		private const float DEFAULT_FONT_SIZE = 400f;
 
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 
 		private int m_ixfe;
 
-		internal IColor BackgroundColor
+		public IColor BackgroundColor
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int IndentLevel
+		public int IndentLevel
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal bool WrapText
+		public bool WrapText
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int Orientation
+		public int Orientation
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int Bold
+		public int Bold
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal bool Italic
+		public bool Italic
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal bool Strikethrough
+		public bool Strikethrough
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal Underline Underline
+		public Underline Underline
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ScriptStyle ScriptStyle
+		public ScriptStyle ScriptStyle
 		{
 			get
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal IColor Color
+		public IColor Color
 		{
 			get
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal double Size
+		public double Size
 		{
 			get
 			{
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal CharSet CharSet
+		public CharSet CharSet
 		{
 			get
 			{
@@ -221,7 +221,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal string NumberFormat
+		public string NumberFormat
 		{
 			get
 			{
@@ -233,7 +233,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal HorizontalAlignment HorizontalAlignment
+		public HorizontalAlignment HorizontalAlignment
 		{
 			get
 			{
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal VerticalAlignment VerticalAlignment
+		public VerticalAlignment VerticalAlignment
 		{
 			get
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal TextDirection TextDirection
+		public TextDirection TextDirection
 		{
 			get
 			{
@@ -269,7 +269,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ExcelBorderStyle BorderLeftStyle
+		public ExcelBorderStyle BorderLeftStyle
 		{
 			get
 			{
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ExcelBorderStyle BorderRightStyle
+		public ExcelBorderStyle BorderRightStyle
 		{
 			get
 			{
@@ -293,7 +293,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ExcelBorderStyle BorderTopStyle
+		public ExcelBorderStyle BorderTopStyle
 		{
 			get
 			{
@@ -305,7 +305,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ExcelBorderStyle BorderBottomStyle
+		public ExcelBorderStyle BorderBottomStyle
 		{
 			get
 			{
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ExcelBorderStyle BorderDiagStyle
+		public ExcelBorderStyle BorderDiagStyle
 		{
 			get
 			{
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal IColor BorderLeftColor
+		public IColor BorderLeftColor
 		{
 			get
 			{
@@ -341,7 +341,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal IColor BorderRightColor
+		public IColor BorderRightColor
 		{
 			get
 			{
@@ -353,7 +353,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal IColor BorderTopColor
+		public IColor BorderTopColor
 		{
 			get
 			{
@@ -365,7 +365,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal IColor BorderBottomColor
+		public IColor BorderBottomColor
 		{
 			get
 			{
@@ -377,7 +377,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal IColor BorderDiagColor
+		public IColor BorderDiagColor
 		{
 			get
 			{
@@ -389,7 +389,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal ExcelBorderPart BorderDiagPart
+		public ExcelBorderPart BorderDiagPart
 		{
 			get
 			{
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal int Ixfe
+		public int Ixfe
 		{
 			get
 			{
@@ -413,7 +413,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal StyleProperties()
+		public StyleProperties()
 		{
 		}
 

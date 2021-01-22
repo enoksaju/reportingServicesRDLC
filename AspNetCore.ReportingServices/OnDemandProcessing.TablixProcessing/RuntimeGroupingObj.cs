@@ -7,9 +7,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeGroupingObj : IStorable, IPersistable
+	public abstract class RuntimeGroupingObj : IStorable, IPersistable
 	{
-		internal enum GroupingTypes
+		public enum GroupingTypes
 		{
 			None,
 			Hash,
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeGroupingObj.GetDeclaration();
 
-		internal virtual BTree Tree
+		public virtual BTree Tree
 		{
 			get
 			{
@@ -44,17 +44,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeGroupingObj()
+		public RuntimeGroupingObj()
 		{
 		}
 
-		internal RuntimeGroupingObj(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeGroupingObj(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 		{
 			this.m_owner = owner;
 			this.m_objectType = objectType;
 		}
 
-		internal static RuntimeGroupingObj CreateGroupingObj(GroupingTypes type, RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public static RuntimeGroupingObj CreateGroupingObj(GroupingTypes type, RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 		{
 			switch (type)
 			{
@@ -76,20 +76,20 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal abstract void Cleanup();
+		public abstract void Cleanup();
 
-		internal void NextRow(object keyValue)
+		public void NextRow(object keyValue)
 		{
 			this.NextRow(keyValue, false, null);
 		}
 
-		internal abstract void NextRow(object keyValue, bool hasParent, object parentKey);
+		public abstract void NextRow(object keyValue, bool hasParent, object parentKey);
 
-		internal abstract void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext);
+		public abstract void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext);
 
-		internal abstract void CopyDomainScopeGroupInstances(RuntimeGroupRootObj destination);
+		public abstract void CopyDomainScopeGroupInstances(RuntimeGroupRootObj destination);
 
-		internal void SetOwner(RuntimeHierarchyObj owner)
+		public void SetOwner(RuntimeHierarchyObj owner)
 		{
 			this.m_owner = owner;
 		}

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class Iterators
+	public static class Iterators
 	{
 		public struct ReverseEnumerator<T> : IEnumerator<T>, IDisposable, IEnumerator, IEnumerable<T>, IEnumerable
 		{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Common
 				}
 			}
 
-			internal ReverseEnumerator(IList<T> list)
+			public ReverseEnumerator(IList<T> list)
 			{
 				this.m_list = list;
 				this.m_index = this.m_list.Count;

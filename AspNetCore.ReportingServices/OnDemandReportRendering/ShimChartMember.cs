@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimChartMember : ChartMember, IShimDataRegionMember
+	public sealed class ShimChartMember : ChartMember, IShimDataRegionMember
 	{
 		private bool m_isCategory;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private AspNetCore.ReportingServices.ReportRendering.ChartMember m_staticOrSubtotal;
 
-		internal override string UniqueName
+		public override string UniqueName
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal object LabelInstanceValue
+		public object LabelInstanceValue
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMember MemberDefinition
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.ChartMember MemberDefinition
 		{
 			get
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScopeInstance ReportScopeInstance
+		public override IReportScopeInstance ReportScopeInstance
 		{
 			get
 			{
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int DefinitionStartIndex
+		public int DefinitionStartIndex
 		{
 			get
 			{
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal int DefinitionEndIndex
+		public int DefinitionEndIndex
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.ChartMember CurrentRenderChartMember
+		public AspNetCore.ReportingServices.ReportRendering.ChartMember CurrentRenderChartMember
 		{
 			get
 			{
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimChartMember(IDefinitionPath parentDefinitionPath, Chart owner, ShimChartMember parent, int parentCollectionIndex, bool isCategory, AspNetCore.ReportingServices.ReportRendering.ChartMember staticOrSubtotal)
+		public ShimChartMember(IDefinitionPath parentDefinitionPath, Chart owner, ShimChartMember parent, int parentCollectionIndex, bool isCategory, AspNetCore.ReportingServices.ReportRendering.ChartMember staticOrSubtotal)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex)
 		{
 			this.m_definitionStartIndex = owner.GetCurrentMemberCellDefinitionIndex();
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_definitionEndIndex = owner.GetCurrentMemberCellDefinitionIndex();
 		}
 
-		internal ShimChartMember(IDefinitionPath parentDefinitionPath, Chart owner, ShimChartMember parent, int parentCollectionIndex, bool isCategory, ShimRenderGroups renderGroups)
+		public ShimChartMember(IDefinitionPath parentDefinitionPath, Chart owner, ShimChartMember parent, int parentCollectionIndex, bool isCategory, ShimRenderGroups renderGroups)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex)
 		{
 			this.m_definitionStartIndex = owner.GetCurrentMemberCellDefinitionIndex();
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool SetNewContext(int index)
+		public bool SetNewContext(int index)
 		{
 			base.ResetContext();
 			if (base.m_instance != null)
@@ -312,12 +312,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return index <= 1;
 		}
 
-		internal override void ResetContext()
+		public override void ResetContext()
 		{
 			this.ResetContext(null, null);
 		}
 
-		internal void ResetContext(AspNetCore.ReportingServices.ReportRendering.ChartMember staticOrSubtotal, ShimRenderGroups renderGroups)
+		public void ResetContext(AspNetCore.ReportingServices.ReportRendering.ChartMember staticOrSubtotal, ShimRenderGroups renderGroups)
 		{
 			if (base.m_group != null)
 			{

@@ -5,9 +5,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class Interactivity
+	public sealed class Interactivity
 	{
-		internal enum EventType
+		public enum EventType
 		{
 			UserSortEvent,
 			FindStringEvent,
@@ -23,13 +23,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			DrillthroughEvent
 		}
 
-		internal class DrillthroughInfo
+		public class DrillthroughInfo
 		{
 			private string m_reportName;
 
 			private NameValueCollection m_parameters;
 
-			internal string ReportName
+			public string ReportName
 			{
 				get
 				{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 				}
 			}
 
-			internal NameValueCollection Parameters
+			public NameValueCollection Parameters
 			{
 				get
 				{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private DrillthroughInfo m_drillthroughResult;
 
-		internal bool Done
+		public bool Done
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal string ItemInfo
+		public string ItemInfo
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool NeedPageHeaderFooter
+		public bool NeedPageHeaderFooter
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool RegisterHiddenItems
+		public bool RegisterHiddenItems
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal EventType InteractivityEventType
+		public EventType InteractivityEventType
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal DrillthroughInfo DrillthroughResult
+		public DrillthroughInfo DrillthroughResult
 		{
 			get
 			{
@@ -124,11 +124,11 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Interactivity()
+		public Interactivity()
 		{
 		}
 
-		internal Interactivity(string itemInfo, EventType eventType, string streamName, CreateAndRegisterStream createAndRegisterStream)
+		public Interactivity(string itemInfo, EventType eventType, string streamName, CreateAndRegisterStream createAndRegisterStream)
 		{
 			this.m_itemInfo = itemInfo;
 			this.m_eventType = eventType;
@@ -136,24 +136,24 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_createAndRegisterStream = createAndRegisterStream;
 		}
 
-		internal Interactivity(string itemInfo, EventType eventType)
+		public Interactivity(string itemInfo, EventType eventType)
 		{
 			this.m_itemInfo = itemInfo;
 			this.m_eventType = eventType;
 		}
 
-		internal Interactivity(EventType eventType)
+		public Interactivity(EventType eventType)
 		{
 			this.m_eventType = eventType;
 		}
 
-		internal Interactivity(string bookmarkId)
+		public Interactivity(string bookmarkId)
 		{
 			this.m_bookmarkId = bookmarkId;
 			this.m_eventType = EventType.BookmarkNavigationEvent;
 		}
 
-		internal bool RegisterItem(PageItem pageItem, PageContext pageContext)
+		public bool RegisterItem(PageItem pageItem, PageContext pageContext)
 		{
 			if (!this.m_itemFound && pageItem != null)
 			{
@@ -466,7 +466,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal bool RegisterHiddenItem(ReportItem reportItem, PageContext pageContext)
+		public bool RegisterHiddenItem(ReportItem reportItem, PageContext pageContext)
 		{
 			if (this.m_eventType == EventType.Collect)
 			{
@@ -520,7 +520,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal void RegisterGroupLabel(Group group, PageContext pageContext)
+		public void RegisterGroupLabel(Group group, PageContext pageContext)
 		{
 			if (!this.m_itemFound && group != null)
 			{
@@ -543,7 +543,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void RegisterDocMapRootLabel(string rootLabelUniqueName, PageContext pageContext)
+		public void RegisterDocMapRootLabel(string rootLabelUniqueName, PageContext pageContext)
 		{
 			if (!this.m_itemFound && rootLabelUniqueName != null && pageContext.PageNumber == 1)
 			{

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[CompilerGenerated]
-	internal class ErrorStrings
+	public class ErrorStrings
 	{
 		[CompilerGenerated]
 		internal class Keys

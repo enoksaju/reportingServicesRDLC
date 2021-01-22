@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ShapeFieldPropertyDescriptor : PropertyDescriptor
+	public class ShapeFieldPropertyDescriptor : PropertyDescriptor
 	{
 		private Field field;
 

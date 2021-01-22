@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapDistanceScaleInstance : MapDockableSubItemInstance
+	public sealed class MapDistanceScaleInstance : MapDockableSubItemInstance
 	{
 		private MapDistanceScale m_defObject;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapDistanceScaleInstance(MapDistanceScale defObject)
+		public MapDistanceScaleInstance(MapDistanceScale defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

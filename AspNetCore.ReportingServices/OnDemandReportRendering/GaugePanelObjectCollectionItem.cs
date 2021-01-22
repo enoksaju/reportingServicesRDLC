@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class GaugePanelObjectCollectionItem
+	public abstract class GaugePanelObjectCollectionItem
 	{
 		protected BaseInstance m_instance;
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

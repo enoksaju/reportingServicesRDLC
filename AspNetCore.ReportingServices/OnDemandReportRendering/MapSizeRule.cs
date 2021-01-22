@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapSizeRule : MapAppearanceRule
+	public sealed class MapSizeRule : MapAppearanceRule
 	{
 		private ReportSizeProperty m_startSize;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapSizeRule MapSizeRuleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapSizeRule MapSizeRuleDef
 		{
 			get
 			{
@@ -48,12 +48,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSizeRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapSizeRule defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapSizeRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapSizeRule defObject, MapVectorLayer mapVectorLayer, Map map)
 			: base(defObject, mapVectorLayer, map)
 		{
 		}
 
-		internal override MapAppearanceRuleInstance GetInstance()
+		public override MapAppearanceRuleInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

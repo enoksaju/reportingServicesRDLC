@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class RuntimeLookupProcessing
+	public sealed class RuntimeLookupProcessing
 	{
 		private RuntimeOnDemandDataSetObj m_lookupOwner;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private int m_firstRowCacheIndex = -1;
 
-		internal bool MustBufferAllRows
+		public bool MustBufferAllRows
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeLookupProcessing(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, DataSetInstance dataSetInstance, RuntimeOnDemandDataSetObj lookupOwner)
+		public RuntimeLookupProcessing(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, DataSetInstance dataSetInstance, RuntimeOnDemandDataSetObj lookupOwner)
 		{
 			this.m_odpContext = odpContext;
 			this.m_dataSet = dataSet;
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void NextRow()
+		public void NextRow()
 		{
 			long streamOffset = this.m_odpContext.ReportObjectModel.FieldsImpl.StreamOffset;
 			int num = -1;
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void FinishReadingRows()
+		public void FinishReadingRows()
 		{
 			if (this.m_mustBufferAllRows)
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void CompleteLookupProcessing()
+		public void CompleteLookupProcessing()
 		{
 			for (int i = 0; i < this.m_dataSetInstance.LookupResults.Count; i++)
 			{

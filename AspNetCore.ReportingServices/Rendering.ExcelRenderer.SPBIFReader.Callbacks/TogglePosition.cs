@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIFReader.Callbacks
 {
-	internal enum TogglePosition : byte
+	public enum TogglePosition : byte
 	{
 		None,
 		Left,

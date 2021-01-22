@@ -4,17 +4,17 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal sealed class ScopeValue : SerializableValue
+	public sealed class ScopeValue : SerializableValue
 	{
-		internal const string SCOPEVALUE = "ScopeValue";
+		public const string SCOPEVALUE = "ScopeValue";
 
-		internal const string SCOPETYPE = "ScopeType";
+		public const string SCOPETYPE = "ScopeType";
 
 		private readonly string m_key;
 
 		private ScopeIDType m_scopeType = ScopeIDType.GroupValues;
 
-		internal ScopeIDType ScopeType
+		public ScopeIDType ScopeType
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal string Key
+		public string Key
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal bool IsGroupExprValue
+		public bool IsGroupExprValue
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal bool IsSortExprValue
+		public bool IsSortExprValue
 		{
 			get
 			{
@@ -54,23 +54,23 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal ScopeValue()
+		public ScopeValue()
 		{
 		}
 
-		internal ScopeValue(object value, ScopeIDType scopeType)
+		public ScopeValue(object value, ScopeIDType scopeType)
 			: base(value)
 		{
 			this.m_scopeType = scopeType;
 		}
 
-		internal ScopeValue(object value, ScopeIDType scopeType, string key)
+		public ScopeValue(object value, ScopeIDType scopeType, string key)
 			: this(value, scopeType)
 		{
 			this.m_key = key;
 		}
 
-		internal ScopeValue(object value, ScopeIDType scopeType, DataTypeCode dataTypeCode)
+		public ScopeValue(object value, ScopeIDType scopeType, DataTypeCode dataTypeCode)
 			: base(value, dataTypeCode)
 		{
 			this.m_scopeType = scopeType;
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.Common
 			return this.Equals(obj as ScopeValue);
 		}
 
-		internal bool Equals(ScopeValue scopeValue)
+		public bool Equals(ScopeValue scopeValue)
 		{
 			if (object.ReferenceEquals(this, scopeValue))
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.Common
 			return !(scopeValue1 == scopeValue2);
 		}
 
-		internal bool Equals(ScopeValue scopeValue, IEqualityComparer<object> comparer)
+		public bool Equals(ScopeValue scopeValue, IEqualityComparer<object> comparer)
 		{
 			if (object.ReferenceEquals(scopeValue, null))
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.Common
 			return comparer.Equals(base.Value, scopeValue.Value);
 		}
 
-		internal int GetHashCode(IEqualityComparer<object> comparer)
+		public int GetHashCode(IEqualityComparer<object> comparer)
 		{
 			int num = 0;
 			if (base.Value != null)

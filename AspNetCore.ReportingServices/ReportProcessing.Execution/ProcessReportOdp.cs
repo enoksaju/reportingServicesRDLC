@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal abstract class ProcessReportOdp
+	public abstract class ProcessReportOdp
 	{
 		private readonly IConfiguration m_configuration;
 

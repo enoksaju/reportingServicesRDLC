@@ -4,7 +4,7 @@ using System.Data;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class DataSourceConverter : ReferenceConverter
+	public class DataSourceConverter : ReferenceConverter
 	{
 		public DataSourceConverter()
 			: base(typeof(IListSource))

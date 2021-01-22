@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum TextOrientation
+	public enum TextOrientation
 	{
 		Horizontal,
 		Rotate90,

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum LayerVisibility
+	public enum LayerVisibility
 	{
 		Shown,
 		Hidden,

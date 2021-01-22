@@ -4,11 +4,11 @@ using AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Textbox2005 : Textbox, IReportItem2005, IUpgradeable
+	public class Textbox2005 : Textbox, IReportItem2005, IUpgradeable
 	{
-		internal new class Definition : DefinitionStore<Textbox2005, Definition.Properties>
+		public new class Definition : DefinitionStore<Textbox2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Action = 26,
 				Value,

@@ -7,35 +7,35 @@ using System.Linq;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class SelectiveRendering
+	public sealed class SelectiveRendering
 	{
 		private sealed class ItemContext
 		{
-			internal RPLWriter RPLWriter
+			public RPLWriter RPLWriter
 			{
 				get;
 				private set;
 			}
 
-			internal PageContext PageContext
+			public PageContext PageContext
 			{
 				get;
 				private set;
 			}
 
-			internal AspNetCore.ReportingServices.OnDemandReportRendering.Report Report
+			public AspNetCore.ReportingServices.OnDemandReportRendering.Report Report
 			{
 				get;
 				private set;
 			}
 
-			internal AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection ReportSection
+			public AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection ReportSection
 			{
 				get;
 				private set;
 			}
 
-			internal ItemContext(RPLWriter rplWriter, PageContext pageContext, AspNetCore.ReportingServices.OnDemandReportRendering.Report report, AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection reportSection)
+			public ItemContext(RPLWriter rplWriter, PageContext pageContext, AspNetCore.ReportingServices.OnDemandReportRendering.Report report, AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection reportSection)
 			{
 				this.RPLWriter = rplWriter;
 				this.PageContext = pageContext;
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				this.m_spbifWriter = base.RplWriter.BinaryWriter;
 			}
 
-			internal static void Write(PageItem item, ItemContext itemContext)
+			public static void Write(PageItem item, ItemContext itemContext)
 			{
 				ReportToRplStreamWriter reportToRplStreamWriter = new ReportToRplStreamWriter(item, itemContext);
 				reportToRplStreamWriter.WriteImpl();
@@ -278,7 +278,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			{
 			}
 
-			internal static void Write(PageItem item, ItemContext itemContext)
+			public static void Write(PageItem item, ItemContext itemContext)
 			{
 				ReportToRplOmWriter reportToRplOmWriter = new ReportToRplOmWriter(item, itemContext);
 				reportToRplOmWriter.WriteImpl();
@@ -341,20 +341,20 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private PaginationSettings m_paginationSettings;
 
-		internal bool Done
+		public bool Done
 		{
 			get;
 			private set;
 		}
 
-		internal SelectiveRendering(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, PageContext pageContext, PaginationSettings paginationSettings)
+		public SelectiveRendering(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, PageContext pageContext, PaginationSettings paginationSettings)
 		{
 			this.m_report = report;
 			this.m_pageContext = pageContext;
 			this.m_paginationSettings = paginationSettings;
 		}
 
-		internal void RenderReportItem(RPLWriter rplWriter, string reportItemName)
+		public void RenderReportItem(RPLWriter rplWriter, string reportItemName)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection reportSection = null;
 			ReportItem reportItem = SelectiveRendering.FindReportItem(this.m_report, SelectiveRendering.SplitReportItemPath(reportItemName), out reportSection);

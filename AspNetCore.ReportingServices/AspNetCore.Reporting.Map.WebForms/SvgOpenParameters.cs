@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal struct SvgOpenParameters
+	public struct SvgOpenParameters
 	{
 		public bool toolTipsEnabled;
 

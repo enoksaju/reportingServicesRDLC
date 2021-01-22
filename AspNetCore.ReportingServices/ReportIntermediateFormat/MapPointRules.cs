@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapPointRules : IPersistable
+	public sealed class MapPointRules : IPersistable
 	{
 		[NonSerialized]
 		private MapPointRulesExprHost m_exprHost;
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private MapMarkerRule m_mapMarkerRule;
 
-		internal MapSizeRule MapSizeRule
+		public MapSizeRule MapSizeRule
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapColorRule MapColorRule
+		public MapColorRule MapColorRule
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMarkerRule MapMarkerRule
+		public MapMarkerRule MapMarkerRule
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPointRulesExprHost ExprHost
+		public MapPointRulesExprHost ExprHost
 		{
 			get
 			{
@@ -81,16 +81,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPointRules()
+		public MapPointRules()
 		{
 		}
 
-		internal MapPointRules(Map map)
+		public MapPointRules(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapPointRulesStart();
 			if (this.m_mapSizeRule != null)
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapPointRulesEnd();
 		}
 
-		internal void InitializeMapMember(InitializationContext context)
+		public void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapPointRulesStart();
 			if (this.m_mapSizeRule != null)
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapPointRulesEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapPointRules mapPointRules = (MapPointRules)base.MemberwiseClone();
 			mapPointRules.m_map = context.CurrentMapClone;
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapPointRules;
 		}
 
-		internal void SetExprHost(MapPointRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapPointRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetExprHostMapMember(MapPointRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHostMapMember(MapPointRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHostMapMember = exprHost;
@@ -183,7 +183,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapSizeRule, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapSizeRule));

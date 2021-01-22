@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GaugePeriod : ICloneable
+	public class GaugePeriod : ICloneable
 	{
 		private double duration;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private bool ivalidated;
 
-		internal double Duration
+		public double Duration
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal PeriodType PeriodType
+		public PeriodType PeriodType
 		{
 			get
 			{
@@ -46,21 +46,21 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GaugePeriod()
+		public GaugePeriod()
 		{
 			this.duration = double.NaN;
 			this.periodType = PeriodType.Seconds;
 			this.ivalidated = true;
 		}
 
-		internal GaugePeriod(double duration, PeriodType periodType)
+		public GaugePeriod(double duration, PeriodType periodType)
 		{
 			this.duration = duration;
 			this.periodType = periodType;
 			this.ivalidated = true;
 		}
 
-		internal TimeSpan ToTimeSpan()
+		public TimeSpan ToTimeSpan()
 		{
 			if (this.ivalidated)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.timeSpan;
 		}
 
-		internal static TimeSpan PeriodToTimeSpan(double timeTicks, PeriodType period)
+		public static TimeSpan PeriodToTimeSpan(double timeTicks, PeriodType period)
 		{
 			if (double.IsNaN(timeTicks))
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return new TimeSpan((long)Math.Floor(num * 10000.0));
 		}
 
-		internal GaugePeriod Clone()
+		public GaugePeriod Clone()
 		{
 			return (GaugePeriod)base.MemberwiseClone();
 		}

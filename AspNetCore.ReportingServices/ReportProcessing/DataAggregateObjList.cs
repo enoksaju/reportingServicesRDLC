@@ -2,9 +2,9 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class DataAggregateObjList : ArrayList
+	public sealed class DataAggregateObjList : ArrayList
 	{
-		internal new DataAggregateObj this[int index]
+		public new DataAggregateObj this[int index]
 		{
 			get
 			{

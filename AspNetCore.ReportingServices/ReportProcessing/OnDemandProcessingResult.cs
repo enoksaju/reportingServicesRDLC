@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.OnDemandProcessing;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal abstract class OnDemandProcessingResult
+	public abstract class OnDemandProcessingResult
 	{
 		private readonly bool m_hasInteractivity;
 

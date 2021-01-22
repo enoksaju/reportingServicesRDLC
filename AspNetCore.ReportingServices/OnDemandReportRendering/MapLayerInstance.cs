@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapLayerInstance : BaseInstance
+	public abstract class MapLayerInstance : BaseInstance
 	{
 		private MapLayer m_defObject;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLayerInstance(MapLayer defObject)
+		public MapLayerInstance(MapLayer defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

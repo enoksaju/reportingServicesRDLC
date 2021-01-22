@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartColumnType
+	public enum ChartColumnType
 	{
 		Text,
 		SeriesSymbol

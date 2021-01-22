@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapView : IPersistable
+	public class MapView : IPersistable
 	{
 		[NonSerialized]
 		protected MapViewExprHost m_exprHost;
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_zoom;
 
-		internal ExpressionInfo Zoom
+		public ExpressionInfo Zoom
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapViewExprHost ExprHost
+		public MapViewExprHost ExprHost
 		{
 			get
 			{
@@ -52,16 +52,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapView()
+		public MapView()
 		{
 		}
 
-		internal MapView(Map map)
+		public MapView(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal virtual void Initialize(InitializationContext context)
+		public virtual void Initialize(InitializationContext context)
 		{
 			if (this.m_zoom != null)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapView mapView = (MapView)base.MemberwiseClone();
 			mapView.m_map = context.CurrentMapClone;
@@ -81,14 +81,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapView;
 		}
 
-		internal virtual void SetExprHost(MapViewExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHost(MapViewExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Zoom, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapView;
 		}
 
-		internal double EvaluateZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateZoom(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapViewZoomExpression(this, this.m_map.Name);

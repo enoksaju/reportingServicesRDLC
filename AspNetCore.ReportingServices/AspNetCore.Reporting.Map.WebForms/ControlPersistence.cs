@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum ControlPersistence
+	public enum ControlPersistence
 	{
 		None,
 		SessionState,

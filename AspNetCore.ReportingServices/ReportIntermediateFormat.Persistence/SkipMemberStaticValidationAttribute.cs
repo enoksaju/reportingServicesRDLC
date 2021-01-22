@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
 	[AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-	internal sealed class SkipMemberStaticValidationAttribute : Attribute
+	public sealed class SkipMemberStaticValidationAttribute : Attribute
 	{
 		private MemberName m_member;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal SkipMemberStaticValidationAttribute(MemberName member)
+		public SkipMemberStaticValidationAttribute(MemberName member)
 		{
 			this.m_member = member;
 		}

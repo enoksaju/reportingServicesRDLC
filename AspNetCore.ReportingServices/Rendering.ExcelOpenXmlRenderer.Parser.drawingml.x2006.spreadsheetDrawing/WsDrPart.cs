@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.spreadsheetDrawing
 {
-	internal class WsDrPart : OoxmlPart
+	public class WsDrPart : OoxmlPart
 	{
 		private CT_Drawing _root;
 

@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PageSection : ReportElement
+	public sealed class PageSection : ReportElement
 	{
-		internal const string PageHeaderUniqueNamePrefix = "ph";
+		public const string PageHeaderUniqueNamePrefix = "ph";
 
-		internal const string PageFooterUniqueNamePrefix = "pf";
+		public const string PageFooterUniqueNamePrefix = "pf";
 
 		private bool m_isHeader;
 
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Page PageDefinition
+		public Page PageDefinition
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.PageSection RifPageSection
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.PageSection RifPageSection
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.PageSection RenderPageSection
+		public AspNetCore.ReportingServices.ReportRendering.PageSection RenderPageSection
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsHeader
+		public bool IsHeader
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override string InstanceUniqueName
+		public override string InstanceUniqueName
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportElementInstance ReportElementInstance
+		public override ReportElementInstance ReportElementInstance
 		{
 			get
 			{
@@ -179,19 +179,19 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PageSection(IReportScope reportScope, IDefinitionPath parentDefinitionPath, bool isHeader, AspNetCore.ReportingServices.ReportIntermediateFormat.PageSection pageSectionDef, RenderingContext renderingContext)
+		public PageSection(IReportScope reportScope, IDefinitionPath parentDefinitionPath, bool isHeader, AspNetCore.ReportingServices.ReportIntermediateFormat.PageSection pageSectionDef, RenderingContext renderingContext)
 			: base(reportScope, parentDefinitionPath, pageSectionDef, renderingContext)
 		{
 			this.m_isHeader = isHeader;
 		}
 
-		internal PageSection(IDefinitionPath parentDefinitionPath, bool isHeader, AspNetCore.ReportingServices.ReportRendering.PageSection renderPageSection, RenderingContext renderingContext)
+		public PageSection(IDefinitionPath parentDefinitionPath, bool isHeader, AspNetCore.ReportingServices.ReportRendering.PageSection renderPageSection, RenderingContext renderingContext)
 			: base(parentDefinitionPath, renderPageSection, renderingContext)
 		{
 			this.m_isHeader = isHeader;
 		}
 
-		internal void UpdatePageSection(AspNetCore.ReportingServices.ReportRendering.PageSection renderPageSection)
+		public void UpdatePageSection(AspNetCore.ReportingServices.ReportRendering.PageSection renderPageSection)
 		{
 			base.m_renderReportItem = renderPageSection;
 			if (this.m_reportItems != null)
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{
@@ -209,7 +209,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			base.SetNewContext();
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_reportItems != null)
 			{

@@ -4,9 +4,9 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal class PageSetup
+	public class PageSetup
 	{
-		internal sealed class PageOrientation
+		public sealed class PageOrientation
 		{
 			private readonly string mName;
 
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal sealed class PagePaperSize
+		public sealed class PagePaperSize
 		{
 			private static readonly Hashtable mCollection;
 
@@ -460,7 +460,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal PageSetup(IPageSetupModel model)
+		public PageSetup(IPageSetupModel model)
 		{
 			this.mModel = model;
 		}

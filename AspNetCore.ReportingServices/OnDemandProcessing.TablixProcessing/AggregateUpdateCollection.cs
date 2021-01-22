@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal class AggregateUpdateCollection
+	public class AggregateUpdateCollection
 	{
 		private class AggregatesByScopeId : Dictionary<int, List<DataAggregateObj>>
 		{

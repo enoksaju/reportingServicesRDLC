@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class InternalChartSeries : ChartSeries, IROMActionOwner
+	public class InternalChartSeries : ChartSeries, IROMActionOwner
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.ChartSeries m_chartSeriesDef;
 
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ActionInfo ActionInfo
+		public override ActionInfo ActionInfo
 		{
 			get
 			{
@@ -208,7 +208,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportStringProperty LegendText
+		public override ReportStringProperty LegendText
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportBoolProperty HideInLegend
+		public override ReportBoolProperty HideInLegend
 		{
 			get
 			{
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportStringProperty ToolTip
+		public override ReportStringProperty ToolTip
 		{
 			get
 			{
@@ -328,7 +328,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartSeries ChartSeriesDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartSeries ChartSeriesDef
 		{
 			get
 			{
@@ -336,7 +336,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -344,7 +344,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -379,7 +379,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal List<ChartDerivedSeries> ChildrenDerivedSeries
+		public List<ChartDerivedSeries> ChildrenDerivedSeries
 		{
 			get
 			{
@@ -391,19 +391,19 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalChartSeries(ChartDerivedSeries parentDerivedSeries)
+		public InternalChartSeries(ChartDerivedSeries parentDerivedSeries)
 			: this(parentDerivedSeries.ChartDef, 0, parentDerivedSeries.ChartDerivedSeriesDef.Series)
 		{
 			this.m_parentDerivedSeries = parentDerivedSeries;
 		}
 
-		internal InternalChartSeries(Chart chart, int seriesIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartSeries seriesDef)
+		public InternalChartSeries(Chart chart, int seriesIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartSeries seriesDef)
 			: base(chart, seriesIndex)
 		{
 			this.m_chartSeriesDef = seriesDef;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

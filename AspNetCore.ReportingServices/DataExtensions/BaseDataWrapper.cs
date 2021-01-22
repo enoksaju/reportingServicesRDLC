@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal abstract class BaseDataWrapper : IDisposable
+	public abstract class BaseDataWrapper : IDisposable
 	{
 		private object m_underlyingObject;
 

@@ -10,27 +10,27 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[DefaultProperty("Enabled")]
 	[SRDescription("DescriptionAttributeLabel_Label")]
-	internal class Label : ChartElement
+	public class Label : ChartElement
 	{
-		internal Axis axis;
+		public Axis axis;
 
 		private bool enabled = true;
 
-		internal double intervalOffset = double.NaN;
+		public double intervalOffset = double.NaN;
 
-		internal double interval = double.NaN;
+		public double interval = double.NaN;
 
-		internal DateTimeIntervalType intervalType = DateTimeIntervalType.NotSet;
+		public DateTimeIntervalType intervalType = DateTimeIntervalType.NotSet;
 
-		internal DateTimeIntervalType intervalOffsetType = DateTimeIntervalType.NotSet;
+		public DateTimeIntervalType intervalOffsetType = DateTimeIntervalType.NotSet;
 
-		internal Font font = new Font(ChartPicture.GetDefaultFontFamilyName(), 8f);
+		public Font font = new Font(ChartPicture.GetDefaultFontFamilyName(), 8f);
 
 		private Color fontColor = Color.Black;
 
-		internal int fontAngle;
+		public int fontAngle;
 
-		internal bool offsetLabels;
+		public bool offsetLabels;
 
 		private bool showEndLabels = true;
 
@@ -325,7 +325,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.axis = axis;
 		}
 
-		internal void PaintCircular(ChartGraphics graph)
+		public void PaintCircular(ChartGraphics graph)
 		{
 			StringFormat stringFormat = new StringFormat();
 			stringFormat.FormatFlags |= StringFormatFlags.LineLimit;
@@ -441,7 +441,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal static RectangleF GetLabelPosition(ChartGraphics graph, PointF position, SizeF size, StringFormat format)
+		public static RectangleF GetLabelPosition(ChartGraphics graph, PointF position, SizeF size, StringFormat format)
 		{
 			RectangleF empty = RectangleF.Empty;
 			empty.Width = size.Width;
@@ -473,7 +473,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return empty;
 		}
 
-		internal void Paint(ChartGraphics graph, bool backElements)
+		public void Paint(ChartGraphics graph, bool backElements)
 		{
 			StringFormat stringFormat = new StringFormat();
 			stringFormat.FormatFlags |= StringFormatFlags.LineLimit;
@@ -925,7 +925,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return axis.AxisPosition;
 		}
 
-		internal void Paint3D(ChartGraphics graph, bool backElements)
+		public void Paint3D(ChartGraphics graph, bool backElements)
 		{
 			StringFormat stringFormat = new StringFormat();
 			stringFormat.Trimming = StringTrimming.EllipsisCharacter;
@@ -1358,12 +1358,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Axis GetAxis()
+		public Axis GetAxis()
 		{
 			return this.axis;
 		}
 
-		internal void Invalidate()
+		public void Invalidate()
 		{
 		}
 	}

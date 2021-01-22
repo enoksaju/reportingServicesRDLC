@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal class CreateInstancesTraversalContext : ITraversalContext
+	public class CreateInstancesTraversalContext : ITraversalContext
 	{
 		private ScopeInstance m_parentInstance;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private IReference<RuntimeDataTablixGroupLeafObj> m_innerGroupLeafRef;
 
-		internal ScopeInstance ParentInstance
+		public ScopeInstance ParentInstance
 		{
 			get
 			{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal IReference<RuntimeMemberObj>[] InnerMembers
+		public IReference<RuntimeMemberObj>[] InnerMembers
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal IReference<RuntimeDataTablixGroupLeafObj> InnerGroupLeafRef
+		public IReference<RuntimeDataTablixGroupLeafObj> InnerGroupLeafRef
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal CreateInstancesTraversalContext(ScopeInstance parentInstance, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeafRef)
+		public CreateInstancesTraversalContext(ScopeInstance parentInstance, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeafRef)
 		{
 			this.m_parentInstance = parentInstance;
 			this.m_innerMembers = innerMembers;

@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<MapBucketExprHost> MapBucketsHostsRemotable
+		public IList<MapBucketExprHost> MapBucketsHostsRemotable
 		{
 			get
 			{

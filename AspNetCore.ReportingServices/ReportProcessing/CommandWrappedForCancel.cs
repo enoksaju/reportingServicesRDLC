@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class CommandWrappedForCancel : IDbCommand, IDisposable
+	public sealed class CommandWrappedForCancel : IDbCommand, IDisposable
 	{
 		private readonly IDbCommand m_command;
 
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CommandWrappedForCancel(IDbCommand command, IProcessingDataExtensionConnection dataExtensionConnection, IProcessingDataSource dataSourceObj, DataSourceInfo dataSourceInfo, string datasetName, IDbConnection connection)
+		public CommandWrappedForCancel(IDbCommand command, IProcessingDataExtensionConnection dataExtensionConnection, IProcessingDataSource dataSourceObj, DataSourceInfo dataSourceInfo, string datasetName, IDbConnection connection)
 		{
 			this.m_command = command;
 			this.m_dataExtensionConnection = dataExtensionConnection;

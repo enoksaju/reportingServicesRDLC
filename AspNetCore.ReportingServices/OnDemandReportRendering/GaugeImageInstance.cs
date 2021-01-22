@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeImageInstance : GaugePanelItemInstance
+	public sealed class GaugeImageInstance : GaugePanelItemInstance
 	{
-		internal GaugeImageInstance(GaugeImage defObject)
+		public GaugeImageInstance(GaugeImage defObject)
 			: base(defObject)
 		{
 		}

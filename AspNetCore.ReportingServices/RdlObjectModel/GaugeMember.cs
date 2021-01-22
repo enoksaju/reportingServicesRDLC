@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class GaugeMember : HierarchyMember, IHierarchy, IHierarchyMember
+	public class GaugeMember : HierarchyMember, IHierarchy, IHierarchyMember
 	{
-		internal class Definition : DefinitionStore<GaugeMember, Definition.Properties>
+		public class Definition : DefinitionStore<GaugeMember, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Group,
 				SortExpressions,
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal GaugeMember(IPropertyStore propertyStore)
+		public GaugeMember(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

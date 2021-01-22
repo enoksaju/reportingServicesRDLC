@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class HundredPercentStackedAreaChart : StackedAreaChart
+	public class HundredPercentStackedAreaChart : StackedAreaChart
 	{
 		private double[] totalPerPoint;
 

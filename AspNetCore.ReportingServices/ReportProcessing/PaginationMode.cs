@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Flags]
-	internal enum PaginationMode
+	public enum PaginationMode
 	{
 		Progressive = 0,
 		TotalPages = 1,

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum DockAlignment
+	public enum DockAlignment
 	{
 		Near,
 		Center,

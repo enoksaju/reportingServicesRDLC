@@ -5,7 +5,7 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal interface IChartRenderingEngine
+	public interface IChartRenderingEngine
 	{
 		Matrix Transform
 		{

@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CalculatedValueLinearConverter))]
-	internal class CalculatedValueLinear : CalculatedValue
+	public class CalculatedValueLinear : CalculatedValue
 	{
 		private double multiplier = 1.0;
 
@@ -90,7 +90,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void CalculateValue(double value, DateTime timestamp)
+		public override void CalculateValue(double value, DateTime timestamp)
 		{
 			base.noMoreData = true;
 			value = base.inputValue * this.multiplier + this.addend;

@@ -1,9 +1,9 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal struct SCRIPT_ITEM
+	public struct SCRIPT_ITEM
 	{
-		internal int iCharPos;
+		public int iCharPos;
 
-		internal SCRIPT_ANALYSIS analysis;
+		public SCRIPT_ANALYSIS analysis;
 	}
 }

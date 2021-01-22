@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_UpdateLinks
+	public class ST_UpdateLinks
 	{
 		private string _ooxmlEnumerationValue;
 

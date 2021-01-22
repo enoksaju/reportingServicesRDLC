@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class RuntimeIncrementalDataSource : RuntimeDataSource
+	public abstract class RuntimeIncrementalDataSource : RuntimeDataSource
 	{
 		protected readonly AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet m_dataSet;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			get;
 		}
 
-		internal override bool NoRows
+		public override bool NoRows
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_dataSet = dataSet;
 		}
 
-		internal void Initialize()
+		public void Initialize()
 		{
 			ExecutedQuery executedQuery = null;
 			try
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void Abort()
+		public override void Abort()
 		{
 			if (Global.Tracer.TraceVerbose)
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.RuntimeDataSet.Initialize(existingQuery);
 		}
 
-		internal void Teardown()
+		public void Teardown()
 		{
 			try
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.RuntimeDataSet.Teardown();
 		}
 
-		internal void RecordSkippedRowCount(long rowCount)
+		public void RecordSkippedRowCount(long rowCount)
 		{
 			this.RuntimeDataSet.RecordSkippedRowCount(rowCount);
 		}

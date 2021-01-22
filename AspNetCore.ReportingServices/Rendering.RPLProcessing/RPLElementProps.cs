@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal abstract class RPLElementProps
+	public abstract class RPLElementProps
 	{
 		protected RPLElementPropsDef m_definition;
 

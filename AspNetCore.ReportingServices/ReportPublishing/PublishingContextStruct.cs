@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal struct PublishingContextStruct
+	public struct PublishingContextStruct
 	{
 		private LocationFlags m_location;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private PublishingErrorContext m_errorContext;
 
-		internal LocationFlags Location
+		public LocationFlags Location
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal ObjectType ObjectType
+		public ObjectType ObjectType
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal string ObjectName
+		public string ObjectName
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal string PrefixPropertyName
+		public string PrefixPropertyName
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal PublishingErrorContext ErrorContext
+		public PublishingErrorContext ErrorContext
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal PublishingContextStruct(LocationFlags location, ObjectType objectType, int maxExpressionLength, PublishingErrorContext errorContext)
+		public PublishingContextStruct(LocationFlags location, ObjectType objectType, int maxExpressionLength, PublishingErrorContext errorContext)
 		{
 			this.m_location = location;
 			this.m_objectType = objectType;
@@ -87,13 +87,13 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_errorContext = errorContext;
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.ExpressionParser.ExpressionContext CreateExpressionContext(AspNetCore.ReportingServices.RdlExpressions.ExpressionParser.ExpressionType expressionType, DataType constantType, string propertyName, string dataSetName, PublishingContextBase publishingContext)
+		public AspNetCore.ReportingServices.RdlExpressions.ExpressionParser.ExpressionContext CreateExpressionContext(AspNetCore.ReportingServices.RdlExpressions.ExpressionParser.ExpressionType expressionType, DataType constantType, string propertyName, string dataSetName, PublishingContextBase publishingContext)
 		{
 			string propertyName2 = (!string.IsNullOrEmpty(propertyName)) ? ((!string.IsNullOrEmpty(this.m_prefixPropertyName)) ? (this.m_prefixPropertyName + propertyName) : propertyName) : this.m_prefixPropertyName;
 			return new AspNetCore.ReportingServices.RdlExpressions.ExpressionParser.ExpressionContext(expressionType, constantType, this.m_location, this.m_objectType, this.m_objectName, propertyName2, dataSetName, this.m_maxExpressionLength, publishingContext);
 		}
 
-		internal double ValidateSize(string size, string propertyName, ErrorContext errorContext)
+		public double ValidateSize(string size, string propertyName, ErrorContext errorContext)
 		{
 			double result = default(double);
 			string text = default(string);

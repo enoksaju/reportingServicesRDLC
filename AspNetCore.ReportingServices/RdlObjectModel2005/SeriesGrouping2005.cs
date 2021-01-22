@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class SeriesGrouping2005 : ReportObject
+	public class SeriesGrouping2005 : ReportObject
 	{
-		internal class Definition : DefinitionStore<SeriesGrouping2005, Definition.Properties>
+		public class Definition : DefinitionStore<SeriesGrouping2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DynamicSeries,
 				StaticSeries,

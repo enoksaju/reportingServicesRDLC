@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class UserSortFilterContext
+	public sealed class UserSortFilterContext
 	{
 		private TextBox m_currentSortFilterEventSource;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private int[] m_inProcessUserSortPhase;
 
-		internal TextBox CurrentSortFilterEventSource
+		public TextBox CurrentSortFilterEventSource
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RuntimeSortFilterEventInfoList RuntimeSortFilterInfo
+		public RuntimeSortFilterEventInfoList RuntimeSortFilterInfo
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int DataSetID
+		public int DataSetID
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.IScope CurrentContainingScope
+		public ReportProcessing.IScope CurrentContainingScope
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal GroupingList ContainingScopes
+		public GroupingList ContainingScopes
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SubReportList DetailScopeSubReports
+		public SubReportList DetailScopeSubReports
 		{
 			get
 			{
@@ -92,11 +92,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal UserSortFilterContext()
+		public UserSortFilterContext()
 		{
 		}
 
-		internal UserSortFilterContext(UserSortFilterContext copy)
+		public UserSortFilterContext(UserSortFilterContext copy)
 		{
 			this.m_runtimeSortFilterInfo = copy.RuntimeSortFilterInfo;
 			this.m_currentContainingScope = copy.CurrentContainingScope;
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_inProcessUserSortPhase = copy.m_inProcessUserSortPhase;
 		}
 
-		internal UserSortFilterContext(UserSortFilterContext parentContext, SubReport subReport)
+		public UserSortFilterContext(UserSortFilterContext parentContext, SubReport subReport)
 		{
 			this.m_runtimeSortFilterInfo = parentContext.RuntimeSortFilterInfo;
 			this.m_dataSetID = parentContext.DataSetID;
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_inProcessUserSortPhase = parentContext.m_inProcessUserSortPhase;
 		}
 
-		internal bool PopulateRuntimeSortFilterEventInfo(ReportProcessing.ProcessingContext pc, DataSet myDataSet)
+		public bool PopulateRuntimeSortFilterEventInfo(ReportProcessing.ProcessingContext pc, DataSet myDataSet)
 		{
 			if (pc.UserSortFilterInfo != null && pc.UserSortFilterInfo.SortInfo != null && pc.OldSortFilterEventInfo != null)
 			{
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return array;
 		}
 
-		internal bool IsSortFilterTarget(bool[] isSortFilterTarget, ReportProcessing.IScope outerScope, ReportProcessing.IHierarchyObj target, ref RuntimeUserSortTargetInfo userSortTargetInfo)
+		public bool IsSortFilterTarget(bool[] isSortFilterTarget, ReportProcessing.IScope outerScope, ReportProcessing.IHierarchyObj target, ref RuntimeUserSortTargetInfo userSortTargetInfo)
 		{
 			bool result = false;
 			if (this.m_runtimeSortFilterInfo != null && isSortFilterTarget != null && (outerScope == null || !outerScope.TargetForNonDetailSort))
@@ -282,7 +282,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return result;
 		}
 
-		internal void RegisterSortFilterExpressionScope(ReportProcessing.IScope container, ReportProcessing.RuntimeDataRegionObj scopeObj, bool[] isSortFilterExpressionScope)
+		public void RegisterSortFilterExpressionScope(ReportProcessing.IScope container, ReportProcessing.RuntimeDataRegionObj scopeObj, bool[] isSortFilterExpressionScope)
 		{
 			RuntimeSortFilterEventInfoList runtimeSortFilterInfo = this.m_runtimeSortFilterInfo;
 			if (runtimeSortFilterInfo != null && isSortFilterExpressionScope != null && scopeObj != null)
@@ -304,7 +304,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ProcessUserSort(ReportProcessing.ProcessingContext processingContext)
+		public bool ProcessUserSort(ReportProcessing.ProcessingContext processingContext)
 		{
 			bool result = false;
 			RuntimeSortFilterEventInfoList runtimeSortFilterInfo = this.m_runtimeSortFilterInfo;
@@ -350,7 +350,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void ProcessUserSortForTarget(ObjectModelImpl reportObjectModel, ReportRuntime reportRuntime, ReportProcessing.IHierarchyObj target, ref ReportProcessing.DataRowList dataRows, bool targetForNonDetailSort)
+		public void ProcessUserSortForTarget(ObjectModelImpl reportObjectModel, ReportRuntime reportRuntime, ReportProcessing.IHierarchyObj target, ref ReportProcessing.DataRowList dataRows, bool targetForNonDetailSort)
 		{
 			if (targetForNonDetailSort && dataRows != null && 0 < dataRows.Count)
 			{
@@ -376,7 +376,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			target.MarkSortInfoProcessed(this.m_runtimeSortFilterInfo);
 		}
 
-		internal void EnterProcessUserSortPhase(int index)
+		public void EnterProcessUserSortPhase(int index)
 		{
 			if (this.m_inProcessUserSortPhase == null)
 			{
@@ -393,7 +393,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_inProcessUserSortPhase[index]++;
 		}
 
-		internal void LeaveProcessUserSortPhase(int index)
+		public void LeaveProcessUserSortPhase(int index)
 		{
 			if (this.m_inProcessUserSortPhase != null)
 			{
@@ -402,7 +402,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InProcessUserSortPhase(int index)
+		public bool InProcessUserSortPhase(int index)
 		{
 			if (this.m_inProcessUserSortPhase == null)
 			{
@@ -411,7 +411,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.m_inProcessUserSortPhase[index] > 0;
 		}
 
-		internal void UpdateContextFromDataSet(UserSortFilterContext dataSetContext)
+		public void UpdateContextFromDataSet(UserSortFilterContext dataSetContext)
 		{
 			if (-1 == this.m_dataSetID)
 			{

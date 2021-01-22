@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Rels.Relationships
 {
-	internal class XmlPart : RelPart
+	public class XmlPart : RelPart
 	{
 		private OoxmlPart _hydratedPart;
 

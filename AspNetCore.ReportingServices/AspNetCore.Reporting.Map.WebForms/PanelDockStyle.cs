@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum PanelDockStyle
+	public enum PanelDockStyle
 	{
 		None,
 		Top,

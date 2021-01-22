@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface IUserContext
+	public interface IUserContext
 	{
 		string UserName
 		{

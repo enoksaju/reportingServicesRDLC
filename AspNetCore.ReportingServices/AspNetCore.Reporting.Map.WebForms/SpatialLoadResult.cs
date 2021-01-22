@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum SpatialLoadResult
+	public enum SpatialLoadResult
 	{
 		AllSpatialElementsLoaded,
 		MaxSpatialElementCountReached,

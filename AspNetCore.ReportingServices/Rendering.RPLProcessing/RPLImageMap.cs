@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLImageMap
+	public sealed class RPLImageMap
 	{
 		private RPLFormat.ShapeType m_shape;
 

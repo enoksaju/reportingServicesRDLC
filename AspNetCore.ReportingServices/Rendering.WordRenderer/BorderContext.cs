@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class BorderContext
+	public class BorderContext
 	{
 		private const int TopBit = 1;
 
@@ -10,27 +10,27 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private const int RightBit = 8;
 
-		internal static readonly BorderContext EmptyBorder = new BorderContext(0);
+		public static readonly BorderContext EmptyBorder = new BorderContext(0);
 
-		internal static readonly BorderContext TopBorder = new BorderContext(1);
+		public static readonly BorderContext TopBorder = new BorderContext(1);
 
-		internal static readonly BorderContext LeftBorder = new BorderContext(2);
+		public static readonly BorderContext LeftBorder = new BorderContext(2);
 
-		internal static readonly BorderContext RightBorder = new BorderContext(8);
+		public static readonly BorderContext RightBorder = new BorderContext(8);
 
-		internal static readonly BorderContext BottomBorder = new BorderContext(4);
+		public static readonly BorderContext BottomBorder = new BorderContext(4);
 
-		internal static readonly BorderContext TopLeftBorder = new BorderContext(3);
+		public static readonly BorderContext TopLeftBorder = new BorderContext(3);
 
-		internal static readonly BorderContext TopRightBorder = new BorderContext(9);
+		public static readonly BorderContext TopRightBorder = new BorderContext(9);
 
-		internal static readonly BorderContext BottomLeftBorder = new BorderContext(6);
+		public static readonly BorderContext BottomLeftBorder = new BorderContext(6);
 
-		internal static readonly BorderContext BottomRightBorder = new BorderContext(12);
+		public static readonly BorderContext BottomRightBorder = new BorderContext(12);
 
 		private int m_borderContext;
 
-		internal bool Top
+		public bool Top
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool Left
+		public bool Left
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool Bottom
+		public bool Bottom
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool Right
+		public bool Right
 		{
 			get
 			{
@@ -106,22 +106,22 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal BorderContext()
+		public BorderContext()
 		{
 			this.m_borderContext = 0;
 		}
 
-		internal BorderContext(BorderContext borderContext)
+		public BorderContext(BorderContext borderContext)
 		{
 			this.m_borderContext = borderContext.m_borderContext;
 		}
 
-		internal BorderContext(int borderContext)
+		public BorderContext(int borderContext)
 		{
 			this.m_borderContext = borderContext;
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.m_borderContext = 0;
 		}

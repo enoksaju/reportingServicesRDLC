@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TablixCellInstance : BaseInstance, IReportScopeInstance
+	public sealed class TablixCellInstance : BaseInstance, IReportScopeInstance
 	{
 		private TablixCell m_cellDef;
 
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TablixCellInstance(TablixCell cellDef, Tablix owner, int rowIndex, int colIndex)
+		public TablixCellInstance(TablixCell cellDef, Tablix owner, int rowIndex, int colIndex)
 			: base(cellDef)
 		{
 			this.m_cellDef = cellDef;
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_columnIndex = colIndex;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (!this.m_isNewContext)
 			{

@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal abstract class MapVectorLayer : MapLayer, IPersistable, IReferenceable
+	public abstract class MapVectorLayer : MapLayer, IPersistable, IReferenceable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapVectorLayer.GetDeclaration();
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private IInstancePath m_instancePath;
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string MapDataRegionName
+		public string MapDataRegionName
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapBindingFieldPair> MapBindingFieldPairs
+		public List<MapBindingFieldPair> MapBindingFieldPairs
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapFieldDefinition> MapFieldDefinitions
+		public List<MapFieldDefinition> MapFieldDefinitions
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSpatialData MapSpatialData
+		public MapSpatialData MapSpatialData
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapVectorLayerExprHost ExprHost
+		public new MapVectorLayerExprHost ExprHost
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapVectorLayerExprHost ExprHostMapMember
+		public MapVectorLayerExprHost ExprHostMapMember
 		{
 			get
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostMapMemberID
+		public int ExpressionHostMapMemberID
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IInstancePath InstancePath
+		public IInstancePath InstancePath
 		{
 			get
 			{
@@ -179,17 +179,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			get;
 		}
 
-		internal MapVectorLayer()
+		public MapVectorLayer()
 		{
 		}
 
-		internal MapVectorLayer(int ID, Map map)
+		public MapVectorLayer(int ID, Map map)
 			: base(map)
 		{
 			this.m_ID = ID;
 		}
 
-		internal void Validate(PublishingErrorContext errorContext)
+		public void Validate(PublishingErrorContext errorContext)
 		{
 			if (this.MapSpatialData is MapSpatialDataRegion && this.MapDataRegionName == null)
 			{
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			base.Initialize(context);
 			if (this.m_mapSpatialData != null)
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual void InitializeMapMember(InitializationContext context)
+		public virtual void InitializeMapMember(InitializationContext context)
 		{
 			if (this.m_mapSpatialData != null)
 			{
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapVectorLayer mapVectorLayer2 = context.CurrentMapVectorLayerClone = (MapVectorLayer)base.PublishClone(context);
 			mapVectorLayer2.m_ID = context.GenerateID();
@@ -263,7 +263,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapVectorLayer2;
 		}
 
-		internal override void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -285,7 +285,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual void SetExprHostMapMember(MapVectorLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHostMapMember(MapVectorLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHostMapMember = exprHost;
@@ -308,7 +308,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapDataRegionName, Token.String));

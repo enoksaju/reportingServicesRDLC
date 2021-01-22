@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum LegendStyle
+	public enum LegendStyle
 	{
 		Column,
 		Row,

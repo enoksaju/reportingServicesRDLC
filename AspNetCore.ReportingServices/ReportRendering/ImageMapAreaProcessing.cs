@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ImageMapAreaProcessing : MemberBase
+	public sealed class ImageMapAreaProcessing : MemberBase
 	{
-		internal ImageMapAreaProcessing()
+		public ImageMapAreaProcessing()
 			: base(true)
 		{
 		}

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeDataTablixWithScopedItemsGroupLeafObj : RuntimeDataTablixGroupLeafObj
+	public abstract class RuntimeDataTablixWithScopedItemsGroupLeafObj : RuntimeDataTablixGroupLeafObj
 	{
 		private RuntimeRICollection m_groupScopedItems;
 
@@ -23,11 +23,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeDataTablixWithScopedItemsGroupLeafObj()
+		public RuntimeDataTablixWithScopedItemsGroupLeafObj()
 		{
 		}
 
-		internal RuntimeDataTablixWithScopedItemsGroupLeafObj(RuntimeDataTablixGroupRootObjReference groupRootRef, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeDataTablixWithScopedItemsGroupLeafObj(RuntimeDataTablixGroupRootObjReference groupRootRef, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(groupRootRef, objectType)
 		{
 		}
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void CreateCell(RuntimeCells cellsCollection, int collectionKey, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef)
+		public override void CreateCell(RuntimeCells cellsCollection, int collectionKey, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef)
 		{
 			RuntimeCell runtimeCell = this.CreateCell(outerGroupingMember, innerGroupingMember);
 			if ((BaseReference)runtimeCell.SelfReference == (object)null)
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion)
+		public override RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion)
 		{
 			Global.Tracer.Assert(this.m_groupScopedItems != null, "Cannot find data region.");
 			return this.m_groupScopedItems.GetDataRegionObj(rifDataRegion);

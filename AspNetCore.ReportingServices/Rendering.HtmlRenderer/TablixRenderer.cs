@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class TablixRenderer : IReportItemRenderer
+	public class TablixRenderer : IReportItemRenderer
 	{
 		private const string FixedRowMarker = "r";
 
@@ -632,7 +632,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			styleContext.Reset();
 		}
 
-		internal void RenderEmptyTopTablixRow(RPLTablix tablix, List<RPLTablixOmittedRow> omittedRows, string tablixID, bool emptyCol, TablixFixedHeaderStorage headerStorage)
+		public void RenderEmptyTopTablixRow(RPLTablix tablix, List<RPLTablixOmittedRow> omittedRows, string tablixID, bool emptyCol, TablixFixedHeaderStorage headerStorage)
 		{
 			bool flag = headerStorage.RowHeaders != null || headerStorage.ColumnHeaders != null;
 			this.html5Renderer.WriteStream(HTMLElements.m_openTR);

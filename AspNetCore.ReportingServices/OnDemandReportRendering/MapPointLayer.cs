@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPointLayer : MapVectorLayer
+	public sealed class MapPointLayer : MapVectorLayer
 	{
 		private MapPointTemplate m_mapPointTemplate;
 
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapPointLayer MapPointLayerDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapPointLayer MapPointLayerDef
 		{
 			get
 			{
@@ -66,12 +66,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapPointLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPointLayer defObject, Map map)
+		public MapPointLayer(AspNetCore.ReportingServices.ReportIntermediateFormat.MapPointLayer defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapLayerInstance GetInstance()
+		public override MapLayerInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapVectorLayerInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

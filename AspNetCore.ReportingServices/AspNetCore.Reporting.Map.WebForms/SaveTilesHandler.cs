@@ -2,5 +2,5 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal delegate void SaveTilesHandler(Layer layer, string[,] tileUrls, Image[,] tileImages);
+	public delegate void SaveTilesHandler(Layer layer, string[,] tileUrls, Image[,] tileImages);
 }

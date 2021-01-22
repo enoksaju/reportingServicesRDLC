@@ -9,7 +9,7 @@ using System.Web;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ReportControl //: CompositeControl, IPostBackEventHandler, IScriptControl
+	public sealed class ReportControl //: CompositeControl, IPostBackEventHandler, IScriptControl
 	{
 		public const string AutoRefreshParam = "auto";
 
@@ -45,7 +45,7 @@ namespace AspNetCore.Reporting
 
 		private static DeviceInfoNameBlackList m_blackListDeviceInfoNames;
 
-		internal bool EnableHybrid
+		public bool EnableHybrid
 		{
 			get;
 			set;
@@ -209,7 +209,7 @@ namespace AspNetCore.Reporting
 			return this.m_pageNumber;
 		}
 
-		internal static DeviceInfoNameBlackList GetDeviceInfoBlackList()
+		public static DeviceInfoNameBlackList GetDeviceInfoBlackList()
 		{
 			if (ReportControl.m_blackListDeviceInfoNames == null)
 			{

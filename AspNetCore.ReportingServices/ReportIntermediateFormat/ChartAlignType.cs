@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartAlignType : IPersistable
+	public sealed class ChartAlignType : IPersistable
 	{
 		private ExpressionInfo m_position;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartArea m_chartArea;
 
-		internal ExpressionInfo Cursor
+		public ExpressionInfo Cursor
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo AxesView
+		public ExpressionInfo AxesView
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Position
+		public ExpressionInfo Position
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo InnerPlotPosition
+		public ExpressionInfo InnerPlotPosition
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAreaExprHost ExprHost
+		public ChartAreaExprHost ExprHost
 		{
 			get
 			{
@@ -85,16 +85,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartAlignType()
+		public ChartAlignType()
 		{
 		}
 
-		internal ChartAlignType(Chart chart)
+		public ChartAlignType(Chart chart)
 		{
 			this.m_chart = chart;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			if (this.m_position != null)
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartAlignType chartAlignType = (ChartAlignType)base.MemberwiseClone();
 			chartAlignType.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartAlignType;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Cursor, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -236,30 +236,30 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartAlignType;
 		}
 
-		internal void SetExprHost(ChartArea chartArea)
+		public void SetExprHost(ChartArea chartArea)
 		{
 			this.m_chartArea = chartArea;
 		}
 
-		internal bool EvaluateAxesView(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluateAxesView(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartAlignTypeAxesViewExpression(this, this.m_chart.Name, "AxesView");
 		}
 
-		internal bool EvaluateCursor(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluateCursor(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartAlignTypeCursorExpression(this, this.m_chart.Name, "Cursor");
 		}
 
-		internal bool EvaluatePosition(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluatePosition(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartAlignTypePositionExpression(this, this.m_chart.Name, "Position");
 		}
 
-		internal bool EvaluateInnerPlotPosition(IReportScopeInstance instance, OnDemandProcessingContext context)
+		public bool EvaluateInnerPlotPosition(IReportScopeInstance instance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, instance);
 			return context.ReportRuntime.EvaluateChartAlignTypeInnerPlotPositionExpression(this, this.m_chart.Name, "InnerPlotPosition");

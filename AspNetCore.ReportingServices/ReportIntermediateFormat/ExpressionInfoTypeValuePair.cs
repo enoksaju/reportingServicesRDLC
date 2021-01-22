@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class ExpressionInfoTypeValuePair : IPersistable
+	public class ExpressionInfoTypeValuePair : IPersistable
 	{
 		private DataType m_constantDataType;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ExpressionInfoTypeValuePair.GetDeclaration();
 
-		internal DataType DataType
+		public DataType DataType
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HadExplicitDataType
+		public bool HadExplicitDataType
 		{
 			get
 			{
@@ -41,18 +41,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfoTypeValuePair(DataType constantType, bool hadExplicitDataType, ExpressionInfo value)
+		public ExpressionInfoTypeValuePair(DataType constantType, bool hadExplicitDataType, ExpressionInfo value)
 		{
 			this.m_constantDataType = constantType;
 			this.m_hadExplicitDataType = hadExplicitDataType;
 			this.m_value = value;
 		}
 
-		internal ExpressionInfoTypeValuePair()
+		public ExpressionInfoTypeValuePair()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataType, Token.Enum));

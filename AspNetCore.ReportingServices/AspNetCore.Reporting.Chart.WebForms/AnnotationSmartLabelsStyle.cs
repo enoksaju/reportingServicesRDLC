@@ -7,7 +7,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 	[DefaultProperty("Enabled")]
 	[TypeConverter(typeof(NoNameExpandableObjectConverter))]
 	[SRDescription("DescriptionAttributeAnnotationSmartLabelsStyle_AnnotationSmartLabelsStyle")]
-	internal class AnnotationSmartLabelsStyle : SmartLabelsStyle
+	public class AnnotationSmartLabelsStyle : SmartLabelsStyle
 	{
 		[SRCategory("CategoryAttributeMisc")]
 		[EditorBrowsable(EditorBrowsableState.Never)]

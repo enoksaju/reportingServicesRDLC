@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class ImageCacheManager
+	public abstract class ImageCacheManager
 	{
 		protected readonly OnDemandMetadata m_odpMetadata;
 

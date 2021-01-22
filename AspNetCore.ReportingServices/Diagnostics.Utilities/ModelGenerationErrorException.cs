@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ModelGenerationErrorException : ReportCatalogException
+	public sealed class ModelGenerationErrorException : ReportCatalogException
 	{
 		public ModelGenerationErrorException(Exception innerException)
 			: base(ErrorCode.rsModelGenerationError, ErrorStrings.rsModelGenerationError, innerException, null)

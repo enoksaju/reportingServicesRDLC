@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[CompilerGenerated]
-	internal class RDLValidatingReaderStrings
+	public class RDLValidatingReaderStrings
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string rdlValidationMissingChildElement = "rdlValidationMissingChildElement";
 

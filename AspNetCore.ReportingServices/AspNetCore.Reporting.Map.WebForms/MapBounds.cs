@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapBounds
+	public class MapBounds
 	{
 		public MapPoint MinimumPoint;
 

@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal static class Constants
+	public static class Constants
 	{
 		public const string DesignerNamespace = "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner";
 

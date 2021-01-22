@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class HierarchyNodeList : ArrayList
+	public class HierarchyNodeList : ArrayList
 	{
 		private List<int> m_leafCellIndexes;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private bool m_hasStaticLeafMembers;
 
-		internal new ReportHierarchyNode this[int index]
+		public new ReportHierarchyNode this[int index]
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> LeafCellIndexes
+		public List<int> LeafCellIndexes
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int OriginalNodeCount
+		public int OriginalNodeCount
 		{
 			get
 			{
@@ -112,11 +112,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal HierarchyNodeList()
+		public HierarchyNodeList()
 		{
 		}
 
-		internal HierarchyNodeList(int capacity)
+		public HierarchyNodeList(int capacity)
 			: base(capacity)
 		{
 		}
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_domainScopeCount = null;
 		}
 
-		internal List<int> GetLeafCellIndexes(int excludedCellIndex)
+		public List<int> GetLeafCellIndexes(int excludedCellIndex)
 		{
 			if (excludedCellIndex < 0)
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ReportHierarchyNode> GetLeafNodes()
+		public List<ReportHierarchyNode> GetLeafNodes()
 		{
 			List<ReportHierarchyNode> list = new List<ReportHierarchyNode>();
 			this.FindLeafNodes(list);
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int GetMemberIndex(ReportHierarchyNode node)
+		public int GetMemberIndex(ReportHierarchyNode node)
 		{
 			Global.Tracer.Assert(node.InnerHierarchy == null, "GetMemberIndex should not be called for non leaf node");
 			int result = -1;

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal struct PathSegment
+	public struct PathSegment
 	{
 		public SegmentType Type;
 

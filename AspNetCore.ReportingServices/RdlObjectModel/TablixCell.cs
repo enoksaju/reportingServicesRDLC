@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TablixCell : DataRegionCell
+	public class TablixCell : DataRegionCell
 	{
-		internal class Definition : DefinitionStore<TablixCell, Definition.Properties>
+		public class Definition : DefinitionStore<TablixCell, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				CellContents,
 				DataElementName,
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TablixCell(IPropertyStore propertyStore)
+		public TablixCell(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

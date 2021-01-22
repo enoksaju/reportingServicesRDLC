@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ExtendedProperty
+	public sealed class ExtendedProperty
 	{
 		private string m_name;
 
@@ -22,13 +22,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ExtendedProperty(string name, object value)
+		public ExtendedProperty(string name, object value)
 		{
 			this.m_name = name;
 			this.m_value = value;
 		}
 
-		internal void UpdateValue(object value)
+		public void UpdateValue(object value)
 		{
 			this.m_value = value;
 		}

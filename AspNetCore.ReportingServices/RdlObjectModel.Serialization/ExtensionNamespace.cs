@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal sealed class ExtensionNamespace
+	public sealed class ExtensionNamespace
 	{
 		public string LocalName
 		{

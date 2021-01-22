@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapSpatialDataRegion : MapSpatialData
+	public sealed class MapSpatialDataRegion : MapSpatialData
 	{
 		private ReportVariantProperty m_vectorData;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal IReportScope ReportScope
+		public IReportScope ReportScope
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialDataRegion MapSpatialDataRegionDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapSpatialDataRegion MapSpatialDataRegionDef
 		{
 			get
 			{
@@ -42,12 +42,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSpatialDataRegion(MapVectorLayer mapVectorLayer, Map map)
+		public MapSpatialDataRegion(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
 
-		internal override MapSpatialDataInstance GetInstance()
+		public override MapSpatialDataInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

@@ -6,9 +6,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class ReportSection
+	public sealed class ReportSection
 	{
-		internal class ColumnDetail
+		public class ColumnDetail
 		{
 			private double m_left;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 			private RPLBody m_element;
 
-			internal double Left
+			public double Left
 			{
 				get
 				{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal double Top
+			public double Top
 			{
 				get
 				{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal double Width
+			public double Width
 			{
 				get
 				{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal RPLBody Element
+			public RPLBody Element
 			{
 				get
 				{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal double Height
+			public double Height
 			{
 				get
 				{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal ColumnDetail(double leftEdge, double topEdge, ReportBody reportBody)
+			public ColumnDetail(double leftEdge, double topEdge, ReportBody reportBody)
 			{
 				this.m_left = leftEdge;
 				this.m_top = topEdge;
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				this.m_element = (RPLBody)reportBody.RPLElement;
 			}
 
-			internal void WriteMeasurement(BinaryWriter spbifWriter)
+			public void WriteMeasurement(BinaryWriter spbifWriter)
 			{
 				spbifWriter.Write((float)this.Left);
 				spbifWriter.Write((float)this.Top);
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				spbifWriter.Write(this.m_offset);
 			}
 
-			internal RPLItemMeasurement WriteMeasurement()
+			public RPLItemMeasurement WriteMeasurement()
 			{
 				RPLItemMeasurement rPLItemMeasurement = new RPLItemMeasurement();
 				rPLItemMeasurement.Left = (float)this.Left;
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private bool m_wroteEndToStream;
 
-		internal double LeftEdge
+		public double LeftEdge
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool Done
+		public bool Done
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal ReportSection(AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection reportSection, PageContext pageContext, PaginationSettings paginationSettings, SectionPaginationSettings sectionPaginationSettings)
+		public ReportSection(AspNetCore.ReportingServices.OnDemandReportRendering.ReportSection reportSection, PageContext pageContext, PaginationSettings paginationSettings, SectionPaginationSettings sectionPaginationSettings)
 		{
 			this.m_reportSection = reportSection;
 			this.m_pageContext = pageContext;
@@ -179,12 +179,12 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_sectionPageSettings = sectionPaginationSettings;
 		}
 
-		internal void SetContext()
+		public void SetContext()
 		{
 			this.m_reportBody = new ReportBody(this.m_reportSection.Body, this.m_reportSection.Width);
 		}
 
-		internal double NextPage(RPLWriter rplWriter, int pageNumber, int totalPages, double top, double availableHeight, ReportSection nextSection, bool isFirstSectionOnPage)
+		public double NextPage(RPLWriter rplWriter, int pageNumber, int totalPages, double top, double availableHeight, ReportSection nextSection, bool isFirstSectionOnPage)
 		{
 			double num = 0.0;
 			bool flag = nextSection == null;
@@ -400,7 +400,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return false;
 		}
 
-		internal void WriteDelayedSectionHeader(RPLWriter rplWriter, bool isLastPage)
+		public void WriteDelayedSectionHeader(RPLWriter rplWriter, bool isLastPage)
 		{
 			if (!this.m_wroteEndToStream)
 			{
@@ -477,7 +477,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			pageContext.Common.InHeaderFooter = false;
 		}
 
-		internal void WriteStartItemToStream(RPLWriter rplWriter)
+		public void WriteStartItemToStream(RPLWriter rplWriter)
 		{
 			if (rplWriter != null)
 			{
@@ -502,7 +502,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteColumns(RPLWriter rplWriter)
+		public void WriteColumns(RPLWriter rplWriter)
 		{
 			if (rplWriter != null)
 			{
@@ -538,7 +538,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteEndItemToStream(RPLWriter rplWriter)
+		public void WriteEndItemToStream(RPLWriter rplWriter)
 		{
 			if (rplWriter != null)
 			{
@@ -606,7 +606,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal void WriteMeasurement(BinaryWriter spbifWriter)
+		public void WriteMeasurement(BinaryWriter spbifWriter)
 		{
 			spbifWriter.Write((float)this.m_itemPageSizes.Left);
 			spbifWriter.Write((float)this.m_itemPageSizes.Top);
@@ -617,7 +617,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			spbifWriter.Write(this.m_offset);
 		}
 
-		internal void AddToPage(RPLPageContent rplPageContent, out RPLMeasurement measurement)
+		public void AddToPage(RPLPageContent rplPageContent, out RPLMeasurement measurement)
 		{
 			measurement = new RPLMeasurement();
 			measurement.Left = 0f;
@@ -627,7 +627,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			rplPageContent.AddReportSection(this.m_rplElement);
 		}
 
-		internal RPLPageLayout WritePageLayout(RPLWriter rplWriter, PageContext pageContext)
+		public RPLPageLayout WritePageLayout(RPLWriter rplWriter, PageContext pageContext)
 		{
 			RPLPageLayout rPLPageLayout = new RPLPageLayout();
 			ReportSectionPage reportSectionPage = new ReportSectionPage(this.m_reportSection.Page);

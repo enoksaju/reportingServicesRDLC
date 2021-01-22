@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapProjections
+	public enum MapProjections
 	{
 		Equirectangular,
 		Mercator,

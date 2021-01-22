@@ -8,13 +8,13 @@ using System.Runtime.InteropServices.ComTypes;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal static class StructuredStorage
+	public static class StructuredStorage
 	{
-		internal sealed class OLEStructuredStorage
+		public sealed class OLEStructuredStorage
 		{
 			[Guid("0000000a-0000-0000-C000-000000000046")]
 			[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-			internal interface UCOMILockBytes
+			public interface UCOMILockBytes
 			{
 				void ReadAt(ulong offset, [Out] [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 2)] byte[] pv, int cb, out int pcbRead);
 
@@ -33,14 +33,14 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 			[Guid("0000000d-0000-0000-C000-000000000046")]
 			[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-			internal interface IEnumSTATSTG
+			public interface IEnumSTATSTG
 			{
 				void Next(int celt, out System.Runtime.InteropServices.ComTypes.STATSTG rgelt, out int pceltFetched);
 			}
 
 			[Guid("0000000b-0000-0000-C000-000000000046")]
 			[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-			internal interface UCOMIStorage
+			public interface UCOMIStorage
 			{
 				void CreateStream([MarshalAs(UnmanagedType.LPWStr)] string wcsName, int grfMode, int reserved1, int reserved2, out IStream stream);
 
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 			[Guid("0000013A-0000-0000-C000-000000000046")]
 			[ComVisible(true)]
-			internal interface IPropertySetStorage
+			public interface IPropertySetStorage
 			{
 				uint Create([In] [MarshalAs(UnmanagedType.Struct)] ref Guid rfmtid, [In] IntPtr pclsid, [In] int grfFlags, [In] int grfMode, out IPropertyStorage propertyStorage);
 
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			[ComVisible(true)]
 			[Guid("00000138-0000-0000-C000-000000000046")]
 			[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-			internal interface IPropertyStorage
+			public interface IPropertyStorage
 			{
 				int ReadMultiple(uint numProperties, PropSpec[] propertySpecifications, PropVariant[] propertyValues);
 
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 				}
 			}
 
-			internal class HGlobalSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
+			public class HGlobalSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
 			{
 				public HGlobalSafeHandle(IntPtr handle)
 					: base(true)
@@ -160,51 +160,51 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 				}
 			}
 
-			internal const long MEMORY_THRESHOLD = 11534336L;
+			public const long MEMORY_THRESHOLD = 11534336L;
 
-			internal const int STGM_SIMPLE = 134217728;
+			public const int STGM_SIMPLE = 134217728;
 
-			internal const int STGM_READ = 0;
+			public const int STGM_READ = 0;
 
-			internal const int STGM_READWRITE = 2;
+			public const int STGM_READWRITE = 2;
 
-			internal const int STGM_SHARE_DENY_NONE = 64;
+			public const int STGM_SHARE_DENY_NONE = 64;
 
-			internal const int STGM_SHARE_EXCLUSIVE = 16;
+			public const int STGM_SHARE_EXCLUSIVE = 16;
 
-			internal const int STGM_CREATE = 4096;
+			public const int STGM_CREATE = 4096;
 
-			internal const int STGM_DELETEONRELEASE = 67108864;
+			public const int STGM_DELETEONRELEASE = 67108864;
 
-			internal const int PIDSI_TITLE = 2;
+			public const int PIDSI_TITLE = 2;
 
-			internal const int PIDSI_AUTHOR = 4;
+			public const int PIDSI_AUTHOR = 4;
 
-			internal const int PIDSI_COMMENTS = 6;
+			public const int PIDSI_COMMENTS = 6;
 
-			internal const short VT_LPWSTR = 31;
+			public const short VT_LPWSTR = 31;
 
-			internal const int PRSPEC_PROPID = 1;
-
-			[DllImport("ole32.dll")]
-			internal static extern int StgCreateDocfile([MarshalAs(UnmanagedType.LPWStr)] string wcsName, int grfMode, int reserved, out UCOMIStorage storage);
+			public const int PRSPEC_PROPID = 1;
 
 			[DllImport("ole32.dll")]
-			internal static extern int StgOpenStorage([MarshalAs(UnmanagedType.LPWStr)] string wcsName, IntPtr stgPriority, int grfMode, IntPtr snbExclude, int reserved, out UCOMIStorage storage);
+			public static extern int StgCreateDocfile([MarshalAs(UnmanagedType.LPWStr)] string wcsName, int grfMode, int reserved, out UCOMIStorage storage);
 
 			[DllImport("ole32.dll")]
-			internal static extern int StgCreateDocfileOnILockBytes(UCOMILockBytes plkbyt, int grfMode, int reserved, out UCOMIStorage storage);
+			public static extern int StgOpenStorage([MarshalAs(UnmanagedType.LPWStr)] string wcsName, IntPtr stgPriority, int grfMode, IntPtr snbExclude, int reserved, out UCOMIStorage storage);
 
 			[DllImport("ole32.dll")]
-			internal static extern int CreateILockBytesOnHGlobal(IntPtr hGlobal, bool fDeleteOnRelease, out UCOMILockBytes lockBytes);
+			public static extern int StgCreateDocfileOnILockBytes(UCOMILockBytes plkbyt, int grfMode, int reserved, out UCOMIStorage storage);
 
 			[DllImport("ole32.dll")]
-			internal static extern int StgCreateStorageEx([MarshalAs(UnmanagedType.LPWStr)] string wcsName, int grfMode, int stgfmt, int grfAttr, IntPtr StgOptions, IntPtr reserved2, ref Guid refiid, out UCOMIStorage storage);
+			public static extern int CreateILockBytesOnHGlobal(IntPtr hGlobal, bool fDeleteOnRelease, out UCOMILockBytes lockBytes);
 
 			[DllImport("ole32.dll")]
-			internal static extern int StgCreatePropSetStg(UCOMIStorage storage, int reserverd, out IPropertySetStorage propSetStg);
+			public static extern int StgCreateStorageEx([MarshalAs(UnmanagedType.LPWStr)] string wcsName, int grfMode, int stgfmt, int grfAttr, IntPtr StgOptions, IntPtr reserved2, ref Guid refiid, out UCOMIStorage storage);
 
-			internal static bool Failed(int hr)
+			[DllImport("ole32.dll")]
+			public static extern int StgCreatePropSetStg(UCOMIStorage storage, int reserverd, out IPropertySetStorage propSetStg);
+
+			public static bool Failed(int hr)
 			{
 				return hr < 0;
 			}
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private const int BUFFERSIZE = 1048576;
 
-		internal static bool CreateMultiStreamFile(Stream[] sources, string[] streamNames, string clsId, string author, string title, string comments, Stream output, bool forceInMemory)
+		public static bool CreateMultiStreamFile(Stream[] sources, string[] streamNames, string clsId, string author, string title, string comments, Stream output, bool forceInMemory)
 		{
 			OLEStructuredStorage.UCOMIStorage uCOMIStorage = null;
 			OLEStructuredStorage.UCOMILockBytes uCOMILockBytes = null;

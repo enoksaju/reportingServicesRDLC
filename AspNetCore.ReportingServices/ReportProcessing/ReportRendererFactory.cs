@@ -6,13 +6,13 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ReportRendererFactory
+	public sealed class ReportRendererFactory
 	{
 		private ReportRendererFactory()
 		{
 		}
 
-		internal static IRenderingExtension GetNewRenderer(string format, IExtensionFactory extFactory)
+		public static IRenderingExtension GetNewRenderer(string format, IExtensionFactory extFactory)
 		{
 			IRenderingExtension renderingExtension = null;
 			try

@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ParamExprHost> ParameterHostsRemotable
+		public IList<ParamExprHost> ParameterHostsRemotable
 		{
 			get
 			{

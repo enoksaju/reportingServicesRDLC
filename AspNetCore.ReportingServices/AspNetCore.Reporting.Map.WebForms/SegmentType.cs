@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum SegmentType : byte
+	public enum SegmentType : byte
 	{
 		Polygon,
 		PolyLine,

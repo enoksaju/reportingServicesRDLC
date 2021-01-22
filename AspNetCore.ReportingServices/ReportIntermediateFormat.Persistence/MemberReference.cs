@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal class MemberReference
+	public class MemberReference
 	{
 		private MemberName m_memberName;
 
 		private int m_refID;
 
-		internal MemberName MemberName
+		public MemberName MemberName
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal int RefID
+		public int RefID
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal MemberReference(MemberName memberName, int refID)
+		public MemberReference(MemberName memberName, int refID)
 		{
 			this.m_memberName = memberName;
 			this.m_refID = refID;

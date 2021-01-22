@@ -5,9 +5,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class MatrixMember : Group, IDocumentMapEntry
+	public sealed class MatrixMember : Group, IDocumentMapEntry
 	{
-		internal enum SortOrders
+		public enum SortOrders
 		{
 			None,
 			Ascending,
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportSize Size
+		public ReportSize Size
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal override TextBox ToggleParent
+		public override TextBox ToggleParent
 		{
 			get
 			{
@@ -338,7 +338,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal int CachedMemberCellIndex
+		public int CachedMemberCellIndex
 		{
 			get
 			{
@@ -606,7 +606,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MatrixHeadingInstanceInfo InstanceInfo
+		public MatrixHeadingInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -622,7 +622,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool IsParentSubtotal
+		public bool IsParentSubtotal
 		{
 			get
 			{
@@ -630,7 +630,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MatrixMember(Matrix owner, MatrixMember parent, MatrixHeading headingDef, MatrixHeadingInstance headingInstance, bool isSubtotal, bool isParentSubTotal, int index)
+		public MatrixMember(Matrix owner, MatrixMember parent, MatrixHeading headingDef, MatrixHeadingInstance headingInstance, bool isSubtotal, bool isParentSubTotal, int index)
 			: base(owner, headingDef.Grouping, headingDef.Visibility)
 		{
 			this.m_parent = parent;

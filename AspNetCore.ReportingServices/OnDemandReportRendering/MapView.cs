@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapView
+	public abstract class MapView
 	{
 		protected Map m_map;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapView MapViewDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapView MapViewDef
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapViewInstance Instance
+		public MapViewInstance Instance
 		{
 			get
 			{
@@ -48,15 +48,15 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapView(AspNetCore.ReportingServices.ReportIntermediateFormat.MapView defObject, Map map)
+		public MapView(AspNetCore.ReportingServices.ReportIntermediateFormat.MapView defObject, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_map = map;
 		}
 
-		internal abstract MapViewInstance GetInstance();
+		public abstract MapViewInstance GetInstance();
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

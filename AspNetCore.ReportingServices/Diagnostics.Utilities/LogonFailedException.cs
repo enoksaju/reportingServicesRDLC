@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class LogonFailedException : ReportCatalogException
+	public sealed class LogonFailedException : ReportCatalogException
 	{
 		public LogonFailedException(Exception innerException, string userName)
 			: base(ErrorCode.rsLogonFailed, ErrorStrings.rsLogonFailed, innerException, LogonFailedException.BuildLogFileMessage(userName))

@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Interfaces
 {
-    internal abstract class RenderedOutputFile
+    public abstract class RenderedOutputFile
 	{
 		public abstract string FileName
 		{

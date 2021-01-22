@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Visibility : IPersistable
+	public sealed class Visibility : IPersistable
 	{
 		private ExpressionInfo m_hidden;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Visibility.GetDeclaration();
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Toggle
+		public string Toggle
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TextBox ToggleSender
+		public TextBox ToggleSender
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool RecursiveReceiver
+		public bool RecursiveReceiver
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TablixMember RecursiveMember
+		public TablixMember RecursiveMember
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsToggleReceiver
+		public bool IsToggleReceiver
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsConditional
+		public bool IsConditional
 		{
 			get
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsClone
+		public bool IsClone
 		{
 			get
 			{
@@ -114,12 +114,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			this.Initialize(context, true);
 		}
 
-		internal void Initialize(InitializationContext context, bool registerVisibilityToggle)
+		public void Initialize(InitializationContext context, bool registerVisibilityToggle)
 		{
 			if (this.m_hidden != null)
 			{
@@ -132,12 +132,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal VisibilityToggleInfo RegisterVisibilityToggle(InitializationContext context)
+		public VisibilityToggleInfo RegisterVisibilityToggle(InitializationContext context)
 		{
 			return context.RegisterVisibilityToggle(this);
 		}
 
-		internal static SharedHiddenState GetSharedHidden(Visibility visibility)
+		public static SharedHiddenState GetSharedHidden(Visibility visibility)
 		{
 			if (visibility == null)
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return SharedHiddenState.Sometimes;
 		}
 
-		internal static bool HasToggle(Visibility visibility)
+		public static bool HasToggle(Visibility visibility)
 		{
 			if (visibility == null)
 			{
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return visibility.IsToggleReceiver;
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context, bool isSubtotalMember)
+		public object PublishClone(AutomaticSubtotalContext context, bool isSubtotalMember)
 		{
 			Visibility visibility = null;
 			if (isSubtotalMember)
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return visibility;
 		}
 
-		internal void UpdateToggleItemReference(AutomaticSubtotalContext context)
+		public void UpdateToggleItemReference(AutomaticSubtotalContext context)
 		{
 			if (this.m_toggle != null)
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Hidden, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Visibility;
 		}
 
-		internal static bool ComputeHidden(IVisibilityOwner visibilityOwner, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext, ToggleCascadeDirection direction, out bool valueIsDeep)
+		public static bool ComputeHidden(IVisibilityOwner visibilityOwner, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext, ToggleCascadeDirection direction, out bool valueIsDeep)
 		{
 			valueIsDeep = false;
 			bool flag = false;
@@ -353,7 +353,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return flag;
 		}
 
-		internal static bool ComputeDeepHidden(bool hidden, IVisibilityOwner visibilityOwner, ToggleCascadeDirection direction, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext)
+		public static bool ComputeDeepHidden(bool hidden, IVisibilityOwner visibilityOwner, ToggleCascadeDirection direction, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext)
 		{
 			Visibility visibility = visibilityOwner.Visibility;
 			if (hidden && (visibility == null || !visibility.IsToggleReceiver))

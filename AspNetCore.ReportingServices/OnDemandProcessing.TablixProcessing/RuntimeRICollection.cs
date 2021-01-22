@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeRICollection : IStorable, IPersistable
+	public sealed class RuntimeRICollection : IStorable, IPersistable
 	{
 		private List<RuntimeDataTablixObjReference> m_dataRegionObjs;
 
@@ -22,22 +22,22 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeRICollection()
+		public RuntimeRICollection()
 		{
 		}
 
-		internal RuntimeRICollection(int capacity)
+		public RuntimeRICollection(int capacity)
 		{
 			this.m_dataRegionObjs = new List<RuntimeDataTablixObjReference>(capacity);
 		}
 
-		internal RuntimeRICollection(IReference<IScope> owner, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem> reportItems, ref DataActions dataAction, OnDemandProcessingContext odpContext)
+		public RuntimeRICollection(IReference<IScope> owner, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem> reportItems, ref DataActions dataAction, OnDemandProcessingContext odpContext)
 		{
 			this.m_dataRegionObjs = new List<RuntimeDataTablixObjReference>();
 			this.AddItems(owner, reportItems, ref dataAction, odpContext);
 		}
 
-		internal RuntimeRICollection(IReference<IScope> outerScope, List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion> dataRegionDefs, OnDemandProcessingContext odpContext, bool onePass)
+		public RuntimeRICollection(IReference<IScope> outerScope, List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion> dataRegionDefs, OnDemandProcessingContext odpContext, bool onePass)
 		{
 			this.m_dataRegionObjs = new List<RuntimeDataTablixObjReference>(dataRegionDefs.Count);
 			DataActions dataActions = DataActions.None;
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_dataRegionObjs[indexInCollection] = runtimeDataTablixObjReference;
 		}
 
-		internal void FirstPassNextDataRow(OnDemandProcessingContext odpContext)
+		public void FirstPassNextDataRow(OnDemandProcessingContext odpContext)
 		{
 			AggregateRowInfo aggregateRowInfo = AggregateRowInfo.CreateAndSaveAggregateInfo(odpContext);
 			for (int i = 0; i < this.m_dataRegionObjs.Count; i++)
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void SortAndFilter(AggregateUpdateContext aggContext)
+		public void SortAndFilter(AggregateUpdateContext aggContext)
 		{
 			this.Traverse(ProcessingStages.SortAndFilter, aggContext);
 		}
@@ -182,12 +182,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void UpdateAggregates(AggregateUpdateContext aggContext)
+		public void UpdateAggregates(AggregateUpdateContext aggContext)
 		{
 			this.Traverse(ProcessingStages.UpdateAggregates, aggContext);
 		}
 
-		internal void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCollection, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
+		public void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCollection, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
 		{
 			for (int i = 0; i < this.m_dataRegionObjs.Count; i++)
 			{
@@ -202,7 +202,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static void StoreRunningValues(AggregatesImpl globalRVCol, List<AspNetCore.ReportingServices.ReportIntermediateFormat.RunningValueInfo> runningValues, ref AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] runningValueValues)
+		public static void StoreRunningValues(AggregatesImpl globalRVCol, List<AspNetCore.ReportingServices.ReportIntermediateFormat.RunningValueInfo> runningValues, ref AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObjResult[] runningValueValues)
 		{
 			if (runningValues != null && 0 < runningValues.Count)
 			{
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void CreateAllDataRegionInstances(ScopeInstance parentInstance, OnDemandProcessingContext odpContext, IReference<IScope> owner)
+		public void CreateAllDataRegionInstances(ScopeInstance parentInstance, OnDemandProcessingContext odpContext, IReference<IScope> owner)
 		{
 			for (int i = 0; i < this.m_dataRegionObjs.Count; i++)
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_dataRegionObjs = null;
 		}
 
-		internal void CreateInstances(ScopeInstance parentInstance, OnDemandProcessingContext odpContext, IReference<IScope> owner, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem> reportItems)
+		public void CreateInstances(ScopeInstance parentInstance, OnDemandProcessingContext odpContext, IReference<IScope> owner, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem> reportItems)
 		{
 			if (reportItems != null)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum RadialPointerNeedleStyles
+	public enum RadialPointerNeedleStyles
 	{
 		Triangular,
 		Rectangular,

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartTickMarks : IROMStyleDefinitionContainer
+	public sealed class ChartTickMarks : IROMStyleDefinitionContainer
 	{
 		private Chart m_chart;
 
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartTickMarks ChartTickMarksDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartTickMarks ChartTickMarksDef
 		{
 			get
 			{
@@ -165,13 +165,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartTickMarks(Axis.TickMarks type, Chart chart)
+		public ChartTickMarks(Axis.TickMarks type, Chart chart)
 		{
 			this.m_type = new ReportEnumProperty<ChartTickMarksType>(this.GetTickMarksType(type));
 			this.m_chart = chart;
 		}
 
-		internal ChartTickMarks(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartTickMarks chartTickMarksDef, Chart chart)
+		public ChartTickMarks(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartTickMarks chartTickMarksDef, Chart chart)
 		{
 			this.m_chartTickMarksDef = chartTickMarksDef;
 			this.m_chart = chart;
@@ -192,7 +192,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class BarPointsDrawingOrderComparer : IComparer
+	public class BarPointsDrawingOrderComparer : IComparer
 	{
 		private ChartArea area;
 

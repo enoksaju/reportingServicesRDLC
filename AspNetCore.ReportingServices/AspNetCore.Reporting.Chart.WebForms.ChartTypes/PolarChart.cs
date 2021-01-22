@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class PolarChart : RadarChart
+	public class PolarChart : RadarChart
 	{
 		public override string Name
 		{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartLegendCollection : ChartObjectCollectionBase<ChartLegend, ChartLegendInstance>
+	public sealed class ChartLegendCollection : ChartObjectCollectionBase<ChartLegend, ChartLegendInstance>
 	{
 		private Chart m_chart;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartLegendCollection(Chart chart)
+		public ChartLegendCollection(Chart chart)
 		{
 			this.m_chart = chart;
 		}

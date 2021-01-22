@@ -225,7 +225,7 @@
     <value>No extension is defined for the event {0}.</value>
   </data>
   <data name="rsInternalResourceNotSpecifiedError" xml:space="preserve">
-    <value>The name of the internal resource must be specified when the 'Get' report server command is used. Verify that the internal resource name is specified and try again.</value>
+    <value>The name of the public resource must be specified when the 'Get' report server command is used. Verify that the public resource name is specified and try again.</value>
   </data>
   <data name="rsReportNotReady" xml:space="preserve">
     <value>The selected report is not ready for viewing. The report is still being rendered or a report snapshot is not available.</value>
@@ -387,7 +387,7 @@
     <value>Cannot retrieve credentials from Secure Store Service. The SharePoint context for the current session is unknown. The request to establish the session did not specify the X-BI-Context-URL HTTP header.</value>
   </data>
   <data name="rsHttpRuntimeInternalError" xml:space="preserve">
-    <value>An internal or system error occurred in the HTTP Runtime object for application domain {0}. </value>
+    <value>An public or system error occurred in the HTTP Runtime object for application domain {0}. </value>
   </data>
   <data name="rsSharePoitScheduleAlreadyExists" xml:space="preserve">
     <value>The schedule '{0}' at the Share Point site '{1}' already exists and cannot be created or renamed. This error occurs when the schedule name is not unique within a site.</value>
@@ -462,7 +462,7 @@
     <value>The SharePoint site with the id {0} could not be found.</value>
   </data>
   <data name="internalDataSourceNotFound" xml:space="preserve">
-    <value>The internal data source was not found in the token data source list.</value>
+    <value>The public data source was not found in the token data source list.</value>
   </data>
   <data name="rsReportServerStorageRefreshConnectionNotValidated" xml:space="preserve">
     <value>The refresh connection with ID '{1}' for the model with ID '{0}' was not validated.</value>
@@ -714,7 +714,7 @@
     <value>The report server installation is not initialized.</value>
   </data>
   <data name="rsStreamOperationFailed" xml:space="preserve">
-    <value>An internal error occurred performing a stream operation. See the error log for more details.</value>
+    <value>An public error occurred performing a stream operation. See the error log for more details.</value>
   </data>
   <data name="rsErrorNotVisibleToRemoteBrowsers" xml:space="preserve">
     <value>For more information about this error navigate to the report server on the local server machine, or enable remote errors</value>
@@ -747,7 +747,7 @@
     <value>The provided system resource package is not of type '{0}'.</value>
   </data>
   <data name="rsInternalResourceNotFoundError" xml:space="preserve">
-    <value>The report server could not find the internal resource '{0}'.</value>
+    <value>The report server could not find the public resource '{0}'.</value>
   </data>
   <data name="rsReportSerializationError" xml:space="preserve">
     <value>An error occurred while serializing the report.</value>
@@ -858,7 +858,7 @@
     <value>The data source '{0}' cannot be found.</value>
   </data>
   <data name="rsInternalError" xml:space="preserve">
-    <value>An internal error occurred on the report server. See the error log for more details.</value>
+    <value>An public error occurred on the report server. See the error log for more details.</value>
   </data>
   <data name="rsReportParameterTypeMismatch" xml:space="preserve">
     <value>The value provided for the report parameter '{0}' is not valid for its type.</value>

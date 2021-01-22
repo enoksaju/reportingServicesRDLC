@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CircularPinLabel : LinearPinLabel
+	public class CircularPinLabel : LinearPinLabel
 	{
 		private bool rotateLabels;
 

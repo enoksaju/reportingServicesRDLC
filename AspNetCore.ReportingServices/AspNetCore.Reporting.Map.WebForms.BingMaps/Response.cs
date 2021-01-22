@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract]
-	internal class Response
+	public class Response
 	{
 		[DataMember(Name = "copyright", EmitDefaultValue = false)]
 		public string Copyright

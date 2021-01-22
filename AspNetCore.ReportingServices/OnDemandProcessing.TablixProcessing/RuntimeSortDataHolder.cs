@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeSortDataHolder : IStorable, IPersistable
+	public sealed class RuntimeSortDataHolder : IStorable, IPersistable
 	{
 		private DataFieldRow m_firstRow;
 
@@ -22,11 +22,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeSortDataHolder()
+		public RuntimeSortDataHolder()
 		{
 		}
 
-		internal void NextRow(OnDemandProcessingContext odpContext, int depth)
+		public void NextRow(OnDemandProcessingContext odpContext, int depth)
 		{
 			DataFieldRow dataFieldRow = new DataFieldRow(odpContext.ReportObjectModel.FieldsImpl, true);
 			if (this.m_firstRow == null)
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void Traverse(ProcessingStages operation, ITraversalContext traversalContext, IHierarchyObj owner)
+		public void Traverse(ProcessingStages operation, ITraversalContext traversalContext, IHierarchyObj owner)
 		{
 			Global.Tracer.Assert(ProcessingStages.UserSortFilter == operation || owner.InDataRowSortPhase, "Invalid call to RuntimeSortDataHolder.Traverse.  Must be in UserSortFilter stage or InDataRowSortPhase");
 			if (this.m_firstRow != null)

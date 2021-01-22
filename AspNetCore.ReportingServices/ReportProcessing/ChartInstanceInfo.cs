@@ -5,7 +5,7 @@ using System.Threading;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartInstanceInfo : ReportItemInstanceInfo
+	public sealed class ChartInstanceInfo : ReportItemInstanceInfo
 	{
 		private AxisInstance m_categoryAxis;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private string m_noRows;
 
-		internal AxisInstance CategoryAxis
+		public AxisInstance CategoryAxis
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AxisInstance ValueAxis
+		public AxisInstance ValueAxis
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartTitleInstance Title
+		public ChartTitleInstance Title
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] PlotAreaStyleAttributeValues
+		public object[] PlotAreaStyleAttributeValues
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] LegendStyleAttributeValues
+		public object[] LegendStyleAttributeValues
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string CultureName
+		public string CultureName
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string NoRows
+		public string NoRows
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartInstanceInfo(ReportProcessing.ProcessingContext pc, Chart reportItemDef, ChartInstance owner)
+		public ChartInstanceInfo(ReportProcessing.ProcessingContext pc, Chart reportItemDef, ChartInstance owner)
 			: base(pc, reportItemDef, owner, true)
 		{
 			if (reportItemDef.Title != null)
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_noRows = pc.ReportRuntime.EvaluateDataRegionNoRowsExpression(reportItemDef, reportItemDef.ObjectType, reportItemDef.Name, "NoRows");
 		}
 
-		internal ChartInstanceInfo(Chart reportItemDef)
+		public ChartInstanceInfo(Chart reportItemDef)
 			: base(reportItemDef)
 		{
 		}
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.CategoryAxis, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.AxisInstance));

@@ -11,7 +11,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartDerivedSeries : IPersistable
+	public sealed class ChartDerivedSeries : IPersistable
 	{
 		private int m_exprHostID;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartDerivedSeriesExprHost m_exprHost;
 
-		internal ChartSeries SourceSeries
+		public ChartSeries SourceSeries
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDerivedSeriesExprHost ExprHost
+		public ChartDerivedSeriesExprHost ExprHost
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartSeries Series
+		public ChartSeries Series
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartFormulaParameter> FormulaParameters
+		public List<ChartFormulaParameter> FormulaParameters
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string SourceChartSeriesName
+		public string SourceChartSeriesName
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartSeriesFormula DerivedSeriesFormula
+		public ChartSeriesFormula DerivedSeriesFormula
 		{
 			get
 			{
@@ -126,16 +126,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDerivedSeries()
+		public ChartDerivedSeries()
 		{
 		}
 
-		internal ChartDerivedSeries(Chart chart)
+		public ChartDerivedSeries(Chart chart)
 		{
 			this.m_chart = chart;
 		}
 
-		internal void SetExprHost(ChartDerivedSeriesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartDerivedSeriesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context, int index)
+		public void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.ChartDerivedSeriesStart(index);
 			if (this.m_series != null)
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.ChartDerivedSeriesEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartDerivedSeries chartDerivedSeries = (ChartDerivedSeries)base.MemberwiseClone();
 			chartDerivedSeries.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartDerivedSeries;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Series, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartSeries));

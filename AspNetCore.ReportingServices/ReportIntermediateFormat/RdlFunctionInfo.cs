@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class RdlFunctionInfo : IPersistable
+	public sealed class RdlFunctionInfo : IPersistable
 	{
-		internal enum RdlFunctionType
+		public enum RdlFunctionType
 		{
 			MinValue,
 			MaxValue,
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = RdlFunctionInfo.GetDeclaration();
 
-		internal RdlFunctionType FunctionType
+		public RdlFunctionType FunctionType
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> Expressions
+		public List<ExpressionInfo> Expressions
 		{
 			get
 			{
@@ -48,12 +48,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetFunctionType(string functionName)
+		public void SetFunctionType(string functionName)
 		{
 			this.FunctionType = (RdlFunctionType)Enum.Parse(typeof(RdlFunctionType), functionName, true);
 		}
 
-		internal void Initialize(string propertyName, InitializationContext context, bool initializeDataOnError)
+		public void Initialize(string propertyName, InitializationContext context, bool initializeDataOnError)
 		{
 			foreach (ExpressionInfo simpleExpression in this.m_simpleExpressions)
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			RdlFunctionInfo rdlFunctionInfo = (RdlFunctionInfo)base.MemberwiseClone();
 			rdlFunctionInfo.m_simpleExpressions = new List<ExpressionInfo>(this.m_simpleExpressions.Count);
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return rdlFunctionInfo;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.RdlFunctionType, Token.Enum));

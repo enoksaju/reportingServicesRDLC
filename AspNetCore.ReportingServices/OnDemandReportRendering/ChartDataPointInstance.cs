@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartDataPointInstance : BaseInstance, IReportScopeInstance
+	public sealed class ChartDataPointInstance : BaseInstance, IReportScopeInstance
 	{
 		private ChartDataPoint m_chartDataPointDef;
 
@@ -82,13 +82,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartDataPointInstance(ChartDataPoint chartDataPointDef)
+		public ChartDataPointInstance(ChartDataPoint chartDataPointDef)
 			: base(chartDataPointDef)
 		{
 			this.m_chartDataPointDef = chartDataPointDef;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (!this.m_isNewContext)
 			{

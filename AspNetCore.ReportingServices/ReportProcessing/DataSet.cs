@@ -9,24 +9,24 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DataSet : IDOwner, IAggregateHolder, ISortFilterScope
+	public sealed class DataSet : IDOwner, IAggregateHolder, ISortFilterScope
 	{
-		internal enum Sensitivity
+		public enum Sensitivity
 		{
 			Auto,
 			True,
 			False
 		}
 
-		internal const uint CompareFlag_Default = 0u;
+		public const uint CompareFlag_Default = 0u;
 
-		internal const uint CompareFlag_IgnoreCase = 1u;
+		public const uint CompareFlag_IgnoreCase = 1u;
 
-		internal const uint CompareFlag_IgnoreNonSpace = 2u;
+		public const uint CompareFlag_IgnoreNonSpace = 2u;
 
-		internal const uint CompareFlag_IgnoreKanatype = 65536u;
+		public const uint CompareFlag_IgnoreKanatype = 65536u;
 
-		internal const uint CompareFlag_IgnoreWidth = 131072u;
+		public const uint CompareFlag_IgnoreWidth = 131072u;
 
 		private string m_name;
 
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_usedInAggregates;
 
-		internal ObjectType ObjectType
+		public ObjectType ObjectType
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataFieldList Fields
+		public DataFieldList Fields
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportQuery Query
+		public ReportQuery Query
 		{
 			get
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Sensitivity CaseSensitivity
+		public Sensitivity CaseSensitivity
 		{
 			get
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Collation
+		public string Collation
 		{
 			get
 			{
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Sensitivity AccentSensitivity
+		public Sensitivity AccentSensitivity
 		{
 			get
 			{
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Sensitivity KanatypeSensitivity
+		public Sensitivity KanatypeSensitivity
 		{
 			get
 			{
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Sensitivity WidthSensitivity
+		public Sensitivity WidthSensitivity
 		{
 			get
 			{
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataRegionList DataRegions
+		public DataRegionList DataRegions
 		{
 			get
 			{
@@ -201,7 +201,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList Aggregates
+		public DataAggregateInfoList Aggregates
 		{
 			get
 			{
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal FilterList Filters
+		public FilterList Filters
 		{
 			get
 			{
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool UsedOnlyInParameters
+		public bool UsedOnlyInParameters
 		{
 			get
 			{
@@ -237,7 +237,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NonCalculatedFieldCount
+		public int NonCalculatedFieldCount
 		{
 			get
 			{
@@ -249,7 +249,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -261,7 +261,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList PostSortAggregates
+		public DataAggregateInfoList PostSortAggregates
 		{
 			get
 			{
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int RecordSetSize
+		public int RecordSetSize
 		{
 			get
 			{
@@ -285,7 +285,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal uint LCID
+		public uint LCID
 		{
 			get
 			{
@@ -297,7 +297,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool HasDetailUserSortFilter
+		public bool HasDetailUserSortFilter
 		{
 			get
 			{
@@ -309,7 +309,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList UserSortExpressions
+		public ExpressionInfoList UserSortExpressions
 		{
 			get
 			{
@@ -321,7 +321,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataSetExprHost ExprHost
+		public DataSetExprHost ExprHost
 		{
 			get
 			{
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string AutoDetectedCollation
+		public string AutoDetectedCollation
 		{
 			get
 			{
@@ -341,7 +341,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool[] IsSortFilterTarget
+		public bool[] IsSortFilterTarget
 		{
 			get
 			{
@@ -417,7 +417,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool DynamicFieldReferences
+		public bool DynamicFieldReferences
 		{
 			get
 			{
@@ -429,7 +429,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool UsedInAggregates
+		public bool UsedInAggregates
 		{
 			get
 			{
@@ -441,7 +441,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InterpretSubtotalsAsDetailsIsAuto
+		public bool InterpretSubtotalsAsDetailsIsAuto
 		{
 			get
 			{
@@ -449,7 +449,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool InterpretSubtotalsAsDetails
+		public bool InterpretSubtotalsAsDetails
 		{
 			get
 			{
@@ -465,7 +465,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataSet(int id)
+		public DataSet(int id)
 			: base(id)
 		{
 			this.m_fields = new DataFieldList();
@@ -474,11 +474,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_postSortAggregates = new DataAggregateInfoList();
 		}
 
-		internal DataSet()
+		public DataSet()
 		{
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = this.m_name;
@@ -553,7 +553,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void CheckNonCalculatedFieldCount()
+		public void CheckNonCalculatedFieldCount()
 		{
 			if (this.m_nonCalculatedFieldCount < 0 && this.m_fields != null)
 			{
@@ -565,7 +565,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (this.ExprHostID >= 0)
 			{
@@ -583,7 +583,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool NeedAutoDetectCollation()
+		public bool NeedAutoDetectCollation()
 		{
 			if (DataSetValidator.LOCALE_SYSTEM_DEFAULT != this.m_lcid && this.m_accentSensitivity != 0 && this.m_caseSensitivity != 0 && this.m_kanatypeSensitivity != 0)
 			{
@@ -592,7 +592,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal void MergeCollationSettings(ErrorContext errorContext, string dataSourceType, string cultureName, bool caseSensitive, bool accentSensitive, bool kanatypeSensitive, bool widthSensitive)
+		public void MergeCollationSettings(ErrorContext errorContext, string dataSourceType, string cultureName, bool caseSensitive, bool accentSensitive, bool kanatypeSensitive, bool widthSensitive)
 		{
 			if (this.NeedAutoDetectCollation())
 			{
@@ -635,12 +635,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal uint GetSQLSortCompareFlags()
+		public uint GetSQLSortCompareFlags()
 		{
 			return DataSetValidator.GetSQLSortCompareMask(Sensitivity.True == this.m_caseSensitivity, Sensitivity.True == this.m_accentSensitivity, Sensitivity.True == this.m_kanatypeSensitivity, Sensitivity.True == this.m_widthSensitivity);
 		}
 
-		internal CompareOptions GetCLRCompareOptions()
+		public CompareOptions GetCLRCompareOptions()
 		{
 			CompareOptions compareOptions = CompareOptions.None;
 			if (Sensitivity.True != this.m_caseSensitivity)
@@ -662,7 +662,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return compareOptions;
 		}
 
-		internal void MergeFieldProperties(ExpressionInfo expressionInfo)
+		public void MergeFieldProperties(ExpressionInfo expressionInfo)
 		{
 			if (!this.m_dynamicFieldReferences)
 			{
@@ -714,7 +714,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void PopulateReferencedFieldProperties()
+		public void PopulateReferencedFieldProperties()
 		{
 			if (!this.m_dynamicFieldReferences && this.m_fields != null && this.m_referencedFieldProperties != null)
 			{
@@ -743,7 +743,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsShareable()
+		public bool IsShareable()
 		{
 			if (this.m_query != null && this.m_query.CommandText != null)
 			{
@@ -769,7 +769,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Name, Token.String));

@@ -4,11 +4,11 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class FieldPropertyHashtable
+	public sealed class FieldPropertyHashtable
 	{
 		private Hashtable m_hashtable;
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -16,27 +16,27 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal FieldPropertyHashtable()
+		public FieldPropertyHashtable()
 		{
 			this.m_hashtable = new Hashtable();
 		}
 
-		internal FieldPropertyHashtable(int capacity)
+		public FieldPropertyHashtable(int capacity)
 		{
 			this.m_hashtable = new Hashtable(capacity);
 		}
 
-		internal void Add(string key)
+		public void Add(string key)
 		{
 			this.m_hashtable.Add(key, null);
 		}
 
-		internal bool ContainsKey(string key)
+		public bool ContainsKey(string key)
 		{
 			return this.m_hashtable.ContainsKey(key);
 		}
 
-		internal IDictionaryEnumerator GetEnumerator()
+		public IDictionaryEnumerator GetEnumerator()
 		{
 			return this.m_hashtable.GetEnumerator();
 		}

@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface ISelectable
+	public interface ISelectable
 	{
 		void DrawSelection(MapGraphics g, RectangleF clipRect, bool designTimeSelection);
 

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class SubReportInstance : ReportItemInstance
+	public sealed class SubReportInstance : ReportItemInstance
 	{
 		private string m_noRowsMessageExpressionResult;
 
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal SubReportInstance(SubReport reportItemDef)
+		public SubReportInstance(SubReport reportItemDef)
 			: base(reportItemDef)
 		{
 		}

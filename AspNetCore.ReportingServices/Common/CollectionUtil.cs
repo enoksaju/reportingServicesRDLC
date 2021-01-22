@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class CollectionUtil
+	public static class CollectionUtil
 	{
 		public static bool IsEmpty<T>(IEnumerable<T> items)
 		{

@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class DataRegionCell : ReportObject
+	public abstract class DataRegionCell : ReportObject
 	{
 		public DataRegionCell()
 		{
 		}
 
-		internal DataRegionCell(IPropertyStore propertyStore)
+		public DataRegionCell(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

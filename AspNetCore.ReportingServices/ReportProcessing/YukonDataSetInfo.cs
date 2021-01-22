@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class YukonDataSetInfo
+	public sealed class YukonDataSetInfo
 	{
 		private StringList m_parameterNames;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private int m_calculatedFieldIndex;
 
-		internal int DataSourceIndex
+		public int DataSourceIndex
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int DataSetIndex
+		public int DataSetIndex
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int DataSetDefIndex
+		public int DataSetDefIndex
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsComplex
+		public bool IsComplex
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal StringList ParameterNames
+		public StringList ParameterNames
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CalculatedFieldIndex
+		public int CalculatedFieldIndex
 		{
 			get
 			{
@@ -74,14 +74,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal YukonDataSetInfo(int index, bool isComplex, StringList parameterNames)
+		public YukonDataSetInfo(int index, bool isComplex, StringList parameterNames)
 		{
 			this.m_dataSetDefIndex = index;
 			this.m_isComplex = isComplex;
 			this.m_parameterNames = parameterNames;
 		}
 
-		internal void MergeFlagsFromDataSource(bool isComplex, StringList datasourceParameterNames)
+		public void MergeFlagsFromDataSource(bool isComplex, StringList datasourceParameterNames)
 		{
 			this.m_isComplex |= isComplex;
 			if (this.m_parameterNames == null)

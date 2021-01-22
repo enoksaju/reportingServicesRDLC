@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class ItemSizes : IStorable, IPersistable
+	public class ItemSizes : IStorable, IPersistable
 	{
 		private double m_deltaX;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private static Declaration m_declaration = ItemSizes.GetDeclaration();
 
-		internal double DeltaX
+		public double DeltaX
 		{
 			get
 			{
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double DeltaY
+		public double DeltaY
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual double Left
+		public virtual double Left
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual double Top
+		public virtual double Top
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double Bottom
+		public double Bottom
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double Right
+		public double Right
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual double Width
+		public virtual double Width
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal virtual double Height
+		public virtual double Height
 		{
 			get
 			{
@@ -118,11 +118,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal ItemSizes()
+		public ItemSizes()
 		{
 		}
 
-		internal ItemSizes(ReportItem reportItem)
+		public ItemSizes(ReportItem reportItem)
 		{
 			this.m_top = reportItem.Top.ToMillimeters();
 			this.m_left = reportItem.Left.ToMillimeters();
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_height = reportItem.Height.ToMillimeters();
 		}
 
-		internal ItemSizes(double left, double top, double width, double height)
+		public ItemSizes(double left, double top, double width, double height)
 		{
 			this.m_top = top;
 			this.m_left = left;
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.ItemSizes;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (ItemSizes.m_declaration == null)
 			{
@@ -227,25 +227,25 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ItemSizes.m_declaration;
 		}
 
-		internal virtual void AdjustHeightTo(double amount)
+		public virtual void AdjustHeightTo(double amount)
 		{
 			this.m_deltaY += amount - this.m_height;
 			this.m_height = amount;
 		}
 
-		internal virtual void AdjustWidthTo(double amount)
+		public virtual void AdjustWidthTo(double amount)
 		{
 			this.m_deltaX += amount - this.m_width;
 			this.m_width = amount;
 		}
 
-		internal virtual void MoveVertical(double delta)
+		public virtual void MoveVertical(double delta)
 		{
 			this.m_top += delta;
 			this.m_deltaY += delta;
 		}
 
-		internal virtual void MoveHorizontal(double delta)
+		public virtual void MoveHorizontal(double delta)
 		{
 			this.m_left += delta;
 			this.m_deltaX += delta;

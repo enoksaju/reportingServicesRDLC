@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeRDLDataRegionObj : RuntimeDataRegionObj, IHierarchyObj, IStorable, IPersistable, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner, IDataRowSortOwner, IDataRowHolder, IDataCorrelation
+	public abstract class RuntimeRDLDataRegionObj : RuntimeDataRegionObj, IHierarchyObj, IStorable, IPersistable, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner, IDataRowSortOwner, IDataRowHolder, IDataCorrelation
 	{
 		[StaticReference]
 		protected AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion m_dataRegionDef;
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion DataRegionDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion DataRegionDef
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override bool TargetForNonDetailSort
+		public override bool TargetForNonDetailSort
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -209,11 +209,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeRDLDataRegionObj()
+		public RuntimeRDLDataRegionObj()
 		{
 		}
 
-		internal RuntimeRDLDataRegionObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess, List<AspNetCore.ReportingServices.ReportIntermediateFormat.RunningValueInfo> runningValues, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, int level)
+		public RuntimeRDLDataRegionObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess, List<AspNetCore.ReportingServices.ReportIntermediateFormat.RunningValueInfo> runningValues, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, int level)
 			: base(odpContext, objectType, level)
 		{
 			this.m_dataRegionDef = dataRegionDef;
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override bool IsTargetForSort(int index, bool detailSort)
+		public override bool IsTargetForSort(int index, bool detailSort)
 		{
 			if (this.m_userSortTargetInfo != null && this.m_userSortTargetInfo.IsTargetForSort(index, detailSort))
 			{
@@ -326,12 +326,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return result;
 		}
 
-		internal override bool TargetScopeMatched(int index, bool detailSort)
+		public override bool TargetScopeMatched(int index, bool detailSort)
 		{
 			return this.m_outerScope.Value().TargetScopeMatched(index, detailSort);
 		}
 
-		internal override void GetScopeValues(IReference<IHierarchyObj> targetScopeObj, List<object>[] scopeValues, ref int index)
+		public override void GetScopeValues(IReference<IHierarchyObj> targetScopeObj, List<object>[] scopeValues, ref int index)
 		{
 			if (targetScopeObj != null && this == targetScopeObj.Value())
 			{
@@ -340,7 +340,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_outerScope.Value().GetScopeValues(targetScopeObj, scopeValues, ref index);
 		}
 
-		internal override void NextRow()
+		public override void NextRow()
 		{
 			if (this.m_dataRegionDef.DataScopeInfo != null && this.m_dataRegionDef.DataScopeInfo.NeedsIDC)
 			{
@@ -423,7 +423,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override bool SortAndFilter(AggregateUpdateContext aggContext)
+		public override bool SortAndFilter(AggregateUpdateContext aggContext)
 		{
 			if ((SecondPassOperations.FilteringOrAggregatesOrDomainScope & base.m_odpContext.SecondPassOperation) != 0 && this.m_dataRows != null && (this.m_outerDataAction & DataActions.RecursiveAggregates) != 0)
 			{
@@ -460,7 +460,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override bool InScope(string scope)
+		public override bool InScope(string scope)
 		{
 			return base.DataRegionInScope(this.DataRegionDef, scope);
 		}

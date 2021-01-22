@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum DockingOption
+	public enum DockingOption
 	{
 		Top,
 		Bottom

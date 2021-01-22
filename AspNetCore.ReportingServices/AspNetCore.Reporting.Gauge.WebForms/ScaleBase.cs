@@ -11,25 +11,25 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal abstract class ScaleBase : NamedElement, IToolTipProvider, IImageMapProvider
+	public abstract class ScaleBase : NamedElement, IToolTipProvider, IImageMapProvider
 	{
-		internal const double MaxMajorTickMarks = 16.0;
+		public const double MaxMajorTickMarks = 16.0;
 
-		internal float _startPosition;
+		public float _startPosition;
 
-		internal float _endPosition = 100f;
+		public float _endPosition = 100f;
 
-		internal float _sweepPosition = 100f;
+		public float _sweepPosition = 100f;
 
-		internal float coordSystemRatio = 3.6f;
+		public float coordSystemRatio = 3.6f;
 
-		internal LinearLabelStyle baseLabelStyle;
+		public LinearLabelStyle baseLabelStyle;
 
-		internal ArrayList markers = new ArrayList();
+		public ArrayList markers = new ArrayList();
 
-		internal ArrayList labels = new ArrayList();
+		public ArrayList labels = new ArrayList();
 
-		internal bool staticRendering = true;
+		public bool staticRendering = true;
 
 		private CustomLabelCollection customLabels;
 
@@ -49,9 +49,9 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private string mapAreaAttributes = "";
 
-		internal TickMark majorTickMarkA;
+		public TickMark majorTickMarkA;
 
-		internal TickMark minorTickMarkA;
+		public TickMark minorTickMarkA;
 
 		private bool tickMarksOnTop;
 
@@ -61,9 +61,9 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private double logarithmicBase = 10.0;
 
-		internal SpecialPosition minimumPin;
+		public SpecialPosition minimumPin;
 
-		internal SpecialPosition maximumPin;
+		public SpecialPosition maximumPin;
 
 		private bool visible = true;
 
@@ -306,7 +306,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[TypeConverter(typeof(NoNameExpandableObjectConverter))]
 		[SRCategory("CategoryLabelsAndTickMarks")]
 		[SRDescription("DescriptionAttributeMajorTickMarkInt")]
-		internal TickMark MajorTickMarkInt
+		public TickMark MajorTickMarkInt
 		{
 			get
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[TypeConverter(typeof(NoNameExpandableObjectConverter))]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		[SRCategory("CategoryLabelsAndTickMarks")]
-		internal TickMark MinorTickMarkInt
+		public TickMark MinorTickMarkInt
 		{
 			get
 			{
@@ -436,7 +436,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[TypeConverter(typeof(NoNameExpandableObjectConverter))]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		[SRDescription("DescriptionAttributeMinimumPin")]
-		internal SpecialPosition MinimumPin
+		public SpecialPosition MinimumPin
 		{
 			get
 			{
@@ -454,7 +454,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[TypeConverter(typeof(NoNameExpandableObjectConverter))]
 		[SRCategory("CategoryLayout")]
 		[SRDescription("DescriptionAttributeMaximumPin")]
-		internal SpecialPosition MaximumPin
+		public SpecialPosition MaximumPin
 		{
 			get
 			{
@@ -647,7 +647,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal double MinimumLog
+		public double MinimumLog
 		{
 			get
 			{
@@ -676,7 +676,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal float StartPosition
+		public float StartPosition
 		{
 			get
 			{
@@ -702,7 +702,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal float EndPosition
+		public float EndPosition
 		{
 			get
 			{
@@ -728,7 +728,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal float SweepPosition
+		public float SweepPosition
 		{
 			get
 			{
@@ -748,7 +748,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal ScaleBase()
+		public ScaleBase()
 		{
 			this.customLabels = new CustomLabelCollection(this, base.common);
 			this.maximumPin = new SpecialPosition(this);
@@ -775,12 +775,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return num;
 		}
 
-		internal GaugeBase GetGauge()
+		public GaugeBase GetGauge()
 		{
 			return (GaugeBase)this.Collection.ParentElement;
 		}
 
-		internal bool GetReversed()
+		public bool GetReversed()
 		{
 			GaugeBase gauge = this.GetGauge();
 			if (this.Common != null && this.Common.GaugeContainer != null && this.Common.GaugeContainer.RightToLeft == RightToLeft.Yes)
@@ -797,7 +797,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.Reversed;
 		}
 
-		internal CustomTickMark GetEndLabelTickMark()
+		public CustomTickMark GetEndLabelTickMark()
 		{
 			if (this.MinorTickMarkInt.Visible)
 			{
@@ -810,7 +810,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return null;
 		}
 
-		internal Brush GetLightBrush(GaugeGraphics g, CustomTickMark tickMark, Color fillColor, GraphicsPath path)
+		public Brush GetLightBrush(GaugeGraphics g, CustomTickMark tickMark, Color fillColor, GraphicsPath path)
 		{
 			Brush brush = null;
 			if (tickMark.EnableGradient)
@@ -869,9 +869,9 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return brush;
 		}
 
-		internal abstract void DrawTickMark(GaugeGraphics g, CustomTickMark tickMark, double value, float offset);
+		public abstract void DrawTickMark(GaugeGraphics g, CustomTickMark tickMark, double value, float offset);
 
-		internal void DrawTickMark(GaugeGraphics g, CustomTickMark tickMark, double value, float offset, Matrix matrix)
+		public void DrawTickMark(GaugeGraphics g, CustomTickMark tickMark, double value, float offset, Matrix matrix)
 		{
 			if (!(tickMark.Width <= 0.0) && !(tickMark.Length <= 0.0))
 			{
@@ -920,7 +920,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void DrawTickMarkImage(GaugeGraphics g, CustomTickMark tickMark, Matrix matrix, PointF centerPoint, bool drawShadow)
+		public void DrawTickMarkImage(GaugeGraphics g, CustomTickMark tickMark, Matrix matrix, PointF centerPoint, bool drawShadow)
 		{
 			float absoluteDimension = g.GetAbsoluteDimension(tickMark.Length);
 			Image image = null;
@@ -968,7 +968,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal float GetTickMarkOffset(CustomTickMark tickMark)
+		public float GetTickMarkOffset(CustomTickMark tickMark)
 		{
 			float num = 0f;
 			switch (tickMark.Placement)
@@ -984,7 +984,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderTicks(GaugeGraphics g, TickMark tickMark, double interval, double max, double min, double intOffset, bool forceLinear)
+		public void RenderTicks(GaugeGraphics g, TickMark tickMark, double interval, double max, double min, double intOffset, bool forceLinear)
 		{
 			float tickMarkOffset = this.GetTickMarkOffset(tickMark);
 			double num = min + intOffset;
@@ -1002,7 +1002,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderGrid(GaugeGraphics g)
+		public void RenderGrid(GaugeGraphics g)
 		{
 			if (this.MajorTickMarkInt.Visible)
 			{
@@ -1039,11 +1039,11 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal abstract void DrawCustomLabel(CustomLabel label);
+		public abstract void DrawCustomLabel(CustomLabel label);
 
-		internal abstract LinearLabelStyle GetLabelStyle();
+		public abstract LinearLabelStyle GetLabelStyle();
 
-		internal float GetOffsetLabelPos(Placement placement, float scaleOffset, float scalePosition)
+		public float GetOffsetLabelPos(Placement placement, float scaleOffset, float scalePosition)
 		{
 			Gap gap = new Gap(scalePosition);
 			gap.SetOffset(Placement.Cross, this.Width);
@@ -1071,7 +1071,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal Font GetResizedFont(Font font, FontUnit fontUnit)
+		public Font GetResizedFont(Font font, FontUnit fontUnit)
 		{
 			if (fontUnit == FontUnit.Percent)
 			{
@@ -1082,7 +1082,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return font;
 		}
 
-		internal void RenderCustomLabels(GaugeGraphics g)
+		public void RenderCustomLabels(GaugeGraphics g)
 		{
 			foreach (CustomLabel customLabel in this.CustomLabels)
 			{
@@ -1093,9 +1093,9 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal abstract void DrawSpecialPosition(GaugeGraphics g, SpecialPosition label, float angle);
+		public abstract void DrawSpecialPosition(GaugeGraphics g, SpecialPosition label, float angle);
 
-		internal void RenderPins(GaugeGraphics g)
+		public void RenderPins(GaugeGraphics g)
 		{
 			if (!this.IsReversed())
 			{
@@ -1119,7 +1119,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this._sweepPosition = this._endPosition - this._startPosition;
 		}
 
-		internal Color GetRangeTickMarkColor(double value, Color color)
+		public Color GetRangeTickMarkColor(double value, Color color)
 		{
 			foreach (RangeBase range in this.GetGauge().GetRanges())
 			{
@@ -1131,7 +1131,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return color;
 		}
 
-		internal Color GetRangeLabelsColor(double value, Color color)
+		public Color GetRangeLabelsColor(double value, Color color)
 		{
 			foreach (RangeBase range in this.GetGauge().GetRanges())
 			{
@@ -1143,7 +1143,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return color;
 		}
 
-		internal virtual double GetValueLimit(double value, bool snapEnable, double snapInterval)
+		public virtual double GetValueLimit(double value, bool snapEnable, double snapInterval)
 		{
 			double valueLimit = this.GetValueLimit(value);
 			if (snapEnable)
@@ -1162,7 +1162,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return valueLimit;
 		}
 
-		internal virtual double GetValueLimit(double value)
+		public virtual double GetValueLimit(double value)
 		{
 			float position = this.StartPosition - this.MinimumPin.Location;
 			float position2 = this.EndPosition + this.MaximumPin.Location;
@@ -1200,7 +1200,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return value;
 		}
 
-		internal double GetIntervalOffset(IntervalTypes type)
+		public double GetIntervalOffset(IntervalTypes type)
 		{
 			double num = 0.0;
 			switch (type)
@@ -1237,7 +1237,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return num;
 		}
 
-		internal double GetInterval(IntervalTypes type)
+		public double GetInterval(IntervalTypes type)
 		{
 			double num = (this.Maximum - this.MinimumLog) / 10.0;
 			switch (type)
@@ -1369,7 +1369,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return num;
 		}
 
-		internal double GetNextPosition(double position, double interval, bool forceLinear)
+		public double GetNextPosition(double position, double interval, bool forceLinear)
 		{
 			if (forceLinear || !this.Logarithmic)
 			{
@@ -1433,12 +1433,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (float)((double)startPos + num * valueAgainstScaleRatio);
 		}
 
-		internal virtual float GetPositionFromValue(double value)
+		public virtual float GetPositionFromValue(double value)
 		{
 			return this.GetPositionFromValue(value, this.StartPosition / this.coordSystemRatio, this.EndPosition / this.coordSystemRatio) * this.coordSystemRatio;
 		}
 
-		internal virtual double GetValueFromPosition(float position)
+		public virtual double GetValueFromPosition(float position)
 		{
 			double num = (double)((position - this.StartPosition) / (this.EndPosition - this.StartPosition));
 			if (this.IsReversed())
@@ -1448,16 +1448,16 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.GetValueByRatio((float)num);
 		}
 
-		internal abstract double GetValue(PointF c, PointF p);
+		public abstract double GetValue(PointF c, PointF p);
 
 		protected abstract PointF GetPoint(float position, float offset);
 
-		internal virtual PointF GetPointRel(double value, float offset)
+		public virtual PointF GetPointRel(double value, float offset)
 		{
 			return this.GetPoint(this.GetPositionFromValue(value), offset);
 		}
 
-		internal virtual PointF GetPointAbs(double value, float offset)
+		public virtual PointF GetPointAbs(double value, float offset)
 		{
 			if (this.Common != null)
 			{
@@ -1466,7 +1466,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			throw new ApplicationException(Utils.SRGetStr("ExceptionGdiNonInitialized"));
 		}
 
-		internal virtual void PointerValueChanged(PointerBase sender)
+		public virtual void PointerValueChanged(PointerBase sender)
 		{
 			bool playbackMode;
 			if (this.Common != null && !double.IsNaN(sender.Data.OldValue))
@@ -1506,7 +1506,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			goto IL_00bc;
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.CustomLabels.Common = this.Common;
@@ -1515,26 +1515,26 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Minimum = this.Minimum;
 		}
 
-		internal override void OnRemove()
+		public override void OnRemove()
 		{
 			base.OnRemove();
 			this.CustomLabels.Common = null;
 			this.CustomLabels.parent = null;
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 			this.CustomLabels.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.CustomLabels.EndInit();
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (this.Common != null)
 			{

@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class HatchStyleEditor : UITypeEditor
+	public class HatchStyleEditor : UITypeEditor
 	{
 		public override bool GetPaintValueSupported(ITypeDescriptorContext context)
 		{

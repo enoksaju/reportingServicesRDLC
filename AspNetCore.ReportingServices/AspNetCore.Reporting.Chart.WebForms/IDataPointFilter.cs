@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal interface IDataPointFilter
+	public interface IDataPointFilter
 	{
 		bool FilterDataPoint(DataPoint point, Series series, int pointIndex);
 	}

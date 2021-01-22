@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal interface IDbCommandAnalysis
+	public interface IDbCommandAnalysis
 	{
 		IDataParameterCollection GetParameters();
 	}

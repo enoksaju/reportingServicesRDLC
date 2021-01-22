@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartDataPointInstance : InstanceInfoOwner
+	public sealed class ChartDataPointInstance : InstanceInfoOwner
 	{
 		private int m_uniqueName;
 
-		internal int UniqueName
+		public int UniqueName
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartDataPointInstanceInfo InstanceInfo
+		public ChartDataPointInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -33,17 +33,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartDataPointInstance(ReportProcessing.ProcessingContext pc, Chart chart, ChartDataPoint dataPointDef, int dataPointIndex)
+		public ChartDataPointInstance(ReportProcessing.ProcessingContext pc, Chart chart, ChartDataPoint dataPointDef, int dataPointIndex)
 		{
 			this.m_uniqueName = pc.CreateUniqueName();
 			base.m_instanceInfo = new ChartDataPointInstanceInfo(pc, chart, dataPointDef, dataPointIndex, this);
 		}
 
-		internal ChartDataPointInstance()
+		public ChartDataPointInstance()
 		{
 		}
 
-		internal ChartDataPointInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager, ChartDataPointList chartDataPoints)
+		public ChartDataPointInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager, ChartDataPointList chartDataPoints)
 		{
 			if (base.m_instanceInfo is OffsetInfo)
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return (ChartDataPointInstanceInfo)base.m_instanceInfo;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.UniqueName, Token.Int32));

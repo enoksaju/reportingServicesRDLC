@@ -5,7 +5,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Visibility
+	public sealed class Visibility
 	{
 		private ExpressionInfo m_hidden;
 
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ToggleItemInfo m_toggleItemInfo;
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Toggle
+		public string Toggle
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool RecursiveReceiver
+		public bool RecursiveReceiver
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context, bool isContainer, bool tableRowCol)
+		public void Initialize(InitializationContext context, bool isContainer, bool tableRowCol)
 		{
 			if (this.m_hidden != null)
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_toggleItemInfo = this.RegisterReceiver(context, isContainer);
 		}
 
-		internal ToggleItemInfo RegisterReceiver(InitializationContext context, bool isContainer)
+		public ToggleItemInfo RegisterReceiver(InitializationContext context, bool isContainer)
 		{
 			if (context.RegisterHiddenReceiver)
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal void UnRegisterReceiver(InitializationContext context)
+		public void UnRegisterReceiver(InitializationContext context)
 		{
 			if (this.m_toggleItemInfo != null)
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static SharedHiddenState GetSharedHidden(Visibility visibility)
+		public static SharedHiddenState GetSharedHidden(Visibility visibility)
 		{
 			if (visibility == null)
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return SharedHiddenState.Sometimes;
 		}
 
-		internal static bool HasToggle(Visibility visibility)
+		public static bool HasToggle(Visibility visibility)
 		{
 			if (visibility == null)
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Hidden, Token.Boolean));
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.None, memberInfoList);
 		}
 
-		internal static bool IsOnePassHierarchyVisible(ReportItem reportItem)
+		public static bool IsOnePassHierarchyVisible(ReportItem reportItem)
 		{
 			if (Visibility.IsOnePassVisible(reportItem))
 			{
@@ -170,12 +170,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool IsVisible(ReportItem reportItem)
+		public static bool IsVisible(ReportItem reportItem)
 		{
 			return Visibility.IsVisible(reportItem, null, null);
 		}
 
-		internal static bool IsVisible(ReportItem reportItem, ReportItemInstance reportItemInstance, ReportItemInstanceInfo reportItemInstanceInfo)
+		public static bool IsVisible(ReportItem reportItem, ReportItemInstance reportItemInstance, ReportItemInstanceInfo reportItemInstanceInfo)
 		{
 			if (reportItem == null)
 			{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return Visibility.IsVisible(reportItem.Visibility, startHidden);
 		}
 
-		internal static bool IsVisible(Visibility visibility, bool startHidden)
+		public static bool IsVisible(Visibility visibility, bool startHidden)
 		{
 			if (visibility == null)
 			{
@@ -206,7 +206,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static bool IsVisible(SharedHiddenState state, bool hidden, bool hasToggle)
+		public static bool IsVisible(SharedHiddenState state, bool hidden, bool hasToggle)
 		{
 			if (state == SharedHiddenState.Always)
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return !hidden;
 		}
 
-		internal static bool IsTableCellVisible(bool[] tableColumnsVisible, int startIndex, int colSpan)
+		public static bool IsTableCellVisible(bool[] tableColumnsVisible, int startIndex, int colSpan)
 		{
 			Global.Tracer.Assert(startIndex >= 0 && colSpan > 0 && tableColumnsVisible != null && startIndex + colSpan <= tableColumnsVisible.Length);
 			bool flag = false;

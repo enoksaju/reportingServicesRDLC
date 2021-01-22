@@ -10,23 +10,23 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ReportCompileTime
+	public sealed class ReportCompileTime
 	{
 		private sealed class ExprCompileTimeInfo
 		{
-			internal ExpressionInfo ExpressionInfo;
+			public ExpressionInfo ExpressionInfo;
 
-			internal ObjectType OwnerObjectType;
+			public ObjectType OwnerObjectType;
 
-			internal string OwnerObjectName;
+			public string OwnerObjectName;
 
-			internal string OwnerPropertyName;
+			public string OwnerPropertyName;
 
-			internal int NumErrors;
+			public int NumErrors;
 
-			internal int NumWarnings;
+			public int NumWarnings;
 
-			internal ExprCompileTimeInfo(ExpressionInfo expression, ExpressionParser.ExpressionContext context)
+			public ExprCompileTimeInfo(ExpressionInfo expression, ExpressionParser.ExpressionContext context)
 			{
 				this.ExpressionInfo = expression;
 				this.OwnerObjectType = context.ObjectType;
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class ExprCompileTimeInfoList : ArrayList
 		{
-			internal new ExprCompileTimeInfo this[int exprCTId]
+			public new ExprCompileTimeInfo this[int exprCTId]
 			{
 				get
 				{
@@ -50,14 +50,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private sealed class CodeModuleClassInstanceDeclCompileTimeInfo
 		{
-			internal int NumErrors;
+			public int NumErrors;
 
-			internal int NumWarnings;
+			public int NumWarnings;
 		}
 
 		private sealed class CodeModuleClassInstanceDeclCompileTimeInfoList : Hashtable
 		{
-			internal new CodeModuleClassInstanceDeclCompileTimeInfo this[object id]
+			public new CodeModuleClassInstanceDeclCompileTimeInfo this[object id]
 			{
 				get
 				{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private ArrayList m_reportLevelFieldReferences;
 
-		internal ExprHostBuilder Builder
+		public ExprHostBuilder Builder
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool BodyRefersToReportItems
+		public bool BodyRefersToReportItems
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageSectionRefersToReportItems
+		public bool PageSectionRefersToReportItems
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int NumberOfAggregates
+		public int NumberOfAggregates
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int LastAggregateID
+		public int LastAggregateID
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ValueReferenced
+		public bool ValueReferenced
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ValueReferencedGlobal
+		public bool ValueReferencedGlobal
 		{
 			get
 			{
@@ -144,35 +144,35 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportCompileTime(ExpressionParser langParser, ErrorContext errorContext)
+		public ReportCompileTime(ExpressionParser langParser, ErrorContext errorContext)
 		{
 			this.m_langParser = langParser;
 			this.m_errorContext = errorContext;
 			this.m_builder = new ExprHostBuilder();
 		}
 
-		internal ExpressionInfo ParseExpression(string expression, ExpressionParser.ExpressionContext context)
+		public ExpressionInfo ParseExpression(string expression, ExpressionParser.ExpressionContext context)
 		{
 			ExpressionInfo expressionInfo = this.m_langParser.ParseExpression(expression, context);
 			this.ProcessExpression(expressionInfo, context);
 			return expressionInfo;
 		}
 
-		internal ExpressionInfo ParseExpression(string expression, ExpressionParser.ExpressionContext context, ExpressionParser.DetectionFlags flag, out bool reportParameterReferenced, out string reportParameterName, out bool userCollectionReferenced)
+		public ExpressionInfo ParseExpression(string expression, ExpressionParser.ExpressionContext context, ExpressionParser.DetectionFlags flag, out bool reportParameterReferenced, out string reportParameterName, out bool userCollectionReferenced)
 		{
 			ExpressionInfo expressionInfo = this.m_langParser.ParseExpression(expression, context, flag, out reportParameterReferenced, out reportParameterName, out userCollectionReferenced);
 			this.ProcessExpression(expressionInfo, context);
 			return expressionInfo;
 		}
 
-		internal ExpressionInfo ParseExpression(string expression, ExpressionParser.ExpressionContext context, out bool userCollectionReferenced)
+		public ExpressionInfo ParseExpression(string expression, ExpressionParser.ExpressionContext context, out bool userCollectionReferenced)
 		{
 			ExpressionInfo expressionInfo = this.m_langParser.ParseExpression(expression, context, out userCollectionReferenced);
 			this.ProcessExpression(expressionInfo, context);
 			return expressionInfo;
 		}
 
-		internal void ConvertFields2ComplexExpr()
+		public void ConvertFields2ComplexExpr()
 		{
 			if (this.m_reportLevelFieldReferences != null)
 			{
@@ -185,12 +185,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void ResetValueReferencedFlag()
+		public void ResetValueReferencedFlag()
 		{
 			this.m_langParser.ResetValueReferencedFlag();
 		}
 
-		internal byte[] Compile(Report report, AppDomain compilationTempAppDomain, bool refusePermissions)
+		public byte[] Compile(Report report, AppDomain compilationTempAppDomain, bool refusePermissions)
 		{
             byte[] result = null;//this.InternalCompile(report, compilationTempAppDomain, refusePermissions);
             //todo: can delete?

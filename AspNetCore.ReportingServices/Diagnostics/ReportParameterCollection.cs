@@ -3,9 +3,9 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal class ReportParameterCollection : NameValueCollection
+	public class ReportParameterCollection : NameValueCollection
 	{
-		internal ReportParameterCollection(NameValueCollection other)
+		public ReportParameterCollection(NameValueCollection other)
 			: base(other)
 		{
 		}

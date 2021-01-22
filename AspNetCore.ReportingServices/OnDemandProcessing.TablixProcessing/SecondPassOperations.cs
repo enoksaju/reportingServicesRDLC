@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[Flags]
-	internal enum SecondPassOperations
+	public enum SecondPassOperations
 	{
 		None = 0,
 		Variables = 1,

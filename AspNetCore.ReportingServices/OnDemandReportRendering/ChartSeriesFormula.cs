@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartSeriesFormula
+	public enum ChartSeriesFormula
 	{
 		BollingerBands,
 		MovingAverage,

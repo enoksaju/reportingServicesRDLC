@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 {
-	internal static class PageSizeIndex
+	public static class PageSizeIndex
 	{
 		private static int[] m_mmSizeIndex = new int[15]
 		{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Layout
 			11f
 		};
 
-		internal static int GetPageSizeIndex(float pageWidth, float pageHeight, out bool isPortrait)
+		public static int GetPageSizeIndex(float pageWidth, float pageHeight, out bool isPortrait)
 		{
 			int num = (int)Math.Round((double)pageWidth);
 			int num2 = (int)Math.Round((double)pageHeight);

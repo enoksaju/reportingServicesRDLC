@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FieldCollection : NamedCollection
+	public class FieldCollection : NamedCollection
 	{
 		private Field this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal FieldCollection(NamedElement parent, CommonElements common)
+		public FieldCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(Field);
@@ -87,12 +87,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Insert(index, value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Field1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Field{0}";
 		}
@@ -102,7 +102,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.OnInsertComplete(index, value);
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (base.Common != null)
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.Invalidate();
 		}
 
-		internal void Purge()
+		public void Purge()
 		{
 			for (int num = base.Count - 1; num >= 0; num--)
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void IsValidNameCheck(string name, NamedElement element)
+		public override void IsValidNameCheck(string name, NamedElement element)
 		{
 			base.IsValidNameCheck(name, element);
 			if (name.IndexOf(' ') == -1)

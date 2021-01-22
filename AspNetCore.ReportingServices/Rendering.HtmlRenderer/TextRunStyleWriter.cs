@@ -2,19 +2,19 @@ using AspNetCore.ReportingServices.Rendering.RPLProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class TextRunStyleWriter : ElementStyleWriter
+	public class TextRunStyleWriter : ElementStyleWriter
 	{
-		internal TextRunStyleWriter(IHtmlReportWriter renderer)
+		public TextRunStyleWriter(IHtmlReportWriter renderer)
 			: base(renderer)
 		{
 		}
 
-		internal override bool NeedsToWriteNullStyle(StyleWriterMode mode)
+		public override bool NeedsToWriteNullStyle(StyleWriterMode mode)
 		{
 			return false;
 		}
 
-		internal override void WriteStyles(StyleWriterMode mode, IRPLStyle style)
+		public override void WriteStyles(StyleWriterMode mode, IRPLStyle style)
 		{
 			string text = style[20] as string;
 			if (text != null)

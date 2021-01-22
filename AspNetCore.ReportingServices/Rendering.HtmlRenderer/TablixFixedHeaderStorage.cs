@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class TablixFixedHeaderStorage
+	public class TablixFixedHeaderStorage
 	{
 		private string m_bodyId;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 
 		private List<string> m_cornerHeaders;
 
-		internal string BodyID
+		public string BodyID
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal string HtmlId
+		public string HtmlId
 		{
 			get
 			{

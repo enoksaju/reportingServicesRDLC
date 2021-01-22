@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapPointLayerInstance : MapVectorLayerInstance
+	public sealed class MapPointLayerInstance : MapVectorLayerInstance
 	{
 		private MapPointLayer m_defObject;
 
-		internal MapPointLayerInstance(MapPointLayer defObject)
+		public MapPointLayerInstance(MapPointLayer defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

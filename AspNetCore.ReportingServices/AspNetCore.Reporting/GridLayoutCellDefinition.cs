@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal sealed class GridLayoutCellDefinition
+	public sealed class GridLayoutCellDefinition
 	{
 		public int Row;
 

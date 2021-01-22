@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class Range : NamedElement
+	public class Range : NamedElement
 	{
 		private Hashtable inRangeTable = new Hashtable();
 
@@ -86,7 +86,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.endValue = end;
 		}
 
-		internal RangeDataState GetDataState(DataAttributes data)
+		public RangeDataState GetDataState(DataAttributes data)
 		{
 			if (this.inRangeTable.ContainsKey(data))
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void OnValueRangeTimeOut(object sender, ValueRangeEventArgs e)
+		public virtual void OnValueRangeTimeOut(object sender, ValueRangeEventArgs e)
 		{
 			if (this.Common != null)
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void OnValueRangeEnter(object sender, ValueRangeEventArgs e)
+		public virtual void OnValueRangeEnter(object sender, ValueRangeEventArgs e)
 		{
 			if (this.Common != null)
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void OnValueRangeLeave(object sender, ValueRangeEventArgs e)
+		public virtual void OnValueRangeLeave(object sender, ValueRangeEventArgs e)
 		{
 			if (this.Common != null)
 			{
@@ -129,7 +129,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void PointerValueChanged(DataAttributes data)
+		public virtual void PointerValueChanged(DataAttributes data)
 		{
 			double num = Math.Min(this.startValue, this.endValue);
 			double num2 = Math.Max(this.startValue, this.endValue);
@@ -170,7 +170,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			base.Notify(msg, element, param);
 			if (msg == MessageType.NamedElementRemove)

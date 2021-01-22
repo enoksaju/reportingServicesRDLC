@@ -2,7 +2,7 @@ using System.Collections;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class TempLegendItemsCollection : CollectionBase
+	public class TempLegendItemsCollection : CollectionBase
 	{
 		public LegendItem this[int index]
 		{

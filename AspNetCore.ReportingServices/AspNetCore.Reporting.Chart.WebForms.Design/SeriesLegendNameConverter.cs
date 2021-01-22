@@ -5,7 +5,7 @@ using System.ComponentModel.Design;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class SeriesLegendNameConverter : StringConverter
+	public class SeriesLegendNameConverter : StringConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

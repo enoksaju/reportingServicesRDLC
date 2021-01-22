@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
 	[SkipStaticValidation]
-	internal class StyleInstance : StyleBaseInstance, IPersistable
+	public class StyleInstance : StyleBaseInstance, IPersistable
 	{
 		private Style m_styleDefinition;
 
@@ -263,7 +263,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsBackgroundGradientEndColorAssigned
+		public bool IsBackgroundGradientEndColorAssigned
 		{
 			get
 			{
@@ -297,7 +297,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsColorAssigned
+		public bool IsColorAssigned
 		{
 			get
 			{
@@ -331,7 +331,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsBackgroundColorAssigned
+		public bool IsBackgroundColorAssigned
 		{
 			get
 			{
@@ -365,7 +365,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsFontStyleAssigned
+		public bool IsFontStyleAssigned
 		{
 			get
 			{
@@ -399,7 +399,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsFontFamilyAssigned
+		public bool IsFontFamilyAssigned
 		{
 			get
 			{
@@ -433,7 +433,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsFontWeightAssigned
+		public bool IsFontWeightAssigned
 		{
 			get
 			{
@@ -467,7 +467,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsFormatAssigned
+		public bool IsFormatAssigned
 		{
 			get
 			{
@@ -501,7 +501,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsTextDecorationAssigned
+		public bool IsTextDecorationAssigned
 		{
 			get
 			{
@@ -535,7 +535,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsTextAlignAssigned
+		public bool IsTextAlignAssigned
 		{
 			get
 			{
@@ -569,7 +569,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsVerticalAlignAssigned
+		public bool IsVerticalAlignAssigned
 		{
 			get
 			{
@@ -603,7 +603,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsDirectionAssigned
+		public bool IsDirectionAssigned
 		{
 			get
 			{
@@ -637,7 +637,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsWritingModeAssigned
+		public bool IsWritingModeAssigned
 		{
 			get
 			{
@@ -671,7 +671,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsLanguageAssigned
+		public bool IsLanguageAssigned
 		{
 			get
 			{
@@ -705,7 +705,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsUnicodeBiDiAssigned
+		public bool IsUnicodeBiDiAssigned
 		{
 			get
 			{
@@ -739,7 +739,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsCalendarAssigned
+		public bool IsCalendarAssigned
 		{
 			get
 			{
@@ -773,7 +773,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsCurrencyLanguageAssigned
+		public bool IsCurrencyLanguageAssigned
 		{
 			get
 			{
@@ -807,7 +807,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsNumeralLanguageAssigned
+		public bool IsNumeralLanguageAssigned
 		{
 			get
 			{
@@ -841,7 +841,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsBackgroundGradientTypeAssigned
+		public bool IsBackgroundGradientTypeAssigned
 		{
 			get
 			{
@@ -875,7 +875,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsFontSizeAssigned
+		public bool IsFontSizeAssigned
 		{
 			get
 			{
@@ -909,7 +909,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsPaddingLeftAssigned
+		public bool IsPaddingLeftAssigned
 		{
 			get
 			{
@@ -943,7 +943,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsPaddingRightAssigned
+		public bool IsPaddingRightAssigned
 		{
 			get
 			{
@@ -977,7 +977,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsPaddingTopAssigned
+		public bool IsPaddingTopAssigned
 		{
 			get
 			{
@@ -1011,7 +1011,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsPaddingBottomAssigned
+		public bool IsPaddingBottomAssigned
 		{
 			get
 			{
@@ -1045,7 +1045,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsLineHeightAssigned
+		public bool IsLineHeightAssigned
 		{
 			get
 			{
@@ -1079,7 +1079,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsNumeralVariantAssigned
+		public bool IsNumeralVariantAssigned
 		{
 			get
 			{
@@ -1113,7 +1113,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsTextEffectAssigned
+		public bool IsTextEffectAssigned
 		{
 			get
 			{
@@ -1147,7 +1147,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsBackgroundHatchTypeAssigned
+		public bool IsBackgroundHatchTypeAssigned
 		{
 			get
 			{
@@ -1181,7 +1181,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsShadowColorAssigned
+		public bool IsShadowColorAssigned
 		{
 			get
 			{
@@ -1215,7 +1215,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsShadowOffsetAssigned
+		public bool IsShadowOffsetAssigned
 		{
 			get
 			{
@@ -1227,7 +1227,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal StyleInstance(IROMStyleDefinitionContainer styleDefinitionContainer, IReportScope reportScope, RenderingContext context)
+		public StyleInstance(IROMStyleDefinitionContainer styleDefinitionContainer, IReportScope reportScope, RenderingContext context)
 			: base(context, reportScope)
 		{
 			this.m_styleDefinition = styleDefinitionContainer.Style;
@@ -1480,7 +1480,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			Global.Tracer.Assert(styles.Count == values.Count, "styles.Count == values.Count");
 		}
 
-		internal static AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo CreateAttrInfo(ReportColor reportColor)
+		public static AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo CreateAttrInfo(ReportColor reportColor)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo attributeInfo = new AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo();
 			attributeInfo.IsExpression = true;
@@ -1488,7 +1488,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return attributeInfo;
 		}
 
-		internal static AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo CreateAttrInfo(ReportSize reportSize)
+		public static AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo CreateAttrInfo(ReportSize reportSize)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo attributeInfo = new AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo();
 			attributeInfo.IsExpression = true;
@@ -1496,7 +1496,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return attributeInfo;
 		}
 
-		internal static AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo CreateAttrInfo(string strValue)
+		public static AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo CreateAttrInfo(string strValue)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo attributeInfo = new AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo();
 			attributeInfo.IsExpression = true;
@@ -1504,7 +1504,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return attributeInfo;
 		}
 
-		internal static AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo CreateAttrInfo(int intValue)
+		public static AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo CreateAttrInfo(int intValue)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo attributeInfo = new AspNetCore.ReportingServices.ReportIntermediateFormat.AttributeInfo();
 			attributeInfo.IsExpression = true;

@@ -15,7 +15,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLStreamsheetModel : XMLWorksheetModel, IStreamsheetModel, IWorksheetModel, ICloneable
+	public class XMLStreamsheetModel : XMLWorksheetModel, IStreamsheetModel, IWorksheetModel, ICloneable
 	{
 		private readonly Streamsheet _interface;
 

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class CT_GeomGuideList : OoxmlComplexType
+	public class CT_GeomGuideList : OoxmlComplexType
 	{
 		protected override void InitAttributes()
 		{

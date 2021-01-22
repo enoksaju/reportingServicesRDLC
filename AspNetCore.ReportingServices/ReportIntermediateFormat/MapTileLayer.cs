@@ -12,7 +12,7 @@ using System.IO;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapTileLayer : MapLayer, IPersistable
+	public sealed class MapTileLayer : MapLayer, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapTileLayer.GetDeclaration();
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private List<MapTile> m_mapTiles;
 
-		internal ExpressionInfo ServiceUrl
+		public ExpressionInfo ServiceUrl
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TileStyle
+		public ExpressionInfo TileStyle
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo UseSecureConnection
+		public ExpressionInfo UseSecureConnection
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapTile> MapTiles
+		public List<MapTile> MapTiles
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapTileLayerExprHost ExprHost
+		public new MapTileLayerExprHost ExprHost
 		{
 			get
 			{
@@ -81,16 +81,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapTileLayer()
+		public MapTileLayer()
 		{
 		}
 
-		internal MapTileLayer(Map map)
+		public MapTileLayer(Map map)
 			: base(map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapTileLayerStart(base.Name);
 			base.Initialize(context);
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			base.m_exprHostID = context.ExprHostBuilder.MapTileLayerEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapTileLayer mapTileLayer = (MapTileLayer)base.PublishClone(context);
 			if (this.m_serviceUrl != null)
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapTileLayer;
 		}
 
-		internal void SetExprHost(MapTileLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapTileLayerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ServiceUrl, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapTileLayer, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapLayer, list);
 		}
 
-		internal Stream GetTileData(string url, out string mimeType, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext)
+		public Stream GetTileData(string url, out string mimeType, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext)
 		{
 			OnDemandMetadata odpMetadata = renderingContext.OdpContext.OdpMetadata;
 			ImageInfo imageInfo = default(ImageInfo);
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return null;
 		}
 
-		internal void SetTileData(string url, byte[] data, string mimeType, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext)
+		public void SetTileData(string url, byte[] data, string mimeType, AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext)
 		{
 			string text = Guid.NewGuid().ToString("N");
 			ImageInfo imageInfo = new ImageInfo(text, "");
@@ -257,19 +257,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapTileLayer;
 		}
 
-		internal string EvaluateServiceUrl(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateServiceUrl(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapTileLayerServiceUrlExpression(this, base.m_map.Name);
 		}
 
-		internal MapTileStyle EvaluateTileStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapTileStyle EvaluateTileStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapTileStyle(context.ReportRuntime.EvaluateMapTileLayerTileStyleExpression(this, base.m_map.Name), context.ReportRuntime);
 		}
 
-		internal bool EvaluateUseSecureConnection(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateUseSecureConnection(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapTileLayerUseSecureConnectionExpression(this, base.m_map.Name);

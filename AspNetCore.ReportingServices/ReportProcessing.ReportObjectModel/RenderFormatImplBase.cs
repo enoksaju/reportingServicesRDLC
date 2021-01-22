@@ -4,17 +4,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public abstract class RenderFormatImplBase : MarshalByRefObject
 	{
-		internal abstract string Name
+		public abstract string Name
 		{
 			get;
 		}
 
-		internal abstract bool IsInteractive
+		public abstract bool IsInteractive
 		{
 			get;
 		}
 
-		internal abstract ReadOnlyNameValueCollection DeviceInfo
+		public abstract ReadOnlyNameValueCollection DeviceInfo
 		{
 			get;
 		}

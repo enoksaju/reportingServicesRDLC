@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartAllowOutSidePlotAreaTypes
+	public enum ChartAllowOutSidePlotAreaTypes
 	{
 		Partial,
 		True,

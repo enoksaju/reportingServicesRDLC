@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapDataRegionInstance : DataRegionInstance
+	public sealed class MapDataRegionInstance : DataRegionInstance
 	{
-		internal MapDataRegionInstance(MapDataRegion reportItemDef)
+		public MapDataRegionInstance(MapDataRegion reportItemDef)
 			: base(reportItemDef)
 		{
 		}

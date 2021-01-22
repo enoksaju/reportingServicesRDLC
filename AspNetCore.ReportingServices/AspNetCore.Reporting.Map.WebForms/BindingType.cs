@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum BindingType
+	public enum BindingType
 	{
 		Shapes,
 		Groups,

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapPolygonRules : IPersistable
+	public sealed class MapPolygonRules : IPersistable
 	{
 		[NonSerialized]
 		private MapPolygonRulesExprHost m_exprHost;
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private MapColorRule m_mapColorRule;
 
-		internal MapColorRule MapColorRule
+		public MapColorRule MapColorRule
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPolygonRulesExprHost ExprHost
+		public MapPolygonRulesExprHost ExprHost
 		{
 			get
 			{
@@ -53,16 +53,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapPolygonRules()
+		public MapPolygonRules()
 		{
 		}
 
-		internal MapPolygonRules(Map map)
+		public MapPolygonRules(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapPolygonRulesStart();
 			if (this.m_mapColorRule != null)
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapPolygonRulesEnd();
 		}
 
-		internal void InitializeMapMember(InitializationContext context)
+		public void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapPolygonRulesStart();
 			if (this.m_mapColorRule != null)
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapPolygonRulesEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapPolygonRules mapPolygonRules = (MapPolygonRules)base.MemberwiseClone();
 			mapPolygonRules.m_map = context.CurrentMapClone;
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapPolygonRules;
 		}
 
-		internal void SetExprHost(MapPolygonRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapPolygonRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetExprHostMapMember(MapPolygonRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHostMapMember(MapPolygonRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHostMapMember = exprHost;
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapColorRule, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapColorRule));

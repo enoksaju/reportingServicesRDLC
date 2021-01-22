@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class TableCellCollection
+	public sealed class TableCellCollection
 	{
 		private Table m_table;
 
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal IntList ColSpans
+		public IntList ColSpans
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.TableRow RowDef
+		public AspNetCore.ReportingServices.ReportProcessing.TableRow RowDef
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal TableCellCollection(Table table, AspNetCore.ReportingServices.ReportProcessing.TableRow rowDef, TableRowInstance rowInstance)
+		public TableCellCollection(Table table, AspNetCore.ReportingServices.ReportProcessing.TableRow rowDef, TableRowInstance rowInstance)
 		{
 			this.m_table = table;
 			this.m_rowDef = rowDef;

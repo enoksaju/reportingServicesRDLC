@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal abstract class RdlReaderWriterBase
+	public abstract class RdlReaderWriterBase
 	{
 		private RdlSerializerSettings m_settings;
 

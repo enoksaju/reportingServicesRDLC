@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[Flags]
-	internal enum ScrollDirection
+	public enum ScrollDirection
 	{
 		None = 0,
 		North = 1,

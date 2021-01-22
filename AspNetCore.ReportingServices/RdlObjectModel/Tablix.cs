@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Tablix : DataRegion
+	public class Tablix : DataRegion
 	{
-		internal new class Definition : DefinitionStore<Tablix, Definition.Properties>
+		public new class Definition : DefinitionStore<Tablix, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Name,
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Tablix(IPropertyStore propertyStore)
+		public Tablix(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

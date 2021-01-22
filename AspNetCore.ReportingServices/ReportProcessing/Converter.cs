@@ -3,30 +3,30 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class Converter
+	public sealed class Converter
 	{
-		internal static double Inches160 = 4064.0;
+		public static double Inches160 = 4064.0;
 
-		internal static double Pt1 = 0.3528;
+		public static double Pt1 = 0.3528;
 
-		internal static double Pt200 = 70.56;
+		public static double Pt200 = 70.56;
 
-		internal static double PtPoint25 = 0.08814;
+		public static double PtPoint25 = 0.08814;
 
-		internal static double Pt20 = 7.056;
+		public static double Pt20 = 7.056;
 
-		internal static double Pt1000 = 352.8;
+		public static double Pt1000 = 352.8;
 
 		private Converter()
 		{
 		}
 
-		internal static string ConvertSize(double size)
+		public static string ConvertSize(double size)
 		{
 			return size.ToString(CultureInfo.InvariantCulture) + "mm";
 		}
 
-		internal static double ConvertToMM(RVUnit unit)
+		public static double ConvertToMM(RVUnit unit)
 		{
 			double num = unit.Value;
 			switch (unit.Type)

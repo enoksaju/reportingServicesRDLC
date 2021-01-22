@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal enum InQueueState : byte
+	public enum InQueueState : byte
 	{
 		None,
 		InQueue,

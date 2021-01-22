@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class LookupObjResult : IStorable, IPersistable, IErrorContext
+	public class LookupObjResult : IStorable, IPersistable, IErrorContext
 	{
 		private ProcessingErrorCode m_errorCode;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = LookupObjResult.GetDeclaration();
 
-		internal bool ErrorOccured
+		public bool ErrorOccured
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataFieldStatus DataFieldStatus
+		public DataFieldStatus DataFieldStatus
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasErrorCode
+		public bool HasErrorCode
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ProcessingErrorCode ErrorCode
+		public ProcessingErrorCode ErrorCode
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Severity ErrorSeverity
+		public Severity ErrorSeverity
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string[] ErrorMessageArgs
+		public string[] ErrorMessageArgs
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool HasBeenTransferred
+		public bool HasBeenTransferred
 		{
 			get
 			{
@@ -99,16 +99,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal LookupObjResult()
+		public LookupObjResult()
 		{
 		}
 
-		internal LookupObjResult(LookupTable lookupTable)
+		public LookupObjResult(LookupTable lookupTable)
 		{
 			this.m_lookupTable = lookupTable;
 		}
 
-		internal LookupTable GetLookupTable(OnDemandProcessingContext odpContext)
+		public LookupTable GetLookupTable(OnDemandProcessingContext odpContext)
 		{
 			if (this.m_lookupTable == null)
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_lookupTable;
 		}
 
-		internal void TransferToLookupCache(OnDemandProcessingContext odpContext)
+		public void TransferToLookupCache(OnDemandProcessingContext odpContext)
 		{
 			Global.Tracer.Assert(this.m_lookupTable != null, "Can't transfer a missing LookupTable");
 			Global.Tracer.Assert(!this.HasBeenTransferred, "Can't transfer a LookupTable twice");

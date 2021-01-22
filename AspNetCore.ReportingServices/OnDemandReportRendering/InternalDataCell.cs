@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalDataCell : DataCell
+	public sealed class InternalDataCell : DataCell
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.DataCell m_dataCellDef;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.DataCell DataCellDef
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.DataCell DataCellDef
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportRendering.DataCell RenderItem
+		public override AspNetCore.ReportingServices.ReportRendering.DataCell RenderItem
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -43,13 +43,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalDataCell(CustomReportItem owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.DataCell dataCellDef)
+		public InternalDataCell(CustomReportItem owner, int rowIndex, int colIndex, AspNetCore.ReportingServices.ReportIntermediateFormat.DataCell dataCellDef)
 			: base(owner, rowIndex, colIndex)
 		{
 			this.m_dataCellDef = dataCellDef;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_dataCellDef != null)

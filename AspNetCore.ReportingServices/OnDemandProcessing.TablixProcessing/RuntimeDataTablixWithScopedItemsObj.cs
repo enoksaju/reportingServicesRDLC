@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeDataTablixWithScopedItemsObj : RuntimeDataTablixObj, IStorable, IPersistable
+	public abstract class RuntimeDataTablixWithScopedItemsObj : RuntimeDataTablixObj, IStorable, IPersistable
 	{
 		private RuntimeRICollection m_dataRegionScopedItems;
 
@@ -23,11 +23,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeDataTablixWithScopedItemsObj()
+		public RuntimeDataTablixWithScopedItemsObj()
 		{
 		}
 
-		internal RuntimeDataTablixWithScopedItemsObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataTablixDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeDataTablixWithScopedItemsObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataTablixDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(outerScope, dataTablixDef, ref dataAction, odpContext, onePassProcess, objectType)
 		{
 		}
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion)
+		public override RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion)
 		{
 			Global.Tracer.Assert(this.m_dataRegionScopedItems != null, "Cannot find data region.");
 			return this.m_dataRegionScopedItems.GetDataRegionObj(rifDataRegion);
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			base.ResolveReferences(memberReferencesCollection, referenceableItems);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (RuntimeDataTablixWithScopedItemsObj.m_declaration == null)
 			{

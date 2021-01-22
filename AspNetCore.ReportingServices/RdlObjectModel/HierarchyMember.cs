@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class HierarchyMember : ReportObject
+	public abstract class HierarchyMember : ReportObject
 	{
 		public abstract Group Group
 		{
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal HierarchyMember(IPropertyStore propertyStore)
+		public HierarchyMember(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

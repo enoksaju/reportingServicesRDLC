@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ShapeRuleConverter : CollectionItemTypeConverter
+	public class ShapeRuleConverter : CollectionItemTypeConverter
 	{
 		public ShapeRuleConverter()
 		{

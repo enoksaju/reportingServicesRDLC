@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum TextDecorations
+	public enum TextDecorations
 	{
 		Default,
 		None,

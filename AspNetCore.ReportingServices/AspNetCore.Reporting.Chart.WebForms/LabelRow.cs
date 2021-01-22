@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum LabelRow
+	public enum LabelRow
 	{
 		First,
 		Second

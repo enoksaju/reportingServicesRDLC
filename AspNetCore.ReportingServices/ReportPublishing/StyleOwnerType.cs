@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal enum StyleOwnerType
+	public enum StyleOwnerType
 	{
 		Line = 1,
 		Rectangle,

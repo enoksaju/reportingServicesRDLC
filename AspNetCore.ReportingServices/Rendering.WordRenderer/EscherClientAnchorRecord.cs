@@ -2,11 +2,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherClientAnchorRecord : EscherRecord
+	public class EscherClientAnchorRecord : EscherRecord
 	{
-		internal const string RECORD_DESCRIPTION = "MsofbtClientAnchor";
+		public const string RECORD_DESCRIPTION = "MsofbtClientAnchor";
 
-		internal static ushort RECORD_ID = 61456;
+		public static ushort RECORD_ID = 61456;
 
 		private ushort field_1_flag;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private bool shortRecord;
 
-		internal override int RecordSize
+		public override int RecordSize
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override string RecordName
+		public override string RecordName
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Flag
+		public virtual ushort Flag
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Col1
+		public virtual ushort Col1
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Dx1
+		public virtual ushort Dx1
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Row1
+		public virtual ushort Row1
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Dy1
+		public virtual ushort Dy1
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Col2
+		public virtual ushort Col2
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Dx2
+		public virtual ushort Dx2
 		{
 			get
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Row2
+		public virtual ushort Row2
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual ushort Dy2
+		public virtual ushort Dy2
 		{
 			get
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte[] RemainingData
+		public virtual byte[] RemainingData
 		{
 			get
 			{
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual bool ShortRecord
+		public virtual bool ShortRecord
 		{
 			set
 			{
@@ -178,13 +178,13 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherClientAnchorRecord()
+		public EscherClientAnchorRecord()
 		{
 			this.remainingData = new byte[4];
 			this.shortRecord = true;
 		}
 
-		internal override int Serialize(BinaryWriter dataWriter)
+		public override int Serialize(BinaryWriter dataWriter)
 		{
 			if (this.remainingData == null)
 			{
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return num + 18 + this.remainingData.Length;
 		}
 
-		internal override ushort GetRecordId()
+		public override ushort GetRecordId()
 		{
 			return EscherClientAnchorRecord.RECORD_ID;
 		}

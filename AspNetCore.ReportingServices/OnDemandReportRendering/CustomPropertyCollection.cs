@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CustomPropertyCollection : ReportElementCollectionBase<CustomProperty>
+	public sealed class CustomPropertyCollection : ReportElementCollectionBase<CustomProperty>
 	{
 		private List<CustomProperty> m_list;
 
@@ -51,12 +51,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomPropertyCollection()
+		public CustomPropertyCollection()
 		{
 			this.m_list = new List<CustomProperty>();
 		}
 
-		internal CustomPropertyCollection(IReportScopeInstance romInstance, RenderingContext renderingContext, ReportElement reportElementOwner, ICustomPropertiesHolder customPropertiesHolder, ObjectType objectType, string objectName)
+		public CustomPropertyCollection(IReportScopeInstance romInstance, RenderingContext renderingContext, ReportElement reportElementOwner, ICustomPropertiesHolder customPropertiesHolder, ObjectType objectType, string objectName)
 		{
 			this.m_reportElementOwner = reportElementOwner;
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataValueList customProperties = customPropertiesHolder.CustomProperties;
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomPropertyCollection(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.CustomPropertyCollection collection)
+		public CustomPropertyCollection(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportRendering.CustomPropertyCollection collection)
 		{
 			if (collection == null)
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomProperty Add(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo nameExpr, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo valueExpr)
+		public CustomProperty Add(RenderingContext renderingContext, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo nameExpr, AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo valueExpr)
 		{
 			CustomProperty customProperty = new CustomProperty(this.m_reportElementOwner, renderingContext, nameExpr, valueExpr, null, null, TypeCode.Empty);
 			Global.Tracer.Assert(customProperty.Instance != null, "prop.Instance != null");
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return customProperty;
 		}
 
-		internal void UpdateCustomProperties(AspNetCore.ReportingServices.ReportRendering.CustomPropertyCollection collection)
+		public void UpdateCustomProperties(AspNetCore.ReportingServices.ReportRendering.CustomPropertyCollection collection)
 		{
 			int count = this.m_list.Count;
 			for (int i = 0; i < count; i++)
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateCustomProperties(IReportScopeInstance romInstance, ICustomPropertiesHolder customPropertiesHolder, OnDemandProcessingContext context, ObjectType objectType, string objectName)
+		public void UpdateCustomProperties(IReportScopeInstance romInstance, ICustomPropertiesHolder customPropertiesHolder, OnDemandProcessingContext context, ObjectType objectType, string objectName)
 		{
 			AspNetCore.ReportingServices.ReportIntermediateFormat.DataValueList customProperties = customPropertiesHolder.CustomProperties;
 			int count = this.m_list.Count;
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ConstructCustomPropertyDefinitions(AspNetCore.ReportingServices.ReportIntermediateFormat.DataValueList dataValueDefs)
+		public void ConstructCustomPropertyDefinitions(AspNetCore.ReportingServices.ReportIntermediateFormat.DataValueList dataValueDefs)
 		{
 			Global.Tracer.Assert(dataValueDefs != null && this.m_list.Count == dataValueDefs.Count, "m_list.Count == dataValueDefs.Count");
 			for (int i = 0; i < this.m_list.Count; i++)
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void GetDynamicValues(out List<string> customPropertyNames, out List<object> customPropertyValues)
+		public void GetDynamicValues(out List<string> customPropertyNames, out List<object> customPropertyValues)
 		{
 			customPropertyNames = new List<string>(this.m_list.Count);
 			customPropertyValues = new List<object>(this.m_list.Count);
@@ -218,7 +218,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetDynamicValues(List<string> customPropertyNames, List<object> customPropertyValues)
+		public void SetDynamicValues(List<string> customPropertyNames, List<object> customPropertyValues)
 		{
 			if (customPropertyNames == null && customPropertyValues == null)
 			{

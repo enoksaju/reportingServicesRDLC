@@ -2,7 +2,7 @@ using System.Runtime.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
-	internal sealed class SecureStoreMissingCredentialFieldsException : ReportCatalogException
+	public sealed class SecureStoreMissingCredentialFieldsException : ReportCatalogException
 	{
 		public SecureStoreMissingCredentialFieldsException(string appId)
 			: base(ErrorCode.rsSecureStoreMissingCredentialFields, ErrorStrings.rsSecureStoreMissingCredentialFields(appId), null, null)

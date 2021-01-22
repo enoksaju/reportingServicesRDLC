@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ActionStyle : StyleBase
+	public sealed class ActionStyle : StyleBase
 	{
 		private ActionInfo m_actionInfo;
 
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			Global.Tracer.Assert(base.IsCustomControl);
 		}
 
-		internal ActionStyle(ActionInfo actionInfo, RenderingContext context)
+		public ActionStyle(ActionInfo actionInfo, RenderingContext context)
 			: base(context)
 		{
 			Global.Tracer.Assert(!base.IsCustomControl);
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return false;
 		}
 
-		internal override object GetStyleAttributeValue(string styleName, AttributeInfo attribute)
+		public override object GetStyleAttributeValue(string styleName, AttributeInfo attribute)
 		{
 			Global.Tracer.Assert(!base.IsCustomControl);
 			if (attribute.IsExpression)
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return attribute.Value;
 		}
 
-		internal override void PopulateStyleProperties(bool populateAll)
+		public override void PopulateStyleProperties(bool populateAll)
 		{
 			if (!base.IsCustomControl)
 			{

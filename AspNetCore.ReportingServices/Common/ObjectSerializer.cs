@@ -4,9 +4,9 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class ObjectSerializer
+	public static class ObjectSerializer
 	{
-		internal static DataTypeCode GetDataTypeCode(object value)
+		public static DataTypeCode GetDataTypeCode(object value)
 		{
 			if (value == null)
 			{
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.Common
 			return ObjectSerializer.GetDataTypeCode(value, Type.GetTypeCode(value.GetType()));
 		}
 
-		internal static DataTypeCode GetDataTypeCode(object value, TypeCode typeCode)
+		public static DataTypeCode GetDataTypeCode(object value, TypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.Common
 			return DataTypeCode.Unknown;
 		}
 
-		internal static bool Equals(object obj1, object obj2, DataTypeCode dataTypeCode1, DataTypeCode dataTypeCode2)
+		public static bool Equals(object obj1, object obj2, DataTypeCode dataTypeCode1, DataTypeCode dataTypeCode2)
 		{
 			DataTypeCode dataTypeCode3 = (dataTypeCode1 == DataTypeCode.Unknown) ? ObjectSerializer.GetDataTypeCode(obj1) : dataTypeCode1;
 			DataTypeCode dataTypeCode4 = (dataTypeCode2 == DataTypeCode.Unknown) ? ObjectSerializer.GetDataTypeCode(obj2) : dataTypeCode2;
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static object Read(BinaryReader binaryReader, DataTypeCode dataTypeCode)
+		public static object Read(BinaryReader binaryReader, DataTypeCode dataTypeCode)
 		{
 			switch (dataTypeCode)
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static void Write(BinaryWriter binaryWriter, object value, DataTypeCode dataTypeCode)
+		public static void Write(BinaryWriter binaryWriter, object value, DataTypeCode dataTypeCode)
 		{
 			if (value != null)
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static object Read(XmlReader xmlReader, DataTypeCode dataTypeCode)
+		public static object Read(XmlReader xmlReader, DataTypeCode dataTypeCode)
 		{
 			switch (dataTypeCode)
 			{
@@ -285,7 +285,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static void Write(XmlWriter xmlWriter, object value, DataTypeCode dataTypeCode)
+		public static void Write(XmlWriter xmlWriter, object value, DataTypeCode dataTypeCode)
 		{
 			if (value != null)
 			{

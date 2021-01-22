@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLContainer : RPLItem
+	public class RPLContainer : RPLItem
 	{
 		private RPLItemMeasurement[] m_children;
 
@@ -16,22 +16,22 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLContainer()
+		public RPLContainer()
 		{
 		}
 
-		internal RPLContainer(long startOffset, RPLContext context, RPLItemMeasurement[] children)
+		public RPLContainer(long startOffset, RPLContext context, RPLItemMeasurement[] children)
 			: base(startOffset, context)
 		{
 			this.m_children = children;
 		}
 
-		internal RPLContainer(RPLItemProps rplElementProps)
+		public RPLContainer(RPLItemProps rplElementProps)
 			: base(rplElementProps)
 		{
 		}
 
-		internal static RPLItem CreateItem(long offset, RPLContext context, RPLItemMeasurement[] children, byte type)
+		public static RPLItem CreateItem(long offset, RPLContext context, RPLItemMeasurement[] children, byte type)
 		{
 			switch (type)
 			{

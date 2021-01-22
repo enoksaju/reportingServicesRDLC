@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 {
-	internal enum MemberName
+	public enum MemberName
 	{
 		ID,
 		Name,

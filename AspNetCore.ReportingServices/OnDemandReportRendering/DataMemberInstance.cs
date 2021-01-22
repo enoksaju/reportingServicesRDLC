@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class DataMemberInstance : BaseInstance
+	public class DataMemberInstance : BaseInstance
 	{
 		protected CustomReportItem m_owner;
 
 		protected DataMember m_memberDef;
 
-		internal DataMemberInstance(CustomReportItem owner, DataMember memberDef)
+		public DataMemberInstance(CustomReportItem owner, DataMember memberDef)
 			: base(memberDef.ReportScope)
 		{
 			this.m_owner = owner;

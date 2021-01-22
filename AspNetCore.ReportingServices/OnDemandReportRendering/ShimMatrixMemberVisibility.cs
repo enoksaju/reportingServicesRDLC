@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimMatrixMemberVisibility : ShimMemberVisibility
+	public sealed class ShimMatrixMemberVisibility : ShimMemberVisibility
 	{
 		private ShimMatrixMember m_owner;
 
@@ -55,12 +55,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_owner = owner;
 		}
 
-		internal override bool GetInstanceHidden()
+		public override bool GetInstanceHidden()
 		{
 			return this.m_owner.Group.CurrentShimRenderGroup.Hidden;
 		}
 
-		internal override bool GetInstanceStartHidden()
+		public override bool GetInstanceStartHidden()
 		{
 			if (this.m_owner.Group != null)
 			{

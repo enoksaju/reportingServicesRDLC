@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class RoleNotFoundException : ReportCatalogException
+	public sealed class RoleNotFoundException : ReportCatalogException
 	{
 		public RoleNotFoundException(string roleName)
 			: base(ErrorCode.rsRoleNotFound, ErrorStrings.rsRoleNotFound(roleName), null, null)

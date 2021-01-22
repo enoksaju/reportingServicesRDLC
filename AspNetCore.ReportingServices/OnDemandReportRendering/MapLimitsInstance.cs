@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLimitsInstance : BaseInstance
+	public sealed class MapLimitsInstance : BaseInstance
 	{
 		private MapLimits m_defObject;
 
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLimitsInstance(MapLimits defObject)
+		public MapLimitsInstance(MapLimits defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

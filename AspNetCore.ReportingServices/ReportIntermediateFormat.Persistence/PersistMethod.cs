@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal enum PersistMethod
+	public enum PersistMethod
 	{
 		PrimitiveGenericList,
 		PrimitiveList,

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RuntimeLiveReaderDataSource : RuntimeIncrementalDataSource
+	public sealed class RuntimeLiveReaderDataSource : RuntimeIncrementalDataSource
 	{
 		private DataSetInstance m_dataSetInstance;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeLiveReaderDataSource(Report report, DataSet dataSet, OnDemandProcessingContext odpContext)
+		public RuntimeLiveReaderDataSource(Report report, DataSet dataSet, OnDemandProcessingContext odpContext)
 			: base(report, dataSet, odpContext)
 		{
 		}

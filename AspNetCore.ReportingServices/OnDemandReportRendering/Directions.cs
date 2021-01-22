@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum Directions
+	public enum Directions
 	{
 		Default,
 		LTR,

@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class DataMember : HierarchyMember, IHierarchyMember
+	public class DataMember : HierarchyMember, IHierarchyMember
 	{
-		internal class Definition : DefinitionStore<DataMember, Definition.Properties>
+		public class Definition : DefinitionStore<DataMember, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Group,
 				SortExpressions,
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal DataMember(IPropertyStore propertyStore)
+		public DataMember(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

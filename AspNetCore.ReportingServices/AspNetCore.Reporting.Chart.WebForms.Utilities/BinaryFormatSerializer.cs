@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal class BinaryFormatSerializer : SerializerBase
+	public class BinaryFormatSerializer : SerializerBase
 	{
 		public override void Serialize(object objectToSerialize, object destination)
 		{

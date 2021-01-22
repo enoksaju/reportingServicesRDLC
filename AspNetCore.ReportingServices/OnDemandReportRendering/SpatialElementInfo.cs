@@ -2,7 +2,7 @@ using AspNetCore.Reporting.Map.WebForms;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class SpatialElementInfo
+	public class SpatialElementInfo
 	{
 		public ISpatialElement CoreSpatialElement;
 

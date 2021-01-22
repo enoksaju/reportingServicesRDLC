@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ReportServerStorageSingleRefreshConnectionExpectedException : ReportCatalogException
+	public sealed class ReportServerStorageSingleRefreshConnectionExpectedException : ReportCatalogException
 	{
 		public ReportServerStorageSingleRefreshConnectionExpectedException(long modelId, int actualCount)
 			: base(ErrorCode.rsReportServerStorageSingleRefreshConnectionExpected, ErrorStrings.rsReportServerStorageSingleRefreshConnectionExpected(modelId.ToString(), actualCount.ToString()), null, null)

@@ -11,7 +11,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal abstract class PageElement : ItemOffset
+	public abstract class PageElement : ItemOffset
 	{
 		protected ReportElement m_source;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			set;
 		}
 
-		internal virtual ReportElement Source
+		public virtual ReportElement Source
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual ReportElement OriginalSource
+		public virtual ReportElement OriginalSource
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual bool HasBackground
+		public virtual bool HasBackground
 		{
 			get
 			{
@@ -45,12 +45,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal abstract string SourceID
+		public abstract string SourceID
 		{
 			get;
 		}
 
-		internal abstract string SourceUniqueName
+		public abstract string SourceUniqueName
 		{
 			get;
 		}
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_source = source;
 		}
 
-		internal virtual void WriteSharedStyle(BinaryWriter spbifWriter, Style style, PageContext pageContext, byte rplTag)
+		public virtual void WriteSharedStyle(BinaryWriter spbifWriter, Style style, PageContext pageContext, byte rplTag)
 		{
 			if (style == null)
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual RPLStyleProps WriteSharedStyle(Style style, PageContext pageContext)
+		public virtual RPLStyleProps WriteSharedStyle(Style style, PageContext pageContext)
 		{
 			if (style == null)
 			{
@@ -92,15 +92,15 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return rPLStyleProps;
 		}
 
-		internal virtual void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public virtual void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public virtual void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteNonSharedStyle(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, PageContext pageContext, byte? rplTag, ReportElementInstance compiledSource)
+		public virtual void WriteNonSharedStyle(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, PageContext pageContext, byte? rplTag, ReportElementInstance compiledSource)
 		{
 			if (this.WriteCommonNonSharedStyle(spbifWriter, styleDef, style, pageContext, rplTag, compiledSource))
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return false;
 		}
 
-		internal virtual RPLStyleProps WriteNonSharedStyle(Style styleDef, StyleInstance style, PageContext pageContext, ReportElementInstance compiledSource)
+		public virtual RPLStyleProps WriteNonSharedStyle(Style styleDef, StyleInstance style, PageContext pageContext, ReportElementInstance compiledSource)
 		{
 			RPLStyleProps result = null;
 			if (this.OriginalSource != null)
@@ -240,23 +240,23 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return rPLStyleProps;
 		}
 
-		internal virtual void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public virtual void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public virtual void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public virtual void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public virtual void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteBorderProps(BinaryWriter spbifWriter, Style styleDef)
+		public virtual void WriteBorderProps(BinaryWriter spbifWriter, Style styleDef)
 		{
 			this.WriteStyleProp(styleDef, spbifWriter, StyleAttributeNames.BorderColor, 0);
 			this.WriteStyleProp(styleDef, spbifWriter, StyleAttributeNames.BorderColorBottom, 4);
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.WriteStyleProp(styleDef, spbifWriter, StyleAttributeNames.BorderWidthTop, 13);
 		}
 
-		internal virtual void WriteBorderProps(RPLStyleProps rplStyleProps, Style styleDef)
+		public virtual void WriteBorderProps(RPLStyleProps rplStyleProps, Style styleDef)
 		{
 			this.WriteStyleProp(styleDef, rplStyleProps, StyleAttributeNames.BorderColor, 0);
 			this.WriteStyleProp(styleDef, rplStyleProps, StyleAttributeNames.BorderColorBottom, 4);
@@ -294,7 +294,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.WriteStyleProp(styleDef, rplStyleProps, StyleAttributeNames.BorderWidthTop, 13);
 		}
 
-		internal virtual void WriteBackgroundImage(BinaryWriter spbifWriter, Style style, bool writeShared, PageContext pageContext)
+		public virtual void WriteBackgroundImage(BinaryWriter spbifWriter, Style style, bool writeShared, PageContext pageContext)
 		{
 			if (style == null)
 			{
@@ -345,7 +345,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual void WriteBackgroundImage(RPLStyleProps rplStyleProps, Style style, bool writeShared, PageContext pageContext)
+		public virtual void WriteBackgroundImage(RPLStyleProps rplStyleProps, Style style, bool writeShared, PageContext pageContext)
 		{
 			if (style == null)
 			{
@@ -396,7 +396,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteStyleProp(Style style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType)
+		public void WriteStyleProp(Style style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType)
 		{
 			ReportProperty reportProperty = ((StyleBase)style)[name];
 			if (reportProperty != null && !reportProperty.IsExpression)
@@ -405,7 +405,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteStyleProp(Style style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType, RPLVersionEnum rplVersion)
+		public void WriteStyleProp(Style style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType, RPLVersionEnum rplVersion)
 		{
 			ReportProperty reportProperty = ((StyleBase)style)[name];
 			if (reportProperty != null && !reportProperty.IsExpression)
@@ -414,7 +414,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteStyleProp(Style style, RPLStyleProps rplStyleProps, StyleAttributeNames name, byte spbifType)
+		public void WriteStyleProp(Style style, RPLStyleProps rplStyleProps, StyleAttributeNames name, byte spbifType)
 		{
 			ReportProperty reportProperty = ((StyleBase)style)[name];
 			if (reportProperty != null && !reportProperty.IsExpression)
@@ -423,7 +423,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteStyleProp(Style styleDef, StyleInstance style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType)
+		public void WriteStyleProp(Style styleDef, StyleInstance style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType)
 		{
 			if (this.OriginalSource != null)
 			{
@@ -485,7 +485,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteStyleProp(Style styleDef, StyleInstance style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType, RPLVersionEnum rplVersion)
+		public void WriteStyleProp(Style styleDef, StyleInstance style, BinaryWriter spbifWriter, StyleAttributeNames name, byte spbifType, RPLVersionEnum rplVersion)
 		{
 			if (this.OriginalSource != null)
 			{
@@ -518,7 +518,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteStyleProp(Style styleDef, StyleInstance style, RPLStyleProps rplStyleProps, StyleAttributeNames name, byte spbifType)
+		public void WriteStyleProp(Style styleDef, StyleInstance style, RPLStyleProps rplStyleProps, StyleAttributeNames name, byte spbifType)
 		{
 			if (this.OriginalSource != null)
 			{
@@ -581,7 +581,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteImage(IImageInstance imageInstance, string resourceName, BinaryWriter spbifWriter, PageContext pageContext, System.Drawing.Image gdiImage)
+		public void WriteImage(IImageInstance imageInstance, string resourceName, BinaryWriter spbifWriter, PageContext pageContext, System.Drawing.Image gdiImage)
 		{
 			string text = resourceName;
 			if (imageInstance != null)
@@ -602,7 +602,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteImage(IImageInstance imageInstance, string resourceName, RPLImageProps elemProps, PageContext pageContext, System.Drawing.Image gdiImage)
+		public void WriteImage(IImageInstance imageInstance, string resourceName, RPLImageProps elemProps, PageContext pageContext, System.Drawing.Image gdiImage)
 		{
 			string text = resourceName;
 			if (imageInstance != null)
@@ -621,7 +621,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			elemProps.Image = rPLImageData;
 		}
 
-		internal void WriteImage(IImageInstance imageInstance, string resourceName, ref RPLImageData imageData, PageContext pageContext, System.Drawing.Image gdiImage)
+		public void WriteImage(IImageInstance imageInstance, string resourceName, ref RPLImageData imageData, PageContext pageContext, System.Drawing.Image gdiImage)
 		{
 			string text = resourceName;
 			if (imageInstance != null)
@@ -638,19 +638,19 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal object GetRichTextStyleValue(StyleAttributeNames styleName, ReportElementInstance compiledReportElement)
+		public object GetRichTextStyleValue(StyleAttributeNames styleName, ReportElementInstance compiledReportElement)
 		{
 			bool flag = true;
 			return this.GetRichTextStyleValue(styleName, compiledReportElement, ref flag);
 		}
 
-		internal object GetRichTextStyleValue(StyleAttributeNames styleName, ReportElementInstance compiledReportElement, RPLVersionEnum rplVersion)
+		public object GetRichTextStyleValue(StyleAttributeNames styleName, ReportElementInstance compiledReportElement, RPLVersionEnum rplVersion)
 		{
 			bool flag = true;
 			return this.GetRichTextStyleValue(styleName, compiledReportElement, ref flag, rplVersion);
 		}
 
-		internal object GetRichTextStyleValue(StyleAttributeNames styleName, ReportElementInstance compiledReportElement, ref bool isShared)
+		public object GetRichTextStyleValue(StyleAttributeNames styleName, ReportElementInstance compiledReportElement, ref bool isShared)
 		{
 			object obj = null;
 			ReportProperty reportProperty = null;
@@ -748,7 +748,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return obj;
 		}
 
-		internal object GetRichTextStyleValue(StyleAttributeNames styleName, ReportElementInstance compiledReportElement, ref bool isShared, RPLVersionEnum rplVersion)
+		public object GetRichTextStyleValue(StyleAttributeNames styleName, ReportElementInstance compiledReportElement, ref bool isShared, RPLVersionEnum rplVersion)
 		{
 			object obj = this.GetRichTextStyleValue(styleName, compiledReportElement, ref isShared);
 			if ((int)rplVersion <= 3 && styleName == StyleAttributeNames.WritingMode && (WritingModes)obj == WritingModes.Rotate270)
@@ -758,7 +758,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return obj;
 		}
 
-		internal StyleInstance GetStyleInstance(ReportElement reportElement, ReportElementInstance compiledReportElement)
+		public StyleInstance GetStyleInstance(ReportElement reportElement, ReportElementInstance compiledReportElement)
 		{
 			StyleInstance result = null;
 			if (reportElement != null)
@@ -1178,7 +1178,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteActionInfo(ActionInfo actionInfo, BinaryWriter spbifWriter, PageContext pageContext, byte rplIdStartInfo)
+		public void WriteActionInfo(ActionInfo actionInfo, BinaryWriter spbifWriter, PageContext pageContext, byte rplIdStartInfo)
 		{
 			if (actionInfo != null)
 			{
@@ -1247,7 +1247,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLActionInfo WriteActionInfo(ActionInfo actionInfo, PageContext pageContext)
+		public RPLActionInfo WriteActionInfo(ActionInfo actionInfo, PageContext pageContext)
 		{
 			if (actionInfo == null)
 			{
@@ -1263,7 +1263,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return null;
 		}
 
-		internal void WriteImageMapAreaInstanceCollection(ActionInfoWithDynamicImageMapCollection actionImageMaps, BinaryWriter spbifWriter, PageContext pageContext)
+		public void WriteImageMapAreaInstanceCollection(ActionInfoWithDynamicImageMapCollection actionImageMaps, BinaryWriter spbifWriter, PageContext pageContext)
 		{
 			if (actionImageMaps != null && actionImageMaps.Count != 0)
 			{
@@ -1284,7 +1284,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteImageMapAreaInstanceCollection(ActionInfoWithDynamicImageMap[] actionImageMaps, BinaryWriter spbifWriter, PageContext pageContext)
+		public void WriteImageMapAreaInstanceCollection(ActionInfoWithDynamicImageMap[] actionImageMaps, BinaryWriter spbifWriter, PageContext pageContext)
 		{
 			if (actionImageMaps != null && actionImageMaps.Length != 0)
 			{
@@ -1305,7 +1305,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLActionInfoWithImageMap[] WriteImageMapAreaInstanceCollection(ActionInfoWithDynamicImageMapCollection actionImageMaps, PageContext pageContext)
+		public RPLActionInfoWithImageMap[] WriteImageMapAreaInstanceCollection(ActionInfoWithDynamicImageMapCollection actionImageMaps, PageContext pageContext)
 		{
 			if (actionImageMaps != null && actionImageMaps.Count != 0)
 			{
@@ -1319,7 +1319,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return null;
 		}
 
-		internal RPLActionInfoWithImageMap[] WriteImageMapAreaInstanceCollection(ActionInfoWithDynamicImageMap[] actionImageMaps, PageContext pageContext)
+		public RPLActionInfoWithImageMap[] WriteImageMapAreaInstanceCollection(ActionInfoWithDynamicImageMap[] actionImageMaps, PageContext pageContext)
 		{
 			if (actionImageMaps != null && actionImageMaps.Length != 0)
 			{
@@ -1417,7 +1417,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal RPLActionInfoWithImageMap WriteActionInfoWithMaps(ActionInfoWithDynamicImageMap actionInfo, PageContext pageContext)
+		public RPLActionInfoWithImageMap WriteActionInfoWithMaps(ActionInfoWithDynamicImageMap actionInfo, PageContext pageContext)
 		{
 			if (actionInfo == null)
 			{
@@ -1464,7 +1464,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return rPLActionInfoWithImageMap;
 		}
 
-		internal virtual void WriteElementProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
+		public virtual void WriteElementProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
 		{
 			spbifWriter.Write((byte)15);
 			this.WriteSharedItemProps(spbifWriter, rplWriter, pageContext, offset);
@@ -1472,41 +1472,41 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			spbifWriter.Write((byte)255);
 		}
 
-		internal virtual void WriteElementProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public virtual void WriteElementProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			this.WriteSharedItemProps(elemProps, rplWriter, pageContext);
 			this.WriteNonSharedItemProps(elemProps, rplWriter, pageContext);
 		}
 
-		internal virtual void WriteSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
+		public virtual void WriteSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext, long offset)
 		{
 		}
 
-		internal virtual void WriteSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public virtual void WriteSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public virtual void WriteNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public virtual void WriteNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public virtual void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, RPLWriter rplWriter, PageContext pageContext)
+		public virtual void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public virtual void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
-		internal virtual void WriteCustomNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
+		public virtual void WriteCustomNonSharedItemProps(RPLElementProps elemProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 	}

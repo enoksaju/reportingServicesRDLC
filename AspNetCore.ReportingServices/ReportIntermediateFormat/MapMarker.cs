@@ -12,7 +12,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapMarker : IPersistable
+	public sealed class MapMarker : IPersistable
 	{
 		private int m_exprHostID = -1;
 
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private MapMarkerImage m_mapMarkerImage;
 
-		internal ExpressionInfo MapMarkerStyle
+		public ExpressionInfo MapMarkerStyle
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMarkerImage MapMarkerImage
+		public MapMarkerImage MapMarkerImage
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMarkerExprHost ExprHost
+		public MapMarkerExprHost ExprHost
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -77,23 +77,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMarker()
+		public MapMarker()
 		{
 		}
 
-		internal MapMarker(Map map)
+		public MapMarker(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal void Initialize(InitializationContext context, int index)
+		public void Initialize(InitializationContext context, int index)
 		{
 			context.ExprHostBuilder.MapMarkerInCollectionStart(index.ToString(CultureInfo.InvariantCulture.NumberFormat));
 			this.InnerInitialize(context);
 			this.m_exprHostID = context.ExprHostBuilder.MapMarkerInCollectionEnd();
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapMarkerStart();
 			this.InnerInitialize(context);
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapMarker mapMarker = (MapMarker)base.MemberwiseClone();
 			mapMarker.m_map = context.CurrentMapClone;
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapMarker;
 		}
 
-		internal void SetExprHost(MapMarkerExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapMarkerExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapMarkerStyle, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -227,7 +227,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapMarker;
 		}
 
-		internal MapMarkerStyle EvaluateMapMarkerStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapMarkerStyle EvaluateMapMarkerStyle(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateMapMarkerStyle(context.ReportRuntime.EvaluateMapMarkerMapMarkerStyleExpression(this, this.m_map.Name), context.ReportRuntime);

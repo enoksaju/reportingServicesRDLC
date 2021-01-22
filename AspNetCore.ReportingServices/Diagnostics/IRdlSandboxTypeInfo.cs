@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IRdlSandboxTypeInfo
+	public interface IRdlSandboxTypeInfo
 	{
 		string Namespace
 		{

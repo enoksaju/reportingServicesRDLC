@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IDataShapeQueryAbortHelper : IDataShapeAbortHelper, IAbortHelper, IDisposable
+	public interface IDataShapeQueryAbortHelper : IDataShapeAbortHelper, IAbortHelper, IDisposable
 	{
 		IDataShapeAbortHelper CreateDataShapeAbortHelper();
 	}

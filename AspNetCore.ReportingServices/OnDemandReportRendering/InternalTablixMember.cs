@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalTablixMember : TablixMember
+	public sealed class InternalTablixMember : TablixMember
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.TablixMember m_memberDef;
 
@@ -11,7 +11,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private IReportScope m_reportScope;
 
-		internal override string UniqueName
+		public override string UniqueName
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override int RowSpan
+		public override int RowSpan
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override int ColSpan
+		public override int ColSpan
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override PageBreakLocation PropagatedGroupBreak
+		public override PageBreakLocation PropagatedGroupBreak
 		{
 			get
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.TablixMember MemberDefinition
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.TablixMember MemberDefinition
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -232,7 +232,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScopeInstance ReportScopeInstance
+		public override IReportScopeInstance ReportScopeInstance
 		{
 			get
 			{
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalTablixMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, Tablix owner, TablixMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.TablixMember memberDef, int index)
+		public InternalTablixMember(IReportScope reportScope, IDefinitionPath parentDefinitionPath, Tablix owner, TablixMember parent, AspNetCore.ReportingServices.ReportIntermediateFormat.TablixMember memberDef, int index)
 			: base(parentDefinitionPath, owner, parent, index)
 		{
 			if (memberDef.IsStatic)
@@ -298,7 +298,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_memberDef.ResetVisibilityComputationCache();
 		}
 
-		internal override void SetNewContext(bool fromMoveNext)
+		public override void SetNewContext(bool fromMoveNext)
 		{
 			if (!fromMoveNext && base.m_instance != null && !this.IsStatic)
 			{

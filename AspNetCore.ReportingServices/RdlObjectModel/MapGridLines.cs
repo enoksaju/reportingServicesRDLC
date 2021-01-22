@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapGridLines : ReportObject
+	public class MapGridLines : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapGridLines, Definition.Properties>
+		public class Definition : DefinitionStore<MapGridLines, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Hidden,
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapGridLines(IPropertyStore propertyStore)
+		public MapGridLines(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

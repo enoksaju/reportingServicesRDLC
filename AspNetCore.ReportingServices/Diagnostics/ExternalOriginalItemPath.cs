@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal class ExternalOriginalItemPath : ExternalItemPath
+	public class ExternalOriginalItemPath : ExternalItemPath
 	{
 		public override string FullEditSessionIdentifier
 		{

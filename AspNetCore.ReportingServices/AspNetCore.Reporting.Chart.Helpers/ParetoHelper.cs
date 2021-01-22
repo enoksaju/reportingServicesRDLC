@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.Reporting.Chart.Helpers
 {
-	internal class ParetoHelper
+	public class ParetoHelper
 	{
 		public void MakeParetoChart(AspNetCore.Reporting.Chart.WebForms.Chart chart, string srcSeriesName, string destSeriesName)
 		{

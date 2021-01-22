@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ChartElementType
+	public enum ChartElementType
 	{
 		Nothing,
 		DataPoint,

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ValueCollection
+	public sealed class ValueCollection
 	{
 		private ArrayList m_values;
 
@@ -27,22 +27,22 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ValueCollection()
+		public ValueCollection()
 		{
 			this.m_values = new ArrayList();
 		}
 
-		internal ValueCollection(int capacity)
+		public ValueCollection(int capacity)
 		{
 			this.m_values = new ArrayList(capacity);
 		}
 
-		internal ValueCollection(ArrayList values)
+		public ValueCollection(ArrayList values)
 		{
 			this.m_values = values;
 		}
 
-		internal void Add(object value)
+		public void Add(object value)
 		{
 			this.m_values.Add(value);
 		}

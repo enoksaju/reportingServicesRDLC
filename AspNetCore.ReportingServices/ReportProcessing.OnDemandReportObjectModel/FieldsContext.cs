@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 
 		private FieldImpl[] m_noRowsFields;
 
-		internal bool AllFieldsCleared
+		public bool AllFieldsCleared
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool PendingFieldValueUpdate
+		public bool PendingFieldValueUpdate
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal long LastRowOffset
+		public long LastRowOffset
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal DataSetCore DataSet
+		public DataSetCore DataSet
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal DataSetInstance DataSetInstance
+		public DataSetInstance DataSetInstance
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader DataReader
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader DataReader
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal FieldsImpl Fields
+		public FieldsImpl Fields
 		{
 			get
 			{
@@ -79,17 +79,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal FieldsContext(ObjectModelImpl reportOM)
+		public FieldsContext(ObjectModelImpl reportOM)
 			: this(reportOM, null)
 		{
 		}
 
-		internal FieldsContext(ObjectModelImpl reportOM, DataSetCore dataSet)
+		public FieldsContext(ObjectModelImpl reportOM, DataSetCore dataSet)
 		{
 			this.Initialize(reportOM, new FieldsImpl(reportOM), dataSet, null, null, true, false, DataFieldRow.UnInitializedStreamOffset);
 		}
 
-		internal FieldsContext(ObjectModelImpl reportOM, DataSetCore dataSet, bool addRowIndex, bool noRows)
+		public FieldsContext(ObjectModelImpl reportOM, DataSetCore dataSet, bool addRowIndex, bool noRows)
 		{
 			List<AspNetCore.ReportingServices.ReportIntermediateFormat.Field> fields = dataSet.Fields;
 			int num = (fields != null) ? fields.Count : 0;
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.AttachToDataSetCache(reportOM);
 		}
 
-		internal void AttachToDataSetCache(ObjectModelImpl reportOM)
+		public void AttachToDataSetCache(ObjectModelImpl reportOM)
 		{
 			if (this.m_dataSet != null && reportOM.UseDataSetFieldsCache)
 			{
@@ -130,19 +130,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void ResetFieldFlags()
+		public void ResetFieldFlags()
 		{
 			this.m_pendingFieldValueUpdate = false;
 			this.m_allFieldsCleared = true;
 		}
 
-		internal void UpdateDataSetInfo(DataSetInstance dataSetInstance, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataChunkReader)
+		public void UpdateDataSetInfo(DataSetInstance dataSetInstance, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataChunkReader)
 		{
 			this.m_dataSetInstance = dataSetInstance;
 			this.m_dataReader = dataChunkReader;
 		}
 
-		internal void CreateNoRows()
+		public void CreateNoRows()
 		{
 			if (this.m_noRowsFields == null)
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.ResetFieldFlags();
 		}
 
-		internal void CreateNullFieldValues()
+		public void CreateNullFieldValues()
 		{
 			int count = this.m_fields.Count;
 			for (int i = 0; i < count; i++)
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.ResetFieldFlags();
 		}
 
-		internal void PerformPendingFieldValueUpdate(ObjectModelImpl reportOM, bool useDataSetFieldsCache)
+		public void PerformPendingFieldValueUpdate(ObjectModelImpl reportOM, bool useDataSetFieldsCache)
 		{
 			if (this.m_pendingFieldValueUpdate)
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void RegisterOnDemandFieldValueUpdate(long firstRowOffsetInScope, DataSetInstance dataSetInstance, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataReader)
+		public void RegisterOnDemandFieldValueUpdate(long firstRowOffsetInScope, DataSetInstance dataSetInstance, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataReader)
 		{
 			this.m_pendingFieldValueUpdate = true;
 			this.m_lastRowOffset = firstRowOffsetInScope;
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_dataReader = dataReader;
 		}
 
-		internal void UpdateFieldValues(ObjectModelImpl reportOM, bool useDataSetFieldsCache, long firstRowOffsetInScope)
+		public void UpdateFieldValues(ObjectModelImpl reportOM, bool useDataSetFieldsCache, long firstRowOffsetInScope)
 		{
 			if (!this.m_dataReader.ReadOneRowAtPosition(firstRowOffsetInScope) && !this.m_allFieldsCleared)
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.UpdateFieldValues(reportOM, useDataSetFieldsCache, true, this.m_dataReader.RecordRow, this.m_dataSetInstance, this.m_dataReader.ReaderExtensionsSupported);
 		}
 
-		internal void UpdateFieldValues(ObjectModelImpl reportOM, bool useDataSetFieldsCache, bool reuseFieldObjects, AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow row, DataSetInstance dataSetInstance, bool readerExtensionsSupported)
+		public void UpdateFieldValues(ObjectModelImpl reportOM, bool useDataSetFieldsCache, bool reuseFieldObjects, AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow row, DataSetInstance dataSetInstance, bool readerExtensionsSupported)
 		{
 			Global.Tracer.Assert(null != row, "Empty data row / no data reader");
 			if (this.m_dataSetInstance != dataSetInstance)

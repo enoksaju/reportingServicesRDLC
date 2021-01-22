@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ShapeDataBindingRuleConverter : CollectionItemTypeConverter
+	public class ShapeDataBindingRuleConverter : CollectionItemTypeConverter
 	{
 		public ShapeDataBindingRuleConverter()
 		{

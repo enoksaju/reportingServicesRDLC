@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ActionItemInstance
+	public sealed class ActionItemInstance
 	{
 		private string m_hyperLinkURL;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private IntList m_dataSetTokenIDs;
 
-		internal string HyperLinkURL
+		public string HyperLinkURL
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string BookmarkLink
+		public string BookmarkLink
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DrillthroughReportName
+		public string DrillthroughReportName
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal object[] DrillthroughParametersValues
+		public object[] DrillthroughParametersValues
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BoolList DrillthroughParametersOmits
+		public BoolList DrillthroughParametersOmits
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList DataSetTokenIDs
+		public IntList DataSetTokenIDs
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActionItemInstance(ReportProcessing.ProcessingContext pc, ActionItem actionItemDef)
+		public ActionItemInstance(ReportProcessing.ProcessingContext pc, ActionItem actionItemDef)
 		{
 			ParameterValueList drillthroughParameters = actionItemDef.DrillthroughParameters;
 			if (drillthroughParameters != null)
@@ -127,11 +127,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ActionItemInstance()
+		public ActionItemInstance()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.HyperLinkURL, Token.String));

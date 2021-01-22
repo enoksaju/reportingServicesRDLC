@@ -2,13 +2,13 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ShimTablixMember : TablixMember, IShimDataRegionMember
+	public abstract class ShimTablixMember : TablixMember, IShimDataRegionMember
 	{
 		protected bool m_isColumn;
 
 		protected PageBreakLocation m_propagatedPageBreak;
 
-		internal override string UniqueName
+		public override string UniqueName
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.TablixMember MemberDefinition
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.TablixMember MemberDefinition
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScopeInstance ReportScopeInstance
+		public override IReportScopeInstance ReportScopeInstance
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -155,23 +155,23 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimTablixMember(IDefinitionPath parentDefinitionPath, Tablix owner, TablixMember parent, int parentCollectionIndex, bool isColumn)
+		public ShimTablixMember(IDefinitionPath parentDefinitionPath, Tablix owner, TablixMember parent, int parentCollectionIndex, bool isColumn)
 			: base(parentDefinitionPath, owner, parent, parentCollectionIndex)
 		{
 			this.m_isColumn = isColumn;
 		}
 
-		internal override void ResetContext()
+		public override void ResetContext()
 		{
 			base.ResetContext();
 		}
 
-		internal virtual void SetPropagatedPageBreak(PageBreakLocation pageBreakLocation)
+		public virtual void SetPropagatedPageBreak(PageBreakLocation pageBreakLocation)
 		{
 			this.m_propagatedPageBreak = pageBreakLocation;
 		}
 
-		internal abstract bool SetNewContext(int index);
+		public abstract bool SetNewContext(int index);
 
 		bool IShimDataRegionMember.SetNewContext(int index)
 		{

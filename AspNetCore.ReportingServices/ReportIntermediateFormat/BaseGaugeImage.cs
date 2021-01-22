@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class BaseGaugeImage : IPersistable
+	public class BaseGaugeImage : IPersistable
 	{
 		[NonSerialized]
 		protected BaseGaugeImageExprHost m_exprHost;
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_transparentColor;
 
-		internal ExpressionInfo Source
+		public ExpressionInfo Source
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo MIMEType
+		public ExpressionInfo MIMEType
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo TransparentColor
+		public ExpressionInfo TransparentColor
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal BaseGaugeImageExprHost ExprHost
+		public BaseGaugeImageExprHost ExprHost
 		{
 			get
 			{
@@ -94,16 +94,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal BaseGaugeImage()
+		public BaseGaugeImage()
 		{
 		}
 
-		internal BaseGaugeImage(GaugePanel gaugePanel)
+		public BaseGaugeImage(GaugePanel gaugePanel)
 		{
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal virtual void Initialize(InitializationContext context)
+		public virtual void Initialize(InitializationContext context)
 		{
 			if (this.m_source != null)
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			BaseGaugeImage baseGaugeImage = (BaseGaugeImage)base.MemberwiseClone();
 			baseGaugeImage.m_gaugePanel = (GaugePanel)context.CurrentDataRegionClone;
@@ -150,14 +150,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return baseGaugeImage;
 		}
 
-		internal void SetExprHost(BaseGaugeImageExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(BaseGaugeImageExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Source, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -246,31 +246,31 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.BaseGaugeImage;
 		}
 
-		internal AspNetCore.ReportingServices.OnDemandReportRendering.Image.SourceType EvaluateSource(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public AspNetCore.ReportingServices.OnDemandReportRendering.Image.SourceType EvaluateSource(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_gaugePanel, reportScopeInstance);
 			return EnumTranslator.TranslateImageSourceType(context.ReportRuntime.EvaluateBaseGaugeImageSourceExpression(this, this.m_gaugePanel.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateStringValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context, out bool errorOccurred)
+		public string EvaluateStringValue(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context, out bool errorOccurred)
 		{
 			context.SetupContext(this.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateBaseGaugeImageStringValueExpression(this, this.m_gaugePanel.Name, out errorOccurred);
 		}
 
-		internal byte[] EvaluateBinaryValue(IReportScopeInstance romInstance, OnDemandProcessingContext context, out bool errOccurred)
+		public byte[] EvaluateBinaryValue(IReportScopeInstance romInstance, OnDemandProcessingContext context, out bool errOccurred)
 		{
 			context.SetupContext(this.m_gaugePanel, romInstance);
 			return context.ReportRuntime.EvaluateBaseGaugeImageBinaryValueExpression(this, this.m_gaugePanel.Name, out errOccurred);
 		}
 
-		internal string EvaluateMIMEType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateMIMEType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateBaseGaugeImageMIMETypeExpression(this, this.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateTransparentColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateTransparentColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateBaseGaugeImageTransparentColorExpression(this, this.m_gaugePanel.Name);

@@ -2,11 +2,11 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherComplexProperty : EscherProperty
+	public class EscherComplexProperty : EscherProperty
 	{
-		internal byte[] complexData = new byte[0];
+		public byte[] complexData = new byte[0];
 
-		internal virtual byte[] ComplexData
+		public virtual byte[] ComplexData
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override int PropertySize
+		public override int PropertySize
 		{
 			get
 			{
@@ -26,26 +26,26 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherComplexProperty(ushort id, byte[] complexData)
+		public EscherComplexProperty(ushort id, byte[] complexData)
 			: base(id)
 		{
 			this.complexData = complexData;
 		}
 
-		internal EscherComplexProperty(ushort propertyNumber, bool isBlipId, byte[] complexData)
+		public EscherComplexProperty(ushort propertyNumber, bool isBlipId, byte[] complexData)
 			: base(propertyNumber, true, isBlipId)
 		{
 			this.complexData = complexData;
 		}
 
-		internal override int serializeSimplePart(BinaryWriter dataWriter)
+		public override int serializeSimplePart(BinaryWriter dataWriter)
 		{
 			dataWriter.Write(this.Id);
 			dataWriter.Write(this.complexData.Length);
 			return 6;
 		}
 
-		internal override int serializeComplexPart(BinaryWriter dataWriter)
+		public override int serializeComplexPart(BinaryWriter dataWriter)
 		{
 			dataWriter.Write(this.complexData);
 			return this.complexData.Length;

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum DataElementStyles
+	public enum DataElementStyles
 	{
 		Auto,
 		Attribute,

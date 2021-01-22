@@ -1818,7 +1818,7 @@ All other characters are copied to the output string as literals in the position
     <value>Custom label left position.</value>
   </data>
   <data name="DescriptionAttributeCustomLabel_Name" xml:space="preserve">
-    <value>Custom label item name. For internal use only!</value>
+    <value>Custom label item name. For public use only!</value>
   </data>
   <data name="DescriptionAttributeCustomLabel_Href" xml:space="preserve">
     <value>URL target of the label.</value>
@@ -5352,7 +5352,7 @@ If a chart type supports more than one Y value, you can specify which Y value sh
     <value>Polyline annotation path point.</value>
   </data>
   <data name="DescriptionAttributeDataPoint_Name" xml:space="preserve">
-    <value>Data point name. For internal use only!</value>
+    <value>Data point name. For public use only!</value>
   </data>
   <data name="ExceptionLegendItemAddedHasWrongType" xml:space="preserve">
     <value>Object to be added is not a LegendItem object.</value>
@@ -6812,7 +6812,7 @@ Do you wish to set a custom position for all Chart Areas?</value>
     <value>Axis properties.</value>
   </data>
   <data name="DescriptionAttributeAxis_Name" xml:space="preserve">
-    <value>Axis name. For internal use only!</value>
+    <value>Axis name. For public use only!</value>
   </data>
   <data name="DescriptionAttributeAxis_Href" xml:space="preserve">
     <value>URL target of the axis.</value>

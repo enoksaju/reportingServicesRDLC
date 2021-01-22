@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal class ValidValue
+	public class ValidValue
 	{
 		private string m_value;
 

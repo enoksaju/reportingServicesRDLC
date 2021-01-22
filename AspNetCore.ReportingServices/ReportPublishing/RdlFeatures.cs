@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
 	[Flags]
-	internal enum RdlFeatures
+	public enum RdlFeatures
 	{
 		SharedDataSetReferences = 0,
 		Image_Embedded = 1,

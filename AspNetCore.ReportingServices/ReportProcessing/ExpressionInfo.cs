@@ -6,9 +6,9 @@ using System.Text;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class ExpressionInfo
+	public class ExpressionInfo
 	{
-		internal enum Types
+		public enum Types
 		{
 			Expression,
 			Field,
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_dynamicFieldReferences;
 
-		internal Types Type
+		public Types Type
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsExpression
+		public bool IsExpression
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string Value
+		public string Value
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool BoolValue
+		public bool BoolValue
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int IntValue
+		public int IntValue
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string OriginalText
+		public string OriginalText
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string TransformedExpression
+		public string TransformedExpression
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList TransformedExpressionAggregatePositions
+		public IntList TransformedExpressionAggregatePositions
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal StringList TransformedExpressionAggregateIDs
+		public StringList TransformedExpressionAggregateIDs
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CompileTimeID
+		public int CompileTimeID
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList Aggregates
+		public DataAggregateInfoList Aggregates
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Hashtable ReferencedFieldProperties
+		public Hashtable ReferencedFieldProperties
 		{
 			get
 			{
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool DynamicFieldReferences
+		public bool DynamicFieldReferences
 		{
 			get
 			{
@@ -232,16 +232,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo()
+		public ExpressionInfo()
 		{
 		}
 
-		internal ExpressionInfo(Types type)
+		public ExpressionInfo(Types type)
 		{
 			this.m_type = Types.Expression;
 		}
 
-		internal void Initialize(string propertyName, InitializationContext context)
+		public void Initialize(string propertyName, InitializationContext context)
 		{
 			context.CheckFieldReferences(this.m_referencedFields, propertyName);
 			context.CheckReportItemReferences(this.m_referencedReportItems, propertyName);
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_referencedFieldProperties = null;
 		}
 
-		internal void AggregateInitialize(string dataSetName, ObjectType objectType, string objectName, string propertyName, InitializationContext context)
+		public void AggregateInitialize(string dataSetName, ObjectType objectType, string objectName, string propertyName, InitializationContext context)
 		{
 			context.AggregateCheckFieldReferences(this.m_referencedFields, dataSetName, objectType, objectName, propertyName);
 			context.AggregateCheckReportItemReferences(this.m_referencedReportItems, objectType, objectName, propertyName);
@@ -271,7 +271,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.ExprHostBuilder.AggregateParamExprAdd(this);
 		}
 
-		internal bool HasRecursiveAggregates()
+		public bool HasRecursiveAggregates()
 		{
 			if (this.m_aggregates != null)
 			{
@@ -286,7 +286,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal void GroupExpressionInitialize(InitializationContext context)
+		public void GroupExpressionInitialize(InitializationContext context)
 		{
 			context.CheckFieldReferences(this.m_referencedFields, "Group");
 			context.CheckReportItemReferences(this.m_referencedReportItems, "Group");
@@ -298,7 +298,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.TransferGroupExpressionRowNumbers(this.m_runningValues);
 		}
 
-		internal ExpressionInfo DeepClone(InitializationContext context)
+		public ExpressionInfo DeepClone(InitializationContext context)
 		{
 			Global.Tracer.Assert(-1 == this.m_exprHostID);
 			ExpressionInfo expressionInfo = new ExpressionInfo();
@@ -355,7 +355,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return expressionInfo;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Type, Token.Enum));
@@ -367,7 +367,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.None, memberInfoList);
 		}
 
-		internal void AddReferencedField(string fieldName)
+		public void AddReferencedField(string fieldName)
 		{
 			if (this.m_referencedFields == null)
 			{
@@ -376,7 +376,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_referencedFields.Add(fieldName);
 		}
 
-		internal void AddReferencedReportItem(string reportItemName)
+		public void AddReferencedReportItem(string reportItemName)
 		{
 			if (this.m_referencedReportItems == null)
 			{
@@ -385,7 +385,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_referencedReportItems.Add(reportItemName);
 		}
 
-		internal void AddReferencedParameter(string parameterName)
+		public void AddReferencedParameter(string parameterName)
 		{
 			if (this.m_referencedParameters == null)
 			{
@@ -394,7 +394,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_referencedParameters.Add(parameterName);
 		}
 
-		internal void AddReferencedDataSet(string dataSetName)
+		public void AddReferencedDataSet(string dataSetName)
 		{
 			if (this.m_referencedDataSets == null)
 			{
@@ -403,7 +403,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_referencedDataSets.Add(dataSetName);
 		}
 
-		internal void AddReferencedDataSource(string dataSourceName)
+		public void AddReferencedDataSource(string dataSourceName)
 		{
 			if (this.m_referencedDataSources == null)
 			{
@@ -412,7 +412,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_referencedDataSources.Add(dataSourceName);
 		}
 
-		internal void AddAggregate(DataAggregateInfo aggregate)
+		public void AddAggregate(DataAggregateInfo aggregate)
 		{
 			if (this.m_aggregates == null)
 			{
@@ -421,7 +421,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_aggregates.Add(aggregate);
 		}
 
-		internal void AddRunningValue(RunningValueInfo runningValue)
+		public void AddRunningValue(RunningValueInfo runningValue)
 		{
 			if (this.m_runningValues == null)
 			{
@@ -430,7 +430,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_runningValues.Add(runningValue);
 		}
 
-		internal DataAggregateInfo GetSumAggregateWithoutScope()
+		public DataAggregateInfo GetSumAggregateWithoutScope()
 		{
 			if (Types.Aggregate == this.m_type && this.m_aggregates != null)
 			{
@@ -445,7 +445,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal void AddDynamicPropertyReference(string fieldName)
+		public void AddDynamicPropertyReference(string fieldName)
 		{
 			Global.Tracer.Assert(null != fieldName);
 			if (this.m_referencedFieldProperties == null)
@@ -459,7 +459,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_referencedFieldProperties.Add(fieldName, null);
 		}
 
-		internal void AddStaticPropertyReference(string fieldName, string propertyName)
+		public void AddStaticPropertyReference(string fieldName, string propertyName)
 		{
 			Global.Tracer.Assert(fieldName != null && null != propertyName);
 			if (this.m_referencedFieldProperties == null)

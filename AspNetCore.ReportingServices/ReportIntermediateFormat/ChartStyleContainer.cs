@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class ChartStyleContainer : IStyleContainer, IPersistable
+	public abstract class ChartStyleContainer : IStyleContainer, IPersistable
 	{
 		[Reference]
 		protected Chart m_chart;
@@ -54,16 +54,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartStyleContainer()
+		public ChartStyleContainer()
 		{
 		}
 
-		internal ChartStyleContainer(Chart chart)
+		public ChartStyleContainer(Chart chart)
 		{
 			this.m_chart = chart;
 		}
 
-		internal virtual void Initialize(InitializationContext context)
+		public virtual void Initialize(InitializationContext context)
 		{
 			if (this.m_styleClass != null)
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartStyleContainer chartStyleContainer = (ChartStyleContainer)base.MemberwiseClone();
 			chartStyleContainer.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartStyleContainer;
 		}
 
-		internal virtual void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && null != reportObjectModel, "(null != exprHost && null != reportObjectModel)");
 			exprHost.SetReportObjectModel(reportObjectModel);
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Chart, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Chart, Token.Reference));

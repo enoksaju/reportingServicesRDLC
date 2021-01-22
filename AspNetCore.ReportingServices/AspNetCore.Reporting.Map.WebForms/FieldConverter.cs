@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class FieldConverter : CollectionItemTypeConverter
+	public class FieldConverter : CollectionItemTypeConverter
 	{
 		public FieldConverter()
 		{

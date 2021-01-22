@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Page : ReportElement, IReportScope
+	public sealed class Page : ReportElement, IReportScope
 	{
 		private PageInstance m_instance;
 
@@ -237,7 +237,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool UseRenderStyle
+		public override bool UseRenderStyle
 		{
 			get
 			{
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IStyleContainer StyleContainer
+		public override IStyleContainer StyleContainer
 		{
 			get
 			{
@@ -293,7 +293,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportRendering.Report RenderReport
+		public AspNetCore.ReportingServices.ReportRendering.Report RenderReport
 		{
 			get
 			{
@@ -305,7 +305,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.ReportingServices.ReportRendering.ReportItem RenderReportItem
+		public override AspNetCore.ReportingServices.ReportRendering.ReportItem RenderReportItem
 		{
 			get
 			{
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Page FirstSectionPage
+		public Page FirstSectionPage
 		{
 			get
 			{
@@ -325,7 +325,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool ShouldUseFirstSection
+		public bool ShouldUseFirstSection
 		{
 			get
 			{
@@ -333,7 +333,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override string InstanceUniqueName
+		public override string InstanceUniqueName
 		{
 			get
 			{
@@ -345,7 +345,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override ReportElementInstance ReportElementInstance
+		public override ReportElementInstance ReportElementInstance
 		{
 			get
 			{
@@ -369,7 +369,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override IReportScope ReportScope
+		public override IReportScope ReportScope
 		{
 			get
 			{
@@ -393,7 +393,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Page(IDefinitionPath parentDefinitionPath, RenderingContext renderingContext, ReportSection reportSection)
+		public Page(IDefinitionPath parentDefinitionPath, RenderingContext renderingContext, ReportSection reportSection)
 			: base(null, parentDefinitionPath, reportSection.SectionDef, renderingContext)
 		{
 			base.m_isOldSnapshot = false;
@@ -401,7 +401,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_reportSection = reportSection;
 		}
 
-		internal Page(IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportRendering.Report renderReport, RenderingContext renderingContext, ReportSection reportSection)
+		public Page(IDefinitionPath parentDefinitionPath, AspNetCore.ReportingServices.ReportRendering.Report renderReport, RenderingContext renderingContext, ReportSection reportSection)
 			: base(parentDefinitionPath, renderingContext)
 		{
 			base.m_isOldSnapshot = true;
@@ -409,7 +409,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_reportSection = reportSection;
 		}
 
-		internal void UpdateWithCurrentPageSections(AspNetCore.ReportingServices.ReportRendering.PageSection header, AspNetCore.ReportingServices.ReportRendering.PageSection footer)
+		public void UpdateWithCurrentPageSections(AspNetCore.ReportingServices.ReportRendering.PageSection header, AspNetCore.ReportingServices.ReportRendering.PageSection footer)
 		{
 			if (header != null)
 			{
@@ -421,13 +421,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateSubReportContents(AspNetCore.ReportingServices.ReportRendering.Report newRenderSubreport)
+		public void UpdateSubReportContents(AspNetCore.ReportingServices.ReportRendering.Report newRenderSubreport)
 		{
 			this.m_renderReport = newRenderSubreport;
 			this.UpdateWithCurrentPageSections(this.m_renderReport.PageHeader, this.m_renderReport.PageFooter);
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (this.m_pageHeader != null)
 			{

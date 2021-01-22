@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class StyleProperties
+	public sealed class StyleProperties
 	{
 		private Hashtable m_nameMap;
 
@@ -48,13 +48,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal StyleProperties()
+		public StyleProperties()
 		{
 			this.m_nameMap = new Hashtable();
 			this.m_valueCollection = new ArrayList();
 		}
 
-		internal StyleProperties(int capacity)
+		public StyleProperties(int capacity)
 		{
 			this.m_nameMap = new Hashtable(capacity);
 			this.m_valueCollection = new ArrayList(capacity);
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal void Add(string name, object value)
+		public void Add(string name, object value)
 		{
 			if (!this.m_nameMap.Contains(name))
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Set(string name, object value)
+		public void Set(string name, object value)
 		{
 			object obj = this.m_nameMap[name];
 			if (obj != null)
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			StyleProperties styleProperties = (StyleProperties)base.MemberwiseClone();
 			if (this.m_nameMap != null)

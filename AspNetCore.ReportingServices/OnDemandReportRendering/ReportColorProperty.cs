@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportColorProperty : ReportProperty
+	public sealed class ReportColorProperty : ReportProperty
 	{
 		private ReportColor m_value;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportColorProperty(bool isExpression, string expressionString, ReportColor value, ReportColor defaultValue)
+		public ReportColorProperty(bool isExpression, string expressionString, ReportColor value, ReportColor defaultValue)
 			: base(isExpression, expressionString)
 		{
 			if (!isExpression)

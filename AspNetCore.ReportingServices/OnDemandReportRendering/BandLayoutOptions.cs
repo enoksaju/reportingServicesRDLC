@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class BandLayoutOptions
+	public sealed class BandLayoutOptions
 	{
 		private readonly AspNetCore.ReportingServices.ReportIntermediateFormat.BandLayoutOptions m_bandLayoutDef;
 
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal BandLayoutOptions(AspNetCore.ReportingServices.ReportIntermediateFormat.BandLayoutOptions bandLayoutDef)
+		public BandLayoutOptions(AspNetCore.ReportingServices.ReportIntermediateFormat.BandLayoutOptions bandLayoutDef)
 		{
 			this.m_bandLayoutDef = bandLayoutDef;
 		}

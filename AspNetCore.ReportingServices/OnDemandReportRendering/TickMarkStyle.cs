@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class TickMarkStyle : IROMStyleDefinitionContainer
+	public class TickMarkStyle : IROMStyleDefinitionContainer
 	{
-		internal GaugePanel m_gaugePanel;
+		public GaugePanel m_gaugePanel;
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.TickMarkStyle m_defObject;
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.TickMarkStyle m_defObject;
 
 		protected TickMarkStyleInstance m_instance;
 
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.TickMarkStyle TickMarkStyleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.TickMarkStyle TickMarkStyleDef
 		{
 			get
 			{
@@ -182,13 +182,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TickMarkStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.TickMarkStyle defObject, GaugePanel gaugePanel)
+		public TickMarkStyle(AspNetCore.ReportingServices.ReportIntermediateFormat.TickMarkStyle defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal virtual void SetNewContext()
+		public virtual void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

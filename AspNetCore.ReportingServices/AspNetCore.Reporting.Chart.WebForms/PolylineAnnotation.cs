@@ -6,17 +6,17 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributePolylineAnnotation_PolylineAnnotation")]
-	internal class PolylineAnnotation : Annotation
+	public class PolylineAnnotation : Annotation
 	{
-		internal GraphicsPath path = new GraphicsPath();
+		public GraphicsPath path = new GraphicsPath();
 
-		internal bool pathChanged;
+		public bool pathChanged;
 
 		private AnnotationPathPointCollection pathPoints = new AnnotationPathPointCollection();
 
-		internal bool isPolygon;
+		public bool isPolygon;
 
-		internal bool freeDrawPlacement;
+		public bool freeDrawPlacement;
 
 		private LineAnchorCap startCap;
 
@@ -209,7 +209,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SerializationVisibility(SerializationVisibility.Hidden)]
 		[SRDescription("DescriptionAttributeSelectionPointsStyle3")]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		internal override SelectionPointsStyle SelectionPointsStyle
+		public override SelectionPointsStyle SelectionPointsStyle
 		{
 			get
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.pathPoints.annotation = this;
 		}
 
-		internal override void Paint(Chart chart, ChartGraphics graphics)
+		public override void Paint(Chart chart, ChartGraphics graphics)
 		{
 			this.Chart = chart;
 			if (this.path.PointCount != 0)
@@ -416,7 +416,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal override void AdjustLocationSize(SizeF movingDistance, ResizingMode resizeMode, bool pixelCoord, bool userInput)
+		public override void AdjustLocationSize(SizeF movingDistance, ResizingMode resizeMode, bool pixelCoord, bool userInput)
 		{
 			if (resizeMode != ResizingMode.MovingPathPoints)
 			{

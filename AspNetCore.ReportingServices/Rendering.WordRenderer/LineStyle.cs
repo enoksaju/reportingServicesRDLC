@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal enum LineStyle
+	public enum LineStyle
 	{
 		None,
 		Single,

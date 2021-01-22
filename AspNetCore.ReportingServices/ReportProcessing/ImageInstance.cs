@@ -4,9 +4,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ImageInstance : ReportItemInstance
+	public sealed class ImageInstance : ReportItemInstance
 	{
-		internal ImageInstanceInfo InstanceInfo
+		public ImageInstanceInfo InstanceInfo
 		{
 			get
 			{
@@ -19,29 +19,29 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageInstance(ReportProcessing.ProcessingContext pc, Image reportItemDef, int index)
+		public ImageInstance(ReportProcessing.ProcessingContext pc, Image reportItemDef, int index)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new ImageInstanceInfo(pc, reportItemDef, this, index, false);
 		}
 
-		internal ImageInstance(ReportProcessing.ProcessingContext pc, Image reportItemDef, int index, bool customCreated)
+		public ImageInstance(ReportProcessing.ProcessingContext pc, Image reportItemDef, int index, bool customCreated)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new ImageInstanceInfo(pc, reportItemDef, this, index, customCreated);
 		}
 
-		internal ImageInstance()
+		public ImageInstance()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList members = new MemberInfoList();
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance, members);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadImageInstanceInfo((Image)base.m_reportItemDef);

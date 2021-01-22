@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal class RuntimePrefetchDataSet : RuntimeAtomicDataSet
+	public class RuntimePrefetchDataSet : RuntimeAtomicDataSet
 	{
 		private ChunkManager.DataChunkWriter m_dataChunkWriter;
 
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override void EraseDataChunk()
+		public override void EraseDataChunk()
 		{
 			if (!base.m_dataSet.IsReferenceToSharedDataSet && this.m_canWriteDataChunk)
 			{

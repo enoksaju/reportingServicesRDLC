@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ReportParameterCollection : NameObjectCollectionBase
+	public sealed class ReportParameterCollection : NameObjectCollectionBase
 	{
 		private NameValueCollection m_asNameValueCollection;
 
@@ -52,12 +52,12 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportParameterCollection(ParameterInfoCollection parameters)
+		public ReportParameterCollection(ParameterInfoCollection parameters)
 		{
 			this.Init(parameters, true);
 		}
 
-		internal ReportParameterCollection(ParameterInfoCollection parameters, bool isValid)
+		public ReportParameterCollection(ParameterInfoCollection parameters, bool isValid)
 		{
 			this.Init(parameters, isValid);
 		}

@@ -3,7 +3,7 @@ using System.Diagnostics;
 namespace AspNetCore.ReportingServices.Diagnostics
 {
 	[DebuggerDisplay("ExternalItemPath: {m_value}")]
-	internal class ExternalItemPath : ItemPathBase
+	public class ExternalItemPath : ItemPathBase
 	{
 		private string m_cachedLocalPath;
 

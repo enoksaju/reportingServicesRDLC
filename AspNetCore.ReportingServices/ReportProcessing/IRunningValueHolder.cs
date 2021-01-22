@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IRunningValueHolder
+	public interface IRunningValueHolder
 	{
 		RunningValueInfoList GetRunningValueList();
 

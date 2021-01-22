@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DataBindingRulesCollection : NamedCollection
+	public class DataBindingRulesCollection : NamedCollection
 	{
 		private DataBindingRuleBase this[int index]
 		{
@@ -59,7 +59,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal DataBindingRulesCollection(NamedElement parent, CommonElements common)
+		public DataBindingRulesCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(DataBindingRuleBase);
@@ -75,12 +75,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Remove(value);
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return base.GetElementNameFormat(el).Replace("Data", "");
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return string.Format(CultureInfo.InvariantCulture, this.GetElementNameFormat(el), 1);
 		}
@@ -105,7 +105,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (base.Common != null)
 			{

@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class PageProperties
+	public class PageProperties
 	{
 		protected double m_pageHeight = 279.4;
 

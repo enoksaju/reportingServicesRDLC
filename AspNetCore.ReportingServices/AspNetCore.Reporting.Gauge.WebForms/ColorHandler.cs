@@ -3,20 +3,20 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal static class ColorHandler
+	public static class ColorHandler
 	{
-		internal static Color HSVtoColor(HSV hsv)
+		public static Color HSVtoColor(HSV hsv)
 		{
 			RGB rGB = ColorHandler.HSVtoRGB(hsv);
 			return Color.FromArgb(rGB.Red, rGB.Green, rGB.Blue);
 		}
 
-		internal static HSV ColorToHSV(Color color)
+		public static HSV ColorToHSV(Color color)
 		{
 			return ColorHandler.RGBtoHSV(new RGB(color.R, color.G, color.B));
 		}
 
-		internal static RGB HSVtoRGB(HSV HSV)
+		public static RGB HSVtoRGB(HSV HSV)
 		{
 			double num = 0.0;
 			double num2 = 0.0;
@@ -75,7 +75,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return new RGB((int)(num * 255.0), (int)(num2 * 255.0), (int)(num3 * 255.0));
 		}
 
-		internal static HSV RGBtoHSV(RGB RGB)
+		public static HSV RGBtoHSV(RGB RGB)
 		{
 			double num = (double)RGB.Red / 255.0;
 			double num2 = (double)RGB.Green / 255.0;

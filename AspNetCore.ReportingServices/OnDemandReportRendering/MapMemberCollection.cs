@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapMemberCollection : DataRegionMemberCollection<MapMember>
+	public sealed class MapMemberCollection : DataRegionMemberCollection<MapMember>
 	{
 		private MapMember m_parent;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapDataRegion OwnerMapDataRegion
+		public MapDataRegion OwnerMapDataRegion
 		{
 			get
 			{
@@ -59,12 +59,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapMemberCollection(IDefinitionPath parentDefinitionPath, MapDataRegion owner)
+		public MapMemberCollection(IDefinitionPath parentDefinitionPath, MapDataRegion owner)
 			: base(parentDefinitionPath, (ReportItem)owner)
 		{
 		}
 
-		internal MapMemberCollection(IDefinitionPath parentDefinitionPath, MapDataRegion owner, MapMember parent, MapMemberList memberDefs)
+		public MapMemberCollection(IDefinitionPath parentDefinitionPath, MapDataRegion owner, MapMember parent, MapMemberList memberDefs)
 			: base(parentDefinitionPath, (ReportItem)owner)
 		{
 			this.m_parent = parent;

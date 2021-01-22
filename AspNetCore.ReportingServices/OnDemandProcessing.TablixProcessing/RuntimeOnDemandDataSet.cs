@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class RuntimeOnDemandDataSet : RuntimePrefetchDataSet
+	public sealed class RuntimeOnDemandDataSet : RuntimePrefetchDataSet
 	{
 		private bool? m_originalTablixProcessingMode;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private DataProcessingController m_dataProcessingController;
 
-		internal IOnDemandScopeInstance GroupTreeRoot
+		public IOnDemandScopeInstance GroupTreeRoot
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override bool ProcessFromLiveDataReader
+		public override bool ProcessFromLiveDataReader
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void EraseDataChunk()
+		public override void EraseDataChunk()
 		{
 			if (this.m_processFromLiveDataReader)
 			{

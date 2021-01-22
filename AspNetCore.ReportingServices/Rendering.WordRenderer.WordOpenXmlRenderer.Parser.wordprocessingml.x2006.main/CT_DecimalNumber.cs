@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_DecimalNumber : OoxmlComplexType, IOoxmlComplexType
+	public class CT_DecimalNumber : OoxmlComplexType, IOoxmlComplexType
 	{
 		private int _val_attr;
 

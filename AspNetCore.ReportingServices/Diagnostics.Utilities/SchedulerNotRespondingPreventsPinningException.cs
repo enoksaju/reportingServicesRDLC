@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class SchedulerNotRespondingPreventsPinningException : ReportCatalogException
+	public sealed class SchedulerNotRespondingPreventsPinningException : ReportCatalogException
 	{
 		public SchedulerNotRespondingPreventsPinningException()
 			: base(ErrorCode.rsSchedulerNotResponding, ErrorStrings.rsSchedulerNotRespondingPreventsPinning, null, null)

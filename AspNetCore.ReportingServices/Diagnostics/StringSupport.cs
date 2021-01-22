@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class StringSupport
+	public static class StringSupport
 	{
 		public static bool StartsWith(string str, string prefix, bool ignoreCase, CultureInfo culture)
 		{

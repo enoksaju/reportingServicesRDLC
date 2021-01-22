@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class PageItemHelper
+	public class PageItemHelper
 	{
 		private PaginationInfoItems m_type;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private int m_bodyIndex = -1;
 
-		internal PaginationInfoItems Type
+		public PaginationInfoItems Type
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ItemSizes ItemPageSizes
+		public ItemSizes ItemPageSizes
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItem.State State
+		public PageItem.State State
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal List<int> PageItemsAbove
+		public List<int> PageItemsAbove
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal List<int> PageItemsLeft
+		public List<int> PageItemsLeft
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double PrevPageEnd
+		public double PrevPageEnd
 		{
 			get
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItemHelper ChildPage
+		public PageItemHelper ChildPage
 		{
 			get
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double DefLeftValue
+		public double DefLeftValue
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int BodyIndex
+		public int BodyIndex
 		{
 			get
 			{
@@ -129,12 +129,12 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItemHelper(byte type)
+		public PageItemHelper(byte type)
 		{
 			this.m_type = (PaginationInfoItems)type;
 		}
 
-		internal static PageItemHelper ReadItems(BinaryReader reader, long offsetEndPage)
+		public static PageItemHelper ReadItems(BinaryReader reader, long offsetEndPage)
 		{
 			if (reader != null && offsetEndPage > 0)
 			{

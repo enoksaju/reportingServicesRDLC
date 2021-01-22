@@ -3,9 +3,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class StDev : Var
+	public sealed class StDev : Var
 	{
-		internal override object Result()
+		public override object Result()
 		{
 			if (1 == base.m_currentCount)
 			{

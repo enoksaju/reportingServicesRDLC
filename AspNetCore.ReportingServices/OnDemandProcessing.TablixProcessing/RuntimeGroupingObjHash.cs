@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeGroupingObjHash : RuntimeGroupingObj
+	public sealed class RuntimeGroupingObjHash : RuntimeGroupingObj
 	{
 		private ScalableDictionary<object, IReference<RuntimeHierarchyObj>> m_hashtable;
 
@@ -24,18 +24,18 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeGroupingObjHash()
+		public RuntimeGroupingObjHash()
 		{
 		}
 
-		internal RuntimeGroupingObjHash(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeGroupingObjHash(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(owner, objectType)
 		{
 			OnDemandProcessingContext odpContext = owner.OdpContext;
 			this.m_hashtable = new ScalableDictionary<object, IReference<RuntimeHierarchyObj>>(owner.Depth + 1, odpContext.TablixProcessingScalabilityCache, 101, 27, odpContext.ProcessingComparer);
 		}
 
-		internal override void Cleanup()
+		public override void Cleanup()
 		{
 			if (this.m_hashtable != null)
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void NextRow(object keyValue, bool hasParent, object parentKey)
+		public override void NextRow(object keyValue, bool hasParent, object parentKey)
 		{
 			IReference<RuntimeHierarchyObj> reference = null;
 			try
@@ -121,14 +121,14 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
+		public override void Traverse(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
 		{
 			RuntimeGroupRootObj runtimeGroupRootObj = base.m_owner as RuntimeGroupRootObj;
 			Global.Tracer.Assert(null != runtimeGroupRootObj, "(null != groupRootOwner)");
 			runtimeGroupRootObj.TraverseLinkedGroupLeaves(operation, ascending, traversalContext);
 		}
 
-		internal override void CopyDomainScopeGroupInstances(RuntimeGroupRootObj destination)
+		public override void CopyDomainScopeGroupInstances(RuntimeGroupRootObj destination)
 		{
 			OnDemandProcessingContext odpContext = base.m_owner.OdpContext;
 			DomainScopeContext domainScopeContext = odpContext.DomainScopeContext;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.Reporting
 {
-	internal class DataSetProcessingParameters : IDataParameterCollection, IEnumerable
+	public class DataSetProcessingParameters : IDataParameterCollection, IEnumerable
 	{
 		private List<IDataParameter> m_list;
 

@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.Diagnostics
 {
 	[Serializable]
-	internal sealed class DatasourceCredentials
+	public sealed class DatasourceCredentials
 	{
 		private string m_userName;
 

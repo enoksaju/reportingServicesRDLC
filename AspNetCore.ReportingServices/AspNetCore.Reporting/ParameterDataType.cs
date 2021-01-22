@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal enum ParameterDataType
+	public enum ParameterDataType
 	{
 		Boolean,
 		DateTime,

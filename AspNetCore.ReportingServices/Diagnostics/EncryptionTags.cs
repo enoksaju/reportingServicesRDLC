@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class EncryptionTags
+	public static class EncryptionTags
 	{
 		public const string ConnectionString = "ConnectionString";
 

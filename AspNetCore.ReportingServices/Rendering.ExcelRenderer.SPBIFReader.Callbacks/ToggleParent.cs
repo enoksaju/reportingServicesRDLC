@@ -6,20 +6,20 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIFReader.Callbacks
 {
-	internal class ToggleParent : IStorable, IPersistable
+	public class ToggleParent : IStorable, IPersistable
 	{
-		internal int m_top;
+		public int m_top;
 
-		internal int m_left;
+		public int m_left;
 
-		internal int m_width;
+		public int m_width;
 
-		internal int m_height;
+		public int m_height;
 
 		[NonSerialized]
 		private static Declaration m_declaration = ToggleParent.GetDeclaration();
 
-		internal int Top
+		public int Top
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIFReader.Callb
 			}
 		}
 
-		internal int Left
+		public int Left
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIFReader.Callb
 			}
 		}
 
-		internal int Width
+		public int Width
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIFReader.Callb
 			}
 		}
 
-		internal int Height
+		public int Height
 		{
 			get
 			{
@@ -59,11 +59,11 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIFReader.Callb
 			}
 		}
 
-		internal ToggleParent()
+		public ToggleParent()
 		{
 		}
 
-		internal ToggleParent(int top, int left, int width, int height)
+		public ToggleParent(int top, int left, int width, int height)
 		{
 			this.m_top = top;
 			this.m_left = left;
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIFReader.Callb
 			return ObjectType.ToggleParent;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (ToggleParent.m_declaration == null)
 			{

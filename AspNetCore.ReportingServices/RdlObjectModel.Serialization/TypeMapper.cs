@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal static class TypeMapper
+	public static class TypeMapper
 	{
 		private static Dictionary<Type, TypeMapping> m_mappings = new Dictionary<Type, TypeMapping>();
 

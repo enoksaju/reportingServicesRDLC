@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal abstract class ErrorContext
+	public abstract class ErrorContext
 	{
 		protected bool m_hasError;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		protected ProcessingMessageList m_messages;
 
-		internal bool HasError
+		public bool HasError
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SuspendErrors
+		public bool SuspendErrors
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ProcessingMessageList Messages
+		public ProcessingMessageList Messages
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int MessageCount
+		public int MessageCount
 		{
 			get
 			{
@@ -56,11 +56,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, params string[] arguments);
+		public abstract ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, params string[] arguments);
 
-		internal abstract ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, ProcessingMessageList innerMessages, params string[] arguments);
+		public abstract ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, ProcessingMessageList innerMessages, params string[] arguments);
 
-		internal virtual void Register(RSException rsException, ObjectType objectType)
+		public virtual void Register(RSException rsException, ObjectType objectType)
 		{
 			if (!this.m_suspendErrors)
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static ProcessingMessage CreateProcessingMessage(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, ProcessingMessageList innerMessages, params string[] arguments)
+		public static ProcessingMessage CreateProcessingMessage(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, ProcessingMessageList innerMessages, params string[] arguments)
 		{
 			objectName = objectName.MarkAsPrivate();
 			propertyName = propertyName.MarkAsPrivate();
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return array;
 		}
 
-		internal static string GetLocalizedObjectTypeString(ObjectType objectType)
+		public static string GetLocalizedObjectTypeString(ObjectType objectType)
 		{
 			switch (objectType)
 			{

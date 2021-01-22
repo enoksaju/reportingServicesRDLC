@@ -5,24 +5,24 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartGraphics3D : ChartRenderingEngine
+	public class ChartGraphics3D : ChartRenderingEngine
 	{
 		private int oppLeftBottomPoint = -1;
 
 		private int oppRigthTopPoint = -1;
 
-		internal PointF frontLinePoint1 = PointF.Empty;
+		public PointF frontLinePoint1 = PointF.Empty;
 
-		internal PointF frontLinePoint2 = PointF.Empty;
+		public PointF frontLinePoint2 = PointF.Empty;
 
-		internal Pen frontLinePen;
+		public Pen frontLinePen;
 
-		internal void Draw3DGridLine(ChartArea area, Color color, int width, ChartDashStyle style, PointF point1, PointF point2, bool horizontal, CommonElements common, object obj)
+		public void Draw3DGridLine(ChartArea area, Color color, int width, ChartDashStyle style, PointF point1, PointF point2, bool horizontal, CommonElements common, object obj)
 		{
 			this.Draw3DGridLine(area, color, width, style, point1, point2, horizontal, common, obj, 0, 0);
 		}
 
-		internal void Draw3DGridLine(ChartArea area, Color color, int width, ChartDashStyle style, PointF point1, PointF point2, bool horizontal, CommonElements common, object obj, int numberOfElements, int elementIndex)
+		public void Draw3DGridLine(ChartArea area, Color color, int width, ChartDashStyle style, PointF point1, PointF point2, bool horizontal, CommonElements common, object obj, int numberOfElements, int elementIndex)
 		{
 			float z = (float)(area.IsMainSceneWallOnFront() ? area.areaSceneDepth : 0.0);
 			PointF pointF = new PointF(point2.X, point2.Y);
@@ -64,7 +64,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal void Draw3DLine(Matrix3D matrix, Color color, int width, ChartDashStyle style, Point3D firstPoint, Point3D secondPoint, CommonElements common, object obj, ChartElementType type)
+		public void Draw3DLine(Matrix3D matrix, Color color, int width, ChartDashStyle style, Point3D firstPoint, Point3D secondPoint, CommonElements common, object obj, ChartElementType type)
 		{
 			Point3D[] array = new Point3D[2]
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void FillPieSides(ChartArea area, float xAngle, float startAngle, float sweepAngle, PointF[] points, SolidBrush brush, Pen pen, bool doughnut)
+		public void FillPieSides(ChartArea area, float xAngle, float startAngle, float sweepAngle, PointF[] points, SolidBrush brush, Pen pen, bool doughnut)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			PointF pointF = points[8];
@@ -239,7 +239,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			goto IL_00f5;
 		}
 
-		internal void FillPieCurve(ChartArea area, DataPoint point, Brush brush, Pen pen, PointF topFirstRectPoint, PointF topSecondRectPoint, PointF bottomFirstRectPoint, PointF bottomSecondRectPoint, PointF topFirstPoint, PointF topSecondPoint, PointF bottomFirstPoint, PointF bottomSecondPoint, float startAngle, float sweepAngle, int pointIndex)
+		public void FillPieCurve(ChartArea area, DataPoint point, Brush brush, Pen pen, PointF topFirstRectPoint, PointF topSecondRectPoint, PointF bottomFirstRectPoint, PointF bottomSecondRectPoint, PointF topFirstPoint, PointF topSecondPoint, PointF bottomFirstPoint, PointF bottomSecondPoint, float startAngle, float sweepAngle, int pointIndex)
 		{
 			CommonElements common = area.Common;
 			GraphicsPath graphicsPath = new GraphicsPath();
@@ -296,7 +296,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void FillPieSlice(ChartArea area, DataPoint point, SolidBrush brush, Pen pen, PointF firstRectPoint, PointF firstPoint, PointF secondRectPoint, PointF secondPoint, PointF center, float startAngle, float sweepAngle, bool fill, int pointIndex)
+		public void FillPieSlice(ChartArea area, DataPoint point, SolidBrush brush, Pen pen, PointF firstRectPoint, PointF firstPoint, PointF secondRectPoint, PointF secondPoint, PointF center, float startAngle, float sweepAngle, bool fill, int pointIndex)
 		{
 			CommonElements common = area.Common;
 			GraphicsPath graphicsPath = new GraphicsPath();
@@ -351,7 +351,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void FillDoughnutSlice(ChartArea area, DataPoint point, SolidBrush brush, Pen pen, PointF firstRectPoint, PointF firstPoint, PointF secondRectPoint, PointF secondPoint, PointF threePoint, PointF fourPoint, PointF center, float startAngle, float sweepAngle, bool fill, float doughnutRadius, int pointIndex)
+		public void FillDoughnutSlice(ChartArea area, DataPoint point, SolidBrush brush, Pen pen, PointF firstRectPoint, PointF firstPoint, PointF secondRectPoint, PointF secondPoint, PointF threePoint, PointF fourPoint, PointF center, float startAngle, float sweepAngle, bool fill, float doughnutRadius, int pointIndex)
 		{
 			CommonElements common = area.Common;
 			doughnutRadius = (float)(1.0 - doughnutRadius / 100.0);
@@ -473,7 +473,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return angle;
 		}
 
-		internal GraphicsPath Draw3DPolygon(ChartArea area, Matrix3D matrix, LightStyle lightStyle, SurfaceNames surfaceName, float positionZ, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, DataPoint3D firstPoint, DataPoint3D secondPoint, DataPoint3D thirdPoint, DataPoint3D fourthPoint, ArrayList points, int pointIndex, float tension, DrawingOperationTypes operationType, LineSegmentType lineSegmentType, SurfaceNames thinBorders)
+		public GraphicsPath Draw3DPolygon(ChartArea area, Matrix3D matrix, LightStyle lightStyle, SurfaceNames surfaceName, float positionZ, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, DataPoint3D firstPoint, DataPoint3D secondPoint, DataPoint3D thirdPoint, DataPoint3D fourthPoint, ArrayList points, int pointIndex, float tension, DrawingOperationTypes operationType, LineSegmentType lineSegmentType, SurfaceNames thinBorders)
 		{
 			bool flag = (operationType & DrawingOperationTypes.DrawElement) == DrawingOperationTypes.DrawElement;
 			GraphicsPath graphicsPath = ((operationType & DrawingOperationTypes.CalcElementPath) == DrawingOperationTypes.CalcElementPath) ? new GraphicsPath() : null;
@@ -571,7 +571,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal GraphicsPath GetSplineFlattenPath(ChartArea area, Matrix3D matrix, float positionZ, float depth, DataPoint3D firstPoint, DataPoint3D secondPoint, ArrayList points, int pointIndex, float tension, bool flatten, bool translateCoordinates, int yValueIndex)
+		public GraphicsPath GetSplineFlattenPath(ChartArea area, Matrix3D matrix, float positionZ, float depth, DataPoint3D firstPoint, DataPoint3D secondPoint, ArrayList points, int pointIndex, float tension, bool flatten, bool translateCoordinates, int yValueIndex)
 		{
 			int num = (firstPoint.index < secondPoint.index) ? firstPoint.index : secondPoint.index;
 			num--;
@@ -662,7 +662,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal GraphicsPath Draw3DSplineSurface(ChartArea area, Matrix3D matrix, LightStyle lightStyle, SurfaceNames surfaceName, float positionZ, float depth, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, DataPoint3D firstPoint, DataPoint3D secondPoint, ArrayList points, int pointIndex, float tension, DrawingOperationTypes operationType, bool forceThinBorder, bool forceThickBorder, bool reversedSeriesOrder, bool multiSeries, int yValueIndex, bool clipInsideArea)
+		public GraphicsPath Draw3DSplineSurface(ChartArea area, Matrix3D matrix, LightStyle lightStyle, SurfaceNames surfaceName, float positionZ, float depth, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, DataPoint3D firstPoint, DataPoint3D secondPoint, ArrayList points, int pointIndex, float tension, DrawingOperationTypes operationType, bool forceThinBorder, bool forceThickBorder, bool reversedSeriesOrder, bool multiSeries, int yValueIndex, bool clipInsideArea)
 		{
 			if (tension == 0.0)
 			{
@@ -735,7 +735,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal GraphicsPath Draw3DSurface(ChartArea area, Matrix3D matrix, LightStyle lightStyle, SurfaceNames surfaceName, float positionZ, float depth, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, DataPoint3D firstPoint, DataPoint3D secondPoint, ArrayList points, int pointIndex, float tension, DrawingOperationTypes operationType, LineSegmentType lineSegmentType, bool forceThinBorder, bool forceThickBorder, bool reversedSeriesOrder, bool multiSeries, int yValueIndex, bool clipInsideArea)
+		public GraphicsPath Draw3DSurface(ChartArea area, Matrix3D matrix, LightStyle lightStyle, SurfaceNames surfaceName, float positionZ, float depth, Color backColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, DataPoint3D firstPoint, DataPoint3D secondPoint, ArrayList points, int pointIndex, float tension, DrawingOperationTypes operationType, LineSegmentType lineSegmentType, bool forceThinBorder, bool forceThickBorder, bool reversedSeriesOrder, bool multiSeries, int yValueIndex, bool clipInsideArea)
 		{
 			if (tension != 0.0)
 			{
@@ -1131,7 +1131,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal static int ShouldDrawLineChartSurface(ChartArea area, bool reversedSeriesOrder, SurfaceNames surfaceName, SurfaceNames boundaryRectVisibleSurfaces, Color color, ArrayList points, DataPoint3D firstPoint, DataPoint3D secondPoint, bool multiSeries, bool reversed, ref LineSegmentType lineSegmentType)
+		public static int ShouldDrawLineChartSurface(ChartArea area, bool reversedSeriesOrder, SurfaceNames surfaceName, SurfaceNames boundaryRectVisibleSurfaces, Color color, ArrayList points, DataPoint3D firstPoint, DataPoint3D secondPoint, bool multiSeries, bool reversed, ref LineSegmentType lineSegmentType)
 		{
 			int num = 0;
 			Series series = firstPoint.dataPoint.series;
@@ -1292,7 +1292,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num;
 		}
 
-		internal static DataPoint3D FindPointByIndex(ArrayList points, int index, DataPoint3D neighborDataPoint, ref int neighborPointIndex)
+		public static DataPoint3D FindPointByIndex(ArrayList points, int index, DataPoint3D neighborDataPoint, ref int neighborPointIndex)
 		{
 			if (neighborPointIndex != -2147483648)
 			{
@@ -1332,12 +1332,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return null;
 		}
 
-		internal GraphicsPath Fill3DRectangle(RectangleF position, float positionZ, float depth, Matrix3D matrix, LightStyle lightStyle, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, DrawingOperationTypes operationType)
+		public GraphicsPath Fill3DRectangle(RectangleF position, float positionZ, float depth, Matrix3D matrix, LightStyle lightStyle, Color backColor, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, DrawingOperationTypes operationType)
 		{
 			return this.Fill3DRectangle(position, positionZ, depth, matrix, lightStyle, backColor, 0f, 0f, backHatchStyle, backImage, backImageMode, backImageTranspColor, backImageAlign, backGradientType, backGradientEndColor, borderColor, borderWidth, borderStyle, penAlignment, BarDrawingStyle.Default, false, operationType);
 		}
 
-		internal GraphicsPath Fill3DRectangle(RectangleF position, float positionZ, float depth, Matrix3D matrix, LightStyle lightStyle, Color backColor, float topRightDarkening, float bottomLeftDarkening, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, BarDrawingStyle barDrawingStyle, bool veticalOrientation, DrawingOperationTypes operationType)
+		public GraphicsPath Fill3DRectangle(RectangleF position, float positionZ, float depth, Matrix3D matrix, LightStyle lightStyle, Color backColor, float topRightDarkening, float bottomLeftDarkening, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, BarDrawingStyle barDrawingStyle, bool veticalOrientation, DrawingOperationTypes operationType)
 		{
 			if (barDrawingStyle == BarDrawingStyle.Cylinder && base.ActiveRenderingType != RenderingType.Svg)
 			{
@@ -1762,7 +1762,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal GraphicsPath DrawMarker3D(Matrix3D matrix, LightStyle lightStyle, float positionZ, PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect, DrawingOperationTypes operationType)
+		public GraphicsPath DrawMarker3D(Matrix3D matrix, LightStyle lightStyle, float positionZ, PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect, DrawingOperationTypes operationType)
 		{
 			ChartGraphics chartGraphics = (ChartGraphics)this;
 			GraphicsPath graphicsPath = ((operationType & DrawingOperationTypes.CalcElementPath) == DrawingOperationTypes.CalcElementPath) ? new GraphicsPath() : null;
@@ -1880,7 +1880,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal SurfaceNames GetVisibleSurfaces(RectangleF position, float positionZ, float depth, Matrix3D matrix)
+		public SurfaceNames GetVisibleSurfaces(RectangleF position, float positionZ, float depth, Matrix3D matrix)
 		{
 			if (matrix.perspective != 0.0)
 			{
@@ -1906,7 +1906,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return surfaceNames;
 		}
 
-		internal SurfaceNames GetVisibleSurfacesWithPerspective(RectangleF position, float positionZ, float depth, Matrix3D matrix)
+		public SurfaceNames GetVisibleSurfacesWithPerspective(RectangleF position, float positionZ, float depth, Matrix3D matrix)
 		{
 			Point3D[] array = new Point3D[8]
 			{
@@ -1923,7 +1923,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.GetVisibleSurfacesWithPerspective(array, matrix);
 		}
 
-		internal SurfaceNames GetVisibleSurfacesWithPerspective(Point3D[] cubePoints, Matrix3D matrix)
+		public SurfaceNames GetVisibleSurfacesWithPerspective(Point3D[] cubePoints, Matrix3D matrix)
 		{
 			if (cubePoints.Length != 8)
 			{
@@ -1957,7 +1957,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return surfaceNames;
 		}
 
-		internal static bool IsSurfaceVisible(Point3D first, Point3D second, Point3D tree)
+		public static bool IsSurfaceVisible(Point3D first, Point3D second, Point3D tree)
 		{
 			float num = (first.Y - second.Y) / (first.X - second.X);
 			float num2 = first.Y - num * first.X;
@@ -1992,7 +1992,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal static PointF GetLinesIntersection(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4)
+		public static PointF GetLinesIntersection(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4)
 		{
 			PointF empty = PointF.Empty;
 			if (x1 == x2 && y3 == y4)
@@ -2032,7 +2032,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return empty;
 		}
 
-		internal GraphicsPath Fill3DRectangleAsCylinder(RectangleF position, float positionZ, float depth, Matrix3D matrix, LightStyle lightStyle, Color backColor, float topRightDarkening, float bottomLeftDarkening, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, bool veticalOrientation, DrawingOperationTypes operationType)
+		public GraphicsPath Fill3DRectangleAsCylinder(RectangleF position, float positionZ, float depth, Matrix3D matrix, LightStyle lightStyle, Color backColor, float topRightDarkening, float bottomLeftDarkening, ChartHatchStyle backHatchStyle, string backImage, ChartImageWrapMode backImageMode, Color backImageTranspColor, ChartImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, ChartDashStyle borderStyle, PenAlignment penAlignment, bool veticalOrientation, DrawingOperationTypes operationType)
 		{
 			Point3D[] array = new Point3D[8];
 			GraphicsPath graphicsPath = ((operationType & DrawingOperationTypes.CalcElementPath) == DrawingOperationTypes.CalcElementPath) ? new GraphicsPath() : null;
@@ -2284,7 +2284,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return graphicsPath;
 		}
 
-		internal void AddEllipseSegment(GraphicsPath resultPath, GraphicsPath ellipseFlattenPath, GraphicsPath oppositeEllipseFlattenPath, bool veticalOrientation, float cylinderAngle, out PointF leftSideLinePoint, out PointF rightSideLinePoint)
+		public void AddEllipseSegment(GraphicsPath resultPath, GraphicsPath ellipseFlattenPath, GraphicsPath oppositeEllipseFlattenPath, bool veticalOrientation, float cylinderAngle, out PointF leftSideLinePoint, out PointF rightSideLinePoint)
 		{
 			leftSideLinePoint = PointF.Empty;
 			rightSideLinePoint = PointF.Empty;

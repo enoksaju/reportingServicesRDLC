@@ -9,7 +9,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class ImageRenderer : RendererBase
+	public sealed class ImageRenderer : RendererBase
 	{
 		private const int DEFAULT_PRINT_DPI = 300;
 

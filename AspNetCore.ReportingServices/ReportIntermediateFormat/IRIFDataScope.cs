@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IRIFDataScope
+	public interface IRIFDataScope
 	{
 		string Name
 		{

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Common;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class InternalDynamicMemberLogic
+	public abstract class InternalDynamicMemberLogic
 	{
 		protected int m_currentContext = -1;
 
@@ -29,11 +29,11 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		public abstract bool SetInstanceIndex(int index);
 
-		internal abstract ScopeID GetScopeID();
+		public abstract ScopeID GetScopeID();
 
-		internal abstract ScopeID GetLastScopeID();
+		public abstract ScopeID GetLastScopeID();
 
-		internal abstract void SetScopeID(ScopeID scopeID);
+		public abstract void SetScopeID(ScopeID scopeID);
 
 		public abstract void ResetContext();
 	}

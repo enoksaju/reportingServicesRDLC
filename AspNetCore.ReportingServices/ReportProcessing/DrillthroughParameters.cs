@@ -6,18 +6,18 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DrillthroughParameters : NameObjectCollectionBase, INameObjectCollection
+	public sealed class DrillthroughParameters : NameObjectCollectionBase, INameObjectCollection
 	{
 		public DrillthroughParameters()
 		{
 		}
 
-		internal DrillthroughParameters(int capacity)
+		public DrillthroughParameters(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal DrillthroughParameters(SerializationInfo info, StreamingContext context)
+		public DrillthroughParameters(SerializationInfo info, StreamingContext context)
 			: base(info, context)
 		{
 		}

@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class ItemBoundaries
+	public sealed class ItemBoundaries
 	{
 		private long m_startOffset;
 
 		private long m_endOffset;
 
-		internal long StartOffset
+		public long StartOffset
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal long EndOffset
+		public long EndOffset
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal ItemBoundaries(long start, long end)
+		public ItemBoundaries(long start, long end)
 		{
 			this.m_startOffset = start;
 			this.m_endOffset = end;

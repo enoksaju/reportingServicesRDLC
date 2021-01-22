@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ScaleRangeInstance : BaseInstance
+	public sealed class ScaleRangeInstance : BaseInstance
 	{
 		private ScaleRange m_defObject;
 
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ScaleRangeInstance(ScaleRange defObject)
+		public ScaleRangeInstance(ScaleRange defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

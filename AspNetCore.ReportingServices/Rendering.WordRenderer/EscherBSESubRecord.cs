@@ -2,9 +2,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherBSESubRecord : EscherRecord
+	public class EscherBSESubRecord : EscherRecord
 	{
-		internal const int MD4HASH_LENGTH = 16;
+		public const int MD4HASH_LENGTH = 16;
 
 		private byte[] mHash;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private byte[] mImage;
 
-		internal override int RecordSize
+		public override int RecordSize
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal override string RecordName
+		public override string RecordName
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte[] Hash
+		public virtual byte[] Hash
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte[] Image
+		public virtual byte[] Image
 		{
 			get
 			{
@@ -52,11 +52,11 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherBSESubRecord()
+		public EscherBSESubRecord()
 		{
 		}
 
-		internal override int Serialize(BinaryWriter dataWriter)
+		public override int Serialize(BinaryWriter dataWriter)
 		{
 			dataWriter.Write(this.getOptions());
 			dataWriter.Write(this.GetRecordId());

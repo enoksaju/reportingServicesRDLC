@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapLabelBehavior
+	public enum MapLabelBehavior
 	{
 		Auto,
 		ShowMiddleValue,

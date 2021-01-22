@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class WorksheetPart : OoxmlPart
+	public class WorksheetPart : OoxmlPart
 	{
 		private CT_Worksheet _root;
 

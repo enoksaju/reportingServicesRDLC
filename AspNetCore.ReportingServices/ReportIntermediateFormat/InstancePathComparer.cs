@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class InstancePathComparer : IEqualityComparer<List<InstancePathItem>>
+	public class InstancePathComparer : IEqualityComparer<List<InstancePathItem>>
 	{
 		private static InstancePathComparer m_instance = new InstancePathComparer();
 
-		internal static InstancePathComparer Instance
+		public static InstancePathComparer Instance
 		{
 			get
 			{

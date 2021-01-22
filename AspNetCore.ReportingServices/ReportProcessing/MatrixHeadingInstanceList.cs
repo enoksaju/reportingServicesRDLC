@@ -4,12 +4,12 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixHeadingInstanceList : ArrayList, ISearchByUniqueName
+	public sealed class MatrixHeadingInstanceList : ArrayList, ISearchByUniqueName
 	{
 		[NonSerialized]
 		private MatrixHeadingInstance m_lastHeadingInstance;
 
-		internal new MatrixHeadingInstance this[int index]
+		public new MatrixHeadingInstance this[int index]
 		{
 			get
 			{
@@ -17,16 +17,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixHeadingInstanceList()
+		public MatrixHeadingInstanceList()
 		{
 		}
 
-		internal MatrixHeadingInstanceList(int capacity)
+		public MatrixHeadingInstanceList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(MatrixHeadingInstance matrixHeadingInstance, ReportProcessing.ProcessingContext pc)
+		public void Add(MatrixHeadingInstance matrixHeadingInstance, ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_lastHeadingInstance != null)
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			matrixHeadingInstance.MatrixHeadingDef.InFirstPage = pc.ChunkManager.InFirstPage;
 		}
 
-		internal void SetLastHeadingSpan(int currentCellIndex, ReportProcessing.ProcessingContext pc)
+		public void SetLastHeadingSpan(int currentCellIndex, ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_lastHeadingInstance != null)
 			{

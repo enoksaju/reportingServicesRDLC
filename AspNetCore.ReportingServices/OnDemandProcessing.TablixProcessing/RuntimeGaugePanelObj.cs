@@ -8,16 +8,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal class RuntimeGaugePanelObj : RuntimeChartCriObj
+	public class RuntimeGaugePanelObj : RuntimeChartCriObj
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeGaugePanelObj.GetDeclaration();
 
-		internal RuntimeGaugePanelObj()
+		public RuntimeGaugePanelObj()
 		{
 		}
 
-		internal RuntimeGaugePanelObj(IReference<IScope> outerScope, GaugePanel gaugePanelDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess)
+		public RuntimeGaugePanelObj(IReference<IScope> outerScope, GaugePanel gaugePanelDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess)
 			: base(outerScope, (AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion)gaugePanelDef, ref dataAction, odpContext, onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType.GaugePanel)
 		{
 		}

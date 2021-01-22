@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class DataCellInstance : BaseInstance, IReportScopeInstance
+	public sealed class DataCellInstance : BaseInstance, IReportScopeInstance
 	{
 		private DataCell m_dataCellDef;
 
@@ -40,13 +40,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataCellInstance(DataCell dataCellDef)
+		public DataCellInstance(DataCell dataCellDef)
 			: base(dataCellDef)
 		{
 			this.m_dataCellDef = dataCellDef;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (!this.m_isNewContext)
 			{

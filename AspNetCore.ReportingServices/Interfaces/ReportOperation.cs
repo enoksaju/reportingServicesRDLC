@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal enum ReportOperation
+	public enum ReportOperation
 	{
 		Delete,
 		ExecuteAndView,

@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapDataBoundView : MapView
+	public sealed class MapDataBoundView : MapView
 	{
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataBoundView MapDataBoundViewDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataBoundView MapDataBoundViewDef
 		{
 			get
 			{
@@ -20,12 +20,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapDataBoundView(AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataBoundView defObject, Map map)
+		public MapDataBoundView(AspNetCore.ReportingServices.ReportIntermediateFormat.MapDataBoundView defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapViewInstance GetInstance()
+		public override MapViewInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeDataRegionObj : IScope, IStorable, IPersistable, ISelfReferential
+	public abstract class RuntimeDataRegionObj : IScope, IStorable, IPersistable, ISelfReferential
 	{
 		[StaticReference]
 		protected OnDemandProcessingContext m_odpContext;
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal OnDemandProcessingContext OdpContext
+		public OnDemandProcessingContext OdpContext
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual bool TargetForNonDetailSort
+		public virtual bool TargetForNonDetailSort
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual IRIFReportScope RIFReportScope
+		public virtual IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_odpContext.TablixProcessingScalabilityCache.AllocateAndPin(this, this.m_depth);
 		}
 
-		internal virtual bool IsTargetForSort(int index, bool detailSort)
+		public virtual bool IsTargetForSort(int index, bool detailSort)
 		{
 			if (this.OuterScope != null)
 			{
@@ -152,15 +152,15 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return false;
 		}
 
-		internal abstract void NextRow();
+		public abstract void NextRow();
 
-		internal abstract bool SortAndFilter(AggregateUpdateContext aggContext);
+		public abstract bool SortAndFilter(AggregateUpdateContext aggContext);
 
-		internal abstract void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext);
+		public abstract void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext);
 
 		public abstract void SetupEnvironment();
 
-		internal abstract void CalculatePreviousAggregates();
+		public abstract void CalculatePreviousAggregates();
 
 		public abstract void UpdateAggregates(AggregateUpdateContext context);
 
@@ -209,12 +209,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.GetGroupNameValuePairs(pairs);
 		}
 
-		internal static bool UpdateAggregatesAtScope(AggregateUpdateContext aggContext, IDataRowHolder scope, DataScopeInfo scopeInfo, AggregateUpdateFlags updateFlags, bool needsSetupEnvironment)
+		public static bool UpdateAggregatesAtScope(AggregateUpdateContext aggContext, IDataRowHolder scope, DataScopeInfo scopeInfo, AggregateUpdateFlags updateFlags, bool needsSetupEnvironment)
 		{
 			return aggContext.UpdateAggregates(scopeInfo, scope, updateFlags, needsSetupEnvironment);
 		}
 
-		internal static void AggregatesOfAggregatesEnd(IScope scopeObj, AggregateUpdateContext aggContext, AggregateUpdateQueue workQueue, DataScopeInfo dataScopeInfo, BucketedDataAggregateObjs aggregatesOfAggregates, bool updateAggsIfNeeded)
+		public static void AggregatesOfAggregatesEnd(IScope scopeObj, AggregateUpdateContext aggContext, AggregateUpdateQueue workQueue, DataScopeInfo dataScopeInfo, BucketedDataAggregateObjs aggregatesOfAggregates, bool updateAggsIfNeeded)
 		{
 			if (dataScopeInfo != null)
 			{
@@ -233,7 +233,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static AggregateUpdateQueue AggregateOfAggregatesStart(AggregateUpdateContext aggContext, IDataRowHolder scope, DataScopeInfo dataScopeInfo, BucketedDataAggregateObjs aggregatesOfAggregates, AggregateUpdateFlags updateFlags, bool needsSetupEnvironment)
+		public static AggregateUpdateQueue AggregateOfAggregatesStart(AggregateUpdateContext aggContext, IDataRowHolder scope, DataScopeInfo dataScopeInfo, BucketedDataAggregateObjs aggregatesOfAggregates, AggregateUpdateFlags updateFlags, bool needsSetupEnvironment)
 		{
 			if (dataScopeInfo == null)
 			{
@@ -271,7 +271,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return result;
 		}
 
-		internal static void AddAggregate(ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> aggregates, AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj aggregate)
+		public static void AddAggregate(ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> aggregates, AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj aggregate)
 		{
 			if (aggregates == null)
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			aggregates.Add(aggregate);
 		}
 
-		internal static void CreateAggregates(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo> aggDefs, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> nonCustomAggregates, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> customAggregates)
+		public static void CreateAggregates(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo> aggDefs, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> nonCustomAggregates, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> customAggregates)
 		{
 			if (aggDefs != null && 0 < aggDefs.Count)
 			{
@@ -299,7 +299,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static void CreateAggregates(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo> aggDefs, List<int> aggregateIndexes, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> nonCustomAggregates, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> customAggregates)
+		public static void CreateAggregates(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo> aggDefs, List<int> aggregateIndexes, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> nonCustomAggregates, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> customAggregates)
 		{
 			if (aggregateIndexes != null && 0 < aggregateIndexes.Count)
 			{
@@ -319,7 +319,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static void CreateAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggDefs, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> aggregates) where AggregateType : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
+		public static void CreateAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggDefs, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> aggregates) where AggregateType : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
 		{
 			if (aggDefs != null && 0 < aggDefs.Count)
 			{
@@ -331,7 +331,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static void CreateAggregates<AggregateType>(OnDemandProcessingContext odpContext, BucketedAggregatesCollection<AggregateType> aggDefs, ref BucketedDataAggregateObjs aggregates) where AggregateType : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
+		public static void CreateAggregates<AggregateType>(OnDemandProcessingContext odpContext, BucketedAggregatesCollection<AggregateType> aggDefs, ref BucketedDataAggregateObjs aggregates) where AggregateType : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
 		{
 			if (aggDefs != null && !aggDefs.IsEmpty)
 			{
@@ -350,7 +350,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static void CreateAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggDefs, List<int> aggregateIndexes, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> aggregates) where AggregateType : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
+		public static void CreateAggregates<AggregateType>(OnDemandProcessingContext odpContext, List<AggregateType> aggDefs, List<int> aggregateIndexes, ref List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> aggregates) where AggregateType : AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo
 		{
 			if (aggregateIndexes != null && 0 < aggregateIndexes.Count)
 			{
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal static void UpdateAggregates(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> aggregates, bool updateAndSetup)
+		public static void UpdateAggregates(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj> aggregates, bool updateAndSetup)
 		{
 			if (aggregates != null)
 			{
@@ -395,7 +395,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			RuntimeDataRegionObj.SetupAggregates(this.m_odpContext, aggregates);
 		}
 
-		internal static void SetupAggregates(OnDemandProcessingContext odpContext, BucketedDataAggregateObjs aggregates)
+		public static void SetupAggregates(OnDemandProcessingContext odpContext, BucketedDataAggregateObjs aggregates)
 		{
 			if (aggregates != null)
 			{
@@ -475,7 +475,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return runtimeMemberObj.GroupRoot;
 		}
 
-		internal static long AssignScopeInstanceNumber(DataScopeInfo dataScopeInfo)
+		public static long AssignScopeInstanceNumber(DataScopeInfo dataScopeInfo)
 		{
 			if (dataScopeInfo == null)
 			{
@@ -486,7 +486,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		public abstract void ReadRow(DataActions dataAction, ITraversalContext context);
 
-		internal abstract bool InScope(string scope);
+		public abstract bool InScope(string scope);
 
 		protected Hashtable GetScopeNames(RuntimeDataRegionObjReference currentScope, string targetScope, out bool inScope)
 		{
@@ -574,7 +574,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return hashtable;
 		}
 
-		internal static void AddGroupNameValuePair(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Grouping grouping, Dictionary<string, object> nameValuePairs)
+		public static void AddGroupNameValuePair(OnDemandProcessingContext odpContext, AspNetCore.ReportingServices.ReportIntermediateFormat.Grouping grouping, Dictionary<string, object> nameValuePairs)
 		{
 			if (grouping != null)
 			{
@@ -665,7 +665,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.CommonNextRow(dataRows);
 		}
 
-		internal static void CommonFirstRow(OnDemandProcessingContext odpContext, ref bool firstRowIsAggregate, ref DataFieldRow firstRow)
+		public static void CommonFirstRow(OnDemandProcessingContext odpContext, ref bool firstRowIsAggregate, ref DataFieldRow firstRow)
 		{
 			if (!firstRowIsAggregate && firstRow != null)
 			{
@@ -725,13 +725,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual bool TargetScopeMatched(int index, bool detailSort)
+		public virtual bool TargetScopeMatched(int index, bool detailSort)
 		{
 			Global.Tracer.Assert(false);
 			return false;
 		}
 
-		internal virtual void GetScopeValues(IReference<IHierarchyObj> targetScopeObj, List<object>[] scopeValues, ref int index)
+		public virtual void GetScopeValues(IReference<IHierarchyObj> targetScopeObj, List<object>[] scopeValues, ref int index)
 		{
 			Global.Tracer.Assert(false);
 		}

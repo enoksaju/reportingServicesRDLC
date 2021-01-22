@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_PageMargins : OoxmlComplexType
+	public class CT_PageMargins : OoxmlComplexType
 	{
 		private double _left_attr;
 

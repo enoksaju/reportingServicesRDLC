@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class ChartSeries : Row, IPersistable, IActionOwner, IStyleContainer, ICustomPropertiesHolder
+	public class ChartSeries : Row, IPersistable, IActionOwner, IStyleContainer, ICustomPropertiesHolder
 	{
 		private ChartDataPointList m_dataPoints;
 
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ChartSeries.GetDeclaration();
 
-		internal override CellList Cells
+		public override CellList Cells
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataPointList DataPoints
+		public ChartDataPointList DataPoints
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartSeriesExprHost ExprHost
+		public ChartSeriesExprHost ExprHost
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Action Action
+		public Action Action
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo HideInLegend
+		public ExpressionInfo HideInLegend
 		{
 			get
 			{
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Type
+		public ExpressionInfo Type
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Subtype
+		public ExpressionInfo Subtype
 		{
 			get
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartEmptyPoints EmptyPoints
+		public ChartEmptyPoints EmptyPoints
 		{
 			get
 			{
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LegendName
+		public ExpressionInfo LegendName
 		{
 			get
 			{
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LegendText
+		public ExpressionInfo LegendText
 		{
 			get
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ChartAreaName
+		public ExpressionInfo ChartAreaName
 		{
 			get
 			{
@@ -247,7 +247,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ValueAxisName
+		public ExpressionInfo ValueAxisName
 		{
 			get
 			{
@@ -259,7 +259,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo CategoryAxisName
+		public ExpressionInfo CategoryAxisName
 		{
 			get
 			{
@@ -271,7 +271,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartDataLabel DataLabel
+		public ChartDataLabel DataLabel
 		{
 			get
 			{
@@ -283,7 +283,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartMarker Marker
+		public ChartMarker Marker
 		{
 			get
 			{
@@ -307,7 +307,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -319,7 +319,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ToolTip
+		public ExpressionInfo ToolTip
 		{
 			get
 			{
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartItemInLegend ChartItemInLegend
+		public ChartItemInLegend ChartItemInLegend
 		{
 			get
 			{
@@ -422,7 +422,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataValueList CustomProperties
+		public DataValueList CustomProperties
 		{
 			get
 			{
@@ -434,7 +434,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartSmartLabel ChartSmartLabel
+		public ChartSmartLabel ChartSmartLabel
 		{
 			get
 			{
@@ -454,7 +454,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ChartDerivedSeries> ChildrenDerivedSeries
+		public List<ChartDerivedSeries> ChildrenDerivedSeries
 		{
 			get
 			{
@@ -466,23 +466,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartSeries()
+		public ChartSeries()
 		{
 		}
 
-		internal ChartSeries(Chart chart, int id)
+		public ChartSeries(Chart chart, int id)
 			: base(id)
 		{
 			this.m_chart = chart;
 		}
 
-		internal ChartSeries(Chart chart, ChartDerivedSeries parentDerivedSeries, int id)
+		public ChartSeries(Chart chart, ChartDerivedSeries parentDerivedSeries, int id)
 			: this(chart, id)
 		{
 			this.m_parentDerivedSeries = parentDerivedSeries;
 		}
 
-		internal void SetExprHost(ChartSeriesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartSeriesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -538,7 +538,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(InitializationContext context, string name)
+		public void Initialize(InitializationContext context, string name)
 		{
 			context.ExprHostBuilder.ChartSeriesStart();
 			if (this.m_customProperties != null)
@@ -636,7 +636,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartSeriesEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartSeries chartSeries = (ChartSeries)base.PublishClone(context);
 			chartSeries.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -727,25 +727,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartSeries;
 		}
 
-		internal ChartSeriesType EvaluateType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartSeriesType EvaluateType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return EnumTranslator.TranslateChartSeriesType(context.ReportRuntime.EvaluateChartSeriesTypeExpression(this, this.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal ChartSeriesSubtype EvaluateSubtype(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartSeriesSubtype EvaluateSubtype(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return EnumTranslator.TranslateChartSeriesSubtype(context.ReportRuntime.EvaluateChartSeriesSubtypeExpression(this, this.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal string EvaluateLegendName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateLegendName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSeriesLegendNameExpression(this, this.m_chart.Name);
 		}
 
-		internal string EvaluateLegendText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateLegendText(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateChartSeriesLegendTextExpression(this, this.m_chart.Name);
@@ -761,37 +761,37 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal string EvaluateChartAreaName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateChartAreaName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSeriesChartAreaNameExpression(this, this.m_chart.Name);
 		}
 
-		internal string EvaluateValueAxisName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateValueAxisName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSeriesValueAxisNameExpression(this, this.m_chart.Name);
 		}
 
-		internal string EvaluateCategoryAxisName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateCategoryAxisName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSeriesCategoryAxisNameExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSeriesHiddenExpression(this, this.m_chart.Name);
 		}
 
-		internal bool EvaluateHideInLegend(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHideInLegend(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartSeriesHideInLegendExpression(this, this.m_chart.Name);
 		}
 
-		internal string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateToolTip(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this, reportScopeInstance);
 			AspNetCore.ReportingServices.RdlExpressions.VariantResult variantResult = context.ReportRuntime.EvaluateChartSeriesToolTipExpression(this, this.m_chart.Name);
@@ -807,7 +807,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ChartDataPoints, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartDataPoint));

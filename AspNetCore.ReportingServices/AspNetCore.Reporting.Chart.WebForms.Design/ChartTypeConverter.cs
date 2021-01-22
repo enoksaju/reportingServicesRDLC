@@ -6,7 +6,7 @@ using System.ComponentModel.Design;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class ChartTypeConverter : StringConverter
+	public class ChartTypeConverter : StringConverter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

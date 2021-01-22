@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class ListUtils
+	public class ListUtils
 	{
 		public static void AdjustLength<T>(List<T> instances, int indexInCollection) where T : class
 		{

@@ -2,11 +2,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapTitle : MapDockableSubItem, INamedObject
+	public class MapTitle : MapDockableSubItem, INamedObject
 	{
-		internal new class Definition : DefinitionStore<MapTitle, Definition.Properties>
+		public new class Definition : DefinitionStore<MapTitle, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				MapLocation,
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapTitle(IPropertyStore propertyStore)
+		public MapTitle(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

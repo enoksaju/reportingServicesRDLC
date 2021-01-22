@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ReportItemInstance : ReportElementInstance
+	public abstract class ReportItemInstance : ReportElementInstance
 	{
 		[NonSerialized]
 		protected string m_uniqueName;
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportItemInstance(ReportItem reportItemDef)
+		public ReportItemInstance(ReportItem reportItemDef)
 			: base(reportItemDef)
 		{
 		}
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void Serialize(IntermediateFormatWriter writer)
+		public override void Serialize(IntermediateFormatWriter writer)
 		{
 			base.Serialize(writer);
 			writer.RegisterDeclaration(ReportItemInstance.m_Declaration);
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void Deserialize(IntermediateFormatReader reader)
+		public override void Deserialize(IntermediateFormatReader reader)
 		{
 			base.Deserialize(reader);
 			reader.RegisterDeclaration(ReportItemInstance.m_Declaration);
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			reportItem.CustomProperties.SetDynamicValues(customPropertyNames, customPropertyValues);
 		}
 
-		internal override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType GetObjectType()
+		public override AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType GetObjectType()
 		{
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ReportItemInstance;
 		}

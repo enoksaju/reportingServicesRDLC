@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum NeedleStyles
+	public enum NeedleStyles
 	{
 		Triangular,
 		Rectangular,

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapCoordinateSystem
+	public enum MapCoordinateSystem
 	{
 		Planar,
 		Geographic

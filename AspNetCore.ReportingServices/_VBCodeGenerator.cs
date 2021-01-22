@@ -36,7 +36,7 @@ namespace Microsoft.VisualBasic1
     ///       Visual Basic 7 Code Generator.
     ///    </para>
     /// </devdoc>
-    internal class VBCodeGenerator : CodeCompiler
+    public class VBCodeGenerator : CodeCompiler
     {
         private const int MaxLineLength = 80;
 
@@ -268,11 +268,11 @@ namespace Microsoft.VisualBasic1
             }
         };
 
-        internal VBCodeGenerator()
+        public VBCodeGenerator()
         {
         }
 
-        internal VBCodeGenerator(IDictionary<string, string> providerOptions)
+        public VBCodeGenerator(IDictionary<string, string> providerOptions)
         {
             provOptions = providerOptions;
         }
@@ -3289,7 +3289,7 @@ namespace Microsoft.VisualBasic1
 
             return results;
         }
-        internal static Assembly LoadImageSkipIntegrityCheck(byte[] rawAssembly, byte[] rawSymbolStore)
+        public static Assembly LoadImageSkipIntegrityCheck(byte[] rawAssembly, byte[] rawSymbolStore)
         {
             MethodInfo method = typeof(Assembly).GetMethod("LoadImageSkipIntegrityCheck", BindingFlags.Static | BindingFlags.NonPublic);
             return (method != null) ? ((Assembly)method.Invoke(null, new object[]
@@ -3300,7 +3300,7 @@ namespace Microsoft.VisualBasic1
         }
         [ResourceExposure(ResourceScope.Machine)]
         [ResourceConsumption(ResourceScope.Machine)]
-        internal void Compile(CompilerParameters options, string compilerDirectory, string compilerExe, string arguments, ref string outputFile, ref int nativeReturnValue, string trueArgs)
+        public void Compile(CompilerParameters options, string compilerDirectory, string compilerExe, string arguments, ref string outputFile, ref int nativeReturnValue, string trueArgs)
         {
             string errorFile = null;
             outputFile = options.TempFiles.AddExtension("out");
@@ -3431,20 +3431,20 @@ namespace Microsoft.VisualBasic1
     #endregion class VBCodeGenerator
 
     #region class Indentation
-    internal class Indentation
+    public class Indentation
     {
         private IndentedTextWriter writer;
         private int indent;
         private string s;
 
-        internal Indentation(IndentedTextWriter writer, int indent)
+        public Indentation(IndentedTextWriter writer, int indent)
         {
             this.writer = writer;
             this.indent = indent;
             s = null;
         }
 
-        internal string IndentationString
+        public string IndentationString
         {
             get
             {
@@ -3467,7 +3467,7 @@ namespace Microsoft.VisualBasic1
 
     #region _CodeDomProvider
 
-    internal class _CodeDomProvider
+    public class _CodeDomProvider
     {
         /// <summary>
         /// This method returns a reference to mscorlib.dll or System.Runtime.dll that coresponds to
@@ -3485,7 +3485,7 @@ namespace Microsoft.VisualBasic1
         /// Note that we do no validation to ensure SkuName or Version are actually valid sku names or versions.
         /// The version component must start with a v but otherwise can be in any arbitrary form.
         /// </summary>
-        internal static bool TryGetProbableCoreAssemblyFilePath(CompilerParameters parameters, out string coreAssemblyFilePath)
+        public static bool TryGetProbableCoreAssemblyFilePath(CompilerParameters parameters, out string coreAssemblyFilePath)
         {
             string multiTargetingPackRoot = null;
             char[] pathSeperators = new char[] { Path.DirectorySeparatorChar };
@@ -3591,11 +3591,11 @@ namespace Microsoft.VisualBasic1
     // The first indexer must the length of the string, so that each sub-array is of the
     // same length. The contained array must be in alphabetical order. Furthermore, if the 
     // table is to be searched case-insensitively, the strings must all be lower case.
-    internal static class FixedStringLookup
+    public static class FixedStringLookup
     {
 
         // Returns whether the match is found in the lookup table
-        internal static bool Contains(string[][] lookupTable, string value, bool ignoreCase)
+        public static bool Contains(string[][] lookupTable, string value, bool ignoreCase)
         {
             int length = value.Length;
             if (length <= 0 || length - 1 >= lookupTable.Length)
@@ -3613,7 +3613,7 @@ namespace Microsoft.VisualBasic1
 
 #if DEBUG
 
-        internal static void VerifyLookupTable(string[][] lookupTable, bool ignoreCase)
+        public static void VerifyLookupTable(string[][] lookupTable, bool ignoreCase)
         {
             for (int i = 0; i < lookupTable.Length; i++)
             {
@@ -3721,7 +3721,7 @@ namespace Microsoft.VisualBasic1
 
     #endregion
 
-    internal static class FileIntegrity
+    public static class FileIntegrity
     {
         public static bool IsEnabled
         {
@@ -3784,7 +3784,7 @@ namespace Microsoft.VisualBasic1
 
     [SuppressUnmanagedCodeSecurity]
     [HostProtection(SecurityAction.LinkDemand, MayLeakOnAbort = true)]
-    internal static class UnsafeNativeMethods
+    public static class UnsafeNativeMethods
     {
         [DllImport("wldp.dll", ExactSpelling = true)]
         public static extern int WldpIsDynamicCodePolicyEnabled(out int enabled);
@@ -3807,14 +3807,14 @@ namespace Microsoft.VisualBasic1
 
     [SuppressUnmanagedCodeSecurity]
     [HostProtection(SecurityAction.LinkDemand, MayLeakOnAbort = true)]
-    internal sealed class SafeLibraryHandle : SafeHandleZeroOrMinusOneIsInvalid
+    public sealed class SafeLibraryHandle : SafeHandleZeroOrMinusOneIsInvalid
     {
-        internal SafeLibraryHandle() : base(true)
+        public SafeLibraryHandle() : base(true)
         {
         }
 
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        internal static extern SafeLibraryHandle LoadLibraryEx(string libFilename, IntPtr reserved, int flags);
+        public static extern SafeLibraryHandle LoadLibraryEx(string libFilename, IntPtr reserved, int flags);
 
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]

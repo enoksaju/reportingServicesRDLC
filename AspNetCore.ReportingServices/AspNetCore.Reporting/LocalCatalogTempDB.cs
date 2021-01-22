@@ -6,7 +6,7 @@ using System.Reflection;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal class LocalCatalogTempDB : IDisposable
+	public class LocalCatalogTempDB : IDisposable
 	{
 		[Serializable]
 		protected class ReportID

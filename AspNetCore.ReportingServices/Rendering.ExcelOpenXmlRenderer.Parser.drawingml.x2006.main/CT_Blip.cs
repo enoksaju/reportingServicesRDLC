@@ -5,9 +5,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class CT_Blip : OoxmlComplexType
+	public class CT_Blip : OoxmlComplexType
 	{
-		internal enum ChoiceBucket_0
+		public enum ChoiceBucket_0
 		{
 			alphaBiLevel,
 			alphaCeiling,

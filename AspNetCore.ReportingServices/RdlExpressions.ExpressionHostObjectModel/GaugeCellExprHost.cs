@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<GaugeInputValueExprHost> m_gaugeInputValueHostsRemotable;
 
-		internal IList<GaugeInputValueExprHost> GaugeInputValueHostsRemotable
+		public IList<GaugeInputValueExprHost> GaugeInputValueHostsRemotable
 		{
 			get
 			{

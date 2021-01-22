@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ActionCollection
+	public sealed class ActionCollection
 	{
 		private MemberBase m_members;
 
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.Processing.m_actions = new ArrayList();
 		}
 
-		internal ActionCollection(ActionItemList actionItemList, ActionItemInstanceList actionItemInstanceList, string ownerUniqueName, RenderingContext renderingContext)
+		public ActionCollection(ActionItemList actionItemList, ActionItemInstanceList actionItemInstanceList, string ownerUniqueName, RenderingContext renderingContext)
 		{
 			this.m_members = new ActionCollectionRendering();
 			Global.Tracer.Assert(!this.IsCustomControl);
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.Processing.m_actions.Add(action);
 		}
 
-		internal ActionCollection DeepClone()
+		public ActionCollection DeepClone()
 		{
 			if (!this.IsCustomControl)
 			{

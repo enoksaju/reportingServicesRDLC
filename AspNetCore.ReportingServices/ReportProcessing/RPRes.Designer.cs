@@ -22,21 +22,21 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class RPRes {
+    public class RPRes {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal RPRes() {
+        public RPRes() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AspNetCore.ReportingServices.ReportProcessing.RPRes", typeof(RPRes).Assembly);
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Non-CLSCompliant exception..
         /// </summary>
-        internal static string NonClsCompliantException {
+        public static string NonClsCompliantException {
             get {
                 return ResourceManager.GetString("NonClsCompliantException", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the calculated field &apos;{1}&apos; includes an aggregate, RowNumber, RunningValue, Previous or lookup function. Aggregate, RowNumber, RunningValue, Previous and lookup functions cannot be used in calculated field expressions..
         /// </summary>
-        internal static string rsAggregateInCalculatedFieldExpression {
+        public static string rsAggregateInCalculatedFieldExpression {
             get {
                 return ResourceManager.GetString("rsAggregateInCalculatedFieldExpression", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A sort expression for the {0} &apos;{1}&apos; includes an aggregate function.  Aggregate functions cannot be used in data row sort expressions..
         /// </summary>
-        internal static string rsAggregateInDataRowSortExpression {
+        public static string rsAggregateInDataRowSortExpression {
             get {
                 return ResourceManager.GetString("rsAggregateInDataRowSortExpression", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; in dataset &apos;{4}&apos; specifies a {2} value on a calculated field. {2} and {3} must not both be specified on the same {0} object..
         /// </summary>
-        internal static string rsAggregateIndicatorFieldOnCalculatedField {
+        public static string rsAggregateIndicatorFieldOnCalculatedField {
             get {
                 return ResourceManager.GetString("rsAggregateIndicatorFieldOnCalculatedField", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} for the {0} ‘{1}’ includes an aggregate function.  Aggregate functions cannot be used in dataset filters or data region filters..
         /// </summary>
-        internal static string rsAggregateInFilterExpression {
+        public static string rsAggregateInFilterExpression {
             get {
                 return ResourceManager.GetString("rsAggregateInFilterExpression", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A group expression for the {0} &apos;{1}&apos; includes an aggregate function.  Aggregate functions cannot be used in group expressions..
         /// </summary>
-        internal static string rsAggregateInGroupExpression {
+        public static string rsAggregateInGroupExpression {
             get {
                 return ResourceManager.GetString("rsAggregateInGroupExpression", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} join relationship expression for the {0} &apos;{1}&apos; includes an aggregate function.  Aggregate functions cannot be used in join relationship expressions..
         /// </summary>
-        internal static string rsAggregateInJoinExpression {
+        public static string rsAggregateInJoinExpression {
             get {
                 return ResourceManager.GetString("rsAggregateInJoinExpression", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for {0} &apos;{1}&apos; contains an aggregate function in an argument to a Lookup or LookupSet function. Aggregate functions cannot be used for the destination or result Expression parameter of a lookup function..
         /// </summary>
-        internal static string rsAggregateInLookupDestinationOrResult {
+        public static string rsAggregateInLookupDestinationOrResult {
             get {
                 return ResourceManager.GetString("rsAggregateInLookupDestinationOrResult", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; contains the Aggregate function in the Expression argument of a Previous function.  The Aggregate function cannot be used in the Expression parameter of the Previous function..
         /// </summary>
-        internal static string rsAggregateInPreviousAggregate {
+        public static string rsAggregateInPreviousAggregate {
             get {
                 return ResourceManager.GetString("rsAggregateInPreviousAggregate", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the parameter &apos;{1}&apos; in the dataset &apos;{3}&apos; includes an aggregate or lookup function. Aggregate and lookup functions cannot be used in query parameter expressions..
         /// </summary>
-        internal static string rsAggregateInQueryParameterExpression {
+        public static string rsAggregateInQueryParameterExpression {
             get {
                 return ResourceManager.GetString("rsAggregateInQueryParameterExpression", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the language of &apos;{1}&apos; includes an aggregate or lookup function. Aggregate and lookup functions cannot be used in report language expressions..
         /// </summary>
-        internal static string rsAggregateInReportLanguageExpression {
+        public static string rsAggregateInReportLanguageExpression {
             get {
                 return ResourceManager.GetString("rsAggregateInReportLanguageExpression", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} expression used for the report parameter &apos;{1}&apos; includes an aggregate or lookup function. Aggregate and lookup functions cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsAggregateInReportParameterExpression {
+        public static string rsAggregateInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsAggregateInReportParameterExpression", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; contains an aggregate function (or RunningValue or RowNumber functions) in the argument to another aggregate function (or RunningValue).  Aggregate functions cannot be nested inside other aggregate functions..
         /// </summary>
-        internal static string rsAggregateofAggregate {
+        public static string rsAggregateofAggregate {
             get {
                 return ResourceManager.GetString("rsAggregateofAggregate", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses an aggregate function with an expression that returned a data type not valid for the aggregate function..
         /// </summary>
-        internal static string rsAggregateOfInvalidExpressionDataType {
+        public static string rsAggregateOfInvalidExpressionDataType {
             get {
                 return ResourceManager.GetString("rsAggregateOfInvalidExpressionDataType", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses an aggregate function on data of varying data types.  Aggregate functions other than First, Last, Previous, Count, and CountDistinct can only aggregate data of a single data type..
         /// </summary>
-        internal static string rsAggregateOfMixedDataTypes {
+        public static string rsAggregateOfMixedDataTypes {
             get {
                 return ResourceManager.GetString("rsAggregateOfMixedDataTypes", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses a numeric aggregate function on data that is not numeric.  Numeric aggregate functions (Sum, Avg, StDev, Var, StDevP, and VarP) can only aggregate numeric data..
         /// </summary>
-        internal static string rsAggregateOfNonNumericData {
+        public static string rsAggregateOfNonNumericData {
             get {
                 return ResourceManager.GetString("rsAggregateOfNonNumericData", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for {0} &apos;{1}&apos; contains a variable reference in the argument to an aggregate function (or RunningValue).  Variable values cannot be used in aggregate functions..
         /// </summary>
-        internal static string rsAggregateofVariable {
+        public static string rsAggregateofVariable {
             get {
                 return ResourceManager.GetString("rsAggregateofVariable", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; uses an aggregate function on a report item.  Aggregate functions can be used only on report items contained in page headers and footers..
         /// </summary>
-        internal static string rsAggregateReportItemInBody {
+        public static string rsAggregateReportItemInBody {
             get {
                 return ResourceManager.GetString("rsAggregateReportItemInBody", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to {2} is not an applicable property for Bands. {2} property in {0} &apos;{1}&apos; is ignored..
         /// </summary>
-        internal static string rsBandIgnoredProperties {
+        public static string rsBandIgnoredProperties {
             get {
                 return ResourceManager.GetString("rsBandIgnoredProperties", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to KeepTogether behavior is always true for banding. This property setting is ignored in {0} &apos;{1}&apos;..
         /// </summary>
-        internal static string rsBandKeepTogetherIgnored {
+        public static string rsBandKeepTogetherIgnored {
             get {
                 return ResourceManager.GetString("rsBandKeepTogetherIgnored", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} for the {0} ‘{1}’ has a constant value.  {2} requires a binary value, so it cannot be a constant..
         /// </summary>
-        internal static string rsBinaryConstant {
+        public static string rsBinaryConstant {
             get {
                 return ResourceManager.GetString("rsBinaryConstant", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is in the page header or footer and has bookmark property. Bookmarks in page headers and page footers are not supported by all renderers..
         /// </summary>
-        internal static string rsBookmarkInPageSection {
+        public static string rsBookmarkInPageSection {
             get {
                 return ResourceManager.GetString("rsBookmarkInPageSection", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Filter, sort, and group expressions, lookup functions, and join conditions, do not support data type {2} in the {0} &apos;{1}&apos;..
         /// </summary>
-        internal static string rsCannotCompareSpatialType {
+        public static string rsCannotCompareSpatialType {
             get {
                 return ResourceManager.GetString("rsCannotCompareSpatialType", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ includes a group header with {2} set to true.  This is not allowed on group headers or footers..
         /// </summary>
-        internal static string rsCantMakeTableGroupHeadersFixed {
+        public static string rsCantMakeTableGroupHeadersFixed {
             get {
                 return ResourceManager.GetString("rsCantMakeTableGroupHeadersFixed", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. The CellContents for this {2} must be omitted because it is covered by a span from another {2}..
         /// </summary>
-        internal static string rsCellContentsNotOmitted {
+        public static string rsCellContentsNotOmitted {
             get {
                 return ResourceManager.GetString("rsCellContentsNotOmitted", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. The CellContents for this {2} is required if not covered by a span from another {2}..
         /// </summary>
-        internal static string rsCellContentsRequired {
+        public static string rsCellContentsRequired {
             get {
                 return ResourceManager.GetString("rsCellContentsRequired", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains at least one PlotType setting, which is different from the default setting &quot;Auto&quot;. The PlotType will be ignored, because the chart subtype is different from HybridLine..
         /// </summary>
-        internal static string rsChartSeriesPlotTypeIgnored {
+        public static string rsChartSeriesPlotTypeIgnored {
             get {
                 return ResourceManager.GetString("rsChartSeriesPlotTypeIgnored", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies both {2} and {3}.  A {0} must not specify both of these properties..
         /// </summary>
-        internal static string rsCollationAndCollationCultureSpecified {
+        public static string rsCollationAndCollationCultureSpecified {
             get {
                 return ResourceManager.GetString("rsCollationAndCollationCultureSpecified", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The data extension used for the {0} ‘{1}’ failed to detect the default collation properties for the connection. Details: {3}.
         /// </summary>
-        internal static string rsCollationDetectionFailed {
+        public static string rsCollationDetectionFailed {
             get {
                 return ResourceManager.GetString("rsCollationDetectionFailed", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The processing of {2} for the {0} ‘{1}’ cannot be performed. The comparison failed. Please check the data type returned by the {2}..
         /// </summary>
-        internal static string rsComparisonError {
+        public static string rsComparisonError {
             get {
                 return ResourceManager.GetString("rsComparisonError", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The processing of {2} for the {0} ‘{1}’ cannot be performed. Cannot compare data of types {3} and {4}. Please check the data type returned by the {2}..
         /// </summary>
-        internal static string rsComparisonTypeError {
+        public static string rsComparisonTypeError {
             get {
                 return ResourceManager.GetString("rsComparisonTypeError", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Error in class instance declaration for class {1}: {3}.
         /// </summary>
-        internal static string rsCompilerErrorInClassInstanceDeclaration {
+        public static string rsCompilerErrorInClassInstanceDeclaration {
             get {
                 return ResourceManager.GetString("rsCompilerErrorInClassInstanceDeclaration", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to There is an error on line {4} of custom code: {3}.
         /// </summary>
-        internal static string rsCompilerErrorInCode {
+        public static string rsCompilerErrorInCode {
             get {
                 return ResourceManager.GetString("rsCompilerErrorInCode", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ contains an error: {3}.
         /// </summary>
-        internal static string rsCompilerErrorInExpression {
+        public static string rsCompilerErrorInExpression {
             get {
                 return ResourceManager.GetString("rsCompilerErrorInExpression", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Two or more groupings associated with dataset &apos;{1}&apos; describe conflicting NaturalGroup requirements. Groups without an ancestor or descendent relationship with the same dataset may only use NaturalGroup if they define the same sequence of group expressions..
         /// </summary>
-        internal static string rsConflictingNaturalGroupRequirements {
+        public static string rsConflictingNaturalGroupRequirements {
             get {
                 return ResourceManager.GetString("rsConflictingNaturalGroupRequirements", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Two or more groupings associated with the dataset &apos;{1}&apos; describe conflicting NaturalSort requirements. Groups without an ancestor/descendent relationship associated with the same dataset may only use NaturalSort if they define the same sequence of sort expressions..
         /// </summary>
-        internal static string rsConflictingNaturalSortRequirements {
+        public static string rsConflictingNaturalSortRequirements {
             get {
                 return ResourceManager.GetString("rsConflictingNaturalSortRequirements", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to RunningValue or RowNumber functions used in the cells of the {0} &apos;{1}&apos; refer to grouping scopes in both the columns and rows of the {0}.  The scope parameters of all RunningValue and RowNumber functions within a {0} can refer to row grouping or column groupings, but not both..
         /// </summary>
-        internal static string rsConflictingRunningValueScopesInMatrix {
+        public static string rsConflictingRunningValueScopesInMatrix {
             get {
                 return ResourceManager.GetString("rsConflictingRunningValueScopesInMatrix", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Previous, RunningValue or RowNumber aggregate functions used in the data cells of the {0} &apos;{1}&apos; refer to grouping scopes in both the columns and rows of the {0}.  The scope parameters of all Previous, RunningValue and RowNumber aggregate functions within a {0} can refer to row groupings or data column groupings, but not both..
         /// </summary>
-        internal static string rsConflictingRunningValueScopesInTablix {
+        public static string rsConflictingRunningValueScopesInTablix {
             get {
                 return ResourceManager.GetString("rsConflictingRunningValueScopesInTablix", resourceCulture);
             }
@@ -405,7 +405,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; defines a {2} with both NaturalSort and DeferredSort. You cannot use both NaturalSort and DeferredSort on the same {2}..
         /// </summary>
-        internal static string rsConflictingSortFlags {
+        public static string rsConflictingSortFlags {
             get {
                 return ResourceManager.GetString("rsConflictingSortFlags", resourceCulture);
             }
@@ -414,7 +414,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; includes the function CountRows.  CountRows cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsCountRowsInPageSectionExpression {
+        public static string rsCountRowsInPageSectionExpression {
             get {
                 return ResourceManager.GetString("rsCountRowsInPageSectionExpression", resourceCulture);
             }
@@ -423,7 +423,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; uses the function “Count(*, scope)”.  This function is no longer supported - use “CountRows(scope)” instead..
         /// </summary>
-        internal static string rsCountStarNotSupported {
+        public static string rsCountStarNotSupported {
             get {
                 return ResourceManager.GetString("rsCountStarNotSupported", resourceCulture);
             }
@@ -432,7 +432,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; uses the function “RunningValue(*, Count, scope)”.  This function is no longer supported - use “RowNumber(scope)” instead..
         /// </summary>
-        internal static string rsCountStarRVNotSupported {
+        public static string rsCountStarRVNotSupported {
             get {
                 return ResourceManager.GetString("rsCountStarRVNotSupported", resourceCulture);
             }
@@ -441,7 +441,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to One or more data source credentials required to run the report have not been specified..
         /// </summary>
-        internal static string rsCredentialsNotSpecified {
+        public static string rsCredentialsNotSpecified {
             get {
                 return ResourceManager.GetString("rsCredentialsNotSpecified", resourceCulture);
             }
@@ -450,7 +450,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ‘{2}’ extension failed to load the extension assembly. The {0} ‘{1}’ will render the AltReportItem or preserve the white space if no AltReportItem is explicitly defined..
         /// </summary>
-        internal static string rsCRIControlFailedToLoad {
+        public static string rsCRIControlFailedToLoad {
             get {
                 return ResourceManager.GetString("rsCRIControlFailedToLoad", resourceCulture);
             }
@@ -459,7 +459,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ‘{2}’ extension is not present in the configuration file.  Therefore, the {0} ‘{1}’ shows empty space..
         /// </summary>
-        internal static string rsCRIControlNotInstalled {
+        public static string rsCRIControlNotInstalled {
             get {
                 return ResourceManager.GetString("rsCRIControlNotInstalled", resourceCulture);
             }
@@ -468,7 +468,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is in the page header or footer. Custom reportitems cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsCRIInPageSection {
+        public static string rsCRIInPageSection {
             get {
                 return ResourceManager.GetString("rsCRIInPageSection", resourceCulture);
             }
@@ -477,7 +477,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a {2} grouping level with both of the following: static and non-static groups. Multiple groups on the same level have to be all static..
         /// </summary>
-        internal static string rsCRIMultiNonStaticGroups {
+        public static string rsCRIMultiNonStaticGroups {
             get {
                 return ResourceManager.GetString("rsCRIMultiNonStaticGroups", resourceCulture);
             }
@@ -486,7 +486,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has multiple static {2} groups at different grouping levels. A {0} may have at most one level of static groups..
         /// </summary>
-        internal static string rsCRIMultiStaticColumnsOrRows {
+        public static string rsCRIMultiStaticColumnsOrRows {
             get {
                 return ResourceManager.GetString("rsCRIMultiStaticColumnsOrRows", resourceCulture);
             }
@@ -495,7 +495,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error has occurred during processing of the CustomReportItem &apos;{0}&apos; with the &apos;{1}&apos; extension..
         /// </summary>
-        internal static string rsCRIProcessingError {
+        public static string rsCRIProcessingError {
             get {
                 return ResourceManager.GetString("rsCRIProcessingError", resourceCulture);
             }
@@ -504,7 +504,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has multiple instances at runtime. All generated RenderItems must be not null. The {2} extension returned an empty RenderItem..
         /// </summary>
-        internal static string rsCRIRenderInstanceNull {
+        public static string rsCRIRenderInstanceNull {
             get {
                 return ResourceManager.GetString("rsCRIRenderInstanceNull", resourceCulture);
             }
@@ -513,7 +513,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The CustomReportItem ‘{3}’ has multiple instances at runtime. All RenderItem instances of a particular CustomReportItem must have identical report item definition names. The expected name is ‘{4}’. The {2} extension returned a RenderItem instance with a different definition name ‘{1}’..
         /// </summary>
-        internal static string rsCRIRenderItemDefinitionName {
+        public static string rsCRIRenderItemDefinitionName {
             get {
                 return ResourceManager.GetString("rsCRIRenderItemDefinitionName", resourceCulture);
             }
@@ -522,7 +522,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} extension for CustomReportItem ‘{3}’ created an {0} ‘{1}’ with a shared and a non-shared {4} style property. Style properties can be either shared or non-shared, but not both..
         /// </summary>
-        internal static string rsCRIRenderItemDuplicateStyle {
+        public static string rsCRIRenderItemDuplicateStyle {
             get {
                 return ResourceManager.GetString("rsCRIRenderItemDuplicateStyle", resourceCulture);
             }
@@ -531,7 +531,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The CustomReportItem ‘{3}’ has multiple instances at runtime. All RenderItem instances of a particular CustomReportItem must have identical report item types. The expected type is {4}. The {2} extension returned a RenderItem instance of type {0}..
         /// </summary>
-        internal static string rsCRIRenderItemInstanceType {
+        public static string rsCRIRenderItemInstanceType {
             get {
                 return ResourceManager.GetString("rsCRIRenderItemInstanceType", resourceCulture);
             }
@@ -540,7 +540,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The CustomReportItem ‘{3}’ has multiple instances at runtime. The {2} extension created an invalid RenderItem instance for {0} ‘{1}’. All style properties must be defined for the first instance and can be omitted for additional instances. The {4} style property is not defined on the first instance..
         /// </summary>
-        internal static string rsCRIRenderItemInvalidStyle {
+        public static string rsCRIRenderItemInvalidStyle {
             get {
                 return ResourceManager.GetString("rsCRIRenderItemInvalidStyle", resourceCulture);
             }
@@ -549,7 +549,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The CustomReportItem ‘{3}’ has multiple instances at runtime. The {2} extension created an invalid RenderItem instance for {0} ‘{1}’. The {4} style cannot be shared for the first instance and non-shared for other instances..
         /// </summary>
-        internal static string rsCRIRenderItemInvalidStyleType {
+        public static string rsCRIRenderItemInvalidStyleType {
             get {
                 return ResourceManager.GetString("rsCRIRenderItemInvalidStyleType", resourceCulture);
             }
@@ -558,7 +558,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ‘{2}’ extension returned an empty RenderItem for {0} ‘{1}’. RenderItems must be not null..
         /// </summary>
-        internal static string rsCRIRenderItemNull {
+        public static string rsCRIRenderItemNull {
             get {
                 return ResourceManager.GetString("rsCRIRenderItemNull", resourceCulture);
             }
@@ -567,7 +567,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The CustomReportItem ‘{3}’ has multiple instances at runtime. All RenderItem instances of a CustomReportItem must have the same number of {4}. The expected number of {4} is {5}. The {2} extension returned a RenderItem instance with {6} {4}..
         /// </summary>
-        internal static string rsCRIRenderItemProperties {
+        public static string rsCRIRenderItemProperties {
             get {
                 return ResourceManager.GetString("rsCRIRenderItemProperties", resourceCulture);
             }
@@ -576,7 +576,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has at least one static {2} group with a subgrouping. A static group cannot have subgroupings..
         /// </summary>
-        internal static string rsCRIStaticWithSubgroups {
+        public static string rsCRIStaticWithSubgroups {
             get {
                 return ResourceManager.GetString("rsCRIStaticWithSubgroups", resourceCulture);
             }
@@ -585,7 +585,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a {2} group with subtotal = true. Automatic subtotal calculation is not supported..
         /// </summary>
-        internal static string rsCRISubtotalNotSupported {
+        public static string rsCRISubtotalNotSupported {
             get {
                 return ResourceManager.GetString("rsCRISubtotalNotSupported", resourceCulture);
             }
@@ -594,7 +594,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses the aggregate function “Aggregate”.  The aggregate function “Aggregate” cannot be used in a report that contains any filters..
         /// </summary>
-        internal static string rsCustomAggregateAndFilter {
+        public static string rsCustomAggregateAndFilter {
             get {
                 return ResourceManager.GetString("rsCustomAggregateAndFilter", resourceCulture);
             }
@@ -603,7 +603,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ contains a direct or indirect reference to itself.  Loops in expressions are not allowed..
         /// </summary>
-        internal static string rsCyclicExpression {
+        public static string rsCyclicExpression {
             get {
                 return ResourceManager.GetString("rsCyclicExpression", resourceCulture);
             }
@@ -612,7 +612,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ contains a direct or indirect reference to itself.  Loops in variable value expressions are not allowed..
         /// </summary>
-        internal static string rsCyclicExpressionInGroupVariable {
+        public static string rsCyclicExpressionInGroupVariable {
             get {
                 return ResourceManager.GetString("rsCyclicExpressionInGroupVariable", resourceCulture);
             }
@@ -621,7 +621,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} contains a direct or indirect reference to itself.  Loops in variable value expressions are not allowed..
         /// </summary>
-        internal static string rsCyclicExpressionInReportVariable {
+        public static string rsCyclicExpressionInReportVariable {
             get {
                 return ResourceManager.GetString("rsCyclicExpressionInReportVariable", resourceCulture);
             }
@@ -630,7 +630,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The data source &apos;{0}&apos; uses a custom data processing extension which does not implement IDbConnectionExtension. Therefore, only the No Credentials setting is supported..
         /// </summary>
-        internal static string rsDataExtensionWithoutConnectionExtension {
+        public static string rsDataExtensionWithoutConnectionExtension {
             get {
                 return ResourceManager.GetString("rsDataExtensionWithoutConnectionExtension", resourceCulture);
             }
@@ -639,7 +639,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is in a list that has no group expressions defined for it.  To use a data region in a list, the list must have group expressions..
         /// </summary>
-        internal static string rsDataRegionInDetailList {
+        public static string rsDataRegionInDetailList {
             get {
                 return ResourceManager.GetString("rsDataRegionInDetailList", resourceCulture);
             }
@@ -648,7 +648,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is in the page header or footer.  Data regions and subreports cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsDataRegionInPageSection {
+        public static string rsDataRegionInPageSection {
             get {
                 return ResourceManager.GetString("rsDataRegionInPageSection", resourceCulture);
             }
@@ -657,7 +657,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is contained inside a table detail row.  Data regions are not allowed inside a table detail row..
         /// </summary>
-        internal static string rsDataRegionInTableDetailRow {
+        public static string rsDataRegionInTableDetailRow {
             get {
                 return ResourceManager.GetString("rsDataRegionInTableDetailRow", resourceCulture);
             }
@@ -666,7 +666,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is in the report body but the report has no dataset.  Data regions are not allowed in reports without datasets..
         /// </summary>
-        internal static string rsDataRegionWithoutDataSet {
+        public static string rsDataRegionWithoutDataSet {
             get {
                 return ResourceManager.GetString("rsDataRegionWithoutDataSet", resourceCulture);
             }
@@ -675,7 +675,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has an inner aggregate in an outer aggregate that specifies a dataset scope.  An aggregate that specifies a dataset scope cannot contain other aggregates..
         /// </summary>
-        internal static string rsDataSetAggregateOfAggregates {
+        public static string rsDataSetAggregateOfAggregates {
             get {
                 return ResourceManager.GetString("rsDataSetAggregateOfAggregates", resourceCulture);
             }
@@ -684,7 +684,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a definition for the {2} ‘{3}’. The data type for this field is not supported..
         /// </summary>
-        internal static string rsDataSetFieldTypeNotSupported {
+        public static string rsDataSetFieldTypeNotSupported {
             get {
                 return ResourceManager.GetString("rsDataSetFieldTypeNotSupported", resourceCulture);
             }
@@ -693,7 +693,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to a dataset.  Datasets cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsDataSetInPageSectionExpression {
+        public static string rsDataSetInPageSectionExpression {
             get {
                 return ResourceManager.GetString("rsDataSetInPageSectionExpression", resourceCulture);
             }
@@ -702,7 +702,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the parameter ‘{1}’ in the dataset ‘{3}’ refers to a dataset.  Datasets cannot be used in query parameter expressions..
         /// </summary>
-        internal static string rsDataSetInQueryParameterExpression {
+        public static string rsDataSetInQueryParameterExpression {
             get {
                 return ResourceManager.GetString("rsDataSetInQueryParameterExpression", resourceCulture);
             }
@@ -711,7 +711,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the language of &apos;{1}&apos; refers to a dataset. Datasets cannot be used in report language expressions..
         /// </summary>
-        internal static string rsDataSetInReportLanguageExpression {
+        public static string rsDataSetInReportLanguageExpression {
             get {
                 return ResourceManager.GetString("rsDataSetInReportLanguageExpression", resourceCulture);
             }
@@ -720,7 +720,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} expression used for the report parameter ‘{1}’ refers to a dataset.  Datasets cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsDataSetInReportParameterExpression {
+        public static string rsDataSetInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsDataSetInReportParameterExpression", resourceCulture);
             }
@@ -729,7 +729,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to One or more parameters required to run the shared dataset have not been specified..
         /// </summary>
-        internal static string rsDatasetParametersNotSpecified {
+        public static string rsDatasetParametersNotSpecified {
             get {
                 return ResourceManager.GetString("rsDatasetParametersNotSpecified", resourceCulture);
             }
@@ -738,7 +738,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to a non-existing dataset ‘{3}’. Letters in the names of datasets must use the correct case..
         /// </summary>
-        internal static string rsDataSetReference {
+        public static string rsDataSetReference {
             get {
                 return ResourceManager.GetString("rsDataSetReference", resourceCulture);
             }
@@ -747,7 +747,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The dataset ‘{1}’ refers to the shared data set ‘{3}’, which is not published on the report server.  The shared data set ‘{3}’ must be published before this report can run..
         /// </summary>
-        internal static string rsDataSetReferenceNotPublished {
+        public static string rsDataSetReferenceNotPublished {
             get {
                 return ResourceManager.GetString("rsDataSetReferenceNotPublished", resourceCulture);
             }
@@ -756,7 +756,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies zero fields..
         /// </summary>
-        internal static string rsDataSetWithoutFields {
+        public static string rsDataSetWithoutFields {
             get {
                 return ResourceManager.GetString("rsDataSetWithoutFields", resourceCulture);
             }
@@ -765,7 +765,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Error during processing of the ConnectString expression of data source ‘{0}’..
         /// </summary>
-        internal static string rsDataSourceConnectStringProcessingError {
+        public static string rsDataSourceConnectStringProcessingError {
             get {
                 return ResourceManager.GetString("rsDataSourceConnectStringProcessingError", resourceCulture);
             }
@@ -774,7 +774,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to a data source.  Data sources cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsDataSourceInPageSectionExpression {
+        public static string rsDataSourceInPageSectionExpression {
             get {
                 return ResourceManager.GetString("rsDataSourceInPageSectionExpression", resourceCulture);
             }
@@ -783,7 +783,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the parameter ‘{1}’ in the dataset ‘{3}’ refers to a data source.  Data sources cannot be used in query parameter expressions..
         /// </summary>
-        internal static string rsDataSourceInQueryParameterExpression {
+        public static string rsDataSourceInQueryParameterExpression {
             get {
                 return ResourceManager.GetString("rsDataSourceInQueryParameterExpression", resourceCulture);
             }
@@ -792,7 +792,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the language of &apos;{1}&apos; refers to a data source. Data sources cannot be used in report language expressions..
         /// </summary>
-        internal static string rsDataSourceInReportLanguageExpression {
+        public static string rsDataSourceInReportLanguageExpression {
             get {
                 return ResourceManager.GetString("rsDataSourceInReportLanguageExpression", resourceCulture);
             }
@@ -801,7 +801,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} expression used for the report parameter ‘{1}’ refers to a data source.  Data sources cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsDataSourceInReportParameterExpression {
+        public static string rsDataSourceInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsDataSourceInReportParameterExpression", resourceCulture);
             }
@@ -810,7 +810,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Enter a user name and password to access the data source:.
         /// </summary>
-        internal static string rsDataSourcePrompt {
+        public static string rsDataSourcePrompt {
             get {
                 return ResourceManager.GetString("rsDataSourcePrompt", resourceCulture);
             }
@@ -819,7 +819,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to a non-existing data source ‘{3}’. Letters in the names of data sources must use the correct case..
         /// </summary>
-        internal static string rsDataSourceReference {
+        public static string rsDataSourceReference {
             get {
                 return ResourceManager.GetString("rsDataSourceReference", resourceCulture);
             }
@@ -828,7 +828,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The dataset ‘{1}’ refers to the shared data source ‘{3}’, which is not published on the report server.  The shared data source ‘{3}’ must be published before this {2} can run..
         /// </summary>
-        internal static string rsDataSourceReferenceNotPublished {
+        public static string rsDataSourceReferenceNotPublished {
             get {
                 return ResourceManager.GetString("rsDataSourceReferenceNotPublished", resourceCulture);
             }
@@ -837,7 +837,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The type of the data source has not been specified..
         /// </summary>
-        internal static string rsDataSourceTypeNull {
+        public static string rsDataSourceTypeNull {
             get {
                 return ResourceManager.GetString("rsDataSourceTypeNull", resourceCulture);
             }
@@ -846,7 +846,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Integer.
         /// </summary>
-        internal static string rsDataTypeInteger {
+        public static string rsDataTypeInteger {
             get {
                 return ResourceManager.GetString("rsDataTypeInteger", resourceCulture);
             }
@@ -855,7 +855,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Integer or Float.
         /// </summary>
-        internal static string rsDataTypeIntegerOrFloat {
+        public static string rsDataTypeIntegerOrFloat {
             get {
                 return ResourceManager.GetString("rsDataTypeIntegerOrFloat", resourceCulture);
             }
@@ -864,7 +864,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; is not bound to any data region or scope, but defines a relationship to other datasets. Relationships are ignored in this case..
         /// </summary>
-        internal static string rsDefaultRelationshipIgnored {
+        public static string rsDefaultRelationshipIgnored {
             get {
                 return ResourceManager.GetString("rsDefaultRelationshipIgnored", resourceCulture);
             }
@@ -873,7 +873,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Detail groups are not supported for reports that are not processed using the RenderEdit command..
         /// </summary>
-        internal static string rsDetailGroupsNotSupportedInStreamingMode {
+        public static string rsDetailGroupsNotSupportedInStreamingMode {
             get {
                 return ResourceManager.GetString("rsDetailGroupsNotSupportedInStreamingMode", resourceCulture);
             }
@@ -882,7 +882,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one report parameter in the report has the (case-insensitive) name ‘{1}’.  Report parameter names that only differ in case should be avoided..
         /// </summary>
-        internal static string rsDuplicateCaseInsensitiveReportParameterName {
+        public static string rsDuplicateCaseInsensitiveReportParameterName {
             get {
                 return ResourceManager.GetString("rsDuplicateCaseInsensitiveReportParameterName", resourceCulture);
             }
@@ -891,7 +891,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one {2} in the {0} ‘{1}’ has the name ‘{3}’. {2} names must be unique within a chart area..
         /// </summary>
-        internal static string rsDuplicateChartAxisName {
+        public static string rsDuplicateChartAxisName {
             get {
                 return ResourceManager.GetString("rsDuplicateChartAxisName", resourceCulture);
             }
@@ -900,7 +900,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one chart column in the chart ‘{1}’ has the name ‘{3}’.  Chart column names must be unique within a chart..
         /// </summary>
-        internal static string rsDuplicateChartColumnName {
+        public static string rsDuplicateChartColumnName {
             get {
                 return ResourceManager.GetString("rsDuplicateChartColumnName", resourceCulture);
             }
@@ -909,7 +909,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one {2} in the {0} ‘{1}’ has the name ‘{3}’. {2} names must be unique within a derived series..
         /// </summary>
-        internal static string rsDuplicateChartFormulaParameter {
+        public static string rsDuplicateChartFormulaParameter {
             get {
                 return ResourceManager.GetString("rsDuplicateChartFormulaParameter", resourceCulture);
             }
@@ -918,7 +918,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one {2} in the {0} ‘{1}’ has the name ‘{3}’. {2} names must be unique within a legend custom item..
         /// </summary>
-        internal static string rsDuplicateChartLegendCustomItemCellName {
+        public static string rsDuplicateChartLegendCustomItemCellName {
             get {
                 return ResourceManager.GetString("rsDuplicateChartLegendCustomItemCellName", resourceCulture);
             }
@@ -927,7 +927,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one {2} in the {0} ‘{1}’ has the name ‘{3}’. {2} names must be unique within a legend..
         /// </summary>
-        internal static string rsDuplicateChartLegendItemName {
+        public static string rsDuplicateChartLegendItemName {
             get {
                 return ResourceManager.GetString("rsDuplicateChartLegendItemName", resourceCulture);
             }
@@ -936,7 +936,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one class instance in the report has the name ‘{1}’.  Class instance names must be unique within a report..
         /// </summary>
-        internal static string rsDuplicateClassInstanceName {
+        public static string rsDuplicateClassInstanceName {
             get {
                 return ResourceManager.GetString("rsDuplicateClassInstanceName", resourceCulture);
             }
@@ -945,7 +945,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one data source in the report has the name ‘{1}’. Data source names must be unique within a report..
         /// </summary>
-        internal static string rsDuplicateDataSourceName {
+        public static string rsDuplicateDataSourceName {
             get {
                 return ResourceManager.GetString("rsDuplicateDataSourceName", resourceCulture);
             }
@@ -954,7 +954,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one embedded image in the report has the name ‘{1}’.  Embedded image names must be unique within a report..
         /// </summary>
-        internal static string rsDuplicateEmbeddedImageName {
+        public static string rsDuplicateEmbeddedImageName {
             get {
                 return ResourceManager.GetString("rsDuplicateEmbeddedImageName", resourceCulture);
             }
@@ -963,7 +963,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one field in the dataset ‘{4}’ has the name ‘{3}’.  Field names must be unique within a dataset..
         /// </summary>
-        internal static string rsDuplicateFieldName {
+        public static string rsDuplicateFieldName {
             get {
                 return ResourceManager.GetString("rsDuplicateFieldName", resourceCulture);
             }
@@ -972,7 +972,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} within the grouping &apos;{4}&apos; in the {0} &apos;{1}&apos; has a duplicate name, &apos;{3}&apos;. {2} names must be unique within the report..
         /// </summary>
-        internal static string rsDuplicateGroupingVariableName {
+        public static string rsDuplicateGroupingVariableName {
             get {
                 return ResourceManager.GetString("rsDuplicateGroupingVariableName", resourceCulture);
             }
@@ -981,7 +981,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one {2} in the {0} ‘{1}’ has the name ‘{3}’. {2} names must be unique within a {0}..
         /// </summary>
-        internal static string rsDuplicateItemName {
+        public static string rsDuplicateItemName {
             get {
                 return ResourceManager.GetString("rsDuplicateItemName", resourceCulture);
             }
@@ -990,7 +990,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one parameter in the {0} ‘{1}’ has the name ‘{3}’.  Parameter names must be unique within a {0}..
         /// </summary>
-        internal static string rsDuplicateParameterName {
+        public static string rsDuplicateParameterName {
             get {
                 return ResourceManager.GetString("rsDuplicateParameterName", resourceCulture);
             }
@@ -999,7 +999,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one report item in the report has the name ‘{1}’.  Report item names must be unique within a report..
         /// </summary>
-        internal static string rsDuplicateReportItemName {
+        public static string rsDuplicateReportItemName {
             get {
                 return ResourceManager.GetString("rsDuplicateReportItemName", resourceCulture);
             }
@@ -1008,7 +1008,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one report parameter in the report has the name ‘{1}’.  Report parameter names must be unique within a report..
         /// </summary>
-        internal static string rsDuplicateReportParameterName {
+        public static string rsDuplicateReportParameterName {
             get {
                 return ResourceManager.GetString("rsDuplicateReportParameterName", resourceCulture);
             }
@@ -1017,7 +1017,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one report section in the report has the name ‘{1}’.  Report section names must be unique within a report..
         /// </summary>
-        internal static string rsDuplicateReportSectionName {
+        public static string rsDuplicateReportSectionName {
             get {
                 return ResourceManager.GetString("rsDuplicateReportSectionName", resourceCulture);
             }
@@ -1026,7 +1026,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to More than one dataset, data region, or grouping in the report has the name ‘{3}’.  Dataset, data region, and grouping names must be unique within a report..
         /// </summary>
-        internal static string rsDuplicateScopeName {
+        public static string rsDuplicateScopeName {
             get {
                 return ResourceManager.GetString("rsDuplicateScopeName", resourceCulture);
             }
@@ -1035,7 +1035,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; contains a {2} with a duplicate name, &apos;{3}&apos;. {2} names must be unique within the report..
         /// </summary>
-        internal static string rsDuplicateVariableName {
+        public static string rsDuplicateVariableName {
             get {
                 return ResourceManager.GetString("rsDuplicateVariableName", resourceCulture);
             }
@@ -1044,7 +1044,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid element, {2}. Element {2} must contain a {3} child element..
         /// </summary>
-        internal static string rsElementMustContainChild {
+        public static string rsElementMustContainChild {
             get {
                 return ResourceManager.GetString("rsElementMustContainChild", resourceCulture);
             }
@@ -1053,7 +1053,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid element, {2}. Element {2} must contain at least one {3}..
         /// </summary>
-        internal static string rsElementMustContainChildren {
+        public static string rsElementMustContainChildren {
             get {
                 return ResourceManager.GetString("rsElementMustContainChildren", resourceCulture);
             }
@@ -1062,7 +1062,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The subreport &apos;{3}&apos; could not be processed. Parent report &apos;{4}&apos; failed to automatically republish, or it contains a Reporting Services 2005-style CustomReportItem, and is therefore incompatible with the subreport. To correct this error, please attempt to republish the parent report manually. If it contains a CustomReportItem, please upgrade the report to the latest version. .
         /// </summary>
-        internal static string rsEngineMismatchParentReport {
+        public static string rsEngineMismatchParentReport {
             get {
                 return ResourceManager.GetString("rsEngineMismatchParentReport", resourceCulture);
             }
@@ -1071,7 +1071,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The subreport &apos;{3}&apos; could not be processed within parent report &apos;{4}&apos; due to a mismatch in execution engines. Either the subreport failed to automatically republish, or the subreport contains a Reporting Services 2005-style CustomReportItem. To correct this error, please attempt to republish the subreport manually. If it contains a CustomReportItem, please upgrade the report to the latest version. .
         /// </summary>
-        internal static string rsEngineMismatchSubReport {
+        public static string rsEngineMismatchSubReport {
             get {
                 return ResourceManager.GetString("rsEngineMismatchSubReport", resourceCulture);
             }
@@ -1080,7 +1080,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot add multi value query parameter &apos;{1}&apos; for dataset &apos;{0}&apos; because it is not supported by the data extension..
         /// </summary>
-        internal static string rsErrorAddingMultiValueQueryParameter {
+        public static string rsErrorAddingMultiValueQueryParameter {
             get {
                 return ResourceManager.GetString("rsErrorAddingMultiValueQueryParameter", resourceCulture);
             }
@@ -1089,7 +1089,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot add a query parameter to the parameter collection for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorAddingQueryParameter {
+        public static string rsErrorAddingQueryParameter {
             get {
                 return ResourceManager.GetString("rsErrorAddingQueryParameter", resourceCulture);
             }
@@ -1098,7 +1098,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error occurred while canceling the command for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorCancelingCommand {
+        public static string rsErrorCancelingCommand {
             get {
                 return ResourceManager.GetString("rsErrorCancelingCommand", resourceCulture);
             }
@@ -1107,7 +1107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Failed to close connection for data source &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorClosingConnection {
+        public static string rsErrorClosingConnection {
             get {
                 return ResourceManager.GetString("rsErrorClosingConnection", resourceCulture);
             }
@@ -1116,7 +1116,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Failed to commit transaction for data source &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorCommitTransaction {
+        public static string rsErrorCommitTransaction {
             get {
                 return ResourceManager.GetString("rsErrorCommitTransaction", resourceCulture);
             }
@@ -1125,7 +1125,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot create command for data source &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorCreatingCommand {
+        public static string rsErrorCreatingCommand {
             get {
                 return ResourceManager.GetString("rsErrorCreatingCommand", resourceCulture);
             }
@@ -1134,7 +1134,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot create a data reader for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorCreatingDataReader {
+        public static string rsErrorCreatingDataReader {
             get {
                 return ResourceManager.GetString("rsErrorCreatingDataReader", resourceCulture);
             }
@@ -1143,7 +1143,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot create query parameter for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorCreatingQueryParameter {
+        public static string rsErrorCreatingQueryParameter {
             get {
                 return ResourceManager.GetString("rsErrorCreatingQueryParameter", resourceCulture);
             }
@@ -1152,7 +1152,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot dispose a data reader for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorDisposingDataReader {
+        public static string rsErrorDisposingDataReader {
             get {
                 return ResourceManager.GetString("rsErrorDisposingDataReader", resourceCulture);
             }
@@ -1161,7 +1161,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error has occurred during rendering of chart {0}. Details: {1}.
         /// </summary>
-        internal static string rsErrorDuringChartRendering {
+        public static string rsErrorDuringChartRendering {
             get {
                 return ResourceManager.GetString("rsErrorDuringChartRendering", resourceCulture);
             }
@@ -1170,7 +1170,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Attempted overwrite of read-only property. A property value can be set only during report item instance evaluation..
         /// </summary>
-        internal static string rsErrorDuringROMDefinitionWriteback {
+        public static string rsErrorDuringROMDefinitionWriteback {
             get {
                 return ResourceManager.GetString("rsErrorDuringROMDefinitionWriteback", resourceCulture);
             }
@@ -1179,7 +1179,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Attempted overwrite of read-only property. A property value set during report item definition generation cannot be reset during report item instance evaluation..
         /// </summary>
-        internal static string rsErrorDuringROMWriteback {
+        public static string rsErrorDuringROMWriteback {
             get {
                 return ResourceManager.GetString("rsErrorDuringROMWriteback", resourceCulture);
             }
@@ -1188,7 +1188,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Dynamic action can be constructed only during report item instance evaluation..
         /// </summary>
-        internal static string rsErrorDuringROMWritebackDynamicAction {
+        public static string rsErrorDuringROMWritebackDynamicAction {
             get {
                 return ResourceManager.GetString("rsErrorDuringROMWritebackDynamicAction", resourceCulture);
             }
@@ -1197,7 +1197,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Non-dynamic action can be constructed only during report item definition generation..
         /// </summary>
-        internal static string rsErrorDuringROMWritebackNonDynamicAction {
+        public static string rsErrorDuringROMWritebackNonDynamicAction {
             get {
                 return ResourceManager.GetString("rsErrorDuringROMWritebackNonDynamicAction", resourceCulture);
             }
@@ -1206,7 +1206,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Only string values are allowed during report item definition generation..
         /// </summary>
-        internal static string rsErrorDuringROMWritebackStringExpected {
+        public static string rsErrorDuringROMWritebackStringExpected {
             get {
                 return ResourceManager.GetString("rsErrorDuringROMWritebackStringExpected", resourceCulture);
             }
@@ -1215,7 +1215,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Query execution failed for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorExecutingCommand {
+        public static string rsErrorExecutingCommand {
             get {
                 return ResourceManager.GetString("rsErrorExecutingCommand", resourceCulture);
             }
@@ -1224,7 +1224,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error occurred while executing the subreport &apos;{1}&apos; (Instance: {2}): {3}.
         /// </summary>
-        internal static string rsErrorExecutingSubreport {
+        public static string rsErrorExecutingSubreport {
             get {
                 return ResourceManager.GetString("rsErrorExecutingSubreport", resourceCulture);
             }
@@ -1233,7 +1233,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Reverting to RS service account for connecting to data source &apos;{0}&apos; is not allowed..
         /// </summary>
-        internal static string rsErrorImpersonateServiceAccountNotAllowed {
+        public static string rsErrorImpersonateServiceAccountNotAllowed {
             get {
                 return ResourceManager.GetString("rsErrorImpersonateServiceAccountNotAllowed", resourceCulture);
             }
@@ -1242,7 +1242,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot revert to RS service account for connecting to data source &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorImpersonatingServiceAccount {
+        public static string rsErrorImpersonatingServiceAccount {
             get {
                 return ResourceManager.GetString("rsErrorImpersonatingServiceAccount", resourceCulture);
             }
@@ -1251,7 +1251,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot impersonate user for data source &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorImpersonatingUser {
+        public static string rsErrorImpersonatingUser {
             get {
                 return ResourceManager.GetString("rsErrorImpersonatingUser", resourceCulture);
             }
@@ -1260,7 +1260,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error occurred while executing OnInit: {3}.
         /// </summary>
-        internal static string rsErrorInOnInit {
+        public static string rsErrorInOnInit {
             get {
                 return ResourceManager.GetString("rsErrorInOnInit", resourceCulture);
             }
@@ -1269,7 +1269,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Error while loading code module: ‘{3}’. Details: {4}.
         /// </summary>
-        internal static string rsErrorLoadingCodeModule {
+        public static string rsErrorLoadingCodeModule {
             get {
                 return ResourceManager.GetString("rsErrorLoadingCodeModule", resourceCulture);
             }
@@ -1278,7 +1278,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Failed to load expression host assembly. Details: {3}.
         /// </summary>
-        internal static string rsErrorLoadingExprHostAssembly {
+        public static string rsErrorLoadingExprHostAssembly {
             get {
                 return ResourceManager.GetString("rsErrorLoadingExprHostAssembly", resourceCulture);
             }
@@ -1287,7 +1287,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot create a connection to data source &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorOpeningConnection {
+        public static string rsErrorOpeningConnection {
             get {
                 return ResourceManager.GetString("rsErrorOpeningConnection", resourceCulture);
             }
@@ -1296,7 +1296,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot read IsAggregationField for a data field for the dataset {0}..
         /// </summary>
-        internal static string rsErrorReadingDataAggregationField {
+        public static string rsErrorReadingDataAggregationField {
             get {
                 return ResourceManager.GetString("rsErrorReadingDataAggregationField", resourceCulture);
             }
@@ -1305,7 +1305,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot read a data field for the dataset {0}..
         /// </summary>
-        internal static string rsErrorReadingDataField {
+        public static string rsErrorReadingDataField {
             get {
                 return ResourceManager.GetString("rsErrorReadingDataField", resourceCulture);
             }
@@ -1314,7 +1314,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a definition for the {2} ‘{3}’. The data extension returned an error during reading the field. {4}.
         /// </summary>
-        internal static string rsErrorReadingDataSetField {
+        public static string rsErrorReadingDataSetField {
             get {
                 return ResourceManager.GetString("rsErrorReadingDataSetField", resourceCulture);
             }
@@ -1323,7 +1323,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a definition for the {2} ‘{3}({4})’. The data extension returned an error during reading the field property. {5}.
         /// </summary>
-        internal static string rsErrorReadingFieldProperty {
+        public static string rsErrorReadingFieldProperty {
             get {
                 return ResourceManager.GetString("rsErrorReadingFieldProperty", resourceCulture);
             }
@@ -1332,7 +1332,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot read the next data row for the dataset {0}..
         /// </summary>
-        internal static string rsErrorReadingNextDataRow {
+        public static string rsErrorReadingNextDataRow {
             get {
                 return ResourceManager.GetString("rsErrorReadingNextDataRow", resourceCulture);
             }
@@ -1341,7 +1341,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Failed to roll back transaction for data source &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorRollbackTransaction {
+        public static string rsErrorRollbackTransaction {
             get {
                 return ResourceManager.GetString("rsErrorRollbackTransaction", resourceCulture);
             }
@@ -1350,7 +1350,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot set the command text for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorSettingCommandText {
+        public static string rsErrorSettingCommandText {
             get {
                 return ResourceManager.GetString("rsErrorSettingCommandText", resourceCulture);
             }
@@ -1359,7 +1359,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot set the command type for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorSettingCommandType {
+        public static string rsErrorSettingCommandType {
             get {
                 return ResourceManager.GetString("rsErrorSettingCommandType", resourceCulture);
             }
@@ -1368,7 +1368,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot set the query timeout for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorSettingQueryTimeout {
+        public static string rsErrorSettingQueryTimeout {
             get {
                 return ResourceManager.GetString("rsErrorSettingQueryTimeout", resourceCulture);
             }
@@ -1377,7 +1377,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot set the StartAt parameter for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorSettingStartAt {
+        public static string rsErrorSettingStartAt {
             get {
                 return ResourceManager.GetString("rsErrorSettingStartAt", resourceCulture);
             }
@@ -1386,7 +1386,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot set the transaction for dataset &apos;{0}&apos;..
         /// </summary>
-        internal static string rsErrorSettingTransaction {
+        public static string rsErrorSettingTransaction {
             get {
                 return ResourceManager.GetString("rsErrorSettingTransaction", resourceCulture);
             }
@@ -1395,7 +1395,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report or subreport has a has a recursive subreport, &apos;{0}&apos;, that exceeded the maximum recursion limit allowed..
         /// </summary>
-        internal static string rsExceededMaxRecursionLevel {
+        public static string rsExceededMaxRecursionLevel {
             get {
                 return ResourceManager.GetString("rsExceededMaxRecursionLevel", resourceCulture);
             }
@@ -1404,7 +1404,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to #Error.
         /// </summary>
-        internal static string rsExpressionErrorValue {
+        public static string rsExpressionErrorValue {
             get {
                 return ResourceManager.GetString("rsExpressionErrorValue", resourceCulture);
             }
@@ -1413,7 +1413,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to There is a syntax error in the {2} expression for the {0} ‘{1}’: ‘)’ expected..
         /// </summary>
-        internal static string rsExpressionMissingCloseParen {
+        public static string rsExpressionMissingCloseParen {
             get {
                 return ResourceManager.GetString("rsExpressionMissingCloseParen", resourceCulture);
             }
@@ -1422,7 +1422,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression used in {0} ‘{1}’ references a dataset field which contains an error: {3}.
         /// </summary>
-        internal static string rsFieldErrorInExpression {
+        public static string rsFieldErrorInExpression {
             get {
                 return ResourceManager.GetString("rsFieldErrorInExpression", resourceCulture);
             }
@@ -1431,7 +1431,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to a field.  Fields cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsFieldInPageSectionExpression {
+        public static string rsFieldInPageSectionExpression {
             get {
                 return ResourceManager.GetString("rsFieldInPageSectionExpression", resourceCulture);
             }
@@ -1440,7 +1440,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the parameter ‘{1}’ in the dataset ‘{3}’ refers to a field.  Fields cannot be used in query parameter expressions..
         /// </summary>
-        internal static string rsFieldInQueryParameterExpression {
+        public static string rsFieldInQueryParameterExpression {
             get {
                 return ResourceManager.GetString("rsFieldInQueryParameterExpression", resourceCulture);
             }
@@ -1449,7 +1449,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the language of &apos;{1}&apos; refers to a field. Fields cannot be used in report language expressions..
         /// </summary>
-        internal static string rsFieldInReportLanguageExpression {
+        public static string rsFieldInReportLanguageExpression {
             get {
                 return ResourceManager.GetString("rsFieldInReportLanguageExpression", resourceCulture);
             }
@@ -1458,7 +1458,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} expression used for the report parameter ‘{1}’ refers to a field.  Fields cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsFieldInReportParameterExpression {
+        public static string rsFieldInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsFieldInReportParameterExpression", resourceCulture);
             }
@@ -1467,7 +1467,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the field ‘{3}’.  Report item expressions can only refer to fields within the current dataset scope or, if inside an aggregate, the specified dataset scope. Letters in the names of fields must use the correct case..
         /// </summary>
-        internal static string rsFieldReference {
+        public static string rsFieldReference {
             get {
                 return ResourceManager.GetString("rsFieldReference", resourceCulture);
             }
@@ -1476,7 +1476,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers directly to the field ‘{3}’ without specifying a dataset aggregate.  When the report contains multiple datasets, field references outside of a data region must be contained within aggregate functions which specify a dataset scope. .
         /// </summary>
-        internal static string rsFieldReferenceAmbiguous {
+        public static string rsFieldReferenceAmbiguous {
             get {
                 return ResourceManager.GetString("rsFieldReferenceAmbiguous", resourceCulture);
             }
@@ -1485,7 +1485,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Failed to evaluate the {2} of the {0} ‘{1}’..
         /// </summary>
-        internal static string rsFilterEvaluationError {
+        public static string rsFilterEvaluationError {
             get {
                 return ResourceManager.GetString("rsFilterEvaluationError", resourceCulture);
             }
@@ -1494,7 +1494,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Failed to evaluate the {2} of the {0} ‘{1}’. It references a dataset field which has an error: {3}.
         /// </summary>
-        internal static string rsFilterFieldError {
+        public static string rsFilterFieldError {
             get {
                 return ResourceManager.GetString("rsFilterFieldError", resourceCulture);
             }
@@ -1503,7 +1503,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ includes a table header or column with {2} set to true.  This is not allowed on data regions inside other data regions..
         /// </summary>
-        internal static string rsFixedHeadersInInnerDataRegion {
+        public static string rsFixedHeadersInInnerDataRegion {
             get {
                 return ResourceManager.GetString("rsFixedHeadersInInnerDataRegion", resourceCulture);
             }
@@ -1512,7 +1512,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error has occurred during data evaluation of the GaugePanel &apos;{0}&apos;..
         /// </summary>
-        internal static string rsGaugePanelInvalidData {
+        public static string rsGaugePanelInvalidData {
             get {
                 return ResourceManager.GetString("rsGaugePanelInvalidData", resourceCulture);
             }
@@ -1521,7 +1521,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Minimum for Scale should be less than Maximum of GaugePanel &apos;{0}&apos;..
         /// </summary>
-        internal static string rsGaugePanelInvalidMinMaxScale {
+        public static string rsGaugePanelInvalidMinMaxScale {
             get {
                 return ResourceManager.GetString("rsGaugePanelInvalidMinMaxScale", resourceCulture);
             }
@@ -1530,7 +1530,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to StartValue for Range should be less than EndValue of GaugePanel &apos;{0}&apos;..
         /// </summary>
-        internal static string rsGaugePanelInvalidStartEndRange {
+        public static string rsGaugePanelInvalidStartEndRange {
             get {
                 return ResourceManager.GetString("rsGaugePanelInvalidStartEndRange", resourceCulture);
             }
@@ -1539,7 +1539,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the global variable Aggregates, which is not defined..
         /// </summary>
-        internal static string rsGlobalNotDefined {
+        public static string rsGlobalNotDefined {
             get {
                 return ResourceManager.GetString("rsGlobalNotDefined", resourceCulture);
             }
@@ -1548,7 +1548,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The &apos;{0}&apos; report or shared dataset has a connection string with a userid reference and cannot be run unattended..
         /// </summary>
-        internal static string rsHasUserProfileDependencies {
+        public static string rsHasUserProfileDependencies {
             get {
                 return ResourceManager.GetString("rsHasUserProfileDependencies", resourceCulture);
             }
@@ -1557,7 +1557,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has a {2} that contains hidden content. Either the ColSpan or RowSpan is set to 0..
         /// </summary>
-        internal static string rsHiddenTablixCornerCellContents {
+        public static string rsHiddenTablixCornerCellContents {
             get {
                 return ResourceManager.GetString("rsHiddenTablixCornerCellContents", resourceCulture);
             }
@@ -1566,7 +1566,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Grouping &apos;{3}&apos; in {0} &apos;{1}&apos; uses both NaturalGroup and NaturalSort but the sort expressions and group expressions describe conflicting order requirements on the dataset. The sort expressions for a group must contain all group expressions for that group when both NaturalGroup and NaturalSort are present..
         /// </summary>
-        internal static string rsIncompatibleNaturalSortAndNaturalGroup {
+        public static string rsIncompatibleNaturalSortAndNaturalGroup {
             get {
                 return ResourceManager.GetString("rsIncompatibleNaturalSortAndNaturalGroup", resourceCulture);
             }
@@ -1575,7 +1575,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; specifies multiple incompatible scopes in the same aggregate expression.  Nested aggregates cannot specify multiple peer groups and cannot specify both child groups and nested data regions.  The scopes for all nested aggregates must be the same as, a parent of, or a child of the scopes all other nested aggregates in the same expression..
         /// </summary>
-        internal static string rsIncompatibleNestedAggregateScopes {
+        public static string rsIncompatibleNestedAggregateScopes {
             get {
                 return ResourceManager.GetString("rsIncompatibleNestedAggregateScopes", resourceCulture);
             }
@@ -1584,7 +1584,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an inconsistent number of {2}Cells within the {2}Row. Each {2}Row must have the same number of {2}Cells..
         /// </summary>
-        internal static string rsInconsistentNumberofCellsInRow {
+        public static string rsInconsistentNumberofCellsInRow {
             get {
                 return ResourceManager.GetString("rsInconsistentNumberofCellsInRow", resourceCulture);
             }
@@ -1593,7 +1593,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is defined at the scope “{3}”, which is identical to the scope used as {2}. This interactive sort has no effect at runtime, since it sorts only the particular instance itself. .
         /// </summary>
-        internal static string rsIneffectiveSortExpressionScope {
+        public static string rsIneffectiveSortExpressionScope {
             get {
                 return ResourceManager.GetString("rsIneffectiveSortExpressionScope", resourceCulture);
             }
@@ -1602,7 +1602,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; contains the InScope or Level function in the Expression argument of a Previous function.  The InScope and Level functions cannot be used in the Expression parameter of the Previous function..
         /// </summary>
-        internal static string rsInScopeOrLevelInPreviousAggregate {
+        public static string rsInScopeOrLevelInPreviousAggregate {
             get {
                 return ResourceManager.GetString("rsInScopeOrLevelInPreviousAggregate", resourceCulture);
             }
@@ -1611,7 +1611,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an Action that has more than one of the following: Hyperlink, BookmarkLink or Drillthrough.  Action must have exactly one of these elements..
         /// </summary>
-        internal static string rsInvalidAction {
+        public static string rsInvalidAction {
             get {
                 return ResourceManager.GetString("rsInvalidAction", resourceCulture);
             }
@@ -1620,7 +1620,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has multiple actions. Action label property is required..
         /// </summary>
-        internal static string rsInvalidActionLabel {
+        public static string rsInvalidActionLabel {
             get {
                 return ResourceManager.GetString("rsInvalidActionLabel", resourceCulture);
             }
@@ -1629,7 +1629,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} has an invalid number of number of {3}. {2} is limited to one {3}..
         /// </summary>
-        internal static string rsInvalidActionsCount {
+        public static string rsInvalidActionsCount {
             get {
                 return ResourceManager.GetString("rsInvalidActionsCount", resourceCulture);
             }
@@ -1638,7 +1638,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; in dataset &apos;{3}&apos; specifies an invalid {2} value. {2} values must be the name of another {0} in the same dataset. {2} values may refer to a calculated field with a constant Boolean value..
         /// </summary>
-        internal static string rsInvalidAggregateIndicatorField {
+        public static string rsInvalidAggregateIndicatorField {
             get {
                 return ResourceManager.GetString("rsInvalidAggregateIndicatorField", resourceCulture);
             }
@@ -1647,7 +1647,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses an aggregate expression with an invalid recursive/simple flag.  The valid values for this flag are ‘Recursive’ and ‘Simple’..
         /// </summary>
-        internal static string rsInvalidAggregateRecursiveFlag {
+        public static string rsInvalidAggregateRecursiveFlag {
             get {
                 return ResourceManager.GetString("rsInvalidAggregateRecursiveFlag", resourceCulture);
             }
@@ -1656,7 +1656,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has a scope parameter that is not valid for an aggregate function.  The scope parameter must be set to a string constant that is equal to either the name of a containing group, the name of a containing data region, or the name of a dataset..
         /// </summary>
-        internal static string rsInvalidAggregateScope {
+        public static string rsInvalidAggregateScope {
             get {
                 return ResourceManager.GetString("rsInvalidAggregateScope", resourceCulture);
             }
@@ -1665,7 +1665,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} element for the {0} ‘{1}’ can not contain a CustomReportItem element..
         /// </summary>
-        internal static string rsInvalidAltReportItem {
+        public static string rsInvalidAltReportItem {
             get {
                 return ResourceManager.GetString("rsInvalidAltReportItem", resourceCulture);
             }
@@ -1674,7 +1674,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The extended properties document has an invalid root element..
         /// </summary>
-        internal static string rsInvalidAppPropsRootElement {
+        public static string rsInvalidAppPropsRootElement {
             get {
                 return ResourceManager.GetString("rsInvalidAppPropsRootElement", resourceCulture);
             }
@@ -1683,7 +1683,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidBackgroundGradientType {
+        public static string rsInvalidBackgroundGradientType {
             get {
                 return ResourceManager.GetString("rsInvalidBackgroundGradientType", resourceCulture);
             }
@@ -1692,7 +1692,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidBackgroundHatchType {
+        public static string rsInvalidBackgroundHatchType {
             get {
                 return ResourceManager.GetString("rsInvalidBackgroundHatchType", resourceCulture);
             }
@@ -1701,7 +1701,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidBackgroundImagePosition {
+        public static string rsInvalidBackgroundImagePosition {
             get {
                 return ResourceManager.GetString("rsInvalidBackgroundImagePosition", resourceCulture);
             }
@@ -1710,7 +1710,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidBackgroundRepeat {
+        public static string rsInvalidBackgroundRepeat {
             get {
                 return ResourceManager.GetString("rsInvalidBackgroundRepeat", resourceCulture);
             }
@@ -1719,7 +1719,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has LayoutDirection set to &apos;RTL&apos;. For banding, only &apos;LTR&apos; is supported..
         /// </summary>
-        internal static string rsInvalidBandInvalidLayoutDirection {
+        public static string rsInvalidBandInvalidLayoutDirection {
             get {
                 return ResourceManager.GetString("rsInvalidBandInvalidLayoutDirection", resourceCulture);
             }
@@ -1728,7 +1728,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies a Band of navigation type {2}. The Band must define either a ReportItemReference or a ReportItem, but not both..
         /// </summary>
-        internal static string rsInvalidBandNavigationItem {
+        public static string rsInvalidBandNavigationItem {
             get {
                 return ResourceManager.GetString("rsInvalidBandNavigationItem", resourceCulture);
             }
@@ -1737,7 +1737,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies a Band of navigation type {2} with an invalid report item reference, &apos;{3}&apos;. It must reference a report item that is in the body of the tablix. The report item may not be contained within a group of a nested tablix..
         /// </summary>
-        internal static string rsInvalidBandNavigationReference {
+        public static string rsInvalidBandNavigationReference {
             get {
                 return ResourceManager.GetString("rsInvalidBandNavigationReference", resourceCulture);
             }
@@ -1746,7 +1746,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies BandLayoutOptions with more than one navigation type. Only one navigation element can be specified, such as Coverflow or PlayAxis..
         /// </summary>
-        internal static string rsInvalidBandNavigations {
+        public static string rsInvalidBandNavigations {
             get {
                 return ResourceManager.GetString("rsInvalidBandNavigations", resourceCulture);
             }
@@ -1755,7 +1755,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has PageBreak set on grouping &apos;{2}&apos;. To support banding, Tablix is not allowed to have a grouping that sets the PageBreak property..
         /// </summary>
-        internal static string rsInvalidBandPageBreakIsSet {
+        public static string rsInvalidBandPageBreakIsSet {
             get {
                 return ResourceManager.GetString("rsInvalidBandPageBreakIsSet", resourceCulture);
             }
@@ -1764,7 +1764,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has a toggleable dynamic member. To support banding, a tablix is not allowed to have togglable dynamic members..
         /// </summary>
-        internal static string rsInvalidBandShouldNotBeTogglable {
+        public static string rsInvalidBandShouldNotBeTogglable {
             get {
                 return ResourceManager.GetString("rsInvalidBandShouldNotBeTogglable", resourceCulture);
             }
@@ -1773,7 +1773,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has the value “{3}”, which is not a valid Boolean value..
         /// </summary>
-        internal static string rsInvalidBooleanConstant {
+        public static string rsInvalidBooleanConstant {
             get {
                 return ResourceManager.GetString("rsInvalidBooleanConstant", resourceCulture);
             }
@@ -1782,7 +1782,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidBorderStyle {
+        public static string rsInvalidBorderStyle {
             get {
                 return ResourceManager.GetString("rsInvalidBorderStyle", resourceCulture);
             }
@@ -1791,7 +1791,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidCalendar {
+        public static string rsInvalidCalendar {
             get {
                 return ResourceManager.GetString("rsInvalidCalendar", resourceCulture);
             }
@@ -1800,7 +1800,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2} for language ‘{4}’..
         /// </summary>
-        internal static string rsInvalidCalendarForLanguage {
+        public static string rsInvalidCalendarForLanguage {
             get {
                 return ResourceManager.GetString("rsInvalidCalendarForLanguage", resourceCulture);
             }
@@ -1809,7 +1809,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a CategoryGrouping with both or neither of the following: DynamicCategories and StaticCategories.  CategoryGrouping must have exactly one of these elements..
         /// </summary>
-        internal static string rsInvalidCategoryGrouping {
+        public static string rsInvalidCategoryGrouping {
             get {
                 return ResourceManager.GetString("rsInvalidCategoryGrouping", resourceCulture);
             }
@@ -1818,7 +1818,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {0} in the {5} &apos;{1}&apos; contains an invalid {2} (Expected: ‘{3}’; Actual: ‘{4}’). The {2} of {0} must be the same as the {2} of the innermost group in both grouping axes, unless a relationship is specified on the {0} or the dataset..
         /// </summary>
-        internal static string rsInvalidCellDataSetName {
+        public static string rsInvalidCellDataSetName {
             get {
                 return ResourceManager.GetString("rsInvalidCellDataSetName", resourceCulture);
             }
@@ -1827,7 +1827,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ contains a colon or a line terminator.  Colons and line terminators are not valid in expressions..
         /// </summary>
-        internal static string rsInvalidCharacterInExpression {
+        public static string rsInvalidCharacterInExpression {
             get {
                 return ResourceManager.GetString("rsInvalidCharacterInExpression", resourceCulture);
             }
@@ -1836,7 +1836,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The definition of the chart {0} is not valid..
         /// </summary>
-        internal static string rsInvalidChart {
+        public static string rsInvalidChart {
             get {
                 return ResourceManager.GetString("rsInvalidChart", resourceCulture);
             }
@@ -1845,7 +1845,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; contains an invalid {2} Name, &apos;{3}&apos;. The name must be greater than 0 and less than or equal to {4} characters..
         /// </summary>
-        internal static string rsInvalidChartAxisNameLength {
+        public static string rsInvalidChartAxisNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidChartAxisNameLength", resourceCulture);
             }
@@ -1854,7 +1854,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; contains an invalid {2} Name, &apos;{3}&apos;. The name must be CLS-Compliant..
         /// </summary>
-        internal static string rsInvalidChartAxisNameNotCLSCompliant {
+        public static string rsInvalidChartAxisNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidChartAxisNameNotCLSCompliant", resourceCulture);
             }
@@ -1863,7 +1863,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A chart column in the chart ‘{1}’ has the name ‘{3}’.  Chart column names must be greater than 0 and less than or equal to {4} characters..
         /// </summary>
-        internal static string rsInvalidChartColumnNameLength {
+        public static string rsInvalidChartColumnNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidChartColumnNameLength", resourceCulture);
             }
@@ -1872,7 +1872,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A chart column in the chart ‘{1}’ has the name ‘{3}’.  Chart column names must be CLS-compliant identifiers..
         /// </summary>
-        internal static string rsInvalidChartColumnNameNotCLSCompliant {
+        public static string rsInvalidChartColumnNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidChartColumnNameNotCLSCompliant", resourceCulture);
             }
@@ -1881,7 +1881,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The DataPoints in the {0} ‘{1}’ has an invalid set of {2} items. {2} names must be unique within the {2} collection for the DataPoint, and for this Chart&apos;s type, all of the following must be specified in the DataPoint&apos;s {2} collection: {3}..
         /// </summary>
-        internal static string rsInvalidChartDataValueName {
+        public static string rsInvalidChartDataValueName {
             get {
                 return ResourceManager.GetString("rsInvalidChartDataValueName", resourceCulture);
             }
@@ -1890,7 +1890,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a {2} at index {4} with an invalid {3} at index {5}. The name of the {3} must be a Constant..
         /// </summary>
-        internal static string rsInvalidChartDataValueNameNotConstant {
+        public static string rsInvalidChartDataValueNameNotConstant {
             get {
                 return ResourceManager.GetString("rsInvalidChartDataValueNameNotConstant", resourceCulture);
             }
@@ -1899,7 +1899,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The DataPoint {2} in the {0} ‘{1}’ has the name “{3}”. DataValue names cannot be null and must be unique within the DataValues collection for the DataPoint..
         /// </summary>
-        internal static string rsInvalidChartDataValueNameNotUnique {
+        public static string rsInvalidChartDataValueNameNotUnique {
             get {
                 return ResourceManager.GetString("rsInvalidChartDataValueNameNotUnique", resourceCulture);
             }
@@ -1908,7 +1908,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has both StaticCategories and StaticSeries. A pie or doughnut chart can have StaticCategories or StaticSeries, but not both..
         /// </summary>
-        internal static string rsInvalidChartGroupings {
+        public static string rsInvalidChartGroupings {
             get {
                 return ResourceManager.GetString("rsInvalidChartGroupings", resourceCulture);
             }
@@ -1917,7 +1917,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid {2} level at level {3}. Levels within a {2} can only have one ChartMember, unless each member at that level is static (i.e., no Group specified), and static ChartMembers cannot have child ChartMembers..
         /// </summary>
-        internal static string rsInvalidChartHierarchy {
+        public static string rsInvalidChartHierarchy {
             get {
                 return ResourceManager.GetString("rsInvalidChartHierarchy", resourceCulture);
             }
@@ -1926,7 +1926,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  The {0} &apos;{1}&apos; has an invalid {2}. The {2} has an invalid {3}, &apos;{4}&apos;. Child {2} elements of Static {2} elements must be Dynamic {3} (i.e., It must have a {3}, which must contain {5})..
         /// </summary>
-        internal static string rsInvalidChartMemberMustBeDynamic {
+        public static string rsInvalidChartMemberMustBeDynamic {
             get {
                 return ResourceManager.GetString("rsInvalidChartMemberMustBeDynamic", resourceCulture);
             }
@@ -1935,7 +1935,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. The {2} has an invalid {3}, &apos;{4}&apos;. Non-Static {3} elements must contain at least 1 {5}..
         /// </summary>
-        internal static string rsInvalidChartMemberMustContainGroupExpressions {
+        public static string rsInvalidChartMemberMustContainGroupExpressions {
             get {
                 return ResourceManager.GetString("rsInvalidChartMemberMustContainGroupExpressions", resourceCulture);
             }
@@ -1944,7 +1944,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid subtype. The subtype ‘{4}’ is not allowed for a chart of type ‘{3}’..
         /// </summary>
-        internal static string rsInvalidChartSubType {
+        public static string rsInvalidChartSubType {
             get {
                 return ResourceManager.GetString("rsInvalidChartSubType", resourceCulture);
             }
@@ -1953,7 +1953,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; is bound to a data source using the {2} data extension.  The data extension returned an invalid database collation culture name: {3}..
         /// </summary>
-        internal static string rsInvalidCollationCultureName {
+        public static string rsInvalidCollationCultureName {
             get {
                 return ResourceManager.GetString("rsInvalidCollationCultureName", resourceCulture);
             }
@@ -1962,7 +1962,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies a database collation name that is not valid: {3}..
         /// </summary>
-        internal static string rsInvalidCollationName {
+        public static string rsInvalidCollationName {
             get {
                 return ResourceManager.GetString("rsInvalidCollationName", resourceCulture);
             }
@@ -1971,7 +1971,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidColor {
+        public static string rsInvalidColor {
             get {
                 return ResourceManager.GetString("rsInvalidColor", resourceCulture);
             }
@@ -1980,7 +1980,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. Column GaugeMember cannot contain multiple child members..
         /// </summary>
-        internal static string rsInvalidColumnGaugeMemberCannotContainMultipleChildMember {
+        public static string rsInvalidColumnGaugeMemberCannotContainMultipleChildMember {
             get {
                 return ResourceManager.GetString("rsInvalidColumnGaugeMemberCannotContainMultipleChildMember", resourceCulture);
             }
@@ -1989,7 +1989,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a ColumnGrouping with both or neither of the following: DynamicColumns and StaticColumns.  ColumnGrouping must have exactly one of these elements..
         /// </summary>
-        internal static string rsInvalidColumnGrouping {
+        public static string rsInvalidColumnGrouping {
             get {
                 return ResourceManager.GetString("rsInvalidColumnGrouping", resourceCulture);
             }
@@ -1998,7 +1998,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. Column MapMember cannot contain multiple child members..
         /// </summary>
-        internal static string rsInvalidColumnMapMemberCannotContainMultipleChildMember {
+        public static string rsInvalidColumnMapMemberCannotContainMultipleChildMember {
             get {
                 return ResourceManager.GetString("rsInvalidColumnMapMemberCannotContainMultipleChildMember", resourceCulture);
             }
@@ -2007,7 +2007,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The number of columns specified for the report body is not valid.  The number of columns must be between 1 and 1000..
         /// </summary>
-        internal static string rsInvalidColumnsInBody {
+        public static string rsInvalidColumnsInBody {
             get {
                 return ResourceManager.GetString("rsInvalidColumnsInBody", resourceCulture);
             }
@@ -2016,7 +2016,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The number of columns specified for the body of ReportSection {3} is not valid. The number of columns must be between 1 and 1000..
         /// </summary>
-        internal static string rsInvalidColumnsInReportSection {
+        public static string rsInvalidColumnsInReportSection {
             get {
                 return ResourceManager.GetString("rsInvalidColumnsInReportSection", resourceCulture);
             }
@@ -2025,7 +2025,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for {0} &apos;{1}&apos; uses a complex expression. Complex expressions are not allowed in RDLX reports..
         /// </summary>
-        internal static string rsInvalidComplexExpression {
+        public static string rsInvalidComplexExpression {
             get {
                 return ResourceManager.GetString("rsInvalidComplexExpression", resourceCulture);
             }
@@ -2034,7 +2034,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report contains a complex expression. Complex expressions are not allowed in RDLX reports..
         /// </summary>
-        internal static string rsInvalidComplexExpressionInReport {
+        public static string rsInvalidComplexExpressionInReport {
             get {
                 return ResourceManager.GetString("rsInvalidComplexExpressionInReport", resourceCulture);
             }
@@ -2043,7 +2043,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses the function Aggregate with an invalid expression parameter.  The expression parameter must be a simple field reference..
         /// </summary>
-        internal static string rsInvalidCustomAggregateExpression {
+        public static string rsInvalidCustomAggregateExpression {
             get {
                 return ResourceManager.GetString("rsInvalidCustomAggregateExpression", resourceCulture);
             }
@@ -2052,7 +2052,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses the function Aggregate with an invalid scope parameter.  The scope parameter must be the name of a scope where all containing grouping scopes have group expressions that are simple field references or constants..
         /// </summary>
-        internal static string rsInvalidCustomAggregateScope {
+        public static string rsInvalidCustomAggregateScope {
             get {
                 return ResourceManager.GetString("rsInvalidCustomAggregateScope", resourceCulture);
             }
@@ -2061,7 +2061,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A custom property in the {0} ‘{1}’ has the name “{2}”.  Custom property names cannot be null and must be unique within the custom properties collection..
         /// </summary>
-        internal static string rsInvalidCustomPropertyName {
+        public static string rsInvalidCustomPropertyName {
             get {
                 return ResourceManager.GetString("rsInvalidCustomPropertyName", resourceCulture);
             }
@@ -2070,7 +2070,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ did not evaluate to an image..
         /// </summary>
-        internal static string rsInvalidDatabaseImage {
+        public static string rsInvalidDatabaseImage {
             get {
                 return ResourceManager.GetString("rsInvalidDatabaseImage", resourceCulture);
             }
@@ -2079,7 +2079,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidDatabaseImageProperty {
+        public static string rsInvalidDatabaseImageProperty {
             get {
                 return ResourceManager.GetString("rsInvalidDatabaseImageProperty", resourceCulture);
             }
@@ -2088,7 +2088,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {3} property for the {0} ‘{1}’ contains ‘{4}’. Field names must be greater than 0 and less than or equal to {5} characters..
         /// </summary>
-        internal static string rsInvalidDataElementNameLength {
+        public static string rsInvalidDataElementNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidDataElementNameLength", resourceCulture);
             }
@@ -2097,7 +2097,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {3} property for the {0} ‘{1}’ contains ‘{4}’, which is not a CLS-compliant identifier..
         /// </summary>
-        internal static string rsInvalidDataElementNameNotCLSCompliant {
+        public static string rsInvalidDataElementNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidDataElementNameNotCLSCompliant", resourceCulture);
             }
@@ -2106,7 +2106,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to RDLX reports cannot use a data source with a data extension that does not support StartAt or GetModelMetadata..
         /// </summary>
-        internal static string rsInvalidDataExtension {
+        public static string rsInvalidDataExtension {
             get {
                 return ResourceManager.GetString("rsInvalidDataExtension", resourceCulture);
             }
@@ -2115,7 +2115,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ refers to an invalid {2} ‘{3}’..
         /// </summary>
-        internal static string rsInvalidDataSetName {
+        public static string rsInvalidDataSetName {
             get {
                 return ResourceManager.GetString("rsInvalidDataSetName", resourceCulture);
             }
@@ -2124,7 +2124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ must define either a Query or a SharedDataSetReference, but not both..
         /// </summary>
-        internal static string rsInvalidDataSetQuery {
+        public static string rsInvalidDataSetQuery {
             get {
                 return ResourceManager.GetString("rsInvalidDataSetQuery", resourceCulture);
             }
@@ -2133,7 +2133,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  The report parameter ‘{1}’ uses the field ‘{3}’ in a dataset reference, but the dataset ‘{4}’ does not contain that field..
         /// </summary>
-        internal static string rsInvalidDataSetReferenceField {
+        public static string rsInvalidDataSetReferenceField {
             get {
                 return ResourceManager.GetString("rsInvalidDataSetReferenceField", resourceCulture);
             }
@@ -2142,7 +2142,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; is not bound to any data region or scope. Only first dataset-scoped aggregates are supported in that case. However, an aggregate of type {2} is used, which is currently not supported. .
         /// </summary>
-        internal static string rsInvalidDataSetScopedAggregate {
+        public static string rsInvalidDataSetScopedAggregate {
             get {
                 return ResourceManager.GetString("rsInvalidDataSetScopedAggregate", resourceCulture);
             }
@@ -2151,7 +2151,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The data source ‘{1}’ has both or neither of the following: DataSourceReference and ConnectionProperties.  DataSource must have exactly one of these elements..
         /// </summary>
-        internal static string rsInvalidDataSource {
+        public static string rsInvalidDataSource {
             get {
                 return ResourceManager.GetString("rsInvalidDataSource", resourceCulture);
             }
@@ -2160,7 +2160,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report contains an invalid data source with the name ‘{1}’. Data source names must be greater than 0 and less than or equal to {3} characters..
         /// </summary>
-        internal static string rsInvalidDataSourceNameLength {
+        public static string rsInvalidDataSourceNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidDataSourceNameLength", resourceCulture);
             }
@@ -2169,7 +2169,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report contains an invalid data source with the name ‘{1}’. Data source names must be CLS-compliant identifiers..
         /// </summary>
-        internal static string rsInvalidDataSourceNameNotCLSCompliant {
+        public static string rsInvalidDataSourceNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidDataSourceNameNotCLSCompliant", resourceCulture);
             }
@@ -2178,7 +2178,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The dataset ‘{1}’ refers to the data source “{3}”, which does not exist..
         /// </summary>
-        internal static string rsInvalidDataSourceReference {
+        public static string rsInvalidDataSourceReference {
             get {
                 return ResourceManager.GetString("rsInvalidDataSourceReference", resourceCulture);
             }
@@ -2187,7 +2187,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has the value “{3}”, which is not a valid DateTime value..
         /// </summary>
-        internal static string rsInvalidDateTimeConstant {
+        public static string rsInvalidDateTimeConstant {
             get {
                 return ResourceManager.GetString("rsInvalidDateTimeConstant", resourceCulture);
             }
@@ -2196,7 +2196,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} specified in {0} &apos;{1}&apos; contains a {2} circular reference. Circular references within a {2} are not allowed. Check {0} &apos;{3}&apos;..
         /// </summary>
-        internal static string rsInvalidDefaultRelationshipCircularReference {
+        public static string rsInvalidDefaultRelationshipCircularReference {
             get {
                 return ResourceManager.GetString("rsInvalidDefaultRelationshipCircularReference", resourceCulture);
             }
@@ -2205,7 +2205,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} for {0} &apos;{1}&apos; contains a {3} that has already been specified in a previous {2}. {3} can only be specified once within the list of {2} in a {0}..
         /// </summary>
-        internal static string rsInvalidDefaultRelationshipDuplicateRelatedDataset {
+        public static string rsInvalidDefaultRelationshipDuplicateRelatedDataset {
             get {
                 return ResourceManager.GetString("rsInvalidDefaultRelationshipDuplicateRelatedDataset", resourceCulture);
             }
@@ -2214,7 +2214,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies a {2} that is missing the {3} property or sets the {3} property to false. The {3} property in a {2} must be set to true..
         /// </summary>
-        internal static string rsInvalidDefaultRelationshipNotNaturalJoin {
+        public static string rsInvalidDefaultRelationshipNotNaturalJoin {
             get {
                 return ResourceManager.GetString("rsInvalidDefaultRelationshipNotNaturalJoin", resourceCulture);
             }
@@ -2223,7 +2223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report parameter ‘{1}’ has a DefaultValue that has both or neither of the following: Values and DataSetReference. DefaultValue must have exactly one of these elements..
         /// </summary>
-        internal static string rsInvalidDefaultValue {
+        public static string rsInvalidDefaultValue {
             get {
                 return ResourceManager.GetString("rsInvalidDefaultValue", resourceCulture);
             }
@@ -2232,7 +2232,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report parameter ‘{1}’ default value refers to a dataset “{3}”, which does not exist..
         /// </summary>
-        internal static string rsInvalidDefaultValueDataSetReference {
+        public static string rsInvalidDefaultValueDataSetReference {
             get {
                 return ResourceManager.GetString("rsInvalidDefaultValueDataSetReference", resourceCulture);
             }
@@ -2241,7 +2241,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report parameter ‘{1}’ has a DefaultValue that has a Values collection containing more than one value. For single-value parameters, only the first value in the Values collection will be used..
         /// </summary>
-        internal static string rsInvalidDefaultValueValues {
+        public static string rsInvalidDefaultValueValues {
             get {
                 return ResourceManager.GetString("rsInvalidDefaultValueValues", resourceCulture);
             }
@@ -2250,7 +2250,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; defines sort expressions with DeferredSort. DeferredSort may only be used when the parent object is a group..
         /// </summary>
-        internal static string rsInvalidDeferredSortContainer {
+        public static string rsInvalidDeferredSortContainer {
             get {
                 return ResourceManager.GetString("rsInvalidDeferredSortContainer", resourceCulture);
             }
@@ -2259,7 +2259,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a detail member with inner members. Detail members can only contain static inner members..
         /// </summary>
-        internal static string rsInvalidDetailDataGrouping {
+        public static string rsInvalidDetailDataGrouping {
             get {
                 return ResourceManager.GetString("rsInvalidDetailDataGrouping", resourceCulture);
             }
@@ -2268,7 +2268,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidDirection {
+        public static string rsInvalidDirection {
             get {
                 return ResourceManager.GetString("rsInvalidDirection", resourceCulture);
             }
@@ -2277,7 +2277,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The embedded image ‘{1}’ contains invalid data.  Embedded image data must be a base 64 encoded string..
         /// </summary>
-        internal static string rsInvalidEmbeddedImage {
+        public static string rsInvalidEmbeddedImage {
             get {
                 return ResourceManager.GetString("rsInvalidEmbeddedImage", resourceCulture);
             }
@@ -2286,7 +2286,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report contains an invalid embedded image name, ‘{1}’. Embedded image names must be greater than 0 and less than or equal to {3} characters..
         /// </summary>
-        internal static string rsInvalidEmbeddedImageNameLength {
+        public static string rsInvalidEmbeddedImageNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidEmbeddedImageNameLength", resourceCulture);
             }
@@ -2295,7 +2295,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report contains an embedded image with an invalid name ‘{1}’. Embedded image names must be CLS-Compliant identifiers..
         /// </summary>
-        internal static string rsInvalidEmbeddedImageNameNotCLSCompliant {
+        public static string rsInvalidEmbeddedImageNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidEmbeddedImageNameNotCLSCompliant", resourceCulture);
             }
@@ -2304,7 +2304,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidEmbeddedImageProperty {
+        public static string rsInvalidEmbeddedImageProperty {
             get {
                 return ResourceManager.GetString("rsInvalidEmbeddedImageProperty", resourceCulture);
             }
@@ -2313,7 +2313,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies {2} which is only allowed for embedded images..
         /// </summary>
-        internal static string rsInvalidEmbeddingModeImageProperty {
+        public static string rsInvalidEmbeddingModeImageProperty {
             get {
                 return ResourceManager.GetString("rsInvalidEmbeddingModeImageProperty", resourceCulture);
             }
@@ -2322,7 +2322,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ is invalid (it is an empty string)..
         /// </summary>
-        internal static string rsInvalidEmptyImageReference {
+        public static string rsInvalidEmptyImageReference {
             get {
                 return ResourceManager.GetString("rsInvalidEmptyImageReference", resourceCulture);
             }
@@ -2331,7 +2331,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidEnumValue {
+        public static string rsInvalidEnumValue {
             get {
                 return ResourceManager.GetString("rsInvalidEnumValue", resourceCulture);
             }
@@ -2340,7 +2340,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression used in {0} ‘{1}’ returned a data type that is not valid..
         /// </summary>
-        internal static string rsInvalidExpressionDataType {
+        public static string rsInvalidExpressionDataType {
             get {
                 return ResourceManager.GetString("rsInvalidExpressionDataType", resourceCulture);
             }
@@ -2349,7 +2349,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid {2} “{3}”. The scope must be the current scope, or contained within the current scope..
         /// </summary>
-        internal static string rsInvalidExpressionScope {
+        public static string rsInvalidExpressionScope {
             get {
                 return ResourceManager.GetString("rsInvalidExpressionScope", resourceCulture);
             }
@@ -2358,7 +2358,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid {2} “{3}”. The {2} scope and the {4} scope must be contained in data regions sharing the same dataset..
         /// </summary>
-        internal static string rsInvalidExpressionScopeDataSet {
+        public static string rsInvalidExpressionScopeDataSet {
             get {
                 return ResourceManager.GetString("rsInvalidExpressionScopeDataSet", resourceCulture);
             }
@@ -2367,7 +2367,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidExternalImageProperty {
+        public static string rsInvalidExternalImageProperty {
             get {
                 return ResourceManager.GetString("rsInvalidExternalImageProperty", resourceCulture);
             }
@@ -2376,7 +2376,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a {2} attribute. {2} attributes are not allowed in RDLX reports..
         /// </summary>
-        internal static string rsInvalidFeatureRdlAttribute {
+        public static string rsInvalidFeatureRdlAttribute {
             get {
                 return ResourceManager.GetString("rsInvalidFeatureRdlAttribute", resourceCulture);
             }
@@ -2385,7 +2385,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a {2} element. {2} elements are not allowed in RDLX reports..
         /// </summary>
-        internal static string rsInvalidFeatureRdlElement {
+        public static string rsInvalidFeatureRdlElement {
             get {
                 return ResourceManager.GetString("rsInvalidFeatureRdlElement", resourceCulture);
             }
@@ -2394,7 +2394,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for {0} &apos;{1}&apos; uses function &apos;{3}&apos;. Function &apos;{3}&apos; is not allowed in RDLX reports..
         /// </summary>
-        internal static string rsInvalidFeatureRdlExpression {
+        public static string rsInvalidFeatureRdlExpression {
             get {
                 return ResourceManager.GetString("rsInvalidFeatureRdlExpression", resourceCulture);
             }
@@ -2403,7 +2403,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for {0} &apos;{1}&apos; uses aggregates of aggregates. Aggregates of aggregates are not allowed in RDLX reports..
         /// </summary>
-        internal static string rsInvalidFeatureRdlExpressionAggregatesOfAggregates {
+        public static string rsInvalidFeatureRdlExpressionAggregatesOfAggregates {
             get {
                 return ResourceManager.GetString("rsInvalidFeatureRdlExpressionAggregatesOfAggregates", resourceCulture);
             }
@@ -2412,7 +2412,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} property for {0} &apos;{1}&apos; contains the value &apos;{3}&apos;. This value is not allowed in RDLX reports..
         /// </summary>
-        internal static string rsInvalidFeatureRdlPropertyValue {
+        public static string rsInvalidFeatureRdlPropertyValue {
             get {
                 return ResourceManager.GetString("rsInvalidFeatureRdlPropertyValue", resourceCulture);
             }
@@ -2421,7 +2421,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The field with the name ‘{1}’ in the dataset ‘{3}’ has both or neither of the following properties: DataField and Value.  Fields must have exactly one of these properties..
         /// </summary>
-        internal static string rsInvalidField {
+        public static string rsInvalidField {
             get {
                 return ResourceManager.GetString("rsInvalidField", resourceCulture);
             }
@@ -2430,7 +2430,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A field in the dataset ‘{4}’ has the name ‘{3}’. Field names must be greater than 0 and less than or equal to {5} characters..
         /// </summary>
-        internal static string rsInvalidFieldNameLength {
+        public static string rsInvalidFieldNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidFieldNameLength", resourceCulture);
             }
@@ -2439,7 +2439,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A field in the dataset ‘{4}’ has the name ‘{3}’. Field names must be CLS-compliant identifiers..
         /// </summary>
-        internal static string rsInvalidFieldNameNotCLSCompliant {
+        public static string rsInvalidFieldNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidFieldNameNotCLSCompliant", resourceCulture);
             }
@@ -2448,7 +2448,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A filter value in the filter for {0} ‘{1}’ specifies a data type that is not supported by the &apos;{3}&apos; operator.  Verify that the data type for each filter value is {4}..
         /// </summary>
-        internal static string rsInvalidFilterValueDataType {
+        public static string rsInvalidFilterValueDataType {
             get {
                 return ResourceManager.GetString("rsInvalidFilterValueDataType", resourceCulture);
             }
@@ -2457,7 +2457,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; contains a set of TablixMembers with FixedData set to true in the TablixColumnHierarchy which is incompatible with the cells in the TablixRow at index {2}. The cells corresponding to the fixed columns must begin and end inside the range of fixed columns..
         /// </summary>
-        internal static string rsInvalidFixedDataBodyCellSpans {
+        public static string rsInvalidFixedDataBodyCellSpans {
             get {
                 return ResourceManager.GetString("rsInvalidFixedDataBodyCellSpans", resourceCulture);
             }
@@ -2466,7 +2466,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an incorrectly set {2} property. {2} is not allowed to be set on the first column TablixMember when Tablix.GroupBeforeRowHeaders is set to true..
         /// </summary>
-        internal static string rsInvalidFixedDataColumnPosition {
+        public static string rsInvalidFixedDataColumnPosition {
             get {
                 return ResourceManager.GetString("rsInvalidFixedDataColumnPosition", resourceCulture);
             }
@@ -2475,7 +2475,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an incorrectly set {2} property within the {3}. Only the outermost TablixMembers in a hierarchy can have FixedData set to true..
         /// </summary>
-        internal static string rsInvalidFixedDataInHierarchy {
+        public static string rsInvalidFixedDataInHierarchy {
             get {
                 return ResourceManager.GetString("rsInvalidFixedDataInHierarchy", resourceCulture);
             }
@@ -2484,7 +2484,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an incorrectly set {2} properties within the {3}. All TablixMembers with FixedData set to true must be contiguous..
         /// </summary>
-        internal static string rsInvalidFixedDataNotContiguous {
+        public static string rsInvalidFixedDataNotContiguous {
             get {
                 return ResourceManager.GetString("rsInvalidFixedDataNotContiguous", resourceCulture);
             }
@@ -2493,7 +2493,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an incorrectly set {2} property. {2} is not allowed to be set on row TablixMember, unless it is also set on the first row TablixMember..
         /// </summary>
-        internal static string rsInvalidFixedDataRowPosition {
+        public static string rsInvalidFixedDataRowPosition {
             get {
                 return ResourceManager.GetString("rsInvalidFixedDataRowPosition", resourceCulture);
             }
@@ -2502,7 +2502,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an incorrectly set {2} property on the opposite hierarchy, based on the property {3} of {0}..
         /// </summary>
-        internal static string rsInvalidFixedHeaderOnOppositeHierarchy {
+        public static string rsInvalidFixedHeaderOnOppositeHierarchy {
             get {
                 return ResourceManager.GetString("rsInvalidFixedHeaderOnOppositeHierarchy", resourceCulture);
             }
@@ -2511,7 +2511,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ includes improperly placed columns with {2} set to true.  These columns must be side-by-side, must start with either the left-most or right-most table column, and cannot be applied to all columns on the table..
         /// </summary>
-        internal static string rsInvalidFixedTableColumnHeaderSpacing {
+        public static string rsInvalidFixedTableColumnHeaderSpacing {
             get {
                 return ResourceManager.GetString("rsInvalidFixedTableColumnHeaderSpacing", resourceCulture);
             }
@@ -2520,7 +2520,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has the value “{3}”, which is not a valid Float value..
         /// </summary>
-        internal static string rsInvalidFloatConstant {
+        public static string rsInvalidFloatConstant {
             get {
                 return ResourceManager.GetString("rsInvalidFloatConstant", resourceCulture);
             }
@@ -2529,7 +2529,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidFontStyle {
+        public static string rsInvalidFontStyle {
             get {
                 return ResourceManager.GetString("rsInvalidFontStyle", resourceCulture);
             }
@@ -2538,7 +2538,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidFontWeight {
+        public static string rsInvalidFontWeight {
             get {
                 return ResourceManager.GetString("rsInvalidFontWeight", resourceCulture);
             }
@@ -2547,7 +2547,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} value for the {0} ‘{1}’ is not valid. {3}.
         /// </summary>
-        internal static string rsInvalidFormatString {
+        public static string rsInvalidFormatString {
             get {
                 return ResourceManager.GetString("rsInvalidFormatString", resourceCulture);
             }
@@ -2556,7 +2556,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid TablixMember. The child TablixMember with Group name &apos;{2}&apos; is not a dynamic TablixMember and one of its ancestors is a detail TablixMember. All descendants of a static or detail TablixMember must also be a static or detail TablixMember..
         /// </summary>
-        internal static string rsInvalidGroupAncestorIsDetail {
+        public static string rsInvalidGroupAncestorIsDetail {
             get {
                 return ResourceManager.GetString("rsInvalidGroupAncestorIsDetail", resourceCulture);
             }
@@ -2565,7 +2565,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A group expression for the {0} ‘{1}’ uses the RowNumber function with a scope parameter that is not valid.  When used in a group expression, the value of the scope parameter of RowNumber must equal the name of the group directly containing the current group..
         /// </summary>
-        internal static string rsInvalidGroupExpressionScope {
+        public static string rsInvalidGroupExpressionScope {
             get {
                 return ResourceManager.GetString("rsInvalidGroupExpressionScope", resourceCulture);
             }
@@ -2574,7 +2574,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a non-static {2} group without grouping expression. Detail groups are not supported..
         /// </summary>
-        internal static string rsInvalidGrouping {
+        public static string rsInvalidGrouping {
             get {
                 return ResourceManager.GetString("rsInvalidGrouping", resourceCulture);
             }
@@ -2583,7 +2583,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Grouping &apos;{3}&apos; in {0} &apos;{1}&apos; uses NaturalGroup but the containing grouping, &apos;{4}&apos;, does not use NaturalGroup. NaturalGroup is only effective if all containing groups bound to the same dataset use NaturalGroup..
         /// </summary>
-        internal static string rsInvalidGroupingContainerNotNaturalGroup {
+        public static string rsInvalidGroupingContainerNotNaturalGroup {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingContainerNotNaturalGroup", resourceCulture);
             }
@@ -2592,7 +2592,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The grouping &apos;{3}&apos; in the {0} &apos;{1}&apos; has invalid {2} name &apos;{4}&apos;..
         /// </summary>
-        internal static string rsInvalidGroupingDomainScope {
+        public static string rsInvalidGroupingDomainScope {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingDomainScope", resourceCulture);
             }
@@ -2601,7 +2601,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The grouping &apos;{3}&apos; in the {0} &apos;{1}&apos; has DataSet &apos;{4}&apos; as its domain scope. Only DataRegions and Grouping are allowed for {2}..
         /// </summary>
-        internal static string rsInvalidGroupingDomainScopeDataSet {
+        public static string rsInvalidGroupingDomainScopeDataSet {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingDomainScopeDataSet", resourceCulture);
             }
@@ -2610,7 +2610,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The map grouping &apos;{3}&apos; in the {0} &apos;{1}&apos; has {2} &apos;{4}&apos;. Domain scope will be ignored for map report item..
         /// </summary>
-        internal static string rsInvalidGroupingDomainScopeMap {
+        public static string rsInvalidGroupingDomainScopeMap {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingDomainScopeMap", resourceCulture);
             }
@@ -2619,7 +2619,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The grouping &apos;{3}&apos; in the {0} &apos;{1}&apos; has invalid {2} &apos;{4}&apos;. Domain Scope is allowed only if it is an ancestor scope..
         /// </summary>
-        internal static string rsInvalidGroupingDomainScopeNotAncestor {
+        public static string rsInvalidGroupingDomainScopeNotAncestor {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingDomainScopeNotAncestor", resourceCulture);
             }
@@ -2628,7 +2628,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The non leaf grouping &apos;{3}&apos; in the {0} &apos;{1}&apos; has {2} &apos;{4}&apos;. Domain scope is only allowed for leaf grouping..
         /// </summary>
-        internal static string rsInvalidGroupingDomainScopeNotLeaf {
+        public static string rsInvalidGroupingDomainScopeNotLeaf {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingDomainScopeNotLeaf", resourceCulture);
             }
@@ -2637,7 +2637,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The grouping &apos;{3}&apos; in the {0} &apos;{1}&apos; has {2} &apos;{4}&apos; with Parent defined. Grouping with parent defined cannot be a domain scope target..
         /// </summary>
-        internal static string rsInvalidGroupingDomainScopeTargetWithParent {
+        public static string rsInvalidGroupingDomainScopeTargetWithParent {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingDomainScopeTargetWithParent", resourceCulture);
             }
@@ -2646,7 +2646,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The detail grouping &apos;{3}&apos; in the {0} &apos;{1}&apos; has {2} &apos;{4}&apos;. Domain scope is only allowed for non detail groups..
         /// </summary>
-        internal static string rsInvalidGroupingDomainScopeWithDetailGroup {
+        public static string rsInvalidGroupingDomainScopeWithDetailGroup {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingDomainScopeWithDetailGroup", resourceCulture);
             }
@@ -2655,7 +2655,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The grouping &apos;{3}&apos; in the {0} &apos;{1}&apos; has {2} &apos;{4}&apos; and Parent defined. Domain scope is only allowed if Parent is not defined..
         /// </summary>
-        internal static string rsInvalidGroupingDomainScopeWithParent {
+        public static string rsInvalidGroupingDomainScopeWithParent {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingDomainScopeWithParent", resourceCulture);
             }
@@ -2664,7 +2664,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A grouping in the {0} ‘{1}’ has the name ‘{3}’. Grouping names must be greater than 0 and less than or equal to {3} characters..
         /// </summary>
-        internal static string rsInvalidGroupingNameLength {
+        public static string rsInvalidGroupingNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingNameLength", resourceCulture);
             }
@@ -2673,7 +2673,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A grouping in the {0} ‘{1}’ has the name ‘{3}’. Grouping names must be CLS-compliant identifiers..
         /// </summary>
-        internal static string rsInvalidGroupingNameNotCLSCompliant {
+        public static string rsInvalidGroupingNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingNameNotCLSCompliant", resourceCulture);
             }
@@ -2682,7 +2682,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A grouping in {0} ‘{1}’ uses both NaturalGroup and {3}. NaturalGroup is not effective if the grouping also defines {3}..
         /// </summary>
-        internal static string rsInvalidGroupingNaturalGroupFeature {
+        public static string rsInvalidGroupingNaturalGroupFeature {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingNaturalGroupFeature", resourceCulture);
             }
@@ -2691,7 +2691,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A grouping in the {0} ‘{1}’ has Parent and more than one group expressions. Parent is only allowed if the grouping has exactly one group expression..
         /// </summary>
-        internal static string rsInvalidGroupingParent {
+        public static string rsInvalidGroupingParent {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingParent", resourceCulture);
             }
@@ -2700,7 +2700,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} within the grouping &apos;{4}&apos; in the {0} &apos;{1}&apos; has an invalid name, &apos;{3}&apos;. {2} names must be greater than 0 and less than or equal to {5} characters..
         /// </summary>
-        internal static string rsInvalidGroupingVariableNameLength {
+        public static string rsInvalidGroupingVariableNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingVariableNameLength", resourceCulture);
             }
@@ -2709,7 +2709,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} within the grouping &apos;{4}&apos; in the {0} &apos;{1}&apos; has an invalid name, &apos;{3}&apos;. {2} names must be CLS-compliant identifiers..
         /// </summary>
-        internal static string rsInvalidGroupingVariableNameNotCLSCompliant {
+        public static string rsInvalidGroupingVariableNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidGroupingVariableNameNotCLSCompliant", resourceCulture);
             }
@@ -2718,7 +2718,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value ‘{3}’ of the {2} property of the {0} ‘{1}’ is invalid. This value is the name of a group or dataset over which to apply the hiding: it should either be the name of a group containing the current group or, to hide duplicates over the entire dataset, the name of the current dataset..
         /// </summary>
-        internal static string rsInvalidHideDuplicateScope {
+        public static string rsInvalidHideDuplicateScope {
             get {
                 return ResourceManager.GetString("rsInvalidHideDuplicateScope", resourceCulture);
             }
@@ -2727,7 +2727,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} for the {0} ‘{1}’ is invalid. Details: {3}.
         /// </summary>
-        internal static string rsInvalidImageReference {
+        public static string rsInvalidImageReference {
             get {
                 return ResourceManager.GetString("rsInvalidImageReference", resourceCulture);
             }
@@ -2736,7 +2736,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; contains an invalid {2} (Expected: ‘{3}’; Actual: ‘{4}’). The {2} of the inner data region or group must be the same as the {2} of the outer scope, unless a relationship is specified on the inner scope or on the dataset..
         /// </summary>
-        internal static string rsInvalidInnerDataSetName {
+        public static string rsInvalidInnerDataSetName {
             get {
                 return ResourceManager.GetString("rsInvalidInnerDataSetName", resourceCulture);
             }
@@ -2745,7 +2745,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has the value “{3}”, which is not a valid integer value..
         /// </summary>
-        internal static string rsInvalidIntegerConstant {
+        public static string rsInvalidIntegerConstant {
             get {
                 return ResourceManager.GetString("rsInvalidIntegerConstant", resourceCulture);
             }
@@ -2754,7 +2754,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {3} &apos;{1}&apos; contains a {0} that uses a relationship or default relationship with no JoinConditions. Relationships without JoinConditions are only allowed when the NaturalJoin property is set to True and the relationship is used on the outermost group in a top-level data region..
         /// </summary>
-        internal static string rsInvalidIntersectionNaturalCrossJoin {
+        public static string rsInvalidIntersectionNaturalCrossJoin {
             get {
                 return ResourceManager.GetString("rsInvalidIntersectionNaturalCrossJoin", resourceCulture);
             }
@@ -2763,7 +2763,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {0} at the intersection of Group &apos;{4}&apos; and Group &apos;{5}&apos; in {3} &apos;{1}&apos; uses the same {2} as parent Group &apos;{5}&apos;. A {0} may not use the same {2} as the parent column or series group when the other relationship on the {0} uses NaturalJoin..
         /// </summary>
-        internal static string rsInvalidIntersectionNaturalJoin {
+        public static string rsInvalidIntersectionNaturalJoin {
             get {
                 return ResourceManager.GetString("rsInvalidIntersectionNaturalJoin", resourceCulture);
             }
@@ -2772,7 +2772,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. The {2} must have the same value set for the {3} property as those following or preceding the dynamic {2}. (Expected Value: &quot;{4}&quot;; Actual Value: &quot;{5}&quot;).
         /// </summary>
-        internal static string rsInvalidKeepWithGroup {
+        public static string rsInvalidKeepWithGroup {
             get {
                 return ResourceManager.GetString("rsInvalidKeepWithGroup", resourceCulture);
             }
@@ -2781,7 +2781,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. All {2} elements in a TablixColumnHierarchy must have the {3} property set to &quot;{4}&quot;..
         /// </summary>
-        internal static string rsInvalidKeepWithGroupOnColumnTablixMember {
+        public static string rsInvalidKeepWithGroupOnColumnTablixMember {
             get {
                 return ResourceManager.GetString("rsInvalidKeepWithGroupOnColumnTablixMember", resourceCulture);
             }
@@ -2790,7 +2790,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. A {2} that is dynamic (i.e., has a Group specified) or has dynamic descendants must have the {3} property set to &quot;{4}&quot;..
         /// </summary>
-        internal static string rsInvalidKeepWithGroupOnDynamicTablixMember {
+        public static string rsInvalidKeepWithGroupOnDynamicTablixMember {
             get {
                 return ResourceManager.GetString("rsInvalidKeepWithGroupOnDynamicTablixMember", resourceCulture);
             }
@@ -2799,7 +2799,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidLanguage {
+        public static string rsInvalidLanguage {
             get {
                 return ResourceManager.GetString("rsInvalidLanguage", resourceCulture);
             }
@@ -2808,7 +2808,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidListStyle {
+        public static string rsInvalidListStyle {
             get {
                 return ResourceManager.GetString("rsInvalidListStyle", resourceCulture);
             }
@@ -2817,7 +2817,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  The {2} expression for the {0} ‘{1}’ has a scope parameter that is not valid for a lookup function. The scope parameter must be set to a string constant that is the name of a dataset..
         /// </summary>
-        internal static string rsInvalidLookupScope {
+        public static string rsInvalidLookupScope {
             get {
                 return ResourceManager.GetString("rsInvalidLookupScope", resourceCulture);
             }
@@ -2826,7 +2826,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} &apos;{3}&apos; for {0} &apos;{1}&apos; does not exist. .
         /// </summary>
-        internal static string rsInvalidMapDataRegionName {
+        public static string rsInvalidMapDataRegionName {
             get {
                 return ResourceManager.GetString("rsInvalidMapDataRegionName", resourceCulture);
             }
@@ -2835,7 +2835,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidMarkupType {
+        public static string rsInvalidMarkupType {
             get {
                 return ResourceManager.GetString("rsInvalidMarkupType", resourceCulture);
             }
@@ -2844,7 +2844,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} in the matrix ‘{1}’ contains an invalid report item.  Each subtotal in a matrix can contain at most one text box..
         /// </summary>
-        internal static string rsInvalidMatrixSubtotalReportItem {
+        public static string rsInvalidMatrixSubtotalReportItem {
             get {
                 return ResourceManager.GetString("rsInvalidMatrixSubtotalReportItem", resourceCulture);
             }
@@ -2853,7 +2853,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} property of the {0} ‘{1}’ uses the unit name “{3}”, which is not valid.  Valid unit names include mm, cm, in, pt, and pc..
         /// </summary>
-        internal static string rsInvalidMeasurementUnit {
+        public static string rsInvalidMeasurementUnit {
             get {
                 return ResourceManager.GetString("rsInvalidMeasurementUnit", resourceCulture);
             }
@@ -2862,7 +2862,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ contains &quot;Me.Value&quot;. &quot;Me.Value&quot; is not valid in the context of a {0}..
         /// </summary>
-        internal static string rsInvalidMeDotValueInExpression {
+        public static string rsInvalidMeDotValueInExpression {
             get {
                 return ResourceManager.GetString("rsInvalidMeDotValueInExpression", resourceCulture);
             }
@@ -2871,7 +2871,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidMIMEType {
+        public static string rsInvalidMIMEType {
             get {
                 return ResourceManager.GetString("rsInvalidMIMEType", resourceCulture);
             }
@@ -2880,7 +2880,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report parameter ‘{1}’ is a multi value parameter and accepts null value. This is not allowed..
         /// </summary>
-        internal static string rsInvalidMultiValueParameter {
+        public static string rsInvalidMultiValueParameter {
             get {
                 return ResourceManager.GetString("rsInvalidMultiValueParameter", resourceCulture);
             }
@@ -2889,7 +2889,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The namespaces defined by the MustUnderstand attribute are not valid or supported by this version of Reporting Services. The report may contain elements from a later version of Reporting Services, or contain content that is not well-formed or not valid based on Reporting Services schemas. Details: {3}.
         /// </summary>
-        internal static string rsInvalidMustUnderstandNamespaces {
+        public static string rsInvalidMustUnderstandNamespaces {
             get {
                 return ResourceManager.GetString("rsInvalidMustUnderstandNamespaces", resourceCulture);
             }
@@ -2898,7 +2898,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to &apos;{1}&apos; is not a valid {0} name. Names of objects must be greater than 0 and less than or equal to {3} characters..
         /// </summary>
-        internal static string rsInvalidNameLength {
+        public static string rsInvalidNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidNameLength", resourceCulture);
             }
@@ -2907,7 +2907,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to &apos;{1}&apos; is not a valid {0} name. Names of objects must be CLS-compliant identifiers..
         /// </summary>
-        internal static string rsInvalidNameNotCLSCompliant {
+        public static string rsInvalidNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidNameNotCLSCompliant", resourceCulture);
             }
@@ -2916,7 +2916,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; uses a relationship or default relationship with no JoinConditions. Relationships with no JoinConditions are only allowed when the NaturalJoin property is set to True and the relationship is used on the outermost group in a top-level data region..
         /// </summary>
-        internal static string rsInvalidNaturalCrossJoin {
+        public static string rsInvalidNaturalCrossJoin {
             get {
                 return ResourceManager.GetString("rsInvalidNaturalCrossJoin", resourceCulture);
             }
@@ -2925,7 +2925,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; defines sort expressions with NaturalSort. NaturalSort may only be used when the parent object is a Group with the NaturalGroup flag set to true..
         /// </summary>
-        internal static string rsInvalidNaturalSortContainer {
+        public static string rsInvalidNaturalSortContainer {
             get {
                 return ResourceManager.GetString("rsInvalidNaturalSortContainer", resourceCulture);
             }
@@ -2934,7 +2934,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; defines a {2} with {3}. {2} must use a simple field reference when {3} is set to true..
         /// </summary>
-        internal static string rsInvalidNaturalSortGroupExpressionNotSimpleFieldReference {
+        public static string rsInvalidNaturalSortGroupExpressionNotSimpleFieldReference {
             get {
                 return ResourceManager.GetString("rsInvalidNaturalSortGroupExpressionNotSimpleFieldReference", resourceCulture);
             }
@@ -2943,7 +2943,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ specifies a scope that is not valid for a nested aggregate.  The scope must be the same name of the scope specified by the outer aggregate or the name of a group or data region that is contained in the scope specified by the outer aggregate..
         /// </summary>
-        internal static string rsInvalidNestedAggregateScope {
+        public static string rsInvalidNestedAggregateScope {
             get {
                 return ResourceManager.GetString("rsInvalidNestedAggregateScope", resourceCulture);
             }
@@ -2952,7 +2952,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has a nested aggregate that specifies a dataset scope.  Inner aggregates cannot specify a dataset scope..
         /// </summary>
-        internal static string rsInvalidNestedDataSetAggregate {
+        public static string rsInvalidNestedDataSetAggregate {
             get {
                 return ResourceManager.GetString("rsInvalidNestedDataSetAggregate", resourceCulture);
             }
@@ -2961,7 +2961,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has an inner aggregate that specifies the recursive flag.  Nested aggregates cannot specify the recursive flag..
         /// </summary>
-        internal static string rsInvalidNestedRecursiveAggregate {
+        public static string rsInvalidNestedRecursiveAggregate {
             get {
                 return ResourceManager.GetString("rsInvalidNestedRecursiveAggregate", resourceCulture);
             }
@@ -2970,7 +2970,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The filter for {0} ‘{1}’ has an incorrect number of filter values for the operator.  The operator ‘{3}’ requires exactly {4} filter value(s)..
         /// </summary>
-        internal static string rsInvalidNumberOfFilterValues {
+        public static string rsInvalidNumberOfFilterValues {
             get {
                 return ResourceManager.GetString("rsInvalidNumberOfFilterValues", resourceCulture);
             }
@@ -2979,7 +2979,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidNumeralVariant {
+        public static string rsInvalidNumeralVariant {
             get {
                 return ResourceManager.GetString("rsInvalidNumeralVariant", resourceCulture);
             }
@@ -2988,7 +2988,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2} for language ‘{4}’..
         /// </summary>
-        internal static string rsInvalidNumeralVariantForLanguage {
+        public static string rsInvalidNumeralVariantForLanguage {
             get {
                 return ResourceManager.GetString("rsInvalidNumeralVariantForLanguage", resourceCulture);
             }
@@ -2997,7 +2997,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} in the {0} &apos;{1}&apos; has the name &apos;{3}&apos;, which is not a CLS-compliant identifier..
         /// </summary>
-        internal static string rsInvalidObjectNameNotCLSCompliant {
+        public static string rsInvalidObjectNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidObjectNameNotCLSCompliant", resourceCulture);
             }
@@ -3006,7 +3006,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} in the {0} &apos;{1}&apos; has the name &apos;{3}&apos;. {2} names cannot be null and must be unique within the {2} collection for the {0}..
         /// </summary>
-        internal static string rsInvalidObjectNameNotUnique {
+        public static string rsInvalidObjectNameNotUnique {
             get {
                 return ResourceManager.GetString("rsInvalidObjectNameNotUnique", resourceCulture);
             }
@@ -3015,7 +3015,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a {2} using aggregates without explicit scopes and the {3} is omitted. Aggregates without an explicit scope are not allowed in the {2} if no {3} is specified..
         /// </summary>
-        internal static string rsInvalidOmittedExpressionScope {
+        public static string rsInvalidOmittedExpressionScope {
             get {
                 return ResourceManager.GetString("rsInvalidOmittedExpressionScope", resourceCulture);
             }
@@ -3024,7 +3024,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is not contained in any data region or grouping and the {2} is omitted. The scope must be a peer scope which is a data region..
         /// </summary>
-        internal static string rsInvalidOmittedTargetScope {
+        public static string rsInvalidOmittedTargetScope {
             get {
                 return ResourceManager.GetString("rsInvalidOmittedTargetScope", resourceCulture);
             }
@@ -3033,7 +3033,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The specified operation is not valid. .
         /// </summary>
-        internal static string rsInvalidOperation {
+        public static string rsInvalidOperation {
             get {
                 return ResourceManager.GetString("rsInvalidOperation", resourceCulture);
             }
@@ -3042,7 +3042,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  ReportSection.GetPageSections() was called for ReportSection {0} without calling ReportSection.SetPage(int, int). Call SetPage before calling GetPageSections..
         /// </summary>
-        internal static string rsInvalidPageSectionState {
+        public static string rsInvalidPageSectionState {
             get {
                 return ResourceManager.GetString("rsInvalidPageSectionState", resourceCulture);
             }
@@ -3051,7 +3051,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report parameter ‘{1}’ has multiple default values and is not a multi value parameter..
         /// </summary>
-        internal static string rsInvalidParameterDefaultValue {
+        public static string rsInvalidParameterDefaultValue {
             get {
                 return ResourceManager.GetString("rsInvalidParameterDefaultValue", resourceCulture);
             }
@@ -3060,7 +3060,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Two or more cells definitions are using the same RowIndex and ColumnIndex values..
         /// </summary>
-        internal static string rsInvalidParameterLayoutCellCollition {
+        public static string rsInvalidParameterLayoutCellCollition {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutCellCollition", resourceCulture);
             }
@@ -3069,7 +3069,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The number of defined parameters is not equal to the number of cell definitions in the parameter panel..
         /// </summary>
-        internal static string rsInvalidParameterLayoutCellDefNotEqualsParameterCount {
+        public static string rsInvalidParameterLayoutCellDefNotEqualsParameterCount {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutCellDefNotEqualsParameterCount", resourceCulture);
             }
@@ -3078,7 +3078,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ReportParametersLayout cannot have more than {3} consecutive empty rows..
         /// </summary>
-        internal static string rsInvalidParameterLayoutNumberOfConsecutiveEmptyRowsExceedingLimit {
+        public static string rsInvalidParameterLayoutNumberOfConsecutiveEmptyRowsExceedingLimit {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutNumberOfConsecutiveEmptyRowsExceedingLimit", resourceCulture);
             }
@@ -3087,7 +3087,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ReportParametersLayout {2} value must be less than or equal to {3}..
         /// </summary>
-        internal static string rsInvalidParameterLayoutNumberOfRowsOrColumnsExceedingLimit {
+        public static string rsInvalidParameterLayoutNumberOfRowsOrColumnsExceedingLimit {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutNumberOfRowsOrColumnsExceedingLimit", resourceCulture);
             }
@@ -3096,7 +3096,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The parameter &apos;{1}&apos; is defined more than once in the layout..
         /// </summary>
-        internal static string rsInvalidParameterLayoutParameterAppearsTwice {
+        public static string rsInvalidParameterLayoutParameterAppearsTwice {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutParameterAppearsTwice", resourceCulture);
             }
@@ -3105,16 +3105,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to One or more cell definitions are missing a parameter name field..
         /// </summary>
-        internal static string rsInvalidParameterLayoutParameterNameMissing {
+        public static string rsInvalidParameterLayoutParameterNameMissing {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutParameterNameMissing", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The parameter &apos;{1}&apos; is hidden or internal and is contained in a cell definition..
+        ///   Looks up a localized string similar to The parameter &apos;{1}&apos; is hidden or public and is contained in a cell definition..
         /// </summary>
-        internal static string rsInvalidParameterLayoutParameterNotVisible {
+        public static string rsInvalidParameterLayoutParameterNotVisible {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutParameterNotVisible", resourceCulture);
             }
@@ -3123,7 +3123,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The parameter panel layout for this report contains more parameters than total cells available..
         /// </summary>
-        internal static string rsInvalidParameterLayoutParametersMissingFromPanel {
+        public static string rsInvalidParameterLayoutParametersMissingFromPanel {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutParametersMissingFromPanel", resourceCulture);
             }
@@ -3132,7 +3132,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to One or more cell definitions contain an index value that is out of bounds..
         /// </summary>
-        internal static string rsInvalidParameterLayoutRowColOutOfBounds {
+        public static string rsInvalidParameterLayoutRowColOutOfBounds {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutRowColOutOfBounds", resourceCulture);
             }
@@ -3141,7 +3141,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ReportParametersLayout NumberOfRows and NumberOfColumns values cannot be 0 or less..
         /// </summary>
-        internal static string rsInvalidParameterLayoutZeroOrLessRowOrCol {
+        public static string rsInvalidParameterLayoutZeroOrLessRowOrCol {
             get {
                 return ResourceManager.GetString("rsInvalidParameterLayoutZeroOrLessRowOrCol", resourceCulture);
             }
@@ -3150,7 +3150,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to &apos;{1}&apos; is not a valid {0} name. Parameter names must be greater than 0 and less than or equal to {3} characters..
         /// </summary>
-        internal static string rsInvalidParameterNameLength {
+        public static string rsInvalidParameterNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidParameterNameLength", resourceCulture);
             }
@@ -3159,7 +3159,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A parameter in the {0} ‘{1}’ has the name ‘{3}’.  Parameter names must be CLS-compliant identifiers..
         /// </summary>
-        internal static string rsInvalidParameterNameNotCLSCompliant {
+        public static string rsInvalidParameterNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidParameterNameNotCLSCompliant", resourceCulture);
             }
@@ -3168,7 +3168,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value &apos;{0}&apos; is invalid.  Valid values are between &apos;{1}&apos; and &apos;{2}&apos;..
         /// </summary>
-        internal static string rsInvalidParameterRange {
+        public static string rsInvalidParameterRange {
             get {
                 return ResourceManager.GetString("rsInvalidParameterRange", resourceCulture);
             }
@@ -3177,7 +3177,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of parameter &apos;{0}&apos; is not valid or null. .
         /// </summary>
-        internal static string rsInvalidParameterValue {
+        public static string rsInvalidParameterValue {
             get {
                 return ResourceManager.GetString("rsInvalidParameterValue", resourceCulture);
             }
@@ -3186,7 +3186,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; contains a {2} hierarchy that contains peer groupings. Peer groups are not allowed in RDLX reports..
         /// </summary>
-        internal static string rsInvalidPeerGroupsNotSupported {
+        public static string rsInvalidPeerGroupsNotSupported {
             get {
                 return ResourceManager.GetString("rsInvalidPeerGroupsNotSupported", resourceCulture);
             }
@@ -3195,7 +3195,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The use of a Previous aggregate function in a matrix cell within matrix ‘{3}’ is not supported..
         /// </summary>
-        internal static string rsInvalidPreviousAggregateInMatrixCell {
+        public static string rsInvalidPreviousAggregateInMatrixCell {
             get {
                 return ResourceManager.GetString("rsInvalidPreviousAggregateInMatrixCell", resourceCulture);
             }
@@ -3204,7 +3204,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The use of a Previous aggregate function in a TablixCell within Tablix ‘{3}’ is not supported..
         /// </summary>
-        internal static string rsInvalidPreviousAggregateInTablixCell {
+        public static string rsInvalidPreviousAggregateInTablixCell {
             get {
                 return ResourceManager.GetString("rsInvalidPreviousAggregateInTablixCell", resourceCulture);
             }
@@ -3213,7 +3213,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses an aggregate expression with the recursive/simple flag.  The recursive/simple flag is not allowed for First, Last, Previous, RowNumber, RunningValue and Aggregate..
         /// </summary>
-        internal static string rsInvalidRecursiveAggregate {
+        public static string rsInvalidRecursiveAggregate {
             get {
                 return ResourceManager.GetString("rsInvalidRecursiveAggregate", resourceCulture);
             }
@@ -3222,7 +3222,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} for {0} &apos;{1}&apos; specifies NaturalJoin but the containing {2} of {3} &apos;{4}&apos; does not specify NaturalJoin. NaturalJoin is only effective if all containing Relationships specify NaturalJoin..
         /// </summary>
-        internal static string rsInvalidRelationshipContainerNotNaturalJoin {
+        public static string rsInvalidRelationshipContainerNotNaturalJoin {
             get {
                 return ResourceManager.GetString("rsInvalidRelationshipContainerNotNaturalJoin", resourceCulture);
             }
@@ -3231,7 +3231,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; is referenced by {2} &apos;{3}&apos; and {4} &apos;{5}&apos;. Nested {2} objects using join relationships may only reference a particular {0} once..
         /// </summary>
-        internal static string rsInvalidRelationshipDataSet {
+        public static string rsInvalidRelationshipDataSet {
             get {
                 return ResourceManager.GetString("rsInvalidRelationshipDataSet", resourceCulture);
             }
@@ -3240,7 +3240,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; is referenced by {2} &apos;{3}&apos; and {4} &apos;{5}&apos;. Nested {2} objects within the same top level DataRegion may only reference a particular {0} once..
         /// </summary>
-        internal static string rsInvalidRelationshipDataSetUsedMoreThanOnce {
+        public static string rsInvalidRelationshipDataSetUsedMoreThanOnce {
             get {
                 return ResourceManager.GetString("rsInvalidRelationshipDataSetUsedMoreThanOnce", resourceCulture);
             }
@@ -3249,7 +3249,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {0} at the intersection of Group &apos;{4}&apos; and Group &apos;{5}&apos; in {3} &apos;{1}&apos; includes more than one relationship with the same value for {2}. The {2} property on each relationship on a {0} must specify the name of a different parent group..
         /// </summary>
-        internal static string rsInvalidRelationshipDuplicateParentScope {
+        public static string rsInvalidRelationshipDuplicateParentScope {
             get {
                 return ResourceManager.GetString("rsInvalidRelationshipDuplicateParentScope", resourceCulture);
             }
@@ -3258,7 +3258,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The relationship for {0} &apos;{1}&apos; specifies NaturalJoin but the containing grouping &apos;{3}&apos; does not specify NaturalGroup. NaturalJoin is only effective if all containing groups specify NaturalGroup..
         /// </summary>
-        internal static string rsInvalidRelationshipGroupingContainerNotNaturalGroup {
+        public static string rsInvalidRelationshipGroupingContainerNotNaturalGroup {
             get {
                 return ResourceManager.GetString("rsInvalidRelationshipGroupingContainerNotNaturalGroup", resourceCulture);
             }
@@ -3267,7 +3267,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; includes a relationship. Relationships are not allowed on top-level data regions..
         /// </summary>
-        internal static string rsInvalidRelationshipTopLevelDataRegion {
+        public static string rsInvalidRelationshipTopLevelDataRegion {
             get {
                 return ResourceManager.GetString("rsInvalidRelationshipTopLevelDataRegion", resourceCulture);
             }
@@ -3276,7 +3276,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the global variable RenderFormat, which is not valid for this type of report item expression..
         /// </summary>
-        internal static string rsInvalidRenderFormatUsage {
+        public static string rsInvalidRenderFormatUsage {
             get {
                 return ResourceManager.GetString("rsInvalidRenderFormatUsage", resourceCulture);
             }
@@ -3285,7 +3285,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. The {2} must have the same value set for the {3} property as those following or preceding the dynamic {2}. (Expected Value: &quot;{4}&quot;; Actual Value: &quot;{5}&quot;).
         /// </summary>
-        internal static string rsInvalidRepeatOnNewPage {
+        public static string rsInvalidRepeatOnNewPage {
             get {
                 return ResourceManager.GetString("rsInvalidRepeatOnNewPage", resourceCulture);
             }
@@ -3294,7 +3294,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. All {2} elements in a TablixColumnHierarchy must have the {3} property set to false..
         /// </summary>
-        internal static string rsInvalidRepeatOnNewPageOnColumnTablixMember {
+        public static string rsInvalidRepeatOnNewPageOnColumnTablixMember {
             get {
                 return ResourceManager.GetString("rsInvalidRepeatOnNewPageOnColumnTablixMember", resourceCulture);
             }
@@ -3303,7 +3303,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a RepeatWith property.  Data regions, subreports, and rectangles that contain a data region or subreport cannot have a RepeatWith..
         /// </summary>
-        internal static string rsInvalidRepeatWith {
+        public static string rsInvalidRepeatWith {
             get {
                 return ResourceManager.GetString("rsInvalidRepeatWith", resourceCulture);
             }
@@ -3312,7 +3312,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The definition of this report is not valid or supported by this version of Reporting Services. The report definition may have been created with a later version of Reporting Services, or contain content that is not well-formed or not valid based on Reporting Services schemas..
         /// </summary>
-        internal static string rsInvalidReportArchiveFormat {
+        public static string rsInvalidReportArchiveFormat {
             get {
                 return ResourceManager.GetString("rsInvalidReportArchiveFormat", resourceCulture);
             }
@@ -3321,7 +3321,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The definition of this report is not valid or supported by this version of Reporting Services. The report definition may have been created with a later version of Reporting Services, or contain content that is not well-formed or not valid based on Reporting Services schemas. Details: {3}.
         /// </summary>
-        internal static string rsInvalidReportDefinition {
+        public static string rsInvalidReportDefinition {
             get {
                 return ResourceManager.GetString("rsInvalidReportDefinition", resourceCulture);
             }
@@ -3330,7 +3330,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is in the page header or footer and has a {2}. {2} cannot be used by a {0} in the page header or footer..
         /// </summary>
-        internal static string rsInvalidReportItemInPageSection {
+        public static string rsInvalidReportItemInPageSection {
             get {
                 return ResourceManager.GetString("rsInvalidReportItemInPageSection", resourceCulture);
             }
@@ -3339,7 +3339,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} for the {0} ‘{1}’ is not valid. A {2} can not be an empty string or just white space..
         /// </summary>
-        internal static string rsInvalidReportName {
+        public static string rsInvalidReportName {
             get {
                 return ResourceManager.GetString("rsInvalidReportName", resourceCulture);
             }
@@ -3348,7 +3348,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} for the {0} ‘{1}’ is not valid. Item names cannot contain the following reserved characters {3}..
         /// </summary>
-        internal static string rsInvalidReportNameCharacters {
+        public static string rsInvalidReportNameCharacters {
             get {
                 return ResourceManager.GetString("rsInvalidReportNameCharacters", resourceCulture);
             }
@@ -3357,7 +3357,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  The report parameter ‘{1}’ has a DefaultValue or a ValidValue that depends on the report parameter “{3}”. Forward dependencies are not valid..
         /// </summary>
-        internal static string rsInvalidReportParameterDependency {
+        public static string rsInvalidReportParameterDependency {
             get {
                 return ResourceManager.GetString("rsInvalidReportParameterDependency", resourceCulture);
             }
@@ -3366,7 +3366,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} for the {0} ‘{1}’ is not valid..
         /// </summary>
-        internal static string rsInvalidReportUri {
+        public static string rsInvalidReportUri {
             get {
                 return ResourceManager.GetString("rsInvalidReportUri", resourceCulture);
             }
@@ -3375,7 +3375,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The RichText {2} markup for the {0} &apos;{1}&apos; failed to parse: {3}..
         /// </summary>
-        internal static string rsInvalidRichTextParseFailed {
+        public static string rsInvalidRichTextParseFailed {
             get {
                 return ResourceManager.GetString("rsInvalidRichTextParseFailed", resourceCulture);
             }
@@ -3384,7 +3384,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. The {2} contains a {3}, &apos;{4}&apos;. Row {2} must be static..
         /// </summary>
-        internal static string rsInvalidRowGaugeMemberCannotBeDynamic {
+        public static string rsInvalidRowGaugeMemberCannotBeDynamic {
             get {
                 return ResourceManager.GetString("rsInvalidRowGaugeMemberCannotBeDynamic", resourceCulture);
             }
@@ -3393,7 +3393,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. Row GaugeMember cannot contain child members..
         /// </summary>
-        internal static string rsInvalidRowGaugeMemberCannotContainChildMember {
+        public static string rsInvalidRowGaugeMemberCannotContainChildMember {
             get {
                 return ResourceManager.GetString("rsInvalidRowGaugeMemberCannotContainChildMember", resourceCulture);
             }
@@ -3402,7 +3402,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a RowGrouping with both or neither of the following: DynamicRows and StaticRows.  RowGrouping must have exactly one of these elements..
         /// </summary>
-        internal static string rsInvalidRowGrouping {
+        public static string rsInvalidRowGrouping {
             get {
                 return ResourceManager.GetString("rsInvalidRowGrouping", resourceCulture);
             }
@@ -3411,7 +3411,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. The {2} contains a {3}, &apos;{4}&apos;. Row {2} must be static..
         /// </summary>
-        internal static string rsInvalidRowMapMemberCannotBeDynamic {
+        public static string rsInvalidRowMapMemberCannotBeDynamic {
             get {
                 return ResourceManager.GetString("rsInvalidRowMapMemberCannotBeDynamic", resourceCulture);
             }
@@ -3420,7 +3420,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2}. Row MapMember cannot contain child members..
         /// </summary>
-        internal static string rsInvalidRowMapMemberCannotContainChildMember {
+        public static string rsInvalidRowMapMemberCannotContainChildMember {
             get {
                 return ResourceManager.GetString("rsInvalidRowMapMemberCannotContainChildMember", resourceCulture);
             }
@@ -3429,7 +3429,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has an aggregate function parameter that is not valid for the function RunningValue.  The aggregate function parameter must be one of the following: First, Last, Sum, Avg, Max, Min, Count, CountDistinct, StDev, Var, StDevP, VarP..
         /// </summary>
-        internal static string rsInvalidRunningValueAggregate {
+        public static string rsInvalidRunningValueAggregate {
             get {
                 return ResourceManager.GetString("rsInvalidRunningValueAggregate", resourceCulture);
             }
@@ -3438,7 +3438,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression contains an invalid reference to the scope &apos;{0}&apos;. Expressions may only refer to datasets with a relationship to the dataset bound to the current scope or to a parent scope..
         /// </summary>
-        internal static string rsInvalidRuntimeScopeReference {
+        public static string rsInvalidRuntimeScopeReference {
             get {
                 return ResourceManager.GetString("rsInvalidRuntimeScopeReference", resourceCulture);
             }
@@ -3447,7 +3447,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The &apos;{2}&apos; property of {0} &apos;{1}&apos; contains a reference to the scopes collection. The scopes collection may not be used outside of a data region. The scopes collection may not be used in an aggregate parameter expression..
         /// </summary>
-        internal static string rsInvalidScopeCollectionReference {
+        public static string rsInvalidScopeCollectionReference {
             get {
                 return ResourceManager.GetString("rsInvalidScopeCollectionReference", resourceCulture);
             }
@@ -3456,7 +3456,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ScopeID that is passed to the {0} method should never be null..
         /// </summary>
-        internal static string rsInvalidScopeID {
+        public static string rsInvalidScopeID {
             get {
                 return ResourceManager.GetString("rsInvalidScopeID", resourceCulture);
             }
@@ -3465,7 +3465,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to No ScopeIDs have been set for members associated with DataRegion &apos;{0}&apos;. The SetScopeID method must be invoked at least once before calling DoneSettingScopeIDs..
         /// </summary>
-        internal static string rsInvalidScopeIDNotSet {
+        public static string rsInvalidScopeIDNotSet {
             get {
                 return ResourceManager.GetString("rsInvalidScopeIDNotSet", resourceCulture);
             }
@@ -3474,7 +3474,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to {1} was called for grouping &apos;{0}&apos; before it was called for the parent group. {1} must be called for parent groups before child groups..
         /// </summary>
-        internal static string rsInvalidScopeIDOrder {
+        public static string rsInvalidScopeIDOrder {
             get {
                 return ResourceManager.GetString("rsInvalidScopeIDOrder", resourceCulture);
             }
@@ -3483,7 +3483,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; contains an inner aggregate function with a scope argument that represents a scope that is not contained by or equal to the scope represented by the Previous function&apos;s scope argument. The scope parameter of the inner aggregate must be contained by or equal to the scope represented by the Previous function&apos;s scope argument..
         /// </summary>
-        internal static string rsInvalidScopeInInnerAggregateOfPreviousAggregate {
+        public static string rsInvalidScopeInInnerAggregateOfPreviousAggregate {
             get {
                 return ResourceManager.GetString("rsInvalidScopeInInnerAggregateOfPreviousAggregate", resourceCulture);
             }
@@ -3492,7 +3492,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has a scope parameter that is not valid for RunningValue, RowNumber or Previous.  The scope parameter must be set to a string constant that is equal to the name of a containing group within the matrix ‘{3}’..
         /// </summary>
-        internal static string rsInvalidScopeInMatrix {
+        public static string rsInvalidScopeInMatrix {
             get {
                 return ResourceManager.GetString("rsInvalidScopeInMatrix", resourceCulture);
             }
@@ -3501,7 +3501,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has a scope parameter that is not valid for RunningValue, RowNumber or Previous.  The scope parameter must be set to a string constant that is equal to the name of a containing group within the Tablix ‘{3}’..
         /// </summary>
-        internal static string rsInvalidScopeInTablix {
+        public static string rsInvalidScopeInTablix {
             get {
                 return ResourceManager.GetString("rsInvalidScopeInTablix", resourceCulture);
             }
@@ -3510,7 +3510,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The &apos;{2}&apos; property of {0} &apos;{1}&apos; contains an invalid reference to the scope &apos;{3}&apos;. Expressions may only refer to datasets with a relationship to the dataset bound to the current scope or to a parent scope..
         /// </summary>
-        internal static string rsInvalidScopeReference {
+        public static string rsInvalidScopeReference {
             get {
                 return ResourceManager.GetString("rsInvalidScopeReference", resourceCulture);
             }
@@ -3519,7 +3519,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies a {2} that references {3} &apos;{4}&apos;. Self-joins are not supported. .
         /// </summary>
-        internal static string rsInvalidSelfJoinRelationship {
+        public static string rsInvalidSelfJoinRelationship {
             get {
                 return ResourceManager.GetString("rsInvalidSelfJoinRelationship", resourceCulture);
             }
@@ -3528,7 +3528,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a SeriesGrouping with both or neither of the following: DynamicSeries and StaticSeries. A SeriesGrouping must have exactly one of these elements..
         /// </summary>
-        internal static string rsInvalidSeriesGrouping {
+        public static string rsInvalidSeriesGrouping {
             get {
                 return ResourceManager.GetString("rsInvalidSeriesGrouping", resourceCulture);
             }
@@ -3537,7 +3537,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The shared dataset definition is not valid.  Details: {3}.
         /// </summary>
-        internal static string rsInvalidSharedDataSetDefinition {
+        public static string rsInvalidSharedDataSetDefinition {
             get {
                 return ResourceManager.GetString("rsInvalidSharedDataSetDefinition", resourceCulture);
             }
@@ -3546,7 +3546,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The dataset ‘{0}’ refers to a shared dataset “{1}”, which is not available..
         /// </summary>
-        internal static string rsInvalidSharedDataSetReference {
+        public static string rsInvalidSharedDataSetReference {
             get {
                 return ResourceManager.GetString("rsInvalidSharedDataSetReference", resourceCulture);
             }
@@ -3555,7 +3555,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid size.  Valid sizes may not exceed 455 inches (1155.7 centimeters)..
         /// </summary>
-        internal static string rsInvalidSize {
+        public static string rsInvalidSize {
             get {
                 return ResourceManager.GetString("rsInvalidSize", resourceCulture);
             }
@@ -3564,7 +3564,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies a Slider with LabelData. The LabelData refers to dataset &apos;{3}&apos;, which does not exist..
         /// </summary>
-        internal static string rsInvalidSliderDataSetReference {
+        public static string rsInvalidSliderDataSetReference {
             get {
                 return ResourceManager.GetString("rsInvalidSliderDataSetReference", resourceCulture);
             }
@@ -3573,7 +3573,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  {0} &apos;{1}&apos; specifies a Slider with LabelData. LabelData {2} uses field &apos;{3}&apos; in a dataset reference, but dataset &apos;{4}&apos; does not contain that field..
         /// </summary>
-        internal static string rsInvalidSliderDataSetReferenceField {
+        public static string rsInvalidSliderDataSetReferenceField {
             get {
                 return ResourceManager.GetString("rsInvalidSliderDataSetReferenceField", resourceCulture);
             }
@@ -3582,7 +3582,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; defines a {2} for the {4}, &apos;{5}&apos;, that has the {3} specified. The {3} can only be specified if the {2} has its NaturalJoin property set to True..
         /// </summary>
-        internal static string rsInvalidSortDirectionMustNotBeSpecified {
+        public static string rsInvalidSortDirectionMustNotBeSpecified {
             get {
                 return ResourceManager.GetString("rsInvalidSortDirectionMustNotBeSpecified", resourceCulture);
             }
@@ -3591,7 +3591,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid {2} “{3}”. The scope cannot be a detail grouping scope. To use a detail grouping scope, do not specify a {2}..
         /// </summary>
-        internal static string rsInvalidSortExpressionScope {
+        public static string rsInvalidSortExpressionScope {
             get {
                 return ResourceManager.GetString("rsInvalidSortExpressionScope", resourceCulture);
             }
@@ -3600,7 +3600,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2} &apos;{3}&apos;. The scope cannot be a grouping that has a domain scope defined..
         /// </summary>
-        internal static string rsInvalidSortExpressionScopeDomainScope {
+        public static string rsInvalidSortExpressionScopeDomainScope {
             get {
                 return ResourceManager.GetString("rsInvalidSortExpressionScopeDomainScope", resourceCulture);
             }
@@ -3609,7 +3609,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; defines sort expressions with {2}.  All individual sort expressions of {0} &apos;{1}&apos; must share the same value for {2}..
         /// </summary>
-        internal static string rsInvalidSortFlagCombination {
+        public static string rsInvalidSortFlagCombination {
             get {
                 return ResourceManager.GetString("rsInvalidSortFlagCombination", resourceCulture);
             }
@@ -3618,7 +3618,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Grouping &apos;{3}&apos; in {0} &apos;{1}&apos; uses NaturalSort but the containing scope, &apos;{4}&apos;, does not use NaturalSort. NaturalSort is only effective if all containing groups and data regions bound to the same dataset use NaturalSort..
         /// </summary>
-        internal static string rsInvalidSortingContainerNotNaturalSort {
+        public static string rsInvalidSortingContainerNotNaturalSort {
             get {
                 return ResourceManager.GetString("rsInvalidSortingContainerNotNaturalSort", resourceCulture);
             }
@@ -3627,7 +3627,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The SortItemId is invalid. It must be a positive integer and has to be existing..
         /// </summary>
-        internal static string rsInvalidSortItemID {
+        public static string rsInvalidSortItemID {
             get {
                 return ResourceManager.GetString("rsInvalidSortItemID", resourceCulture);
             }
@@ -3636,7 +3636,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; contains an invalid {4}. The {2} element is not allowed if {3} is omitted..
         /// </summary>
-        internal static string rsInvalidSortNotAllowed {
+        public static string rsInvalidSortNotAllowed {
             get {
                 return ResourceManager.GetString("rsInvalidSortNotAllowed", resourceCulture);
             }
@@ -3645,7 +3645,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ChartDerivedSeries in the {0} &apos;{1}&apos; has an invalid {2} &apos;{3}&apos;.  .
         /// </summary>
-        internal static string rsInvalidSourceSeriesName {
+        public static string rsInvalidSourceSeriesName {
             get {
                 return ResourceManager.GetString("rsInvalidSourceSeriesName", resourceCulture);
             }
@@ -3654,7 +3654,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid {2}. Group expressions are not allowed if Static = true..
         /// </summary>
-        internal static string rsInvalidStaticDataGrouping {
+        public static string rsInvalidStaticDataGrouping {
             get {
                 return ResourceManager.GetString("rsInvalidStaticDataGrouping", resourceCulture);
             }
@@ -3663,7 +3663,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} of the {0} ‘{1}’ has an invalid value. The {2} must be 0, if the TablixCell has no CellContents; or greater than 0, if TablixCell has CellContents..
         /// </summary>
-        internal static string rsInvalidTablixCellCellSpan {
+        public static string rsInvalidTablixCellCellSpan {
             get {
                 return ResourceManager.GetString("rsInvalidTablixCellCellSpan", resourceCulture);
             }
@@ -3672,7 +3672,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid TablixCell. The {2} of the TablixCell is invalid. The TablixCell cannot span columns under TablixMembers in the TablixColumnHierarchy that are not static siblings, and the spanned cells must all exist under the same dynamic TablixMember in the TablixColumnHierarchy, if one exists..
         /// </summary>
-        internal static string rsInvalidTablixCellColSpan {
+        public static string rsInvalidTablixCellColSpan {
             get {
                 return ResourceManager.GetString("rsInvalidTablixCellColSpan", resourceCulture);
             }
@@ -3681,7 +3681,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid set of TablixCells. The combined value of the ColSpan properties of the TablixCells within a TablixRow does not equal the number of leaf TablixMembers (TablixMembers with no submembers) in the TablixColumnHierarchy..
         /// </summary>
-        internal static string rsInvalidTablixCellColSpans {
+        public static string rsInvalidTablixCellColSpans {
             get {
                 return ResourceManager.GetString("rsInvalidTablixCellColSpans", resourceCulture);
             }
@@ -3690,7 +3690,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid TablixCell. The {2} of the TablixCell is invalid. The TablixCell can only span one row..
         /// </summary>
-        internal static string rsInvalidTablixCellRowSpan {
+        public static string rsInvalidTablixCellRowSpan {
             get {
                 return ResourceManager.GetString("rsInvalidTablixCellRowSpan", resourceCulture);
             }
@@ -3699,7 +3699,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} of the {0} ‘{1}’ has an invalid value. The {2} must be 0, if the TablixCornerCell has no CellContents, or greater than 0, if TablixCell has CellContents..
         /// </summary>
-        internal static string rsInvalidTablixCornerCellSpan {
+        public static string rsInvalidTablixCornerCellSpan {
             get {
                 return ResourceManager.GetString("rsInvalidTablixCornerCellSpan", resourceCulture);
             }
@@ -3708,7 +3708,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid TablixCorner. The combined CellSpans of the TablixCornerCells within a particular row, row at index {3}, does not equal the number of TablixHierarchyRows with TablixMembers containing TablixHeaders..
         /// </summary>
-        internal static string rsInvalidTablixCornerColumnSpans {
+        public static string rsInvalidTablixCornerColumnSpans {
             get {
                 return ResourceManager.GetString("rsInvalidTablixCornerColumnSpans", resourceCulture);
             }
@@ -3717,7 +3717,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid TablixCorner. The combined RowSpans of the TablixCornerCells within the Column at index: {3} does not equal the number of TablixHierarchyColumns with TablixMembers containing TablixHeaders..
         /// </summary>
-        internal static string rsInvalidTablixCornerRowSpans {
+        public static string rsInvalidTablixCornerRowSpans {
             get {
                 return ResourceManager.GetString("rsInvalidTablixCornerRowSpans", resourceCulture);
             }
@@ -3726,7 +3726,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid TablixHeader. The {2} of the TablixHeader is invalid. The TablixHeader can only span one column..
         /// </summary>
-        internal static string rsInvalidTablixHeaderColSpan {
+        public static string rsInvalidTablixHeaderColSpan {
             get {
                 return ResourceManager.GetString("rsInvalidTablixHeaderColSpan", resourceCulture);
             }
@@ -3735,7 +3735,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid TablixHeader. The {2} of the TablixHeader is invalid. The TablixHeader can only span one row..
         /// </summary>
-        internal static string rsInvalidTablixHeaderRowSpan {
+        public static string rsInvalidTablixHeaderRowSpan {
             get {
                 return ResourceManager.GetString("rsInvalidTablixHeaderRowSpan", resourceCulture);
             }
@@ -3744,7 +3744,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; contains an invalid {2}. There is a {3} with an invalid {4} at level {5}. If there is a {3} with a {4} in this set of {3} siblings, then at least one {3} per sibling or their descendants must have a {3} with a {4}..
         /// </summary>
-        internal static string rsInvalidTablixHeaders {
+        public static string rsInvalidTablixHeaders {
             get {
                 return ResourceManager.GetString("rsInvalidTablixHeaders", resourceCulture);
             }
@@ -3753,7 +3753,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} in {0} &apos;{1}&apos; contains an inconsistent {3} in one or more of the TablixMembers that contain headers for {7} {4}. {7} {4} has an expected total header size of {5} and an actual total header size of {6}. The total header size for each {7} created by the {2} must be equal. .
         /// </summary>
-        internal static string rsInvalidTablixHeaderSize {
+        public static string rsInvalidTablixHeaderSize {
             get {
                 return ResourceManager.GetString("rsInvalidTablixHeaderSize", resourceCulture);
             }
@@ -3762,7 +3762,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid {2} “{3}”. The scope must be the current scope, a peer scope, which is a data region, or an ancestor scope. If the current scope and target scope are groupings, then both scopes must be along the same axis. .
         /// </summary>
-        internal static string rsInvalidTargetScope {
+        public static string rsInvalidTargetScope {
             get {
                 return ResourceManager.GetString("rsInvalidTargetScope", resourceCulture);
             }
@@ -3771,7 +3771,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidTextAlign {
+        public static string rsInvalidTextAlign {
             get {
                 return ResourceManager.GetString("rsInvalidTextAlign", resourceCulture);
             }
@@ -3780,7 +3780,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ is in the page header or footer and has a {2} element. {2} cannot be used by text boxes in the page header or footer..
         /// </summary>
-        internal static string rsInvalidTextboxInPageSection {
+        public static string rsInvalidTextboxInPageSection {
             get {
                 return ResourceManager.GetString("rsInvalidTextboxInPageSection", resourceCulture);
             }
@@ -3789,7 +3789,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidTextDecoration {
+        public static string rsInvalidTextDecoration {
             get {
                 return ResourceManager.GetString("rsInvalidTextDecoration", resourceCulture);
             }
@@ -3798,7 +3798,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidTextEffect {
+        public static string rsInvalidTextEffect {
             get {
                 return ResourceManager.GetString("rsInvalidTextEffect", resourceCulture);
             }
@@ -3807,7 +3807,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidTextOrientations {
+        public static string rsInvalidTextOrientations {
             get {
                 return ResourceManager.GetString("rsInvalidTextOrientations", resourceCulture);
             }
@@ -3816,7 +3816,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has ‘{3}’ as a toggle item.  Toggle items must be text boxes that share the same scope as the hidden item or are in a scope that contains the hidden item, and cannot be contained within the current report item unless current grouping scope has a Parent..
         /// </summary>
-        internal static string rsInvalidToggleItem {
+        public static string rsInvalidToggleItem {
             get {
                 return ResourceManager.GetString("rsInvalidToggleItem", resourceCulture);
             }
@@ -3825,7 +3825,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidUnicodeBiDi {
+        public static string rsInvalidUnicodeBiDi {
             get {
                 return ResourceManager.GetString("rsInvalidUnicodeBiDi", resourceCulture);
             }
@@ -3834,7 +3834,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value ‘{3}’ of the {2} property of the {0} ‘{1}’ has an invalid schema.  URLs in reports may only use http://, https://, ftp://, mailto: or news:.
         /// </summary>
-        internal static string rsInvalidURLProtocol {
+        public static string rsInvalidURLProtocol {
             get {
                 return ResourceManager.GetString("rsInvalidURLProtocol", resourceCulture);
             }
@@ -3843,7 +3843,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has expression-based {2}. The sizes of the value and the label (multi-value) arrays have to be identical..
         /// </summary>
-        internal static string rsInvalidValidValueList {
+        public static string rsInvalidValidValueList {
             get {
                 return ResourceManager.GetString("rsInvalidValidValueList", resourceCulture);
             }
@@ -3852,7 +3852,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report parameter ‘{1}’ has a ValidValues that has both or neither of the following: ParameterValues and DataSetReference.  ValidValues must have exactly one of these elements..
         /// </summary>
-        internal static string rsInvalidValidValues {
+        public static string rsInvalidValidValues {
             get {
                 return ResourceManager.GetString("rsInvalidValidValues", resourceCulture);
             }
@@ -3861,7 +3861,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report parameter ‘{1}’ valid values refers to a dataset “{3}”, which does not exist..
         /// </summary>
-        internal static string rsInvalidValidValuesDataSetReference {
+        public static string rsInvalidValidValuesDataSetReference {
             get {
                 return ResourceManager.GetString("rsInvalidValidValuesDataSetReference", resourceCulture);
             }
@@ -3870,7 +3870,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an invalid {2} element. The {2} element must contain at least one Variable..
         /// </summary>
-        internal static string rsInvalidVariableCount {
+        public static string rsInvalidVariableCount {
             get {
                 return ResourceManager.GetString("rsInvalidVariableCount", resourceCulture);
             }
@@ -3879,7 +3879,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} in the {0} ‘{1}’ has an invalid {2} name, &apos;{3}&apos;. {2} names must be greater than 0 and less than or equal to {4} characters..
         /// </summary>
-        internal static string rsInvalidVariableNameLength {
+        public static string rsInvalidVariableNameLength {
             get {
                 return ResourceManager.GetString("rsInvalidVariableNameLength", resourceCulture);
             }
@@ -3888,7 +3888,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} in the {0} ‘{1}’ has an invalid {2} name, &apos;{3}&apos;. {2} names must be CLS-compliant identifiers..
         /// </summary>
-        internal static string rsInvalidVariableNameNotCLSCompliant {
+        public static string rsInvalidVariableNameNotCLSCompliant {
             get {
                 return ResourceManager.GetString("rsInvalidVariableNameNotCLSCompliant", resourceCulture);
             }
@@ -3897,7 +3897,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the {3} ‘{4}’. Expressions can only refer to a {3} declared within the same grouping scope, a containing grouping scope, or those declared on the report. Letters in the names of variables must use the correct case..
         /// </summary>
-        internal static string rsInvalidVariableReference {
+        public static string rsInvalidVariableReference {
             get {
                 return ResourceManager.GetString("rsInvalidVariableReference", resourceCulture);
             }
@@ -3906,7 +3906,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidVerticalAlign {
+        public static string rsInvalidVerticalAlign {
             get {
                 return ResourceManager.GetString("rsInvalidVerticalAlign", resourceCulture);
             }
@@ -3915,7 +3915,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The element {3} named &apos;{2}&apos; is not valid for {0} &apos;{1}&apos;. The Writable flag can only be specified for the {3} collection on the Report..
         /// </summary>
-        internal static string rsInvalidWritableVariable {
+        public static string rsInvalidWritableVariable {
             get {
                 return ResourceManager.GetString("rsInvalidWritableVariable", resourceCulture);
             }
@@ -3924,7 +3924,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsInvalidWritingMode {
+        public static string rsInvalidWritingMode {
             get {
                 return ResourceManager.GetString("rsInvalidWritingMode", resourceCulture);
             }
@@ -3933,7 +3933,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an {2} with an invalid {3}. The {3} can be an integer between -90 an 90, inclusive, or the values &apos;RightAngle&apos; or &apos;Auto&apos;..
         /// </summary>
-        internal static string rsInvlaidAxisAngle {
+        public static string rsInvlaidAxisAngle {
             get {
                 return ResourceManager.GetString("rsInvlaidAxisAngle", resourceCulture);
             }
@@ -3942,7 +3942,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The scalar values property for the {2} of the {0} ‘{1}’ is set to true. Therefore the specified label expression will be ignored..
         /// </summary>
-        internal static string rsLabelExpressionOnChartScalarAxisIsIgnored {
+        public static string rsLabelExpressionOnChartScalarAxisIsIgnored {
             get {
                 return ResourceManager.GetString("rsLabelExpressionOnChartScalarAxisIsIgnored", resourceCulture);
             }
@@ -3951,7 +3951,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to When both row and columns groups based on a recursive hierarchy exist, the Level function requires a scope.  Specify a scope that is the name of a row group or column group..
         /// </summary>
-        internal static string rsLevelCallRecursiveHierarchyBothDimensions {
+        public static string rsLevelCallRecursiveHierarchyBothDimensions {
             get {
                 return ResourceManager.GetString("rsLevelCallRecursiveHierarchyBothDimensions", resourceCulture);
             }
@@ -3960,7 +3960,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The sorting applied to the {2} of the {0} ‘{1}’ is different from the grouping expression. Since the chart type is a line chart, depending on the data values this might result in a scattered line chart..
         /// </summary>
-        internal static string rsLineChartMightScatter {
+        public static string rsLineChartMightScatter {
             get {
                 return ResourceManager.GetString("rsLineChartMightScatter", resourceCulture);
             }
@@ -3969,7 +3969,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  A {2} for the {0} ‘{1}’ includes a Lookup function. Lookup functions cannot be used in expressions in a dataset filter..
         /// </summary>
-        internal static string rsLookupInFilterExpression {
+        public static string rsLookupInFilterExpression {
             get {
                 return ResourceManager.GetString("rsLookupInFilterExpression", resourceCulture);
             }
@@ -3978,7 +3978,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses a lookup function with an expression that returned a data type that is not valid for the lookup function. The data type must be an RDL Variant type..
         /// </summary>
-        internal static string rsLookupOfInvalidExpressionDataType {
+        public static string rsLookupOfInvalidExpressionDataType {
             get {
                 return ResourceManager.GetString("rsLookupOfInvalidExpressionDataType", resourceCulture);
             }
@@ -3987,7 +3987,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for {0} &apos;{1}&apos; contains a variable reference in an argument to a Lookup or LookupSet function. Variable references cannot be used for the source, destination, or result Expression parameter of a lookup function..
         /// </summary>
-        internal static string rsLookupOfVariable {
+        public static string rsLookupOfVariable {
             get {
                 return ResourceManager.GetString("rsLookupOfVariable", resourceCulture);
             }
@@ -3996,7 +3996,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Specify a valid URL. Report URLs may use only http://, https://, ftp://, file:, mailto:, or news:..
         /// </summary>
-        internal static string rsMalformattedURL {
+        public static string rsMalformattedURL {
             get {
                 return ResourceManager.GetString("rsMalformattedURL", resourceCulture);
             }
@@ -4005,7 +4005,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The data source &apos;{0}&apos; uses a managed data provider which does not implement IDbConnectionExtension. Only Windows Integrated Security or No Credentials are supported..
         /// </summary>
-        internal static string rsManagedDataProviderWithoutConnectionExtension {
+        public static string rsManagedDataProviderWithoutConnectionExtension {
             get {
                 return ResourceManager.GetString("rsManagedDataProviderWithoutConnectionExtension", resourceCulture);
             }
@@ -4014,7 +4014,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot load shapefile &apos;{2}&apos; for the {0} ‘{1}’. If you are connected to a report server, check the log files for more information..
         /// </summary>
-        internal static string rsMapCannotLoadShapefile {
+        public static string rsMapCannotLoadShapefile {
             get {
                 return ResourceManager.GetString("rsMapCannotLoadShapefile", resourceCulture);
             }
@@ -4023,7 +4023,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression that specifies the binding field &apos;{3}&apos; for layer &apos;{2}&apos; in the {0} &apos;{1}&apos; is not valid.  The data type does not match the map matching field data type..
         /// </summary>
-        internal static string rsMapFieldBindingExpressionTypeMismatch {
+        public static string rsMapFieldBindingExpressionTypeMismatch {
             get {
                 return ResourceManager.GetString("rsMapFieldBindingExpressionTypeMismatch", resourceCulture);
             }
@@ -4032,7 +4032,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The layer &apos;{2}&apos; in the {0} &apos;{1}&apos; has a field name &apos;{3}&apos; that is not valid..
         /// </summary>
-        internal static string rsMapInvalidFieldName {
+        public static string rsMapInvalidFieldName {
             get {
                 return ResourceManager.GetString("rsMapInvalidFieldName", resourceCulture);
             }
@@ -4041,7 +4041,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  The shapefile url &apos;{2}&apos; for the {0} ‘{1}’ is not valid. Details: {3}.
         /// </summary>
-        internal static string rsMapInvalidShapefileReference {
+        public static string rsMapInvalidShapefileReference {
             get {
                 return ResourceManager.GetString("rsMapInvalidShapefileReference", resourceCulture);
             }
@@ -4050,7 +4050,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The spatial data for layer &apos;{2}&apos; in the {0} &apos;{1}&apos; is not valid. Specify spatial data that is data type SqlGeometry or SqlGeography..
         /// </summary>
-        internal static string rsMapInvalidSpatialFieldType {
+        public static string rsMapInvalidSpatialFieldType {
             get {
                 return ResourceManager.GetString("rsMapInvalidSpatialFieldType", resourceCulture);
             }
@@ -4059,7 +4059,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The layer &apos;{2}&apos; in the {0} &apos;{1}&apos; is not valid. Specify a valid value for the {3} property..
         /// </summary>
-        internal static string rsMapLayerMissingProperty {
+        public static string rsMapLayerMissingProperty {
             get {
                 return ResourceManager.GetString("rsMapLayerMissingProperty", resourceCulture);
             }
@@ -4068,7 +4068,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The number of spatial elements for {0} &apos;{1}&apos; exceeds the maximum limit for the map. The remaining spatial data does not appear in the map. .
         /// </summary>
-        internal static string rsMapMaximumSpatialElementCountReached {
+        public static string rsMapMaximumSpatialElementCountReached {
             get {
                 return ResourceManager.GetString("rsMapMaximumSpatialElementCountReached", resourceCulture);
             }
@@ -4077,7 +4077,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The number of map point elements for {0} &apos;{1}&apos; exceeds the maximum limit for the map. The remaining points do not appear in the map..
         /// </summary>
-        internal static string rsMapMaximumTotalPointCountReached {
+        public static string rsMapMaximumTotalPointCountReached {
             get {
                 return ResourceManager.GetString("rsMapMaximumTotalPointCountReached", resourceCulture);
             }
@@ -4086,7 +4086,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} was already defined for {0} ‘{1}’..
         /// </summary>
-        internal static string rsMapPropertyAlreadyDefined {
+        public static string rsMapPropertyAlreadyDefined {
             get {
                 return ResourceManager.GetString("rsMapPropertyAlreadyDefined", resourceCulture);
             }
@@ -4095,7 +4095,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to = Cannot load shapefile &apos;{3}&apos; into layer &apos;{2}&apos; for the {0} ‘{1}’. Spatial element type does not match the layer type..
         /// </summary>
-        internal static string rsMapShapefileTypeMismatch {
+        public static string rsMapShapefileTypeMismatch {
             get {
                 return ResourceManager.GetString("rsMapShapefileTypeMismatch", resourceCulture);
             }
@@ -4104,7 +4104,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The binding or the grouping for layer &apos;{2}&apos; in the {0} &apos;{1}&apos; is not valid. A spatial element cannot have more than one matching group instance. .
         /// </summary>
-        internal static string rsMapSpatialElementHasMoreThanOnMatchingGroupInstance {
+        public static string rsMapSpatialElementHasMoreThanOnMatchingGroupInstance {
             get {
                 return ResourceManager.GetString("rsMapSpatialElementHasMoreThanOnMatchingGroupInstance", resourceCulture);
             }
@@ -4113,7 +4113,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The type of the value field &apos;{3}&apos; for layer &apos;{2}&apos; in the {0} &apos;{1}&apos; is not supported. .
         /// </summary>
-        internal static string rsMapUnsupportedValueFieldType {
+        public static string rsMapUnsupportedValueFieldType {
             get {
                 return ResourceManager.GetString("rsMapUnsupportedValueFieldType", resourceCulture);
             }
@@ -4122,7 +4122,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses the Min or Max aggregate function on data that cannot be sorted. The functions Min and Max can be used only on data that can be sorted (such as numeric, string, and DateTime data)..
         /// </summary>
-        internal static string rsMinMaxOfNonSortableData {
+        public static string rsMinMaxOfNonSortableData {
             get {
                 return ResourceManager.GetString("rsMinMaxOfNonSortableData", resourceCulture);
             }
@@ -4131,7 +4131,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses an aggregate expression without a scope.  A scope is required for all aggregates used outside of a data region unless the report contains exactly one dataset..
         /// </summary>
-        internal static string rsMissingAggregateScope {
+        public static string rsMissingAggregateScope {
             get {
                 return ResourceManager.GetString("rsMissingAggregateScope", resourceCulture);
             }
@@ -4140,7 +4140,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ references a field in an aggregate expression without a scope.  A scope is required for all aggregates in the page header or footer which reference fields..
         /// </summary>
-        internal static string rsMissingAggregateScopeInPageSection {
+        public static string rsMissingAggregateScopeInPageSection {
             get {
                 return ResourceManager.GetString("rsMissingAggregateScopeInPageSection", resourceCulture);
             }
@@ -4149,7 +4149,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The chart ‘{1}’ has no data points. A chart requires at least one data point..
         /// </summary>
-        internal static string rsMissingChartDataPoints {
+        public static string rsMissingChartDataPoints {
             get {
                 return ResourceManager.GetString("rsMissingChartDataPoints", resourceCulture);
             }
@@ -4158,7 +4158,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains an invalid {2}. The {2}({3}) is missing a {4} element, which is mandatory..
         /// </summary>
-        internal static string rsMissingChartDataValueName {
+        public static string rsMissingChartDataValueName {
             get {
                 return ResourceManager.GetString("rsMissingChartDataValueName", resourceCulture);
             }
@@ -4167,7 +4167,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains CustomProperties. The CustomProperty({3}) is missing a {2} element, which is mandatory..
         /// </summary>
-        internal static string rsMissingCustomPropertyName {
+        public static string rsMissingCustomPropertyName {
             get {
                 return ResourceManager.GetString("rsMissingCustomPropertyName", resourceCulture);
             }
@@ -4176,7 +4176,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has no data cells. A {0} requires at least one {2} element..
         /// </summary>
-        internal static string rsMissingDataCells {
+        public static string rsMissingDataCells {
             get {
                 return ResourceManager.GetString("rsMissingDataCells", resourceCulture);
             }
@@ -4185,7 +4185,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains DataCells but no {2}. This is required when DataCells are present..
         /// </summary>
-        internal static string rsMissingDataGrouping {
+        public static string rsMissingDataGrouping {
             get {
                 return ResourceManager.GetString("rsMissingDataGrouping", resourceCulture);
             }
@@ -4194,7 +4194,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has missing data groupings. A {0} requires at least one {2} element..
         /// </summary>
-        internal static string rsMissingDataGroupings {
+        public static string rsMissingDataGroupings {
             get {
                 return ResourceManager.GetString("rsMissingDataGroupings", resourceCulture);
             }
@@ -4203,7 +4203,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; is invalid. The value for the {2} property is missing..
         /// </summary>
-        internal static string rsMissingDataSetName {
+        public static string rsMissingDataSetName {
             get {
                 return ResourceManager.GetString("rsMissingDataSetName", resourceCulture);
             }
@@ -4212,7 +4212,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The parameter ‘{1}’ has no default.  A default is required for all non-nullable parameters that are defined as read-only..
         /// </summary>
-        internal static string rsMissingDataSetParameterDefault {
+        public static string rsMissingDataSetParameterDefault {
             get {
                 return ResourceManager.GetString("rsMissingDataSetParameterDefault", resourceCulture);
             }
@@ -4221,7 +4221,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies a {2} for {0} &apos;{3}&apos;. The {2} requires at least one JoinCondition when its NaturalJoin property is set to False..
         /// </summary>
-        internal static string rsMissingDefaultRelationshipJoinCondition {
+        public static string rsMissingDefaultRelationshipJoinCondition {
             get {
                 return ResourceManager.GetString("rsMissingDefaultRelationshipJoinCondition", resourceCulture);
             }
@@ -4230,7 +4230,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ is missing..
         /// </summary>
-        internal static string rsMissingExpression {
+        public static string rsMissingExpression {
             get {
                 return ResourceManager.GetString("rsMissingExpression", resourceCulture);
             }
@@ -4239,7 +4239,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a definition for the {2} ‘{3}’. This field is missing from the returned result set from the data source..
         /// </summary>
-        internal static string rsMissingFieldInDataSet {
+        public static string rsMissingFieldInDataSet {
             get {
                 return ResourceManager.GetString("rsMissingFieldInDataSet", resourceCulture);
             }
@@ -4248,7 +4248,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A field that is referenced in either a group expression or a sort expression is missing from the query result set. The missing field might be a hidden field that has been dropped from the result set. .
         /// </summary>
-        internal static string rsMissingFieldInStartAt {
+        public static string rsMissingFieldInStartAt {
             get {
                 return ResourceManager.GetString("rsMissingFieldInStartAt", resourceCulture);
             }
@@ -4257,7 +4257,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {0} at the intersection of Group &apos;{4}&apos; and Group &apos;{5}&apos; in {3} &apos;{1}&apos; is missing a {2} property. The {2} property must be specified for {0} when parent groups are bound to different datasets..
         /// </summary>
-        internal static string rsMissingIntersectionDataSetName {
+        public static string rsMissingIntersectionDataSetName {
             get {
                 return ResourceManager.GetString("rsMissingIntersectionDataSetName", resourceCulture);
             }
@@ -4266,7 +4266,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {0} at the intersection of Group &apos;{4}&apos; and Group &apos;{5}&apos; in {3} &apos;{1}&apos; includes a relationship with a missing or invalid {2} property. The {2} property must specify the name of a parent group..
         /// </summary>
-        internal static string rsMissingIntersectionRelationshipParentScope {
+        public static string rsMissingIntersectionRelationshipParentScope {
             get {
                 return ResourceManager.GetString("rsMissingIntersectionRelationshipParentScope", resourceCulture);
             }
@@ -4275,7 +4275,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} is missing for the {0} ‘{1}’..
         /// </summary>
-        internal static string rsMissingMIMEType {
+        public static string rsMissingMIMEType {
             get {
                 return ResourceManager.GetString("rsMissingMIMEType", resourceCulture);
             }
@@ -4284,7 +4284,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; in dataset &apos;{3}&apos; does not contain a Boolean value and is used as a {2} for the {0} &apos;{4}&apos;. {0} objects used as a {2} must contain a valid Boolean value..
         /// </summary>
-        internal static string rsMissingOrInvalidAggregateIndicatorFieldValue {
+        public static string rsMissingOrInvalidAggregateIndicatorFieldValue {
             get {
                 return ResourceManager.GetString("rsMissingOrInvalidAggregateIndicatorFieldValue", resourceCulture);
             }
@@ -4293,7 +4293,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The parameter ‘{1}’ has no default.  A default is required for all non-nullable parameters without a prompt or the valid values list has to contain Null..
         /// </summary>
-        internal static string rsMissingParameterDefault {
+        public static string rsMissingParameterDefault {
             get {
                 return ResourceManager.GetString("rsMissingParameterDefault", resourceCulture);
             }
@@ -4302,7 +4302,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The subreport &apos;{0}&apos; could not be found at the specified location {1}. Please verify that the subreport has been published and that the name is correct..
         /// </summary>
-        internal static string rsMissingSubReport {
+        public static string rsMissingSubReport {
             get {
                 return ResourceManager.GetString("rsMissingSubReport", resourceCulture);
             }
@@ -4311,7 +4311,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The scalar values property for the {2} of the {0} ‘{1}’ is set to true. Scalar cannot be true if the dynamic grouping has more than one group expression..
         /// </summary>
-        internal static string rsMultipleGroupExpressionsOnChartScalarAxis {
+        public static string rsMultipleGroupExpressionsOnChartScalarAxis {
             get {
                 return ResourceManager.GetString("rsMultipleGroupExpressionsOnChartScalarAxis", resourceCulture);
             }
@@ -4320,7 +4320,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The scalar values property for the {2} of the {0} ‘{1}’ is set to true. Scalar cannot be true if the axis has more than one grouping..
         /// </summary>
-        internal static string rsMultipleGroupingsOnChartScalarAxis {
+        public static string rsMultipleGroupingsOnChartScalarAxis {
             get {
                 return ResourceManager.GetString("rsMultipleGroupingsOnChartScalarAxis", resourceCulture);
             }
@@ -4329,7 +4329,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} element for the {0} ‘{1}’ can only contain exactly one report item.  .
         /// </summary>
-        internal static string rsMultiReportItemsInCustomReportItem {
+        public static string rsMultiReportItemsInCustomReportItem {
             get {
                 return ResourceManager.GetString("rsMultiReportItemsInCustomReportItem", resourceCulture);
             }
@@ -4338,7 +4338,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} in the matrix ‘{1}’ contains more than one report item.  Each section in a matrix can contain at most one report item..
         /// </summary>
-        internal static string rsMultiReportItemsInMatrixSection {
+        public static string rsMultiReportItemsInMatrixSection {
             get {
                 return ResourceManager.GetString("rsMultiReportItemsInMatrixSection", resourceCulture);
             }
@@ -4347,7 +4347,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to more than one report item.  An expression in a page header or footer can refer to only one report item..
         /// </summary>
-        internal static string rsMultiReportItemsInPageSectionExpression {
+        public static string rsMultiReportItemsInPageSectionExpression {
             get {
                 return ResourceManager.GetString("rsMultiReportItemsInPageSectionExpression", resourceCulture);
             }
@@ -4356,7 +4356,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A cell in the table ‘{1}’ contains more than one report item.  Each cell in a table can contain at most one report item..
         /// </summary>
-        internal static string rsMultiReportItemsInTableCell {
+        public static string rsMultiReportItemsInTableCell {
             get {
                 return ResourceManager.GetString("rsMultiReportItemsInTableCell", resourceCulture);
             }
@@ -4365,7 +4365,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has multiple {2} elements.  A chart may have at most one {2} element..
         /// </summary>
-        internal static string rsMultiStaticCategoriesOrSeries {
+        public static string rsMultiStaticCategoriesOrSeries {
             get {
                 return ResourceManager.GetString("rsMultiStaticCategoriesOrSeries", resourceCulture);
             }
@@ -4374,7 +4374,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has multiple {2} elements.  A matrix may have at most one {2} element..
         /// </summary>
-        internal static string rsMultiStaticColumnsOrRows {
+        public static string rsMultiStaticColumnsOrRows {
             get {
                 return ResourceManager.GetString("rsMultiStaticColumnsOrRows", resourceCulture);
             }
@@ -4383,7 +4383,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The endpoint of the line ‘{1}’ is negative.  The value for Left plus the value for Width of a line cannot result in a negative value..
         /// </summary>
-        internal static string rsNegativeLeftWidth {
+        public static string rsNegativeLeftWidth {
             get {
                 return ResourceManager.GetString("rsNegativeLeftWidth", resourceCulture);
             }
@@ -4392,7 +4392,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is negative.  Negative sizes are not allowed..
         /// </summary>
-        internal static string rsNegativeSize {
+        public static string rsNegativeSize {
             get {
                 return ResourceManager.GetString("rsNegativeSize", resourceCulture);
             }
@@ -4401,7 +4401,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The endpoint of the line ‘{1}’ is negative.  The value for Top plus the value for Height of a line cannot result in a negative value..
         /// </summary>
-        internal static string rsNegativeTopHeight {
+        public static string rsNegativeTopHeight {
             get {
                 return ResourceManager.GetString("rsNegativeTopHeight", resourceCulture);
             }
@@ -4410,7 +4410,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ includes an aggregate function in the argument to another aggregate function.  Nested aggregates are not allowed inside filter expressions..
         /// </summary>
-        internal static string rsNestedAggregateInFilterExpression {
+        public static string rsNestedAggregateInFilterExpression {
             get {
                 return ResourceManager.GetString("rsNestedAggregateInFilterExpression", resourceCulture);
             }
@@ -4419,7 +4419,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} value expression for the {0} ‘{1}’ uses an aggregate function in the argument to another aggregate function.  Nested aggregates are not allowed inside group variable expressions..
         /// </summary>
-        internal static string rsNestedAggregateInGroupVariable {
+        public static string rsNestedAggregateInGroupVariable {
             get {
                 return ResourceManager.GetString("rsNestedAggregateInGroupVariable", resourceCulture);
             }
@@ -4428,7 +4428,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses an aggregate function in the argument to another aggregate function.  Nested aggregates are not allowed in the page header or footer..
         /// </summary>
-        internal static string rsNestedAggregateInPageSection {
+        public static string rsNestedAggregateInPageSection {
             get {
                 return ResourceManager.GetString("rsNestedAggregateInPageSection", resourceCulture);
             }
@@ -4437,7 +4437,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; contains a nested aggregate that does not specify a scope. In a tablix cell that belongs to both row and column groups, or on a data point that belongs to both series and category groups, when the outer aggregate specifies a group scope,  nested aggregates must specify a scope..
         /// </summary>
-        internal static string rsNestedAggregateScopeRequired {
+        public static string rsNestedAggregateScopeRequired {
             get {
                 return ResourceManager.GetString("rsNestedAggregateScopeRequired", resourceCulture);
             }
@@ -4446,7 +4446,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; uses both row and column scopes or scopes from two different data axes in the same aggregate expression.  All nested aggregate functions must specify a named scope along the same data axis as the scope of the containing aggregate..
         /// </summary>
-        internal static string rsNestedAggregateScopesFromDifferentAxes {
+        public static string rsNestedAggregateScopesFromDifferentAxes {
             get {
                 return ResourceManager.GetString("rsNestedAggregateScopesFromDifferentAxes", resourceCulture);
             }
@@ -4455,7 +4455,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  The {2} expression for the {0} ‘{1}’ uses an outer aggregate that specifies a Lookup expression that uses an aggregate. Nested aggregates cannot be specified in a Lookup expression..
         /// </summary>
-        internal static string rsNestedAggregateViaLookup {
+        public static string rsNestedAggregateViaLookup {
             get {
                 return ResourceManager.GetString("rsNestedAggregateViaLookup", resourceCulture);
             }
@@ -4464,7 +4464,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses the Aggregate Function in an argument to another aggregate function.  The Aggregate Function cannot be specified as a parameter in an aggregate function. .
         /// </summary>
-        internal static string rsNestedCustomAggregate {
+        public static string rsNestedCustomAggregate {
             get {
                 return ResourceManager.GetString("rsNestedCustomAggregate", resourceCulture);
             }
@@ -4473,7 +4473,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  The {2} expression for the {0} &apos;{1}&apos; contains a Lookup or LookupSet function in the argument to another Lookup or LookupSet function. Lookup functions cannot be nested inside other lookup functions..
         /// </summary>
-        internal static string rsNestedLookups {
+        public static string rsNestedLookups {
             get {
                 return ResourceManager.GetString("rsNestedLookups", resourceCulture);
             }
@@ -4482,7 +4482,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to There is no data for the field at position {0}..
         /// </summary>
-        internal static string rsNoFieldDataAtIndex {
+        public static string rsNoFieldDataAtIndex {
             get {
                 return ResourceManager.GetString("rsNoFieldDataAtIndex", resourceCulture);
             }
@@ -4491,7 +4491,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ references a field outside an aggregate function.  Value expressions in matrix cells should be aggregates, to allow for subtotaling..
         /// </summary>
-        internal static string rsNonAggregateInMatrixCell {
+        public static string rsNonAggregateInMatrixCell {
             get {
                 return ResourceManager.GetString("rsNonAggregateInMatrixCell", resourceCulture);
             }
@@ -4500,7 +4500,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; references a field outside an aggregate function. Value expressions in Tablix cells should be aggregates, to allow for subtotaling..
         /// </summary>
-        internal static string rsNonAggregateInTablixCell {
+        public static string rsNonAggregateInTablixCell {
             get {
                 return ResourceManager.GetString("rsNonAggregateInTablixCell", resourceCulture);
             }
@@ -4509,7 +4509,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression references the dataset &apos;{0}&apos;, which does not exist in the DataSets collection. Letters in the names of datasets must use the correct case..
         /// </summary>
-        internal static string rsNonExistingDataSetReference {
+        public static string rsNonExistingDataSetReference {
             get {
                 return ResourceManager.GetString("rsNonExistingDataSetReference", resourceCulture);
             }
@@ -4518,7 +4518,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression references the data source &apos;{0}&apos;, which does not exist in the DataSource collection. Letters in the names of data sources must use the correct case..
         /// </summary>
-        internal static string rsNonExistingDataSourceReference {
+        public static string rsNonExistingDataSourceReference {
             get {
                 return ResourceManager.GetString("rsNonExistingDataSourceReference", resourceCulture);
             }
@@ -4527,7 +4527,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression referenced a non-existing field in the fields collection..
         /// </summary>
-        internal static string rsNonExistingFieldReference {
+        public static string rsNonExistingFieldReference {
             get {
                 return ResourceManager.GetString("rsNonExistingFieldReference", resourceCulture);
             }
@@ -4536,7 +4536,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression references the field &apos;{0}&apos;, which does not exist in the Fields collection. Expressions can only refer to fields within the current dataset scope or, if inside an aggregate, the specified dataset scope. Letters in the names of fields must use the correct case..
         /// </summary>
-        internal static string rsNonExistingFieldReferenceByName {
+        public static string rsNonExistingFieldReferenceByName {
             get {
                 return ResourceManager.GetString("rsNonExistingFieldReferenceByName", resourceCulture);
             }
@@ -4545,7 +4545,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression references an item &apos;{0}&apos;, which does not exist in the Globals collection. Letters in the names of Globals collection items must use the correct case..
         /// </summary>
-        internal static string rsNonExistingGlobalReference {
+        public static string rsNonExistingGlobalReference {
             get {
                 return ResourceManager.GetString("rsNonExistingGlobalReference", resourceCulture);
             }
@@ -4554,7 +4554,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The item in the Lookups collection was not found. References to the Lookups collection in an expression are not supported..
         /// </summary>
-        internal static string rsNonExistingLookupReference {
+        public static string rsNonExistingLookupReference {
             get {
                 return ResourceManager.GetString("rsNonExistingLookupReference", resourceCulture);
             }
@@ -4563,7 +4563,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression references the parameter &apos;{0}&apos;, which does not exist in the Parameters collection. Letters in the names of parameters must use the correct case..
         /// </summary>
-        internal static string rsNonExistingParameterReference {
+        public static string rsNonExistingParameterReference {
             get {
                 return ResourceManager.GetString("rsNonExistingParameterReference", resourceCulture);
             }
@@ -4572,7 +4572,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; specifies a {2} for {3} &apos;{4}&apos;. &apos;{4}&apos; does not exist..
         /// </summary>
-        internal static string rsNonExistingRelationshipRelatedScope {
+        public static string rsNonExistingRelationshipRelatedScope {
             get {
                 return ResourceManager.GetString("rsNonExistingRelationshipRelatedScope", resourceCulture);
             }
@@ -4581,7 +4581,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression references the report item &apos;{0}&apos;, which does not exist in the ReportItems collection. Expressions can only refer to other report items within the same grouping. Letters in the names of report items must use the correct case..
         /// </summary>
-        internal static string rsNonExistingReportItemReference {
+        public static string rsNonExistingReportItemReference {
             get {
                 return ResourceManager.GetString("rsNonExistingReportItemReference", resourceCulture);
             }
@@ -4590,7 +4590,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an invalid {2} “{3}”. The scope does not exist in the current report..
         /// </summary>
-        internal static string rsNonExistingScope {
+        public static string rsNonExistingScope {
             get {
                 return ResourceManager.GetString("rsNonExistingScope", resourceCulture);
             }
@@ -4599,7 +4599,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression references the scope &apos;{0}&apos;, which does not exist in the Scopes collection. .
         /// </summary>
-        internal static string rsNonExistingScopeReference {
+        public static string rsNonExistingScopeReference {
             get {
                 return ResourceManager.GetString("rsNonExistingScopeReference", resourceCulture);
             }
@@ -4608,7 +4608,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression references an item &apos;{0}&apos;, which does not exist in the User collection. Letters in the names of User collection items must use the correct case..
         /// </summary>
-        internal static string rsNonExistingUserReference {
+        public static string rsNonExistingUserReference {
             get {
                 return ResourceManager.GetString("rsNonExistingUserReference", resourceCulture);
             }
@@ -4617,7 +4617,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression references the variable &apos;{0}&apos;, which does not exist in the Variables collection. Expressions can only refer to variables within the report scope or a containing grouping scope. Letters in the names of variables must use the correct case..
         /// </summary>
-        internal static string rsNonExistingVariableReference {
+        public static string rsNonExistingVariableReference {
             get {
                 return ResourceManager.GetString("rsNonExistingVariableReference", resourceCulture);
             }
@@ -4626,7 +4626,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The query returned no rows for the dataset. The expression therefore evaluates to null..
         /// </summary>
-        internal static string rsNoRowsFieldAccess {
+        public static string rsNoRowsFieldAccess {
             get {
                 return ResourceManager.GetString("rsNoRowsFieldAccess", resourceCulture);
             }
@@ -4635,7 +4635,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report definition is not valid. Please verify that the report definition uses the current report definition {2} (i.e. ‘{3}’)..
         /// </summary>
-        internal static string rsNotACurrentReportDefinition {
+        public static string rsNotACurrentReportDefinition {
             get {
                 return ResourceManager.GetString("rsNotACurrentReportDefinition", resourceCulture);
             }
@@ -4644,7 +4644,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report definition is not valid..
         /// </summary>
-        internal static string rsNotAReportDefinition {
+        public static string rsNotAReportDefinition {
             get {
                 return ResourceManager.GetString("rsNotAReportDefinition", resourceCulture);
             }
@@ -4653,7 +4653,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The shared dataset definition is not valid..
         /// </summary>
-        internal static string rsNotASharedDataSetDefinition {
+        public static string rsNotASharedDataSetDefinition {
             get {
                 return ResourceManager.GetString("rsNotASharedDataSetDefinition", resourceCulture);
             }
@@ -4662,7 +4662,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The object &apos;{0}&apos; does not exist in the collection..
         /// </summary>
-        internal static string rsNotInCollection {
+        public static string rsNotInCollection {
             get {
                 return ResourceManager.GetString("rsNotInCollection", resourceCulture);
             }
@@ -4671,7 +4671,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} is not supported for reports that are not processed using the RenderEdit command..
         /// </summary>
-        internal static string rsNotSupportedInStreamingMode {
+        public static string rsNotSupportedInStreamingMode {
             get {
                 return ResourceManager.GetString("rsNotSupportedInStreamingMode", resourceCulture);
             }
@@ -4680,7 +4680,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The requested report archive stream is null..
         /// </summary>
-        internal static string rsNullReportArchiveStream {
+        public static string rsNullReportArchiveStream {
             get {
                 return ResourceManager.GetString("rsNullReportArchiveStream", resourceCulture);
             }
@@ -4689,7 +4689,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to body.
         /// </summary>
-        internal static string rsObjectNameBody {
+        public static string rsObjectNameBody {
             get {
                 return ResourceManager.GetString("rsObjectNameBody", resourceCulture);
             }
@@ -4698,7 +4698,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to footer.
         /// </summary>
-        internal static string rsObjectNameFooter {
+        public static string rsObjectNameFooter {
             get {
                 return ResourceManager.GetString("rsObjectNameFooter", resourceCulture);
             }
@@ -4707,7 +4707,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to header.
         /// </summary>
-        internal static string rsObjectNameHeader {
+        public static string rsObjectNameHeader {
             get {
                 return ResourceManager.GetString("rsObjectNameHeader", resourceCulture);
             }
@@ -4716,7 +4716,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to ActiveX control.
         /// </summary>
-        internal static string rsObjectTypeActiveXControl {
+        public static string rsObjectTypeActiveXControl {
             get {
                 return ResourceManager.GetString("rsObjectTypeActiveXControl", resourceCulture);
             }
@@ -4725,7 +4725,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to calculation.
         /// </summary>
-        internal static string rsObjectTypeCalculation {
+        public static string rsObjectTypeCalculation {
             get {
                 return ResourceManager.GetString("rsObjectTypeCalculation", resourceCulture);
             }
@@ -4734,7 +4734,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to chart.
         /// </summary>
-        internal static string rsObjectTypeChart {
+        public static string rsObjectTypeChart {
             get {
                 return ResourceManager.GetString("rsObjectTypeChart", resourceCulture);
             }
@@ -4743,7 +4743,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to chart data point.
         /// </summary>
-        internal static string rsObjectTypeChartDataPoint {
+        public static string rsObjectTypeChartDataPoint {
             get {
                 return ResourceManager.GetString("rsObjectTypeChartDataPoint", resourceCulture);
             }
@@ -4752,7 +4752,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to check box.
         /// </summary>
-        internal static string rsObjectTypeCheckbox {
+        public static string rsObjectTypeCheckbox {
             get {
                 return ResourceManager.GetString("rsObjectTypeCheckbox", resourceCulture);
             }
@@ -4761,7 +4761,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to code class.
         /// </summary>
-        internal static string rsObjectTypeCodeClass {
+        public static string rsObjectTypeCodeClass {
             get {
                 return ResourceManager.GetString("rsObjectTypeCodeClass", resourceCulture);
             }
@@ -4770,7 +4770,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to custom reportitem.
         /// </summary>
-        internal static string rsObjectTypeCustomReportItem {
+        public static string rsObjectTypeCustomReportItem {
             get {
                 return ResourceManager.GetString("rsObjectTypeCustomReportItem", resourceCulture);
             }
@@ -4779,7 +4779,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to data binding.
         /// </summary>
-        internal static string rsObjectTypeDataBinding {
+        public static string rsObjectTypeDataBinding {
             get {
                 return ResourceManager.GetString("rsObjectTypeDataBinding", resourceCulture);
             }
@@ -4788,7 +4788,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to data cell.
         /// </summary>
-        internal static string rsObjectTypeDataCell {
+        public static string rsObjectTypeDataCell {
             get {
                 return ResourceManager.GetString("rsObjectTypeDataCell", resourceCulture);
             }
@@ -4797,7 +4797,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to dataset.
         /// </summary>
-        internal static string rsObjectTypeDataSet {
+        public static string rsObjectTypeDataSet {
             get {
                 return ResourceManager.GetString("rsObjectTypeDataSet", resourceCulture);
             }
@@ -4806,7 +4806,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to data shape.
         /// </summary>
-        internal static string rsObjectTypeDataShape {
+        public static string rsObjectTypeDataShape {
             get {
                 return ResourceManager.GetString("rsObjectTypeDataShape", resourceCulture);
             }
@@ -4815,7 +4815,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to data shape intersection.
         /// </summary>
-        internal static string rsObjectTypeDataShapeIntersection {
+        public static string rsObjectTypeDataShapeIntersection {
             get {
                 return ResourceManager.GetString("rsObjectTypeDataShapeIntersection", resourceCulture);
             }
@@ -4824,7 +4824,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to data shape member.
         /// </summary>
-        internal static string rsObjectTypeDataShapeMember {
+        public static string rsObjectTypeDataShapeMember {
             get {
                 return ResourceManager.GetString("rsObjectTypeDataShapeMember", resourceCulture);
             }
@@ -4833,7 +4833,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to data source.
         /// </summary>
-        internal static string rsObjectTypeDataSource {
+        public static string rsObjectTypeDataSource {
             get {
                 return ResourceManager.GetString("rsObjectTypeDataSource", resourceCulture);
             }
@@ -4842,7 +4842,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to embedded image.
         /// </summary>
-        internal static string rsObjectTypeEmbeddedImage {
+        public static string rsObjectTypeEmbeddedImage {
             get {
                 return ResourceManager.GetString("rsObjectTypeEmbeddedImage", resourceCulture);
             }
@@ -4851,7 +4851,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to field.
         /// </summary>
-        internal static string rsObjectTypeField {
+        public static string rsObjectTypeField {
             get {
                 return ResourceManager.GetString("rsObjectTypeField", resourceCulture);
             }
@@ -4860,7 +4860,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to gauge cell.
         /// </summary>
-        internal static string rsObjectTypeGaugeCell {
+        public static string rsObjectTypeGaugeCell {
             get {
                 return ResourceManager.GetString("rsObjectTypeGaugeCell", resourceCulture);
             }
@@ -4869,7 +4869,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to gauge panel.
         /// </summary>
-        internal static string rsObjectTypeGaugePanel {
+        public static string rsObjectTypeGaugePanel {
             get {
                 return ResourceManager.GetString("rsObjectTypeGaugePanel", resourceCulture);
             }
@@ -4878,7 +4878,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to grouping.
         /// </summary>
-        internal static string rsObjectTypeGrouping {
+        public static string rsObjectTypeGrouping {
             get {
                 return ResourceManager.GetString("rsObjectTypeGrouping", resourceCulture);
             }
@@ -4887,7 +4887,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to image.
         /// </summary>
-        internal static string rsObjectTypeImage {
+        public static string rsObjectTypeImage {
             get {
                 return ResourceManager.GetString("rsObjectTypeImage", resourceCulture);
             }
@@ -4896,7 +4896,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to line.
         /// </summary>
-        internal static string rsObjectTypeLine {
+        public static string rsObjectTypeLine {
             get {
                 return ResourceManager.GetString("rsObjectTypeLine", resourceCulture);
             }
@@ -4905,7 +4905,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to list.
         /// </summary>
-        internal static string rsObjectTypeList {
+        public static string rsObjectTypeList {
             get {
                 return ResourceManager.GetString("rsObjectTypeList", resourceCulture);
             }
@@ -4914,7 +4914,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to map.
         /// </summary>
-        internal static string rsObjectTypeMap {
+        public static string rsObjectTypeMap {
             get {
                 return ResourceManager.GetString("rsObjectTypeMap", resourceCulture);
             }
@@ -4923,7 +4923,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to map cell.
         /// </summary>
-        internal static string rsObjectTypeMapCell {
+        public static string rsObjectTypeMapCell {
             get {
                 return ResourceManager.GetString("rsObjectTypeMapCell", resourceCulture);
             }
@@ -4932,7 +4932,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to map data region.
         /// </summary>
-        internal static string rsObjectTypeMapDataRegion {
+        public static string rsObjectTypeMapDataRegion {
             get {
                 return ResourceManager.GetString("rsObjectTypeMapDataRegion", resourceCulture);
             }
@@ -4941,7 +4941,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to matrix.
         /// </summary>
-        internal static string rsObjectTypeMatrix {
+        public static string rsObjectTypeMatrix {
             get {
                 return ResourceManager.GetString("rsObjectTypeMatrix", resourceCulture);
             }
@@ -4950,7 +4950,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to OWC chart.
         /// </summary>
-        internal static string rsObjectTypeOWCChart {
+        public static string rsObjectTypeOWCChart {
             get {
                 return ResourceManager.GetString("rsObjectTypeOWCChart", resourceCulture);
             }
@@ -4959,7 +4959,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to page.
         /// </summary>
-        internal static string rsObjectTypePage {
+        public static string rsObjectTypePage {
             get {
                 return ResourceManager.GetString("rsObjectTypePage", resourceCulture);
             }
@@ -4968,7 +4968,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to paragraph.
         /// </summary>
-        internal static string rsObjectTypeParagraph {
+        public static string rsObjectTypeParagraph {
             get {
                 return ResourceManager.GetString("rsObjectTypeParagraph", resourceCulture);
             }
@@ -4977,7 +4977,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to parameter.
         /// </summary>
-        internal static string rsObjectTypeParameter {
+        public static string rsObjectTypeParameter {
             get {
                 return ResourceManager.GetString("rsObjectTypeParameter", resourceCulture);
             }
@@ -4986,7 +4986,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to parameter panel layout.
         /// </summary>
-        internal static string rsObjectTypeParameterLayout {
+        public static string rsObjectTypeParameterLayout {
             get {
                 return ResourceManager.GetString("rsObjectTypeParameterLayout", resourceCulture);
             }
@@ -4995,7 +4995,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to query.
         /// </summary>
-        internal static string rsObjectTypeQuery {
+        public static string rsObjectTypeQuery {
             get {
                 return ResourceManager.GetString("rsObjectTypeQuery", resourceCulture);
             }
@@ -5004,7 +5004,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to query parameter.
         /// </summary>
-        internal static string rsObjectTypeQueryParameter {
+        public static string rsObjectTypeQueryParameter {
             get {
                 return ResourceManager.GetString("rsObjectTypeQueryParameter", resourceCulture);
             }
@@ -5013,7 +5013,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to rectangle.
         /// </summary>
-        internal static string rsObjectTypeRectangle {
+        public static string rsObjectTypeRectangle {
             get {
                 return ResourceManager.GetString("rsObjectTypeRectangle", resourceCulture);
             }
@@ -5022,7 +5022,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to report.
         /// </summary>
-        internal static string rsObjectTypeReport {
+        public static string rsObjectTypeReport {
             get {
                 return ResourceManager.GetString("rsObjectTypeReport", resourceCulture);
             }
@@ -5031,7 +5031,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to report item.
         /// </summary>
-        internal static string rsObjectTypeReportItem {
+        public static string rsObjectTypeReportItem {
             get {
                 return ResourceManager.GetString("rsObjectTypeReportItem", resourceCulture);
             }
@@ -5040,7 +5040,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to report parameter.
         /// </summary>
-        internal static string rsObjectTypeReportParameter {
+        public static string rsObjectTypeReportParameter {
             get {
                 return ResourceManager.GetString("rsObjectTypeReportParameter", resourceCulture);
             }
@@ -5049,7 +5049,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to report section.
         /// </summary>
-        internal static string rsObjectTypeReportSection {
+        public static string rsObjectTypeReportSection {
             get {
                 return ResourceManager.GetString("rsObjectTypeReportSection", resourceCulture);
             }
@@ -5058,7 +5058,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to shared dataset.
         /// </summary>
-        internal static string rsObjectTypeSharedDataSet {
+        public static string rsObjectTypeSharedDataSet {
             get {
                 return ResourceManager.GetString("rsObjectTypeSharedDataSet", resourceCulture);
             }
@@ -5067,7 +5067,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to subreport.
         /// </summary>
-        internal static string rsObjectTypeSubreport {
+        public static string rsObjectTypeSubreport {
             get {
                 return ResourceManager.GetString("rsObjectTypeSubreport", resourceCulture);
             }
@@ -5076,7 +5076,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to subtotal.
         /// </summary>
-        internal static string rsObjectTypeSubtotal {
+        public static string rsObjectTypeSubtotal {
             get {
                 return ResourceManager.GetString("rsObjectTypeSubtotal", resourceCulture);
             }
@@ -5085,7 +5085,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to table.
         /// </summary>
-        internal static string rsObjectTypeTable {
+        public static string rsObjectTypeTable {
             get {
                 return ResourceManager.GetString("rsObjectTypeTable", resourceCulture);
             }
@@ -5094,7 +5094,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to tablix.
         /// </summary>
-        internal static string rsObjectTypeTablix {
+        public static string rsObjectTypeTablix {
             get {
                 return ResourceManager.GetString("rsObjectTypeTablix", resourceCulture);
             }
@@ -5103,7 +5103,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to tablix cell.
         /// </summary>
-        internal static string rsObjectTypeTablixCell {
+        public static string rsObjectTypeTablixCell {
             get {
                 return ResourceManager.GetString("rsObjectTypeTablixCell", resourceCulture);
             }
@@ -5112,7 +5112,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to text box.
         /// </summary>
-        internal static string rsObjectTypeTextbox {
+        public static string rsObjectTypeTextbox {
             get {
                 return ResourceManager.GetString("rsObjectTypeTextbox", resourceCulture);
             }
@@ -5121,7 +5121,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to textrun.
         /// </summary>
-        internal static string rsObjectTypeTextRun {
+        public static string rsObjectTypeTextRun {
             get {
                 return ResourceManager.GetString("rsObjectTypeTextRun", resourceCulture);
             }
@@ -5130,7 +5130,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is out of range.  It must be between {4} and {5}..
         /// </summary>
-        internal static string rsOutOfRangeSize {
+        public static string rsOutOfRangeSize {
             get {
                 return ResourceManager.GetString("rsOutOfRangeSize", resourceCulture);
             }
@@ -5139,7 +5139,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the global variable OverallPageNumber or OverallTotalPages.  These global variables can be used only in the page header and page footer..
         /// </summary>
-        internal static string rsOverallPageNumberInBody {
+        public static string rsOverallPageNumberInBody {
             get {
                 return ResourceManager.GetString("rsOverallPageNumberInBody", resourceCulture);
             }
@@ -5148,7 +5148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the global variable OverallPageNumber or OverallTotalPages in an aggregate function that specifies a dataset scope.  These global variables cannot be used with an aggregate function that has a dataset scope in a page header or page footer. .
         /// </summary>
-        internal static string rsOverallPageNumberInScopedAggregate {
+        public static string rsOverallPageNumberInScopedAggregate {
             get {
                 return ResourceManager.GetString("rsOverallPageNumberInScopedAggregate", resourceCulture);
             }
@@ -5157,7 +5157,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ and the {3} ‘{4}’ overlap. Overlapping report items are not supported in all renderers..
         /// </summary>
-        internal static string rsOverlappingReportItems {
+        public static string rsOverlappingReportItems {
             get {
                 return ResourceManager.GetString("rsOverlappingReportItems", resourceCulture);
             }
@@ -5166,7 +5166,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The chart {0} can not be rendered because the OWC Chart Control is not installed or is incorrectly installed..
         /// </summary>
-        internal static string rsOWCNotInstalled {
+        public static string rsOWCNotInstalled {
             get {
                 return ResourceManager.GetString("rsOWCNotInstalled", resourceCulture);
             }
@@ -5175,7 +5175,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The group ‘{3}’ in the {0} ‘{1}’ is marked to create page break for each group. Page breaks are not supported for {2} in charts..
         /// </summary>
-        internal static string rsPageBreakOnChartGroup {
+        public static string rsPageBreakOnChartGroup {
             get {
                 return ResourceManager.GetString("rsPageBreakOnChartGroup", resourceCulture);
             }
@@ -5184,7 +5184,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The group ‘{3}’ in the {0} ‘{1}’ is marked to create page break for each group. Page breaks are not supported for {2} in gauges..
         /// </summary>
-        internal static string rsPageBreakOnGaugeGroup {
+        public static string rsPageBreakOnGaugeGroup {
             get {
                 return ResourceManager.GetString("rsPageBreakOnGaugeGroup", resourceCulture);
             }
@@ -5193,7 +5193,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The group ‘{3}’ in the {0} ‘{1}’ is marked to create page break for each group. Page breaks are not supported for {2} in maps..
         /// </summary>
-        internal static string rsPageBreakOnMapGroup {
+        public static string rsPageBreakOnMapGroup {
             get {
                 return ResourceManager.GetString("rsPageBreakOnMapGroup", resourceCulture);
             }
@@ -5202,7 +5202,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The group ‘{3}’ in the {0} ‘{1}’ is marked to create page break for each group. Page breaks are not supported for column groupings in matrixes..
         /// </summary>
-        internal static string rsPageBreakOnMatrixColumnGroup {
+        public static string rsPageBreakOnMatrixColumnGroup {
             get {
                 return ResourceManager.GetString("rsPageBreakOnMatrixColumnGroup", resourceCulture);
             }
@@ -5211,7 +5211,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the global variable PageNumber or TotalPages.  These global variables can be used only in the page header and page footer..
         /// </summary>
-        internal static string rsPageNumberInBody {
+        public static string rsPageNumberInBody {
             get {
                 return ResourceManager.GetString("rsPageNumberInBody", resourceCulture);
             }
@@ -5220,7 +5220,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the global variable PageNumber or TotalPages within a data set aggregate.  These global variables cannot be used in scoped aggregates within the page header and page footer..
         /// </summary>
-        internal static string rsPageNumberInScopedAggregate {
+        public static string rsPageNumberInScopedAggregate {
             get {
                 return ResourceManager.GetString("rsPageNumberInScopedAggregate", resourceCulture);
             }
@@ -5229,7 +5229,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  The Page element for the {0} &apos;{1}&apos; contains a value for {2}. {2} is allowed only on the first {0}..
         /// </summary>
-        internal static string rsPagePropertyInSubsequentReportSection {
+        public static string rsPagePropertyInSubsequentReportSection {
             get {
                 return ResourceManager.GetString("rsPagePropertyInSubsequentReportSection", resourceCulture);
             }
@@ -5238,7 +5238,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Parameter validation failed. It is not possible to provide valid values for all parameters..
         /// </summary>
-        internal static string rsParameterError {
+        public static string rsParameterError {
             get {
                 return ResourceManager.GetString("rsParameterError", resourceCulture);
             }
@@ -5247,7 +5247,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} expression used for the report parameter ‘{1}’ refers to a parameter.  Parameters cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsParameterInReportParameterExpression {
+        public static string rsParameterInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsParameterInReportParameterExpression", resourceCulture);
             }
@@ -5256,7 +5256,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The property ‘{2}’ of {0} ‘{1}’ doesn&apos;t have the expected type..
         /// </summary>
-        internal static string rsParameterPropertyTypeMismatch {
+        public static string rsParameterPropertyTypeMismatch {
             get {
                 return ResourceManager.GetString("rsParameterPropertyTypeMismatch", resourceCulture);
             }
@@ -5265,7 +5265,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to a non-existing report parameter ‘{3}’. Letters in the names of parameters must use the correct case..
         /// </summary>
-        internal static string rsParameterReference {
+        public static string rsParameterReference {
             get {
                 return ResourceManager.GetString("rsParameterReference", resourceCulture);
             }
@@ -5274,7 +5274,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to One or more parameters required to run the report have not been specified..
         /// </summary>
-        internal static string rsParametersNotSpecified {
+        public static string rsParametersNotSpecified {
             get {
                 return ResourceManager.GetString("rsParametersNotSpecified", resourceCulture);
             }
@@ -5283,7 +5283,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression used in {0} ‘{1}’ returned a numeric value that cannot fit in an Int32. In the target report, consider modifying the type of parameter ‘{3}’ to Text in order to represent the numeric value..
         /// </summary>
-        internal static string rsParameterValueCastFailure {
+        public static string rsParameterValueCastFailure {
             get {
                 return ResourceManager.GetString("rsParameterValueCastFailure", resourceCulture);
             }
@@ -5292,7 +5292,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ‘{2}’ property of {0} ‘{1}’ is set to false. However, the ‘{3}’ property contains a value that violates the ‘{2}’ property condition..
         /// </summary>
-        internal static string rsParameterValueDefinitionMismatch {
+        public static string rsParameterValueDefinitionMismatch {
             get {
                 return ResourceManager.GetString("rsParameterValueDefinitionMismatch", resourceCulture);
             }
@@ -5301,7 +5301,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ‘{2}’ property of {0} ‘{1}’ is false. However, the ‘{3}’ property contains a value that violates the ‘{2}’ property condition..
         /// </summary>
-        internal static string rsParameterValueNullOrBlank {
+        public static string rsParameterValueNullOrBlank {
             get {
                 return ResourceManager.GetString("rsParameterValueNullOrBlank", resourceCulture);
             }
@@ -5310,7 +5310,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Near character position {4} in the input string, the value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}. .
         /// </summary>
-        internal static string rsParseErrorInvalidColor {
+        public static string rsParseErrorInvalidColor {
             get {
                 return ResourceManager.GetString("rsParseErrorInvalidColor", resourceCulture);
             }
@@ -5319,7 +5319,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Near character position {4} in the input string, the value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid size.  Valid sizes may not exceed 455 inches (1155.7 centimeters)..
         /// </summary>
-        internal static string rsParseErrorInvalidSize {
+        public static string rsParseErrorInvalidSize {
             get {
                 return ResourceManager.GetString("rsParseErrorInvalidSize", resourceCulture);
             }
@@ -5328,7 +5328,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Near character position {4} in the input string, The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is not a valid {2}..
         /// </summary>
-        internal static string rsParseErrorInvalidValue {
+        public static string rsParseErrorInvalidValue {
             get {
                 return ResourceManager.GetString("rsParseErrorInvalidValue", resourceCulture);
             }
@@ -5337,7 +5337,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} property for the {0} ‘{1}’ is “{3}”, which is out of range.  It must be between {4} and {5}..
         /// </summary>
-        internal static string rsParseErrorOutOfRangeSize {
+        public static string rsParseErrorOutOfRangeSize {
             get {
                 return ResourceManager.GetString("rsParseErrorOutOfRangeSize", resourceCulture);
             }
@@ -5346,7 +5346,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses a First, Last or Previous aggregate in an outer aggregate.  These aggregate functions cannot be specified as nested aggregates..
         /// </summary>
-        internal static string rsPostSortAggregateInAggregateExpression {
+        public static string rsPostSortAggregateInAggregateExpression {
             get {
                 return ResourceManager.GetString("rsPostSortAggregateInAggregateExpression", resourceCulture);
             }
@@ -5355,7 +5355,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A grouping filter expression for the {0} ‘{1}’ uses aggregate function First, Last or Previous.  These aggregate functions cannot be used in grouping filters..
         /// </summary>
-        internal static string rsPostSortAggregateInGroupFilterExpression {
+        public static string rsPostSortAggregateInGroupFilterExpression {
             get {
                 return ResourceManager.GetString("rsPostSortAggregateInGroupFilterExpression", resourceCulture);
             }
@@ -5364,7 +5364,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A sort expression for the {0} ‘{1}’ uses aggregate function First, Last or Previous.  These aggregate functions cannot be used in sort expressions..
         /// </summary>
-        internal static string rsPostSortAggregateInSortExpression {
+        public static string rsPostSortAggregateInSortExpression {
             get {
                 return ResourceManager.GetString("rsPostSortAggregateInSortExpression", resourceCulture);
             }
@@ -5373,7 +5373,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} value expression for the {0} ‘{1}’ uses aggregate function First, Last or Previous.  These aggregate functions cannot be used in variable value expressions..
         /// </summary>
-        internal static string rsPostSortAggregateInVariableExpression {
+        public static string rsPostSortAggregateInVariableExpression {
             get {
                 return ResourceManager.GetString("rsPostSortAggregateInVariableExpression", resourceCulture);
             }
@@ -5382,7 +5382,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} for the {0} ‘{1}’ uses the Previous aggregate function.  Previous cannot be used in filters..
         /// </summary>
-        internal static string rsPreviousAggregateInFilterExpression {
+        public static string rsPreviousAggregateInFilterExpression {
             get {
                 return ResourceManager.GetString("rsPreviousAggregateInFilterExpression", resourceCulture);
             }
@@ -5391,7 +5391,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A group expression for the {0} ‘{1}’ includes the Previous aggregate function.  Previous cannot be used in group expressions..
         /// </summary>
-        internal static string rsPreviousAggregateInGroupExpression {
+        public static string rsPreviousAggregateInGroupExpression {
             get {
                 return ResourceManager.GetString("rsPreviousAggregateInGroupExpression", resourceCulture);
             }
@@ -5400,7 +5400,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} join relationship expression for the {0} ‘{1}’ includes the Previous aggregate function.  Previous cannot be used in join relationship expressions..
         /// </summary>
-        internal static string rsPreviousAggregateInJoinExpression {
+        public static string rsPreviousAggregateInJoinExpression {
             get {
                 return ResourceManager.GetString("rsPreviousAggregateInJoinExpression", resourceCulture);
             }
@@ -5409,7 +5409,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ includes the Previous aggregate function.  Previous cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsPreviousAggregateInPageSectionExpression {
+        public static string rsPreviousAggregateInPageSectionExpression {
             get {
                 return ResourceManager.GetString("rsPreviousAggregateInPageSectionExpression", resourceCulture);
             }
@@ -5418,7 +5418,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the parameter ‘{1}’ in the dataset ‘{3}’ uses the Previous aggregate function.  Previous cannot be used in query parameter expressions..
         /// </summary>
-        internal static string rsPreviousAggregateInQueryParameterExpression {
+        public static string rsPreviousAggregateInQueryParameterExpression {
             get {
                 return ResourceManager.GetString("rsPreviousAggregateInQueryParameterExpression", resourceCulture);
             }
@@ -5427,7 +5427,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the language of &apos;{1}&apos; uses the Previous aggregate function. Previous cannot be used in report language expressions..
         /// </summary>
-        internal static string rsPreviousAggregateInReportLanguageExpression {
+        public static string rsPreviousAggregateInReportLanguageExpression {
             get {
                 return ResourceManager.GetString("rsPreviousAggregateInReportLanguageExpression", resourceCulture);
             }
@@ -5436,7 +5436,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} expression used for the report parameter ‘{1}’ uses the Previous aggregate function.  Previous cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsPreviousAggregateInReportParameterExpression {
+        public static string rsPreviousAggregateInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsPreviousAggregateInReportParameterExpression", resourceCulture);
             }
@@ -5445,7 +5445,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A sort expression for the {0} ‘{1}’ uses the Previous aggregate function.  Previous cannot be used in sort expressions..
         /// </summary>
-        internal static string rsPreviousAggregateInSortExpression {
+        public static string rsPreviousAggregateInSortExpression {
             get {
                 return ResourceManager.GetString("rsPreviousAggregateInSortExpression", resourceCulture);
             }
@@ -5454,7 +5454,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} value expression for the {0} ‘{1}’ uses the Previous aggregate function.  Previous cannot be used in variable value expressions..
         /// </summary>
-        internal static string rsPreviousAggregateInVariableExpression {
+        public static string rsPreviousAggregateInVariableExpression {
             get {
                 return ResourceManager.GetString("rsPreviousAggregateInVariableExpression", resourceCulture);
             }
@@ -5463,7 +5463,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses a Previous function in an outer aggregate.  Previous functions cannot be specified as nested aggregates..
         /// </summary>
-        internal static string rsPreviousInAggregateExpression {
+        public static string rsPreviousInAggregateExpression {
             get {
                 return ResourceManager.GetString("rsPreviousInAggregateExpression", resourceCulture);
             }
@@ -5472,7 +5472,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for {0} &apos;{1}&apos; contains the Previous function in an argument to a Lookup or LookupSet function. The Previous function cannot be used for the destination or result Expression parameter of a lookup function..
         /// </summary>
-        internal static string rsPreviousInLookupDestinationOrResult {
+        public static string rsPreviousInLookupDestinationOrResult {
             get {
                 return ResourceManager.GetString("rsPreviousInLookupDestinationOrResult", resourceCulture);
             }
@@ -5481,7 +5481,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; contains the Previous function in the Expression argument of a Previous function.  The Previous function cannot be used in the Expression parameter of the Previous function..
         /// </summary>
-        internal static string rsPreviousInPreviousAggregate {
+        public static string rsPreviousInPreviousAggregate {
             get {
                 return ResourceManager.GetString("rsPreviousInPreviousAggregate", resourceCulture);
             }
@@ -5490,7 +5490,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error has occurred during report processing..
         /// </summary>
-        internal static string rsProcessingAbortedByError {
+        public static string rsProcessingAbortedByError {
             get {
                 return ResourceManager.GetString("rsProcessingAbortedByError", resourceCulture);
             }
@@ -5499,7 +5499,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report processing has been canceled by the user. .
         /// </summary>
-        internal static string rsProcessingAbortedByUser {
+        public static string rsProcessingAbortedByUser {
             get {
                 return ResourceManager.GetString("rsProcessingAbortedByUser", resourceCulture);
             }
@@ -5508,7 +5508,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Series.
         /// </summary>
-        internal static string rsPropertyNameSeries {
+        public static string rsPropertyNameSeries {
             get {
                 return ResourceManager.GetString("rsPropertyNameSeries", resourceCulture);
             }
@@ -5517,7 +5517,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Error during processing of the CommandText expression of dataset ‘{0}’..
         /// </summary>
-        internal static string rsQueryCommandTextProcessingError {
+        public static string rsQueryCommandTextProcessingError {
             get {
                 return ResourceManager.GetString("rsQueryCommandTextProcessingError", resourceCulture);
             }
@@ -5526,7 +5526,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The query required more than the maximum allowed memory. {0}.
         /// </summary>
-        internal static string rsQueryMemoryLimitExceeded {
+        public static string rsQueryMemoryLimitExceeded {
             get {
                 return ResourceManager.GetString("rsQueryMemoryLimitExceeded", resourceCulture);
             }
@@ -5535,7 +5535,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The query took longer than the currently configured timeout. {0}.
         /// </summary>
-        internal static string rsQueryTimeoutExceeded {
+        public static string rsQueryTimeoutExceeded {
             get {
                 return ResourceManager.GetString("rsQueryTimeoutExceeded", resourceCulture);
             }
@@ -5544,7 +5544,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has an outer aggregate that specifies the recursive flag.  Outer aggregates that specify the recursive flag cannot contain nested aggregates. .
         /// </summary>
-        internal static string rsRecursiveAggregateOfAggregate {
+        public static string rsRecursiveAggregateOfAggregate {
             get {
                 return ResourceManager.GetString("rsRecursiveAggregateOfAggregate", resourceCulture);
             }
@@ -5553,7 +5553,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The rendering extension attempted to open or create a chunk. Rendering chunks are unavailable in RDLX reports..
         /// </summary>
-        internal static string rsRenderingChunksUnavailable {
+        public static string rsRenderingChunksUnavailable {
             get {
                 return ResourceManager.GetString("rsRenderingChunksUnavailable", resourceCulture);
             }
@@ -5562,7 +5562,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to You have attempted to use a rendering extension that is either not registered for this report server or it is not supported in this edition of Reporting Services..
         /// </summary>
-        internal static string rsRenderingExtensionNotFound {
+        public static string rsRenderingExtensionNotFound {
             get {
                 return ResourceManager.GetString("rsRenderingExtensionNotFound", resourceCulture);
             }
@@ -5571,7 +5571,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Error: Subreport could not be shown..
         /// </summary>
-        internal static string rsRenderSubreportError {
+        public static string rsRenderSubreportError {
             get {
                 return ResourceManager.GetString("rsRenderSubreportError", resourceCulture);
             }
@@ -5580,7 +5580,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has ‘{3}’ as the value of its RepeatWith.  A RepeatWith must be a data region within the same containing object as the report item..
         /// </summary>
-        internal static string rsRepeatWithNotPeerDataRegion {
+        public static string rsRepeatWithNotPeerDataRegion {
             get {
                 return ResourceManager.GetString("rsRepeatWithNotPeerDataRegion", resourceCulture);
             }
@@ -5589,7 +5589,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} for {0} ‘{1}’ refers to a report item.  Report items cannot be used in filters..
         /// </summary>
-        internal static string rsReportItemInFilterExpression {
+        public static string rsReportItemInFilterExpression {
             get {
                 return ResourceManager.GetString("rsReportItemInFilterExpression", resourceCulture);
             }
@@ -5598,7 +5598,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A group expression for {0} ‘{1}’ refers to a report item.  Report items cannot be used in group expressions..
         /// </summary>
-        internal static string rsReportItemInGroupExpression {
+        public static string rsReportItemInGroupExpression {
             get {
                 return ResourceManager.GetString("rsReportItemInGroupExpression", resourceCulture);
             }
@@ -5607,7 +5607,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} join relationship expression for {0} ‘{1}’ refers to a report item.  Report items cannot be used in join relationship expressions..
         /// </summary>
-        internal static string rsReportItemInJoinExpression {
+        public static string rsReportItemInJoinExpression {
             get {
                 return ResourceManager.GetString("rsReportItemInJoinExpression", resourceCulture);
             }
@@ -5616,7 +5616,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  The {2} expression for {0} &apos;{1}&apos; contains a report item reference in an argument to a Lookup or LookupSet function. Report item references cannot be used for the destination or result Expression parameter of a lookup function..
         /// </summary>
-        internal static string rsReportItemInLookupDestinationOrResult {
+        public static string rsReportItemInLookupDestinationOrResult {
             get {
                 return ResourceManager.GetString("rsReportItemInLookupDestinationOrResult", resourceCulture);
             }
@@ -5625,7 +5625,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for parameter ‘{1}’ in the dataset ‘{3}’ refers to a report item.  Report items cannot be used in query parameter expressions..
         /// </summary>
-        internal static string rsReportItemInQueryParameterExpression {
+        public static string rsReportItemInQueryParameterExpression {
             get {
                 return ResourceManager.GetString("rsReportItemInQueryParameterExpression", resourceCulture);
             }
@@ -5634,7 +5634,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the language of &apos;{1}&apos; refers to a report item. Report items cannot be used in report language expressions..
         /// </summary>
-        internal static string rsReportItemInReportLanguageExpression {
+        public static string rsReportItemInReportLanguageExpression {
             get {
                 return ResourceManager.GetString("rsReportItemInReportLanguageExpression", resourceCulture);
             }
@@ -5643,7 +5643,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} expression used for report parameter ‘{1}’ refers to a report item.  Report items cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsReportItemInReportParameterExpression {
+        public static string rsReportItemInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsReportItemInReportParameterExpression", resourceCulture);
             }
@@ -5652,7 +5652,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ references report item &apos;{3}&apos; in an aggregate expression with a scope.  A scope is not allowed on aggregates in the page header or footer which reference report items..
         /// </summary>
-        internal static string rsReportItemInScopedAggregate {
+        public static string rsReportItemInScopedAggregate {
             get {
                 return ResourceManager.GetString("rsReportItemInScopedAggregate", resourceCulture);
             }
@@ -5661,7 +5661,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A sort expression for {0} ‘{1}’ refers to a report item.  Report items cannot be used in sort expressions..
         /// </summary>
-        internal static string rsReportItemInSortExpression {
+        public static string rsReportItemInSortExpression {
             get {
                 return ResourceManager.GetString("rsReportItemInSortExpression", resourceCulture);
             }
@@ -5670,7 +5670,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} value expression used for the language of &apos;{1}&apos; refers to a report item. Variable values cannot be used in report language expressions..
         /// </summary>
-        internal static string rsReportItemInVariableExpression {
+        public static string rsReportItemInVariableExpression {
             get {
                 return ResourceManager.GetString("rsReportItemInVariableExpression", resourceCulture);
             }
@@ -5679,7 +5679,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ extends beyond the {2} edge of its container..
         /// </summary>
-        internal static string rsReportItemOutsideContainer {
+        public static string rsReportItemOutsideContainer {
             get {
                 return ResourceManager.GetString("rsReportItemOutsideContainer", resourceCulture);
             }
@@ -5688,7 +5688,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the report item ‘{3}’.  Report item expressions can only refer to other report items within the same grouping scope or a containing grouping scope. Letters in the names of report items must use the correct case..
         /// </summary>
-        internal static string rsReportItemReference {
+        public static string rsReportItemReference {
             get {
                 return ResourceManager.GetString("rsReportItemReference", resourceCulture);
             }
@@ -5697,7 +5697,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ refers to the report item ‘{3}’.  Report item expressions in a Page Header or Footer can only refer to report items within the same ReportSection. Letters in the names of report items must use the correct case..
         /// </summary>
-        internal static string rsReportItemReferenceInPageSection {
+        public static string rsReportItemReferenceInPageSection {
             get {
                 return ResourceManager.GetString("rsReportItemReferenceInPageSection", resourceCulture);
             }
@@ -5706,7 +5706,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Error during processing of ‘{0}’ report parameter..
         /// </summary>
-        internal static string rsReportParameterProcessingError {
+        public static string rsReportParameterProcessingError {
             get {
                 return ResourceManager.GetString("rsReportParameterProcessingError", resourceCulture);
             }
@@ -5715,7 +5715,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Error during processing of ‘{0}’ report parameter. The {1} property of the report parameter ‘{0}’ references the value of field ‘{2}’ in dataset ‘{3}’ which contains an error: {4}.
         /// </summary>
-        internal static string rsReportParameterQueryProcessingError {
+        public static string rsReportParameterQueryProcessingError {
             get {
                 return ResourceManager.GetString("rsReportParameterQueryProcessingError", resourceCulture);
             }
@@ -5724,7 +5724,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to #ParseError.
         /// </summary>
-        internal static string rsRichTextParseErrorValue {
+        public static string rsRichTextParseErrorValue {
             get {
                 return ResourceManager.GetString("rsRichTextParseErrorValue", resourceCulture);
             }
@@ -5733,7 +5733,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Restart failed on grouping &apos;{0}&apos;. The ScopeID was not matched with the instances in this scope (reached the end of scope instances)..
         /// </summary>
-        internal static string rsRombasedRestartFailed {
+        public static string rsRombasedRestartFailed {
             get {
                 return ResourceManager.GetString("rsRombasedRestartFailed", resourceCulture);
             }
@@ -5742,7 +5742,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Restart failed on grouping &apos;{0}&apos;. The ScopeID couldn&apos;t be matched with the instances in this scope because of a type mismatch between ScopeIDs..
         /// </summary>
-        internal static string rsRombasedRestartFailedTypeMismatch {
+        public static string rsRombasedRestartFailedTypeMismatch {
             get {
                 return ResourceManager.GetString("rsRombasedRestartFailedTypeMismatch", resourceCulture);
             }
@@ -5751,7 +5751,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to  A {2} for {0} ‘{1}’ uses the RowNumber function.  RowNumber cannot be used in filters..
         /// </summary>
-        internal static string rsRowNumberInFilterExpression {
+        public static string rsRowNumberInFilterExpression {
             get {
                 return ResourceManager.GetString("rsRowNumberInFilterExpression", resourceCulture);
             }
@@ -5760,7 +5760,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for {0} &apos;{1}&apos; contains the RowNumber function in an argument to a Lookup or LookupSet function. The RowNumber function cannot be used for the destination or result Expression parameter of a lookup function..
         /// </summary>
-        internal static string rsRowNumberInLookupDestinationOrResult {
+        public static string rsRowNumberInLookupDestinationOrResult {
             get {
                 return ResourceManager.GetString("rsRowNumberInLookupDestinationOrResult", resourceCulture);
             }
@@ -5769,7 +5769,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for {0} ‘{1}’ uses the RowNumber function.  RowNumber cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsRowNumberInPageSectionExpression {
+        public static string rsRowNumberInPageSectionExpression {
             get {
                 return ResourceManager.GetString("rsRowNumberInPageSectionExpression", resourceCulture);
             }
@@ -5778,7 +5778,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; contains the RowNumber function in the Expression argument of a Previous function.  The RowNumber function cannot be used in the Expression parameter of the Previous function..
         /// </summary>
-        internal static string rsRowNumberInPreviousAggregate {
+        public static string rsRowNumberInPreviousAggregate {
             get {
                 return ResourceManager.GetString("rsRowNumberInPreviousAggregate", resourceCulture);
             }
@@ -5787,7 +5787,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for parameter ‘{1}’ in the dataset ‘{3}’ includes the RowNumber function.  RowNumber cannot be used in query parameter expressions..
         /// </summary>
-        internal static string rsRowNumberInQueryParameterExpression {
+        public static string rsRowNumberInQueryParameterExpression {
             get {
                 return ResourceManager.GetString("rsRowNumberInQueryParameterExpression", resourceCulture);
             }
@@ -5796,7 +5796,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the language of &apos;{1}&apos; uses the RowNumber function. RowNumber cannot be used in report language expressions..
         /// </summary>
-        internal static string rsRowNumberInReportLanguageExpression {
+        public static string rsRowNumberInReportLanguageExpression {
             get {
                 return ResourceManager.GetString("rsRowNumberInReportLanguageExpression", resourceCulture);
             }
@@ -5805,7 +5805,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A report parameter expression for {0} ‘{1}’ uses the RowNumber function.  RowNumber cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsRowNumberInReportParameterExpression {
+        public static string rsRowNumberInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsRowNumberInReportParameterExpression", resourceCulture);
             }
@@ -5814,7 +5814,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A sort expression for {0} ‘{1}’ uses the RowNumber function.  RowNumber cannot be used in sort expressions..
         /// </summary>
-        internal static string rsRowNumberInSortExpression {
+        public static string rsRowNumberInSortExpression {
             get {
                 return ResourceManager.GetString("rsRowNumberInSortExpression", resourceCulture);
             }
@@ -5823,7 +5823,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} value expression for {0} ‘{1}’ uses the RowNumber function.  RowNumber cannot be used in variable value expressions..
         /// </summary>
-        internal static string rsRowNumberInVariableExpression {
+        public static string rsRowNumberInVariableExpression {
             get {
                 return ResourceManager.GetString("rsRowNumberInVariableExpression", resourceCulture);
             }
@@ -5832,7 +5832,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses a RunningValue function in an outer aggregate.  RunningValue functions cannot be specified as nested aggregates..
         /// </summary>
-        internal static string rsRunningValueInAggregateExpression {
+        public static string rsRunningValueInAggregateExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInAggregateExpression", resourceCulture);
             }
@@ -5841,7 +5841,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} for {0} ‘{1}’ uses the RunningValue aggregate function.  RunningValue cannot be used in filters..
         /// </summary>
-        internal static string rsRunningValueInFilterExpression {
+        public static string rsRunningValueInFilterExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInFilterExpression", resourceCulture);
             }
@@ -5850,7 +5850,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A group expression for the {0} ‘{1}’ includes the RunningValue aggregate function.  RunningValue cannot be used in group expressions..
         /// </summary>
-        internal static string rsRunningValueInGroupExpression {
+        public static string rsRunningValueInGroupExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInGroupExpression", resourceCulture);
             }
@@ -5859,7 +5859,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} join relationship expression for the {0} ‘{1}’ includes the RunningValue aggregate function .  RunningValue cannot be used in join relationship expressions..
         /// </summary>
-        internal static string rsRunningValueInJoinExpression {
+        public static string rsRunningValueInJoinExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInJoinExpression", resourceCulture);
             }
@@ -5868,7 +5868,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ includes the RunningValue aggregate function.  RunningValue cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsRunningValueInPageSectionExpression {
+        public static string rsRunningValueInPageSectionExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInPageSectionExpression", resourceCulture);
             }
@@ -5877,7 +5877,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} &apos;{1}&apos; contains the RunningValue function in the Expression argument of a Previous function.  The RunningValue function cannot be used in the Expression parameter of the Previous function..
         /// </summary>
-        internal static string rsRunningValueInPreviousAggregate {
+        public static string rsRunningValueInPreviousAggregate {
             get {
                 return ResourceManager.GetString("rsRunningValueInPreviousAggregate", resourceCulture);
             }
@@ -5886,7 +5886,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the parameter ‘{1}’ in the dataset ‘{3}’ uses the RunningValue aggregate function.  RunningValue cannot be used in query parameter expressions..
         /// </summary>
-        internal static string rsRunningValueInQueryParameterExpression {
+        public static string rsRunningValueInQueryParameterExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInQueryParameterExpression", resourceCulture);
             }
@@ -5895,7 +5895,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the language of &apos;{1}&apos; uses the RunningValue aggregate function. RunningValue cannot be used in report language expressions..
         /// </summary>
-        internal static string rsRunningValueInReportLanguageExpression {
+        public static string rsRunningValueInReportLanguageExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInReportLanguageExpression", resourceCulture);
             }
@@ -5904,7 +5904,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} expression used for the report parameter ‘{1}’ uses the RunningValue aggregate function.  RunningValue cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsRunningValueInReportParameterExpression {
+        public static string rsRunningValueInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInReportParameterExpression", resourceCulture);
             }
@@ -5913,7 +5913,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A sort expression for the {0} ‘{1}’ uses the RunningValue aggregate function.  RunningValue cannot be used in sort expressions..
         /// </summary>
-        internal static string rsRunningValueInSortExpression {
+        public static string rsRunningValueInSortExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInSortExpression", resourceCulture);
             }
@@ -5922,7 +5922,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} value expression for the {0} ‘{1}’ uses the RunningValue aggregate function.  RunningValue cannot be used in variable value expressions..
         /// </summary>
-        internal static string rsRunningValueInVariableExpression {
+        public static string rsRunningValueInVariableExpression {
             get {
                 return ResourceManager.GetString("rsRunningValueInVariableExpression", resourceCulture);
             }
@@ -5931,7 +5931,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ contains an error: {3}.
         /// </summary>
-        internal static string rsRuntimeErrorInExpression {
+        public static string rsRuntimeErrorInExpression {
             get {
                 return ResourceManager.GetString("rsRuntimeErrorInExpression", resourceCulture);
             }
@@ -5940,7 +5940,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has a user profile dependency..
         /// </summary>
-        internal static string rsRuntimeUserProfileDependency {
+        public static string rsRuntimeUserProfileDependency {
             get {
                 return ResourceManager.GetString("rsRuntimeUserProfileDependency", resourceCulture);
             }
@@ -5949,7 +5949,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the array returned by the {2} expression or an expression parameter for the {0} &apos;{1}&apos; exceeds the maximum item limit. Change the expression to return an array that is less than or equal to {3} items..
         /// </summary>
-        internal static string rsSandboxingArrayResultExceedsMaximumLength {
+        public static string rsSandboxingArrayResultExceedsMaximumLength {
             get {
                 return ResourceManager.GetString("rsSandboxingArrayResultExceedsMaximumLength", resourceCulture);
             }
@@ -5958,7 +5958,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report contains references to one or more assemblies and RDLSandboxing has been enabled for local preview. Remove the CodeModules element from the report definition or remove the RDLSandboxing element from the configuration file..
         /// </summary>
-        internal static string rsSandboxingCodeModuleUnavailableMode {
+        public static string rsSandboxingCodeModuleUnavailableMode {
             get {
                 return ResourceManager.GetString("rsSandboxingCodeModuleUnavailableMode", resourceCulture);
             }
@@ -5967,7 +5967,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the report contains custom code. Remove the Code element from the report definition..
         /// </summary>
-        internal static string rsSandboxingCustomCodeNotAllowed {
+        public static string rsSandboxingCustomCodeNotAllowed {
             get {
                 return ResourceManager.GetString("rsSandboxingCustomCodeNotAllowed", resourceCulture);
             }
@@ -5976,7 +5976,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the {2} expression for the {0} &apos;{1}&apos; exceeds the maximum character limit allowed.  Change the expression to be less than or equal to {3} characters..
         /// </summary>
-        internal static string rsSandboxingExpressionExceedsMaximumLength {
+        public static string rsSandboxingExpressionExceedsMaximumLength {
             get {
                 return ResourceManager.GetString("rsSandboxingExpressionExceedsMaximumLength", resourceCulture);
             }
@@ -5985,7 +5985,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the resource specified by the {2} expression for the {0} &apos;{1}&apos; exceeds the maximum external resource size. This limit is configured on the report server..
         /// </summary>
-        internal static string rsSandboxingExternalResourceExceedsMaximumSize {
+        public static string rsSandboxingExternalResourceExceedsMaximumSize {
             get {
                 return ResourceManager.GetString("rsSandboxingExternalResourceExceedsMaximumSize", resourceCulture);
             }
@@ -5994,7 +5994,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the class instance &apos;{1}&apos; contains a type &apos;{2}&apos; that is not allowed or the New operator for a type when New is not allowed. Class instances may only include allowed types..
         /// </summary>
-        internal static string rsSandboxingInvalidClassName {
+        public static string rsSandboxingInvalidClassName {
             get {
                 return ResourceManager.GetString("rsSandboxingInvalidClassName", resourceCulture);
             }
@@ -6003,7 +6003,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the report contains a reference to assembly &apos;{3}&apos; that cannot be loaded. Verify that the module exists and has the correct permissions..
         /// </summary>
-        internal static string rsSandboxingInvalidCodeModule {
+        public static string rsSandboxingInvalidCodeModule {
             get {
                 return ResourceManager.GetString("rsSandboxingInvalidCodeModule", resourceCulture);
             }
@@ -6012,7 +6012,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the {2} expression for the {0} &apos;{1}&apos; contains a syntax error. Change the expression to use valid RDL expression syntax..
         /// </summary>
-        internal static string rsSandboxingInvalidExpression {
+        public static string rsSandboxingInvalidExpression {
             get {
                 return ResourceManager.GetString("rsSandboxingInvalidExpression", resourceCulture);
             }
@@ -6021,7 +6021,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the {2} expression for the {0} &apos;{1}&apos; contains the New operator for the type &apos;{3}&apos;. The New operator may only be used with allowed types and may not be used to create arrays..
         /// </summary>
-        internal static string rsSandboxingInvalidNewType {
+        public static string rsSandboxingInvalidNewType {
             get {
                 return ResourceManager.GetString("rsSandboxingInvalidNewType", resourceCulture);
             }
@@ -6030,7 +6030,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the {2} expression for the {0} &apos;{1}&apos; contains a reference to a type, namespace, or member &apos;{3}&apos; that is not allowed. Change the expression to include only allowed namespaces, types, and members..
         /// </summary>
-        internal static string rsSandboxingInvalidTypeOrMemberName {
+        public static string rsSandboxingInvalidTypeOrMemberName {
             get {
                 return ResourceManager.GetString("rsSandboxingInvalidTypeOrMemberName", resourceCulture);
             }
@@ -6039,7 +6039,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report server has RDLSandboxing enabled and the string returned by the {2} expression or an expression parameter for the {0} &apos;{1}&apos; exceeds the maximum character limit. Change the expression to return a string that is less than or equal to {3} characters..
         /// </summary>
-        internal static string rsSandboxingStringResultExceedsMaximumLength {
+        public static string rsSandboxingStringResultExceedsMaximumLength {
             get {
                 return ResourceManager.GetString("rsSandboxingStringResultExceedsMaximumLength", resourceCulture);
             }
@@ -6048,7 +6048,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses a scope parameter for an aggregate function.  The scope parameter cannot be used in page headers or footers..
         /// </summary>
-        internal static string rsScopeInPageSectionExpression {
+        public static string rsScopeInPageSectionExpression {
             get {
                 return ResourceManager.GetString("rsScopeInPageSectionExpression", resourceCulture);
             }
@@ -6057,7 +6057,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The &apos;{2}&apos; property of the {0} &apos;{1}&apos; contains a scope reference in a complex expression. Scope references may only be used in expressions that consist of Scopes!ScopeName.Fields!FieldName.Value..
         /// </summary>
-        internal static string rsScopeReferenceInComplexExpression {
+        public static string rsScopeReferenceInComplexExpression {
             get {
                 return ResourceManager.GetString("rsScopeReferenceInComplexExpression", resourceCulture);
             }
@@ -6066,7 +6066,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The &apos;{2}&apos; property of {0} &apos;{1}&apos; contains a scope reference to the dataset &apos;{3}&apos;. All scope references to a dataset must originate in the same scope..
         /// </summary>
-        internal static string rsScopeReferenceUsesDataSetMoreThanOnce {
+        public static string rsScopeReferenceUsesDataSetMoreThanOnce {
             get {
                 return ResourceManager.GetString("rsScopeReferenceUsesDataSetMoreThanOnce", resourceCulture);
             }
@@ -6075,7 +6075,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A non-Variant Serializable type is used in {0} &apos;{1}&apos;. Serializable types are not supported in this version of Reporting Services..
         /// </summary>
-        internal static string rsSerializableTypeNotSupported {
+        public static string rsSerializableTypeNotSupported {
             get {
                 return ResourceManager.GetString("rsSerializableTypeNotSupported", resourceCulture);
             }
@@ -6084,7 +6084,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The data shape ‘{1}’ has only a single member hierarchy but specifies {2} data rows. If only a single member hierarchy is used, no data rows are allowed..
         /// </summary>
-        internal static string rsSingleHierarchyWithDataRows {
+        public static string rsSingleHierarchyWithDataRows {
             get {
                 return ResourceManager.GetString("rsSingleHierarchyWithDataRows", resourceCulture);
             }
@@ -6093,7 +6093,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The DataPoint {0} &apos;{1}&apos; references an {2} Name, {3}, for a non-Value Axis for this chart..
         /// </summary>
-        internal static string rsSpecifiedNonValueAxisName {
+        public static string rsSpecifiedNonValueAxisName {
             get {
                 return ResourceManager.GetString("rsSpecifiedNonValueAxisName", resourceCulture);
             }
@@ -6102,7 +6102,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cannot automatically calculate the value for either the minimum or maximum of the state indicator &apos;{3}&apos; in {0} &apos;{1}&apos;. .
         /// </summary>
-        internal static string rsStateIndicatorInvalidAutoGenerateMinMaxExpression {
+        public static string rsStateIndicatorInvalidAutoGenerateMinMaxExpression {
             get {
                 return ResourceManager.GetString("rsStateIndicatorInvalidAutoGenerateMinMaxExpression", resourceCulture);
             }
@@ -6111,7 +6111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Minimum should be less than Maximum for state indicator &apos;{1}&apos; in gauge panel &apos;{0}&apos;..
         /// </summary>
-        internal static string rsStateIndicatorInvalidMinMax {
+        public static string rsStateIndicatorInvalidMinMax {
             get {
                 return ResourceManager.GetString("rsStateIndicatorInvalidMinMax", resourceCulture);
             }
@@ -6120,7 +6120,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to {2} for state indicator &apos;{3}&apos; in {0} &apos;{1}&apos; must be specified. .
         /// </summary>
-        internal static string rsStateIndicatorInvalidTransformationScope {
+        public static string rsStateIndicatorInvalidTransformationScope {
             get {
                 return ResourceManager.GetString("rsStateIndicatorInvalidTransformationScope", resourceCulture);
             }
@@ -6129,7 +6129,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The scalar values property for the {2} of the {0} ‘{1}’ is set to true. This is not supported for a static grouping..
         /// </summary>
-        internal static string rsStaticGroupingOnChartScalarAxis {
+        public static string rsStaticGroupingOnChartScalarAxis {
             get {
                 return ResourceManager.GetString("rsStaticGroupingOnChartScalarAxis", resourceCulture);
             }
@@ -6138,7 +6138,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Data could not be retrieved for the subreport, &apos;{0}&apos;, located at: {1}. Data is only retrieved during the initial request or during snapshot creation..
         /// </summary>
-        internal static string rsSubReportDataNotRetrieved {
+        public static string rsSubReportDataNotRetrieved {
             get {
                 return ResourceManager.GetString("rsSubReportDataNotRetrieved", resourceCulture);
             }
@@ -6147,7 +6147,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Data retrieval failed for the subreport, &apos;{0}&apos;, located at: {1}. Please check the log files for more information. .
         /// </summary>
-        internal static string rsSubReportDataRetrievalFailed {
+        public static string rsSubReportDataRetrievalFailed {
             get {
                 return ResourceManager.GetString("rsSubReportDataRetrievalFailed", resourceCulture);
             }
@@ -6156,7 +6156,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to One or more parameters were not specified for the subreport, &apos;{0}&apos;, located at: {1}..
         /// </summary>
-        internal static string rsSubReportParametersNotSpecified {
+        public static string rsSubReportParametersNotSpecified {
             get {
                 return ResourceManager.GetString("rsSubReportParametersNotSpecified", resourceCulture);
             }
@@ -6165,7 +6165,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a Toggle.  Toggle is not allowed in page headers or footers..
         /// </summary>
-        internal static string rsToggleInPageSection {
+        public static string rsToggleInPageSection {
             get {
                 return ResourceManager.GetString("rsToggleInPageSection", resourceCulture);
             }
@@ -6174,7 +6174,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to GaugePanel has been initialized.
         /// </summary>
-        internal static string rsTraceGaugePanelInitialized {
+        public static string rsTraceGaugePanelInitialized {
             get {
                 return ResourceManager.GetString("rsTraceGaugePanelInitialized", resourceCulture);
             }
@@ -6183,7 +6183,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The attribute &apos;MustUnderstand&apos; in namespace &apos;http://schemas.openxmlformats.org/markup-compatibility/2006&apos; contains the following undefined namespace prefixes: {0}..
         /// </summary>
-        internal static string rsUndefinedMustUnderstandNamespaces {
+        public static string rsUndefinedMustUnderstandNamespaces {
             get {
                 return ResourceManager.GetString("rsUndefinedMustUnderstandNamespaces", resourceCulture);
             }
@@ -6192,7 +6192,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {3} &apos;{1}&apos; contains a {0} that specifies a value for the {2} property. A {0} may only specify a value for {2} when the {0} is contained by a group in both grouping hierarchies..
         /// </summary>
-        internal static string rsUnexpectedCellDataSetName {
+        public static string rsUnexpectedCellDataSetName {
             get {
                 return ResourceManager.GetString("rsUnexpectedCellDataSetName", resourceCulture);
             }
@@ -6201,7 +6201,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An unexpected error occurred while compiling expressions. Native compiler return value: ‘{3}’..
         /// </summary>
-        internal static string rsUnexpectedCompilerError {
+        public static string rsUnexpectedCompilerError {
             get {
                 return ResourceManager.GetString("rsUnexpectedCompilerError", resourceCulture);
             }
@@ -6210,7 +6210,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An unexpected error occurred in Report Processing..
         /// </summary>
-        internal static string rsUnexpectedError {
+        public static string rsUnexpectedError {
             get {
                 return ResourceManager.GetString("rsUnexpectedError", resourceCulture);
             }
@@ -6219,7 +6219,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An unexpected error occurred while evaluating the {2} expression for the {0} ‘{1}’..
         /// </summary>
-        internal static string rsUnexpectedErrorInExpression {
+        public static string rsUnexpectedErrorInExpression {
             get {
                 return ResourceManager.GetString("rsUnexpectedErrorInExpression", resourceCulture);
             }
@@ -6228,7 +6228,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An unexpected error occurred in Report Processing during serialization: {0}..
         /// </summary>
-        internal static string rsUnexpectedSerializationError {
+        public static string rsUnexpectedSerializationError {
             get {
                 return ResourceManager.GetString("rsUnexpectedSerializationError", resourceCulture);
             }
@@ -6237,7 +6237,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses the Union aggregate function on data of varying data types.  The Union function aggregates data of a single data type only..
         /// </summary>
-        internal static string rsUnionOfMixedSpatialTypes {
+        public static string rsUnionOfMixedSpatialTypes {
             get {
                 return ResourceManager.GetString("rsUnionOfMixedSpatialTypes", resourceCulture);
             }
@@ -6246,7 +6246,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ uses the Union aggregate function on data that is not spatial.  The Union function aggregates SQLSpatial or SQLGeometry data types only..
         /// </summary>
-        internal static string rsUnionOfNonSpatialData {
+        public static string rsUnionOfNonSpatialData {
             get {
                 return ResourceManager.GetString("rsUnionOfNonSpatialData", resourceCulture);
             }
@@ -6255,7 +6255,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to This version of Reporting Services does not recognize the following non-ignorable namespaces: {0}..
         /// </summary>
-        internal static string rsUnrecognizedNonIgnorableNamespaces {
+        public static string rsUnrecognizedNonIgnorableNamespaces {
             get {
                 return ResourceManager.GetString("rsUnrecognizedNonIgnorableNamespaces", resourceCulture);
             }
@@ -6264,7 +6264,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The sort expressions for the {2} ‘{3}’ of the {0} ‘{1}’ are different from the group expressions.  In area charts with scalar X axis, the category sort expressions must be identical to the category group expressions..
         /// </summary>
-        internal static string rsUnsortedCategoryInAreaChart {
+        public static string rsUnsortedCategoryInAreaChart {
             get {
                 return ResourceManager.GetString("rsUnsortedCategoryInAreaChart", resourceCulture);
             }
@@ -6273,7 +6273,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has the URL “{3}” as one of its properties. URLs in reports must begin with one of the following prefixes: {4}..
         /// </summary>
-        internal static string rsUnsupportedProtocol {
+        public static string rsUnsupportedProtocol {
             get {
                 return ResourceManager.GetString("rsUnsupportedProtocol", resourceCulture);
             }
@@ -6282,7 +6282,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The URL {0} has an invalid schema.  URLs in reports may only use http://, https://, ftp://, file:, mailto: or news:.
         /// </summary>
-        internal static string rsUnsupportedURLProtocol {
+        public static string rsUnsupportedURLProtocol {
             get {
                 return ResourceManager.GetString("rsUnsupportedURLProtocol", resourceCulture);
             }
@@ -6291,7 +6291,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The report references the code module ‘{3}’, which is not a trusted assembly..
         /// </summary>
-        internal static string rsUntrustedCodeModule {
+        public static string rsUntrustedCodeModule {
             get {
                 return ResourceManager.GetString("rsUntrustedCodeModule", resourceCulture);
             }
@@ -6300,7 +6300,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The DataPoint in {0} &apos;{1}&apos; references a {2} Name, &apos;{3}&apos;, that does not exist in this chart..
         /// </summary>
-        internal static string rsValueAxisNameNotFound {
+        public static string rsValueAxisNameNotFound {
             get {
                 return ResourceManager.GetString("rsValueAxisNameNotFound", resourceCulture);
             }
@@ -6309,7 +6309,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for calculated field &apos;{1}&apos; includes a variable reference. Variable values cannot be used in calculated field expressions..
         /// </summary>
-        internal static string rsVariableInCalculatedFieldExpression {
+        public static string rsVariableInCalculatedFieldExpression {
             get {
                 return ResourceManager.GetString("rsVariableInCalculatedFieldExpression", resourceCulture);
             }
@@ -6318,7 +6318,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A filter expression for the {0} &apos;{1}&apos; includes a variable reference. Variable values cannot be used in {0} filter expressions..
         /// </summary>
-        internal static string rsVariableInDataRegionOrDataSetFilterExpression {
+        public static string rsVariableInDataRegionOrDataSetFilterExpression {
             get {
                 return ResourceManager.GetString("rsVariableInDataRegionOrDataSetFilterExpression", resourceCulture);
             }
@@ -6327,7 +6327,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A sort expression for {0} &apos;{1}&apos; includes a variable reference. Variable values cannot be used in data row sort expressions..
         /// </summary>
-        internal static string rsVariableInDataRowSortExpression {
+        public static string rsVariableInDataRowSortExpression {
             get {
                 return ResourceManager.GetString("rsVariableInDataRowSortExpression", resourceCulture);
             }
@@ -6336,7 +6336,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A group expression for {0} &apos;{1}&apos; includes a variable reference. Variable values cannot be used in group expressions..
         /// </summary>
-        internal static string rsVariableInGroupExpression {
+        public static string rsVariableInGroupExpression {
             get {
                 return ResourceManager.GetString("rsVariableInGroupExpression", resourceCulture);
             }
@@ -6345,7 +6345,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A {2} join relationship expression for {0} &apos;{1}&apos; includes a variable reference. Variable values cannot be used in join relationship expressions..
         /// </summary>
-        internal static string rsVariableInJoinExpression {
+        public static string rsVariableInJoinExpression {
             get {
                 return ResourceManager.GetString("rsVariableInJoinExpression", resourceCulture);
             }
@@ -6354,7 +6354,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for {0} &apos;{1}&apos; contains a variable reference in the Expression argument of a Previous function.  Variable values cannot be used in the Expression parameter of the Previous function..
         /// </summary>
-        internal static string rsVariableInPreviousAggregate {
+        public static string rsVariableInPreviousAggregate {
             get {
                 return ResourceManager.GetString("rsVariableInPreviousAggregate", resourceCulture);
             }
@@ -6363,7 +6363,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for parameter &apos;{1}&apos; in the dataset &apos;{3}&apos; includes a variable reference. Variable values cannot be used in query parameter expressions..
         /// </summary>
-        internal static string rsVariableInQueryParameterExpression {
+        public static string rsVariableInQueryParameterExpression {
             get {
                 return ResourceManager.GetString("rsVariableInQueryParameterExpression", resourceCulture);
             }
@@ -6372,7 +6372,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The expression used for the language of &apos;{1}&apos; includes a variable reference. Variable values cannot be used in report language expressions..
         /// </summary>
-        internal static string rsVariableInReportLanguageExpression {
+        public static string rsVariableInReportLanguageExpression {
             get {
                 return ResourceManager.GetString("rsVariableInReportLanguageExpression", resourceCulture);
             }
@@ -6381,7 +6381,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression used for report parameter &apos;{1}&apos; includes a variable reference. Variable values cannot be used in report parameter expressions..
         /// </summary>
-        internal static string rsVariableInReportParameterExpression {
+        public static string rsVariableInReportParameterExpression {
             get {
                 return ResourceManager.GetString("rsVariableInReportParameterExpression", resourceCulture);
             }
@@ -6390,7 +6390,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The value of the {2} for the {0} ‘{1}’ is not a variant type or a type that implements ISerializable or is attributed with Serializable..
         /// </summary>
-        internal static string rsVariableTypeNotSerializable {
+        public static string rsVariableTypeNotSerializable {
             get {
                 return ResourceManager.GetString("rsVariableTypeNotSerializable", resourceCulture);
             }
@@ -6399,7 +6399,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Warnings occurred while executing the subreport ‘{1}’..
         /// </summary>
-        internal static string rsWarningExecutingSubreport {
+        public static string rsWarningExecutingSubreport {
             get {
                 return ResourceManager.GetString("rsWarningExecutingSubreport", resourceCulture);
             }
@@ -6408,7 +6408,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Images with external URL references will not display if the report is published to a report server without an UnattendedExecutionAccount or the target image(s) are not enabled for anonymous access..
         /// </summary>
-        internal static string rsWarningFetchingExternalImages {
+        public static string rsWarningFetchingExternalImages {
             get {
                 return ResourceManager.GetString("rsWarningFetchingExternalImages", resourceCulture);
             }
@@ -6417,7 +6417,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has a ChartData element that contains a collection of {3} DataPoint element(s), which is different from the number of expected data points ({4}). The expected number of data points in the definition is (Max(number of static categories, 1) * Max (number of static series, 1))..
         /// </summary>
-        internal static string rsWrongNumberOfChartDataPoints {
+        public static string rsWrongNumberOfChartDataPoints {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfChartDataPoints", resourceCulture);
             }
@@ -6426,7 +6426,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a different number of DataPoints per ChartSeries element than the number of StaticCategory elements.  If the {0} contains no StaticCategory, it must contain one DataPoint per ChartSeries..
         /// </summary>
-        internal static string rsWrongNumberOfChartDataPointsInSeries {
+        public static string rsWrongNumberOfChartDataPointsInSeries {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfChartDataPointsInSeries", resourceCulture);
             }
@@ -6435,7 +6435,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a different number of ChartSeries elements than the number of StaticSeries elements.  If the {0} contains no StaticSeries, it must contain one ChartSeries..
         /// </summary>
-        internal static string rsWrongNumberOfChartSeries {
+        public static string rsWrongNumberOfChartSeries {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfChartSeries", resourceCulture);
             }
@@ -6444,7 +6444,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a wrong number of DataCells per DataRow element. {2} DataCells per DataRow element are expected, because there must be as many DataCell elements as there are leaf-node DataGroupings (i.e. DataGrouping without sub-groupings)..
         /// </summary>
-        internal static string rsWrongNumberOfDataCellsInDataRow {
+        public static string rsWrongNumberOfDataCellsInDataRow {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfDataCellsInDataRow", resourceCulture);
             }
@@ -6453,7 +6453,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ contains a wrong number of DataRow elements. {2} DataRow elements are expected, because there must be as many DataRow elements as there are leaf-node DataGroupings (i.e. DataGrouping without sub-groupings)..
         /// </summary>
-        internal static string rsWrongNumberOfDataRows {
+        public static string rsWrongNumberOfDataRows {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfDataRows", resourceCulture);
             }
@@ -6462,7 +6462,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ uses a chart type that requires {4} DataValues for every DataPoint specified. At least one DataPoint has an invalid number of DataValues ({3})..
         /// </summary>
-        internal static string rsWrongNumberOfDataValues {
+        public static string rsWrongNumberOfDataValues {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfDataValues", resourceCulture);
             }
@@ -6471,7 +6471,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The matrix ‘{1}’ has a MatrixRow that contains a different number of MatrixCell elements than the number of StaticColumn elements in the matrix.  If the matrix contains no StaticColumns, each MatrixRow must contain one MatrixCell..
         /// </summary>
-        internal static string rsWrongNumberOfMatrixCells {
+        public static string rsWrongNumberOfMatrixCells {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfMatrixCells", resourceCulture);
             }
@@ -6480,7 +6480,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The matrix ‘{1}’ contains a different number of MatrixColumn elements than the number of StaticColumn elements.  If the matrix contains no StaticColumns, it must contain one MatrixColumn..
         /// </summary>
-        internal static string rsWrongNumberOfMatrixColumns {
+        public static string rsWrongNumberOfMatrixColumns {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfMatrixColumns", resourceCulture);
             }
@@ -6489,7 +6489,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The matrix ‘{1}’ contains a different number of MatrixRow elements than the number of StaticRow elements.  If the matrix contains no StaticRows, it must contain one MatrixRow..
         /// </summary>
-        internal static string rsWrongNumberOfMatrixRows {
+        public static string rsWrongNumberOfMatrixRows {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfMatrixRows", resourceCulture);
             }
@@ -6498,7 +6498,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {2} expression for the {0} ‘{1}’ has an incorrect number of parameters for the function ‘{3}’..
         /// </summary>
-        internal static string rsWrongNumberOfParameters {
+        public static string rsWrongNumberOfParameters {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfParameters", resourceCulture);
             }
@@ -6507,7 +6507,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The table ‘{1}’ has rows that contain a different number of cells than the number of the columns in the table (including cells that span more than one column)..
         /// </summary>
-        internal static string rsWrongNumberOfTableCells {
+        public static string rsWrongNumberOfTableCells {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfTableCells", resourceCulture);
             }
@@ -6516,7 +6516,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an incorrect number of TablixCells. The number of TablixCells in a TablixRow must equal the number of innermost TablixMembers (TablixMembers with no submembers) in the TablixColumnHierarchy..
         /// </summary>
-        internal static string rsWrongNumberOfTablixCells {
+        public static string rsWrongNumberOfTablixCells {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfTablixCells", resourceCulture);
             }
@@ -6525,7 +6525,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an incorrect number of {2}. The number of {2} must equal the number of innermost TablixMembers (TablixMembers with no submembers) in the TablixColumnHierarchy..
         /// </summary>
-        internal static string rsWrongNumberOfTablixColumns {
+        public static string rsWrongNumberOfTablixColumns {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfTablixColumns", resourceCulture);
             }
@@ -6534,7 +6534,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an incorrect number of {2}. The number of {2} within TablixCornerRow at index: {3} must equal the number of levels in the TablixRowHierarchy containing TablixHeaders..
         /// </summary>
-        internal static string rsWrongNumberOfTablixCornerCells {
+        public static string rsWrongNumberOfTablixCornerCells {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfTablixCornerCells", resourceCulture);
             }
@@ -6543,7 +6543,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} ‘{1}’ has an incorrect number of {2}. The number of {2} must equal the number of levels in the TablixColumnHierarchy containing TablixHeaders..
         /// </summary>
-        internal static string rsWrongNumberOfTablixCornerRows {
+        public static string rsWrongNumberOfTablixCornerRows {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfTablixCornerRows", resourceCulture);
             }
@@ -6552,7 +6552,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The {0} &apos;{1}&apos; has an incorrect number of TablixRows. The number of TablixRows must equal the number of innermost TablixMembers (TablixMembers with no submembers) in the TablixRowHierarchy..
         /// </summary>
-        internal static string rsWrongNumberOfTablixRows {
+        public static string rsWrongNumberOfTablixRows {
             get {
                 return ResourceManager.GetString("rsWrongNumberOfTablixRows", resourceCulture);
             }

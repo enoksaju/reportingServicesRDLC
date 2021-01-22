@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.OXML;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLFillModel : IDeepCloneable<XMLFillModel>
+	public class XMLFillModel : IDeepCloneable<XMLFillModel>
 	{
 		private readonly CT_Fill _fill;
 

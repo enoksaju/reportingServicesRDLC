@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapShapefileInstance : MapSpatialDataInstance
+	public sealed class MapShapefileInstance : MapSpatialDataInstance
 	{
 		private MapShapefile m_defObject;
 
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapShapefileInstance(MapShapefile defObject)
+		public MapShapefileInstance(MapShapefile defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

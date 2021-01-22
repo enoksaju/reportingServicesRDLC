@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class LabelData : IPersistable
+	public sealed class LabelData : IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = LabelData.GetDeclaration();
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private string m_label;
 
-		internal string DataSetName
+		public string DataSetName
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<string> KeyFields
+		public List<string> KeyFields
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -53,13 +53,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void Initialize(Tablix tablix, InitializationContext context)
+		public void Initialize(Tablix tablix, InitializationContext context)
 		{
 			context.ValidateSliderLabelData(tablix, this);
 		}
 
 		[SkipMemberStaticValidation(MemberName.Key)]
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.DataSetName, Token.String));

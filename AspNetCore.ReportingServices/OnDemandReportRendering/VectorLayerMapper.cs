@@ -8,13 +8,13 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class VectorLayerMapper
+	public abstract class VectorLayerMapper
 	{
-		internal MapVectorLayer m_mapVectorLayer;
+		public MapVectorLayer m_mapVectorLayer;
 
-		internal MapControl m_coreMap;
+		public MapControl m_coreMap;
 
-		internal MapMapper m_mapMapper;
+		public MapMapper m_mapMapper;
 
 		protected SpatialDataMapper m_spatialDataMapper;
 
@@ -43,14 +43,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal VectorLayerMapper(MapVectorLayer mapVectorLayer, MapControl coreMap, MapMapper mapMapper)
+		public VectorLayerMapper(MapVectorLayer mapVectorLayer, MapControl coreMap, MapMapper mapMapper)
 		{
 			this.m_mapVectorLayer = mapVectorLayer;
 			this.m_coreMap = coreMap;
 			this.m_mapMapper = mapMapper;
 		}
 
-		internal void Render()
+		public void Render()
 		{
 			this.PopulateSpatialElements();
 			this.CreateRules();
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal static SpatialElementKey CreateDataRegionSpatialElementKey(MapBindingFieldPairCollection mapBindingFieldPairs)
+		public static SpatialElementKey CreateDataRegionSpatialElementKey(MapBindingFieldPairCollection mapBindingFieldPairs)
 		{
 			List<object> list = new List<object>();
 			for (int i = 0; i < mapBindingFieldPairs.Count; i++)
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return new SpatialElementKey(list);
 		}
 
-		internal void ValidateKey(SpatialElementKey spatialElementKey, MapBindingFieldPairCollection mapBindingFieldPairs)
+		public void ValidateKey(SpatialElementKey spatialElementKey, MapBindingFieldPairCollection mapBindingFieldPairs)
 		{
 			if (this.m_spatialDataMapper.KeyTypes != null)
 			{
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal static object EvaluateBindingExpression(MapBindingFieldPair mapBindingFieldPair)
+		public static object EvaluateBindingExpression(MapBindingFieldPair mapBindingFieldPair)
 		{
 			ReportVariantProperty bindingExpression = mapBindingFieldPair.BindingExpression;
 			if (!bindingExpression.IsExpression)
@@ -447,17 +447,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 		{
 		}
 
-		internal virtual MapPointRules GetMapPointRules()
+		public virtual MapPointRules GetMapPointRules()
 		{
 			return null;
 		}
 
-		internal virtual MapPointTemplate GetMapPointTemplate()
+		public virtual MapPointTemplate GetMapPointTemplate()
 		{
 			return null;
 		}
 
-		internal bool HasPointColorRule(Symbol symbol)
+		public bool HasPointColorRule(Symbol symbol)
 		{
 			if (!this.HasPointColorRule())
 			{
@@ -480,7 +480,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal bool HasPointSizeRule(Symbol symbol)
+		public bool HasPointSizeRule(Symbol symbol)
 		{
 			if (!this.HasPointSizeRule())
 			{
@@ -503,7 +503,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal bool HasMarkerRule(Symbol symbol)
+		public bool HasMarkerRule(Symbol symbol)
 		{
 			if (!this.HasMarkerRule())
 			{
@@ -531,7 +531,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return new SymbolMarkerTemplateMapper(this.m_mapMapper, this, this.m_mapVectorLayer);
 		}
 
-		internal static string AddPrefixToFieldNames(string layerName, string expression)
+		public static string AddPrefixToFieldNames(string layerName, string expression)
 		{
 			if (expression == null)
 			{
@@ -658,8 +658,8 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		protected abstract void RenderSpatialElement(SpatialElementInfo spatialElementInfo, bool hasScope);
 
-		internal abstract bool IsValidSpatialElement(ISpatialElement spatialElement);
+		public abstract bool IsValidSpatialElement(ISpatialElement spatialElement);
 
-		internal abstract void OnSpatialElementAdded(ISpatialElement spatialElement);
+		public abstract void OnSpatialElementAdded(ISpatialElement spatialElement);
 	}
 }

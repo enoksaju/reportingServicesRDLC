@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class ExtensionSettings
+	public sealed class ExtensionSettings
 	{
 		private readonly string m_extensionName;
 

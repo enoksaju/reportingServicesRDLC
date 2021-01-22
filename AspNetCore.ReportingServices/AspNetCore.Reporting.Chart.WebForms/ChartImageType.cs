@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ChartImageType
+	public enum ChartImageType
 	{
 		Bmp,
 		Jpeg,

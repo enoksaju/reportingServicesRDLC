@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ImageInfo
+	public sealed class ImageInfo
 	{
 		private string m_streamName;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private WeakReference m_imageDataRef;
 
-		internal string StreamName
+		public string StreamName
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string MimeType
+		public string MimeType
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal WeakReference ImageDataRef
+		public WeakReference ImageDataRef
 		{
 			get
 			{
@@ -49,17 +49,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ImageInfo()
+		public ImageInfo()
 		{
 		}
 
-		internal ImageInfo(string streamName, string mimeType)
+		public ImageInfo(string streamName, string mimeType)
 		{
 			this.m_streamName = streamName;
 			this.m_mimeType = mimeType;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.StreamName, Token.String));

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IShimDataRegionMember
+	public interface IShimDataRegionMember
 	{
 		bool SetNewContext(int index);
 

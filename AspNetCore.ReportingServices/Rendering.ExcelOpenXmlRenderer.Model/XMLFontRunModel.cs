@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal class XMLFontRunModel : IFontModel, ICloneable
+	public class XMLFontRunModel : IFontModel, ICloneable
 	{
 		private readonly Font _interface;
 

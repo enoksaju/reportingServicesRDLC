@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class StripLineTitleAngleConverter : Int32Converter
+	public class StripLineTitleAngleConverter : Int32Converter
 	{
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

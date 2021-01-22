@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 {
-	internal interface IVisibilityHiddenExprHost
+	public interface IVisibilityHiddenExprHost
 	{
 		object VisibilityHiddenExpr
 		{

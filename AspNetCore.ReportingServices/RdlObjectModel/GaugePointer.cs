@@ -5,11 +5,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[XmlElementClass("LinearPointer", typeof(LinearPointer))]
 	[XmlElementClass("RadialPointer", typeof(RadialPointer))]
-	internal class GaugePointer : ReportObject, INamedObject
+	public class GaugePointer : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<GaugePointer, Definition.Properties>
+		public class Definition : DefinitionStore<GaugePointer, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Style,
@@ -226,7 +226,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal GaugePointer(IPropertyStore propertyStore)
+		public GaugePointer(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

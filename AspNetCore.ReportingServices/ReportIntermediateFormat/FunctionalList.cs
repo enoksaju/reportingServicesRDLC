@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class FunctionalList<T> : IEnumerable<T>, IEnumerable
+	public sealed class FunctionalList<T> : IEnumerable<T>, IEnumerable
 	{
 		private class FunctionalListEnumerator : IEnumerator<T>, IDisposable, IEnumerator
 		{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private static FunctionalList<T> m_emptyList = new FunctionalList<T>();
 
-		internal T First
+		public T First
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal FunctionalList<T> Rest
+		public FunctionalList<T> Rest
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static FunctionalList<T> Empty
+		public static FunctionalList<T> Empty
 		{
 			get
 			{
@@ -115,17 +115,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_size = aCdr.Count + 1;
 		}
 
-		internal FunctionalList<T> Add(T aItem)
+		public FunctionalList<T> Add(T aItem)
 		{
 			return new FunctionalList<T>(aItem, this);
 		}
 
-		internal bool IsEmpty()
+		public bool IsEmpty()
 		{
 			return this.m_size == 0;
 		}
 
-		internal int IndexOf(T aItem)
+		public int IndexOf(T aItem)
 		{
 			if (this.Count == 0)
 			{
@@ -138,12 +138,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.Rest.IndexOf(aItem);
 		}
 
-		internal bool Contains(T aItem)
+		public bool Contains(T aItem)
 		{
 			return this.IndexOf(aItem) != -1;
 		}
 
-		internal T Get(T aItem)
+		public T Get(T aItem)
 		{
 			if (this.Count == 0)
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.Rest.Get(aItem);
 		}
 
-		internal FunctionalList<T> Reverse()
+		public FunctionalList<T> Reverse()
 		{
 			FunctionalList<T> functionalList = FunctionalList<T>.Empty;
 			foreach (T item in this)

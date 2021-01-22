@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class BaseGaugeImageInstance : BaseInstance
+	public class BaseGaugeImageInstance : BaseInstance
 	{
 		protected BaseGaugeImage m_defObject;
 
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal BaseGaugeImageInstance(BaseGaugeImage defObject)
+		public BaseGaugeImageInstance(BaseGaugeImage defObject)
 			: base(defObject.GaugePanelDef)
 		{
 			this.m_defObject = defObject;

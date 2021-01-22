@@ -7,25 +7,25 @@ using System.Drawing.Drawing2D;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeSmartLabels_SmartLabels")]
-	internal class SmartLabels
+	public class SmartLabels
 	{
-		internal ArrayList smartLabelsPositions;
+		public ArrayList smartLabelsPositions;
 
-		internal bool checkAllCollisions;
+		public bool checkAllCollisions;
 
-		internal int markersCount;
+		public int markersCount;
 
-		internal void Reset(CommonElements common, ChartArea area)
+		public void Reset(CommonElements common, ChartArea area)
 		{
 			this.smartLabelsPositions = new ArrayList();
 		}
 
-		internal PointF AdjustSmartLabelPosition(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF labelPosition, SizeF labelSize, ref StringFormat format, PointF markerPosition, SizeF markerSize, LabelAlignmentTypes labelAlignment)
+		public PointF AdjustSmartLabelPosition(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF labelPosition, SizeF labelSize, ref StringFormat format, PointF markerPosition, SizeF markerSize, LabelAlignmentTypes labelAlignment)
 		{
 			return this.AdjustSmartLabelPosition(common, graph, area, smartLabelsStyle, labelPosition, labelSize, ref format, markerPosition, markerSize, labelAlignment, false);
 		}
 
-		internal PointF AdjustSmartLabelPosition(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF labelPosition, SizeF labelSize, ref StringFormat format, PointF markerPosition, SizeF markerSize, LabelAlignmentTypes labelAlignment, bool checkCalloutLineOverlapping)
+		public PointF AdjustSmartLabelPosition(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF labelPosition, SizeF labelSize, ref StringFormat format, PointF markerPosition, SizeF markerSize, LabelAlignmentTypes labelAlignment, bool checkCalloutLineOverlapping)
 		{
 			if (smartLabelsStyle.Enabled)
 			{
@@ -105,7 +105,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal virtual void DrawCallout(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF labelPosition, SizeF labelSize, StringFormat format, PointF markerPosition, SizeF markerSize, LabelAlignmentTypes labelAlignment)
+		public virtual void DrawCallout(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF labelPosition, SizeF labelSize, StringFormat format, PointF markerPosition, SizeF markerSize, LabelAlignmentTypes labelAlignment)
 		{
 			RectangleF absoluteRectangle = graph.GetAbsoluteRectangle(this.GetLabelPosition(graph, labelPosition, labelSize, format, true));
 			Pen pen = new Pen(smartLabelsStyle.CalloutLineColor, (float)smartLabelsStyle.CalloutLineWidth);
@@ -172,7 +172,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			graph.DrawLine(pen, absolutePoint2.X, absolutePoint2.Y, absolutePoint.X, absolutePoint.Y);
 		}
 
-		internal virtual bool IsSmartLabelCollide(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF position, SizeF size, PointF markerPosition, StringFormat format, LabelAlignmentTypes labelAlignment, bool checkCalloutLineOverlapping)
+		public virtual bool IsSmartLabelCollide(CommonElements common, ChartGraphics graph, ChartArea area, SmartLabelsStyle smartLabelsStyle, PointF position, SizeF size, PointF markerPosition, StringFormat format, LabelAlignmentTypes labelAlignment, bool checkCalloutLineOverlapping)
 		{
 			bool flag = false;
 			RectangleF labelPosition = this.GetLabelPosition(graph, position, size, format, false);
@@ -327,7 +327,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return true;
 		}
 
-		internal virtual void AddMarkersPosition(CommonElements common, ChartArea area)
+		public virtual void AddMarkersPosition(CommonElements common, ChartArea area)
 		{
 			if (this.smartLabelsPositions.Count == 0 && area != null)
 			{
@@ -360,7 +360,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void AddSmartLabelPosition(ChartGraphics graph, ChartArea area, PointF position, SizeF size, StringFormat format)
+		public void AddSmartLabelPosition(ChartGraphics graph, ChartArea area, PointF position, SizeF size, StringFormat format)
 		{
 			RectangleF labelPosition = this.GetLabelPosition(graph, position, size, format, false);
 			if (this.smartLabelsPositions == null)
@@ -370,7 +370,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.smartLabelsPositions.Add(labelPosition);
 		}
 
-		internal RectangleF GetLabelPosition(ChartGraphics graph, PointF position, SizeF size, StringFormat format, bool adjustForDrawing)
+		public RectangleF GetLabelPosition(ChartGraphics graph, PointF position, SizeF size, StringFormat format, bool adjustForDrawing)
 		{
 			RectangleF empty = RectangleF.Empty;
 			empty.Width = size.Width;

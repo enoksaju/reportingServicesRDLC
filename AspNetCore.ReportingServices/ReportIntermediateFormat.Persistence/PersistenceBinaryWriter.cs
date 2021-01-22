@@ -4,26 +4,26 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal class PersistenceBinaryWriter : BinaryWriter
+	public class PersistenceBinaryWriter : BinaryWriter
 	{
 		private static int m_MaxEncVal = 2097152;
 
-		internal PersistenceBinaryWriter(Stream str)
+		public PersistenceBinaryWriter(Stream str)
 			: base(str)
 		{
 		}
 
-		internal void WriteNull()
+		public void WriteNull()
 		{
 			base.Write((byte)0);
 		}
 
-		internal void WriteEnum(int value)
+		public void WriteEnum(int value)
 		{
 			base.Write7BitEncodedInt(value);
 		}
 
-		internal void Write(DateTime dateTime, Token token)
+		public void Write(DateTime dateTime, Token token)
 		{
 			if (token == Token.DateTimeWithKind)
 			{
@@ -32,13 +32,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.Write(dateTime.Ticks);
 		}
 
-		internal void Write(DateTimeOffset dateTimeOffset)
+		public void Write(DateTimeOffset dateTimeOffset)
 		{
 			this.Write(dateTimeOffset.DateTime, Token.DateTime);
 			this.Write(dateTimeOffset.Offset);
 		}
 
-		internal void Write(TimeSpan timeSpan)
+		public void Write(TimeSpan timeSpan)
 		{
 			this.Write(timeSpan.Ticks);
 		}
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(Guid guid)
+		public void Write(Guid guid)
 		{
 			base.Write(guid.ToByteArray());
 		}
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.Write(value, true);
 		}
 
-		internal void Write(string str, bool writeObjType)
+		public void Write(string str, bool writeObjType)
 		{
 			if (str == null)
 			{
@@ -120,47 +120,47 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void WriteDictionaryStart(ObjectType type, int size)
+		public void WriteDictionaryStart(ObjectType type, int size)
 		{
 			base.Write7BitEncodedInt((int)type);
 			base.Write7BitEncodedInt(size);
 		}
 
-		internal void WriteListStart(ObjectType type, int size)
+		public void WriteListStart(ObjectType type, int size)
 		{
 			base.Write7BitEncodedInt((int)type);
 			base.Write7BitEncodedInt(size);
 		}
 
-		internal void WriteArrayStart(ObjectType type, int size)
+		public void WriteArrayStart(ObjectType type, int size)
 		{
 			base.Write7BitEncodedInt((int)type);
 			base.Write7BitEncodedInt(size);
 		}
 
-		internal void Write2DArrayStart(ObjectType type, int xSize, int ySize)
+		public void Write2DArrayStart(ObjectType type, int xSize, int ySize)
 		{
 			base.Write7BitEncodedInt((int)type);
 			base.Write7BitEncodedInt(xSize);
 			base.Write7BitEncodedInt(ySize);
 		}
 
-		internal void Write(ObjectType type)
+		public void Write(ObjectType type)
 		{
 			base.Write7BitEncodedInt((int)type);
 		}
 
-		internal void Write(MemberName name)
+		public void Write(MemberName name)
 		{
 			base.Write7BitEncodedInt((int)name);
 		}
 
-		internal void Write(Token token)
+		public void Write(Token token)
 		{
 			this.Write((byte)token);
 		}
 
-		internal void Write(Declaration decl)
+		public void Write(Declaration decl)
 		{
 			this.Write(decl.ObjectType);
 			this.Write(decl.BaseObjectType);
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(MemberInfo member)
+		public void Write(MemberInfo member)
 		{
 			this.Write(member.MemberName);
 			this.Write(member.ObjectType);
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.Write(member.ContainedType);
 		}
 
-		internal void Write(float[] array)
+		public void Write(float[] array)
 		{
 			if (array == null)
 			{
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(int[] array)
+		public void Write(int[] array)
 		{
 			if (array == null)
 			{
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(long[] array)
+		public void Write(long[] array)
 		{
 			if (array == null)
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Write(double[] array)
+		public void Write(double[] array)
 		{
 			if (array == null)
 			{
@@ -290,12 +290,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		} 
         /*
-		internal void Write(SqlGeography sqlGeography)
+		public void Write(SqlGeography sqlGeography)
 		{
 			sqlGeography.Write(this);
 		}
 
-		internal void Write(SqlGeometry sqlGeometry)
+		public void Write(SqlGeometry sqlGeometry)
 		{
 			sqlGeometry.Write(this);
 		} 

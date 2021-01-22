@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class SoapExtensionInvalidPreambleLengthException : RSException
+	public sealed class SoapExtensionInvalidPreambleLengthException : RSException
 	{
 		public SoapExtensionInvalidPreambleLengthException(long length)
 			: base(ErrorCode.rsSoapExtensionInvalidPreambleLengthError, ErrorStrings.rsSoapExtensionInvalidPreambleLengthError(length.ToString(CultureInfo.CurrentCulture)), null, RSTrace.IsTraceInitialized ? RSTrace.WebServerTracer : null, null)

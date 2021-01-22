@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum BackFrameStyle
+	public enum BackFrameStyle
 	{
 		None,
 		Simple,

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartAxisTitle : ReportObject
+	public class ChartAxisTitle : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartAxisTitle, Definition.Properties>
+		public class Definition : DefinitionStore<ChartAxisTitle, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Caption,
 				CaptionLocID,
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartAxisTitle(IPropertyStore propertyStore)
+		public ChartAxisTitle(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

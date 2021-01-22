@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class LogClientTraceEventsException : ReportCatalogException
+	public sealed class LogClientTraceEventsException : ReportCatalogException
 	{
 		public LogClientTraceEventsException(string message, ErrorCode errorCode)
 			: this(message, errorCode, null)

@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Common
 {
-	internal static class EmbeddedResources
+	public static class EmbeddedResources
 	{
 		public static byte[] Get(ResourceList list, string name, out string mimeType)
 		{

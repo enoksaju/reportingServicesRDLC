@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartLegendColumnHeader : ReportObject
+	public class ChartLegendColumnHeader : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartLegendColumnHeader, Definition.Properties>
+		public class Definition : DefinitionStore<ChartLegendColumnHeader, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Value,
 				Style,
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartLegendColumnHeader(IPropertyStore propertyStore)
+		public ChartLegendColumnHeader(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

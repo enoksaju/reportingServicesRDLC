@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapSubItem : MapObjectCollectionItem, IROMStyleDefinitionContainer
+	public abstract class MapSubItem : MapObjectCollectionItem, IROMStyleDefinitionContainer
 	{
 		protected Map m_map;
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapSubItem m_defObject;
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapSubItem m_defObject;
 
 		private Style m_style;
 
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapSubItem MapSubItemDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapSubItem MapSubItemDef
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSubItemInstance Instance
+		public MapSubItemInstance Instance
 		{
 			get
 			{
@@ -144,15 +144,15 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSubItem(AspNetCore.ReportingServices.ReportIntermediateFormat.MapSubItem defObject, Map map)
+		public MapSubItem(AspNetCore.ReportingServices.ReportIntermediateFormat.MapSubItem defObject, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_map = map;
 		}
 
-		internal abstract MapSubItemInstance GetInstance();
+		public abstract MapSubItemInstance GetInstance();
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

@@ -2,7 +2,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class ImageSmoothingState
+	public class ImageSmoothingState
 	{
 		public GaugeGraphics g;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal static class Constants2005
+	public static class Constants2005
 	{
 		public static readonly string[] FontWeight = new string[14]
 		{

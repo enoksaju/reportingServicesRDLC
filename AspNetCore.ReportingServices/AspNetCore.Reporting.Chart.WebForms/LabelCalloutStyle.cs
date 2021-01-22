@@ -1,7 +1,7 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeLabelCalloutStyle_LabelCalloutStyle")]
-	internal enum LabelCalloutStyle
+	public enum LabelCalloutStyle
 	{
 		None,
 		Underlined,

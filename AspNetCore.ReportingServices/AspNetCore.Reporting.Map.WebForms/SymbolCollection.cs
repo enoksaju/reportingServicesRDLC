@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SymbolCollection : NamedCollection
+	public class SymbolCollection : NamedCollection
 	{
 		private Symbol this[int index]
 		{
@@ -60,7 +60,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal SymbolCollection(NamedElement parent, CommonElements common)
+		public SymbolCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(Symbol);
@@ -164,12 +164,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return arrayList;
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "Symbol1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			return "Symbol{0}";
 		}
@@ -180,7 +180,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			Symbol symbol = (Symbol)value;
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (base.Common != null)
 			{

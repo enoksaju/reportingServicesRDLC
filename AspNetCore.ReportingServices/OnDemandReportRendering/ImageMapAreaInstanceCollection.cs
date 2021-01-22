@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ImageMapAreaInstanceCollection : ReportElementCollectionBase<ImageMapAreaInstance>
+	public sealed class ImageMapAreaInstanceCollection : ReportElementCollectionBase<ImageMapAreaInstance>
 	{
 		private List<ImageMapAreaInstance> m_list;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal List<ImageMapAreaInstance> InternalList
+		public List<ImageMapAreaInstance> InternalList
 		{
 			get
 			{
@@ -36,12 +36,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ImageMapAreaInstanceCollection()
+		public ImageMapAreaInstanceCollection()
 		{
 			this.m_list = new List<ImageMapAreaInstance>();
 		}
 
-		internal ImageMapAreaInstanceCollection(ImageMapAreasCollection imageMaps)
+		public ImageMapAreaInstanceCollection(ImageMapAreasCollection imageMaps)
 		{
 			if (imageMaps == null)
 			{
@@ -58,12 +58,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ImageMapAreaInstance Add(ImageMapArea.ImageMapAreaShape shape, float[] coordinates)
+		public ImageMapAreaInstance Add(ImageMapArea.ImageMapAreaShape shape, float[] coordinates)
 		{
 			return this.Add(shape, coordinates, null);
 		}
 
-		internal ImageMapAreaInstance Add(ImageMapArea.ImageMapAreaShape shape, float[] coordinates, string toolTip)
+		public ImageMapAreaInstance Add(ImageMapArea.ImageMapAreaShape shape, float[] coordinates, string toolTip)
 		{
 			ImageMapAreaInstance imageMapAreaInstance = new ImageMapAreaInstance(shape, coordinates, toolTip);
 			this.m_list.Add(imageMapAreaInstance);

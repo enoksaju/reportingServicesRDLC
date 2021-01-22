@@ -8,11 +8,11 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class StreamSupport
+	public static class StreamSupport
 	{
 		public delegate int StreamRead(byte[] buffer, int offset, int count);
 
-		internal class MonitoredInputStream : Stream
+		public class MonitoredInputStream : Stream
 		{
 			public const int InputBufferSize = 1024;
 

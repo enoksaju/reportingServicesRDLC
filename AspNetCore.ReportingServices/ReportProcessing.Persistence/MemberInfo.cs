@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 {
-	internal sealed class MemberInfo
+	public sealed class MemberInfo
 	{
 		private MemberName m_memberName;
 
@@ -8,7 +8,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 
 		private ObjectType m_objectType;
 
-		internal MemberName MemberName
+		public MemberName MemberName
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal Token Token
+		public Token Token
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal ObjectType ObjectType
+		public ObjectType ObjectType
 		{
 			get
 			{
@@ -36,28 +36,28 @@ namespace AspNetCore.ReportingServices.ReportProcessing.Persistence
 			}
 		}
 
-		internal MemberInfo(MemberName memberName, Token token)
+		public MemberInfo(MemberName memberName, Token token)
 		{
 			this.m_memberName = memberName;
 			this.m_token = token;
 			this.m_objectType = ObjectType.None;
 		}
 
-		internal MemberInfo(MemberName memberName, ObjectType objectType)
+		public MemberInfo(MemberName memberName, ObjectType objectType)
 		{
 			this.m_memberName = memberName;
 			this.m_token = Token.Object;
 			this.m_objectType = objectType;
 		}
 
-		internal MemberInfo(MemberName memberName, Token token, ObjectType objectType)
+		public MemberInfo(MemberName memberName, Token token, ObjectType objectType)
 		{
 			this.m_memberName = memberName;
 			this.m_token = token;
 			this.m_objectType = objectType;
 		}
 
-		internal static bool Equals(MemberInfo a, MemberInfo b)
+		public static bool Equals(MemberInfo a, MemberInfo b)
 		{
 			if (a != null && b != null)
 			{

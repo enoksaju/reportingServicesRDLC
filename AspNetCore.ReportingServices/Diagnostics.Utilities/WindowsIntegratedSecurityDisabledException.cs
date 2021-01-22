@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class WindowsIntegratedSecurityDisabledException : ReportCatalogException
+	public sealed class WindowsIntegratedSecurityDisabledException : ReportCatalogException
 	{
 		public WindowsIntegratedSecurityDisabledException()
 			: base(ErrorCode.rsWindowsIntegratedSecurityDisabled, ErrorStrings.rsWindowsIntegratedSecurityDisabled, null, null)

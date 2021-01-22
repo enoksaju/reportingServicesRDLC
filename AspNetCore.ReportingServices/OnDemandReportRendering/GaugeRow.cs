@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeRow : IDataRegionRow
+	public sealed class GaugeRow : IDataRegionRow
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeRow GaugeRowDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeRow GaugeRowDef
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -46,12 +46,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeRow(GaugePanel gaugePanel)
+		public GaugeRow(GaugePanel gaugePanel)
 		{
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal GaugeRow(GaugePanel gaugePanel, AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeRow rowDef)
+		public GaugeRow(GaugePanel gaugePanel, AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeRow rowDef)
 		{
 			this.m_gaugePanel = gaugePanel;
 			this.m_rowDef = rowDef;
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_cell != null)
 			{

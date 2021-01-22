@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class CustomPropertyCollection
+	public sealed class CustomPropertyCollection
 	{
 		private DataValueInstanceList m_instances;
 
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal bool IsCustomControl
+		public bool IsCustomControl
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_uniqueNames = new Hashtable();
 		}
 
-		internal CustomPropertyCollection(DataValueList expressions, DataValueInstanceList instances)
+		public CustomPropertyCollection(DataValueList expressions, DataValueInstanceList instances)
 		{
 			this.m_expressions = expressions;
 			this.m_instances = instances;
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.InternalAdd(property.Name, property.Value);
 		}
 
-		internal CustomPropertyCollection DeepClone()
+		public CustomPropertyCollection DeepClone()
 		{
 			Global.Tracer.Assert(this.m_isCustomControl && null == this.m_expressions);
 			CustomPropertyCollection customPropertyCollection = new CustomPropertyCollection();
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal void GetNameValue(int index, out string name, out object value)
+		public void GetNameValue(int index, out string name, out object value)
 		{
 			name = null;
 			value = null;
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal void GetNameValueExpressions(int index, out ExpressionInfo nameExpression, out ExpressionInfo valueExpression, out string name, out object value)
+		public void GetNameValueExpressions(int index, out ExpressionInfo nameExpression, out ExpressionInfo valueExpression, out string name, out object value)
 		{
 			this.GetNameValue(index, out name, out value);
 			nameExpression = this.m_expressions[index].Name;
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_instances.Add(dataValueInstance);
 		}
 
-		internal DataValueInstanceList Deconstruct()
+		public DataValueInstanceList Deconstruct()
 		{
 			return this.m_instances;
 		}

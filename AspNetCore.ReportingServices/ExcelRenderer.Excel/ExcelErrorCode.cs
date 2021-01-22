@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum ExcelErrorCode : byte
+	public enum ExcelErrorCode : byte
 	{
 		None = 0xFF,
 		NullError = 0,

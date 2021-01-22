@@ -7,7 +7,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class SnapshotImageCacheManager : ImageCacheManager
+	public sealed class SnapshotImageCacheManager : ImageCacheManager
 	{
 		public SnapshotImageCacheManager(OnDemandMetadata odpMetadata, IChunkFactory chunkFactory)
 			: base(odpMetadata, chunkFactory)

@@ -22,21 +22,21 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class RenderRes {
+    public class RenderRes {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal RenderRes() {
+        public RenderRes() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AspNetCore.ReportingServices.Rendering.HtmlRenderer.RenderRes", typeof(RenderRes).Assembly);
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report chart.
         /// </summary>
-        internal static string AccessibleChartLabel {
+        public static string AccessibleChartLabel {
             get {
                 return ResourceManager.GetString("AccessibleChartLabel", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report chart - {0}.
         /// </summary>
-        internal static string AccessibleChartNavigationGroupLabel {
+        public static string AccessibleChartNavigationGroupLabel {
             get {
                 return ResourceManager.GetString("AccessibleChartNavigationGroupLabel", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report image.
         /// </summary>
-        internal static string AccessibleImageLabel {
+        public static string AccessibleImageLabel {
             get {
                 return ResourceManager.GetString("AccessibleImageLabel", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report image - {0}.
         /// </summary>
-        internal static string AccessibleImageNavigationGroupLabel {
+        public static string AccessibleImageNavigationGroupLabel {
             get {
                 return ResourceManager.GetString("AccessibleImageNavigationGroupLabel", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report table.
         /// </summary>
-        internal static string AccessibleTableBoxLabel {
+        public static string AccessibleTableBoxLabel {
             get {
                 return ResourceManager.GetString("AccessibleTableBoxLabel", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report text.
         /// </summary>
-        internal static string AccessibleTextBoxLabel {
+        public static string AccessibleTextBoxLabel {
             get {
                 return ResourceManager.GetString("AccessibleTextBoxLabel", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Group.
         /// </summary>
-        internal static string DefaultDocMapLabel {
+        public static string DefaultDocMapLabel {
             get {
                 return ResourceManager.GetString("DefaultDocMapLabel", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Document Map.
         /// </summary>
-        internal static string DocumentMap {
+        public static string DocumentMap {
             get {
                 return ResourceManager.GetString("DocumentMap", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Hide Document Map.
         /// </summary>
-        internal static string HideDocMapTooltip {
+        public static string HideDocMapTooltip {
             get {
                 return ResourceManager.GetString("HideDocMapTooltip", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to HTML 4.0.
         /// </summary>
-        internal static string HTML40LocalizedName {
+        public static string HTML40LocalizedName {
             get {
                 return ResourceManager.GetString("HTML40LocalizedName", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to HTML5.
         /// </summary>
-        internal static string HTML5LocalizedName {
+        public static string HTML5LocalizedName {
             get {
                 return ResourceManager.GetString("HTML5LocalizedName", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to MHTML (web archive).
         /// </summary>
-        internal static string MHTMLLocalizedName {
+        public static string MHTMLLocalizedName {
             get {
                 return ResourceManager.GetString("MHTMLLocalizedName", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Invalid DeviceInfo.
         /// </summary>
-        internal static string rrInvalidDeviceInfo {
+        public static string rrInvalidDeviceInfo {
             get {
                 return ResourceManager.GetString("rrInvalidDeviceInfo", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The Section device info parameter was out of the range of valid values..
         /// </summary>
-        internal static string rrInvalidSectionError {
+        public static string rrInvalidSectionError {
             get {
                 return ResourceManager.GetString("rrInvalidSectionError", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Sorted Ascending.
         /// </summary>
-        internal static string SortAscAltText {
+        public static string SortAscAltText {
             get {
                 return ResourceManager.GetString("SortAscAltText", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Sorted Descending.
         /// </summary>
-        internal static string SortDescAltText {
+        public static string SortDescAltText {
             get {
                 return ResourceManager.GetString("SortDescAltText", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to -.
         /// </summary>
-        internal static string ToggleStateCollapse {
+        public static string ToggleStateCollapse {
             get {
                 return ResourceManager.GetString("ToggleStateCollapse", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to +.
         /// </summary>
-        internal static string ToggleStateExpand {
+        public static string ToggleStateExpand {
             get {
                 return ResourceManager.GetString("ToggleStateExpand", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Unsorted.
         /// </summary>
-        internal static string UnsortedAltText {
+        public static string UnsortedAltText {
             get {
                 return ResourceManager.GetString("UnsortedAltText", resourceCulture);
             }

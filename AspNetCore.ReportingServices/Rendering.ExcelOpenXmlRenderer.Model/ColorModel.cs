@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal abstract class ColorModel
+	public abstract class ColorModel
 	{
 		private Color mInterface;
 

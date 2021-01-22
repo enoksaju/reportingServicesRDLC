@@ -2,9 +2,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlParagraphPropertiesModel
+	public sealed class OpenXmlParagraphPropertiesModel
 	{
-		internal enum HorizontalAlignment
+		public enum HorizontalAlignment
 		{
 			Center,
 			Left,

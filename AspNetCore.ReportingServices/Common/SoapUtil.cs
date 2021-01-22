@@ -6,41 +6,41 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class SoapUtil
+	public static class SoapUtil
 	{
-		internal const string DefaultServerErrorNamespace = "http://www.microsoft.com/sql/reportingservices";
+		public const string DefaultServerErrorNamespace = "http://www.microsoft.com/sql/reportingservices";
 
-		internal const string DefaultNamespacePrefix = "msrs";
+		public const string DefaultNamespacePrefix = "msrs";
 
-		internal const string HelpLinkFormat = "https://go.microsoft.com/fwlink/?LinkId=20476&EvtSrc={0}&EvtID={1}&ProdName=Microsoft%20SQL%20Server%20Reporting%20Services&ProdVer={2}";
+		public const string HelpLinkFormat = "https://go.microsoft.com/fwlink/?LinkId=20476&EvtSrc={0}&EvtID={1}&ProdName=Microsoft%20SQL%20Server%20Reporting%20Services&ProdVer={2}";
 
-		internal const string HelpLinkTag = "HelpLink";
+		public const string HelpLinkTag = "HelpLink";
 
-		internal const string XmlMoreInfoElement = "MoreInformation";
+		public const string XmlMoreInfoElement = "MoreInformation";
 
-		internal const string XmlMoreInfoSource = "Source";
+		public const string XmlMoreInfoSource = "Source";
 
-		internal const string XmlMoreInfoMessage = "Message";
+		public const string XmlMoreInfoMessage = "Message";
 
-		internal const string XmlErrorCode = "ErrorCode";
+		public const string XmlErrorCode = "ErrorCode";
 
-		internal const string XmlWarningsElement = "Warnings";
+		public const string XmlWarningsElement = "Warnings";
 
-		internal const string XmlWarningElement = "Warning";
+		public const string XmlWarningElement = "Warning";
 
-		internal const string XmlWarningCodeElement = "Code";
+		public const string XmlWarningCodeElement = "Code";
 
-		internal const string XmlWarningSeverityElement = "Severity";
+		public const string XmlWarningSeverityElement = "Severity";
 
-		internal const string XmlWarningObjectNameElement = "ObjectName";
+		public const string XmlWarningObjectNameElement = "ObjectName";
 
-		internal const string XmlWarningObjectTypeElement = "ObjectType";
+		public const string XmlWarningObjectTypeElement = "ObjectType";
 
-		internal const string XmlWarningMessageElement = "Message";
+		public const string XmlWarningMessageElement = "Message";
 
-		internal const string SoapExceptionHttpStatus = "400";
+		public const string SoapExceptionHttpStatus = "400";
 
-		internal static string RemoveInvalidXmlChars(string origText)
+		public static string RemoveInvalidXmlChars(string origText)
 		{
 			if (string.IsNullOrEmpty(origText))
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static XmlNode CreateExceptionDetailsNode(XmlDocument doc, string code, string detailedMsg, string helpLink, string productName, string productVersion, int productLocaleId, string operatingSystem, int countryLocaleId)
+		public static XmlNode CreateExceptionDetailsNode(XmlDocument doc, string code, string detailedMsg, string helpLink, string productName, string productVersion, int productLocaleId, string operatingSystem, int countryLocaleId)
 		{
 			XmlNode xmlNode = doc.CreateNode(XmlNodeType.Element, SoapException.DetailElementName.Name, SoapException.DetailElementName.Namespace);
 			XmlNode xmlNode2 = SoapUtil.CreateNode(doc, "ErrorCode");
@@ -106,62 +106,62 @@ namespace AspNetCore.ReportingServices.Common
 			return xmlNode;
 		}
 
-		internal static XmlNode CreateNode(XmlDocument doc, string name)
+		public static XmlNode CreateNode(XmlDocument doc, string name)
 		{
 			return doc.CreateNode(XmlNodeType.Element, name, "http://www.microsoft.com/sql/reportingservices");
 		}
 
-		internal static XmlNode CreateWarningNode(XmlDocument doc)
+		public static XmlNode CreateWarningNode(XmlDocument doc)
 		{
 			return SoapUtil.CreateNode(doc, "Warnings");
 		}
 
-		internal static XmlNode CreateWarningCodeNode(XmlDocument doc)
+		public static XmlNode CreateWarningCodeNode(XmlDocument doc)
 		{
 			return SoapUtil.CreateNode(doc, "Code");
 		}
 
-		internal static XmlNode CreateWarningSeverityNode(XmlDocument doc)
+		public static XmlNode CreateWarningSeverityNode(XmlDocument doc)
 		{
 			return SoapUtil.CreateNode(doc, "Severity");
 		}
 
-		internal static XmlNode CreateWarningObjectNameNode(XmlDocument doc)
+		public static XmlNode CreateWarningObjectNameNode(XmlDocument doc)
 		{
 			return SoapUtil.CreateNode(doc, "ObjectName");
 		}
 
-		internal static XmlNode CreateWarningObjectTypeNode(XmlDocument doc)
+		public static XmlNode CreateWarningObjectTypeNode(XmlDocument doc)
 		{
 			return SoapUtil.CreateNode(doc, "ObjectType");
 		}
 
-		internal static XmlNode CreateWarningMessageNode(XmlDocument doc)
+		public static XmlNode CreateWarningMessageNode(XmlDocument doc)
 		{
 			return SoapUtil.CreateNode(doc, "Message");
 		}
 
-		internal static XmlNode CreateMoreInfoNode(XmlDocument doc)
+		public static XmlNode CreateMoreInfoNode(XmlDocument doc)
 		{
 			return SoapUtil.CreateNode(doc, "MoreInformation");
 		}
 
-		internal static XmlNode CreateMoreInfoSourceNode(XmlDocument doc)
+		public static XmlNode CreateMoreInfoSourceNode(XmlDocument doc)
 		{
 			return SoapUtil.CreateNode(doc, "Source");
 		}
 
-		internal static XmlNode CreateMoreInfoMessageNode(XmlDocument doc)
+		public static XmlNode CreateMoreInfoMessageNode(XmlDocument doc)
 		{
 			return SoapUtil.CreateNode(doc, "Message");
 		}
 
-		internal static XmlAttribute CreateErrorCodeAttr(XmlDocument doc)
+		public static XmlAttribute CreateErrorCodeAttr(XmlDocument doc)
 		{
 			return doc.CreateAttribute("msrs", "ErrorCode", "http://www.microsoft.com/sql/reportingservices");
 		}
 
-		internal static XmlAttribute CreateHelpLinkTagAttr(XmlDocument doc)
+		public static XmlAttribute CreateHelpLinkTagAttr(XmlDocument doc)
 		{
 			return doc.CreateAttribute("msrs", "HelpLink", "http://www.microsoft.com/sql/reportingservices");
 		}

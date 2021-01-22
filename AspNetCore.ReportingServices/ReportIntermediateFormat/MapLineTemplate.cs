@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapLineTemplate : MapSpatialElementTemplate, IPersistable
+	public sealed class MapLineTemplate : MapSpatialElementTemplate, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapLineTemplate.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_labelPlacement;
 
-		internal ExpressionInfo Width
+		public ExpressionInfo Width
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelPlacement
+		public ExpressionInfo LabelPlacement
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapLineTemplateExprHost ExprHost
+		public new MapLineTemplateExprHost ExprHost
 		{
 			get
 			{
@@ -52,16 +52,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLineTemplate()
+		public MapLineTemplate()
 		{
 		}
 
-		internal MapLineTemplate(MapLineLayer mapLineLayer, Map map, int id)
+		public MapLineTemplate(MapLineLayer mapLineLayer, Map map, int id)
 			: base(mapLineLayer, map, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapLineTemplateStart();
 			base.Initialize(context);
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapLineTemplateEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapLineTemplate mapLineTemplate = (MapLineTemplate)base.PublishClone(context);
 			if (this.m_width != null)
@@ -92,13 +92,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapLineTemplate;
 		}
 
-		internal void SetExprHost(MapLineTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapLineTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Width, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -153,13 +153,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapLineTemplate;
 		}
 
-		internal string EvaluateWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapLineTemplateWidthExpression(this, base.m_map.Name);
 		}
 
-		internal MapLineLabelPlacement EvaluateLabelPlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapLineLabelPlacement EvaluateLabelPlacement(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.InstancePath, reportScopeInstance);
 			return EnumTranslator.TranslateMapLineLabelPlacement(context.ReportRuntime.EvaluateMapLineTemplateLabelPlacementExpression(this, base.m_map.Name), context.ReportRuntime);

@@ -7,9 +7,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ChunkManager
+	public sealed class ChunkManager
 	{
-		internal enum SpecialChunkName
+		public enum SpecialChunkName
 		{
 			DocumentMap,
 			ShowHideInfo,
@@ -18,9 +18,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			SortFilterEventInfo
 		}
 
-		internal sealed class InstanceInfoOwnerList : ArrayList
+		public sealed class InstanceInfoOwnerList : ArrayList
 		{
-			internal new InstanceInfoOwner this[int index]
+			public new InstanceInfoOwner this[int index]
 			{
 				get
 				{
@@ -29,9 +29,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class InstanceInfoList : ArrayList
+		public sealed class InstanceInfoList : ArrayList
 		{
-			internal new InstanceInfo this[int index]
+			public new InstanceInfo this[int index]
 			{
 				get
 				{
@@ -40,11 +40,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class DataChunkWriter
+		public sealed class DataChunkWriter
 		{
-			internal sealed class RecordRowList : ArrayList
+			public sealed class RecordRowList : ArrayList
 			{
-				internal new RecordRow this[int index]
+				public new RecordRow this[int index]
 				{
 					get
 					{
@@ -52,11 +52,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 					}
 				}
 
-				internal RecordRowList()
+				public RecordRowList()
 				{
 				}
 
-				internal RecordRowList(int capacity)
+				public RecordRowList(int capacity)
 					: base(capacity)
 				{
 				}
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private Hashtable[] m_fieldAliasPropertyNames;
 
-			internal Hashtable[] FieldAliasPropertyNames
+			public Hashtable[] FieldAliasPropertyNames
 			{
 				set
 				{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RecordSetInfo RecordSetInfo
+			public RecordSetInfo RecordSetInfo
 			{
 				get
 				{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool RecordSetInfoPopulated
+			public bool RecordSetInfoPopulated
 			{
 				get
 				{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal DataChunkWriter(DataSet dataSet, ReportProcessing.ProcessingContext context, bool readerExtensionsSupported, bool stopSaveOnError)
+			public DataChunkWriter(DataSet dataSet, ReportProcessing.ProcessingContext context, bool readerExtensionsSupported, bool stopSaveOnError)
 			{
 				Global.Tracer.Assert(null != context.CreateReportChunkCallback, "(null != context.CreateReportChunkCallback)");
 				this.m_dataSetChunkName = ChunkManager.GenerateDataChunkName(dataSet, context, true);
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_stopSaveOnError = stopSaveOnError;
 			}
 
-			internal DataChunkWriter(DataSet dataSet, ReportProcessing.ProcessingContext context)
+			public DataChunkWriter(DataSet dataSet, ReportProcessing.ProcessingContext context)
 			{
 				Global.Tracer.Assert(null != context.CreateReportChunkCallback, "(null != context.CreateReportChunkCallback)");
 				this.m_dataSetChunkName = ChunkManager.GenerateDataChunkName(dataSet, context, false);
@@ -138,12 +138,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_createChunkFactory = context.CreateReportChunkFactory;
 			}
 
-			internal bool AddRecordRow(FieldsImpl fields, int fieldCount)
+			public bool AddRecordRow(FieldsImpl fields, int fieldCount)
 			{
 				return this.AddRecordRow(new RecordRow(fields, fieldCount));
 			}
 
-			internal bool AddRecordRow(RecordRow aRow)
+			public bool AddRecordRow(RecordRow aRow)
 			{
 				this.CheckChunkLimit();
 				if (!this.m_errorOccurred || !this.m_stopSaveOnError)
@@ -153,7 +153,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return !this.m_errorOccurred;
 			}
 
-			internal bool FinalFlush()
+			public bool FinalFlush()
 			{
 				this.Flush();
 				if (!this.m_errorOccurred || !this.m_stopSaveOnError)
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return !this.m_errorOccurred;
 			}
 
-			internal void Close()
+			public void Close()
 			{
 				if (this.m_chunkWriter != null)
 				{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CloseAndEraseChunk()
+			public void CloseAndEraseChunk()
 			{
 				if (this.m_chunkWriter != null)
 				{
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class DataChunkReader : IDisposable
+		public sealed class DataChunkReader : IDisposable
 		{
 			private Stream m_chunkStream;
 
@@ -322,7 +322,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private long m_streamLength = -1L;
 
-			internal bool ReaderExtensionsSupported
+			public bool ReaderExtensionsSupported
 			{
 				get
 				{
@@ -330,7 +330,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ReaderFieldProperties
+			public bool ReaderFieldProperties
 			{
 				get
 				{
@@ -342,7 +342,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool ValidCompareOptions
+			public bool ValidCompareOptions
 			{
 				get
 				{
@@ -350,7 +350,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal CompareOptions CompareOptions
+			public CompareOptions CompareOptions
 			{
 				get
 				{
@@ -374,7 +374,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal RecordSetPropertyNamesList FieldPropertyNames
+			public RecordSetPropertyNamesList FieldPropertyNames
 			{
 				get
 				{
@@ -382,7 +382,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal DataChunkReader(DataSet dataSet, ReportProcessing.ProcessingContext context)
+			public DataChunkReader(DataSet dataSet, ReportProcessing.ProcessingContext context)
 			{
 				this.m_currentRow = -1;
 				if (context.SubReportLevel == 0)
@@ -400,7 +400,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool GetNextRow()
+			public bool GetNextRow()
 			{
 				bool flag = false;
 				if (-1 == this.m_recordSetSize)
@@ -423,7 +423,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return flag;
 			}
 
-			internal object GetFieldValue(int aliasIndex)
+			public object GetFieldValue(int aliasIndex)
 			{
 				if (this.m_recordRow.RecordFields[aliasIndex] == null)
 				{
@@ -432,12 +432,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.m_recordRow.GetFieldValue(aliasIndex);
 			}
 
-			internal bool IsAggregationField(int aliasIndex)
+			public bool IsAggregationField(int aliasIndex)
 			{
 				return this.m_recordRow.IsAggregationField(aliasIndex);
 			}
 
-			internal object GetPropertyValue(int aliasIndex, int propertyIndex)
+			public object GetPropertyValue(int aliasIndex, int propertyIndex)
 			{
 				if (this.m_recordSetInfo.FieldPropertyNames != null && this.m_recordRow.RecordFields[aliasIndex] != null)
 				{
@@ -480,13 +480,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class PageSectionManager
+		public sealed class PageSectionManager
 		{
 			private InstanceInfoList m_pageSectionInstances;
 
 			private InstanceInfoOwnerList m_pageSectionInstanceOwners;
 
-			internal void AddPageSectionInstance(InstanceInfo instanceInfo, InstanceInfoOwner owner)
+			public void AddPageSectionInstance(InstanceInfo instanceInfo, InstanceInfoOwner owner)
 			{
 				if (this.m_pageSectionInstances == null)
 				{
@@ -497,7 +497,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				this.m_pageSectionInstanceOwners.Add(owner);
 			}
 
-			internal void Flush(ReportSnapshot reportSnapshot, ReportProcessing.CreateReportChunk createChunkCallback)
+			public void Flush(ReportSnapshot reportSnapshot, ReportProcessing.CreateReportChunk createChunkCallback)
 			{
 				if (this.m_pageSectionInstances != null && createChunkCallback != null && reportSnapshot != null)
 				{
@@ -538,7 +538,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract class SnapshotChunkManager
+		public abstract class SnapshotChunkManager
 		{
 			protected ReportProcessing.CreateReportChunk m_createChunkCallback;
 
@@ -601,7 +601,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void FinalFlush()
+			public void FinalFlush()
 			{
 				this.Flush();
 				if (this.m_chunkWriter != null)
@@ -616,7 +616,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void SaveFirstPage()
+			public void SaveFirstPage()
 			{
 				if (this.m_firstPageChunkInstances != null && this.m_firstPageChunkInstances.Count != 0 && this.m_createChunkCallback != null)
 				{
@@ -648,7 +648,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void SaveReportSnapshot(ReportSnapshot reportSnapshot)
+			public void SaveReportSnapshot(ReportSnapshot reportSnapshot)
 			{
 				if (this.m_createChunkCallback != null)
 				{
@@ -733,7 +733,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void Close()
+			public void Close()
 			{
 				this.m_chunkWriter = null;
 				if (this.m_chunkStream != null)
@@ -744,14 +744,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class UpgradeManager : SnapshotChunkManager
+		public sealed class UpgradeManager : SnapshotChunkManager
 		{
-			internal UpgradeManager(ReportProcessing.CreateReportChunk createChunkCallback)
+			public UpgradeManager(ReportProcessing.CreateReportChunk createChunkCallback)
 				: base(createChunkCallback)
 			{
 			}
 
-			internal void AddInstance(InstanceInfo instanceInfo, InstanceInfoOwner owner, long offset)
+			public void AddInstance(InstanceInfo instanceInfo, InstanceInfoOwner owner, long offset)
 			{
 				Global.Tracer.Assert(0 != offset, "(0 != offset)");
 				if (offset < 0)
@@ -772,7 +772,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class ProcessingChunkManager : SnapshotChunkManager
+		public sealed class ProcessingChunkManager : SnapshotChunkManager
 		{
 			private bool m_inFirstPage = true;
 
@@ -794,7 +794,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private long m_totalInstanceCount;
 
-			internal bool InFirstPage
+			public bool InFirstPage
 			{
 				get
 				{
@@ -802,7 +802,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal long TotalCount
+			public long TotalCount
 			{
 				get
 				{
@@ -810,19 +810,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal ProcessingChunkManager(ReportProcessing.CreateReportChunk createChunkCallback, bool isOnePass)
+			public ProcessingChunkManager(ReportProcessing.CreateReportChunk createChunkCallback, bool isOnePass)
 				: base(createChunkCallback)
 			{
 				this.m_isOnePass = isOnePass;
 				this.m_pageSectionManager = new PageSectionManager();
 			}
 
-			internal void PageSectionFlush(ReportSnapshot reportSnapshot)
+			public void PageSectionFlush(ReportSnapshot reportSnapshot)
 			{
 				this.m_pageSectionManager.Flush(reportSnapshot, base.m_createChunkCallback);
 			}
 
-			internal void EnterIgnorePageBreakItem()
+			public void EnterIgnorePageBreakItem()
 			{
 				if (!this.m_isOnePass)
 				{
@@ -830,7 +830,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void LeaveIgnorePageBreakItem()
+			public void LeaveIgnorePageBreakItem()
 			{
 				if (!this.m_isOnePass)
 				{
@@ -839,7 +839,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void EnterIgnoreInstances()
+			public void EnterIgnoreInstances()
 			{
 				if (!this.m_isOnePass)
 				{
@@ -847,7 +847,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void LeaveIgnoreInstances()
+			public void LeaveIgnoreInstances()
 			{
 				if (!this.m_isOnePass)
 				{
@@ -856,7 +856,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void EnterReportItemCollection()
+			public void EnterReportItemCollection()
 			{
 				if (!this.m_isOnePass)
 				{
@@ -864,7 +864,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void LeaveReportItemCollection()
+			public void LeaveReportItemCollection()
 			{
 				if (!this.m_isOnePass)
 				{
@@ -877,7 +877,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void AddRepeatSiblings(DataRegion dataRegion, int index)
+			public void AddRepeatSiblings(DataRegion dataRegion, int index)
 			{
 				if (!this.m_isOnePass && this.m_inFirstPage && dataRegion.RepeatSiblings != null)
 				{
@@ -909,7 +909,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void CheckPageBreak(IPageBreakItem item, bool atStart)
+			public void CheckPageBreak(IPageBreakItem item, bool atStart)
 			{
 				if (!this.m_isOnePass && this.m_inFirstPage && 0 >= this.m_ignorePageBreaks && base.m_createChunkCallback != null)
 				{
@@ -950,7 +950,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void AddInstance(InstanceInfo newInstance, ReportItem reportItemDef, InstanceInfoOwner owner, int index, bool isPageSection)
+			public void AddInstance(InstanceInfo newInstance, ReportItem reportItemDef, InstanceInfoOwner owner, int index, bool isPageSection)
 			{
 				if (isPageSection)
 				{
@@ -975,7 +975,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void AddInstance(InstanceInfo newInstance, InstanceInfoOwner owner, bool isPageSection)
+			public void AddInstance(InstanceInfo newInstance, InstanceInfoOwner owner, bool isPageSection)
 			{
 				if (isPageSection)
 				{
@@ -994,7 +994,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void AddInstance(InstanceInfo newInstance, InstanceInfoOwner owner, bool addToFirstPage, bool isPageSection)
+			public void AddInstance(InstanceInfo newInstance, InstanceInfoOwner owner, bool addToFirstPage, bool isPageSection)
 			{
 				if (isPageSection)
 				{
@@ -1010,7 +1010,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal void AddInstanceToFirstPage(InstanceInfo newInstance, InstanceInfoOwner owner, bool isPageSection)
+			public void AddInstanceToFirstPage(InstanceInfo newInstance, InstanceInfoOwner owner, bool isPageSection)
 			{
 				if (isPageSection)
 				{
@@ -1099,26 +1099,26 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class EventsChunkManager
+		public sealed class EventsChunkManager
 		{
 			private SpecialChunkManager m_specialChunkManager;
 
-			internal EventsChunkManager(ReportProcessing.GetReportChunk getChunkCallback)
+			public EventsChunkManager(ReportProcessing.GetReportChunk getChunkCallback)
 			{
 				this.m_specialChunkManager = new SpecialChunkManager(getChunkCallback, null, null, null);
 			}
 
-			internal EventsChunkManager(ReportProcessing.GetReportChunk getChunkCallback, Hashtable definitionObjects, IntermediateFormatVersion intermediateFormatVersion)
+			public EventsChunkManager(ReportProcessing.GetReportChunk getChunkCallback, Hashtable definitionObjects, IntermediateFormatVersion intermediateFormatVersion)
 			{
 				this.m_specialChunkManager = new SpecialChunkManager(getChunkCallback, null, definitionObjects, intermediateFormatVersion);
 			}
 
-			internal void Close()
+			public void Close()
 			{
 				this.m_specialChunkManager.Close();
 			}
 
-			internal void GetShowHideInfo(out SenderInformationHashtable senderInfo, out ReceiverInformationHashtable receiverInfo)
+			public void GetShowHideInfo(out SenderInformationHashtable senderInfo, out ReceiverInformationHashtable receiverInfo)
 			{
 				senderInfo = null;
 				receiverInfo = null;
@@ -1130,7 +1130,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal BookmarkInformation GetBookmarkIdInfo(string bookmarkId)
+			public BookmarkInformation GetBookmarkIdInfo(string bookmarkId)
 			{
 				if (bookmarkId == null)
 				{
@@ -1144,7 +1144,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return null;
 			}
 
-			internal DrillthroughInformation GetDrillthroughIdInfo(string drillthroughId)
+			public DrillthroughInformation GetDrillthroughIdInfo(string drillthroughId)
 			{
 				if (drillthroughId == null)
 				{
@@ -1158,7 +1158,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return null;
 			}
 
-			internal int GetDocumentMapNodePage(string documentMapId)
+			public int GetDocumentMapNodePage(string documentMapId)
 			{
 				if (documentMapId == null)
 				{
@@ -1173,7 +1173,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return result;
 			}
 
-			internal DocumentMapNodeInfo GetDocumentMapInfo()
+			public DocumentMapNodeInfo GetDocumentMapInfo()
 			{
 				IntermediateFormatReader documentMapReader = this.m_specialChunkManager.DocumentMapReader;
 				if (documentMapReader != null)
@@ -1183,7 +1183,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return null;
 			}
 
-			internal DocumentMapNode GetDocumentMapNode()
+			public DocumentMapNode GetDocumentMapNode()
 			{
 				IntermediateFormatReader documentMapReader = this.m_specialChunkManager.DocumentMapReader;
 				if (documentMapReader != null)
@@ -1193,7 +1193,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return null;
 			}
 
-			internal SortFilterEventInfoHashtable GetSortFilterEventInfo()
+			public SortFilterEventInfoHashtable GetSortFilterEventInfo()
 			{
 				IntermediateFormatReader sortFilterEventInfoReader = this.m_specialChunkManager.SortFilterEventInfoReader;
 				if (sortFilterEventInfoReader != null)
@@ -1204,7 +1204,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class SpecialChunkManager
+		public sealed class SpecialChunkManager
 		{
 			private ReportProcessing.GetReportChunk m_getChunkCallback;
 
@@ -1238,7 +1238,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private bool m_hasSortFilterEventInfo = true;
 
-			internal IntermediateFormatReader DocumentMapReader
+			public IntermediateFormatReader DocumentMapReader
 			{
 				get
 				{
@@ -1256,7 +1256,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IntermediateFormatReader ShowHideInfoReader
+			public IntermediateFormatReader ShowHideInfoReader
 			{
 				get
 				{
@@ -1274,7 +1274,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IntermediateFormatReader BookmarkReader
+			public IntermediateFormatReader BookmarkReader
 			{
 				get
 				{
@@ -1292,7 +1292,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IntermediateFormatReader DrillthroughReader
+			public IntermediateFormatReader DrillthroughReader
 			{
 				get
 				{
@@ -1310,7 +1310,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IntermediateFormatReader QuickFindReader
+			public IntermediateFormatReader QuickFindReader
 			{
 				get
 				{
@@ -1328,7 +1328,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IntermediateFormatReader SortFilterEventInfoReader
+			public IntermediateFormatReader SortFilterEventInfoReader
 			{
 				get
 				{
@@ -1346,7 +1346,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal SpecialChunkManager(ReportProcessing.GetReportChunk getChunkCallback, Hashtable instanceObjects, Hashtable definitionObjects, IntermediateFormatVersion intermediateFormatVersion)
+			public SpecialChunkManager(ReportProcessing.GetReportChunk getChunkCallback, Hashtable instanceObjects, Hashtable definitionObjects, IntermediateFormatVersion intermediateFormatVersion)
 			{
 				this.m_definitionObjects = definitionObjects;
 				this.m_instanceObjects = instanceObjects;
@@ -1365,7 +1365,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return stream;
 			}
 
-			internal void Close()
+			public void Close()
 			{
 				if (this.m_docMap != null)
 				{
@@ -1406,7 +1406,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal sealed class RenderingChunkManager
+		public sealed class RenderingChunkManager
 		{
 			private ReportProcessing.GetReportChunk m_getChunkCallback;
 
@@ -1446,7 +1446,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 			private int m_pageSectionLastReadPage = -1;
 
-			internal RenderingChunkManager(ReportProcessing.GetReportChunk getChunkCallback, Hashtable instanceObjects, Hashtable definitionObjects, IntermediateFormatReader.State declarationsRead, IntermediateFormatVersion intermediateFormatVersion)
+			public RenderingChunkManager(ReportProcessing.GetReportChunk getChunkCallback, Hashtable instanceObjects, Hashtable definitionObjects, IntermediateFormatReader.State declarationsRead, IntermediateFormatVersion intermediateFormatVersion)
 			{
 				this.m_getChunkCallback = getChunkCallback;
 				this.m_instanceObjects = instanceObjects;
@@ -1463,7 +1463,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal IntermediateFormatReader GetReaderForSpecialChunk(long offset)
+			public IntermediateFormatReader GetReaderForSpecialChunk(long offset)
 			{
 				if (this.m_specialChunkReader == null)
 				{
@@ -1478,7 +1478,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.m_specialChunkReader;
 			}
 
-			internal IntermediateFormatReader GetSpecialChunkReader(SpecialChunkName chunkName)
+			public IntermediateFormatReader GetSpecialChunkReader(SpecialChunkName chunkName)
 			{
 				if (this.m_specialChunkManager == null)
 				{
@@ -1501,7 +1501,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal bool PageSectionChunkExists()
+			public bool PageSectionChunkExists()
 			{
 				string text = default(string);
 				this.m_pageSectionChunk = this.m_getChunkCallback("PageSections", ReportProcessing.ReportChunkTypes.Main, out text);
@@ -1514,7 +1514,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return false;
 			}
 
-			internal IntermediateFormatReader GetPageSectionReader(int requestedPageNumber, out int currentPageNumber)
+			public IntermediateFormatReader GetPageSectionReader(int requestedPageNumber, out int currentPageNumber)
 			{
 				currentPageNumber = this.m_pageSectionLastReadPage + 1;
 				bool flag = null == this.m_pageSectionReader;
@@ -1536,13 +1536,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.m_pageSectionReader;
 			}
 
-			internal void SetPageSectionReaderState(IntermediateFormatReader.State declarations, int pageSectionLastReadPage)
+			public void SetPageSectionReaderState(IntermediateFormatReader.State declarations, int pageSectionLastReadPage)
 			{
 				this.m_pageSectionDeclarationsRead = declarations;
 				this.m_pageSectionLastReadPage = pageSectionLastReadPage;
 			}
 
-			internal IntermediateFormatReader GetPageSectionInstanceReader(long offset)
+			public IntermediateFormatReader GetPageSectionInstanceReader(long offset)
 			{
 				if (this.m_pageSectionInstanceReader == null)
 				{
@@ -1563,7 +1563,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.m_pageSectionInstanceReader;
 			}
 
-			internal IntermediateFormatReader GetReader(long offset)
+			public IntermediateFormatReader GetReader(long offset)
 			{
 				if (offset < 0)
 				{
@@ -1592,7 +1592,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				return this.m_otherPageReader;
 			}
 
-			internal void Close()
+			public void Close()
 			{
 				this.m_firstPageReader = null;
 				if (this.m_firstPageChunk != null)
@@ -1632,35 +1632,35 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal const string Definition = "CompiledDefinition";
+		public const string Definition = "CompiledDefinition";
 
-		internal const string MainChunk = "Main";
+		public const string MainChunk = "Main";
 
-		internal const string FirstPageChunk = "FirstPage";
+		public const string FirstPageChunk = "FirstPage";
 
-		internal const string OtherPageChunk = "OtherPages";
+		public const string OtherPageChunk = "OtherPages";
 
-		internal const string SpecialChunk = "Special";
+		public const string SpecialChunk = "Special";
 
-		internal const string DocumentMap = "DocumentMap";
+		public const string DocumentMap = "DocumentMap";
 
-		internal const string ShowHideInfo = "ShowHideInfo";
+		public const string ShowHideInfo = "ShowHideInfo";
 
-		internal const string Bookmarks = "Bookmarks";
+		public const string Bookmarks = "Bookmarks";
 
-		internal const string Drillthrough = "Drillthrough";
+		public const string Drillthrough = "Drillthrough";
 
-		internal const string QuickFind = "QuickFind";
+		public const string QuickFind = "QuickFind";
 
-		internal const string SortFilterEventInfo = "SortFilterEventInfo";
+		public const string SortFilterEventInfo = "SortFilterEventInfo";
 
-		internal const string DataChunkPrefix = "DataChunk";
+		public const string DataChunkPrefix = "DataChunk";
 
-		internal const string PageSections = "PageSections";
+		public const string PageSections = "PageSections";
 
-		internal const string PageSectionInstances = "PageSectionInstances";
+		public const string PageSectionInstances = "PageSectionInstances";
 
-		internal const string Delimiter = "_";
+		public const string Delimiter = "_";
 
 		private const int InstancePerChunk = 4096;
 

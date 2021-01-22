@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class DocumentProperties
+	public class DocumentProperties
 	{
-		internal static readonly byte[] Buffer = new byte[612]
+		public static readonly byte[] Buffer = new byte[612]
 		{
 			34,
 			0,

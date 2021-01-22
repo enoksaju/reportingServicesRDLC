@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool IsCollectionInitialized
+		public bool IsCollectionInitialized
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal FieldImpl this[int index]
+		public FieldImpl this[int index]
 		{
 			get
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal int CountWithRowIndex
+		public int CountWithRowIndex
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool ReaderExtensionsSupported
+		public bool ReaderExtensionsSupported
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool ReaderFieldProperties
+		public bool ReaderFieldProperties
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool IsAggregateRow
+		public bool IsAggregateRow
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal int AggregationFieldCount
+		public int AggregationFieldCount
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal int AggregationFieldCountForDetailRow
+		public int AggregationFieldCountForDetailRow
 		{
 			set
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool ValidAggregateRow
+		public bool ValidAggregateRow
 		{
 			get
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool AddRowIndex
+		public bool AddRowIndex
 		{
 			get
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool NeedsInlineSetup
+		public bool NeedsInlineSetup
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal long StreamOffset
+		public long StreamOffset
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal FieldsImpl(ObjectModelImpl reportOM, int size, bool addRowIndex, bool noRows)
+		public FieldsImpl(ObjectModelImpl reportOM, int size, bool addRowIndex, bool noRows)
 		{
 			this.m_reportOM = reportOM;
 			if (addRowIndex)
@@ -228,7 +228,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_addRowIndex = addRowIndex;
 		}
 
-		internal FieldsImpl(ObjectModelImpl reportOM)
+		public FieldsImpl(ObjectModelImpl reportOM)
 		{
 			this.m_reportOM = reportOM;
 			this.m_collection = null;
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_addRowIndex = false;
 		}
 
-		internal FieldImpl GetFieldByIndex(int index)
+		public FieldImpl GetFieldByIndex(int index)
 		{
 			return this.m_collection[index];
 		}
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Add(string name, FieldImpl field)
+		public void Add(string name, FieldImpl field)
 		{
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
 			Global.Tracer.Assert(null != this.m_nameMap, "(null != m_nameMap)");
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_count++;
 		}
 
-		internal void AddRowIndexField()
+		public void AddRowIndexField()
 		{
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
 			Global.Tracer.Assert(this.m_count < this.m_collection.Length, "(m_count < m_collection.Length)");
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_count++;
 		}
 
-		internal void SetFieldIsMissing(int index)
+		public void SetFieldIsMissing(int index)
 		{
 			if (this.m_fieldMissing == null)
 			{
@@ -297,7 +297,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_fieldMissing[index] = true;
 		}
 
-		internal bool IsFieldMissing(int index)
+		public bool IsFieldMissing(int index)
 		{
 			if (this.m_fieldMissing == null)
 			{
@@ -306,7 +306,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return this.m_fieldMissing[index];
 		}
 
-		internal void SetFieldErrorRegistered(int index)
+		public void SetFieldErrorRegistered(int index)
 		{
 			if (this.m_fieldError == null)
 			{
@@ -315,7 +315,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_fieldError[index] = true;
 		}
 
-		internal bool IsFieldErrorRegistered(int index)
+		public bool IsFieldErrorRegistered(int index)
 		{
 			if (this.m_fieldError == null)
 			{
@@ -324,12 +324,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return this.m_fieldError[index];
 		}
 
-		internal void NewRow()
+		public void NewRow()
 		{
 			this.NewRow(DataFieldRow.UnInitializedStreamOffset);
 		}
 
-		internal void NewRow(long streamOffset)
+		public void NewRow(long streamOffset)
 		{
 			this.m_noRows = false;
 			this.m_validAggregateRow = true;
@@ -341,14 +341,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void SetRowIndex(int rowIndex)
+		public void SetRowIndex(int rowIndex)
 		{
 			Global.Tracer.Assert(this.m_addRowIndex, "(m_addRowIndex)");
 			Global.Tracer.Assert(this.m_count > 0, "(m_count > 0)");
 			this.m_collection[this.m_count - 1] = new FieldImpl(this.m_reportOM, rowIndex, false, null);
 		}
 
-		internal void SetFields(FieldImpl[] fields, long streamOffset)
+		public void SetFields(FieldImpl[] fields, long streamOffset)
 		{
 			bool flag = this.m_referenced || streamOffset == DataFieldRow.UnInitializedStreamOffset || this.m_streamOffset != streamOffset;
 			this.NewRow(streamOffset);
@@ -380,7 +380,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void SetFields(FieldImpl[] fields, long streamOffset, bool isAggregateRow, int aggregationFieldCount, bool validAggregateRow)
+		public void SetFields(FieldImpl[] fields, long streamOffset, bool isAggregateRow, int aggregationFieldCount, bool validAggregateRow)
 		{
 			this.SetFields(fields, streamOffset);
 			this.m_isAggregateRow = isAggregateRow;
@@ -388,24 +388,24 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_validAggregateRow = validAggregateRow;
 		}
 
-		internal FieldImpl[] GetAndSaveFields()
+		public FieldImpl[] GetAndSaveFields()
 		{
 			Global.Tracer.Assert(null != this.m_collection, "(null != m_collection)");
 			this.m_referenced = true;
 			return this.m_collection;
 		}
 
-		internal FieldImpl[] GetFields()
+		public FieldImpl[] GetFields()
 		{
 			return this.m_collection;
 		}
 
-		internal int GetRowIndex()
+		public int GetRowIndex()
 		{
 			return (int)this.m_collection[this.m_count - 1].Value;
 		}
 
-		internal void Clone(FieldsImpl fields)
+		public void Clone(FieldsImpl fields)
 		{
 			if (fields != null)
 			{
@@ -436,7 +436,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			throw new ReportProcessingException_NonExistingFieldReference();
 		}
 
-		internal void ResetFieldsUsedInExpression()
+		public void ResetFieldsUsedInExpression()
 		{
 			if (this.m_collection != null)
 			{
@@ -451,7 +451,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void AddFieldsUsedInExpression(List<string> fieldsUsedInValueExpression)
+		public void AddFieldsUsedInExpression(List<string> fieldsUsedInValueExpression)
 		{
 			if (this.m_collection != null)
 			{
@@ -466,7 +466,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void ConsumeAggregationField(int fieldIndex)
+		public void ConsumeAggregationField(int fieldIndex)
 		{
 			FieldImpl fieldImpl = this[fieldIndex];
 			if (!fieldImpl.AggregationFieldChecked && fieldImpl.IsAggregationField)

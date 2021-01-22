@@ -8,9 +8,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeAxisScaleBreakStyle_AxisScaleBreakStyle")]
 	[DefaultProperty("Enabled")]
-	internal class AxisScaleBreakStyle
+	public class AxisScaleBreakStyle
 	{
-		internal Axis axis;
+		public Axis axis;
 
 		private bool enabled;
 
@@ -208,7 +208,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.axis = axis;
 		}
 
-		internal bool IsEnabled()
+		public bool IsEnabled()
 		{
 			if (this.Enabled && this.CanUseAxisScaleBreaks())
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal bool CanUseAxisScaleBreaks()
+		public bool CanUseAxisScaleBreaks()
 		{
 			if (this.axis != null && this.axis.chartArea != null && this.axis.chartArea.Common.Chart != null)
 			{
@@ -259,7 +259,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal static ArrayList GetAxisSeries(Axis axis)
+		public static ArrayList GetAxisSeries(Axis axis)
 		{
 			ArrayList arrayList = new ArrayList();
 			if (axis != null && axis.chartArea != null && axis.chartArea.Common.Chart != null)
@@ -286,7 +286,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void GetAxisSegmentForScaleBreaks(AxisScaleSegmentCollection axisSegments)
+		public void GetAxisSegmentForScaleBreaks(AxisScaleSegmentCollection axisSegments)
 		{
 			axisSegments.Clear();
 			if (this.IsEnabled())
@@ -538,7 +538,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal int[] GetSeriesDataStatistics(int segmentCount, out double minYValue, out double maxYValue, out double segmentSize, out double[] segmentMaxValue, out double[] segmentMinValue)
+		public int[] GetSeriesDataStatistics(int segmentCount, out double minYValue, out double maxYValue, out double segmentSize, out double[] segmentMaxValue, out double[] segmentMinValue)
 		{
 			ArrayList axisSeries = AxisScaleBreakStyle.GetAxisSeries(this.axis);
 			minYValue = 0.0;
@@ -601,7 +601,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return array;
 		}
 
-		internal bool GetLargestSequenseOfSegmentsWithNoPoints(int[] segmentPointNumber, out int startSegment, out int numberOfSegments)
+		public bool GetLargestSequenseOfSegmentsWithNoPoints(int[] segmentPointNumber, out int startSegment, out int numberOfSegments)
 		{
 			startSegment = -1;
 			numberOfSegments = 0;

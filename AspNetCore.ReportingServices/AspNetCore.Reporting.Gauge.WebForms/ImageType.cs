@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum ImageType
+	public enum ImageType
 	{
 		Bmp,
 		Jpeg,

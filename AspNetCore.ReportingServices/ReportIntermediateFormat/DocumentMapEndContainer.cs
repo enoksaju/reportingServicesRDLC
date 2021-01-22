@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class DocumentMapEndContainer : IPersistable
+	public sealed class DocumentMapEndContainer : IPersistable
 	{
 		[NonSerialized]
 		private static readonly DocumentMapEndContainer m_instance = new DocumentMapEndContainer();
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DocumentMapEndContainer.GetDeclaration();
 
-		internal static DocumentMapEndContainer Instance
+		public static DocumentMapEndContainer Instance
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DocumentMapEndContainer, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.None, memberInfoList);

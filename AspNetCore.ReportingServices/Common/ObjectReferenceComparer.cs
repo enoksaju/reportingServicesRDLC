@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal sealed class ObjectReferenceComparer<T> : EqualityComparer<T>
+	public sealed class ObjectReferenceComparer<T> : EqualityComparer<T>
 	{
 		private static readonly ObjectReferenceComparer<T> m_instance = new ObjectReferenceComparer<T>();
 

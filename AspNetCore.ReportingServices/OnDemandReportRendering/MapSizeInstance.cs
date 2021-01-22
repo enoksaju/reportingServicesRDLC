@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapSizeInstance : BaseInstance
+	public sealed class MapSizeInstance : BaseInstance
 	{
 		private MapSize m_defObject;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSizeInstance(MapSize defObject)
+		public MapSizeInstance(MapSize defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

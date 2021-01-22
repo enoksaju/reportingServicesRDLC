@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
 	[Flags]
-	internal enum LabelAlignments
+	public enum LabelAlignments
 	{
 		Auto = 0,
 		Top = 1,

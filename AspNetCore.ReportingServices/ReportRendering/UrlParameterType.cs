@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal enum UrlParameterType
+	public enum UrlParameterType
 	{
 		ServerParameter,
 		ReportParameter,

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class StyleManager
+	public class StyleManager
 	{
 		private abstract class ElementBag<T>
 		{

@@ -2,18 +2,18 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal class Border
+	public class Border
 	{
-		internal int RowZIndex;
+		public int RowZIndex;
 
-		internal int ColumnZIndex;
+		public int ColumnZIndex;
 
-		internal int RowIndex;
+		public int RowIndex;
 
-		internal int ColumnIndex;
+		public int ColumnIndex;
 
-		internal bool CompareRowFirst = true;
+		public bool CompareRowFirst = true;
 
-		internal List<Operation> Operations;
+		public List<Operation> Operations;
 	}
 }

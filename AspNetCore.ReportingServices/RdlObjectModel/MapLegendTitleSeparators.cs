@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapLegendTitleSeparators
+	public enum MapLegendTitleSeparators
 	{
 		None,
 		Line,

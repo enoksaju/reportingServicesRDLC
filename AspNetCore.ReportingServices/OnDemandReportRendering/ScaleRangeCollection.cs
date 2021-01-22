@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ScaleRangeCollection : GaugePanelObjectCollectionBase<ScaleRange>
+	public sealed class ScaleRangeCollection : GaugePanelObjectCollectionBase<ScaleRange>
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ScaleRangeCollection(GaugeScale gaugeScale, GaugePanel gaugePanel)
+		public ScaleRangeCollection(GaugeScale gaugeScale, GaugePanel gaugePanel)
 		{
 			this.m_gaugeScale = gaugeScale;
 			this.m_gaugePanel = gaugePanel;

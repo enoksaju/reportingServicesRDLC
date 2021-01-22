@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum InterpretSubtotalsAsDetailsTypes
+	public enum InterpretSubtotalsAsDetailsTypes
 	{
 		Auto,
 		True,

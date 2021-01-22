@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class ValueRangeEventArgs : ValueChangedEventArgs
+	public class ValueRangeEventArgs : ValueChangedEventArgs
 	{
 		private NamedElement pointer;
 

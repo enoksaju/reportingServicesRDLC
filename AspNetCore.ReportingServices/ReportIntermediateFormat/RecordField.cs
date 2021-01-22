@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class RecordField : IPersistable
+	public sealed class RecordField : IPersistable
 	{
 		private object m_fieldValue;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = RecordField.GetDeclaration();
 
-		internal object FieldValue
+		public object FieldValue
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsAggregationField
+		public bool IsAggregationField
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<object> FieldPropertyValues
+		public List<object> FieldPropertyValues
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsOverflow
+		public bool IsOverflow
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsUnSupportedDataType
+		public bool IsUnSupportedDataType
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsError
+		public bool IsError
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataFieldStatus FieldStatus
+		public DataFieldStatus FieldStatus
 		{
 			get
 			{
@@ -93,11 +93,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RecordField()
+		public RecordField()
 		{
 		}
 
-		internal RecordField(FieldImpl field, FieldInfo fieldInfo)
+		public RecordField(FieldImpl field, FieldInfo fieldInfo)
 		{
 			this.m_fieldStatus = field.FieldStatus;
 			if (this.m_fieldStatus == DataFieldStatus.None)
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new ReadOnlyMemberInfo(MemberName.FieldValue, Token.Object));

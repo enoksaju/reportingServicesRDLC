@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class RIFStorage : IStorage, IDisposable
+	public sealed class RIFStorage : IStorage, IDisposable
 	{
 		private PageBufferedStream m_stream;
 

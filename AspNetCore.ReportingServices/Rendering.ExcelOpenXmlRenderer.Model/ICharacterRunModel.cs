@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface ICharacterRunModel
+	public interface ICharacterRunModel
 	{
 		CharacterRun Interface
 		{

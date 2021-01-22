@@ -14,57 +14,57 @@ using System.Xml;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ParameterInfo : ParameterBase, IPersistable
+	public sealed class ParameterInfo : ParameterBase, IPersistable
 	{
-		internal const string ParametersXmlElement = "Parameters";
+		public const string ParametersXmlElement = "Parameters";
 
-		internal const string ParameterXmlElement = "Parameter";
+		public const string ParameterXmlElement = "Parameter";
 
-		internal const string ValidValueXmlElement = "ValidValue";
+		public const string ValidValueXmlElement = "ValidValue";
 
-		internal const string LabelXmlElement = "Label";
+		public const string LabelXmlElement = "Label";
 
-		internal const string ValuesXmlElement = "Values";
+		public const string ValuesXmlElement = "Values";
 
-		internal const string ParametersLayoutXmlElement = "ParametersLayout";
+		public const string ParametersLayoutXmlElement = "ParametersLayout";
 
-		internal const string ParametersGridLayoutDefinitionXmlElement = "ParametersGridLayoutDefinition";
+		public const string ParametersGridLayoutDefinitionXmlElement = "ParametersGridLayoutDefinition";
 
-		internal const string ColumnsDefinitionXmlElement = "ColumnsDefinition";
+		public const string ColumnsDefinitionXmlElement = "ColumnsDefinition";
 
-		internal const string NumberOfColumnsXmlElement = "NumberOfColumns";
+		public const string NumberOfColumnsXmlElement = "NumberOfColumns";
 
-		internal const string NumberOfRowsXmlElement = "NumberOfRows";
+		public const string NumberOfRowsXmlElement = "NumberOfRows";
 
-		internal const string CellDefinitionsXmlElement = "CellDefinitions";
+		public const string CellDefinitionsXmlElement = "CellDefinitions";
 
-		internal const string CellDefinitionXmlElement = "CellDefinition";
+		public const string CellDefinitionXmlElement = "CellDefinition";
 
-		internal const string RowIndexXmlElement = "RowIndex";
+		public const string RowIndexXmlElement = "RowIndex";
 
-		internal const string ColumnsIndexXmlElement = "ColumnIndex";
+		public const string ColumnsIndexXmlElement = "ColumnIndex";
 
-		internal const string ParameterNameXmlElement = "ParameterName";
+		public const string ParameterNameXmlElement = "ParameterName";
 
-		internal const string DynamicValidValuesXmlElement = "DynamicValidValues";
+		public const string DynamicValidValuesXmlElement = "DynamicValidValues";
 
-		internal const string DynamicDefaultValueXmlElement = "DynamicDefaultValue";
+		public const string DynamicDefaultValueXmlElement = "DynamicDefaultValue";
 
-		internal const string DynamicPromptXmlElement = "DynamicPrompt";
+		public const string DynamicPromptXmlElement = "DynamicPrompt";
 
-		internal const string DependenciesXmlElement = "Dependencies";
+		public const string DependenciesXmlElement = "Dependencies";
 
-		internal const string DependencyXmlElement = "Dependency";
+		public const string DependencyXmlElement = "Dependency";
 
-		internal const string UserProfileStateElement = "UserProfileState";
+		public const string UserProfileStateElement = "UserProfileState";
 
-		internal const string UseExplicitDefaultValueXmlElement = "UseExplicitDefaultValue";
+		public const string UseExplicitDefaultValueXmlElement = "UseExplicitDefaultValue";
 
-		internal const string ValuesChangedXmlElement = "ValuesChanged";
+		public const string ValuesChangedXmlElement = "ValuesChanged";
 
-		internal const string IsUserSuppliedXmlElement = "IsUserSupplied";
+		public const string IsUserSuppliedXmlElement = "IsUserSupplied";
 
-		internal const string NilXmlAttribute = "nil";
+		public const string NilXmlAttribute = "nil";
 
 		private object[] m_values;
 
@@ -191,7 +191,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsUserSupplied
+		public bool IsUserSupplied
 		{
 			get
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ValuesChanged
+		public bool ValuesChanged
 		{
 			get
 			{
@@ -275,7 +275,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int IndexInCollection
+		public int IndexInCollection
 		{
 			get
 			{
@@ -287,7 +287,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool MissingUpstreamDataSourcePrompt
+		public bool MissingUpstreamDataSourcePrompt
 		{
 			get
 			{
@@ -303,7 +303,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 		}
 
-		internal ParameterInfo(ParameterInfo source)
+		public ParameterInfo(ParameterInfo source)
 			: base(source)
 		{
 			this.m_isUserSupplied = source.m_isUserSupplied;
@@ -353,24 +353,24 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterInfo(ParameterBase source)
+		public ParameterInfo(ParameterBase source)
 			: base(source)
 		{
 			this.m_prompt = source.Prompt;
 		}
 
-		internal ParameterInfo(DataSetParameterValue source, bool usedInQuery)
+		public ParameterInfo(DataSetParameterValue source, bool usedInQuery)
 			: base(source, usedInQuery)
 		{
 		}
 
-		internal ParameterInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue source)
+		public ParameterInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue source)
 			: base(source)
 		{
 			this.m_isUserSupplied = true;
 		}
 
-		internal new static AspNetCore.ReportingServices.ReportProcessing.Persistence.Declaration GetDeclaration()
+		public new static AspNetCore.ReportingServices.ReportProcessing.Persistence.Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new AspNetCore.ReportingServices.ReportProcessing.Persistence.MemberInfo(AspNetCore.ReportingServices.ReportProcessing.Persistence.MemberName.IsUserSupplied, AspNetCore.ReportingServices.ReportProcessing.Persistence.Token.Boolean));
@@ -384,7 +384,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		}
 
 		[SkipMemberStaticValidation(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberName.DependencyList)]
-		internal new static AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Declaration GetNewDeclaration()
+		public new static AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Declaration GetNewDeclaration()
 		{
 			List<AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberInfo> list = new List<AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberInfo>();
 			list.Add(new AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberInfo(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.MemberName.IsUserSupplied, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.Token.Boolean));
@@ -506,7 +506,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ParameterInfo;
 		}
 
-		internal void ResolveDependencies(ParameterInfoCollection containingCollection)
+		public void ResolveDependencies(ParameterInfoCollection containingCollection)
 		{
 			if (this.m_dependencyIndexList != null)
 			{
@@ -534,7 +534,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.CalculateDependencyStatus() == ReportParameterDependencyState.AllDependenciesSpecified;
 		}
 
-		internal ReportParameterDependencyState CalculateDependencyStatus()
+		public ReportParameterDependencyState CalculateDependencyStatus()
 		{
 			ReportParameterDependencyState result = ReportParameterDependencyState.AllDependenciesSpecified;
 			if (this.DependencyList != null)
@@ -608,7 +608,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal void StoreLabels()
+		public void StoreLabels()
 		{
 			this.EnsureLabelsAreGenerated();
 			if (this.Values != null)
@@ -643,7 +643,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void EnsureLabelsAreGenerated()
+		public void EnsureLabelsAreGenerated()
 		{
 			if (this.ValidValues != null)
 			{
@@ -654,7 +654,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void AddValidValue(object paramValue, string paramLabel)
+		public void AddValidValue(object paramValue, string paramLabel)
 		{
 			if (paramLabel == null)
 			{
@@ -663,7 +663,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.AddValidValueExplicit(paramValue, paramLabel);
 		}
 
-		internal void AddValidValue(string paramValue, string paramLabel, ErrorContext errorContext, CultureInfo language)
+		public void AddValidValue(string paramValue, string paramLabel, ErrorContext errorContext, CultureInfo language)
 		{
 			object paramValue2 = default(object);
 			if (!ParameterBase.CastFromString(paramValue, out paramValue2, base.DataType, language))
@@ -678,7 +678,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.AddValidValueExplicit(paramValue2, paramLabel);
 		}
 
-		internal void AddValidValueExplicit(object paramValue, string paramLabel)
+		public void AddValidValueExplicit(object paramValue, string paramLabel)
 		{
 			if (this.ValidValues == null)
 			{
@@ -687,7 +687,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.ValidValues.Add(new ValidValue(paramValue, paramLabel));
 		}
 
-		internal void Parse(string name, List<string> defaultValues, string type, string nullable, string prompt, bool promptIsExpr, string promptUser, string allowBlank, string multiValue, ValidValueList validValues, string usedInQuery, bool hidden, ErrorContext errorContext, CultureInfo language)
+		public void Parse(string name, List<string> defaultValues, string type, string nullable, string prompt, bool promptIsExpr, string promptUser, string allowBlank, string multiValue, ValidValueList validValues, string usedInQuery, bool hidden, ErrorContext errorContext, CultureInfo language)
 		{
 			base.Parse(name, defaultValues, type, nullable, prompt, promptUser, allowBlank, multiValue, usedInQuery, hidden, errorContext, language);
 			if (hidden)
@@ -725,7 +725,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Parse(string name, string type, string nullable, string allowBlank, string multiValue, string usedInQuery, string state, string dynamicPrompt, string prompt, string promptUser, ParameterInfoCollection dependencies, string dynamicValidValues, ValidValueList validValues, string dynamicDefaultValue, List<string> defaultValues, List<string> values, string[] labels, CultureInfo language)
+		public void Parse(string name, string type, string nullable, string allowBlank, string multiValue, string usedInQuery, string state, string dynamicPrompt, string prompt, string promptUser, ParameterInfoCollection dependencies, string dynamicValidValues, ValidValueList validValues, string dynamicDefaultValue, List<string> defaultValues, List<string> values, string[] labels, CultureInfo language)
 		{
 			bool hidden = prompt != null && 0 == prompt.Length;
 			bool promptIsExpr = false;
@@ -761,7 +761,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.Labels = labels;
 		}
 
-		internal void WriteToXml(XmlTextWriter xml, bool writeTransientState)
+		public void WriteToXml(XmlTextWriter xml, bool writeTransientState)
 		{
 			xml.WriteStartElement("Parameter");
 			xml.WriteElementString("Name", base.Name);
@@ -848,7 +848,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			xml.WriteEndElement();
 		}
 
-		internal static string EncodeObjectAsBase64String(object originalValue, bool convertValueToString)
+		public static string EncodeObjectAsBase64String(object originalValue, bool convertValueToString)
 		{
 			if (originalValue == null)
 			{
@@ -965,7 +965,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			xml.WriteEndElement();
 		}
 
-		internal void WriteNameValueToXml(XmlTextWriter xml, bool convertToString)
+		public void WriteNameValueToXml(XmlTextWriter xml, bool convertToString)
 		{
 			xml.WriteStartElement("Parameter");
 			xml.WriteElementString("Name", base.Name);
@@ -981,13 +981,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			xml.WriteEndElement();
 		}
 
-		internal static ParameterInfo Cast(ParameterInfo oldValue, ParameterInfo newType, CultureInfo language)
+		public static ParameterInfo Cast(ParameterInfo oldValue, ParameterInfo newType, CultureInfo language)
 		{
 			bool flag = false;
 			return ParameterInfo.Cast(oldValue, newType, language, ref flag);
 		}
 
-		internal static ParameterInfo Cast(ParameterInfo oldValue, ParameterInfo newType, CultureInfo language, ref bool metaChanges)
+		public static ParameterInfo Cast(ParameterInfo oldValue, ParameterInfo newType, CultureInfo language, ref bool metaChanges)
 		{
 			object[] array = null;
 			object[] array2 = null;
@@ -1039,7 +1039,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ParameterInfo.CastToString(val, base.DataType, language);
 		}
 
-		internal static string CastValueToLabelString(object val, CultureInfo language)
+		public static string CastValueToLabelString(object val, CultureInfo language)
 		{
 			if (val == null)
 			{

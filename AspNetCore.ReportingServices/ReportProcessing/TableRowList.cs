@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableRowList : ArrayList
+	public sealed class TableRowList : ArrayList
 	{
-		internal new TableRow this[int index]
+		public new TableRow this[int index]
 		{
 			get
 			{
@@ -14,16 +14,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableRowList()
+		public TableRowList()
 		{
 		}
 
-		internal TableRowList(int capacity)
+		public TableRowList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Register(InitializationContext context)
+		public void Register(InitializationContext context)
 		{
 			for (int i = 0; i < this.Count; i++)
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void UnRegister(InitializationContext context)
+		public void UnRegister(InitializationContext context)
 		{
 			for (int i = 0; i < this.Count; i++)
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal double GetHeightValue()
+		public double GetHeightValue()
 		{
 			double num = 0.0;
 			for (int i = 0; i < this.Count; i++)

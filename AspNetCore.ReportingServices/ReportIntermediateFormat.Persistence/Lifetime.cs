@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal sealed class Lifetime
+	public sealed class Lifetime
 	{
 		private readonly int m_addedVersion;
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartSeriesDrawingStyle
+	public enum ChartSeriesDrawingStyle
 	{
 		Default,
 		Cylinder,

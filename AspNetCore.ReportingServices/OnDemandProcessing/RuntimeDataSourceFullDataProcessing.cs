@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RuntimeDataSourceFullDataProcessing : RuntimeDataSourceDataProcessing
+	public sealed class RuntimeDataSourceFullDataProcessing : RuntimeDataSourceDataProcessing
 	{
 		protected override bool NeedsExecutionLogging
 		{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal RuntimeDataSourceFullDataProcessing(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, OnDemandProcessingContext processingContext)
+		public RuntimeDataSourceFullDataProcessing(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, OnDemandProcessingContext processingContext)
 			: base(dataSet, processingContext)
 		{
 		}

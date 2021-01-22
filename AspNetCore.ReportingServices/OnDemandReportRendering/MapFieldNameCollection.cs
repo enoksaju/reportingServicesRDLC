@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapFieldNameCollection : MapObjectCollectionBase<MapFieldName>
+	public sealed class MapFieldNameCollection : MapObjectCollectionBase<MapFieldName>
 	{
 		private Map m_map;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapFieldNameCollection(List<AspNetCore.ReportingServices.ReportIntermediateFormat.MapFieldName> mapFieldNames, Map map)
+		public MapFieldNameCollection(List<AspNetCore.ReportingServices.ReportIntermediateFormat.MapFieldName> mapFieldNames, Map map)
 		{
 			this.m_mapFieldNames = mapFieldNames;
 			this.m_map = map;

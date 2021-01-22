@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TextBoxInstance : ReportItemInstance
+	public sealed class TextBoxInstance : ReportItemInstance
 	{
 		private ParagraphInstanceCollection m_paragraphInstances;
 
@@ -230,7 +230,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TextBoxInstance(TextBox reportItemDef)
+		public TextBoxInstance(TextBox reportItemDef)
 			: base(reportItemDef)
 		{
 			this.m_textBoxDef = reportItemDef;
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal List<string> GetFieldsUsedInValueExpression()
+		public List<string> GetFieldsUsedInValueExpression()
 		{
 			List<string> result = null;
 			AspNetCore.ReportingServices.ReportIntermediateFormat.TextBox texBoxDef = this.m_textBoxDef.TexBoxDef;

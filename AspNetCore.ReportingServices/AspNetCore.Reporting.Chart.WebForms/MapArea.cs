@@ -9,7 +9,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeMapArea_MapArea")]
 	[DefaultProperty("ToolTip")]
-	internal class MapArea : IMapAreaAttributes
+	public class MapArea : IMapAreaAttributes
 	{
 		private string toolTip = "";
 
@@ -159,7 +159,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal string GetTag(ChartGraphics graph)
+		public string GetTag(ChartGraphics graph)
 		{
 			StringBuilder stringBuilder = new StringBuilder("\r\n<area shape=\"", 120);
 			if (this.shape == MapAreaShape.Circle)

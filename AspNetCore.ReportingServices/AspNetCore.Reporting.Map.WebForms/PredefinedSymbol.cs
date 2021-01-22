@@ -7,7 +7,7 @@ using System.Drawing.Design;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(PredefinedSymbolConverter))]
-	internal class PredefinedSymbol : NamedElement
+	public class PredefinedSymbol : NamedElement
 	{
 		private TextAlignment textAlignment = TextAlignment.Bottom;
 
@@ -537,7 +537,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ArrayList AffectedSymbols
+		public ArrayList AffectedSymbols
 		{
 			get
 			{
@@ -549,7 +549,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string FromValueInt
+		public string FromValueInt
 		{
 			get
 			{
@@ -565,7 +565,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string ToValueInt
+		public string ToValueInt
 		{
 			get
 			{
@@ -581,7 +581,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool VisibleInt
+		public bool VisibleInt
 		{
 			get
 			{
@@ -598,7 +598,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal PredefinedSymbol(CommonElements common)
+		public PredefinedSymbol(CommonElements common)
 			: base(common)
 		{
 			this.affectedSymbols = new ArrayList();
@@ -614,24 +614,24 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.AffectedSymbols;
 		}
 
-		internal RuleBase GetRule()
+		public RuleBase GetRule()
 		{
 			return (RuleBase)this.ParentElement;
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			this.InvalidateRules();
 		}
 
-		internal override void OnRemove()
+		public override void OnRemove()
 		{
 			base.OnRemove();
 			this.InvalidateRules();
 		}
 
-		internal void InvalidateRules()
+		public void InvalidateRules()
 		{
 			MapCore mapCore = this.GetMapCore();
 			if (mapCore != null)
@@ -641,7 +641,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapCore GetMapCore()
+		public MapCore GetMapCore()
 		{
 			RuleBase rule = this.GetRule();
 			if (rule != null)

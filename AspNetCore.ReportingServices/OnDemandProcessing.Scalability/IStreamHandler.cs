@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface IStreamHandler
+	public interface IStreamHandler
 	{
 		Stream OpenStream();
 	}

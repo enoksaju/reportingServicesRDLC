@@ -5,7 +5,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ReportSize
+	public sealed class ReportSize
 	{
 		private string m_size;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 		private bool m_parsed;
 
-		internal bool Parsed
+		public bool Parsed
 		{
 			get
 			{
@@ -28,21 +28,21 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_parsed = true;
 		}
 
-		internal ReportSize(string size, double sizeInMM)
+		public ReportSize(string size, double sizeInMM)
 		{
 			this.m_size = size;
 			this.m_sizeInMM = sizeInMM;
 			this.m_parsed = true;
 		}
 
-		internal ReportSize(ReportSize newSize)
+		public ReportSize(ReportSize newSize)
 		{
 			this.m_size = newSize.ToString();
 			this.m_sizeInMM = newSize.ToMillimeters();
 			this.m_parsed = true;
 		}
 
-		internal ReportSize(string size, bool parsed)
+		public ReportSize(string size, bool parsed)
 		{
 			this.m_size = size;
 			this.m_parsed = parsed;
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return this.m_sizeInMM / 10.0;
 		}
 
-		internal void ParseSize()
+		public void ParseSize()
 		{
 			if (!this.m_parsed)
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal void Validate()
+		public void Validate()
 		{
 			RVUnit rVUnit = default(RVUnit);
 			if (!Validator.ValidateSizeString(this.m_size, out rVUnit))
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_sizeInMM = sizeInMM;
 		}
 
-		internal ReportSize DeepClone()
+		public ReportSize DeepClone()
 		{
 			ReportSize reportSize = new ReportSize();
 			if (this.m_size != null)

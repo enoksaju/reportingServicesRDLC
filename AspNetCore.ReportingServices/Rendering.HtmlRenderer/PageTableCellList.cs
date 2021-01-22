@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
 	[Serializable]
-	internal sealed class PageTableCellList : ArrayList
+	public sealed class PageTableCellList : ArrayList
 	{
-		internal new PageTableCell this[int index]
+		public new PageTableCell this[int index]
 		{
 			get
 			{

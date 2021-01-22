@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLCellController : ICellController
+	public class XMLCellController : ICellController
 	{
 		private readonly CT_Cell _cell;
 

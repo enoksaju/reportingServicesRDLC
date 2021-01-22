@@ -5,7 +5,7 @@ namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 	[DataContract(Namespace = "http://schemas.microsoft.com/search/local/ws/rest/v1")]
 	[KnownType(typeof(StaticMapMetadata))]
 	[KnownType(typeof(BirdseyeMetadata))]
-	internal class ImageryMetadata : Resource
+	public class ImageryMetadata : Resource
 	{
 		[DataMember(Name = "imageHeight", EmitDefaultValue = false)]
 		public int ImageHeight

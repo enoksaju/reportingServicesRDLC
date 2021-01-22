@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class LinearPinLabel : GaugeObject
+	public class LinearPinLabel : GaugeObject
 	{
 		private string text = "";
 

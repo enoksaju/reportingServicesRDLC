@@ -4,30 +4,30 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class SafeSidPtr : SafeHandleZeroOrMinusOneIsInvalid
+	public sealed class SafeSidPtr : SafeHandleZeroOrMinusOneIsInvalid
 	{
 		private struct SID_IDENTIFIER_AUTHORITY
 		{
-			internal byte m_Value0;
+			public byte m_Value0;
 
-			internal byte m_Value1;
+			public byte m_Value1;
 
-			internal byte m_Value2;
+			public byte m_Value2;
 
-			internal byte m_Value3;
+			public byte m_Value3;
 
-			internal byte m_Value4;
+			public byte m_Value4;
 
-			internal byte m_Value5;
+			public byte m_Value5;
 		}
 
-		internal const uint SECURITY_BUILTIN_DOMAIN_RID = 32u;
+		public const uint SECURITY_BUILTIN_DOMAIN_RID = 32u;
 
-		internal const uint DOMAIN_ALIAS_RID_ADMINS = 544u;
+		public const uint DOMAIN_ALIAS_RID_ADMINS = 544u;
 
-		internal const uint SECURITY_LOCAL_SYSTEM_RID = 18u;
+		public const uint SECURITY_LOCAL_SYSTEM_RID = 18u;
 
-		internal static readonly SafeSidPtr Zero = new SafeSidPtr(false);
+		public static readonly SafeSidPtr Zero = new SafeSidPtr(false);
 
 		private static byte[] SECURITY_NT_AUTHORITY = new byte[6]
 		{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Diagnostics
 		{
 		}
 
-		internal static bool AllocateAndInitializeSid(byte nSubAuthorityCount, uint nSubAuthority0, uint nSubAuthority1, uint nSubAuthority2, uint nSubAuthority3, uint nSubAuthority4, uint nSubAuthority5, uint nSubAuthority6, uint nSubAuthority7, out SafeSidPtr pSid)
+		public static bool AllocateAndInitializeSid(byte nSubAuthorityCount, uint nSubAuthority0, uint nSubAuthority1, uint nSubAuthority2, uint nSubAuthority3, uint nSubAuthority4, uint nSubAuthority5, uint nSubAuthority6, uint nSubAuthority7, out SafeSidPtr pSid)
 		{
 			SafeLocalFree safeLocalFree = null;
 			try

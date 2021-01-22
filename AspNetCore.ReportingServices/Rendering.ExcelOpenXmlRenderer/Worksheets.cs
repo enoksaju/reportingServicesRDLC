@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Worksheets
+	public sealed class Worksheets
 	{
 		private readonly IWorksheetsModel _model;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal Worksheets(IWorksheetsModel model)
+		public Worksheets(IWorksheetsModel model)
 		{
 			this._model = model;
 		}

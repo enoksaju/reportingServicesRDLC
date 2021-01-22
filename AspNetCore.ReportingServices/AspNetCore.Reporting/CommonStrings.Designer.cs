@@ -22,21 +22,21 @@ namespace AspNetCore.Reporting.Designer {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CommonStrings {
+    public class CommonStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommonStrings() {
+        public CommonStrings() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AspNetCore.Reporting.CommonStrings", typeof(CommonStrings).Assembly);
@@ -51,7 +51,7 @@ namespace AspNetCore.Reporting.Designer {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Loading....
         /// </summary>
-        internal static string AsyncProgressText {
+        public static string AsyncProgressText {
             get {
                 return ResourceManager.GetString("AsyncProgressText", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines if the report is rendered asynchronously from the rest of the web page..
         /// </summary>
-        internal static string AsyncRenderingDesc {
+        public static string AsyncRenderingDesc {
             get {
                 return ResourceManager.GetString("AsyncRenderingDesc", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user navigates back to the parent report of a drillthrough report..
         /// </summary>
-        internal static string BackEventDesc {
+        public static string BackEventDesc {
             get {
                 return ResourceManager.GetString("BackEventDesc", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user navigates to a bookmark in the report..
         /// </summary>
-        internal static string BookmarkEventDesc {
+        public static string BookmarkEventDesc {
             get {
                 return ResourceManager.GetString("BookmarkEventDesc", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        internal static string CancelLinkText {
+        public static string CancelLinkText {
             get {
                 return ResourceManager.GetString("CancelLinkText", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error occurred during client rendering..
         /// </summary>
-        internal static string ClientRenderingErrors {
+        public static string ClientRenderingErrors {
             get {
                 return ResourceManager.GetString("ClientRenderingErrors", resourceCulture);
             }
@@ -117,16 +117,16 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines which mime types are exported as attachments..
         /// </summary>
-        internal static string ContentDispositionDesc {
+        public static string ContentDispositionDesc {
             get {
                 return ResourceManager.GetString("ContentDispositionDesc", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DeviceInfo &apos;{0}&apos; is for internal use.
+        ///   Looks up a localized string similar to DeviceInfo &apos;{0}&apos; is for public use.
         /// </summary>
-        internal static string DeviceInfoInternal {
+        public static string DeviceInfopublic {
             get {
                 return ResourceManager.GetString("DeviceInfoInternal", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The user-visible name of the report..
         /// </summary>
-        internal static string DisplayNameDesc {
+        public static string DisplayNameDesc {
             get {
                 return ResourceManager.GetString("DisplayNameDesc", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether the document map is visible or collapsed..
         /// </summary>
-        internal static string DocMapCollapsedDesc {
+        public static string DocMapCollapsedDesc {
             get {
                 return ResourceManager.GetString("DocMapCollapsedDesc", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user navigates to a document map entry in the report..
         /// </summary>
-        internal static string DocMapEventDesc {
+        public static string DocMapEventDesc {
             get {
                 return ResourceManager.GetString("DocMapEventDesc", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the width of the document map..
         /// </summary>
-        internal static string DocMapWidthDesc {
+        public static string DocMapWidthDesc {
             get {
                 return ResourceManager.GetString("DocMapWidthDesc", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines if the document map width will grow proportionally with the size of the ReportViewer control..
         /// </summary>
-        internal static string DocMapWidthFixedDesc {
+        public static string DocMapWidthFixedDesc {
             get {
                 return ResourceManager.GetString("DocMapWidthFixedDesc", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user performs a drillthrough to a new report..
         /// </summary>
-        internal static string DrillthroughEventDesc {
+        public static string DrillthroughEventDesc {
             get {
                 return ResourceManager.GetString("DrillthroughEventDesc", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether a report that has external images can be rendered (for example, images referenced via a URL.).
         /// </summary>
-        internal static string EnableExternalImagesDesc {
+        public static string EnableExternalImagesDesc {
             get {
                 return ResourceManager.GetString("EnableExternalImagesDesc", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether a report that contains hyperlink actions can be rendered..
         /// </summary>
-        internal static string EnableHyperlinksDesc {
+        public static string EnableHyperlinksDesc {
             get {
                 return ResourceManager.GetString("EnableHyperlinksDesc", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether telemetry for anonymous usage of the control is enabled..
         /// </summary>
-        internal static string EnableTelemetryDesc {
+        public static string EnableTelemetryDesc {
             get {
                 return ResourceManager.GetString("EnableTelemetryDesc", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when errors are encountered while rendering a report..
         /// </summary>
-        internal static string ErrorEventDesc {
+        public static string ErrorEventDesc {
             get {
                 return ResourceManager.GetString("ErrorEventDesc", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to {0} ?.
         /// </summary>
-        internal static string EstimateTotalPages {
+        public static string EstimateTotalPages {
             get {
                 return ResourceManager.GetString("EstimateTotalPages", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user exports the report..
         /// </summary>
-        internal static string ExportEventDesc {
+        public static string ExportEventDesc {
             get {
                 return ResourceManager.GetString("ExportEventDesc", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report &apos;{0}&apos; contains external images. The EnableExternalImages property has not been set for this report..
         /// </summary>
-        internal static string ExternalImagesError {
+        public static string ExternalImagesError {
             get {
                 return ResourceManager.GetString("ExternalImagesError", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Hide Document Map.
         /// </summary>
-        internal static string HideDocMapTooltip {
+        public static string HideDocMapTooltip {
             get {
                 return ResourceManager.GetString("HideDocMapTooltip", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Hide Parameters.
         /// </summary>
-        internal static string HideParametersTooltip {
+        public static string HideParametersTooltip {
             get {
                 return ResourceManager.GetString("HideParametersTooltip", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Highlight background color..
         /// </summary>
-        internal static string HighlightBackgroundColorDesc {
+        public static string HighlightBackgroundColorDesc {
             get {
                 return ResourceManager.GetString("HighlightBackgroundColorDesc", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The unique identifier of a report history snapshot for the specified report..
         /// </summary>
-        internal static string HistoryIdDesc {
+        public static string HistoryIdDesc {
             get {
                 return ResourceManager.GetString("HistoryIdDesc", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user clicks a hyperlink in the report..
         /// </summary>
-        internal static string HyperlinkEventDesc {
+        public static string HyperlinkEventDesc {
             get {
                 return ResourceManager.GetString("HyperlinkEventDesc", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report &apos;{0}&apos; contains hyperlinks. The EnableHyperlinks property has not been set for this report.
         /// </summary>
-        internal static string HyperlinkSecurityError {
+        public static string HyperlinkSecurityError {
             get {
                 return ResourceManager.GetString("HyperlinkSecurityError", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The target window of the hyperlinks in the report..
         /// </summary>
-        internal static string HyperlinkTargetDesc {
+        public static string HyperlinkTargetDesc {
             get {
                 return ResourceManager.GetString("HyperlinkTargetDesc", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether synchronous or asynchronous postbacks are used for report interactivity..
         /// </summary>
-        internal static string InteractivityPostBackModeDesc {
+        public static string InteractivityPostBackModeDesc {
             get {
                 return ResourceManager.GetString("InteractivityPostBackModeDesc", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to When true, the report viewer will keep the report session alive as long as the report viewer is running..
         /// </summary>
-        internal static string KeepSessionAliveDesc {
+        public static string KeepSessionAliveDesc {
             get {
                 return ResourceManager.GetString("KeepSessionAliveDesc", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to KeepSessionAlive cannot be turned on because a report session already exists..
         /// </summary>
-        internal static string KeepSessionAliveException {
+        public static string KeepSessionAliveException {
             get {
                 return ResourceManager.GetString("KeepSessionAliveException", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Local report processing requires FullTrust Code Access Security permissions, which is unavailable to the calling code.  Grant the application FullTrust permissions or use ServerReport to execute the report remotely..
         /// </summary>
-        internal static string LocalModeMissingFullTrustErrors {
+        public static string LocalModeMissingFullTrustErrors {
             get {
                 return ResourceManager.GetString("LocalModeMissingFullTrustErrors", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to An error occurred during local report processing..
         /// </summary>
-        internal static string LocalProcessingErrors {
+        public static string LocalProcessingErrors {
             get {
                 return ResourceManager.GetString("LocalProcessingErrors", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Local processing properties..
         /// </summary>
-        internal static string LocalReportDesc {
+        public static string LocalReportDesc {
             get {
                 return ResourceManager.GetString("LocalReportDesc", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to File system path to the report definition file..
         /// </summary>
-        internal static string LocalReportPathDesc {
+        public static string LocalReportPathDesc {
             get {
                 return ResourceManager.GetString("LocalReportPathDesc", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the application identifier (AppID) to use for Bing Maps Web Services..
         /// </summary>
-        internal static string MapTileServerConfigurationAppIDDesc {
+        public static string MapTileServerConfigurationAppIDDesc {
             get {
                 return ResourceManager.GetString("MapTileServerConfigurationAppIDDesc", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Defines configuration settings for Microsoft Bing Maps Web Services that provides a tile background for map report items..
         /// </summary>
-        internal static string MapTileServerConfigurationDesc {
+        public static string MapTileServerConfigurationDesc {
             get {
                 return ResourceManager.GetString("MapTileServerConfigurationDesc", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the maximum number of connections to Bing Maps Web Services..
         /// </summary>
-        internal static string MapTileServerConfigurationMaxConnectionsDesc {
+        public static string MapTileServerConfigurationMaxConnectionsDesc {
             get {
                 return ResourceManager.GetString("MapTileServerConfigurationMaxConnectionsDesc", resourceCulture);
             }
@@ -405,7 +405,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the timeout in seconds to wait for a response from Bing Maps Web Services..
         /// </summary>
-        internal static string MapTileServerConfigurationTimeoutDesc {
+        public static string MapTileServerConfigurationTimeoutDesc {
             get {
                 return ResourceManager.GetString("MapTileServerConfigurationTimeoutDesc", resourceCulture);
             }
@@ -414,7 +414,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to A data source instance has not been supplied for the data source &apos;{0}&apos;..
         /// </summary>
-        internal static string MissingDataSource {
+        public static string MissingDataSource {
             get {
                 return ResourceManager.GetString("MissingDataSource", resourceCulture);
             }
@@ -423,7 +423,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to One or more data sources is missing credentials.
         /// </summary>
-        internal static string MissingDataSourceCredentials {
+        public static string MissingDataSourceCredentials {
             get {
                 return ResourceManager.GetString("MissingDataSourceCredentials", resourceCulture);
             }
@@ -432,7 +432,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The &apos;{0}&apos; parameter is missing a value.
         /// </summary>
-        internal static string MissingParameter {
+        public static string MissingParameter {
             get {
                 return ResourceManager.GetString("MissingParameter", resourceCulture);
             }
@@ -441,7 +441,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The ReportServerUrl property is not set to a report server URL..
         /// </summary>
-        internal static string MissingReportServerUrl {
+        public static string MissingReportServerUrl {
             get {
                 return ResourceManager.GetString("MissingReportServerUrl", resourceCulture);
             }
@@ -450,7 +450,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The source of the report definition has not been specified.
         /// </summary>
-        internal static string MissingReportSource {
+        public static string MissingReportSource {
             get {
                 return ResourceManager.GetString("MissingReportSource", resourceCulture);
             }
@@ -459,7 +459,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Non-CLSCompliant exception..
         /// </summary>
-        internal static string NonClsCompliantException {
+        public static string NonClsCompliantException {
             get {
                 return ResourceManager.GetString("NonClsCompliantException", resourceCulture);
             }
@@ -468,7 +468,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The operation can only be performed from a drillthrough report.
         /// </summary>
-        internal static string NotInDrillthrough {
+        public static string NotInDrillthrough {
             get {
                 return ResourceManager.GetString("NotInDrillthrough", resourceCulture);
             }
@@ -477,7 +477,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether the actual number of pages are calculated when rendering the report..
         /// </summary>
-        internal static string PageCountModeDesc {
+        public static string PageCountModeDesc {
             get {
                 return ResourceManager.GetString("PageCountModeDesc", resourceCulture);
             }
@@ -486,7 +486,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user changes the displayed page of the report..
         /// </summary>
-        internal static string PageNavigationEventDesc {
+        public static string PageNavigationEventDesc {
             get {
                 return ResourceManager.GetString("PageNavigationEventDesc", resourceCulture);
             }
@@ -495,7 +495,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when user changes the margins or bounds in the page settings dialog..
         /// </summary>
-        internal static string PageSettingsChangedEventDesc {
+        public static string PageSettingsChangedEventDesc {
             get {
                 return ResourceManager.GetString("PageSettingsChangedEventDesc", resourceCulture);
             }
@@ -504,7 +504,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Parameter &apos;{0}&apos; does not exist on this report.
         /// </summary>
-        internal static string ParameterNotFound {
+        public static string ParameterNotFound {
             get {
                 return ResourceManager.GetString("ParameterNotFound", resourceCulture);
             }
@@ -513,7 +513,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Parameter &apos;{0}&apos; was specified multiple times.
         /// </summary>
-        internal static string ParameterSpecifiedMultipleTimes {
+        public static string ParameterSpecifiedMultipleTimes {
             get {
                 return ResourceManager.GetString("ParameterSpecifiedMultipleTimes", resourceCulture);
             }
@@ -522,7 +522,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Failed to load policy file: {0}.
         /// </summary>
-        internal static string PolicyFileLoadFailed {
+        public static string PolicyFileLoadFailed {
             get {
                 return ResourceManager.GetString("PolicyFileLoadFailed", resourceCulture);
             }
@@ -531,7 +531,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Background color used for the primary buttons in dialogs ie. &apos;ok&apos;..
         /// </summary>
-        internal static string PrimaryButtonBackgroundColor {
+        public static string PrimaryButtonBackgroundColor {
             get {
                 return ResourceManager.GetString("PrimaryButtonBackgroundColor", resourceCulture);
             }
@@ -540,7 +540,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Text color used for the primary buttons in dialogs..
         /// </summary>
-        internal static string PrimaryButtonForegroundColor {
+        public static string PrimaryButtonForegroundColor {
             get {
                 return ResourceManager.GetString("PrimaryButtonForegroundColor", resourceCulture);
             }
@@ -549,7 +549,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Background color used for the primary buttons in dialogs when hovering..
         /// </summary>
-        internal static string PrimaryButtonHoverBackgroundColor {
+        public static string PrimaryButtonHoverBackgroundColor {
             get {
                 return ResourceManager.GetString("PrimaryButtonHoverBackgroundColor", resourceCulture);
             }
@@ -558,7 +558,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Text color used for the primary buttons in dialogs when hovering..
         /// </summary>
-        internal static string PrimaryButtonHoverForegroundColor {
+        public static string PrimaryButtonHoverForegroundColor {
             get {
                 return ResourceManager.GetString("PrimaryButtonHoverForegroundColor", resourceCulture);
             }
@@ -567,7 +567,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user prints the report..
         /// </summary>
-        internal static string PrintEventDesc {
+        public static string PrintEventDesc {
             get {
                 return ResourceManager.GetString("PrintEventDesc", resourceCulture);
             }
@@ -576,7 +576,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs after &apos;OK&apos; is pressed in the print dialog..
         /// </summary>
-        internal static string PrintingBegingEventDesc {
+        public static string PrintingBegingEventDesc {
             get {
                 return ResourceManager.GetString("PrintingBegingEventDesc", resourceCulture);
             }
@@ -585,7 +585,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether report processing occurs locally or on a report server..
         /// </summary>
-        internal static string ProcessingModeDesc {
+        public static string ProcessingModeDesc {
             get {
                 return ResourceManager.GetString("ProcessingModeDesc", resourceCulture);
             }
@@ -594,7 +594,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether the prompt area is visible or collapsed..
         /// </summary>
-        internal static string PromptAreaCollapsedDesc {
+        public static string PromptAreaCollapsedDesc {
             get {
                 return ResourceManager.GetString("PromptAreaCollapsedDesc", resourceCulture);
             }
@@ -603,7 +603,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user refreshes the report..
         /// </summary>
-        internal static string RefreshEventDesc {
+        public static string RefreshEventDesc {
             get {
                 return ResourceManager.GetString("RefreshEventDesc", resourceCulture);
             }
@@ -612,7 +612,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs before rendering of the report is begins..
         /// </summary>
-        internal static string RenderBeginEventDesc {
+        public static string RenderBeginEventDesc {
             get {
                 return ResourceManager.GetString("RenderBeginEventDesc", resourceCulture);
             }
@@ -621,7 +621,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the rendering of the report in completed..
         /// </summary>
-        internal static string RenderCompleteEventDesc {
+        public static string RenderCompleteEventDesc {
             get {
                 return ResourceManager.GetString("RenderCompleteEventDesc", resourceCulture);
             }
@@ -630,7 +630,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report.
         /// </summary>
-        internal static string Report {
+        public static string Report {
             get {
                 return ResourceManager.GetString("Report", resourceCulture);
             }
@@ -639,7 +639,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Data source instance associated with each report data source..
         /// </summary>
-        internal static string ReportDataSourcesDesc {
+        public static string ReportDataSourcesDesc {
             get {
                 return ResourceManager.GetString("ReportDataSourcesDesc", resourceCulture);
             }
@@ -648,7 +648,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Name of embedded resource containing the report definition. If ReportPath is set this property is ignored..
         /// </summary>
-        internal static string ReportEmbeddedResourceDesc {
+        public static string ReportEmbeddedResourceDesc {
             get {
                 return ResourceManager.GetString("ReportEmbeddedResourceDesc", resourceCulture);
             }
@@ -657,7 +657,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Some parameters or credentials have not been specified.
         /// </summary>
-        internal static string ReportNotReady {
+        public static string ReportNotReady {
             get {
                 return ResourceManager.GetString("ReportNotReady", resourceCulture);
             }
@@ -666,7 +666,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Report is not ready to render: Unknown reason..
         /// </summary>
-        internal static string ReportNotReadyException {
+        public static string ReportNotReadyException {
             get {
                 return ResourceManager.GetString("ReportNotReadyException", resourceCulture);
             }
@@ -675,7 +675,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The URL of the report server. .
         /// </summary>
-        internal static string ReportServerUrlDesc {
+        public static string ReportServerUrlDesc {
             get {
                 return ResourceManager.GetString("ReportServerUrlDesc", resourceCulture);
             }
@@ -684,7 +684,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Displays a report.
         /// </summary>
-        internal static string ReportViewerDescription {
+        public static string ReportViewerDescription {
             get {
                 return ResourceManager.GetString("ReportViewerDescription", resourceCulture);
             }
@@ -693,7 +693,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user searches for text in the report..
         /// </summary>
-        internal static string SearchEventDesc {
+        public static string SearchEventDesc {
             get {
                 return ResourceManager.GetString("SearchEventDesc", resourceCulture);
             }
@@ -702,7 +702,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Background color used for the secondary buttons in dialogs..
         /// </summary>
-        internal static string SecondaryButtonBackgroundColor {
+        public static string SecondaryButtonBackgroundColor {
             get {
                 return ResourceManager.GetString("SecondaryButtonBackgroundColor", resourceCulture);
             }
@@ -711,7 +711,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Text color used for the secondary buttons in dialogs..
         /// </summary>
-        internal static string SecondaryButtonForegroundColor {
+        public static string SecondaryButtonForegroundColor {
             get {
                 return ResourceManager.GetString("SecondaryButtonForegroundColor", resourceCulture);
             }
@@ -720,7 +720,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Background color used for the secondary buttons in dialogs when hovering..
         /// </summary>
-        internal static string SecondaryButtonHoverBackgroundColor {
+        public static string SecondaryButtonHoverBackgroundColor {
             get {
                 return ResourceManager.GetString("SecondaryButtonHoverBackgroundColor", resourceCulture);
             }
@@ -729,7 +729,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Text color used for the secondary buttons in dialogs when hovering..
         /// </summary>
-        internal static string SecondaryButtonHoverForegroundColor {
+        public static string SecondaryButtonHoverForegroundColor {
             get {
                 return ResourceManager.GetString("SecondaryButtonHoverForegroundColor", resourceCulture);
             }
@@ -738,7 +738,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Remote processing properties..
         /// </summary>
-        internal static string ServerReportDesc {
+        public static string ServerReportDesc {
             get {
                 return ResourceManager.GetString("ServerReportDesc", resourceCulture);
             }
@@ -747,7 +747,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The path to report on the Report Server..
         /// </summary>
-        internal static string ServerReportPathDesc {
+        public static string ServerReportPathDesc {
             get {
                 return ResourceManager.GetString("ServerReportPathDesc", resourceCulture);
             }
@@ -756,7 +756,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The number of milliseconds to wait for a connection before terminating the attempt.  Specify -1 for no time out..
         /// </summary>
-        internal static string ServerTimeoutDesc {
+        public static string ServerTimeoutDesc {
             get {
                 return ResourceManager.GetString("ServerTimeoutDesc", resourceCulture);
             }
@@ -765,7 +765,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the back button on the tool bar..
         /// </summary>
-        internal static string ShowBackButtonDesc {
+        public static string ShowBackButtonDesc {
             get {
                 return ResourceManager.GetString("ShowBackButtonDesc", resourceCulture);
             }
@@ -774,7 +774,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the report context menu..
         /// </summary>
-        internal static string ShowContextMenuDesc {
+        public static string ShowContextMenuDesc {
             get {
                 return ResourceManager.GetString("ShowContextMenuDesc", resourceCulture);
             }
@@ -783,7 +783,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether credential prompts should be displayed during remote processing..
         /// </summary>
-        internal static string ShowCredentialPromptsDesc {
+        public static string ShowCredentialPromptsDesc {
             get {
                 return ResourceManager.GetString("ShowCredentialPromptsDesc", resourceCulture);
             }
@@ -792,7 +792,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to When true and an error occurs with a subreport, a detailed error message will be embedded into the report..
         /// </summary>
-        internal static string ShowDetailedSubreportMessagesDesc {
+        public static string ShowDetailedSubreportMessagesDesc {
             get {
                 return ResourceManager.GetString("ShowDetailedSubreportMessagesDesc", resourceCulture);
             }
@@ -801,7 +801,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Show Document Map.
         /// </summary>
-        internal static string ShowDocMapTooltip {
+        public static string ShowDocMapTooltip {
             get {
                 return ResourceManager.GetString("ShowDocMapTooltip", resourceCulture);
             }
@@ -810,7 +810,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the document map button on the tool bar..
         /// </summary>
-        internal static string ShowDocumentMapButtonDesc {
+        public static string ShowDocumentMapButtonDesc {
             get {
                 return ResourceManager.GetString("ShowDocumentMapButtonDesc", resourceCulture);
             }
@@ -819,7 +819,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the export button on the tool bar..
         /// </summary>
-        internal static string ShowExportButtonDesc {
+        public static string ShowExportButtonDesc {
             get {
                 return ResourceManager.GetString("ShowExportButtonDesc", resourceCulture);
             }
@@ -828,7 +828,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the find controls on the tool bar..
         /// </summary>
-        internal static string ShowFindButtonDesc {
+        public static string ShowFindButtonDesc {
             get {
                 return ResourceManager.GetString("ShowFindButtonDesc", resourceCulture);
             }
@@ -837,7 +837,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the page navigation controls on the tool bar..
         /// </summary>
-        internal static string ShowPageNavigationDesc {
+        public static string ShowPageNavigationDesc {
             get {
                 return ResourceManager.GetString("ShowPageNavigationDesc", resourceCulture);
             }
@@ -846,7 +846,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether parameter prompts should be displayed during remote processing..
         /// </summary>
-        internal static string ShowParameterPromptsDesc {
+        public static string ShowParameterPromptsDesc {
             get {
                 return ResourceManager.GetString("ShowParameterPromptsDesc", resourceCulture);
             }
@@ -855,7 +855,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Show Parameters.
         /// </summary>
-        internal static string ShowParametersTooltip {
+        public static string ShowParametersTooltip {
             get {
                 return ResourceManager.GetString("ShowParametersTooltip", resourceCulture);
             }
@@ -864,7 +864,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the print, print layout, and page setup buttons on the tool bar..
         /// </summary>
-        internal static string ShowPrintButtonDesc {
+        public static string ShowPrintButtonDesc {
             get {
                 return ResourceManager.GetString("ShowPrintButtonDesc", resourceCulture);
             }
@@ -873,7 +873,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether a progress animation is visible while waiting for the report..
         /// </summary>
-        internal static string ShowProgressDesc {
+        public static string ShowProgressDesc {
             get {
                 return ResourceManager.GetString("ShowProgressDesc", resourceCulture);
             }
@@ -882,7 +882,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the prompt area splitter button above the tool bar..
         /// </summary>
-        internal static string ShowPromptAreaButtonDesc {
+        public static string ShowPromptAreaButtonDesc {
             get {
                 return ResourceManager.GetString("ShowPromptAreaButtonDesc", resourceCulture);
             }
@@ -891,7 +891,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the refresh button on the tool bar..
         /// </summary>
-        internal static string ShowRefreshButtonDesc {
+        public static string ShowRefreshButtonDesc {
             get {
                 return ResourceManager.GetString("ShowRefreshButtonDesc", resourceCulture);
             }
@@ -900,7 +900,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines if the report content is rendered..
         /// </summary>
-        internal static string ShowReportBodyDesc {
+        public static string ShowReportBodyDesc {
             get {
                 return ResourceManager.GetString("ShowReportBodyDesc", resourceCulture);
             }
@@ -909,7 +909,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the stop button on the tool bar..
         /// </summary>
-        internal static string ShowStopButtonDesc {
+        public static string ShowStopButtonDesc {
             get {
                 return ResourceManager.GetString("ShowStopButtonDesc", resourceCulture);
             }
@@ -918,7 +918,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the tool bar..
         /// </summary>
-        internal static string ShowToolBarDesc {
+        public static string ShowToolBarDesc {
             get {
                 return ResourceManager.GetString("ShowToolBarDesc", resourceCulture);
             }
@@ -927,7 +927,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines whether the cancel link is displayed on the busy status indicator..
         /// </summary>
-        internal static string ShowWaitControlCancelLinkDesc {
+        public static string ShowWaitControlCancelLinkDesc {
             get {
                 return ResourceManager.GetString("ShowWaitControlCancelLinkDesc", resourceCulture);
             }
@@ -936,7 +936,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the visibility of the zoom button on the tool bar..
         /// </summary>
-        internal static string ShowZoomButtonDesc {
+        public static string ShowZoomButtonDesc {
             get {
                 return ResourceManager.GetString("ShowZoomButtonDesc", resourceCulture);
             }
@@ -945,7 +945,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines if the report area has a fixed size or is the size of the report content..
         /// </summary>
-        internal static string SizeToContentDesc {
+        public static string SizeToContentDesc {
             get {
                 return ResourceManager.GetString("SizeToContentDesc", resourceCulture);
             }
@@ -954,7 +954,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user performs a sort on the report..
         /// </summary>
-        internal static string SortEventDesc {
+        public static string SortEventDesc {
             get {
                 return ResourceManager.GetString("SortEventDesc", resourceCulture);
             }
@@ -963,7 +963,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the display state of the report viewer changes..
         /// </summary>
-        internal static string StateChangedEventDesc {
+        public static string StateChangedEventDesc {
             get {
                 return ResourceManager.GetString("StateChangedEventDesc", resourceCulture);
             }
@@ -972,7 +972,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user submits data source credentials via the built-in prompt area..
         /// </summary>
-        internal static string SubmittingDataSourceCredentialsEventDesc {
+        public static string SubmittingDataSourceCredentialsEventDesc {
             get {
                 return ResourceManager.GetString("SubmittingDataSourceCredentialsEventDesc", resourceCulture);
             }
@@ -981,7 +981,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user submits parameter values from the built-in prompt area..
         /// </summary>
-        internal static string SubmittingParameterValuesEventDesc {
+        public static string SubmittingParameterValuesEventDesc {
             get {
                 return ResourceManager.GetString("SubmittingParameterValuesEventDesc", resourceCulture);
             }
@@ -990,7 +990,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when a subreport is being processed..
         /// </summary>
-        internal static string SubreportProcessingEventDesc {
+        public static string SubreportProcessingEventDesc {
             get {
                 return ResourceManager.GetString("SubreportProcessingEventDesc", resourceCulture);
             }
@@ -999,7 +999,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user toggles an item in the report..
         /// </summary>
-        internal static string ToggleEventDesc {
+        public static string ToggleEventDesc {
             get {
                 return ResourceManager.GetString("ToggleEventDesc", resourceCulture);
             }
@@ -1008,7 +1008,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Tool Bar.
         /// </summary>
-        internal static string ToolBarCategoryDesc {
+        public static string ToolBarCategoryDesc {
             get {
                 return ResourceManager.GetString("ToolBarCategoryDesc", resourceCulture);
             }
@@ -1017,7 +1017,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Color used for icon borders, and to separate regions of the Report Viewer Control..
         /// </summary>
-        internal static string ToolbarDividerColorDesc {
+        public static string ToolbarDividerColorDesc {
             get {
                 return ResourceManager.GetString("ToolbarDividerColorDesc", resourceCulture);
             }
@@ -1026,7 +1026,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The color of icons and text within the toolbar..
         /// </summary>
-        internal static string ToolbarForegroundColor {
+        public static string ToolbarForegroundColor {
             get {
                 return ResourceManager.GetString("ToolbarForegroundColor", resourceCulture);
             }
@@ -1035,7 +1035,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The color of disabled content in the toolbar area..
         /// </summary>
-        internal static string ToolbarForegroundDisabledColorDesc {
+        public static string ToolbarForegroundDisabledColorDesc {
             get {
                 return ResourceManager.GetString("ToolbarForegroundDisabledColorDesc", resourceCulture);
             }
@@ -1044,7 +1044,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Background color of toolbar icons when hovered or selected..
         /// </summary>
-        internal static string ToolbarHoverBackColorDesc {
+        public static string ToolbarHoverBackColorDesc {
             get {
                 return ResourceManager.GetString("ToolbarHoverBackColorDesc", resourceCulture);
             }
@@ -1053,7 +1053,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Color of icons and text when a toolbar icons is being hovered over..
         /// </summary>
-        internal static string ToolbarHoverForegroundColorDesc {
+        public static string ToolbarHoverForegroundColorDesc {
             get {
                 return ResourceManager.GetString("ToolbarHoverForegroundColorDesc", resourceCulture);
             }
@@ -1062,7 +1062,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Remote report processing requires Microsoft SQL Server 2008 Reporting Services or later..
         /// </summary>
-        internal static string UnsupportedReportServerError {
+        public static string UnsupportedReportServerError {
             get {
                 return ResourceManager.GetString("UnsupportedReportServerError", resourceCulture);
             }
@@ -1071,7 +1071,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user clicks the view report button..
         /// </summary>
-        internal static string ViewReportEventDesc {
+        public static string ViewReportEventDesc {
             get {
                 return ResourceManager.GetString("ViewReportEventDesc", resourceCulture);
             }
@@ -1080,7 +1080,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to The delay in milliseconds before the busy status indicator is displayed to the user..
         /// </summary>
-        internal static string WaitControlDisplayAfterDesc {
+        public static string WaitControlDisplayAfterDesc {
             get {
                 return ResourceManager.GetString("WaitControlDisplayAfterDesc", resourceCulture);
             }
@@ -1089,7 +1089,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Occurs when the user changes the zoom setting for the report..
         /// </summary>
-        internal static string ZoomEventDesc {
+        public static string ZoomEventDesc {
             get {
                 return ResourceManager.GetString("ZoomEventDesc", resourceCulture);
             }
@@ -1098,7 +1098,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the type of zoom applied to the report..
         /// </summary>
-        internal static string ZoomModeDesc {
+        public static string ZoomModeDesc {
             get {
                 return ResourceManager.GetString("ZoomModeDesc", resourceCulture);
             }
@@ -1107,7 +1107,7 @@ namespace AspNetCore.Reporting.Designer {
         /// <summary>
         ///   Looks up a localized string similar to Determines the percentage of zoom applied to the report when ZoomMode is set to Percent..
         /// </summary>
-        internal static string ZoomPercentDesc {
+        public static string ZoomPercentDesc {
             get {
                 return ResourceManager.GetString("ZoomPercentDesc", resourceCulture);
             }

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class DataValue : IPersistable
+	public sealed class DataValue : IPersistable
 	{
 		private ExpressionInfo m_name;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DataValue.GetDeclaration();
 
-		internal ExpressionInfo Name
+		public ExpressionInfo Name
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Value
+		public ExpressionInfo Value
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataValueExprHost ExprHost
+		public DataValueExprHost ExprHost
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return dataValue;
 		}
 
-		internal void Initialize(string propertyName, bool isCustomProperty, DynamicImageOrCustomUniqueNameValidator validator, InitializationContext context)
+		public void Initialize(string propertyName, bool isCustomProperty, DynamicImageOrCustomUniqueNameValidator validator, InitializationContext context)
 		{
 			context.ExprHostBuilder.DataValueStart();
 			if (this.m_name != null)
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.DataValueEnd(isCustomProperty);
 		}
 
-		internal void SetExprHost(IList<DataValueExprHost> dataValueHosts, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(IList<DataValueExprHost> dataValueHosts, ObjectModelImpl reportObjectModel)
 		{
 			if (this.m_exprHostID >= 0)
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void EvaluateNameAndValue(ReportElement reportElementOwner, IReportScopeInstance romInstance, IInstancePath instancePath, OnDemandProcessingContext context, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, out string name, out object value, out TypeCode valueTypeCode)
+		public void EvaluateNameAndValue(ReportElement reportElementOwner, IReportScopeInstance romInstance, IInstancePath instancePath, OnDemandProcessingContext context, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, string objectName, out string name, out object value, out TypeCode valueTypeCode)
 		{
 			context.SetupContext(instancePath, romInstance);
 			name = null;
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));

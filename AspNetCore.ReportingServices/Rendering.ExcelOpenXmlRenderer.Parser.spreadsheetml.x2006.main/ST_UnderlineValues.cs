@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class ST_UnderlineValues
+	public class ST_UnderlineValues
 	{
 		private string _ooxmlEnumerationValue;
 

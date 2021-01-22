@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Paragraph : ReportElement
+	public class Paragraph : ReportElement
 	{
-		internal new class Definition : DefinitionStore<Paragraph, Definition.Properties>
+		public new class Definition : DefinitionStore<Paragraph, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				TextRuns,
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Paragraph(IPropertyStore propertyStore)
+		public Paragraph(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

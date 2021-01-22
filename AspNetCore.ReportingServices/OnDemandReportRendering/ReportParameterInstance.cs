@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportParameterInstance
+	public sealed class ReportParameterInstance
 	{
 		private ReportParameter m_paramDef;
 
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal bool IsOldSnapshot
+		public bool IsOldSnapshot
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel.ParameterImpl ReportOMParam
+		public AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel.ParameterImpl ReportOMParam
 		{
 			get
 			{
@@ -107,23 +107,23 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportParameterInstance(ReportParameter paramDef)
+		public ReportParameterInstance(ReportParameter paramDef)
 		{
 			this.m_paramDef = paramDef;
 		}
 
-		internal ReportParameterInstance(ReportParameter paramDef, AspNetCore.ReportingServices.ReportRendering.ReportParameter paramValue)
+		public ReportParameterInstance(ReportParameter paramDef, AspNetCore.ReportingServices.ReportRendering.ReportParameter paramValue)
 		{
 			this.m_paramDef = paramDef;
 			this.m_renderParamValue = paramValue;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			this.m_paramValue = null;
 		}
 
-		internal void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportParameter paramValue)
+		public void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportParameter paramValue)
 		{
 			this.m_renderParamValue = paramValue;
 		}

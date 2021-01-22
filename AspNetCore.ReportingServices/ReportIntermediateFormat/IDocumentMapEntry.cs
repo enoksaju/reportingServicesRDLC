@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IDocumentMapEntry
+	public interface IDocumentMapEntry
 	{
 		bool InDocumentMap
 		{

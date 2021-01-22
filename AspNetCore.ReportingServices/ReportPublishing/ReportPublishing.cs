@@ -23,7 +23,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-    internal sealed class ReportPublishing
+    public sealed class ReportPublishing
     {
         private bool m_static;
 
@@ -149,20 +149,20 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
         private DataSetCore m_dataSetCore;
 
-        internal ReportPublishing(PublishingContextBase publishingContext, PublishingErrorContext errorContext)
+        public ReportPublishing(PublishingContextBase publishingContext, PublishingErrorContext errorContext)
         {
             this.m_publishingContext = publishingContext;
             this.m_errorContext = errorContext;
         }
 
-        internal ReportPublishing(PublishingContextBase publishingContext, PublishingErrorContext errorContext, ReportUpgradeStrategy reportUpgradeStrategy)
+        public ReportPublishing(PublishingContextBase publishingContext, PublishingErrorContext errorContext, ReportUpgradeStrategy reportUpgradeStrategy)
         {
             this.m_publishingContext = publishingContext;
             this.m_errorContext = errorContext;
             this.m_reportUpgradeStrategy = reportUpgradeStrategy;
         }
 
-        internal AspNetCore.ReportingServices.ReportIntermediateFormat.Report CreateProgressiveIntermediateFormat(Stream definitionStream, out string reportDescription, out ParameterInfoCollection parameters, out DataSourceInfoCollection dataSources)
+        public AspNetCore.ReportingServices.ReportIntermediateFormat.Report CreateProgressiveIntermediateFormat(Stream definitionStream, out string reportDescription, out ParameterInfoCollection parameters, out DataSourceInfoCollection dataSources)
         {
             DataSetInfoCollection dataSetInfoCollection = null;
             ArrayList arrayList = null;
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
             return this.InternalCreateIntermediateFormat(definitionStream, out reportDescription, out text, out parameters, out dataSources, out dataSetInfoCollection, out userLocationFlags, out arrayList, out flag, out flag2, out array);
         }
 
-        internal ReportIntermediateFormat.Report CreateIntermediateFormat(byte[] definition, out string description, out string language, out ParameterInfoCollection parameters, out DataSourceInfoCollection dataSources, out DataSetInfoCollection sharedDataSetReferences, out UserLocationFlags userReferenceLocation, out ArrayList dataSetsName, out bool hasExternalImages, out bool hasHyperlinks, out byte[] dataSetsHash)
+        public ReportIntermediateFormat.Report CreateIntermediateFormat(byte[] definition, out string description, out string language, out ParameterInfoCollection parameters, out DataSourceInfoCollection dataSources, out DataSetInfoCollection sharedDataSetReferences, out UserLocationFlags userReferenceLocation, out ArrayList dataSetsName, out bool hasExternalImages, out bool hasHyperlinks, out byte[] dataSetsHash)
         {
             this.CheckForMissingDefinition(definition);
             Stream definitionStream = new MemoryStream(definition, false);
@@ -18430,7 +18430,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			runningValueHashByType.Clear();
 		}
 
-		internal DataSetPublishingResult CreateSharedDataSet(byte[] definition)
+		public DataSetPublishingResult CreateSharedDataSet(byte[] definition)
 		{
 			if (definition == null)
 			{

@@ -7,9 +7,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Subtotal : IDOwner
+	public sealed class Subtotal : IDOwner
 	{
-		internal enum PositionType
+		public enum PositionType
 		{
 			After,
 			Before
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private bool m_computed;
 
-		internal bool AutoDerived
+		public bool AutoDerived
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItem ReportItem
+		public ReportItem ReportItem
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Style StyleClass
+		public Style StyleClass
 		{
 			get
 			{
@@ -84,7 +84,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PositionType Position
+		public PositionType Position
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FirstInstance
+		public bool FirstInstance
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string RenderingModelID
+		public string RenderingModelID
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Computed
+		public bool Computed
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -156,23 +156,23 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Subtotal()
+		public Subtotal()
 		{
 		}
 
-		internal Subtotal(int id, int idForReportItems, bool autoDerived)
+		public Subtotal(int id, int idForReportItems, bool autoDerived)
 			: base(id)
 		{
 			this.m_autoDerived = autoDerived;
 			this.m_reportItems = new ReportItemCollection(idForReportItems, false);
 		}
 
-		internal void RegisterReportItems(InitializationContext context)
+		public void RegisterReportItems(InitializationContext context)
 		{
 			context.RegisterReportItems(this.m_reportItems);
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.SubtotalStart();
 			this.DataRendererInitialize(context);
@@ -186,12 +186,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.ExprHostBuilder.SubtotalEnd();
 		}
 
-		internal void UnregisterReportItems(InitializationContext context)
+		public void UnregisterReportItems(InitializationContext context)
 		{
 			context.UnRegisterReportItems(this.m_reportItems);
 		}
 
-		internal void RegisterReceiver(InitializationContext context)
+		public void RegisterReceiver(InitializationContext context)
 		{
 			context.RegisterReportItems(this.m_reportItems);
 			this.m_reportItems.RegisterReceiver(context);
@@ -203,14 +203,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			CLSNameValidator.ValidateDataElementName(ref this.m_dataElementName, "Total", context.ObjectType, context.ObjectName, "DataElementName", context.ErrorContext);
 		}
 
-		internal void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(StyleExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null && this.m_styleClass != null);
 			exprHost.SetReportObjectModel(reportObjectModel);
 			this.m_styleClass.SetStyleExprHost(exprHost);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.AutoDerived, Token.Boolean));

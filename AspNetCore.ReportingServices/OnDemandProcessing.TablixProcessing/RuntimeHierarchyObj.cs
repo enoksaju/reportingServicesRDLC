@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal class RuntimeHierarchyObj : RuntimeDataRegionObj, IHierarchyObj, IStorable, IPersistable
+	public class RuntimeHierarchyObj : RuntimeDataRegionObj, IHierarchyObj, IStorable, IPersistable
 	{
 		protected RuntimeGroupingObj m_grouping;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private static Declaration m_declaration = RuntimeHierarchyObj.GetDeclaration();
 
-		internal List<IReference<RuntimeHierarchyObj>> HierarchyObjs
+		public List<IReference<RuntimeHierarchyObj>> HierarchyObjs
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeGroupingObj Grouping
+		public RuntimeGroupingObj Grouping
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeHierarchyObj()
+		public RuntimeHierarchyObj()
 		{
 		}
 
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		{
 		}
 
-		internal RuntimeHierarchyObj(RuntimeHierarchyObj outerHierarchy, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, int level)
+		public RuntimeHierarchyObj(RuntimeHierarchyObj outerHierarchy, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType, int level)
 			: base(outerHierarchy.OdpContext, objectType, level)
 		{
 			if (outerHierarchy.m_expression != null)
@@ -286,12 +286,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal ProcessingMessageList RegisterComparisonError(string propertyName)
+		public ProcessingMessageList RegisterComparisonError(string propertyName)
 		{
 			return this.RegisterComparisonError(propertyName, null);
 		}
 
-		internal ProcessingMessageList RegisterComparisonError(string propertyName, ReportProcessingException_ComparisonError e)
+		public ProcessingMessageList RegisterComparisonError(string propertyName, ReportProcessingException_ComparisonError e)
 		{
 			AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType = default(AspNetCore.ReportingServices.ReportProcessing.ObjectType);
 			string name = default(string);
@@ -304,7 +304,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return base.m_odpContext.RegisterComparisonError(e, objectType, name, propertyName);
 		}
 
-		internal ProcessingMessageList RegisterSpatialTypeComparisonError(string type)
+		public ProcessingMessageList RegisterSpatialTypeComparisonError(string type)
 		{
 			AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType = default(AspNetCore.ReportingServices.ReportProcessing.ObjectType);
 			string name = default(string);
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return base.m_odpContext.RegisterSpatialTypeComparisonError(objectType, name, type);
 		}
 
-		internal override void NextRow()
+		public override void NextRow()
 		{
 			bool flag = true;
 			RuntimeGroupRootObj runtimeGroupRootObj = null;
@@ -388,7 +388,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override bool SortAndFilter(AggregateUpdateContext aggContext)
+		public override bool SortAndFilter(AggregateUpdateContext aggContext)
 		{
 			this.Traverse(ProcessingStages.SortAndFilter, aggContext);
 			return true;
@@ -426,7 +426,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual void CalculateRunningValues(AggregateUpdateContext aggContext)
+		public virtual void CalculateRunningValues(AggregateUpdateContext aggContext)
 		{
 			if (this.m_grouping != null)
 			{
@@ -451,17 +451,17 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
+		public override void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
 		{
 			Global.Tracer.Assert(false);
 		}
 
-		internal override void CalculatePreviousAggregates()
+		public override void CalculatePreviousAggregates()
 		{
 			Global.Tracer.Assert(false);
 		}
 
-		internal void CreateInstances(CreateInstancesTraversalContext traversalContext)
+		public void CreateInstances(CreateInstancesTraversalContext traversalContext)
 		{
 			if (this.m_grouping != null)
 			{
@@ -490,7 +490,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal virtual void CreateInstance(CreateInstancesTraversalContext traversalContext)
+		public virtual void CreateInstance(CreateInstancesTraversalContext traversalContext)
 		{
 			Global.Tracer.Assert(false);
 		}
@@ -504,7 +504,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			Global.Tracer.Assert(false);
 		}
 
-		internal override bool InScope(string scope)
+		public override bool InScope(string scope)
 		{
 			Global.Tracer.Assert(false);
 			return false;

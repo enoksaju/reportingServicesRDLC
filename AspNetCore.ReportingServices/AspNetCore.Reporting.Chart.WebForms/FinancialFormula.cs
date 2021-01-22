@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum FinancialFormula
+	public enum FinancialFormula
 	{
 		AccumulationDistribution,
 		AverageTrueRange,

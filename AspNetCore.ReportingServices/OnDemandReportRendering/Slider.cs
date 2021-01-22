@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Slider
+	public sealed class Slider
 	{
 		private readonly AspNetCore.ReportingServices.ReportIntermediateFormat.Slider m_slider;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Slider(AspNetCore.ReportingServices.ReportIntermediateFormat.Slider slider)
+		public Slider(AspNetCore.ReportingServices.ReportIntermediateFormat.Slider slider)
 		{
 			this.m_slider = slider;
 		}

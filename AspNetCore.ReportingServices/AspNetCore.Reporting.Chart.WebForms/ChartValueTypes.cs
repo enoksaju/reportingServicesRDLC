@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ChartValueTypes
+	public enum ChartValueTypes
 	{
 		Auto,
 		Double,

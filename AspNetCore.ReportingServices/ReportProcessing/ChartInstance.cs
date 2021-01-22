@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ChartInstance : ReportItemInstance, IPageItem
+	public sealed class ChartInstance : ReportItemInstance, IPageItem
 	{
 		private MultiChartInstanceList m_multiCharts;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal MultiChartInstanceList MultiCharts
+		public MultiChartInstanceList MultiCharts
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceList ColumnInstances
+		public ChartHeadingInstanceList ColumnInstances
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceList RowInstances
+		public ChartHeadingInstanceList RowInstances
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartDataPointInstancesList DataPoints
+		public ChartDataPointInstancesList DataPoints
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int DataPointSeriesCount
+		public int DataPointSeriesCount
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int DataPointCategoryCount
+		public int DataPointCategoryCount
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentCellOuterIndex
+		public int CurrentCellOuterIndex
 		{
 			get
 			{
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentCellInnerIndex
+		public int CurrentCellInnerIndex
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentOuterStaticIndex
+		public int CurrentOuterStaticIndex
 		{
 			set
 			{
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentInnerStaticIndex
+		public int CurrentInnerStaticIndex
 		{
 			set
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartHeadingInstanceList InnerHeadingInstanceList
+		public ChartHeadingInstanceList InnerHeadingInstanceList
 		{
 			get
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ChartInstance(ReportProcessing.ProcessingContext pc, Chart reportItemDef)
+		public ChartInstance(ReportProcessing.ProcessingContext pc, Chart reportItemDef)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new ChartInstanceInfo(pc, reportItemDef, this);
@@ -177,11 +177,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			pc.QuickFind.Add(base.UniqueName, this);
 		}
 
-		internal ChartInstance()
+		public ChartInstance()
 		{
 		}
 
-		internal ChartDataPoint GetCellDataPoint(int cellDPIndex)
+		public ChartDataPoint GetCellDataPoint(int cellDPIndex)
 		{
 			if (-1 == cellDPIndex)
 			{
@@ -190,7 +190,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ((Chart)base.m_reportItemDef).ChartDataPoints[cellDPIndex];
 		}
 
-		internal ChartDataPointInstance AddCell(ReportProcessing.ProcessingContext pc, int currCellDPIndex)
+		public ChartDataPointInstance AddCell(ReportProcessing.ProcessingContext pc, int currCellDPIndex)
 		{
 			ChartDataPointInstancesList dataPoints = this.CurrentMultiChart.DataPoints;
 			Chart chart = (Chart)base.m_reportItemDef;
@@ -214,7 +214,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return chartDataPointInstance;
 		}
 
-		internal void NewOuterCells()
+		public void NewOuterCells()
 		{
 			ChartDataPointInstancesList dataPoints = this.CurrentMultiChart.DataPoints;
 			if (0 >= this.m_currentCellInnerIndex && dataPoints.Count != 0)
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int GetCurrentCellDPIndex()
+		public int GetCurrentCellDPIndex()
 		{
 			Chart chart = (Chart)base.m_reportItemDef;
 			int num = (chart.StaticColumns == null || chart.StaticColumns.Labels == null) ? 1 : chart.StaticColumns.Labels.Count;
@@ -245,14 +245,14 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.m_currentInnerStaticIndex * num + this.m_currentOuterStaticIndex;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.MultiCharts, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.MultiChartInstanceList));
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstance, memberInfoList);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadChartInstanceInfo((Chart)base.m_reportItemDef);

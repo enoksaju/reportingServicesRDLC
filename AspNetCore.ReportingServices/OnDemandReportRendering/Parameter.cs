@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Parameter
+	public sealed class Parameter
 	{
 		private string m_name;
 
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue ParameterDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue ParameterDef
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionDrillthrough ActionDef
+		public ActionDrillthrough ActionDef
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Parameter(ActionDrillthrough actionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue parameterDef)
+		public Parameter(ActionDrillthrough actionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue parameterDef)
 		{
 			this.m_name = parameterDef.Name;
 			this.m_actionDef = actionDef;
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_instance = new ParameterInstance(this);
 		}
 
-		internal Parameter(ActionDrillthrough actionDef, AspNetCore.ReportingServices.ReportProcessing.ParameterValue parameterDef, ActionItemInstance actionInstance, int index)
+		public Parameter(ActionDrillthrough actionDef, AspNetCore.ReportingServices.ReportProcessing.ParameterValue parameterDef, ActionItemInstance actionInstance, int index)
 		{
 			this.m_name = parameterDef.Name;
 			this.m_value = new ReportVariantProperty(parameterDef.Value);
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_instance = new ParameterInstance(actionInstance, index);
 		}
 
-		internal void Update(ActionItemInstance actionInstance, int index)
+		public void Update(ActionItemInstance actionInstance, int index)
 		{
 			if (this.m_instance != null)
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ConstructParameterDefinition()
+		public void ConstructParameterDefinition()
 		{
 			ParameterInstance instance = this.Instance;
 			Global.Tracer.Assert(instance != null);

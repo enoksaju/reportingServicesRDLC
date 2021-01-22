@@ -12,9 +12,9 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeAxis_Axis")]
 	[DefaultProperty("Enabled")]
-	internal class Axis : AxisLabels
+	public class Axis : AxisLabels
 	{
-		internal const float elementSpacing = 1f;
+		public const float elementSpacing = 1f;
 
 		private const float maxAxisElementsSize = 75f;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		public const double smallestPositiveDecimal = 7.9228162514264341E-28;
 
-		internal Chart chart;
+		public Chart chart;
 
 		private bool storeValuesEnabled = true;
 
@@ -58,33 +58,33 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private TextOrientation textOrientation;
 
-		internal float titleSize;
+		public float titleSize;
 
-		internal float labelSize;
+		public float labelSize;
 
-		internal float labelNearOffset;
+		public float labelNearOffset;
 
-		internal float labelFarOffset;
+		public float labelFarOffset;
 
-		internal float unRotatedLabelSize;
+		public float unRotatedLabelSize;
 
-		internal float markSize;
+		public float markSize;
 
-		internal float scrollBarSize;
+		public float scrollBarSize;
 
-		internal float totlaGroupingLabelsSize;
+		public float totlaGroupingLabelsSize;
 
-		internal float[] groupingLabelSizes;
+		public float[] groupingLabelSizes;
 
-		internal float totlaGroupingLabelsSizeAdjustment;
+		public float totlaGroupingLabelsSizeAdjustment;
 
 		private LabelsAutoFitStyles labelsAutoFitStyle = LabelsAutoFitStyles.IncreaseFont | LabelsAutoFitStyles.DecreaseFont | LabelsAutoFitStyles.OffsetLabels | LabelsAutoFitStyles.LabelsAngleStep30 | LabelsAutoFitStyles.WordWrap;
 
-		internal Font autoLabelFont;
+		public Font autoLabelFont;
 
-		internal int autoLabelAngle = -1000;
+		public int autoLabelAngle = -1000;
 
-		internal int autoLabelOffset = -1;
+		public int autoLabelOffset = -1;
 
 		private float aveLabelFontSize = 10f;
 
@@ -92,13 +92,13 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private RectangleF titlePosition = RectangleF.Empty;
 
-		internal double minimumFromData = double.NaN;
+		public double minimumFromData = double.NaN;
 
-		internal double maximumFromData = double.NaN;
+		public double maximumFromData = double.NaN;
 
-		internal bool refreshMinMaxFromData = true;
+		public bool refreshMinMaxFromData = true;
 
-		internal int numberOfPointsInAllSeries;
+		public int numberOfPointsInAllSeries;
 
 		private double originalViewPosition = double.NaN;
 
@@ -108,15 +108,15 @@ namespace AspNetCore.Reporting.Chart.WebForms
 
 		private double intervalOffset;
 
-		internal double interval;
+		public double interval;
 
-		internal DateTimeIntervalType intervalType;
+		public DateTimeIntervalType intervalType;
 
-		internal DateTimeIntervalType intervalOffsetType;
+		public DateTimeIntervalType intervalOffsetType;
 
-		internal int labelsAutoFitMinFontSize = 6;
+		public int labelsAutoFitMinFontSize = 6;
 
-		internal int labelsAutoFitMaxFontSize = 10;
+		public int labelsAutoFitMaxFontSize = 10;
 
 		private string toolTip = string.Empty;
 
@@ -144,7 +144,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal virtual string SubAxisName
+		public virtual string SubAxisName
 		{
 			get
 			{
@@ -790,7 +790,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Initialize(null, AxisName.X);
 		}
 
-		internal void Initialize(ChartArea chartArea, AxisName axisType)
+		public void Initialize(ChartArea chartArea, AxisName axisType)
 		{
 			base.chartArea = chartArea;
 			base.axisType = axisType;
@@ -838,7 +838,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetName()
+		public void SetName()
 		{
 			switch (base.axisType)
 			{
@@ -874,7 +874,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.TextOrientation;
 		}
 
-		internal void PrePaint(ChartGraphics graph)
+		public void PrePaint(ChartGraphics graph)
 		{
 			if (base.enabled)
 			{
@@ -885,7 +885,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void Paint(ChartGraphics graph)
+		public void Paint(ChartGraphics graph)
 		{
 			if (base.chartArea != null && base.chartArea.chartAreaIsCurcular)
 			{
@@ -952,7 +952,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void PaintOnSegmentedScalePassOne(ChartGraphics graph)
+		public void PaintOnSegmentedScalePassOne(ChartGraphics graph)
 		{
 			if (base.enabled)
 			{
@@ -961,7 +961,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void PaintOnSegmentedScalePassTwo(ChartGraphics graph)
+		public void PaintOnSegmentedScalePassTwo(ChartGraphics graph)
 		{
 			if (base.enabled)
 			{
@@ -1171,7 +1171,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal void DrawRadialLine(object obj, ChartGraphics graph, Color color, int width, ChartDashStyle style, double position)
+		public void DrawRadialLine(object obj, ChartGraphics graph, Color color, int width, ChartDashStyle style, double position)
 		{
 			RectangleF rectangleF = base.chartArea.PlotAreaPosition.ToRectangleF();
 			rectangleF = graph.GetAbsoluteRectangle(rectangleF);
@@ -1227,7 +1227,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DrawCircularLine(object obj, ChartGraphics graph, Color color, int width, ChartDashStyle style, float position)
+		public void DrawCircularLine(object obj, ChartGraphics graph, Color color, int width, ChartDashStyle style, float position)
 		{
 			RectangleF rectangleF = base.chartArea.PlotAreaPosition.ToRectangleF();
 			rectangleF = graph.GetAbsoluteRectangle(rectangleF);
@@ -1463,12 +1463,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void DrawAxisLine(ChartGraphics graph, bool backElements)
+		public void DrawAxisLine(ChartGraphics graph, bool backElements)
 		{
 			this.DrawAxisLine(graph, false, backElements);
 		}
 
-		internal void DrawAxisLine(ChartGraphics graph, bool selectionMode, bool backElements)
+		public void DrawAxisLine(ChartGraphics graph, bool selectionMode, bool backElements)
 		{
 			ArrowOrientation arrowOrientation = ArrowOrientation.Top;
 			PointF pointF = Point.Empty;
@@ -1624,7 +1624,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal void Draw3DAxisLine(ChartGraphics graph, PointF point1, PointF point2, bool horizontal, bool backElements, bool selectionMode)
+		public void Draw3DAxisLine(ChartGraphics graph, PointF point1, PointF point2, bool horizontal, bool backElements, bool selectionMode)
 		{
 			bool flag = this.IsAxisOnAreaEdge();
 			bool flag2 = flag;
@@ -1703,7 +1703,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			goto IL_00a2;
 		}
 
-		internal float GetMarksZPosition(out bool axisOnEdge)
+		public float GetMarksZPosition(out bool axisOnEdge)
 		{
 			axisOnEdge = this.IsAxisOnAreaEdge();
 			if (!this.IsMarksNextToAxis())
@@ -1734,13 +1734,13 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num;
 		}
 
-		internal void PaintGrids(ChartGraphics graph)
+		public void PaintGrids(ChartGraphics graph)
 		{
 			object obj = default(object);
 			this.PaintGrids(graph, false, 0, 0, out obj);
 		}
 
-		internal void PaintGrids(ChartGraphics graph, bool selectionMode, int x, int y, out object obj)
+		public void PaintGrids(ChartGraphics graph, bool selectionMode, int x, int y, out object obj)
 		{
 			obj = null;
 			if (base.enabled)
@@ -1750,13 +1750,13 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void PaintStrips(ChartGraphics graph, bool drawLinesOnly)
+		public void PaintStrips(ChartGraphics graph, bool drawLinesOnly)
 		{
 			object obj = default(object);
 			this.PaintStrips(graph, false, 0, 0, out obj, drawLinesOnly);
 		}
 
-		internal void PaintStrips(ChartGraphics graph, bool selectionMode, int x, int y, out object obj, bool drawLinesOnly)
+		public void PaintStrips(ChartGraphics graph, bool selectionMode, int x, int y, out object obj, bool drawLinesOnly)
 		{
 			obj = null;
 			if (base.enabled)
@@ -1847,12 +1847,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			base.roundedXValues = true;
 		}
 
-		internal void ReCalc(ElementPosition position)
+		public void ReCalc(ElementPosition position)
 		{
 			base.PlotAreaPosition = position;
 		}
 
-		internal void StoreAxisValues()
+		public void StoreAxisValues()
 		{
 			base.tempLabels = new CustomLabelsCollection(this);
 			foreach (CustomLabel customLabel in base.CustomLabels)
@@ -1880,7 +1880,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void ResetAxisValues()
+		public void ResetAxisValues()
 		{
 			base.paintMode = false;
 			this.ResetAutoValues();
@@ -1895,7 +1895,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void ResetAutoValues()
+		public void ResetAutoValues()
 		{
 			this.refreshMinMaxFromData = true;
 			base.maximum = base.tempMaximum;
@@ -1918,7 +1918,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.storeValuesEnabled = true;
 		}
 
-		internal virtual void Resize(ChartGraphics chartGraph, ElementPosition chartAreaPosition, RectangleF plotArea, float axesNumber, bool autoPlotPosition)
+		public virtual void Resize(ChartGraphics chartGraph, ElementPosition chartAreaPosition, RectangleF plotArea, float axesNumber, bool autoPlotPosition)
 		{
 			base.PlotAreaPosition = chartAreaPosition;
 			base.PlotAreaPosition.FromRectangleF(plotArea);
@@ -2816,7 +2816,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return flag;
 		}
 
-		internal void GetCircularAxisLabelsAutoFitFont(ChartGraphics graph, ArrayList axisList, CircularAxisLabelsStyle labelsStyle, RectangleF plotAreaRectAbs, RectangleF areaRectAbs, float labelsSizeEstimate)
+		public void GetCircularAxisLabelsAutoFitFont(ChartGraphics graph, ArrayList axisList, CircularAxisLabelsStyle labelsStyle, RectangleF plotAreaRectAbs, RectangleF areaRectAbs, float labelsSizeEstimate)
 		{
 			this.autoLabelFont.Dispose();
 			this.autoLabelFont = null;
@@ -2849,7 +2849,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal bool CheckCircularLabelsFit(ChartGraphics graph, ArrayList axisList, CircularAxisLabelsStyle labelsStyle, RectangleF plotAreaRectAbs, RectangleF areaRectAbs, float labelsSizeEstimate)
+		public bool CheckCircularLabelsFit(ChartGraphics graph, ArrayList axisList, CircularAxisLabelsStyle labelsStyle, RectangleF plotAreaRectAbs, RectangleF areaRectAbs, float labelsSizeEstimate)
 		{
 			bool result = true;
 			PointF absolutePoint = graph.GetAbsolutePoint(base.chartArea.circularCenter);
@@ -2942,7 +2942,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal void AdjustLabelFontAtSecondPass(ChartGraphics chartGraph, bool autoPlotPosition)
+		public void AdjustLabelFontAtSecondPass(ChartGraphics chartGraph, bool autoPlotPosition)
 		{
 			if (base.Enabled != AxisEnabled.False && base.LabelStyle.Enabled && this.IsVariableLabelCountModeEnabled())
 			{
@@ -3009,7 +3009,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal double GetLogValue(double yValue)
+		public double GetLogValue(double yValue)
 		{
 			if (base.Logarithmic)
 			{
@@ -3510,7 +3510,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num;
 		}
 
-		internal float GetGroupLablesToatalSize()
+		public float GetGroupLablesToatalSize()
 		{
 			float num = 0f;
 			if (this.groupingLabelSizes != null && this.groupingLabelSizes.Length > 0)
@@ -3524,7 +3524,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num;
 		}
 
-		internal int GetGroupLabelLevelCount()
+		public int GetGroupLabelLevelCount()
 		{
 			int num = 0;
 			foreach (CustomLabel customLabel in base.CustomLabels)
@@ -3600,7 +3600,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return array;
 		}
 
-		internal static double RemoveNoiseFromDoubleMath(double value)
+		public static double RemoveNoiseFromDoubleMath(double value)
 		{
 			if (value != 0.0 && (!(Math.Abs(value) > 7.9228162514264341E-28) || !(Math.Abs(value) < 7.9228162514264338E+28)))
 			{
@@ -3613,12 +3613,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return (double)(decimal)value;
 		}
 
-		internal Axis GetSubAxis(string subAxisName)
+		public Axis GetSubAxis(string subAxisName)
 		{
 			return this;
 		}
 
-		internal bool IsMarksNextToAxis()
+		public bool IsMarksNextToAxis()
 		{
 			if (base.chartArea != null && base.chartArea.chartAreaIsCurcular)
 			{
@@ -3627,7 +3627,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.MarksNextToAxis;
 		}
 
-		internal bool IsSerializing()
+		public bool IsSerializing()
 		{
 			if (this.chart == null && base.Common != null && base.Common.container != null)
 			{
@@ -3651,7 +3651,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal DateTimeIntervalType GetAxisIntervalType()
+		public DateTimeIntervalType GetAxisIntervalType()
 		{
 			if (base.InternalIntervalType == DateTimeIntervalType.Auto)
 			{
@@ -3664,7 +3664,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return base.InternalIntervalType;
 		}
 
-		internal ChartValueTypes GetAxisValuesType()
+		public ChartValueTypes GetAxisValuesType()
 		{
 			ChartValueTypes result = ChartValueTypes.Double;
 			if (base.Common != null && base.Common.DataManager.Series != null && base.chartArea != null)
@@ -3711,7 +3711,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return result;
 		}
 
-		internal SizeF GetArrowSize(out ArrowOrientation arrowOrientation)
+		public SizeF GetArrowSize(out ArrowOrientation arrowOrientation)
 		{
 			arrowOrientation = ArrowOrientation.Top;
 			switch (this.AxisPosition)
@@ -3828,7 +3828,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal float GetPixelInterval(double realInterval)
+		public float GetPixelInterval(double realInterval)
 		{
 			double num = (this.AxisPosition != AxisPosition.Top && this.AxisPosition != AxisPosition.Bottom) ? ((double)(base.PlotAreaPosition.Bottom() - base.PlotAreaPosition.Y)) : ((double)(base.PlotAreaPosition.Right() - base.PlotAreaPosition.X));
 			if (base.GetViewMaximum() - base.GetViewMinimum() == 0.0)
@@ -3838,7 +3838,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return (float)(num / (base.GetViewMaximum() - base.GetViewMinimum()) * realInterval);
 		}
 
-		internal bool IsAxisOnAreaEdge()
+		public bool IsAxisOnAreaEdge()
 		{
 			double num = 0.0;
 			if (this.AxisPosition == AxisPosition.Bottom)
@@ -3864,12 +3864,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return false;
 		}
 
-		internal double GetAxisPosition()
+		public double GetAxisPosition()
 		{
 			return this.GetAxisPosition(false);
 		}
 
-		internal virtual double GetAxisPosition(bool ignoreCrossing)
+		public virtual double GetAxisPosition(bool ignoreCrossing)
 		{
 			Axis oppositeAxis = base.GetOppositeAxis();
 			if (base.chartArea != null && base.chartArea.chartAreaIsCurcular)
@@ -3910,7 +3910,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return oppositeAxis.GetLinearPosition(oppositeAxis.GetViewMinimum());
 		}
 
-		internal double GetAxisProjectionAngle()
+		public double GetAxisProjectionAngle()
 		{
 			bool flag = default(bool);
 			float marksZPosition = this.GetMarksZPosition(out flag);

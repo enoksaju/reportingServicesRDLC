@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal static class HTMLRendererResources
+	public static class HTMLRendererResources
 	{
 		public const string ResourceNamespace = "AspNetCore.ReportingServices.Rendering.HtmlRenderer.RendererResources.";
 

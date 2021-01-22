@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class MapSpatialData : IPersistable
+	public class MapSpatialData : IPersistable
 	{
 		[NonSerialized]
 		protected MapSpatialDataExprHost m_exprHost;
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapSpatialData.GetDeclaration();
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSpatialDataExprHost ExprHost
+		public MapSpatialDataExprHost ExprHost
 		{
 			get
 			{
@@ -39,25 +39,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapSpatialData()
+		public MapSpatialData()
 		{
 		}
 
-		internal MapSpatialData(MapVectorLayer mapVectorLayer, Map map)
+		public MapSpatialData(MapVectorLayer mapVectorLayer, Map map)
 		{
 			this.m_map = map;
 			this.m_mapVectorLayer = mapVectorLayer;
 		}
 
-		internal virtual void Initialize(InitializationContext context)
+		public virtual void Initialize(InitializationContext context)
 		{
 		}
 
-		internal virtual void InitializeMapMember(InitializationContext context)
+		public virtual void InitializeMapMember(InitializationContext context)
 		{
 		}
 
-		internal virtual object PublishClone(AutomaticSubtotalContext context)
+		public virtual object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapSpatialData mapSpatialData = (MapSpatialData)base.MemberwiseClone();
 			mapSpatialData.m_map = context.CurrentMapClone;
@@ -65,11 +65,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapSpatialData;
 		}
 
-		internal virtual void SetExprHost(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHost(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 		}
 
-		internal virtual void SetExprHostMapMember(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public virtual void SetExprHostMapMember(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 		}
 
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Map, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Map, Token.Reference));

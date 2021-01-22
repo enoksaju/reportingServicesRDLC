@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum RadialPointerTypes
+	public enum RadialPointerTypes
 	{
 		Needle,
 		Marker,

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class Heap<K, V> where K : IComparable<K>
+	public sealed class Heap<K, V> where K : IComparable<K>
 	{
 		private struct HeapEntry : IComparable<HeapEntry>
 		{

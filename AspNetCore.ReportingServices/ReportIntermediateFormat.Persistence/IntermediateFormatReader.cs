@@ -9,7 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal struct IntermediateFormatReader
+	public struct IntermediateFormatReader
 	{
 		private int m_currentMemberIndex;
 
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 
 		private BinaryFormatter m_binaryFormatter;
 
-		internal bool CanSeek
+		public bool CanSeek
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal bool EOS
+		public bool EOS
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal IntermediateFormatVersion IntermediateFormatVersion
+		public IntermediateFormatVersion IntermediateFormatVersion
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal MemberInfo CurrentMember
+		public MemberInfo CurrentMember
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal PersistenceHelper PersistenceHelper
+		public PersistenceHelper PersistenceHelper
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal long ObjectStartPosition
+		public long ObjectStartPosition
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal bool HasReferences
+		public bool HasReferences
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal GlobalIDOwnerCollection GlobalIDOwners
+		public GlobalIDOwnerCollection GlobalIDOwners
 		{
 			get
 			{
@@ -111,32 +111,32 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator)
+		public IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator)
 		{
 			this = new IntermediateFormatReader(str, rifObjectCreator, null, null);
 		}
 
-		internal IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, PersistenceHelper persistenceHelper)
+		public IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, PersistenceHelper persistenceHelper)
 		{
 			this = new IntermediateFormatReader(str, rifObjectCreator, null, persistenceHelper);
 		}
 
-		internal IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, GlobalIDOwnerCollection globalIDOwnersFromOtherStream)
+		public IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, GlobalIDOwnerCollection globalIDOwnersFromOtherStream)
 		{
 			this = new IntermediateFormatReader(str, rifObjectCreator, globalIDOwnersFromOtherStream, null);
 		}
 
-		internal IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, GlobalIDOwnerCollection globalIDOwnersFromOtherStream, PersistenceHelper persistenceHelper)
+		public IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, GlobalIDOwnerCollection globalIDOwnersFromOtherStream, PersistenceHelper persistenceHelper)
 		{
 			this = new IntermediateFormatReader(str, rifObjectCreator, globalIDOwnersFromOtherStream, persistenceHelper, null, null, PersistenceFlags.None, true, PersistenceConstants.CurrentCompatVersion);
 		}
 
-		internal IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, GlobalIDOwnerCollection globalIDOwnersFromOtherStream, PersistenceHelper persistenceHelper, int compatVersion)
+		public IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, GlobalIDOwnerCollection globalIDOwnersFromOtherStream, PersistenceHelper persistenceHelper, int compatVersion)
 		{
 			this = new IntermediateFormatReader(str, rifObjectCreator, globalIDOwnersFromOtherStream, persistenceHelper, null, null, PersistenceFlags.None, true, compatVersion);
 		}
 
-		internal IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, GlobalIDOwnerCollection globalIDOwnersFromOtherStream, PersistenceHelper persistenceHelper, List<Declaration> declarations, IntermediateFormatVersion version, PersistenceFlags flags)
+		public IntermediateFormatReader(Stream str, IRIFObjectCreator rifObjectCreator, GlobalIDOwnerCollection globalIDOwnersFromOtherStream, PersistenceHelper persistenceHelper, List<Declaration> declarations, IntermediateFormatVersion version, PersistenceFlags flags)
 		{
 			this = new IntermediateFormatReader(str, rifObjectCreator, globalIDOwnersFromOtherStream, persistenceHelper, declarations, version, flags, false, PersistenceConstants.CurrentCompatVersion);
 		}
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void RegisterDeclaration(Declaration declaration)
+		public void RegisterDeclaration(Declaration declaration)
 		{
 			this.m_currentMemberIndex = -1;
 			if (!this.m_readDecls.TryGetValue(declaration.ObjectType, out this.m_currentPersistedDeclaration))
@@ -233,7 +233,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			this.m_currentMemberInfoCount = this.m_currentPersistedDeclaration.MemberInfoList.Count;
 		}
 
-		internal bool NextMember()
+		public bool NextMember()
 		{
 			this.m_currentMemberIndex++;
 			if (this.m_currentMemberIndex < this.m_currentMemberInfoCount)
@@ -249,7 +249,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return false;
 		}
 
-		internal void ResolveReferences()
+		public void ResolveReferences()
 		{
 			foreach (KeyValuePair<IPersistable, Dictionary<ObjectType, List<MemberReference>>> item in this.m_memberReferencesCollection)
 			{
@@ -258,7 +258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void ClearReferences()
+		public void ClearReferences()
 		{
 			this.m_referenceableItems = new Dictionary<int, IReferenceable>(EqualityComparers.Int32ComparerInstance);
 			this.m_memberReferencesCollection = new Dictionary<IPersistable, Dictionary<ObjectType, List<MemberReference>>>();
@@ -516,7 +516,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void SkipInt32PrimitiveListHashtable()
+		public void SkipInt32PrimitiveListHashtable()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -529,7 +529,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void SkipStringObjectHashtable()
+		public void SkipStringObjectHashtable()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -542,7 +542,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void SkipObjectHashtableHashtable()
+		public void SkipObjectHashtableHashtable()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -555,22 +555,22 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void Seek(long newPosition)
+		public void Seek(long newPosition)
 		{
 			this.Seek(newPosition, SeekOrigin.Begin);
 		}
 
-		internal void Seek(long newPosition, SeekOrigin seekOrigin)
+		public void Seek(long newPosition, SeekOrigin seekOrigin)
 		{
 			this.m_reader.Seek(newPosition, seekOrigin);
 		}
 
-		internal IPersistable ReadRIFObject()
+		public IPersistable ReadRIFObject()
 		{
 			return this.ReadRIFObject(true);
 		}
 
-		internal IPersistable ReadRIFObject(IPersistable persitObj)
+		public IPersistable ReadRIFObject(IPersistable persitObj)
 		{
 			ObjectType objectType = this.ReadRIFObjectStart();
 			if (objectType != 0)
@@ -585,7 +585,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return persitObj;
 		}
 
-		internal T ReadRIFObject<T>() where T : IPersistable, new()
+		public T ReadRIFObject<T>() where T : IPersistable, new()
 		{
 			ObjectType objectType = this.ReadRIFObjectStart();
 			T val = default(T);
@@ -648,7 +648,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal Dictionary<string, TValue> ReadStringRIFObjectDictionary<TValue>() where TValue : IPersistable
+		public Dictionary<string, TValue> ReadStringRIFObjectDictionary<TValue>() where TValue : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -663,7 +663,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal Dictionary<int, TValue> ReadInt32RIFObjectDictionary<TValue>() where TValue : IPersistable
+		public Dictionary<int, TValue> ReadInt32RIFObjectDictionary<TValue>() where TValue : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -678,7 +678,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal IDictionary ReadInt32RIFObjectDictionary<T>(CreateDictionary<T> dictionaryCreator) where T : IDictionary
+		public IDictionary ReadInt32RIFObjectDictionary<T>(CreateDictionary<T> dictionaryCreator) where T : IDictionary
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -693,7 +693,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadInt32PrimitiveListHashtable<T, U>() where T : Hashtable, new()where U : struct
+		public T ReadInt32PrimitiveListHashtable<T, U>() where T : Hashtable, new()where U : struct
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -708,7 +708,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadStringInt32Hashtable<T>() where T : IDictionary, new()
+		public T ReadStringInt32Hashtable<T>() where T : IDictionary, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -723,7 +723,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return default(T);
 		}
 
-		internal T ReadByteVariantHashtable<T>() where T : IDictionary, new()
+		public T ReadByteVariantHashtable<T>() where T : IDictionary, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -738,7 +738,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return default(T);
 		}
 
-		internal T ReadStringStringHashtable<T>() where T : IDictionary, new()
+		public T ReadStringStringHashtable<T>() where T : IDictionary, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -753,7 +753,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return default(T);
 		}
 
-		internal T ReadStringObjectHashtable<T>() where T : IDictionary, new()
+		public T ReadStringObjectHashtable<T>() where T : IDictionary, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -768,7 +768,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return default(T);
 		}
 
-		internal T ReadStringRIFObjectHashtable<T>() where T : IDictionary, new()
+		public T ReadStringRIFObjectHashtable<T>() where T : IDictionary, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -783,7 +783,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return default(T);
 		}
 
-		internal Dictionary<string, List<string>> ReadStringListOfStringDictionary()
+		public Dictionary<string, List<string>> ReadStringListOfStringDictionary()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -798,7 +798,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadStringObjectHashtable<T>(CreateDictionary<T> createDictionary, Predicate<string> allowKey, Converter<string, string> processName, Converter<object, object> processValue) where T : IDictionary
+		public T ReadStringObjectHashtable<T>(CreateDictionary<T> createDictionary, Predicate<string> allowKey, Converter<string, string> processName, Converter<object, object> processValue) where T : IDictionary
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -818,7 +818,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return default(T);
 		}
 
-		internal Hashtable ReadObjectHashtableHashtable()
+		public Hashtable ReadObjectHashtableHashtable()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -833,7 +833,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal Hashtable ReadNLevelVariantHashtable()
+		public Hashtable ReadNLevelVariantHashtable()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -864,7 +864,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadNameObjectCollection<T>() where T : class, INameObjectCollection, new()
+		public T ReadNameObjectCollection<T>() where T : class, INameObjectCollection, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -879,17 +879,17 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T? ReadNullable<T>() where T : struct
+		public T? ReadNullable<T>() where T : struct
 		{
 			return (T?)this.ReadVariant();
 		}
 
-		internal Dictionary<T, string> ReadRIFObjectStringHashtable<T>() where T : IPersistable
+		public Dictionary<T, string> ReadRIFObjectStringHashtable<T>() where T : IPersistable
 		{
 			return this.ReadRIFObjectStringHashtable((Dictionary<T, string>)null);
 		}
 
-		internal Dictionary<T, string> ReadRIFObjectStringHashtable<T>(Dictionary<T, string> dictionary) where T : IPersistable
+		public Dictionary<T, string> ReadRIFObjectStringHashtable<T>(Dictionary<T, string> dictionary) where T : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -906,7 +906,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return dictionary;
 		}
 
-		internal Hashtable ReadVariantVariantHashtable()
+		public Hashtable ReadVariantVariantHashtable()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -921,7 +921,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal Dictionary<List<object>, object> ReadVariantListVariantDictionary()
+		public Dictionary<List<object>, object> ReadVariantListVariantDictionary()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -936,7 +936,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal Dictionary<string, List<object>> ReadStringVariantListDictionary()
+		public Dictionary<string, List<object>> ReadStringVariantListDictionary()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -951,7 +951,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal Dictionary<string, bool[]> ReadStringBoolArrayDictionary()
+		public Dictionary<string, bool[]> ReadStringBoolArrayDictionary()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -966,7 +966,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal Hashtable ReadInt32StringHashtable()
+		public Hashtable ReadInt32StringHashtable()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -981,7 +981,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadVariantRIFObjectDictionary<T>(CreateDictionary<T> creator) where T : IDictionary, new()
+		public T ReadVariantRIFObjectDictionary<T>(CreateDictionary<T> creator) where T : IDictionary, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -996,7 +996,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return default(T);
 		}
 
-		internal T ReadVariantListOfRIFObjectDictionary<T, V>(CreateDictionary<T> creator) where T : IDictionary, new()where V : class, IList, new()
+		public T ReadVariantListOfRIFObjectDictionary<T, V>(CreateDictionary<T> creator) where T : IDictionary, new()where V : class, IList, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -1011,7 +1011,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return default(T);
 		}
 
-		internal Dictionary<int, object> Int32SerializableDictionary()
+		public Dictionary<int, object> Int32SerializableDictionary()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadDictionaryStart(this.m_currentMember.ObjectType, out num))
@@ -1026,7 +1026,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadListOfRIFObjects<T>() where T : class, IList, new()
+		public T ReadListOfRIFObjects<T>() where T : class, IList, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1041,7 +1041,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal void ReadListOfRIFObjects(IList list)
+		public void ReadListOfRIFObjects(IList list)
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1053,7 +1053,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal void ReadListOfRIFObjects<T>(Action<T> addRIFObject) where T : IPersistable
+		public void ReadListOfRIFObjects<T>(Action<T> addRIFObject) where T : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1065,7 +1065,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal List<T> ReadGenericListOfRIFObjects<T>() where T : IPersistable
+		public List<T> ReadGenericListOfRIFObjects<T>() where T : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1080,7 +1080,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal List<T> ReadGenericListOfRIFObjectsUsingNew<T>() where T : IPersistable, new()
+		public List<T> ReadGenericListOfRIFObjectsUsingNew<T>() where T : IPersistable, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1095,7 +1095,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal List<T> ReadGenericListOfRIFObjects<T>(Action<T> action) where T : IPersistable
+		public List<T> ReadGenericListOfRIFObjects<T>(Action<T> action) where T : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1112,7 +1112,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal List<List<T>> ReadListOfListsOfRIFObjects<T>() where T : IPersistable
+		public List<List<T>> ReadListOfListsOfRIFObjects<T>() where T : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1128,7 +1128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal List<T[]> ReadListOfRIFObjectArrays<T>() where T : IPersistable
+		public List<T[]> ReadListOfRIFObjectArrays<T>() where T : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1144,7 +1144,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal List<T> ReadListOfPrimitives<T>()
+		public List<T> ReadListOfPrimitives<T>()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(ObjectType.PrimitiveList, out num))
@@ -1159,7 +1159,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal List<List<T>[]> ReadListOfArrayOfListsOfPrimitives<T>()
+		public List<List<T>[]> ReadListOfArrayOfListsOfPrimitives<T>()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(ObjectType.PrimitiveList, out num))
@@ -1174,7 +1174,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadListOfVariant<T>() where T : class, IList, new()
+		public T ReadListOfVariant<T>() where T : class, IList, new()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1189,7 +1189,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal List<T>[] ReadArrayOfListsOfPrimitives<T>()
+		public List<T>[] ReadArrayOfListsOfPrimitives<T>()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadArrayStart(ObjectType.PrimitiveArray, out num))
@@ -1204,7 +1204,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal List<T>[] ReadArrayOfRIFObjectLists<T>() where T : IPersistable
+		public List<T>[] ReadArrayOfRIFObjectLists<T>() where T : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadArrayStart(ObjectType.RIFObjectArray, out num))
@@ -1219,7 +1219,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T[] ReadArrayOfRIFObjects<T>() where T : IPersistable
+		public T[] ReadArrayOfRIFObjects<T>() where T : IPersistable
 		{
 			return this.ReadArrayOfRIFObjects<T>(true);
 		}
@@ -1239,7 +1239,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-        internal T[,][] Read2DArrayOfArrayOfRIFObjects<T>() where T : IPersistable
+        public T[,][] Read2DArrayOfArrayOfRIFObjects<T>() where T : IPersistable
         {
             int num = -1;
             int num2 = -1;
@@ -1258,7 +1258,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
             return null;
         }
 
-        internal T[,] Read2DArrayOfRIFObjects<T>() where T : IPersistable
+        public T[,] Read2DArrayOfRIFObjects<T>() where T : IPersistable
         {
             int num = -1;
             int num2 = -1;
@@ -1277,7 +1277,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
             return null;
         }
 
-        internal T[] ReadArrayOfRIFObjects<RIFT, T>(Converter<RIFT, T> convertRIFObject) where RIFT : IPersistable
+        public T[] ReadArrayOfRIFObjects<RIFT, T>(Converter<RIFT, T> convertRIFObject) where RIFT : IPersistable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadArrayStart(ObjectType.RIFObjectArray, out num))
@@ -1292,7 +1292,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal string[] ReadStringArray()
+		public string[] ReadStringArray()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadArrayStart(this.m_currentMember.ObjectType, out num))
@@ -1307,7 +1307,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal object[] ReadVariantArray()
+		public object[] ReadVariantArray()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadArrayStart(this.m_currentMember.ObjectType, out num))
@@ -1322,7 +1322,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal object[] ReadSerializableArray()
+		public object[] ReadSerializableArray()
 		{
 			int num = default(int);
 			if (this.m_reader.ReadArrayStart(this.m_currentMember.ObjectType, out num))
@@ -1337,7 +1337,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal object ReadSerializable()
+		public object ReadSerializable()
 		{
 			Token token = this.m_reader.ReadToken();
 			if (token == Token.Serializable)
@@ -1363,7 +1363,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			}
 		}
 
-		internal object ReadVariant()
+		public object ReadVariant()
 		{
 			Token token = this.m_reader.ReadToken();
 			return this.ReadVariant(token);
@@ -1427,72 +1427,72 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
             }
         }
 
-		internal int[] ReadInt32Array()
+		public int[] ReadInt32Array()
 		{
 			return this.m_reader.ReadInt32Array();
 		}
 
-		internal long[] ReadInt64Array()
+		public long[] ReadInt64Array()
 		{
 			return this.m_reader.ReadInt64Array();
 		}
 
-		internal float[] ReadSingleArray()
+		public float[] ReadSingleArray()
 		{
 			return this.m_reader.ReadFloatArray();
 		}
 
-		internal char[] ReadCharArray()
+		public char[] ReadCharArray()
 		{
 			return this.m_reader.ReadCharArray();
 		}
 
-		internal byte[] ReadByteArray()
+		public byte[] ReadByteArray()
 		{
 			return this.m_reader.ReadByteArray();
 		}
 
-		internal bool[] ReadBooleanArray()
+		public bool[] ReadBooleanArray()
 		{
 			return this.m_reader.ReadBooleanArray();
 		}
 
-		internal double[] ReadDoubleArray()
+		public double[] ReadDoubleArray()
 		{
 			return this.m_reader.ReadDoubleArray();
 		}
 
-		internal byte ReadByte()
+		public byte ReadByte()
 		{
 			return this.ReadByte(true);
 		}
 
-		internal byte ReadByte(bool verify)
+		public byte ReadByte(bool verify)
 		{
 			return this.m_reader.ReadByte();
 		}
 
-		internal sbyte ReadSByte()
+		public sbyte ReadSByte()
 		{
 			return this.m_reader.ReadSByte();
 		}
 
-		internal char ReadChar()
+		public char ReadChar()
 		{
 			return this.m_reader.ReadChar();
 		}
 
-		internal short ReadInt16()
+		public short ReadInt16()
 		{
 			return this.m_reader.ReadInt16();
 		}
 
-		internal ushort ReadUInt16()
+		public ushort ReadUInt16()
 		{
 			return this.m_reader.ReadUInt16();
 		}
 
-		internal int ReadInt32()
+		public int ReadInt32()
 		{
 			return this.ReadInt32(true);
 		}
@@ -1502,37 +1502,37 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return this.m_reader.ReadInt32();
 		}
 
-		internal uint ReadUInt32()
+		public uint ReadUInt32()
 		{
 			return this.m_reader.ReadUInt32();
 		}
 
-		internal long ReadInt64()
+		public long ReadInt64()
 		{
 			return this.m_reader.ReadInt64();
 		}
 
-		internal ulong ReadUInt64()
+		public ulong ReadUInt64()
 		{
 			return this.m_reader.ReadUInt64();
 		}
 
-		internal float ReadSingle()
+		public float ReadSingle()
 		{
 			return this.m_reader.ReadSingle();
 		}
 
-		internal double ReadDouble()
+		public double ReadDouble()
 		{
 			return this.m_reader.ReadDouble();
 		}
 
-		internal decimal ReadDecimal()
+		public decimal ReadDecimal()
 		{
 			return this.m_reader.ReadDecimal();
 		}
 
-		internal string ReadString()
+		public string ReadString()
 		{
 			return this.ReadString(true);
 		}
@@ -1542,47 +1542,47 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return this.m_reader.ReadString();
 		}
 
-		internal bool ReadBoolean()
+		public bool ReadBoolean()
 		{
 			return this.m_reader.ReadBoolean();
 		}
 
-		internal DateTime ReadDateTime()
+		public DateTime ReadDateTime()
 		{
 			return this.m_reader.ReadDateTime();
 		}
 
-		internal DateTime ReadDateTimeWithKind()
+		public DateTime ReadDateTimeWithKind()
 		{
 			return this.m_reader.ReadDateTimeWithKind();
 		}
 
-		internal DateTimeOffset ReadDateTimeOffset()
+		public DateTimeOffset ReadDateTimeOffset()
 		{
 			return this.m_reader.ReadDateTimeOffset();
 		}
 
-		internal TimeSpan ReadTimeSpan()
+		public TimeSpan ReadTimeSpan()
 		{
 			return this.m_reader.ReadTimeSpan();
 		}
 
-		internal int Read7BitEncodedInt()
+		public int Read7BitEncodedInt()
 		{
 			return this.m_reader.ReadEnum();
 		}
 
-		internal int ReadEnum()
+		public int ReadEnum()
 		{
 			return this.m_reader.ReadEnum();
 		}
 
-		internal Guid ReadGuid()
+		public Guid ReadGuid()
 		{
 			return this.m_reader.ReadGuid();
 		}
 
-		internal CultureInfo ReadCultureInfo()
+		public CultureInfo ReadCultureInfo()
 		{
 			int num = this.m_reader.ReadInt32();
 			if (num == -1)
@@ -1592,7 +1592,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return new CultureInfo(num, false);
 		}
 
-		internal List<T> ReadGenericListOfReferences<T>(IPersistable obj) where T : IReferenceable
+		public List<T> ReadGenericListOfReferences<T>(IPersistable obj) where T : IReferenceable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1611,7 +1611,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal int ReadListOfReferencesNoResolution(IPersistable obj)
+		public int ReadListOfReferencesNoResolution(IPersistable obj)
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1624,7 +1624,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return num;
 		}
 
-		internal T ReadListOfReferences<T, U>(IPersistable obj) where T : class, IList, new()where U : IReferenceable
+		public T ReadListOfReferences<T, U>(IPersistable obj) where T : class, IList, new()where U : IReferenceable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1643,7 +1643,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadReference<T>(IPersistable obj) where T : IReferenceable
+		public T ReadReference<T>(IPersistable obj) where T : IReferenceable
 		{
 			return this.ReadReference<T>(obj, false);
 		}
@@ -1676,7 +1676,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return default(T);
 		}
 
-		internal List<T> ReadGenericListOfGloablReferences<T>() where T : IGloballyReferenceable
+		public List<T> ReadGenericListOfGloablReferences<T>() where T : IGloballyReferenceable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1695,7 +1695,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadListOfGloablReferences<T, U>() where T : class, IList, new()where U : IGloballyReferenceable
+		public T ReadListOfGloablReferences<T, U>() where T : class, IList, new()where U : IGloballyReferenceable
 		{
 			int num = default(int);
 			if (this.m_reader.ReadListStart(this.m_currentMember.ObjectType, out num))
@@ -1714,7 +1714,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return null;
 		}
 
-		internal T ReadGlobalReference<T>() where T : IGloballyReferenceable
+		public T ReadGlobalReference<T>() where T : IGloballyReferenceable
 		{
 			IGloballyReferenceable globallyReferenceable = null;
 			int refID = default(int);
@@ -1726,7 +1726,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 			return (T)globallyReferenceable;
 		}
 
-		internal IntermediateFormatVersion ReadIntermediateFormatVersion()
+		public IntermediateFormatVersion ReadIntermediateFormatVersion()
 		{
 			long streamPosition = this.m_reader.StreamPosition;
 			ObjectType objectType = this.m_reader.ReadObjectType();

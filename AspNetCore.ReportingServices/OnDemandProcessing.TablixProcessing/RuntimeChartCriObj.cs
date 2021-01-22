@@ -8,21 +8,21 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal class RuntimeChartCriObj : RuntimeDataTablixObj
+	public class RuntimeChartCriObj : RuntimeDataTablixObj
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeChartCriObj.GetDeclaration();
 
-		internal RuntimeChartCriObj()
+		public RuntimeChartCriObj()
 		{
 		}
 
-		internal RuntimeChartCriObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeChartCriObj(IReference<IScope> outerScope, AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion dataRegionDef, ref DataActions dataAction, OnDemandProcessingContext odpContext, bool onePassProcess, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(outerScope, dataRegionDef, ref dataAction, odpContext, onePassProcess, objectType)
 		{
 		}
 
-		internal override RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion)
+		public override RuntimeDataTablixObjReference GetNestedDataRegion(AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion rifDataRegion)
 		{
 			Global.Tracer.Assert(false, "RuntimeChartCriObj cannot have nested data regions");
 			throw new InvalidOperationException();

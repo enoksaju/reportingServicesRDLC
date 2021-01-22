@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal Paragraphs Paragraphs
+		public Paragraphs Paragraphs
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal TextBoxImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.TextBox itemDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, IErrorContext iErrorContext)
+		public TextBoxImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.TextBox itemDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, IErrorContext iErrorContext)
 			: base(itemDef, reportRT, iErrorContext)
 		{
 			this.m_textBox = itemDef;
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return false;
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult GetResult(IReportScopeInstance romInstance, bool calledFromValue)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult GetResult(IReportScopeInstance romInstance, bool calledFromValue)
 		{
 			if (calledFromValue && !this.IsTextboxInScope())
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return this.m_result;
 		}
 
-		internal List<string> GetFieldsUsedInValueExpression(IReportScopeInstance romInstance)
+		public List<string> GetFieldsUsedInValueExpression(IReportScopeInstance romInstance)
 		{
 			if (!this.m_isValueReady)
 			{
@@ -197,7 +197,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return this.m_fieldsUsedInValueExpression;
 		}
 
-		internal override void Reset()
+		public override void Reset()
 		{
 			if (this.m_textBox.HasExpressionBasedValue)
 			{
@@ -206,12 +206,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal override void Reset(AspNetCore.ReportingServices.RdlExpressions.VariantResult value)
+		public override void Reset(AspNetCore.ReportingServices.RdlExpressions.VariantResult value)
 		{
 			this.SetResult(value);
 		}
 
-		internal void SetResult(AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
+		public void SetResult(AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
 		{
 			this.m_result = result;
 			this.m_isValueReady = true;

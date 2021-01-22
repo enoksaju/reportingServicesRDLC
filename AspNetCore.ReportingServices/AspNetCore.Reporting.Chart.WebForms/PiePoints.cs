@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum PiePoints
+	public enum PiePoints
 	{
 		Top180,
 		Bottom180,

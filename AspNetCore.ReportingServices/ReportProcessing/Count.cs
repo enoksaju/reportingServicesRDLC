@@ -1,15 +1,15 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class Count : DataAggregate
+	public sealed class Count : DataAggregate
 	{
 		private int m_currentTotal;
 
-		internal override void Init()
+		public override void Init()
 		{
 			this.m_currentTotal = 0;
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			Global.Tracer.Assert(null != expressions);
 			Global.Tracer.Assert(1 == expressions.Length);
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			return this.m_currentTotal;
 		}

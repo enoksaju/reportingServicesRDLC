@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal struct HLSColor
+	public struct HLSColor
 	{
 		private const int ShadowAdj = -333;
 

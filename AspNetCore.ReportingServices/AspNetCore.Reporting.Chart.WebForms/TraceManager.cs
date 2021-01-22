@@ -3,13 +3,13 @@ using System.ComponentModel.Design;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class TraceManager : IServiceProvider
+	public class TraceManager : IServiceProvider
 	{
-		internal IServiceContainer serviceContainer;
+		public IServiceContainer serviceContainer;
 
 		private ITraceContext traceContext;
 
-		internal ITraceContext TraceContext
+		public ITraceContext TraceContext
 		{
 			get
 			{

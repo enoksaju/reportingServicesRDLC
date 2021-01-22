@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_PageSz : OoxmlComplexType, IOoxmlComplexType
+	public class CT_PageSz : OoxmlComplexType, IOoxmlComplexType
 	{
 		private string _w_attr;
 

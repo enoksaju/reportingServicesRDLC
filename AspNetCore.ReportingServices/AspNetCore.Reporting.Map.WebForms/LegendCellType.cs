@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum LegendCellType
+	public enum LegendCellType
 	{
 		Text,
 		Symbol,

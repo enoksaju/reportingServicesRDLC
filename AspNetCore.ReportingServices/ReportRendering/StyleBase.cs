@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal abstract class StyleBase
+	public abstract class StyleBase
 	{
 		protected const int StyleAttributeCount = 42;
 
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 		protected const string NumeralVariant = "NumeralVariant";
 
-		internal RenderingContext m_renderingContext;
+		public RenderingContext m_renderingContext;
 
 		protected StyleProperties m_sharedProperties;
 
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_isCustomControlGenerated = true;
 		}
 
-		internal StyleBase(RenderingContext context)
+		public StyleBase(RenderingContext context)
 		{
 			this.m_isCustomControlGenerated = false;
 			this.m_renderingContext = context;
@@ -246,7 +246,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return new StyleEnumerator(this.m_sharedProperties, this.m_nonSharedProperties);
 		}
 
-		internal static object GetStyleValueBase(string styleName, AspNetCore.ReportingServices.ReportProcessing.Style styleDef, object[] styleAttributeValues)
+		public static object GetStyleValueBase(string styleName, AspNetCore.ReportingServices.ReportProcessing.Style styleDef, object[] styleAttributeValues)
 		{
 			if (styleDef != null)
 			{
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return null;
 		}
 
-		internal static object CreateStyleProperty(string styleName, object styleValue)
+		public static object CreateStyleProperty(string styleName, object styleValue)
 		{
 			switch (styleName)
 			{
@@ -332,9 +332,9 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal abstract object GetStyleAttributeValue(string styleName, AttributeInfo attribute);
+		public abstract object GetStyleAttributeValue(string styleName, AttributeInfo attribute);
 
-		internal bool GetBackgroundImageSource(AttributeInfo sourceAttribute, out Image.SourceType imageSource)
+		public bool GetBackgroundImageSource(AttributeInfo sourceAttribute, out Image.SourceType imageSource)
 		{
 			if (sourceAttribute == null)
 			{
@@ -346,7 +346,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return true;
 		}
 
-		internal bool GetBackgroundImageValue(AttributeInfo valueAttribute, out object imageValue, out bool isExpression)
+		public bool GetBackgroundImageValue(AttributeInfo valueAttribute, out object imageValue, out bool isExpression)
 		{
 			if (valueAttribute == null)
 			{
@@ -359,7 +359,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return true;
 		}
 
-		internal bool GetBackgroundImageMIMEType(AttributeInfo mimeTypeAttribute, out object mimeType, out bool isExpression)
+		public bool GetBackgroundImageMIMEType(AttributeInfo mimeTypeAttribute, out object mimeType, out bool isExpression)
 		{
 			if (mimeTypeAttribute == null)
 			{
@@ -372,7 +372,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return true;
 		}
 
-		internal bool GetBackgroundImageRepeat(AttributeInfo repeatAttribute, out object repeat, out bool isExpression)
+		public bool GetBackgroundImageRepeat(AttributeInfo repeatAttribute, out object repeat, out bool isExpression)
 		{
 			if (repeatAttribute == null)
 			{
@@ -385,14 +385,14 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return true;
 		}
 
-		internal bool GetBackgroundImageProperties(AttributeInfo sourceAttribute, AttributeInfo valueAttribute, AttributeInfo mimeTypeAttribute, out Image.SourceType imageSource, out object imageValue, out bool isValueExpression, out object mimeType, out bool isMimeTypeExpression)
+		public bool GetBackgroundImageProperties(AttributeInfo sourceAttribute, AttributeInfo valueAttribute, AttributeInfo mimeTypeAttribute, out Image.SourceType imageSource, out object imageValue, out bool isValueExpression, out object mimeType, out bool isMimeTypeExpression)
 		{
 			this.GetBackgroundImageValue(valueAttribute, out imageValue, out isValueExpression);
 			this.GetBackgroundImageMIMEType(mimeTypeAttribute, out mimeType, out isMimeTypeExpression);
 			return this.GetBackgroundImageSource(sourceAttribute, out imageSource);
 		}
 
-		internal bool GetBackgroundImageProperties(AttributeInfo sourceAttribute, AttributeInfo valueAttribute, AttributeInfo mimeTypeAttribute, AttributeInfo repeatAttribute, out Image.SourceType imageSource, out object imageValue, out bool isValueExpression, out object mimeType, out bool isMimeTypeExpression, out object repeat, out bool isRepeatExpression)
+		public bool GetBackgroundImageProperties(AttributeInfo sourceAttribute, AttributeInfo valueAttribute, AttributeInfo mimeTypeAttribute, AttributeInfo repeatAttribute, out Image.SourceType imageSource, out object imageValue, out bool isValueExpression, out object mimeType, out bool isMimeTypeExpression, out object repeat, out bool isRepeatExpression)
 		{
 			this.GetBackgroundImageValue(valueAttribute, out imageValue, out isValueExpression);
 			this.GetBackgroundImageMIMEType(mimeTypeAttribute, out mimeType, out isMimeTypeExpression);
@@ -517,7 +517,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal void AddStyleProperty(string styleName, bool isExpression, bool needNonSharedProps, bool needSharedProps, object styleProperty)
+		public void AddStyleProperty(string styleName, bool isExpression, bool needNonSharedProps, bool needSharedProps, object styleProperty)
 		{
 			if (isExpression)
 			{
@@ -540,7 +540,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal void SetStyleProperty(string styleName, bool isExpression, bool needNonSharedProps, bool needSharedProps, object styleProperty)
+		public void SetStyleProperty(string styleName, bool isExpression, bool needNonSharedProps, bool needSharedProps, object styleProperty)
 		{
 			if (isExpression)
 			{
@@ -563,9 +563,9 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal abstract void PopulateStyleProperties(bool populateAll);
+		public abstract void PopulateStyleProperties(bool populateAll);
 
-		internal void ExtractRenderStyles(out DataValueInstanceList sharedStyles, out DataValueInstanceList nonSharedStyles)
+		public void ExtractRenderStyles(out DataValueInstanceList sharedStyles, out DataValueInstanceList nonSharedStyles)
 		{
 			sharedStyles = null;
 			nonSharedStyles = null;

@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ComponentLibraryUpgrader
+	public sealed class ComponentLibraryUpgrader
 	{
 		private class ReportPartsUpgrader
 		{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 				}
 			}
 
-			internal Stream UpgradeToCurrent(Stream stream, ref Stream outStream)
+			public Stream UpgradeToCurrent(Stream stream, ref Stream outStream)
 			{
 				XmlDocument xmlDocument = this.LoadDefinition(stream);
 				XmlElement documentElement = xmlDocument.DocumentElement;
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static Stream UpgradeToCurrent(Stream stream, ref Stream outStream)
+		public static Stream UpgradeToCurrent(Stream stream, ref Stream outStream)
 		{
 			if (stream == null)
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return reportPartsUpgrader.UpgradeToCurrent(stream, ref outStream);
 		}
 
-		internal static byte[] UpgradeToCurrent(byte[] definition)
+		public static byte[] UpgradeToCurrent(byte[] definition)
 		{
 			byte[] array = null;
 			Stream stream = new MemoryStream(definition);

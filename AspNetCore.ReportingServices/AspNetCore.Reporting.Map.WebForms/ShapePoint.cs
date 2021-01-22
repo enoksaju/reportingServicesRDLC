@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class ShapePoint
+	public class ShapePoint
 	{
 		public double X;
 

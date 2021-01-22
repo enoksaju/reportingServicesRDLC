@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum ValueType
+	public enum ValueType
 	{
 		Constant,
 		ThemeReference

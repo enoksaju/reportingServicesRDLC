@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class DataSet
+	public sealed class DataSet
 	{
 		private FieldCollection m_fields;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet DataSetDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet DataSetDef
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RenderingContext RenderingContext
+		public RenderingContext RenderingContext
 		{
 			get
 			{
@@ -64,13 +64,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetDef, RenderingContext renderingContext)
+		public DataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSetDef, RenderingContext renderingContext)
 		{
 			this.m_dataSetDef = dataSetDef;
 			this.m_renderingContext = renderingContext;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

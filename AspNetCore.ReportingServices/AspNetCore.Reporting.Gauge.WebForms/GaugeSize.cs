@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal sealed class GaugeSize : GaugeObject, ICloneable
+	public sealed class GaugeSize : GaugeObject, ICloneable
 	{
 		private SizeF size = new SizeF(100f, 100f);
 
@@ -61,7 +61,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool DefaultValues
+		public bool DefaultValues
 		{
 			get
 			{
@@ -78,19 +78,19 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal GaugeSize(object parent)
+		public GaugeSize(object parent)
 			: base(parent)
 		{
 		}
 
-		internal GaugeSize(object parent, float width, float height)
+		public GaugeSize(object parent, float width, float height)
 			: this(parent)
 		{
 			this.Width = Math.Max(width, 0f);
 			this.Height = Math.Max(height, 0f);
 		}
 
-		internal GaugeSize(object parent, SizeF size)
+		public GaugeSize(object parent, SizeF size)
 			: this(parent)
 		{
 			this.Width = size.Width;

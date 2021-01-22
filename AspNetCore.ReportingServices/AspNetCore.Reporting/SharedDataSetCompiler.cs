@@ -4,5 +4,5 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.Reporting
 {
-	internal delegate DataSetPublishingResult SharedDataSetCompiler(DataSetInfo dataSetInfo, ICatalogItemContext dataSetContext);
+	public delegate DataSetPublishingResult SharedDataSetCompiler(DataSetInfo dataSetInfo, ICatalogItemContext dataSetContext);
 }

@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class ParagraphFormat : Format
+	public class ParagraphFormat : Format
 	{
 		private const int MaxPapSprmSize = 493;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private int m_fcStart;
 
-		internal short StyleIndex
+		public short StyleIndex
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal Stream Stream
+		public Stream Stream
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal List<int> Offsets
+		public List<int> Offsets
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal ParagraphFormat(Stream papTable, int fcStart)
+		public ParagraphFormat(Stream papTable, int fcStart)
 			: base(493, 2)
 		{
 			this.m_papTable = papTable;
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			LittleEndian.PutInt(this.m_papFkp, this.m_fcStart);
 		}
 
-		internal void CommitParagraph(int cpEnd, TableData currentRow, Stream dataStream)
+		public void CommitParagraph(int cpEnd, TableData currentRow, Stream dataStream)
 		{
 			byte[] array = base.m_grpprl.Buf;
 			int num = base.m_grpprl.Offset;
@@ -148,19 +148,19 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			return true;
 		}
 
-		internal void Finish(int lastCp)
+		public void Finish(int lastCp)
 		{
 			this.m_papOffsets.Add(lastCp * 2 + this.m_fcStart);
 			this.m_papTable.Write(this.m_papFkp, 0, this.m_papFkp.Length);
 		}
 
-		internal void SetIsInTable(int m_nestingLevel)
+		public void SetIsInTable(int m_nestingLevel)
 		{
 			base.m_grpprl.AddSprm(9238, 1, null);
 			base.m_grpprl.AddSprm(26185, m_nestingLevel, null);
 		}
 
-		internal void WriteBinTableTo(BinaryWriter tableWriter, ref int pageStart)
+		public void WriteBinTableTo(BinaryWriter tableWriter, ref int pageStart)
 		{
 			foreach (int papOffset in this.m_papOffsets)
 			{

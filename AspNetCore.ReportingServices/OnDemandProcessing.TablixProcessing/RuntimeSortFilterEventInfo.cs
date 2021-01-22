@@ -10,10 +10,10 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeSortFilterEventInfo : IStorable, IPersistable, ISelfReferential
+	public sealed class RuntimeSortFilterEventInfo : IStorable, IPersistable, ISelfReferential
 	{
 		[PersistedWithinRequestOnly]
-		internal class SortFilterExpressionScopeObj : IHierarchyObj, IStorable, IPersistable
+		public class SortFilterExpressionScopeObj : IHierarchyObj, IStorable, IPersistable
 		{
 			private ScalableList<IReference<RuntimeDataRegionObj>> m_scopeInstances;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				}
 			}
 
-			internal int CurrentScopeInstanceIndex
+			public int CurrentScopeInstanceIndex
 			{
 				get
 				{
@@ -107,11 +107,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				}
 			}
 
-			internal SortFilterExpressionScopeObj()
+			public SortFilterExpressionScopeObj()
 			{
 			}
 
-			internal SortFilterExpressionScopeObj(IReference<RuntimeSortFilterEventInfo> owner, OnDemandProcessingContext odpContext, int depth)
+			public SortFilterExpressionScopeObj(IReference<RuntimeSortFilterEventInfo> owner, OnDemandProcessingContext odpContext, int depth)
 			{
 				this.m_scopeInstances = new ScalableList<IReference<RuntimeDataRegionObj>>(depth, odpContext.TablixProcessingScalabilityCache);
 				this.m_scopeValuesList = new ScalableList<SortScopeValuesHolder>(depth, odpContext.TablixProcessingScalabilityCache);
@@ -162,13 +162,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				Global.Tracer.Assert(false);
 			}
 
-			internal void RegisterScopeInstance(IReference<RuntimeDataRegionObj> scopeObj, List<object>[] scopeValues)
+			public void RegisterScopeInstance(IReference<RuntimeDataRegionObj> scopeObj, List<object>[] scopeValues)
 			{
 				this.m_scopeInstances.Add(scopeObj);
 				this.m_scopeValuesList.Add(new SortScopeValuesHolder(scopeValues));
 			}
 
-			internal void SortSEScopes(OnDemandProcessingContext odpContext, IInScopeEventSource eventSource)
+			public void SortSEScopes(OnDemandProcessingContext odpContext, IInScopeEventSource eventSource)
 			{
 				this.m_sortTree = new BTree(this, odpContext, this.Depth + 1);
 				for (int i = 0; i < this.m_scopeInstances.Count; i++)
@@ -184,7 +184,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				}
 			}
 
-			internal void AddSortOrder(RuntimeSortFilterEventInfo owner, int scopeInstanceIndex, bool incrementCounter)
+			public void AddSortOrder(RuntimeSortFilterEventInfo owner, int scopeInstanceIndex, bool incrementCounter)
 			{
 				owner.AddSortOrder(this.m_scopeValuesList[scopeInstanceIndex].Values, incrementCounter);
 			}
@@ -250,7 +250,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.SortFilterExpressionScopeObj;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (SortFilterExpressionScopeObj.m_declaration == null)
 				{
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		}
 
 		[PersistedWithinRequestOnly]
-		internal class SortScopeValuesHolder : IStorable, IPersistable
+		public class SortScopeValuesHolder : IStorable, IPersistable
 		{
 			private List<object>[] m_values;
 
@@ -341,7 +341,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.SortScopeValuesHolder;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (SortScopeValuesHolder.m_declaration == null)
 				{
@@ -354,7 +354,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 		}
 
 		[PersistedWithinRequestOnly]
-		internal class SortExpressionScopeInstanceHolder : IHierarchyObj, IStorable, IPersistable
+		public class SortExpressionScopeInstanceHolder : IHierarchyObj, IStorable, IPersistable
 		{
 			private List<int> m_scopeInstanceIndices;
 
@@ -433,11 +433,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				}
 			}
 
-			internal SortExpressionScopeInstanceHolder()
+			public SortExpressionScopeInstanceHolder()
 			{
 			}
 
-			internal SortExpressionScopeInstanceHolder(OnDemandProcessingContext odpContext)
+			public SortExpressionScopeInstanceHolder(OnDemandProcessingContext odpContext)
 			{
 				this.m_scopeInstanceIndices = new List<int>();
 			}
@@ -543,7 +543,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 				return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.SortExpressionScopeInstanceHolder;
 			}
 
-			internal static Declaration GetDeclaration()
+			public static Declaration GetDeclaration()
 			{
 				if (SortExpressionScopeInstanceHolder.m_declaration == null)
 				{
@@ -609,7 +609,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private static Declaration m_declaration = RuntimeSortFilterEventInfo.GetDeclaration();
 
-		internal IInScopeEventSource EventSource
+		public IInScopeEventSource EventSource
 		{
 			get
 			{
@@ -617,7 +617,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool HasEventSourceScope
+		public bool HasEventSourceScope
 		{
 			get
 			{
@@ -629,7 +629,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool HasDetailScopeInfo
+		public bool HasDetailScopeInfo
 		{
 			get
 			{
@@ -641,7 +641,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal int EventSourceColDetailIndex
+		public int EventSourceColDetailIndex
 		{
 			get
 			{
@@ -653,7 +653,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal int EventSourceRowDetailIndex
+		public int EventSourceRowDetailIndex
 		{
 			get
 			{
@@ -665,7 +665,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<IReference<RuntimeDataRegionObj>> DetailRowScopes
+		public List<IReference<RuntimeDataRegionObj>> DetailRowScopes
 		{
 			get
 			{
@@ -677,7 +677,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<IReference<RuntimeDataRegionObj>> DetailColScopes
+		public List<IReference<RuntimeDataRegionObj>> DetailColScopes
 		{
 			get
 			{
@@ -689,7 +689,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<int> DetailRowScopeIndices
+		public List<int> DetailRowScopeIndices
 		{
 			get
 			{
@@ -701,7 +701,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<int> DetailColScopeIndices
+		public List<int> DetailColScopeIndices
 		{
 			get
 			{
@@ -713,7 +713,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool SortDirection
+		public bool SortDirection
 		{
 			get
 			{
@@ -725,7 +725,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<object>[] SortSourceScopeInfo
+		public List<object>[] SortSourceScopeInfo
 		{
 			get
 			{
@@ -733,7 +733,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal IReference<IHierarchyObj> EventTarget
+		public IReference<IHierarchyObj> EventTarget
 		{
 			get
 			{
@@ -745,7 +745,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool TargetSortFilterInfoAdded
+		public bool TargetSortFilterInfoAdded
 		{
 			get
 			{
@@ -757,7 +757,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool Processed
+		public bool Processed
 		{
 			get
 			{
@@ -769,7 +769,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal string OldUniqueName
+		public string OldUniqueName
 		{
 			get
 			{
@@ -777,7 +777,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal string NewUniqueName
+		public string NewUniqueName
 		{
 			get
 			{
@@ -789,7 +789,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal Hashtable PeerSortFilters
+		public Hashtable PeerSortFilters
 		{
 			get
 			{
@@ -801,7 +801,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal IReference<RuntimeSortFilterEventInfo> SelfReference
+		public IReference<RuntimeSortFilterEventInfo> SelfReference
 		{
 			get
 			{
@@ -817,11 +817,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeSortFilterEventInfo()
+		public RuntimeSortFilterEventInfo()
 		{
 		}
 
-		internal RuntimeSortFilterEventInfo(IInScopeEventSource eventSource, string oldUniqueName, bool sortDirection, List<object>[] sortSourceScopeInfo, OnDemandProcessingContext odpContext, int depth)
+		public RuntimeSortFilterEventInfo(IInScopeEventSource eventSource, string oldUniqueName, bool sortDirection, List<object>[] sortSourceScopeInfo, OnDemandProcessingContext odpContext, int depth)
 		{
 			this.m_depth = depth;
 			odpContext.TablixProcessingScalabilityCache.AllocateAndPin(this, this.m_depth);
@@ -831,7 +831,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_sortSourceScopeInfo = sortSourceScopeInfo;
 		}
 
-		internal IReference<IScope> GetEventSourceScope(bool isColumnAxis)
+		public IReference<IScope> GetEventSourceScope(bool isColumnAxis)
 		{
 			if (!isColumnAxis)
 			{
@@ -840,7 +840,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return this.m_eventSourceColScope;
 		}
 
-		internal void SetEventSourceScope(bool isColumnAxis, IReference<IScope> eventSourceScope, int rowIndex)
+		public void SetEventSourceScope(bool isColumnAxis, IReference<IScope> eventSourceScope, int rowIndex)
 		{
 			if (isColumnAxis)
 			{
@@ -856,7 +856,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void UpdateEventSourceScope(bool isColumnAxis, IReference<IScope> eventSourceScope, int rootRowCount)
+		public void UpdateEventSourceScope(bool isColumnAxis, IReference<IScope> eventSourceScope, int rootRowCount)
 		{
 			if (isColumnAxis)
 			{
@@ -870,7 +870,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void AddDetailScopeInfo(bool isColumnAxis, RuntimeDataRegionObjReference dataRegionReference, int detailRowIndex)
+		public void AddDetailScopeInfo(bool isColumnAxis, RuntimeDataRegionObjReference dataRegionReference, int detailRowIndex)
 		{
 			if (this.m_detailRowScopes == null)
 			{
@@ -891,7 +891,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void UpdateDetailScopeInfo(RuntimeGroupRootObj detailRoot, bool isColumnAxis, int rootRowCount, RuntimeDataRegionObjReference selfReference)
+		public void UpdateDetailScopeInfo(RuntimeGroupRootObj detailRoot, bool isColumnAxis, int rootRowCount, RuntimeDataRegionObjReference selfReference)
 		{
 			List<IReference<RuntimeDataRegionObj>> list;
 			List<int> list2;
@@ -917,7 +917,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void RegisterSortFilterExpressionScope(ref int containerSortFilterExprScopeIndex, IReference<RuntimeDataRegionObj> scopeObj, List<object>[] scopeValues, int sortFilterInfoIndex)
+		public void RegisterSortFilterExpressionScope(ref int containerSortFilterExprScopeIndex, IReference<RuntimeDataRegionObj> scopeObj, List<object>[] scopeValues, int sortFilterInfoIndex)
 		{
 			if (this.m_eventTarget != null && !this.m_targetSortFilterInfoAdded)
 			{
@@ -944,7 +944,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			sortFilterExpressionScopeObj.RegisterScopeInstance(scopeObj, scopeValues);
 		}
 
-		internal void PrepareForSorting(OnDemandProcessingContext odpContext)
+		public void PrepareForSorting(OnDemandProcessingContext odpContext)
 		{
 			Global.Tracer.Assert(!this.m_processed, "(!m_processed)");
 			if (this.m_eventTarget != null && this.m_sortFilterExpressionScopeObjects != null)
@@ -984,7 +984,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			this.m_sortFilterExpressionScopeObjects = null;
 		}
 
-		internal bool ProcessSorting(OnDemandProcessingContext odpContext)
+		public bool ProcessSorting(OnDemandProcessingContext odpContext)
 		{
 			Global.Tracer.Assert(!this.m_processed, "(!m_processed)");
 			if (this.m_eventTarget == null)
@@ -1035,7 +1035,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal object GetSortOrder(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
+		public object GetSortOrder(AspNetCore.ReportingServices.RdlExpressions.ReportRuntime runtime)
 		{
 			object obj = null;
 			if (this.m_eventSource.UserSort.SortExpressionScope == null)
@@ -1124,7 +1124,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return obj;
 		}
 
-		internal void MatchEventSource(IInScopeEventSource eventSource, string eventSourceUniqueNameString, IScope containingScope, OnDemandProcessingContext odpContext)
+		public void MatchEventSource(IInScopeEventSource eventSource, string eventSourceUniqueNameString, IScope containingScope, OnDemandProcessingContext odpContext)
 		{
 			bool flag = false;
 			if (!(containingScope is RuntimeCell))

@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CodeClassList : ArrayList
+	public sealed class CodeClassList : ArrayList
 	{
-		internal new CodeClass this[int index]
+		public new CodeClass this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CodeClassList()
+		public CodeClassList()
 		{
 		}
 
-		internal CodeClassList(int capacity)
+		public CodeClassList(int capacity)
 			: base(capacity)
 		{
 		}

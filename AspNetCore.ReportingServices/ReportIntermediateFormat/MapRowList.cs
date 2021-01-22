@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class MapRowList : RowList
+	public sealed class MapRowList : RowList
 	{
-		internal new MapRow this[int index]
+		public new MapRow this[int index]
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal MapRowList(int capacity)
+		public MapRowList(int capacity)
 			: base(capacity)
 		{
 		}

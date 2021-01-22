@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class DataCellInstanceList : List<DataCellInstance>, IStorable, IPersistable
+	public class DataCellInstanceList : List<DataCellInstance>, IStorable, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DataCellInstanceList.GetDeclaration();
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Items, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataCellInstance));

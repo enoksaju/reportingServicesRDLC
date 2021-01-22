@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal sealed class IdcDataManager : LinearIdcDataManager
+	public sealed class IdcDataManager : LinearIdcDataManager
 	{
 		private readonly IRIFReportDataScope m_idcReportDataScope;
 
@@ -28,12 +28,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return activeRelationship;
 		}
 
-		internal void SetSkippingFilter(List<AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo> expressions, List<object> values)
+		public void SetSkippingFilter(List<AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo> expressions, List<object> values)
 		{
 			base.m_skippingFilter = new RowSkippingFilter(base.m_odpContext, this.m_idcReportDataScope, expressions, values);
 		}
 
-		internal void ClearSkippingFilter()
+		public void ClearSkippingFilter()
 		{
 			base.m_skippingFilter = null;
 		}

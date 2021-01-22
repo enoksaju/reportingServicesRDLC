@@ -5,7 +5,7 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GdiGraphics : IGaugeRenderingEngine
+	public class GdiGraphics : IGaugeRenderingEngine
 	{
 		private Graphics graphics;
 

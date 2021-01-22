@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimChartMemberCollection : ChartMemberCollection
+	public sealed class ShimChartMemberCollection : ChartMemberCollection
 	{
 		private bool m_isDynamic;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimChartMemberCollection(IDefinitionPath parentDefinitionPath, Chart owner, bool isCategoryGroup, ShimChartMember parent, AspNetCore.ReportingServices.ReportRendering.ChartMemberCollection renderMemberCollection)
+		public ShimChartMemberCollection(IDefinitionPath parentDefinitionPath, Chart owner, bool isCategoryGroup, ShimChartMember parent, AspNetCore.ReportingServices.ReportRendering.ChartMemberCollection renderMemberCollection)
 			: base(parentDefinitionPath, owner)
 		{
 			this.m_isCategoryGroup = isCategoryGroup;
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_definitionEndIndex = owner.GetCurrentMemberCellDefinitionIndex();
 		}
 
-		internal void UpdateContext()
+		public void UpdateContext()
 		{
 			if (base.m_children != null)
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void ResetContext(AspNetCore.ReportingServices.ReportRendering.ChartMemberCollection newRenderMemberCollection)
+		public void ResetContext(AspNetCore.ReportingServices.ReportRendering.ChartMemberCollection newRenderMemberCollection)
 		{
 			if (base.m_children != null)
 			{

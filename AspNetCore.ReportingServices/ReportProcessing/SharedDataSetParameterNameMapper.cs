@@ -5,9 +5,9 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class SharedDataSetParameterNameMapper
+	public sealed class SharedDataSetParameterNameMapper
 	{
-		internal static void MakeUnique(List<AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue> queryParameters)
+		public static void MakeUnique(List<AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterValue> queryParameters)
 		{
 			if (queryParameters != null)
 			{

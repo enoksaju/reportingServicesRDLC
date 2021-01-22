@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[Serializable]
-	internal class ArgumentConstraintException : ArgumentException
+	public class ArgumentConstraintException : ArgumentException
 	{
 		private object m_component;
 

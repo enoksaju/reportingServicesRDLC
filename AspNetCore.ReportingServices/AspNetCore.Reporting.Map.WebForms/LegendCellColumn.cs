@@ -5,7 +5,7 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[Description("Represents a column in the map legend.")]
-	internal class LegendCellColumn : NamedElement, IToolTipProvider, IImageMapProvider
+	public class LegendCellColumn : NamedElement, IToolTipProvider, IImageMapProvider
 	{
 		private Legend legend;
 
@@ -51,7 +51,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[Description("Legend column type of the items automatically generated.")]
 		[Category("Series Items")]
 		[DefaultValue(LegendCellColumnType.Text)]
-		internal virtual LegendCellColumnType ColumnType
+		public virtual LegendCellColumnType ColumnType
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[Category("Series Items")]
 		[DefaultValue("#LEGENDTEXT")]
 		[Description("Legend column text of the items automatically generated. Set ColumnType to Text to use this property.")]
-		internal virtual string Text
+		public virtual string Text
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[Description("Legend column text color.")]
 		[Category("Series Items")]
 		[DefaultValue(typeof(Color), "")]
-		internal virtual Color TextColor
+		public virtual Color TextColor
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[Category("Series Items")]
 		[DefaultValue(typeof(Color), "")]
 		[Description("Legend column back color.")]
-		internal virtual Color BackColor
+		public virtual Color BackColor
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[Description("Legend column text font.")]
 		[Category("Series Items")]
 		[DefaultValue(null)]
-		internal virtual Font Font
+		public virtual Font Font
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[DefaultValue(typeof(Size), "200, 70")]
 		[Category("Series Items")]
 		[Description("Legend column symbol size (as a percentage of legend font size). This is only applicable to items that are automatically generated.")]
-		internal virtual Size SeriesSymbolSize
+		public virtual Size SeriesSymbolSize
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[Description("Legend column content alignment of the items automatically generated.")]
 		[DefaultValue(ContentAlignment.MiddleCenter)]
 		[Category("Series Items")]
-		internal virtual ContentAlignment Alignment
+		public virtual ContentAlignment Alignment
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		[SerializationVisibility(SerializationVisibility.Attribute)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		[Category("Series Items")]
-		internal virtual Margins Margins
+		public virtual Margins Margins
 		{
 			get
 			{
@@ -389,7 +389,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override string DefaultName
+		public override string DefaultName
 		{
 			get
 			{
@@ -397,7 +397,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -457,7 +457,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return true;
 		}
 
-		internal LegendCell CreateNewCell()
+		public LegendCell CreateNewCell()
 		{
 			LegendCell legendCell = new LegendCell();
 			legendCell.CellType = (LegendCellType)((this.ColumnType == LegendCellColumnType.Symbol) ? 1 : 0);
@@ -471,7 +471,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return legendCell;
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			if (this.legend != null)
 			{
@@ -484,7 +484,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.legend;
 		}
 
-		internal void SetContainingLegend(Legend legend)
+		public void SetContainingLegend(Legend legend)
 		{
 			this.legend = legend;
 			if (this.legend != null)

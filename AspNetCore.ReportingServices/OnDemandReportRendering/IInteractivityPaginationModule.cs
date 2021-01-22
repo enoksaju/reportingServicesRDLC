@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IInteractivityPaginationModule
+	public interface IInteractivityPaginationModule
 	{
 		int ProcessFindStringEvent(Report report, int totalPages, int startPage, int endPage, string findValue);
 

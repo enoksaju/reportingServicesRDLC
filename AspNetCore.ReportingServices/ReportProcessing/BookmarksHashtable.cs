@@ -3,9 +3,9 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class BookmarksHashtable : HashtableInstanceInfo
+	public sealed class BookmarksHashtable : HashtableInstanceInfo
 	{
-		internal BookmarkInformation this[string key]
+		public BookmarkInformation this[string key]
 		{
 			get
 			{
@@ -17,21 +17,21 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal BookmarksHashtable()
+		public BookmarksHashtable()
 		{
 		}
 
-		internal BookmarksHashtable(int capacity)
+		public BookmarksHashtable(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(string bookmark, BookmarkInformation bookmarkInfo)
+		public void Add(string bookmark, BookmarkInformation bookmarkInfo)
 		{
 			base.m_hashtable.Add(bookmark, bookmarkInfo);
 		}
 
-		internal void Add(string bookmark, int page, string id)
+		public void Add(string bookmark, int page, string id)
 		{
 			BookmarkInformation bookmarkInformation = null;
 			if (base.m_hashtable.Contains(bookmark))

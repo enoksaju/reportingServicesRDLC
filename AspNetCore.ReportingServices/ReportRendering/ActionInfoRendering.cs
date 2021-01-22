@@ -2,21 +2,21 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ActionInfoRendering : MemberBase
+	public sealed class ActionInfoRendering : MemberBase
 	{
-		internal AspNetCore.ReportingServices.ReportProcessing.Action m_actionInfoDef;
+		public AspNetCore.ReportingServices.ReportProcessing.Action m_actionInfoDef;
 
-		internal ActionInstance m_actionInfoInstance;
+		public ActionInstance m_actionInfoInstance;
 
-		internal RenderingContext m_renderingContext;
+		public RenderingContext m_renderingContext;
 
-		internal ActionStyle m_style;
+		public ActionStyle m_style;
 
-		internal ActionCollection m_actionCollection;
+		public ActionCollection m_actionCollection;
 
-		internal string m_ownerUniqueName;
+		public string m_ownerUniqueName;
 
-		internal ActionInfoRendering()
+		public ActionInfoRendering()
 			: base(false)
 		{
 		}

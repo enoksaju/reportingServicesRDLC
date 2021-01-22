@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapAntiAliasing
+	public enum MapAntiAliasing
 	{
 		All,
 		None,

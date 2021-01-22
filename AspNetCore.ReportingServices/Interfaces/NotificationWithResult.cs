@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal abstract class NotificationWithResult : Notification
+	public abstract class NotificationWithResult : Notification
 	{
 		public abstract string SubscriptionResult
 		{

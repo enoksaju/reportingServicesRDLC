@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapMarkerRule : MapAppearanceRule
+	public class MapMarkerRule : MapAppearanceRule
 	{
-		internal new class Definition : DefinitionStore<MapMarkerRule, Definition.Properties>
+		public new class Definition : DefinitionStore<MapMarkerRule, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataValue,
 				DistributionType,
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapMarkerRule(IPropertyStore propertyStore)
+		public MapMarkerRule(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

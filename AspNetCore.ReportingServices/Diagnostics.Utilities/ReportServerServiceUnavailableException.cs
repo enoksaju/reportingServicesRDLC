@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ReportServerServiceUnavailableException : ReportCatalogException
+	public sealed class ReportServerServiceUnavailableException : ReportCatalogException
 	{
 		public ReportServerServiceUnavailableException(string serviceName)
 			: base(ErrorCode.rsReportServerServiceUnavailable, ErrorStrings.rsReportServerServiceUnavailable(serviceName), null, null)

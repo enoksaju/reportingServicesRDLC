@@ -8,13 +8,13 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class CoreSpatialElementManager
+	public abstract class CoreSpatialElementManager
 	{
 		protected MapControl m_coreMap;
 
 		protected MapVectorLayer m_mapVectorLayer;
 
-		internal abstract AspNetCore.Reporting.Map.WebForms.FieldCollection FieldDefinitions
+		public abstract AspNetCore.Reporting.Map.WebForms.FieldCollection FieldDefinitions
 		{
 			get;
 		}
@@ -24,13 +24,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal CoreSpatialElementManager(MapControl coreMap, MapVectorLayer mapVectorLayer)
+		public CoreSpatialElementManager(MapControl coreMap, MapVectorLayer mapVectorLayer)
 		{
 			this.m_coreMap = coreMap;
 			this.m_mapVectorLayer = mapVectorLayer;
 		}
         /*
-		internal ISpatialElement AddGeography(SqlGeography geography, string layerName)
+		public ISpatialElement AddGeography(SqlGeography geography, string layerName)
 		{
 			if (geography == null)
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return spatialElement;
 		}
         
-		internal ISpatialElement AddGeometry(SqlGeometry geometry, string layerName)
+		public ISpatialElement AddGeometry(SqlGeometry geometry, string layerName)
 		{
 			if (geometry == null)
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
        */
-        internal ISpatialElement AddWKB(string wkb, string layerName)
+        public ISpatialElement AddWKB(string wkb, string layerName)
 		{
 			ISpatialElement spatialElement = this.CreateSpatialElement();
 			spatialElement.Layer = layerName;
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return null;
 		}
 
-		internal static Type GetFieldType(object value)
+		public static Type GetFieldType(object value)
 		{
 			Type type = value.GetType();
 			switch (Type.GetTypeCode(type))
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void AddFieldDefinition(string fieldName, Type type)
+		public void AddFieldDefinition(string fieldName, Type type)
 		{
 			AspNetCore.Reporting.Map.WebForms.Field field = new AspNetCore.Reporting.Map.WebForms.Field();
 			field.Name = fieldName;
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.FieldDefinitions.Add(field);
 		}
 
-		internal void AddFieldValue(ISpatialElement spatialElement, string fieldName, object value)
+		public void AddFieldValue(ISpatialElement spatialElement, string fieldName, object value)
 		{
 			try
 			{
@@ -139,7 +139,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal string AddRuleField(object dataValue)
+		public string AddRuleField(object dataValue)
 		{
 			string text = this.GenerateUniqueFieldName();
 			this.AddFieldDefinition(text, CoreSpatialElementManager.GetFieldType(dataValue));
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return text;
 		}
 
-		internal int GetSpatialElementCount()
+		public int GetSpatialElementCount()
 		{
 			int num = 0;
 			foreach (ISpatialElement spatialElement in this.SpatialElements)
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return num;
 		}
 
-		internal int GetDistinctValuesCount(string fieldName)
+		public int GetDistinctValuesCount(string fieldName)
 		{
 			NamedCollection spatialElements = this.SpatialElements;
 			Dictionary<object, object> dictionary = new Dictionary<object, object>();
@@ -194,10 +194,10 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return dictionary.Count;
 		}
 
-		internal abstract void AddSpatialElement(ISpatialElement spatialElement);
+		public abstract void AddSpatialElement(ISpatialElement spatialElement);
 
-		internal abstract void RemoveSpatialElement(ISpatialElement spatialElement);
+		public abstract void RemoveSpatialElement(ISpatialElement spatialElement);
 
-		internal abstract ISpatialElement CreateSpatialElement();
+		public abstract ISpatialElement CreateSpatialElement();
 	}
 }

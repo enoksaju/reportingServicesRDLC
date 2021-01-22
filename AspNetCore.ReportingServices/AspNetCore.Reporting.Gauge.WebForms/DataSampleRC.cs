@@ -2,9 +2,9 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class DataSampleRC : HistoryEntry
+	public class DataSampleRC : HistoryEntry
 	{
-		internal bool Invalid = true;
+		public bool Invalid = true;
 
 		public override DateTime Timestamp
 		{
@@ -32,7 +32,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void Assign(DataSampleRC data)
+		public void Assign(DataSampleRC data)
 		{
 			this.Timestamp = data.Timestamp;
 			this.Value = data.Value;

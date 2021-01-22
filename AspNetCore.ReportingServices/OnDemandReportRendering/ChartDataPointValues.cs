@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartDataPointValues
+	public sealed class ChartDataPointValues
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPointValues m_chartDataPointValuesDef;
 
@@ -343,7 +343,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -351,7 +351,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartDataPoint ChartDataPoint
+		public ChartDataPoint ChartDataPoint
 		{
 			get
 			{
@@ -359,7 +359,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPointValues ChartDataPointValuesDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPointValues ChartDataPointValuesDef
 		{
 			get
 			{
@@ -383,20 +383,20 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartDataPointValues(ChartDataPoint dataPoint, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPointValues chartDataPointValuesDef, Chart chart)
+		public ChartDataPointValues(ChartDataPoint dataPoint, AspNetCore.ReportingServices.ReportIntermediateFormat.ChartDataPointValues chartDataPointValuesDef, Chart chart)
 		{
 			this.m_dataPoint = dataPoint;
 			this.m_chartDataPointValuesDef = chartDataPointValuesDef;
 			this.m_chart = chart;
 		}
 
-		internal ChartDataPointValues(ChartDataPoint dataPoint, Chart chart)
+		public ChartDataPointValues(ChartDataPoint dataPoint, Chart chart)
 		{
 			this.m_dataPoint = dataPoint;
 			this.m_chart = chart;
 		}
 
-		internal DataValue GetDataValue(string propertyName)
+		public DataValue GetDataValue(string propertyName)
 		{
 			DataValueCollection dataValues = ((ShimChartDataPoint)this.m_dataPoint).DataValues;
 			try
@@ -413,7 +413,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

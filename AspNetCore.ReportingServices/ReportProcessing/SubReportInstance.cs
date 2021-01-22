@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class SubReportInstance : ReportItemInstance, IPageItem
+	public sealed class SubReportInstance : ReportItemInstance, IPageItem
 	{
 		private ReportInstance m_reportInstance;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal ReportInstance ReportInstance
+		public ReportInstance ReportInstance
 		{
 			get
 			{
@@ -50,18 +50,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SubReportInstance(ReportProcessing.ProcessingContext pc, SubReport reportItemDef, int index)
+		public SubReportInstance(ReportProcessing.ProcessingContext pc, SubReport reportItemDef, int index)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new SubReportInstanceInfo(pc, reportItemDef, this, index);
 			pc.Pagination.EnterIgnoreHeight(reportItemDef.StartHidden);
 		}
 
-		internal SubReportInstance()
+		public SubReportInstance()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ReportInstance, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportInstance));
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return ((ISearchByUniqueName)this.m_reportInstance).Find(targetUniqueName, ref nonCompNames, chunkManager);
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadSubReportInstanceInfo((SubReport)base.m_reportItemDef);

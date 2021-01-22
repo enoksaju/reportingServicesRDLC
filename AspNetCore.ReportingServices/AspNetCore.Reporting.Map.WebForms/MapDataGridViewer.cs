@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapDataGridViewer : Control
+	public class MapDataGridViewer : Control
 	{
 		private class DoubleBufferedDataGrid : DataGrid
 		{
-			internal ArrayList selectedColumns = new ArrayList();
+			public ArrayList selectedColumns = new ArrayList();
 
 			public bool AllowMultipleSelection;
 
@@ -286,7 +286,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal class NonEditableCellColumn : DataGridTextBoxColumn
+		public class NonEditableCellColumn : DataGridTextBoxColumn
 		{
 			private bool rightAligned;
 

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class NativeModePropertyDisabledException : ReportCatalogException
+	public sealed class NativeModePropertyDisabledException : ReportCatalogException
 	{
 		public NativeModePropertyDisabledException()
 			: base(ErrorCode.rsPropertyDisabledNativeMode, ErrorStrings.rsPropertyDisabledNativeMode, null, null)

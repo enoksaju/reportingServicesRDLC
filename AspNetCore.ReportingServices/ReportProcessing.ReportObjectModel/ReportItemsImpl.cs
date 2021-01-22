@@ -5,9 +5,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 {
 	public sealed class ReportItemsImpl : ReportItems
 	{
-		internal const string Name = "ReportItems";
+		public const string Name = "ReportItems";
 
-		internal const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.ReportItems";
+		public const string FullName = "AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.ReportItems";
 
 		private bool m_lockAdd;
 
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal bool SpecialMode
+		public bool SpecialMode
 		{
 			set
 			{
@@ -53,12 +53,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal ReportItemsImpl()
+		public ReportItemsImpl()
 			: this(false)
 		{
 		}
 
-		internal ReportItemsImpl(bool lockAdd)
+		public ReportItemsImpl(bool lockAdd)
 		{
 			this.m_lockAdd = lockAdd;
 			this.m_collection = new Hashtable();
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			this.m_specialModeIndex = null;
 		}
 
-		internal void Add(ReportItemImpl reportItem)
+		public void Add(ReportItemImpl reportItem)
 		{
 			try
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal string GetSpecialModeIndex()
+		public string GetSpecialModeIndex()
 		{
 			string specialModeIndex = this.m_specialModeIndex;
 			this.m_specialModeIndex = null;

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum Severity
+	public enum Severity
 	{
 		Error,
 		Warning

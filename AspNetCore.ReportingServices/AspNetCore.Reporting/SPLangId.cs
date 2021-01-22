@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal enum SPLangId
+	public enum SPLangId
 	{
 		None,
 		Taiwan = 1028,

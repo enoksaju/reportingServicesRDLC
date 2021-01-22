@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TablixCornerRow : RdlCollection<TablixCornerCell>
+	public class TablixCornerRow : RdlCollection<TablixCornerCell>
 	{
 	}
 }

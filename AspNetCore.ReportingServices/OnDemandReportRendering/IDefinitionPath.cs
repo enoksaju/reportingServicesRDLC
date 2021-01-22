@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IDefinitionPath
+	public interface IDefinitionPath
 	{
 		string DefinitionPath
 		{

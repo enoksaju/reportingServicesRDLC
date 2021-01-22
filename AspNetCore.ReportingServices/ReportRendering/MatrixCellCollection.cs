@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class MatrixCellCollection
+	public sealed class MatrixCellCollection
 	{
 		private Matrix m_owner;
 
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MatrixCellCollection(Matrix owner, int rowsCount, int columnsCount)
+		public MatrixCellCollection(Matrix owner, int rowsCount, int columnsCount)
 		{
 			this.m_owner = owner;
 			this.m_rowsCount = rowsCount;

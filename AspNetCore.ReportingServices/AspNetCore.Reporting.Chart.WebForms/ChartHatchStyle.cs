@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum ChartHatchStyle
+	public enum ChartHatchStyle
 	{
 		None,
 		BackwardDiagonal,

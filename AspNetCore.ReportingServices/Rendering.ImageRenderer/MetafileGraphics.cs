@@ -7,13 +7,13 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class MetafileGraphics : Graphics
+	public sealed class MetafileGraphics : Graphics
 	{
 		private static object m_syncRoot = new object();
 
 		private Metafile m_metafile;
 
-		internal MetafileGraphics(float dpiX, float dpiY)
+		public MetafileGraphics(float dpiX, float dpiY)
 			: base(dpiX, dpiY)
 		{
 		}
@@ -31,17 +31,17 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			base.Dispose(disposing);
 		}
 
-		internal override void CacheHdc(bool createNewHdc)
+		public override void CacheHdc(bool createNewHdc)
 		{
 			base.CacheHdc(true);
 		}
 
-		internal override void ReleaseCachedHdc(bool releaseHdc)
+		public override void ReleaseCachedHdc(bool releaseHdc)
 		{
 			base.ReleaseCachedHdc(true);
 		}
 
-		internal override void ExecuteSync(SynchronizedOperation synchronizedOperation)
+		public override void ExecuteSync(SynchronizedOperation synchronizedOperation)
 		{
 			lock (MetafileGraphics.m_syncRoot)
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal override void Save(Stream outputStream, PaginationSettings.FormatEncoding outputFormat)
+		public override void Save(Stream outputStream, PaginationSettings.FormatEncoding outputFormat)
 		{
 			if (this.m_metafile != null)
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal void NewPage(Stream stream, PaginationSettings.FormatEncoding outputFormat, RectangleF metafileRectangle, int dpiX, int dpiY)
+		public void NewPage(Stream stream, PaginationSettings.FormatEncoding outputFormat, RectangleF metafileRectangle, int dpiX, int dpiY)
 		{
 			if (base.m_graphicsBase != null)
 			{

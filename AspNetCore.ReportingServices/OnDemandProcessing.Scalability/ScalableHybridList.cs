@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class ScalableHybridList<T> : IEnumerable<T>, IEnumerable, IDisposable
+	public sealed class ScalableHybridList<T> : IEnumerable<T>, IEnumerable, IDisposable
 	{
 		private sealed class HybridListEnumerator : IEnumerator<T>, IDisposable, IEnumerator
 		{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 				}
 			}
 
-			internal HybridListEnumerator(ScalableHybridList<T> list)
+			public HybridListEnumerator(ScalableHybridList<T> list)
 			{
 				this.m_list = list;
 				this.m_version = this.m_list.m_version;
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal const int InvalidIndex = -1;
+		public const int InvalidIndex = -1;
 
 		private int m_count;
 
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 
 		private int m_version;
 
-		internal int Count
+		public int Count
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal T this[int index]
+		public T this[int index]
 		{
 			get
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal int First
+		public int First
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal int Last
+		public int Last
 		{
 			get
 			{
@@ -122,12 +122,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal ScalableHybridList(int scalabilityPriority, IScalabilityCache cache, int segmentSize, int initialCapacity)
+		public ScalableHybridList(int scalabilityPriority, IScalabilityCache cache, int segmentSize, int initialCapacity)
 		{
 			this.m_entries = new ScalableList<ScalableHybridListEntry>(scalabilityPriority, cache, segmentSize, initialCapacity);
 		}
 
-		internal int Add(T item)
+		public int Add(T item)
 		{
 			int num = -1;
 			if (this.m_firstFree != -1)
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return num;
 		}
 
-		internal void Remove(int index)
+		public void Remove(int index)
 		{
 			ScalableHybridListEntry scalableHybridListEntry = default(ScalableHybridListEntry);
 			using (this.m_entries.GetAndPin(index, out scalableHybridListEntry))
@@ -202,13 +202,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal int Next(int index)
+		public int Next(int index)
 		{
 			ScalableHybridListEntry andCheckEntry = this.GetAndCheckEntry(index);
 			return andCheckEntry.Next;
 		}
 
-		internal int Previous(int index)
+		public int Previous(int index)
 		{
 			ScalableHybridListEntry andCheckEntry = this.GetAndCheckEntry(index);
 			return andCheckEntry.Previous;
@@ -219,7 +219,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			this.Clear();
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			this.m_entries.Clear();
 			this.m_count = 0;

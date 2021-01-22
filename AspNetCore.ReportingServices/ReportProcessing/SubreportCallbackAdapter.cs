@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class SubreportCallbackAdapter
+	public class SubreportCallbackAdapter
 	{
 		private ReportProcessing.OnDemandSubReportCallback m_subreportCallback;
 

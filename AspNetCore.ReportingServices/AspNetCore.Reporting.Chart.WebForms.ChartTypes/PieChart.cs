@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class PieChart : IChartType
+	public class PieChart : IChartType
 	{
 		private enum LabelsMode
 		{
@@ -18,15 +18,15 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			LabelsOverlap
 		}
 
-		internal class LabelColumn
+		public class LabelColumn
 		{
 			private RectangleF chartAreaPosition;
 
 			private RectangleF innerPlotPosition;
 
-			internal float columnHeight;
+			public float columnHeight;
 
-			internal int numOfItems;
+			public int numOfItems;
 
 			private int numOfInsertedLabels;
 
@@ -43,7 +43,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 				this.chartAreaPosition = position;
 			}
 
-			internal int GetLabelIndex(float y)
+			public int GetLabelIndex(float y)
 			{
 				if (y < this.chartAreaPosition.Y)
 				{
@@ -56,7 +56,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 				return (int)((y - this.chartAreaPosition.Y) / this.columnHeight);
 			}
 
-			internal void Sort()
+			public void Sort()
 			{
 				for (int i = 0; i < this.points.Length; i++)
 				{
@@ -75,7 +75,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 				}
 			}
 
-			internal float GetLabelPosition(int index)
+			public float GetLabelPosition(int index)
 			{
 				if (index >= 0 && index <= this.numOfItems - 1)
 				{
@@ -84,7 +84,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 				throw new InvalidOperationException(SR.Exception3DPieLabelsIndexInvalid);
 			}
 
-			internal PointF GetLabelPosition(DataPoint dataPoint)
+			public PointF GetLabelPosition(DataPoint dataPoint)
 			{
 				PointF empty = PointF.Empty;
 				int num = 0;
@@ -119,7 +119,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 				return empty;
 			}
 
-			internal void InsertLabel(DataPoint point, float yCoordinate, int pointIndx)
+			public void InsertLabel(DataPoint point, float yCoordinate, int pointIndx)
 			{
 				int labelIndex = this.GetLabelIndex(yCoordinate);
 				if (this.points[labelIndex] != null)
@@ -211,7 +211,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 				}
 			}
 
-			internal void AdjustPositions()
+			public void AdjustPositions()
 			{
 				int num = 0;
 				int num2 = 0;
@@ -294,7 +294,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 				return false;
 			}
 
-			internal void Initialize(RectangleF rectangle, bool rightPosition, int maxNumOfRows, float labelLineSize)
+			public void Initialize(RectangleF rectangle, bool rightPosition, int maxNumOfRows, float labelLineSize)
 			{
 				this.numOfItems = Math.Max(this.numOfItems, maxNumOfRows);
 				this.columnHeight = this.chartAreaPosition.Height / (float)this.numOfItems;
@@ -314,9 +314,9 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 
 		private bool labelsOverlap;
 
-		internal LabelColumn labelColumnLeft;
+		public LabelColumn labelColumnLeft;
 
-		internal LabelColumn labelColumnRight;
+		public LabelColumn labelColumnRight;
 
 		private ArrayList labelsRectangles = new ArrayList();
 
@@ -474,7 +474,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return LegendImageStyle.Rectangle;
 		}
 
-		internal static void PrepareData(Series series, IServiceContainer serviceContainer)
+		public static void PrepareData(Series series, IServiceContainer serviceContainer)
 		{
 			if (string.Compare(series.ChartTypeName, "Pie", StringComparison.OrdinalIgnoreCase) != 0 && string.Compare(series.ChartTypeName, "Doughnut", StringComparison.OrdinalIgnoreCase) != 0)
 			{
@@ -632,7 +632,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal static bool UnPrepareData(Series series, IServiceContainer serviceContainer)
+		public static bool UnPrepareData(Series series, IServiceContainer serviceContainer)
 		{
 			if (series.Name.StartsWith("PIE_ORIGINAL_DATA_", StringComparison.Ordinal))
 			{
@@ -3014,7 +3014,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return point.ReplaceKeywords(empty);
 		}
 
-		internal static string GetLabelText(DataPoint point, bool alwaysIncludeAxisLabel = false)
+		public static string GetLabelText(DataPoint point, bool alwaysIncludeAxisLabel = false)
 		{
 			string pointLabel = PieChart.GetPointLabel(point, alwaysIncludeAxisLabel);
 			string text;

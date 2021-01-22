@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class MapMemberInstance : BaseInstance
+	public class MapMemberInstance : BaseInstance
 	{
 		protected MapDataRegion m_owner;
 
 		protected MapMember m_memberDef;
 
-		internal MapMemberInstance(MapDataRegion owner, MapMember memberDef)
+		public MapMemberInstance(MapDataRegion owner, MapMember memberDef)
 			: base(memberDef.ReportScope)
 		{
 			this.m_owner = owner;

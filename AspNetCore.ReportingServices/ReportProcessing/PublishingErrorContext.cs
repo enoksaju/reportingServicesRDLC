@@ -1,15 +1,15 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class PublishingErrorContext : ErrorContext
+	public sealed class PublishingErrorContext : ErrorContext
 	{
 		private const int MaxNumberOfMessages = 100;
 
-		internal override ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, params string[] arguments)
+		public override ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, params string[] arguments)
 		{
 			return this.Register(code, severity, objectType, objectName, propertyName, null, arguments);
 		}
 
-		internal override ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, ProcessingMessageList innerMessages, params string[] arguments)
+		public override ProcessingMessage Register(ProcessingErrorCode code, Severity severity, ObjectType objectType, string objectName, string propertyName, ProcessingMessageList innerMessages, params string[] arguments)
 		{
 			if (base.m_suspendErrors)
 			{

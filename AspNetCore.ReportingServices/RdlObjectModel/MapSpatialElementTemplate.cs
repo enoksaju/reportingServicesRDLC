@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class MapSpatialElementTemplate : ReportObject
+	public abstract class MapSpatialElementTemplate : ReportObject
 	{
-		internal class Definition : DefinitionStore<MapSpatialElementTemplate, Definition.Properties>
+		public class Definition : DefinitionStore<MapSpatialElementTemplate, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				ActionInfo,
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapSpatialElementTemplate(IPropertyStore propertyStore)
+		public MapSpatialElementTemplate(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

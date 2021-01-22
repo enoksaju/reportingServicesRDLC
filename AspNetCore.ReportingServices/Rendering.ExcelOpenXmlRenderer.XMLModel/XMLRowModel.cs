@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLRowModel : IRowModel, IOoxmlCtWrapperModel
+	public class XMLRowModel : IRowModel, IOoxmlCtWrapperModel
 	{
 		private Row _rowInterface;
 

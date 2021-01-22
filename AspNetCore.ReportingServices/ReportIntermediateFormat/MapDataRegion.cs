@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapDataRegion : DataRegion, IPersistable
+	public sealed class MapDataRegion : DataRegion, IPersistable
 	{
 		[NonSerialized]
 		private MapMemberList m_columnMembers;
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private MapDataRegionExprHost m_exprHost;
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList ColumnMembers
+		public override HierarchyNodeList ColumnMembers
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override HierarchyNodeList RowMembers
+		public override HierarchyNodeList RowMembers
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override RowList Rows
+		public override RowList Rows
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMember MapMember
+		public MapMember MapMember
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMember InnerMostMapMember
+		public MapMember InnerMostMapMember
 		{
 			get
 			{
@@ -103,7 +103,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMember MapRowMember
+		public MapMember MapRowMember
 		{
 			get
 			{
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapRow MapRow
+		public MapRow MapRow
 		{
 			get
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapDataRegionExprHost MapDataRegionExprHost
+		public MapDataRegionExprHost MapDataRegionExprHost
 		{
 			get
 			{
@@ -179,19 +179,19 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapDataRegion(ReportItem parent)
+		public MapDataRegion(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal MapDataRegion(int id, ReportItem parent)
+		public MapDataRegion(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			base.RowCount = 1;
 			base.ColumnCount = 1;
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -227,7 +227,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapDataRegion mapDataRegion = (MapDataRegion)(context.CurrentDataRegionClone = (MapDataRegion)base.PublishClone(context));
 			mapDataRegion.m_parent = context.CurrentMapClone;
@@ -249,7 +249,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapDataRegion;
 		}
 
-		internal override object EvaluateNoRowsMessageExpression()
+		public override object EvaluateNoRowsMessageExpression()
 		{
 			return null;
 		}
@@ -257,7 +257,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[SkipMemberStaticValidation(MemberName.MapMember)]
 		[SkipMemberStaticValidation(MemberName.MapRow)]
 		[SkipMemberStaticValidation(MemberName.MapRowMember)]
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapMember, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapMember));
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapDataRegion, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataRegion, list);
 		}
 
-		internal List<MapVectorLayer> GetChildVectorLayers()
+		public List<MapVectorLayer> GetChildVectorLayers()
 		{
 			List<MapVectorLayer> list = new List<MapVectorLayer>();
 			if (this.Map.MapLayers != null)
@@ -352,7 +352,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapDataRegion;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
+		public override void DataRegionContentsSetExprHost(ObjectModelImpl reportObjectModel, bool traverseDataRegions)
 		{
 		}
 	}

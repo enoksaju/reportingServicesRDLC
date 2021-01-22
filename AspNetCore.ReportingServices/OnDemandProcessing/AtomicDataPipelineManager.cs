@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class AtomicDataPipelineManager : DataPipelineManager
+	public abstract class AtomicDataPipelineManager : DataPipelineManager
 	{
 		private RuntimeDataSourceDataProcessing m_runtimeDataSource;
 

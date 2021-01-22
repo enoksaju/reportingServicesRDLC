@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class BorderCode
+	public class BorderCode
 	{
 		private int m_ico24;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private static readonly BitField _97fFrame = new BitField(16384);
 
-		internal LineStyle Style
+		public LineStyle Style
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int LineWidth
+		public int LineWidth
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool HasShadow
+		public bool HasShadow
 		{
 			set
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int Size
+		public int Size
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int Ico24
+		public int Ico24
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal bool Empty
+		public bool Empty
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal int Ico97
+		public int Ico97
 		{
 			get
 			{
@@ -106,27 +106,27 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal BorderCode()
+		public BorderCode()
 		{
 			this.m_ico24 = -16777216;
 		}
 
-		internal void SetColor(int ico24)
+		public void SetColor(int ico24)
 		{
 			this.m_ico24 = ico24;
 		}
 
-		internal Color GetColor()
+		public Color GetColor()
 		{
 			return WordColor.getColor(this.m_ico24);
 		}
 
-		internal void SetColor(ref Color color)
+		public void SetColor(ref Color color)
 		{
 			this.m_ico24 = WordColor.GetIco24(color);
 		}
 
-		internal void Serialize2K3(byte[] buf, int offset)
+		public void Serialize2K3(byte[] buf, int offset)
 		{
 			LittleEndian.PutInt(buf, offset, this.m_ico24);
 			int val = this.m_info;
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			LittleEndian.PutInt(buf, offset + 4, val);
 		}
 
-		internal void Serialize97(byte[] buf, int offset)
+		public void Serialize97(byte[] buf, int offset)
 		{
 			buf[offset + 1] = this.m_97brcType;
 			if (this.m_97brcType == 3)
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			LittleEndian.PutUShort(buf, offset + 2, this.m_97info2);
 		}
 
-		internal virtual byte[] toByteArray()
+		public virtual byte[] toByteArray()
 		{
 			byte[] array = new byte[8];
 			this.Serialize2K3(array, 0);

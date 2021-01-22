@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartGridLines : ReportObject
+	public class ChartGridLines : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartGridLines, Definition.Properties>
+		public class Definition : DefinitionStore<ChartGridLines, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Hidden,
 				Style,
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartGridLines(IPropertyStore propertyStore)
+		public ChartGridLines(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

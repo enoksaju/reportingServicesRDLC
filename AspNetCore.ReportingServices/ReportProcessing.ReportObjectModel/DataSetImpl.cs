@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal DataSetImpl(AspNetCore.ReportingServices.ReportProcessing.DataSet dataSetDef)
+		public DataSetImpl(AspNetCore.ReportingServices.ReportProcessing.DataSet dataSetDef)
 		{
 			this.m_dataSet = dataSetDef;
 		}

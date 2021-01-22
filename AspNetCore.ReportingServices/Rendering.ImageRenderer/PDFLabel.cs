@@ -2,17 +2,17 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class PDFLabel
+	public sealed class PDFLabel
 	{
-		internal readonly string UniqueName;
+		public readonly string UniqueName;
 
-		internal readonly string Label;
+		public readonly string Label;
 
-		internal List<PDFLabel> Children;
+		public List<PDFLabel> Children;
 
-		internal PDFLabel Parent;
+		public PDFLabel Parent;
 
-		internal PDFLabel(string uniqueName, string label)
+		public PDFLabel(string uniqueName, string label)
 		{
 			this.UniqueName = uniqueName;
 			this.Label = label;

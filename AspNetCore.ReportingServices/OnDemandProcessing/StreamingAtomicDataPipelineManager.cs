@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class StreamingAtomicDataPipelineManager : AtomicDataPipelineManager
+	public sealed class StreamingAtomicDataPipelineManager : AtomicDataPipelineManager
 	{
 		public StreamingAtomicDataPipelineManager(OnDemandProcessingContext odpContext, DataSet dataSet)
 			: base(odpContext, dataSet)

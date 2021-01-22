@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal sealed class Workbook
+	public sealed class Workbook
 	{
 		private readonly IStreambookModel _model;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal IStreambookModel Model
+		public IStreambookModel Model
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 			}
 		}
 
-		internal Workbook(IStreambookModel model)
+		public Workbook(IStreambookModel model)
 		{
 			this._model = model;
 		}

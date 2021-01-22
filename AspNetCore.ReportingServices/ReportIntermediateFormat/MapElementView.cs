@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapElementView : MapView, IPersistable
+	public sealed class MapElementView : MapView, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapElementView.GetDeclaration();
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private List<MapBindingFieldPair> m_mapBindingFieldPairs;
 
-		internal ExpressionInfo LayerName
+		public ExpressionInfo LayerName
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapBindingFieldPair> MapBindingFieldPairs
+		public List<MapBindingFieldPair> MapBindingFieldPairs
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapElementViewExprHost ExprHost
+		public new MapElementViewExprHost ExprHost
 		{
 			get
 			{
@@ -52,16 +52,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapElementView()
+		public MapElementView()
 		{
 		}
 
-		internal MapElementView(Map map)
+		public MapElementView(Map map)
 			: base(map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapElementViewStart();
 			base.Initialize(context);
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapElementViewEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapElementView mapElementView = (MapElementView)base.PublishClone(context);
 			if (this.m_layerName != null)
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapElementView;
 		}
 
-		internal override void SetExprHost(MapViewExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapViewExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.LayerName, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapElementView;
 		}
 
-		internal string EvaluateLayerName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateLayerName(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapElementViewLayerNameExpression(this, base.m_map.Name);

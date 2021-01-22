@@ -12,7 +12,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class GaugeMapper : MapperBase, IGaugeMapper, IDVMappingLayer, IDisposable
+	public class GaugeMapper : MapperBase, IGaugeMapper, IDVMappingLayer, IDisposable
 	{
 		private class InputValueOwnerInfo
 		{
@@ -283,7 +283,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return MappingHelper.GetImageMaps(this.GetMapAreaInfoList(), this.m_actions, this.m_gaugePanel);
 		}
 
-		internal IEnumerable<MappingHelper.MapAreaInfo> GetMapAreaInfoList()
+		public IEnumerable<MappingHelper.MapAreaInfo> GetMapAreaInfoList()
 		{
 			float width = (float)this.m_coreGaugeContainer.Width;
 			float height = (float)this.m_coreGaugeContainer.Height;

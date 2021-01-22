@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class SemanticQueryExtensionNotFoundException : ReportCatalogException
+	public sealed class SemanticQueryExtensionNotFoundException : ReportCatalogException
 	{
 		public SemanticQueryExtensionNotFoundException(string extension)
 			: base(ErrorCode.rsSemanticQueryExtensionNotFound, ErrorStrings.rsSemanticQueryExtensionNotFound(extension), null, null)

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class RectangleInstance : ReportItemInstance
+	public sealed class RectangleInstance : ReportItemInstance
 	{
 		private bool m_pageNameEvaluated;
 
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal RectangleInstance(Rectangle reportItemDef)
+		public RectangleInstance(Rectangle reportItemDef)
 			: base(reportItemDef)
 		{
 		}

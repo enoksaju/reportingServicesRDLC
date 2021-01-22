@@ -6,13 +6,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class StorageObjectCreator : IScalabilityObjectCreator
+	public sealed class StorageObjectCreator : IScalabilityObjectCreator
 	{
 		private static List<Declaration> m_declarations = StorageObjectCreator.BuildDeclarations();
 
 		private static StorageObjectCreator m_instance = null;
 
-		internal static StorageObjectCreator Instance
+		public static StorageObjectCreator Instance
 		{
 			get
 			{

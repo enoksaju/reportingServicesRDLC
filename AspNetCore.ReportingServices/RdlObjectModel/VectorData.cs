@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class VectorData : IXmlSerializable
+	public class VectorData : IXmlSerializable
 	{
 		private byte[] m_data;
 

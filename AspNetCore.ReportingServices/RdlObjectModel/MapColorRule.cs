@@ -5,11 +5,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 	[XmlElementClass("MapColorPaletteRule", typeof(MapColorPaletteRule))]
 	[XmlElementClass("MapCustomColorRule", typeof(MapCustomColorRule))]
 	[XmlElementClass("MapColorRangeRule", typeof(MapColorRangeRule))]
-	internal abstract class MapColorRule : MapAppearanceRule
+	public abstract class MapColorRule : MapAppearanceRule
 	{
-		internal new class Definition : DefinitionStore<MapColorRule, Definition.Properties>
+		public new class Definition : DefinitionStore<MapColorRule, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataValue,
 				DistributionType,
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapColorRule(IPropertyStore propertyStore)
+		public MapColorRule(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

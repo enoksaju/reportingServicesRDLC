@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class ItemSizes
+	public class ItemSizes
 	{
 		protected double m_deltaX;
 
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		protected string m_id;
 
-		internal double DeltaX
+		public double DeltaX
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double DeltaY
+		public double DeltaY
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double Left
+		public double Left
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double Top
+		public double Top
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double Bottom
+		public double Bottom
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double Right
+		public double Right
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double Width
+		public double Width
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double Height
+		public double Height
 		{
 			get
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual double PadWidth
+		public virtual double PadWidth
 		{
 			get
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual double PadHeight
+		public virtual double PadHeight
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual double PaddingRight
+		public virtual double PaddingRight
 		{
 			get
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual double PaddingBottom
+		public virtual double PaddingBottom
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal string ID
+		public string ID
 		{
 			get
 			{
@@ -157,18 +157,18 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ItemSizes()
+		public ItemSizes()
 		{
 		}
 
-		internal ItemSizes(ReportSize width, ReportSize height, string id)
+		public ItemSizes(ReportSize width, ReportSize height, string id)
 		{
 			this.m_width = width.ToMillimeters();
 			this.m_height = height.ToMillimeters();
 			this.m_id = id;
 		}
 
-		internal ItemSizes(ReportItem reportItem)
+		public ItemSizes(ReportItem reportItem)
 		{
 			this.m_top = reportItem.Top.ToMillimeters();
 			this.m_left = reportItem.Left.ToMillimeters();
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_id = reportItem.ID;
 		}
 
-		internal ItemSizes(ItemSizes itemSizes)
+		public ItemSizes(ItemSizes itemSizes)
 		{
 			this.m_top = itemSizes.Top;
 			this.m_left = itemSizes.Left;
@@ -187,28 +187,28 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_id = itemSizes.ID;
 		}
 
-		internal ItemSizes(double top, double left, string id)
+		public ItemSizes(double top, double left, string id)
 		{
 			this.m_top = top;
 			this.m_left = left;
 			this.m_id = id;
 		}
 
-		internal virtual ItemSizes GetNewItem()
+		public virtual ItemSizes GetNewItem()
 		{
 			ItemSizes itemSizes = new ItemSizes(this);
 			itemSizes.DeltaY = this.m_deltaY;
 			return itemSizes;
 		}
 
-		internal virtual void Update(ReportSize width, ReportSize height)
+		public virtual void Update(ReportSize width, ReportSize height)
 		{
 			this.Clean();
 			this.m_width = width.ToMillimeters();
 			this.m_height = height.ToMillimeters();
 		}
 
-		internal virtual void Update(ReportItem reportItem)
+		public virtual void Update(ReportItem reportItem)
 		{
 			this.Clean();
 			this.m_top = reportItem.Top.ToMillimeters();
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_height = reportItem.Height.ToMillimeters();
 		}
 
-		internal virtual void Update(ItemSizes itemSizes, bool returnPaddings)
+		public virtual void Update(ItemSizes itemSizes, bool returnPaddings)
 		{
 			if (this != itemSizes)
 			{
@@ -230,14 +230,14 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual void Update(double top, double left)
+		public virtual void Update(double top, double left)
 		{
 			this.Clean();
 			this.m_top = top;
 			this.m_left = left;
 		}
 
-		internal virtual void Clean()
+		public virtual void Clean()
 		{
 			this.m_top = 0.0;
 			this.m_left = 0.0;
@@ -247,31 +247,31 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			this.m_deltaY = 0.0;
 		}
 
-		internal void AdjustHeightTo(double amount)
+		public void AdjustHeightTo(double amount)
 		{
 			this.m_deltaY += amount - this.m_height;
 			this.m_height = amount;
 		}
 
-		internal void AdjustWidthTo(double amount)
+		public void AdjustWidthTo(double amount)
 		{
 			this.m_deltaX += amount - this.m_width;
 			this.m_width = amount;
 		}
 
-		internal void MoveVertical(double delta)
+		public void MoveVertical(double delta)
 		{
 			this.m_top += delta;
 			this.m_deltaY += delta;
 		}
 
-		internal void MoveHorizontal(double delta)
+		public void MoveHorizontal(double delta)
 		{
 			this.m_left += delta;
 			this.m_deltaX += delta;
 		}
 
-		internal void UpdateSizes(double topDelta, PageItem owner, PageItem[] siblings, RepeatWithItem[] repeatWithItems)
+		public void UpdateSizes(double topDelta, PageItem owner, PageItem[] siblings, RepeatWithItem[] repeatWithItems)
 		{
 			ReportItem source = owner.Source;
 			this.m_left = owner.DefLeftValue;
@@ -294,11 +294,11 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual void SetPaddings(double right, double bottom)
+		public virtual void SetPaddings(double right, double bottom)
 		{
 		}
 
-		internal virtual int ReadPaginationInfo(BinaryReader reader, long offsetEndPage)
+		public virtual int ReadPaginationInfo(BinaryReader reader, long offsetEndPage)
 		{
 			if (reader != null && offsetEndPage > 0)
 			{
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return -1;
 		}
 
-		internal virtual void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public virtual void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -331,7 +331,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal virtual ItemSizes WritePaginationInfo()
+		public virtual ItemSizes WritePaginationInfo()
 		{
 			ItemSizes itemSizes = new ItemSizes(this);
 			itemSizes.DeltaY = this.m_deltaY;

@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PathData
+	public class PathData
 	{
 		private MapPoint[] points;
 
@@ -65,7 +65,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int LargestSegmentIndex
+		public int LargestSegmentIndex
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsEmpty
+		public bool IsEmpty
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void UpdateStoredParameters()
+		public void UpdateStoredParameters()
 		{
 			if (this.Segments != null)
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void LoadFromStream(Stream stream)
+		public void LoadFromStream(Stream stream)
 		{
 			byte[] array = new byte[Marshal.SizeOf(typeof(byte))];
 			byte[] array2 = new byte[Marshal.SizeOf(typeof(int))];
@@ -167,7 +167,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void SaveToStream(Stream stream)
+		public void SaveToStream(Stream stream)
 		{
 			if (this.Segments != null && this.Points != null)
 			{
@@ -197,7 +197,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static string PathDataToString(PathData pathData)
+		public static string PathDataToString(PathData pathData)
 		{
 			MemoryStream memoryStream = new MemoryStream();
 			pathData.SaveToStream(memoryStream);
@@ -207,7 +207,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return Convert.ToBase64String(inArray);
 		}
 
-		internal static PathData PathDataFromString(string data)
+		public static PathData PathDataFromString(string data)
 		{
 			byte[] array = new byte[1000];
 			MemoryStream memoryStream = new MemoryStream();

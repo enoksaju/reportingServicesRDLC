@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum MapHatchStyle
+	public enum MapHatchStyle
 	{
 		None,
 		BackwardDiagonal,

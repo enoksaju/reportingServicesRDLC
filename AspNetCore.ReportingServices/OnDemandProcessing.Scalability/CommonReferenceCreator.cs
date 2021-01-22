@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class CommonReferenceCreator : IReferenceCreator
+	public sealed class CommonReferenceCreator : IReferenceCreator
 	{
 		private static CommonReferenceCreator m_instance;
 
-		internal static CommonReferenceCreator Instance
+		public static CommonReferenceCreator Instance
 		{
 			get
 			{

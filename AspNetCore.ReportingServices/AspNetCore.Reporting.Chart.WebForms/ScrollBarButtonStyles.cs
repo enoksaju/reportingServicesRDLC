@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[Flags]
-	internal enum ScrollBarButtonStyles
+	public enum ScrollBarButtonStyles
 	{
 		None = 0,
 		SmallScroll = 1,

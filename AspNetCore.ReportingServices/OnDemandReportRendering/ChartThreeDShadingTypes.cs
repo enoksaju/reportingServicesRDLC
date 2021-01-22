@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartThreeDShadingTypes
+	public enum ChartThreeDShadingTypes
 	{
 		Real,
 		Simple,

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum TextDirections
+	public enum TextDirections
 	{
 		Default,
 		LTR,

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ListContentCollection
+	public sealed class ListContentCollection
 	{
 		private List m_owner;
 
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ListContentCollection(List owner)
+		public ListContentCollection(List owner)
 		{
 			this.m_owner = owner;
 		}

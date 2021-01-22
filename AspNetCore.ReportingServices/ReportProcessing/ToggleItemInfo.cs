@@ -1,13 +1,13 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class ToggleItemInfo
+	public sealed class ToggleItemInfo
 	{
-		internal ObjectType ObjectType;
+		public ObjectType ObjectType;
 
-		internal string ObjectName;
+		public string ObjectName;
 
-		internal Visibility Visibility;
+		public Visibility Visibility;
 
-		internal string GroupName;
+		public string GroupName;
 	}
 }

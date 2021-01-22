@@ -8,11 +8,11 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal class CustomAttributeRegistry : IServiceProvider
+	public class CustomAttributeRegistry : IServiceProvider
 	{
 		private IServiceContainer serviceContainer;
 
-		internal ArrayList registeredCustomAttributes = new ArrayList();
+		public ArrayList registeredCustomAttributes = new ArrayList();
 
 		private CustomAttributeRegistry()
 		{

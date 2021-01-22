@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal enum CatalogOperation
+	public enum CatalogOperation
 	{
 		CreateRoles,
 		DeleteRoles,

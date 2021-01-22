@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Rels.Relationships
 {
-	internal enum ContentTypeAction
+	public enum ContentTypeAction
 	{
 		Override,
 		Default

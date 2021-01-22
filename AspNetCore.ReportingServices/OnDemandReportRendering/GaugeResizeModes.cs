@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum GaugeResizeModes
+	public enum GaugeResizeModes
 	{
 		AutoFit,
 		None

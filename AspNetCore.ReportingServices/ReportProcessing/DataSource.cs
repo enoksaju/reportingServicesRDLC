@@ -8,7 +8,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DataSource : IProcessingDataSource
+	public sealed class DataSource : IProcessingDataSource
 	{
 		private string m_name;
 
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo ConnectStringExpression
+		public ExpressionInfo ConnectStringExpression
 		{
 			get
 			{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataSetList DataSets
+		public DataSetList DataSets
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataSourceExprHost ExprHost
+		public DataSourceExprHost ExprHost
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsComplex
+		public bool IsComplex
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal StringList ParameterNames
+		public StringList ParameterNames
 		{
 			get
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ObjectType = ObjectType.DataSource;
 			context.ObjectName = this.m_name;
@@ -220,7 +220,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ResolveConnectionString(ReportProcessing.ReportProcessingContext pc, out DataSourceInfo dataSourceInfo)
+		public string ResolveConnectionString(ReportProcessing.ReportProcessingContext pc, out DataSourceInfo dataSourceInfo)
 		{
 			dataSourceInfo = null;
 			string text = null;
@@ -299,7 +299,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return stringResult.Value;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Name, Token.String));

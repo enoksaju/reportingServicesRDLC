@@ -4,7 +4,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal interface IWordWriter : IDisposable
+	public interface IWordWriter : IDisposable
 	{
 		int SectionCount
 		{

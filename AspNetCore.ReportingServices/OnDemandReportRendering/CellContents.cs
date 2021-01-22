@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CellContents
+	public sealed class CellContents
 	{
 		private IDefinitionPath m_ownerPath;
 
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CellContents(IReportScope reportScope, IDefinitionPath ownerPath, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem cellReportItem, int rowSpan, int colSpan, RenderingContext renderingContext)
+		public CellContents(IReportScope reportScope, IDefinitionPath ownerPath, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem cellReportItem, int rowSpan, int colSpan, RenderingContext renderingContext)
 		{
 			this.m_reportScope = reportScope;
 			this.m_rowSpan = rowSpan;
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_renderingContext = renderingContext;
 		}
 
-		internal CellContents(IDefinitionPath ownerPath, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, int rowSpan, int colSpan, RenderingContext renderingContext)
+		public CellContents(IDefinitionPath ownerPath, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, int rowSpan, int colSpan, RenderingContext renderingContext)
 		{
 			this.m_rowSpan = rowSpan;
 			this.m_colSpan = colSpan;
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_renderingContext = renderingContext;
 		}
 
-		internal CellContents(IDefinitionPath ownerPath, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, int rowSpan, int colSpan, RenderingContext renderingContext, double sizeDelta, bool isColumn)
+		public CellContents(IDefinitionPath ownerPath, bool inSubtotal, AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem, int rowSpan, int colSpan, RenderingContext renderingContext, double sizeDelta, bool isColumn)
 		{
 			this.m_rowSpan = rowSpan;
 			this.m_colSpan = colSpan;
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_isColumn = isColumn;
 		}
 
-		internal CellContents(Rectangle rectangle, int rowSpan, int colSpan, RenderingContext renderingContext)
+		public CellContents(Rectangle rectangle, int rowSpan, int colSpan, RenderingContext renderingContext)
 		{
 			this.m_rowSpan = rowSpan;
 			this.m_colSpan = colSpan;
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_isOldSnapshot = true;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_reportItem != null)
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
+		public void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportItem renderReportItem)
 		{
 			if (renderReportItem != null)
 			{

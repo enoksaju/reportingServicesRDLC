@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class OnDemandDocumentMapNode
+	public class OnDemandDocumentMapNode
 	{
 		private string m_label;
 
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal OnDemandDocumentMapNode(string aLabel, string aId, int aLevel)
+		public OnDemandDocumentMapNode(string aLabel, string aId, int aLevel)
 		{
 			this.m_label = aLabel;
 			this.m_id = aId;

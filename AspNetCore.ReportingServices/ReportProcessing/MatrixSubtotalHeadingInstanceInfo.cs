@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MatrixSubtotalHeadingInstanceInfo : MatrixHeadingInstanceInfo
+	public sealed class MatrixSubtotalHeadingInstanceInfo : MatrixHeadingInstanceInfo
 	{
 		private object[] m_styleAttributeValues;
 
-		internal object[] StyleAttributeValues
+		public object[] StyleAttributeValues
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixSubtotalHeadingInstanceInfo(ReportProcessing.ProcessingContext pc, int headingCellIndex, MatrixHeading matrixHeadingDef, MatrixHeadingInstance owner, bool isSubtotal, int reportItemDefIndex, VariantList groupExpressionValues, out NonComputedUniqueNames nonComputedUniqueNames)
+		public MatrixSubtotalHeadingInstanceInfo(ReportProcessing.ProcessingContext pc, int headingCellIndex, MatrixHeading matrixHeadingDef, MatrixHeadingInstance owner, bool isSubtotal, int reportItemDefIndex, VariantList groupExpressionValues, out NonComputedUniqueNames nonComputedUniqueNames)
 			: base(pc, headingCellIndex, matrixHeadingDef, owner, isSubtotal, reportItemDefIndex, groupExpressionValues, out nonComputedUniqueNames)
 		{
 			Global.Tracer.Assert(isSubtotal);
@@ -33,11 +33,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MatrixSubtotalHeadingInstanceInfo()
+		public MatrixSubtotalHeadingInstanceInfo()
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.StyleAttributeValues, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.Variant));

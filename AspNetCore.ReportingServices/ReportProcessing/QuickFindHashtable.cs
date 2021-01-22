@@ -5,9 +5,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
 	[HashtableOfReferences]
-	internal sealed class QuickFindHashtable : HashtableInstanceInfo
+	public sealed class QuickFindHashtable : HashtableInstanceInfo
 	{
-		internal ReportItemInstance this[int key]
+		public ReportItemInstance this[int key]
 		{
 			get
 			{
@@ -15,16 +15,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal QuickFindHashtable()
+		public QuickFindHashtable()
 		{
 		}
 
-		internal QuickFindHashtable(int capacity)
+		public QuickFindHashtable(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal void Add(int key, ReportItemInstance val)
+		public void Add(int key, ReportItemInstance val)
 		{
 			base.m_hashtable.Add(key, val);
 		}

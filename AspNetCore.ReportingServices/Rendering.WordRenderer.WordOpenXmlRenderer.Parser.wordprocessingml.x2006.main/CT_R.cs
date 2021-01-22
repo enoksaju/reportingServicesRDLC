@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_R : OoxmlComplexType, IEG_PContent, IOoxmlComplexType
+	public class CT_R : OoxmlComplexType, IEG_PContent, IOoxmlComplexType
 	{
 		private string _rsidRPr_attr;
 

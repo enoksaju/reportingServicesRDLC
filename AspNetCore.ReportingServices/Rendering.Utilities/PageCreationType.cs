@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.Utilities
 {
-	internal enum PageCreationType
+	public enum PageCreationType
 	{
 		Logical,
 		Vertical,

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class NumericIndicatorRange : IPersistable
+	public sealed class NumericIndicatorRange : IPersistable
 	{
 		private int m_exprHostID = -1;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_digitColor;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue StartValue
+		public GaugeInputValue StartValue
 		{
 			get
 			{
@@ -58,7 +58,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GaugeInputValue EndValue
+		public GaugeInputValue EndValue
 		{
 			get
 			{
@@ -70,7 +70,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DecimalDigitColor
+		public ExpressionInfo DecimalDigitColor
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo DigitColor
+		public ExpressionInfo DigitColor
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal NumericIndicatorRangeExprHost ExprHost
+		public NumericIndicatorRangeExprHost ExprHost
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ExpressionHostID
+		public int ExpressionHostID
 		{
 			get
 			{
@@ -118,16 +118,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal NumericIndicatorRange()
+		public NumericIndicatorRange()
 		{
 		}
 
-		internal NumericIndicatorRange(GaugePanel gaugePanel)
+		public NumericIndicatorRange(GaugePanel gaugePanel)
 		{
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.NumericIndicatorRangeStart(this.m_name);
 			if (this.m_decimalDigitColor != null)
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_exprHostID = context.ExprHostBuilder.NumericIndicatorRangeEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			NumericIndicatorRange numericIndicatorRange = (NumericIndicatorRange)base.MemberwiseClone();
 			numericIndicatorRange.m_gaugePanel = (GaugePanel)context.CurrentDataRegionClone;
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return numericIndicatorRange;
 		}
 
-		internal void SetExprHost(NumericIndicatorRangeExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(NumericIndicatorRangeExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -290,13 +290,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.NumericIndicatorRange;
 		}
 
-		internal string EvaluateDecimalDigitColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateDecimalDigitColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorRangeDecimalDigitColorExpression(this, this.m_gaugePanel.Name);
 		}
 
-		internal string EvaluateDigitColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateDigitColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateNumericIndicatorRangeDigitColorExpression(this, this.m_gaugePanel.Name);

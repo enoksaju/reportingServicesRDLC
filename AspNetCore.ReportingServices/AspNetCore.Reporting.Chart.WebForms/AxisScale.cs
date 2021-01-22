@@ -8,135 +8,135 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class AxisScale : ChartElement
+	public class AxisScale : ChartElement
 	{
-		internal double margin = 100.0;
+		public double margin = 100.0;
 
-		internal double marginView;
+		public double marginView;
 
-		internal bool offsetTempSet;
+		public bool offsetTempSet;
 
-		internal double marginTemp;
+		public double marginTemp;
 
 		private ArrayList stripLineOffsets = new ArrayList();
 
 		private bool logarithmic;
 
-		internal double logarithmBase = 10.0;
+		public double logarithmBase = 10.0;
 
-		internal bool reverse;
+		public bool reverse;
 
-		internal bool startFromZero = true;
+		public bool startFromZero = true;
 
-		internal TickMark minorTickMark;
+		public TickMark minorTickMark;
 
-		internal TickMark majorTickMark;
+		public TickMark majorTickMark;
 
-		internal Grid minorGrid;
+		public Grid minorGrid;
 
-		internal Grid majorGrid;
+		public Grid majorGrid;
 
-		internal bool enabled;
+		public bool enabled;
 
-		internal bool autoEnabled = true;
+		public bool autoEnabled = true;
 
-		internal Label labelStyle;
+		public Label labelStyle;
 
 		private DateTimeIntervalType intervalType;
 
-		internal double maximum = double.NaN;
+		public double maximum = double.NaN;
 
-		internal double crossing = double.NaN;
+		public double crossing = double.NaN;
 
-		internal double minimum = double.NaN;
+		public double minimum = double.NaN;
 
-		internal double tempMaximum = double.NaN;
+		public double tempMaximum = double.NaN;
 
-		internal double tempMinimum = double.NaN;
+		public double tempMinimum = double.NaN;
 
-		internal double tempCrossing = double.NaN;
+		public double tempCrossing = double.NaN;
 
-		internal CustomLabelsCollection tempLabels;
+		public CustomLabelsCollection tempLabels;
 
-		internal bool tempAutoMaximum = true;
+		public bool tempAutoMaximum = true;
 
-		internal bool tempAutoMinimum = true;
+		public bool tempAutoMinimum = true;
 
-		internal double tempMajorGridInterval = double.NaN;
+		public double tempMajorGridInterval = double.NaN;
 
-		internal double tempMinorGridInterval = double.NaN;
+		public double tempMinorGridInterval = double.NaN;
 
-		internal double tempMajorTickMarkInterval = double.NaN;
+		public double tempMajorTickMarkInterval = double.NaN;
 
-		internal double tempMinorTickMarkInterval = double.NaN;
+		public double tempMinorTickMarkInterval = double.NaN;
 
-		internal double tempLabelInterval = double.NaN;
+		public double tempLabelInterval = double.NaN;
 
-		internal DateTimeIntervalType tempGridIntervalType = DateTimeIntervalType.NotSet;
+		public DateTimeIntervalType tempGridIntervalType = DateTimeIntervalType.NotSet;
 
-		internal DateTimeIntervalType tempTickMarkIntervalType = DateTimeIntervalType.NotSet;
+		public DateTimeIntervalType tempTickMarkIntervalType = DateTimeIntervalType.NotSet;
 
-		internal DateTimeIntervalType tempLabelIntervalType = DateTimeIntervalType.NotSet;
+		public DateTimeIntervalType tempLabelIntervalType = DateTimeIntervalType.NotSet;
 
-		internal bool paintMode;
+		public bool paintMode;
 
-		internal AxisName axisType;
+		public AxisName axisType;
 
-		internal ChartArea chartArea;
+		public ChartArea chartArea;
 
-		internal bool autoMaximum = true;
+		public bool autoMaximum = true;
 
-		internal bool autoMinimum = true;
+		public bool autoMinimum = true;
 
 		private AxisPosition axisPosition;
 
-		internal Axis oppositeAxis;
+		public Axis oppositeAxis;
 
 		private AxisDataView view;
 
-		internal AxisScrollBar scrollBar;
+		public AxisScrollBar scrollBar;
 
-		internal bool roundedXValues;
+		public bool roundedXValues;
 
-		internal bool logarithmicConvertedToLinear;
+		public bool logarithmicConvertedToLinear;
 
-		internal double logarithmicMinimum;
+		public double logarithmicMinimum;
 
-		internal double logarithmicMaximum;
+		public double logarithmicMaximum;
 
-		internal double logarithmicCrossing;
+		public double logarithmicCrossing;
 
-		internal double interval3DCorrection = double.NaN;
+		public double interval3DCorrection = double.NaN;
 
-		internal bool optimizedGetPosition;
+		public bool optimizedGetPosition;
 
-		internal double paintViewMax;
+		public double paintViewMax;
 
-		internal double paintViewMin;
+		public double paintViewMin;
 
-		internal double paintRange;
+		public double paintRange;
 
-		internal double valueMultiplier;
+		public double valueMultiplier;
 
-		internal RectangleF paintAreaPosition = RectangleF.Empty;
+		public RectangleF paintAreaPosition = RectangleF.Empty;
 
-		internal double paintAreaPositionBottom;
+		public double paintAreaPositionBottom;
 
-		internal double paintAreaPositionRight;
+		public double paintAreaPositionRight;
 
-		internal double paintChartAreaSize;
+		public double paintChartAreaSize;
 
 		private IntervalAutoMode intervalAutoMode;
 
-		internal bool scaleSegmentsUsed;
+		public bool scaleSegmentsUsed;
 
-		internal int prefferedNumberofIntervals = 5;
+		public int prefferedNumberofIntervals = 5;
 
 		private Stack<double> intervalsStore = new Stack<double>();
 
-		internal AxisScaleBreakStyle axisScaleBreakStyle;
+		public AxisScaleBreakStyle axisScaleBreakStyle;
 
-		internal AxisScaleSegmentCollection scaleSegments;
+		public AxisScaleSegmentCollection scaleSegments;
 
 		[Bindable(true)]
 		[SRDescription("DescriptionAttributeReverse")]
@@ -144,7 +144,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[NotifyParentProperty(true)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		internal virtual AxisPosition AxisPosition
+		public virtual AxisPosition AxisPosition
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[DefaultValue(DateTimeIntervalType.Auto)]
 		[NotifyParentProperty(true)]
 		[SRDescription("DescriptionAttributeInternalIntervalType")]
-		internal DateTimeIntervalType InternalIntervalType
+		public DateTimeIntervalType InternalIntervalType
 		{
 			get
 			{
@@ -269,7 +269,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal double SetInterval
+		public double SetInterval
 		{
 			set
 			{
@@ -505,7 +505,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[Browsable(false)]
 		[TypeConverter(typeof(NoNameExpandableObjectConverter))]
-		internal AxisDataView View
+		public AxisDataView View
 		{
 			get
 			{
@@ -525,7 +525,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		[SRDescription("DescriptionAttributeScrollBar")]
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[TypeConverter(typeof(NoNameExpandableObjectConverter))]
-		internal AxisScrollBar ScrollBar
+		public AxisScrollBar ScrollBar
 		{
 			get
 			{
@@ -539,7 +539,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetIntervalAndType(double newInterval, DateTimeIntervalType newIntervalType)
+		public void SetIntervalAndType(double newInterval, DateTimeIntervalType newIntervalType)
 		{
 			if (this.tempMajorGridInterval <= 0.0 || (double.IsNaN(this.tempMajorGridInterval) && ((Axis)this).Interval <= 0.0))
 			{
@@ -559,12 +559,12 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Invalidate();
 		}
 
-		internal double GetViewMinimum()
+		public double GetViewMinimum()
 		{
 			return this.view.GetViewMinimum();
 		}
 
-		internal double GetViewMaximum()
+		public double GetViewMaximum()
 		{
 			return this.view.GetViewMaximum();
 		}
@@ -598,7 +598,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.PositionToValue(position, true);
 		}
 
-		internal double PositionToValue(double position, bool validateInput)
+		public double PositionToValue(double position, bool validateInput)
 		{
 			if (validateInput && (position < 0.0 || position > 100.0))
 			{
@@ -631,7 +631,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.PositionToValue(position2);
 		}
 
-		internal double PixelPositionToValue(double position, bool validate)
+		public double PixelPositionToValue(double position, bool validate)
 		{
 			double position2 = (this.AxisPosition != AxisPosition.Top && this.AxisPosition != AxisPosition.Bottom) ? (position * (100.0 / (float)(base.Common.ChartPicture.Height - 1))) : (position * (100.0 / (float)(base.Common.ChartPicture.Width - 1)));
 			return this.PositionToValue(position2, validate);
@@ -643,7 +643,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.scrollBar = new AxisScrollBar((Axis)this);
 		}
 
-		internal void SetAxisPosition()
+		public void SetAxisPosition()
 		{
 			if (this.GetOppositeAxis().reverse)
 			{
@@ -666,7 +666,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetTempAxisOffset()
+		public void SetTempAxisOffset()
 		{
 			if (this.chartArea.Series.Count != 0)
 			{
@@ -706,7 +706,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void ResetTempAxisOffset()
+		public void ResetTempAxisOffset()
 		{
 			if (this.offsetTempSet)
 			{
@@ -730,7 +730,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal double RoundedValues(double inter, bool shouldStartFromZero, bool autoMax, bool autoMin, ref double min, ref double max)
+		public double RoundedValues(double inter, bool shouldStartFromZero, bool autoMax, bool autoMin, ref double min, ref double max)
 		{
 			if (this.axisType == AxisName.X || this.axisType == AxisName.X2)
 			{
@@ -768,7 +768,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return inter;
 		}
 
-		internal double CalcInterval(double diff)
+		public double CalcInterval(double diff)
 		{
 			if (diff == 0.0)
 			{
@@ -810,7 +810,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.CalcInterval((max - min) / 5.0);
 		}
 
-		internal double CalcInterval(double min, double max, bool date, out DateTimeIntervalType type, ChartValueTypes valuesType)
+		public double CalcInterval(double min, double max, bool date, out DateTimeIntervalType type, ChartValueTypes valuesType)
 		{
 			if (date)
 			{
@@ -993,7 +993,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return (int)Math.Round((max - min) / intervalSize);
 		}
 
-		internal ChartValueTypes GetDateTimeType()
+		public ChartValueTypes GetDateTimeType()
 		{
 			ArrayList arrayList = null;
 			ChartValueTypes result = ChartValueTypes.Auto;
@@ -1077,7 +1077,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.crossing;
 		}
 
-		internal void SetAutoMinimum(double min)
+		public void SetAutoMinimum(double min)
 		{
 			if (this.autoMinimum)
 			{
@@ -1085,7 +1085,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal void SetAutoMaximum(double max)
+		public void SetAutoMaximum(double max)
 		{
 			if (this.autoMaximum)
 			{
@@ -1093,7 +1093,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal Axis GetOppositeAxis()
+		public Axis GetOppositeAxis()
 		{
 			if (this.oppositeAxis != null)
 			{
@@ -1173,11 +1173,11 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.oppositeAxis;
 		}
 
-		internal void Invalidate()
+		public void Invalidate()
 		{
 		}
 
-		internal double GetLinearPosition(double axisValue)
+		public double GetLinearPosition(double axisValue)
 		{
 			bool flag = (byte)((this.chartArea != null && this.chartArea.chartAreaIsCurcular) ? 1 : 0) != 0;
 			if (!this.optimizedGetPosition)
@@ -1247,7 +1247,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return (double)this.paintAreaPosition.X + num;
 		}
 
-		internal void EstimateAxis()
+		public void EstimateAxis()
 		{
 			if (!double.IsNaN(this.View.Size) && double.IsNaN(this.View.Position))
 			{
@@ -1289,7 +1289,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.SetInterval = num;
 		}
 
-		internal double EstimateAxis(ref double minimum, ref double maximum, bool autoMaximum, bool autoMinimum)
+		public double EstimateAxis(ref double minimum, ref double maximum, bool autoMaximum, bool autoMinimum)
 		{
 			if (maximum < minimum)
 			{
@@ -1401,7 +1401,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return num3;
 		}
 
-		internal double EstimateNumberAxis(ref double minimum, ref double maximum, bool shouldStartFromZero, int preferredNumberOfIntervals, double crossing, bool autoMaximum, bool autoMinimum)
+		public double EstimateNumberAxis(ref double minimum, ref double maximum, bool shouldStartFromZero, int preferredNumberOfIntervals, double crossing, bool autoMaximum, bool autoMinimum)
 		{
 			double num = minimum;
 			double num2 = maximum;

@@ -5,29 +5,29 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[Serializable]
-	internal class ValueBase : NamedElement, IValueProvider, ICloneable
+	public class ValueBase : NamedElement, IValueProvider, ICloneable
 	{
 		[NonSerialized]
-		internal GaugeDuration historyDept = new GaugeDuration(0.0, DurationType.Count);
+		public GaugeDuration historyDept = new GaugeDuration(0.0, DurationType.Count);
 
 		[NonSerialized]
-		internal GaugeDuration queryDept = new GaugeDuration(1.0, DurationType.Count);
+		public GaugeDuration queryDept = new GaugeDuration(1.0, DurationType.Count);
 
 		private double valueLimit = double.NaN;
 
-		internal double inputValue = double.NaN;
+		public double inputValue = double.NaN;
 
-		internal DateTime inputDate = DateTime.Now;
+		public DateTime inputDate = DateTime.Now;
 
-		internal double outputValue = double.NaN;
+		public double outputValue = double.NaN;
 
-		internal DateTime outputDate = DateTime.Now;
+		public DateTime outputDate = DateTime.Now;
 
-		internal HistoryCollection history;
+		public HistoryCollection history;
 
-		internal ArrayList consumers = new ArrayList();
+		public ArrayList consumers = new ArrayList();
 
-		internal ValueState provderState = ValueState.Interactive;
+		public ValueState provderState = ValueState.Interactive;
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[Browsable(false)]
@@ -73,7 +73,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[SRCategory("CategoryBehavior")]
 		[Bindable(true)]
 		[DefaultValue(double.NaN)]
-		internal virtual double ValueLimit
+		public virtual double ValueLimit
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual GaugeDuration HistoryDeptInternal
+		public virtual GaugeDuration HistoryDeptInternal
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[SerializationVisibility(SerializationVisibility.Hidden)]
 		[Bindable(false)]
-		internal virtual ValueState State
+		public virtual ValueState State
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual ValueState IntState
+		public virtual ValueState IntState
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool IsPlayBackMode
+		public bool IsPlayBackMode
 		{
 			get
 			{
@@ -138,7 +138,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool IsEventsEnable
+		public bool IsEventsEnable
 		{
 			get
 			{
@@ -150,11 +150,11 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal event ValueChangedEventHandler ValueChanged;
+		public event ValueChangedEventHandler ValueChanged;
 
-		internal event ValueChangedEventHandler ValueLimitOverflow;
+		public event ValueChangedEventHandler ValueLimitOverflow;
 
-		internal ValueBase()
+		public ValueBase()
 		{
 			this.history = new HistoryCollection(this);
 		}
@@ -174,12 +174,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void SetValueInternal(double value)
+		public virtual void SetValueInternal(double value)
 		{
 			this.SetValueInternal(value, DateTime.Now);
 		}
 
-		internal virtual void SetValueInternal(double value, DateTime timestamp)
+		public virtual void SetValueInternal(double value, DateTime timestamp)
 		{
 			this.inputValue = value;
 			this.inputDate = timestamp;
@@ -191,7 +191,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.outputValue;
 		}
 
-		internal void ClearUpHistory()
+		public void ClearUpHistory()
 		{
 			if (this.History.Count > 0)
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.History.Truncate(this.queryDept);
 		}
 
-		internal void AddToHistory()
+		public void AddToHistory()
 		{
 			if (this.queryDept.IsEmpty && this.History.Count != 0)
 			{
@@ -213,12 +213,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.AddToHistoryInt(this.outputValue, this.outputDate);
 		}
 
-		internal void AddToHistoryInt(double value, DateTime timestamp)
+		public void AddToHistoryInt(double value, DateTime timestamp)
 		{
 			this.History.Add(timestamp, value);
 		}
 
-		internal virtual void OnValueLimitOverflow(ValueChangedEventArgs e)
+		public virtual void OnValueLimitOverflow(ValueChangedEventArgs e)
 		{
 			if (this.Common != null)
 			{
@@ -242,7 +242,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void CheckLimit()
+		public virtual void CheckLimit()
 		{
 			try
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void OnValueChanged(ValueChangedEventArgs e)
+		public virtual void OnValueChanged(ValueChangedEventArgs e)
 		{
 			if (this.Common != null)
 			{
@@ -281,7 +281,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void OnNameChanged()
+		public override void OnNameChanged()
 		{
 			base.OnNameChanged();
 			foreach (IValueConsumer consumer in this.consumers)
@@ -290,7 +290,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void OnRemove()
+		public override void OnRemove()
 		{
 			base.OnRemove();
 			foreach (IValueConsumer consumer in this.consumers)
@@ -299,7 +299,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			base.OnAdded();
 			if (this.Common != null)
@@ -308,7 +308,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void Recalculate(double value, DateTime timestamp)
+		public virtual void Recalculate(double value, DateTime timestamp)
 		{
 			lock (this)
 			{
@@ -327,13 +327,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal virtual void CalculateValue(double value, DateTime timestamp)
+		public virtual void CalculateValue(double value, DateTime timestamp)
 		{
 			this.outputValue = value;
 			this.outputDate = timestamp;
 		}
 
-		internal virtual void RefreshConsumers()
+		public virtual void RefreshConsumers()
 		{
 			foreach (IValueConsumer consumer in this.consumers)
 			{
@@ -341,7 +341,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void Invalidate()
+		public override void Invalidate()
 		{
 			foreach (IValueConsumer consumer in this.consumers)
 			{
@@ -414,7 +414,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.provderState;
 		}
 
-		internal override object CloneInternals(object copy)
+		public override object CloneInternals(object copy)
 		{
 			ValueBase valueBase = (ValueBase)base.CloneInternals(copy);
 			valueBase.historyDept = (GaugeDuration)this.historyDept.Clone();

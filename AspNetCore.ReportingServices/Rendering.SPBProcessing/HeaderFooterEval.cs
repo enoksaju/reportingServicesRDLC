@@ -2,9 +2,9 @@ using AspNetCore.ReportingServices.OnDemandReportRendering;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal abstract class HeaderFooterEval
+	public abstract class HeaderFooterEval
 	{
-		internal static bool AddToCurrentPage(ReportItem reportItem)
+		public static bool AddToCurrentPage(ReportItem reportItem)
 		{
 			if (reportItem == null)
 			{
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal static bool AddToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix)
+		public static bool AddToCurrentPage(AspNetCore.ReportingServices.OnDemandReportRendering.Tablix tablix)
 		{
 			TablixInstance tablixInstance = (TablixInstance)tablix.Instance;
 			if (tablixInstance.NoRows)

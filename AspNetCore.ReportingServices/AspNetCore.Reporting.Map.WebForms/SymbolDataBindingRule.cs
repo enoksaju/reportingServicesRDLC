@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(SymbolDataBindingRuleConverter))]
-	internal class SymbolDataBindingRule : DataBindingRuleBase
+	public class SymbolDataBindingRule : DataBindingRuleBase
 	{
 		private string category = "";
 
@@ -96,12 +96,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal SymbolDataBindingRule(CommonElements common)
+		public SymbolDataBindingRule(CommonElements common)
 			: base(common)
 		{
 		}
 
-		internal override void DataBind()
+		public override void DataBind()
 		{
 			if (this.Common != null)
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void UpdateDataFields(string dataMember, int dataMemberIndex, StringCollection dataFields)
+		public override void UpdateDataFields(string dataMember, int dataMemberIndex, StringCollection dataFields)
 		{
 			base.UpdateDataFields(dataMember, dataMemberIndex, dataFields);
 			if (!(base.DataMember == dataMember))

@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CustomReportItemInstance : ReportItemInstance, IPageItem
+	public sealed class CustomReportItemInstance : ReportItemInstance, IPageItem
 	{
 		private ReportItemColInstance m_altReportItemColInstance;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_endPage = -1;
 
-		internal ReportItemColInstance AltReportItemColInstance
+		public ReportItemColInstance AltReportItemColInstance
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingInstanceList ColumnInstances
+		public CustomReportItemHeadingInstanceList ColumnInstances
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingInstanceList RowInstances
+		public CustomReportItemHeadingInstanceList RowInstances
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemCellInstancesList Cells
+		public CustomReportItemCellInstancesList Cells
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentCellOuterIndex
+		public int CurrentCellOuterIndex
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentCellInnerIndex
+		public int CurrentCellInnerIndex
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentOuterStaticIndex
+		public int CurrentOuterStaticIndex
 		{
 			set
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentInnerStaticIndex
+		public int CurrentInnerStaticIndex
 		{
 			set
 			{
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemHeadingInstanceList InnerHeadingInstanceList
+		public CustomReportItemHeadingInstanceList InnerHeadingInstanceList
 		{
 			get
 			{
@@ -151,7 +151,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CellColumnCount
+		public int CellColumnCount
 		{
 			get
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CellRowCount
+		public int CellRowCount
 		{
 			get
 			{
@@ -171,11 +171,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemInstance()
+		public CustomReportItemInstance()
 		{
 		}
 
-		internal CustomReportItemInstance(ReportProcessing.ProcessingContext pc, CustomReportItem reportItemDef)
+		public CustomReportItemInstance(ReportProcessing.ProcessingContext pc, CustomReportItem reportItemDef)
 			: base(pc.CreateUniqueName(), reportItemDef)
 		{
 			base.m_instanceInfo = new CustomReportItemInstanceInfo(pc, reportItemDef, this);
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemCellInstance AddCell(ReportProcessing.ProcessingContext pc)
+		public CustomReportItemCellInstance AddCell(ReportProcessing.ProcessingContext pc)
 		{
 			CustomReportItem customReportItem = (CustomReportItem)base.m_reportItemDef;
 			bool flag = customReportItem.ProcessingInnerGrouping == Pivot.ProcessingInnerGroupings.Column;
@@ -223,7 +223,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return customReportItemCellInstance;
 		}
 
-		internal void NewOuterCells()
+		public void NewOuterCells()
 		{
 			if (0 >= this.m_currentCellInnerIndex && this.m_cells.Count != 0)
 			{
@@ -242,13 +242,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
+		public override ReportItemInstanceInfo ReadInstanceInfo(IntermediateFormatReader reader)
 		{
 			Global.Tracer.Assert(base.m_instanceInfo is OffsetInfo);
 			return reader.ReadCustomReportItemInstanceInfo((CustomReportItem)base.m_reportItemDef);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.AltReportItemColInstance, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemColInstance));

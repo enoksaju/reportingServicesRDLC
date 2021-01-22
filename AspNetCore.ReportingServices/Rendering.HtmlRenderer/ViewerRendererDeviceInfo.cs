@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class ViewerRendererDeviceInfo : DeviceInfo
+	public class ViewerRendererDeviceInfo : DeviceInfo
 	{
 		public override void VerifySafeForJavascript(string value)
 		{

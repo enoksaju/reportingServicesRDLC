@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum GradientType
+	public enum GradientType
 	{
 		None,
 		LeftRight,

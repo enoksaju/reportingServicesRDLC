@@ -6,9 +6,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
 	[ArrayOfReferences]
-	internal sealed class SubReportList : ArrayList
+	public sealed class SubReportList : ArrayList
 	{
-		internal new SubReport this[int index]
+		public new SubReport this[int index]
 		{
 			get
 			{
@@ -16,16 +16,16 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal SubReportList()
+		public SubReportList()
 		{
 		}
 
-		internal SubReportList(int capacity)
+		public SubReportList(int capacity)
 			: base(capacity)
 		{
 		}
 
-		internal new SubReportList Clone()
+		public new SubReportList Clone()
 		{
 			int count = this.Count;
 			SubReportList subReportList = new SubReportList(count);

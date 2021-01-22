@@ -4,15 +4,15 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.drawingml.x2006.picture
 {
-	internal class CT_ShapeProperties : OoxmlComplexType, IOoxmlComplexType
+	public class CT_ShapeProperties : OoxmlComplexType, IOoxmlComplexType
 	{
-		internal enum ChoiceBucket_0
+		public enum ChoiceBucket_0
 		{
 			custGeom,
 			prstGeom
 		}
 
-		internal enum ChoiceBucket_1
+		public enum ChoiceBucket_1
 		{
 			noFill,
 			solidFill,
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			grpFill
 		}
 
-		internal enum ChoiceBucket_2
+		public enum ChoiceBucket_2
 		{
 			effectLst,
 			effectDag

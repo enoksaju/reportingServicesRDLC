@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapSpatialDataRegion : MapSpatialData
+	public class MapSpatialDataRegion : MapSpatialData
 	{
-		internal class Definition : DefinitionStore<MapSpatialDataRegion, Definition.Properties>
+		public class Definition : DefinitionStore<MapSpatialDataRegion, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				VectorData,
 				PropertyCount
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapSpatialDataRegion(IPropertyStore propertyStore)
+		public MapSpatialDataRegion(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

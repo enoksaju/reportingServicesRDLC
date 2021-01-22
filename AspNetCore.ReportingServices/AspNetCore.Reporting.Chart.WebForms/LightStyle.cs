@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum LightStyle
+	public enum LightStyle
 	{
 		None,
 		Simplistic,

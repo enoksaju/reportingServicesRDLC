@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartLegendCustomItem : ChartObjectCollectionItem<ChartLegendCustomItemInstance>, IROMStyleDefinitionContainer, IROMActionOwner
+	public sealed class ChartLegendCustomItem : ChartObjectCollectionItem<ChartLegendCustomItemInstance>, IROMStyleDefinitionContainer, IROMActionOwner
 	{
 		private Chart m_chart;
 
@@ -126,7 +126,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendCustomItem ChartLegendCustomItemDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendCustomItem ChartLegendCustomItemDef
 		{
 			get
 			{
@@ -158,13 +158,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartLegendCustomItem(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendCustomItem chartLegendCustomItemDef, Chart chart)
+		public ChartLegendCustomItem(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendCustomItem chartLegendCustomItemDef, Chart chart)
 		{
 			this.m_chartLegendCustomItemDef = chartLegendCustomItemDef;
 			this.m_chart = chart;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_style != null)

@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class InternalImage : ImageBase
+	public sealed class InternalImage : ImageBase
 	{
 		private Image.SourceType m_imageType;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 		private ImageMapAreaInstanceList m_imageMapAreas;
 
-		internal byte[] ImageData
+		public byte[] ImageData
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal string MIMEType
+		public string MIMEType
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal string StreamName
+		public string StreamName
 		{
 			get
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ImageMapAreaInstanceList ImageMapAreaInstances
+		public ImageMapAreaInstanceList ImageMapAreaInstances
 		{
 			get
 			{
@@ -146,7 +146,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal static byte[] TransparentImage
+		public static byte[] TransparentImage
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal InternalImage(Image.SourceType imgType, string mimeType, object valueObject, RenderingContext rc)
+		public InternalImage(Image.SourceType imgType, string mimeType, object valueObject, RenderingContext rc)
 		{
 			this.m_imageType = imgType;
 			this.m_MIMEType = mimeType;
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_transparent = false;
 		}
 
-		internal InternalImage(Image.SourceType imgType, string mimeType, object valueObject, RenderingContext rc, bool brokenImage, ImageMapAreaInstanceList imageMapAreas)
+		public InternalImage(Image.SourceType imgType, string mimeType, object valueObject, RenderingContext rc, bool brokenImage, ImageMapAreaInstanceList imageMapAreas)
 		{
 			this.m_imageType = imgType;
 			this.m_MIMEType = mimeType;

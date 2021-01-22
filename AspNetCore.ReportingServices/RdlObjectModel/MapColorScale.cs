@@ -2,11 +2,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapColorScale : MapDockableSubItem
+	public class MapColorScale : MapDockableSubItem
 	{
-		internal new class Definition : DefinitionStore<MapColorScale, Definition.Properties>
+		public new class Definition : DefinitionStore<MapColorScale, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				MapLocation,
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapColorScale(IPropertyStore propertyStore)
+		public MapColorScale(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

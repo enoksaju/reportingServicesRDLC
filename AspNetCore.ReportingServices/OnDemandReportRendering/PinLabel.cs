@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PinLabel : IROMStyleDefinitionContainer
+	public sealed class PinLabel : IROMStyleDefinitionContainer
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.PinLabel PinLabelDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.PinLabel PinLabelDef
 		{
 			get
 			{
@@ -154,13 +154,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PinLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.PinLabel defObject, GaugePanel gaugePanel)
+		public PinLabel(AspNetCore.ReportingServices.ReportIntermediateFormat.PinLabel defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

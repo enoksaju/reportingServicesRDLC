@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartAxisScaleBreak : IROMStyleDefinitionContainer
+	public sealed class ChartAxisScaleBreak : IROMStyleDefinitionContainer
 	{
 		private Chart m_chart;
 
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAxisScaleBreak ChartAxisScaleBreakDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAxisScaleBreak ChartAxisScaleBreakDef
 		{
 			get
 			{
@@ -140,13 +140,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartAxisScaleBreak(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAxisScaleBreak chartAxisScaleBreakDef, Chart chart)
+		public ChartAxisScaleBreak(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartAxisScaleBreak chartAxisScaleBreakDef, Chart chart)
 		{
 			this.m_chartAxisScaleBreakDef = chartAxisScaleBreakDef;
 			this.m_chart = chart;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{

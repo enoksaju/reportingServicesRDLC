@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ShimCell : TablixCell
+	public abstract class ShimCell : TablixCell
 	{
 		protected bool m_inSubtotal;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimCell(Tablix owner, int rowIndex, int colIndex, bool inSubtotal)
+		public ShimCell(Tablix owner, int rowIndex, int colIndex, bool inSubtotal)
 			: base(null, owner, rowIndex, colIndex)
 		{
 			this.m_inSubtotal = inSubtotal;

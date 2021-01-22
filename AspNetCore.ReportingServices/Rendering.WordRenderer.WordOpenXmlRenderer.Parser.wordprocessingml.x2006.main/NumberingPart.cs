@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class NumberingPart : OoxmlPart
+	public class NumberingPart : OoxmlPart
 	{
 		private CT_Numbering _root;
 

@@ -7,7 +7,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class Rectangle : PageItemContainer
+	public sealed class Rectangle : PageItemContainer
 	{
 		private bool m_staticItem;
 
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override bool StaticItem
+		public override bool StaticItem
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal Rectangle(AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle source, PageContext pageContext, bool createForRepeat)
+		public Rectangle(AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle source, PageContext pageContext, bool createForRepeat)
 			: base(source, createForRepeat)
 		{
 			if (pageContext != null)
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
+		public override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
 		{
 			base.AdjustOriginFromItemsAbove(siblings, repeatWithItems);
 			if (!this.HitsCurrentPage(pageContext, parentTopInPage))
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal override void CalculateRepeatWithPage(RPLWriter rplWriter, PageContext pageContext, PageItem[] siblings)
+		public override void CalculateRepeatWithPage(RPLWriter rplWriter, PageContext pageContext, PageItem[] siblings)
 		{
 			base.AdjustOriginFromItemsAbove(siblings, null);
 			ItemSizes itemSizes = null;
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override int WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
+		public override int WriteRepeatWithToPage(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (base.ItemState == State.OnPageHidden)
 			{
@@ -384,7 +384,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return 1;
 		}
 
-		internal void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (rplWriter != null)
 			{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle rectangle = (AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle)base.m_source;
 			ReportItemCollection reportItemCollection = rectangle.ReportItemCollection;
@@ -416,7 +416,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle rectangle = (AspNetCore.ReportingServices.OnDemandReportRendering.Rectangle)base.m_source;
 			ReportItemCollection reportItemCollection = rectangle.ReportItemCollection;
@@ -427,7 +427,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public override void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -437,7 +437,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override PageItemHelper WritePaginationInfo()
+		public override PageItemHelper WritePaginationInfo()
 		{
 			PageItemHelper pageItemHelper = new PageItemContainerHelper(6);
 			base.WritePaginationInfoProperties(pageItemHelper);

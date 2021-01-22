@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Flags]
-	internal enum UserLocationFlags
+	public enum UserLocationFlags
 	{
 		None = 1,
 		ReportBody = 2,

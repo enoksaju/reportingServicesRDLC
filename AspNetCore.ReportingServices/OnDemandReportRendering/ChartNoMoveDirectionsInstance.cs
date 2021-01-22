@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartNoMoveDirectionsInstance : BaseInstance
+	public sealed class ChartNoMoveDirectionsInstance : BaseInstance
 	{
 		private ChartNoMoveDirections m_chartNoMoveDirectionsDef;
 
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartNoMoveDirectionsInstance(ChartNoMoveDirections chartNoMoveDirectionsDef)
+		public ChartNoMoveDirectionsInstance(ChartNoMoveDirections chartNoMoveDirectionsDef)
 			: base(chartNoMoveDirectionsDef.ReportScope)
 		{
 			this.m_chartNoMoveDirectionsDef = chartNoMoveDirectionsDef;

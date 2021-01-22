@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ParameterValueList : ArrayList
+	public sealed class ParameterValueList : ArrayList
 	{
-		internal new ParameterValue this[int index]
+		public new ParameterValue this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterValueList()
+		public ParameterValueList()
 		{
 		}
 
-		internal ParameterValueList(int capacity)
+		public ParameterValueList(int capacity)
 			: base(capacity)
 		{
 		}

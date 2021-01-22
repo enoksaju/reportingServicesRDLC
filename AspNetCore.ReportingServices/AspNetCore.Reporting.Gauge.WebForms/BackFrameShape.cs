@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum BackFrameShape
+	public enum BackFrameShape
 	{
 		Circular,
 		Rectangular,

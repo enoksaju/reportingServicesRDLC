@@ -2,13 +2,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class RTLTextBoxes
+	public class RTLTextBoxes
 	{
 		private List<Dictionary<string, List<object>>> m_delayedTB;
 
 		private Stack<Dictionary<string, List<object>>> m_rtlDelayedTB;
 
-		internal List<Dictionary<string, List<object>>> DelayedTB
+		public List<Dictionary<string, List<object>>> DelayedTB
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Stack<Dictionary<string, List<object>>> RTLDelayedTB
+		public Stack<Dictionary<string, List<object>>> RTLDelayedTB
 		{
 			get
 			{
@@ -32,12 +32,12 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal RTLTextBoxes(List<Dictionary<string, List<object>>> delayedTB)
+		public RTLTextBoxes(List<Dictionary<string, List<object>>> delayedTB)
 		{
 			this.m_delayedTB = delayedTB;
 		}
 
-		internal void Push(List<Dictionary<string, List<object>>> delayedTB)
+		public void Push(List<Dictionary<string, List<object>>> delayedTB)
 		{
 			if (delayedTB != null && delayedTB.Count != 0)
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal List<Dictionary<string, List<object>>> RegisterRTLLevel()
+		public List<Dictionary<string, List<object>>> RegisterRTLLevel()
 		{
 			if (this.m_rtlDelayedTB != null && this.m_rtlDelayedTB.Count > 0)
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return this.m_delayedTB;
 		}
 
-		internal void RegisterTextBoxes(PageContext pageContext)
+		public void RegisterTextBoxes(PageContext pageContext)
 		{
 			if (this.m_delayedTB != null)
 			{

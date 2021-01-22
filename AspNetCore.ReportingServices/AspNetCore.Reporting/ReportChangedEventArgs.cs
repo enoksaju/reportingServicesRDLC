@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal class ReportChangedEventArgs : EventArgs
+	public class ReportChangedEventArgs : EventArgs
 	{
 		private bool m_isRefreshOnly;
 

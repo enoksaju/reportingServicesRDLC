@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[Flags]
-	internal enum AntiAliasing
+	public enum AntiAliasing
 	{
 		None = 0,
 		Text = 1,

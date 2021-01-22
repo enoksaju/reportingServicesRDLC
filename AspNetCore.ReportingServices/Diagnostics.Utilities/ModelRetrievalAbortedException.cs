@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ModelRetrievalAbortedException : ReportCatalogException
+	public sealed class ModelRetrievalAbortedException : ReportCatalogException
 	{
-		internal enum CancelationTrigger
+		public enum CancelationTrigger
 		{
 			None,
 			ModelResolutionAfterConnectionOpen,
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 
 		private readonly CancelationTrigger m_cancelationTrigger;
 
-		internal CancelationTrigger Trigger
+		public CancelationTrigger Trigger
 		{
 			get
 			{

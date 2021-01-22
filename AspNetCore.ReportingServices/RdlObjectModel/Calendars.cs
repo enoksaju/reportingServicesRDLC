@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum Calendars
+	public enum Calendars
 	{
 		Default,
 		Gregorian,

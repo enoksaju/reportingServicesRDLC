@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace AspNetCore.Reporting
 {
-	internal sealed class PrintRequestOperation : ReportDataOperation
+	public sealed class PrintRequestOperation : ReportDataOperation
 	{
 		public static string CreateQuery(Report report, string instanceID)
 		{

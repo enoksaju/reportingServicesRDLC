@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class CannotBuildExternalConnectionStringException : ReportCatalogException
+	public sealed class CannotBuildExternalConnectionStringException : ReportCatalogException
 	{
 		public CannotBuildExternalConnectionStringException(string dataSource)
 			: this(dataSource, null)

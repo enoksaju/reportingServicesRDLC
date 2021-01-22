@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class ListLevel
+	public class ListLevel
 	{
 		private static byte[] m_closeUL;
 
@@ -73,14 +73,14 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			ListLevel.m_closeBracket = uTF8Encoding.GetBytes(">");
 		}
 
-		internal ListLevel(IHtmlReportWriter renderer, int listLevel, RPLFormat.ListStyles style)
+		public ListLevel(IHtmlReportWriter renderer, int listLevel, RPLFormat.ListStyles style)
 		{
 			this.m_renderer = renderer;
 			this.m_listLevel = listLevel;
 			this.m_style = style;
 		}
 
-		internal void Open(bool writeNoVerticalMarginClass)
+		public void Open(bool writeNoVerticalMarginClass)
 		{
 			byte[] bytes = ListLevel.m_olArabic;
 			switch (this.m_style)
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.m_renderer.WriteStream(ListLevel.m_closeBracket);
 		}
 
-		internal void Close()
+		public void Close()
 		{
 			byte[] bytes = ListLevel.m_closeOL;
 			if (this.m_style == RPLFormat.ListStyles.Bulleted)

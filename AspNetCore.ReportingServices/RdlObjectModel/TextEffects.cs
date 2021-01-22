@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum TextEffects
+	public enum TextEffects
 	{
 		Default,
 		None,

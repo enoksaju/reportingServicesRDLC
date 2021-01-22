@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportSizeCollection : ReportElementCollectionBase<ReportSize>
+	public sealed class ReportSizeCollection : ReportElementCollectionBase<ReportSize>
 	{
 		private ReportSize[] m_reportSizeCollection;
 
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSizeCollection(int count)
+		public ReportSizeCollection(int count)
 		{
 			this.m_reportSizeCollection = new ReportSize[count];
 		}

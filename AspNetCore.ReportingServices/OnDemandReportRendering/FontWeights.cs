@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum FontWeights
+	public enum FontWeights
 	{
 		Default,
 		Normal,

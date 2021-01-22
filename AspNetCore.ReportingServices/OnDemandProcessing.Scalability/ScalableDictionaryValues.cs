@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class ScalableDictionaryValues : IScalableDictionaryEntry, IStorable, IPersistable, ITransferable
+	public sealed class ScalableDictionaryValues : IScalableDictionaryEntry, IStorable, IPersistable, ITransferable
 	{
 		private object[] m_keys;
 
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal ScalableDictionaryValues()
+		public ScalableDictionaryValues()
 		{
 		}
 
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ScalableDictionaryValues;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			if (ScalableDictionaryValues.m_declaration == null)
 			{

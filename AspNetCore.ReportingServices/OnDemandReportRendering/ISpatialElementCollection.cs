@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface ISpatialElementCollection
+	public interface ISpatialElementCollection
 	{
 		int Count
 		{

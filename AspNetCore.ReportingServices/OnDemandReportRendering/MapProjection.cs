@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapProjection
+	public enum MapProjection
 	{
 		Equirectangular,
 		Mercator,

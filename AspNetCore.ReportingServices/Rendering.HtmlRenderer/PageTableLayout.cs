@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
 	[Serializable]
-	internal sealed class PageTableLayout
+	public sealed class PageTableLayout
 	{
 		private const float LINETHRESHOLD = 0.01f;
 
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 		[NonSerialized]
 		private bool m_needExtraRow;
 
-		internal bool BandTable
+		public bool BandTable
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal int NrCols
+		public int NrCols
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal int NrRows
+		public int NrRows
 		{
 			get
 			{
@@ -64,19 +64,19 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal PageTableLayout(int nrCols, int nrRows)
+		public PageTableLayout(int nrCols, int nrRows)
 		{
 			this.m_nrCols = nrCols;
 			this.m_nrRows = nrRows;
 			this.m_tableGrid = new PageTableCellList();
 		}
 
-		internal void AddCell(float x, float y, float dx, float dy)
+		public void AddCell(float x, float y, float dx, float dy)
 		{
 			this.m_tableGrid.Add(new PageTableCell(x, y, dx, dy));
 		}
 
-		internal PageTableCell GetCell(int index)
+		public PageTableCell GetCell(int index)
 		{
 			if (index >= 0 && index <= this.m_nrCols * this.m_nrRows - 1)
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return null;
 		}
 
-		internal PageTableCell GetCell(int row, int col)
+		public PageTableCell GetCell(int row, int col)
 		{
 			if (col >= this.m_nrCols)
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.m_nrCols--;
 		}
 
-		internal bool NeedExtraRow()
+		public bool NeedExtraRow()
 		{
 			int num = this.m_firstVisibleRow * this.m_nrCols;
 			PageTableCell pageTableCell = null;
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return this.m_needExtraRow;
 		}
 
-		internal static bool SkipReportItem(RPLItemMeasurement measurement)
+		public static bool SkipReportItem(RPLItemMeasurement measurement)
 		{
 			if (measurement.Height == 0.0)
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return currReportItem.Top + currReportItem.Height;
 		}
 
-		internal bool AreSpansInColOne()
+		public bool AreSpansInColOne()
 		{
 			bool flag = false;
 			for (int i = 0; i < this.m_nrRows; i++)
@@ -644,7 +644,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal bool GetBool(object b)
+		public bool GetBool(object b)
 		{
 			if (b != null)
 			{
@@ -653,7 +653,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			return false;
 		}
 
-		internal void EmptyRowsCells()
+		public void EmptyRowsCells()
 		{
 			int num = 0;
 			int num2 = 0;
@@ -797,7 +797,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal void AttachReportItems(RPLItemMeasurement[] reportItemCol, double delta, bool consumeContainerWhiteSpace)
+		public void AttachReportItems(RPLItemMeasurement[] reportItemCol, double delta, bool consumeContainerWhiteSpace)
 		{
 			this.FillAndFindOverlap(reportItemCol, delta);
 			this.EmptyRowsCells();
@@ -926,7 +926,7 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			this.RemoveLastCol();
 		}
 
-		internal bool EmptyRow(RPLMeasurement[] repItemColl, bool ignoreLines, int rowIndex, bool renderHeight, ref int skipHeight)
+		public bool EmptyRow(RPLMeasurement[] repItemColl, bool ignoreLines, int rowIndex, bool renderHeight, ref int skipHeight)
 		{
 			int i = this.m_firstVisibleColumn;
 			bool result = true;

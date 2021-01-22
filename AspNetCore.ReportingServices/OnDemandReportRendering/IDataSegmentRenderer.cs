@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal interface IDataSegmentRenderer
+	public interface IDataSegmentRenderer
 	{
 		void RenderSegment(Report report, Stream dataSegmentQuery, CreateAndRegisterStream createAndRegisterStream);
 

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class CellBorderColor
+	public class CellBorderColor
 	{
 		private byte[] m_borderColorsTop;
 
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 
 		private byte[] m_borderColorsRight;
 
-		internal int SprmSize
+		public int SprmSize
 		{
 			get
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal CellBorderColor(int numColumns)
+		public CellBorderColor(int numColumns)
 		{
 			this.m_borderColorsTop = new byte[4 * numColumns];
 			this.m_borderColorsLeft = new byte[4 * numColumns];
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			Array.Clear(this.m_borderColorsTop, 0, this.m_borderColorsTop.Length);
 			Array.Clear(this.m_borderColorsLeft, 0, this.m_borderColorsLeft.Length);
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			this.InitColors(this.m_borderColorsRight);
 		}
 
-		internal void SetColor(TableData.Positions position, int cellIndex, int ico24)
+		public void SetColor(TableData.Positions position, int cellIndex, int ico24)
 		{
 			int offset = cellIndex * 4;
 			switch (position)
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal byte[] ToByteArray()
+		public byte[] ToByteArray()
 		{
 			int num = 0;
 			byte[] array = new byte[this.SprmSize];

@@ -7,7 +7,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ChartLicenseProvider : LicenseProvider
+	public class ChartLicenseProvider : LicenseProvider
 	{
 		protected virtual bool IsKeyValid(string key, Type type)
 		{

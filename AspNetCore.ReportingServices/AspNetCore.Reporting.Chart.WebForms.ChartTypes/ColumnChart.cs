@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class ColumnChart : PointChart
+	public class ColumnChart : PointChart
 	{
 		private double shiftedX;
 

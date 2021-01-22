@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class HtmlEntityResolver
+	public sealed class HtmlEntityResolver
 	{
 		private static Dictionary<string, char> m_entityLookupTable;
 
@@ -283,14 +283,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			HtmlEntityResolver.m_entityLookupTable.Add("&#8482;", '™');
 		}
 
-		internal static string ResolveEntities(string html)
+		public static string ResolveEntities(string html)
 		{
 			StringBuilder stringBuilder = new StringBuilder(html);
 			HtmlEntityResolver.ResolveEntities(stringBuilder);
 			return stringBuilder.ToString();
 		}
 
-		internal static void ResolveEntities(StringBuilder sb)
+		public static void ResolveEntities(StringBuilder sb)
 		{
 			for (int i = 0; i < sb.Length; i++)
 			{
@@ -340,7 +340,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return false;
 		}
 
-		internal static string ResolveEntity(string entity)
+		public static string ResolveEntity(string entity)
 		{
 			char c = default(char);
 			if (HtmlEntityResolver.m_entityLookupTable.TryGetValue(entity, out c))

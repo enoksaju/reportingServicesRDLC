@@ -16,16 +16,16 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class PageContext
+	public sealed class PageContext
 	{
-		internal enum CacheState : byte
+		public enum CacheState : byte
 		{
 			RPLStream,
 			RPLObjectModel,
 			CountPages
 		}
 
-		internal enum IgnorePageBreakReason
+		public enum IgnorePageBreakReason
 		{
 			Unknown,
 			ToggleableItem,
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			InsideHeaderFooter
 		}
 
-		internal class PageContextCommon
+		public class PageContextCommon
 		{
 			private PaginationSettings m_pagination;
 
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 			private Hashtable m_cacheSharedImages;
 
-			internal CachedSharedImageInfo m_itemCacheSharedImageInfo;
+			public CachedSharedImageInfo m_itemCacheSharedImageInfo;
 
 			private IScalabilityCache m_scalabilityCache;
 
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 			private bool m_outputDiagnostics = true;
 
-			internal PaginationSettings Pagination
+			public PaginationSettings Pagination
 			{
 				get
 				{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal bool ConsumeWhitespace
+			public bool ConsumeWhitespace
 			{
 				get
 				{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal bool EvaluatePageHeaderFooter
+			public bool EvaluatePageHeaderFooter
 			{
 				get
 				{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal int VerticalPageNumber
+			public int VerticalPageNumber
 			{
 				get
 				{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal int PageNumber
+			public int PageNumber
 			{
 				get
 				{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal string PageName
+			public string PageName
 			{
 				get
 				{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal int PageNumberRegion
+			public int PageNumberRegion
 			{
 				get
 				{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal Hashtable ItemPropsStart
+			public Hashtable ItemPropsStart
 			{
 				get
 				{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal Hashtable SharedImages
+			public Hashtable SharedImages
 			{
 				get
 				{
@@ -241,7 +241,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal Hashtable AutoSizeSharedImages
+			public Hashtable AutoSizeSharedImages
 			{
 				get
 				{
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal Hashtable TextBoxDuplicates
+			public Hashtable TextBoxDuplicates
 			{
 				get
 				{
@@ -265,7 +265,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal Hashtable ItemPaddingsStyle
+			public Hashtable ItemPaddingsStyle
 			{
 				get
 				{
@@ -277,7 +277,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal Stream PropertyCache
+			public Stream PropertyCache
 			{
 				get
 				{
@@ -295,7 +295,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal CacheState CacheState
+			public CacheState CacheState
 			{
 				get
 				{
@@ -307,7 +307,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal Hashtable CacheSharedImages
+			public Hashtable CacheSharedImages
 			{
 				get
 				{
@@ -319,7 +319,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal CachedSharedImageInfo ItemCacheSharedImageInfo
+			public CachedSharedImageInfo ItemCacheSharedImageInfo
 			{
 				get
 				{
@@ -331,7 +331,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal BinaryReader PropertyCacheReader
+			public BinaryReader PropertyCacheReader
 			{
 				get
 				{
@@ -339,7 +339,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal BinaryWriter PropertyCacheWriter
+			public BinaryWriter PropertyCacheWriter
 			{
 				get
 				{
@@ -347,7 +347,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal AddTextBoxDelegate AddTextBox
+			public AddTextBoxDelegate AddTextBox
 			{
 				get
 				{
@@ -355,7 +355,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal IScalabilityCache ScalabilityCache
+			public IScalabilityCache ScalabilityCache
 			{
 				get
 				{
@@ -363,7 +363,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal long TotalScaleTimeMs
+			public long TotalScaleTimeMs
 			{
 				get
 				{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal long PeakMemoryUsageKB
+			public long PeakMemoryUsageKB
 			{
 				get
 				{
@@ -379,7 +379,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal FontCache FontCache
+			public FontCache FontCache
 			{
 				get
 				{
@@ -391,7 +391,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal bool InHeaderFooter
+			public bool InHeaderFooter
 			{
 				get
 				{
@@ -403,7 +403,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal bool InSubReport
+			public bool InSubReport
 			{
 				get
 				{
@@ -415,7 +415,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal bool IsInSelectiveRendering
+			public bool IsInSelectiveRendering
 			{
 				get
 				{
@@ -427,7 +427,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal bool DiagnosticsEnabled
+			public bool DiagnosticsEnabled
 			{
 				get
 				{
@@ -439,7 +439,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal PageContextCommon(PaginationSettings pagination, AddTextBoxDelegate aAddTextBoxDelegate, bool consumeWhitespace, CreateAndRegisterStream createAndRegisterStream)
+			public PageContextCommon(PaginationSettings pagination, AddTextBoxDelegate aAddTextBoxDelegate, bool consumeWhitespace, CreateAndRegisterStream createAndRegisterStream)
 			{
 				this.m_pagination = pagination;
 				this.m_addTextBox = aAddTextBoxDelegate;
@@ -447,7 +447,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				this.m_createAndRegisterStream = createAndRegisterStream;
 			}
 
-			internal void CreateGraphics()
+			public void CreateGraphics()
 			{
 				this.m_hdcBits = new Bitmap(2, 2);
 				this.m_hdcBits.SetResolution((float)this.m_pagination.MeasureTextDpi, (float)this.m_pagination.MeasureTextDpi);
@@ -459,7 +459,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				this.m_bitsGraphics.TextRenderingHint = TextRenderingHint.SystemDefault;
 			}
 
-			internal void DisposeGraphics()
+			public void DisposeGraphics()
 			{
 				this.m_textBoxDuplicates = null;
 				this.m_itemPaddingsStyle = null;
@@ -497,7 +497,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal float MeasureFullTextBoxHeight(AspNetCore.ReportingServices.Rendering.RichText.TextBox textBox, FlowContext flowContext, out float contentHeight)
+			public float MeasureFullTextBoxHeight(AspNetCore.ReportingServices.Rendering.RichText.TextBox textBox, FlowContext flowContext, out float contentHeight)
 			{
 				if (this.m_bitsGraphics == null)
 				{
@@ -506,7 +506,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				return AspNetCore.ReportingServices.Rendering.RichText.TextBox.MeasureFullHeight(textBox, this.m_bitsGraphics, this.FontCache, flowContext, out contentHeight);
 			}
 
-			internal float MeasureTextBoxHeight(AspNetCore.ReportingServices.Rendering.RichText.TextBox textBox, FlowContext flowContext)
+			public float MeasureTextBoxHeight(AspNetCore.ReportingServices.Rendering.RichText.TextBox textBox, FlowContext flowContext)
 			{
 				if (this.m_bitsGraphics == null)
 				{
@@ -517,7 +517,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				return result;
 			}
 
-			internal void InitCache()
+			public void InitCache()
 			{
 				if (this.m_scalabilityCache == null)
 				{
@@ -525,7 +525,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal T GetFromCache<T>(string id, out Hashtable itemPropsStart) where T : class
+			public T GetFromCache<T>(string id, out Hashtable itemPropsStart) where T : class
 			{
 				T result = null;
 				itemPropsStart = this.ItemPropsStart;
@@ -538,7 +538,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				return result;
 			}
 
-			internal T GetPrimitiveFromCache<T>(string id, out Hashtable itemPropsStart) where T : struct
+			public T GetPrimitiveFromCache<T>(string id, out Hashtable itemPropsStart) where T : struct
 			{
 				T result = default(T);
 				itemPropsStart = this.ItemPropsStart;
@@ -556,7 +556,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				return result;
 			}
 
-			internal int GetTotalPagesRegion(int pageNumber)
+			public int GetTotalPagesRegion(int pageNumber)
 			{
 				if (this.m_cacheState != CacheState.CountPages && this.m_totalPagesRegion != null)
 				{
@@ -573,7 +573,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				return 0;
 			}
 
-			internal void UpdateTotalPagesRegionMapping()
+			public void UpdateTotalPagesRegionMapping()
 			{
 				if (this.m_cacheState == CacheState.CountPages)
 				{
@@ -585,7 +585,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal void RegisterPageBreakProperties(PageBreakProperties pageBreakProperties, bool overwrite)
+			public void RegisterPageBreakProperties(PageBreakProperties pageBreakProperties, bool overwrite)
 			{
 				if (this.DiagnosticsEnabled && pageBreakProperties != null && !this.m_registeredPageBreakProperties.Contains(pageBreakProperties))
 				{
@@ -598,7 +598,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				this.m_pageBreakProperties = pageBreakProperties;
 			}
 
-			internal void ProcessPageBreakProperties()
+			public void ProcessPageBreakProperties()
 			{
 				this.TracePageCreated();
 				if (this.m_pageBreakProperties != null && !this.m_paginatingHorizontally)
@@ -612,7 +612,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal void ResetPageBreakProcessing()
+			public void ResetPageBreakProcessing()
 			{
 				this.m_pageBreakProperties = null;
 				if (this.DiagnosticsEnabled)
@@ -628,7 +628,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal void SetPageName(string pageName, bool overwrite)
+			public void SetPageName(string pageName, bool overwrite)
 			{
 				if (pageName != null)
 				{
@@ -641,22 +641,22 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal void OverwritePageName(string pageName)
+			public void OverwritePageName(string pageName)
 			{
 				this.m_pageName = pageName;
 			}
 
-			internal void ResetPageNameProcessing()
+			public void ResetPageNameProcessing()
 			{
 				this.m_canSetPageName = true;
 			}
 
-			internal void PauseDiagnostics()
+			public void PauseDiagnostics()
 			{
 				this.m_outputDiagnostics = false;
 			}
 
-			internal void ResumeDiagnostics()
+			public void ResumeDiagnostics()
 			{
 				this.m_outputDiagnostics = true;
 			}
@@ -814,9 +814,9 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal const double RoundDelta = 0.01;
+		public const double RoundDelta = 0.01;
 
-		internal const string InvalidImage = "InvalidImage";
+		public const string InvalidImage = "InvalidImage";
 
 		private bool m_ignorePageBreak;
 
@@ -832,7 +832,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private List<TextRunItemizedData> m_paragraphItemizedData;
 
-		internal bool ConsumeWhitespace
+		public bool ConsumeWhitespace
 		{
 			get
 			{
@@ -840,7 +840,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal IScalabilityCache ScalabilityCache
+		public IScalabilityCache ScalabilityCache
 		{
 			get
 			{
@@ -848,7 +848,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal long TotalScaleTimeMs
+		public long TotalScaleTimeMs
 		{
 			get
 			{
@@ -856,7 +856,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal long PeakMemoryUsageKB
+		public long PeakMemoryUsageKB
 		{
 			get
 			{
@@ -864,7 +864,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool UseGenericDefault
+		public bool UseGenericDefault
 		{
 			get
 			{
@@ -872,7 +872,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double ColumnHeight
+		public double ColumnHeight
 		{
 			get
 			{
@@ -880,7 +880,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double ColumnWidth
+		public double ColumnWidth
 		{
 			get
 			{
@@ -888,7 +888,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal double UsablePageHeight
+		public double UsablePageHeight
 		{
 			get
 			{
@@ -896,7 +896,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool IgnorePageBreaks
+		public bool IgnorePageBreaks
 		{
 			get
 			{
@@ -908,7 +908,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal IgnorePageBreakReason IgnorePageBreaksReason
+		public IgnorePageBreakReason IgnorePageBreaksReason
 		{
 			get
 			{
@@ -920,7 +920,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool FullOnPage
+		public bool FullOnPage
 		{
 			get
 			{
@@ -932,7 +932,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool ResetHorizontal
+		public bool ResetHorizontal
 		{
 			get
 			{
@@ -944,7 +944,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool EvaluatePageHeaderFooter
+		public bool EvaluatePageHeaderFooter
 		{
 			get
 			{
@@ -988,7 +988,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool EMFDynamicImages
+		public bool EMFDynamicImages
 		{
 			get
 			{
@@ -1004,7 +1004,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal int VerticalPageNumber
+		public int VerticalPageNumber
 		{
 			get
 			{
@@ -1016,7 +1016,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal int PageNumber
+		public int PageNumber
 		{
 			get
 			{
@@ -1028,7 +1028,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal string PageName
+		public string PageName
 		{
 			get
 			{
@@ -1036,7 +1036,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal int PageNumberRegion
+		public int PageNumberRegion
 		{
 			get
 			{
@@ -1048,7 +1048,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Hashtable ItemPropsStart
+		public Hashtable ItemPropsStart
 		{
 			get
 			{
@@ -1060,7 +1060,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Hashtable SharedImages
+		public Hashtable SharedImages
 		{
 			get
 			{
@@ -1072,7 +1072,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Hashtable AutoSizeSharedImages
+		public Hashtable AutoSizeSharedImages
 		{
 			get
 			{
@@ -1084,7 +1084,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Hashtable TextBoxDuplicates
+		public Hashtable TextBoxDuplicates
 		{
 			get
 			{
@@ -1096,7 +1096,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Hashtable ItemPaddingsStyle
+		public Hashtable ItemPaddingsStyle
 		{
 			get
 			{
@@ -1108,7 +1108,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool CacheNonSharedProps
+		public bool CacheNonSharedProps
 		{
 			get
 			{
@@ -1116,7 +1116,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Stream PropertyCache
+		public Stream PropertyCache
 		{
 			get
 			{
@@ -1128,7 +1128,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal CacheState PropertyCacheState
+		public CacheState PropertyCacheState
 		{
 			get
 			{
@@ -1140,7 +1140,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal BinaryReader PropertyCacheReader
+		public BinaryReader PropertyCacheReader
 		{
 			get
 			{
@@ -1148,7 +1148,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal BinaryWriter PropertyCacheWriter
+		public BinaryWriter PropertyCacheWriter
 		{
 			get
 			{
@@ -1156,7 +1156,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Hashtable CacheSharedImages
+		public Hashtable CacheSharedImages
 		{
 			get
 			{
@@ -1168,7 +1168,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal CachedSharedImageInfo ItemCacheSharedImageInfo
+		public CachedSharedImageInfo ItemCacheSharedImageInfo
 		{
 			get
 			{
@@ -1180,7 +1180,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal AddTextBoxDelegate AddTextBox
+		public AddTextBoxDelegate AddTextBox
 		{
 			get
 			{
@@ -1188,7 +1188,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal PageContextCommon Common
+		public PageContextCommon Common
 		{
 			get
 			{
@@ -1196,7 +1196,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal List<TextRunItemizedData> ParagraphItemizedData
+		public List<TextRunItemizedData> ParagraphItemizedData
 		{
 			get
 			{
@@ -1208,7 +1208,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal bool IsInSelectiveRendering
+		public bool IsInSelectiveRendering
 		{
 			get
 			{
@@ -1216,17 +1216,17 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal PageContext(PaginationSettings pagination, AddTextBoxDelegate aAddTextBox, bool consumeWhitespace, CreateAndRegisterStream createAndRegisterStream)
+		public PageContext(PaginationSettings pagination, AddTextBoxDelegate aAddTextBox, bool consumeWhitespace, CreateAndRegisterStream createAndRegisterStream)
 		{
 			this.m_common = new PageContextCommon(pagination, aAddTextBox, consumeWhitespace, createAndRegisterStream);
 		}
 
-		internal PageContext(PageContext pageContext)
+		public PageContext(PageContext pageContext)
 		{
 			this.m_common = pageContext.Common;
 		}
 
-		internal PageContext(PageContext pageContext, bool fullOnPage, bool ignorePageBreaks, IgnorePageBreakReason ignorePageBreakReason, bool cacheNonSharedProps)
+		public PageContext(PageContext pageContext, bool fullOnPage, bool ignorePageBreaks, IgnorePageBreakReason ignorePageBreakReason, bool cacheNonSharedProps)
 		{
 			this.m_common = pageContext.Common;
 			this.m_fullOnPage = fullOnPage;
@@ -1235,7 +1235,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_cacheNonSharedProps = cacheNonSharedProps;
 		}
 
-		internal PageContext(PageContext pageContext, bool cacheNonSharedProps)
+		public PageContext(PageContext pageContext, bool cacheNonSharedProps)
 		{
 			this.m_common = pageContext.Common;
 			this.m_fullOnPage = pageContext.FullOnPage;
@@ -1244,17 +1244,17 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			this.m_cacheNonSharedProps = cacheNonSharedProps;
 		}
 
-		internal void InitCache()
+		public void InitCache()
 		{
 			this.m_common.InitCache();
 		}
 
-		internal void DisposeGraphics()
+		public void DisposeGraphics()
 		{
 			this.m_common.DisposeGraphics();
 		}
 
-		internal double ConvertToMillimeters(int coordinate, float dpi)
+		public double ConvertToMillimeters(int coordinate, float dpi)
 		{
 			if (0.0 == dpi)
 			{
@@ -1263,7 +1263,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return 1.0 / (double)dpi * (double)coordinate * 25.399999618530273;
 		}
 
-		internal void RegisterTextRunData(TextRunItemizedData runItemizedData)
+		public void RegisterTextRunData(TextRunItemizedData runItemizedData)
 		{
 			if (this.m_paragraphItemizedData != null)
 			{

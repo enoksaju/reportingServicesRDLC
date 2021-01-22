@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class DataMemberCollection : DataRegionMemberCollection<DataMember>
+	public abstract class DataMemberCollection : DataRegionMemberCollection<DataMember>
 	{
 		public override string DefinitionPath
 		{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CustomReportItem OwnerCri
+		public CustomReportItem OwnerCri
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataMemberCollection(IDefinitionPath parentDefinitionPath, CustomReportItem owner)
+		public DataMemberCollection(IDefinitionPath parentDefinitionPath, CustomReportItem owner)
 			: base(parentDefinitionPath, (ReportItem)owner)
 		{
 		}

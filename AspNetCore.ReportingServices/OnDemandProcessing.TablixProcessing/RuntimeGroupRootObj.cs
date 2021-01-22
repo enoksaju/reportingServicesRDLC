@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeGroupRootObj : RuntimeGroupObj, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner, IStorable, IPersistable, IDataCorrelation
+	public abstract class RuntimeGroupRootObj : RuntimeGroupObj, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.IFilterOwner, IStorable, IPersistable, IDataCorrelation
 	{
 		protected AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode m_hierarchyDef;
 
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		private static Declaration m_declaration = RuntimeGroupRootObj.GetDeclaration();
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode HierarchyDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode HierarchyDef
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo> GroupExpressions
+		public List<AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo> GroupExpressions
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal GroupExprHost GroupExpressionHost
+		public GroupExprHost GroupExpressionHost
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo> SortExpressions
+		public List<AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo> SortExpressions
 		{
 			get
 			{
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal SortExprHost SortExpressionHost
+		public SortExprHost SortExpressionHost
 		{
 			get
 			{
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<bool> GroupDirections
+		public List<bool> GroupDirections
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<bool> SortDirections
+		public List<bool> SortDirections
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeExpressionInfo Expression
+		public RuntimeExpressionInfo Expression
 		{
 			get
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal List<string> ScopedRunningValues
+		public List<string> ScopedRunningValues
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal Dictionary<string, IReference<RuntimeGroupRootObj>> GroupCollection
+		public Dictionary<string, IReference<RuntimeGroupRootObj>> GroupCollection
 		{
 			get
 			{
@@ -136,7 +136,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal DataActions DataAction
+		public DataActions DataAction
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal ProcessingStages ProcessingStage
+		public ProcessingStages ProcessingStage
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal DataRegionInstance DataRegionInstance
+		public DataRegionInstance DataRegionInstance
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeGroupingObj.GroupingTypes GroupingType
+		public RuntimeGroupingObj.GroupingTypes GroupingType
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal Filters GroupFilters
+		public Filters GroupFilters
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool HasParent
+		public bool HasParent
 		{
 			get
 			{
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal IReference<IScope> GroupRootOuterScope
+		public IReference<IScope> GroupRootOuterScope
 		{
 			get
 			{
@@ -204,7 +204,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool SaveGroupExprValues
+		public bool SaveGroupExprValues
 		{
 			get
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool IsDetailGroup
+		public bool IsDetailGroup
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal BTree GroupOrDetailSortTree
+		public BTree GroupOrDetailSortTree
 		{
 			get
 			{
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override IRIFReportScope RIFReportScope
+		public override IRIFReportScope RIFReportScope
 		{
 			get
 			{
@@ -322,7 +322,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal bool ProcessSecondPassSorting
+		public bool ProcessSecondPassSorting
 		{
 			get
 			{
@@ -334,7 +334,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal ScalableList<DataFieldRow> DetailDataRows
+		public ScalableList<DataFieldRow> DetailDataRows
 		{
 			get
 			{
@@ -462,7 +462,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void GetScopeValues(IReference<IHierarchyObj> targetScopeObj, List<object>[] scopeValues, ref int index)
+		public override void GetScopeValues(IReference<IHierarchyObj> targetScopeObj, List<object>[] scopeValues, ref int index)
 		{
 			if (targetScopeObj != null && this == targetScopeObj.Value())
 			{
@@ -478,7 +478,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override bool TargetScopeMatched(int index, bool detailSort)
+		public override bool TargetScopeMatched(int index, bool detailSort)
 		{
 			if (this.m_isDetailGroup)
 			{
@@ -489,7 +489,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 
 		protected abstract void UpdateDataRegionGroupRootInfo();
 
-		internal override void NextRow()
+		public override void NextRow()
 		{
 			if (this.m_hierarchyDef.DataScopeInfo != null && this.m_hierarchyDef.DataScopeInfo.NeedsIDC)
 			{
@@ -590,7 +590,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal IHierarchyObj CreateDetailSortHierarchyObj(RuntimeGroupLeafObj rootSortDetailLeafObj)
+		public IHierarchyObj CreateDetailSortHierarchyObj(RuntimeGroupLeafObj rootSortDetailLeafObj)
 		{
 			Global.Tracer.Assert(null != this.m_detailUserSortTargetInfo, "(null != m_detailUserSortTargetInfo)");
 			return new RuntimeSortHierarchyObj(this, base.Depth);
@@ -676,7 +676,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return true;
 		}
 
-		internal void AddChildWithNoParent(RuntimeGroupLeafObjReference child)
+		public void AddChildWithNoParent(RuntimeGroupLeafObjReference child)
 		{
 			if (RuntimeGroupingObj.GroupingTypes.Sort == this.m_groupingType)
 			{
@@ -705,7 +705,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return result;
 		}
 
-		internal override bool SortAndFilter(AggregateUpdateContext aggContext)
+		public override bool SortAndFilter(AggregateUpdateContext aggContext)
 		{
 			if (base.m_odpContext.HasSecondPassOperation(SecondPassOperations.FilteringOrAggregatesOrDomainScope))
 			{
@@ -782,7 +782,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			Global.Tracer.Assert(false);
 		}
 
-		internal virtual void AddScopedRunningValue(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj runningValueObj)
+		public virtual void AddScopedRunningValue(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateObj runningValueObj)
 		{
 			if (this.m_scopedRunningValues == null)
 			{
@@ -794,7 +794,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
+		public override void CalculateRunningValues(Dictionary<string, IReference<RuntimeGroupRootObj>> groupCol, IReference<RuntimeGroupRootObj> lastGroup, AggregateUpdateContext aggContext)
 		{
 			this.SetupRunningValues(groupCol);
 		}
@@ -960,7 +960,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override void CalculatePreviousAggregates()
+		public override void CalculatePreviousAggregates()
 		{
 			if (this.m_previousValuesInGroup != null)
 			{
@@ -1005,7 +1005,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void CreateInstances(ScopeInstance parentInstance, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeafRef)
+		public void CreateInstances(ScopeInstance parentInstance, IReference<RuntimeMemberObj>[] innerMembers, IReference<RuntimeDataTablixGroupLeafObj> innerGroupLeafRef)
 		{
 			CreateInstancesTraversalContext traversalContext = new CreateInstancesTraversalContext(parentInstance, innerMembers, innerGroupLeafRef);
 			this.m_hierarchyDef.ResetInstancePathCascade();
@@ -1030,7 +1030,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal void TraverseLinkedGroupLeaves(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
+		public void TraverseLinkedGroupLeaves(ProcessingStages operation, bool ascending, ITraversalContext traversalContext)
 		{
 			if ((BaseReference)null != (object)base.m_firstChild)
 			{
@@ -1047,7 +1047,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			return base.m_odpContext.RuntimeSortFilterInfo[index].Value().SortDirection;
 		}
 
-		internal RuntimeGroupLeafObjReference CreateGroupLeaf()
+		public RuntimeGroupLeafObjReference CreateGroupLeaf()
 		{
 			RuntimeGroupLeafObj runtimeGroupLeafObj = null;
 			switch (base.ObjectType)

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapBucketCollection : MapObjectCollectionBase<MapBucket>
+	public sealed class MapBucketCollection : MapObjectCollectionBase<MapBucket>
 	{
 		private Map m_map;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapBucketCollection(MapAppearanceRule mapApperanceRule, Map map)
+		public MapBucketCollection(MapAppearanceRule mapApperanceRule, Map map)
 		{
 			this.m_mapApperanceRule = mapApperanceRule;
 			this.m_map = map;

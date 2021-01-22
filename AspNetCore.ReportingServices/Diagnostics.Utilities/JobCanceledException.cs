@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class JobCanceledException : ReportCatalogException
+	public sealed class JobCanceledException : ReportCatalogException
 	{
 		public JobCanceledException(Exception innerException)
 			: base(ErrorCode.rsJobWasCanceled, ErrorStrings.rsJobWasCanceled, innerException, null)

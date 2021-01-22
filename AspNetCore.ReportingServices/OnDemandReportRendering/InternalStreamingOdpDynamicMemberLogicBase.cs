@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class InternalStreamingOdpDynamicMemberLogicBase : InternalDynamicMemberLogic
+	public abstract class InternalStreamingOdpDynamicMemberLogicBase : InternalDynamicMemberLogic
 	{
 		protected readonly DataRegionMember m_memberDef;
 
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return i == index;
 		}
 
-		internal override ScopeID GetScopeID()
+		public override ScopeID GetScopeID()
 		{
 			if (this.m_grouping.IsDetail)
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_scopeID;
 		}
 
-		internal override ScopeID GetLastScopeID()
+		public override ScopeID GetLastScopeID()
 		{
 			return this.m_lastScopeID;
 		}

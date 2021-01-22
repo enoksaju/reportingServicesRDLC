@@ -7,7 +7,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportParameterCollection : ReportElementCollectionBase<ReportParameter>
+	public sealed class ReportParameterCollection : ReportElementCollectionBase<ReportParameter>
 	{
 		private List<ReportParameter> m_parameters;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal NameValueCollection ToNameValueCollection
+		public NameValueCollection ToNameValueCollection
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportParameterCollection(ParameterDefList parameterDefs, AspNetCore.ReportingServices.ReportRendering.ReportParameterCollection paramValues)
+		public ReportParameterCollection(ParameterDefList parameterDefs, AspNetCore.ReportingServices.ReportRendering.ReportParameterCollection paramValues)
 		{
 			this.m_parameters = new List<ReportParameter>(parameterDefs.Count);
 			for (int i = 0; i < parameterDefs.Count; i++)
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.UpdateRenderReportItem(paramValues);
 		}
 
-		internal ReportParameterCollection(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterDef> parameterDefs, bool validInstance)
+		public ReportParameterCollection(OnDemandProcessingContext odpContext, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ParameterDef> parameterDefs, bool validInstance)
 		{
 			this.m_parameters = new List<ReportParameter>(parameterDefs.Count);
 			for (int i = 0; i < parameterDefs.Count; i++)
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.SetNewContext(validInstance);
 		}
 
-		internal void SetNewContext(bool validInstance)
+		public void SetNewContext(bool validInstance)
 		{
 			for (int i = 0; i < this.m_parameters.Count; i++)
 			{
@@ -112,7 +112,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportParameterCollection paramValues)
+		public void UpdateRenderReportItem(AspNetCore.ReportingServices.ReportRendering.ReportParameterCollection paramValues)
 		{
 			int count = this.m_parameters.Count;
 			if (paramValues != null && paramValues.Count != count)

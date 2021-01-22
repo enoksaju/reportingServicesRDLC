@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal enum SerializationStatus
+	public enum SerializationStatus
 	{
 		None,
 		Loading,

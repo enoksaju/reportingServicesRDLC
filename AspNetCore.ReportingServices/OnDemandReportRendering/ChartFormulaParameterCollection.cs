@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartFormulaParameterCollection : ChartObjectCollectionBase<ChartFormulaParameter, ChartFormulaParameterInstance>
+	public sealed class ChartFormulaParameterCollection : ChartObjectCollectionBase<ChartFormulaParameter, ChartFormulaParameterInstance>
 	{
 		private Chart m_chart;
 
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartFormulaParameterCollection(ChartDerivedSeries derivedSeries, Chart chart)
+		public ChartFormulaParameterCollection(ChartDerivedSeries derivedSeries, Chart chart)
 		{
 			this.m_derivedSeries = derivedSeries;
 			this.m_chart = chart;

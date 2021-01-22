@@ -15,7 +15,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal sealed class BIFF8Generator : IExcelGenerator
+	public sealed class BIFF8Generator : IExcelGenerator
 	{
 		private ExcelGeneratorConstants.CreateTempStream m_createTempStream;
 
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			}
 		}
 
-		internal BIFF8Generator(ExcelGeneratorConstants.CreateTempStream createTempStream)
+		public BIFF8Generator(ExcelGeneratorConstants.CreateTempStream createTempStream)
 		{
 			this.m_createTempStream = createTempStream;
 			this.m_styleContainer = new StyleContainer();

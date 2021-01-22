@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InvalidItemPathException : ReportCatalogException
+	public sealed class InvalidItemPathException : ReportCatalogException
 	{
 		public InvalidItemPathException(string invalidPath, string parameterName)
 			: this(invalidPath, parameterName, null)

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapCell : Cell, IPersistable
+	public sealed class MapCell : Cell, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapCell.GetDeclaration();
@@ -44,20 +44,20 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapCell()
+		public MapCell()
 		{
 		}
 
-		internal MapCell(int id, MapDataRegion mapDataRegion)
+		public MapCell(int id, MapDataRegion mapDataRegion)
 			: base(id, mapDataRegion)
 		{
 		}
 
-		internal override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
+		public override void InternalInitialize(int parentRowID, int parentColumnID, int rowindex, int colIndex, InitializationContext context)
 		{
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapCell, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Cell, memberInfoList);

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartTickMarks : ChartStyleContainer, IPersistable
+	public sealed class ChartTickMarks : ChartStyleContainer, IPersistable
 	{
 		private ExpressionInfo m_enabled;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private ChartTickMarksExprHost m_exprHost;
 
-		internal ChartTickMarksExprHost ExprHost
+		public ChartTickMarksExprHost ExprHost
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Enabled
+		public ExpressionInfo Enabled
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Type
+		public ExpressionInfo Type
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Length
+		public ExpressionInfo Length
 		{
 			get
 			{
@@ -77,7 +77,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Interval
+		public ExpressionInfo Interval
 		{
 			get
 			{
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalType
+		public ExpressionInfo IntervalType
 		{
 			get
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffset
+		public ExpressionInfo IntervalOffset
 		{
 			get
 			{
@@ -113,7 +113,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo IntervalOffsetType
+		public ExpressionInfo IntervalOffsetType
 		{
 			get
 			{
@@ -125,22 +125,22 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartTickMarks()
+		public ChartTickMarks()
 		{
 		}
 
-		internal ChartTickMarks(Chart chart)
+		public ChartTickMarks(Chart chart)
 			: base(chart)
 		{
 		}
 
-		internal void SetExprHost(ChartTickMarksExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartTickMarksExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			base.SetExprHost(exprHost, reportObjectModel);
 			this.m_exprHost = exprHost;
 		}
 
-		internal void Initialize(InitializationContext context, bool isMajor)
+		public void Initialize(InitializationContext context, bool isMajor)
 		{
 			context.ExprHostBuilder.ChartTickMarksStart(isMajor);
 			base.Initialize(context);
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartTickMarksEnd(isMajor);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartTickMarks chartTickMarks = (ChartTickMarks)base.PublishClone(context);
 			if (this.m_enabled != null)
@@ -216,7 +216,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartTickMarks;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Enabled, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -229,43 +229,43 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartTickMarks, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartStyleContainer, list);
 		}
 
-		internal string EvaluateEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateEnabled(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartTickMarksEnabledExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartTickMarksType EvaluateType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartTickMarksType EvaluateType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartTickMarksType(context.ReportRuntime.EvaluateChartTickMarksTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateLength(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateLength(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartTickMarksLengthExpression(this, base.m_chart.Name);
 		}
 
-		internal double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartTickMarksIntervalExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartIntervalType EvaluateIntervalType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateIntervalType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartTickMarksIntervalTypeExpression(this, base.m_chart.Name), context.ReportRuntime);
 		}
 
-		internal double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateIntervalOffset(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartTickMarksIntervalOffsetExpression(this, base.m_chart.Name);
 		}
 
-		internal ChartIntervalType EvaluateIntervalOffsetType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public ChartIntervalType EvaluateIntervalOffsetType(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_chart, reportScopeInstance);
 			return EnumTranslator.TranslateChartIntervalType(context.ReportRuntime.EvaluateChartTickMarksIntervalOffsetTypeExpression(this, base.m_chart.Name), context.ReportRuntime);

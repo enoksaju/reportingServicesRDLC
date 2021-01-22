@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface IMapAreaAttributes
+	public interface IMapAreaAttributes
 	{
 		string ToolTip
 		{

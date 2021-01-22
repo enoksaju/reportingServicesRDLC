@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal sealed class SPBContext
+	public sealed class SPBContext
 	{
 		public int StartPage = -1;
 

@@ -8,19 +8,19 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class OnDemandPageEvaluation : PageEvaluation
+	public sealed class OnDemandPageEvaluation : PageEvaluation
 	{
 		private OnDemandProcessingContext m_processingContext;
 
 		private Dictionary<string, ReportSection> m_reportItemToReportSection = new Dictionary<string, ReportSection>();
 
-		internal OnDemandPageEvaluation(Report report)
+		public OnDemandPageEvaluation(Report report)
 			: base(report)
 		{
 			this.InitializeEnvironment();
 		}
 
-		internal override void Add(string textboxName, object textboxValue)
+		public override void Add(string textboxName, object textboxValue)
 		{
 			if (textboxName == null)
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void UpdatePageSections(ReportSection section)
+		public override void UpdatePageSections(ReportSection section)
 		{
 			if (section.Page.PageHeader == null && section.Page.PageFooter == null)
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			section.PageAggregatesOverReportItems = null;
 		}
 
-		internal override void Reset(ReportSection section, int newPageNumber, int newTotalPages, int newOverallPageNumber, int newOverallTotalPages)
+		public override void Reset(ReportSection section, int newPageNumber, int newTotalPages, int newOverallPageNumber, int newOverallTotalPages)
 		{
 			base.Reset(section, newPageNumber, newTotalPages, newOverallPageNumber, newOverallTotalPages);
 			if (section.Page.PageHeader == null && section.Page.PageFooter == null)

@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class BarChart : IChartType
+	public class BarChart : IChartType
 	{
 		protected bool useTwoValues;
 
@@ -656,7 +656,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return num;
 		}
 
-		internal double GetEmptyPointValue(DataPoint point, int pointIndex, int yValueIndex)
+		public double GetEmptyPointValue(DataPoint point, int pointIndex, int yValueIndex)
 		{
 			Series series = point.series;
 			double num = 0.0;

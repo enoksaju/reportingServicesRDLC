@@ -5,11 +5,11 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal class RuntimeReferenceCreator : IReferenceCreator
+	public class RuntimeReferenceCreator : IReferenceCreator
 	{
 		private static RuntimeReferenceCreator m_instance = new RuntimeReferenceCreator();
 
-		internal static RuntimeReferenceCreator Instance
+		public static RuntimeReferenceCreator Instance
 		{
 			get
 			{

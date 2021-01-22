@@ -5,11 +5,11 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal struct RVUnit
+	public struct RVUnit
 	{
-		internal const double Pt1 = 0.35277777777777775;
+		public const double Pt1 = 0.35277777777777775;
 
-		internal const double Pc1 = 4.2333333333333325;
+		public const double Pc1 = 4.2333333333333325;
 
 		public static readonly RVUnit Empty = default(RVUnit);
 
@@ -196,7 +196,7 @@ namespace AspNetCore.ReportingServices.Common
 			return RVUnit.DefaultType;
 		}
 
-		internal static RVUnit Parse(string s)
+		public static RVUnit Parse(string s)
 		{
 			return new RVUnit(s, null);
 		}
@@ -206,7 +206,7 @@ namespace AspNetCore.ReportingServices.Common
 			return new RVUnit(s, culture);
 		}
 
-		internal static bool TryParse(string s, out RVUnit rvUnit)
+		public static bool TryParse(string s, out RVUnit rvUnit)
 		{
 			return RVUnit.TryParse(s, (CultureInfo)null, out rvUnit);
 		}

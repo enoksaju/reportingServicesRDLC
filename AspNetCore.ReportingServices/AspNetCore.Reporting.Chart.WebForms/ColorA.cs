@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class ColorA
+	public class ColorA
 	{
 		private Color startColor = Color.Transparent;
 
@@ -88,7 +88,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			}
 		}
 
-		internal ColorA Copy()
+		public ColorA Copy()
 		{
 			ColorA colorA = new ColorA();
 			colorA.endColor = this.endColor;

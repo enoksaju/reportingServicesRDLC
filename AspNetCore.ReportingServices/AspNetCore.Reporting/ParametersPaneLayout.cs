@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting
 {
-	internal sealed class ParametersPaneLayout
+	public sealed class ParametersPaneLayout
 	{
 		public GridLayoutDefinition GridLayoutDefinition;
 	}

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal enum MemberName
+	public enum MemberName
 	{
 		FieldValueSerializable = 10000,
 		ID = 0,

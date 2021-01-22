@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface IValueProvider
+	public interface IValueProvider
 	{
 		void AttachConsumer(IValueConsumer consumer);
 

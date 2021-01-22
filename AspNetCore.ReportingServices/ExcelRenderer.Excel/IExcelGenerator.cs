@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal interface IExcelGenerator
+	public interface IExcelGenerator
 	{
 		int MaxRows
 		{

@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun TextRunDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun TextRunDef
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal TextRunImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.TextBox textBoxDef, AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun textRunDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, IErrorContext iErrorContext, IScope scope)
+		public TextRunImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.TextBox textBoxDef, AspNetCore.ReportingServices.ReportIntermediateFormat.TextRun textRunDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, IErrorContext iErrorContext, IScope scope)
 		{
 			this.m_textBoxDef = textBoxDef;
 			this.m_textRunDef = textRunDef;
@@ -53,7 +53,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_scope = scope;
 		}
 
-		internal AspNetCore.ReportingServices.RdlExpressions.VariantResult GetResult(IReportScopeInstance romInstance)
+		public AspNetCore.ReportingServices.RdlExpressions.VariantResult GetResult(IReportScopeInstance romInstance)
 		{
 			if (!this.m_isValueReady)
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return this.m_result;
 		}
 
-		internal List<string> GetFieldsUsedInValueExpression(IReportScopeInstance romInstance)
+		public List<string> GetFieldsUsedInValueExpression(IReportScopeInstance romInstance)
 		{
 			if (!this.m_isValueReady)
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return this.m_fieldsUsedInValueExpression;
 		}
 
-		internal void MergeFieldsUsedInValueExpression(Dictionary<string, bool> usedFields)
+		public void MergeFieldsUsedInValueExpression(Dictionary<string, bool> usedFields)
 		{
 			if (this.m_fieldsUsedInValueExpression != null)
 			{
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			if (this.m_isValueReady && this.m_textRunDef.Value.IsExpression)
 			{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class ZIndexComparer : IComparer<RPLItemMeasurement>, IComparer<Border>
+	public sealed class ZIndexComparer : IComparer<RPLItemMeasurement>, IComparer<Border>
 	{
 		public int Compare(RPLItemMeasurement x, RPLItemMeasurement y)
 		{

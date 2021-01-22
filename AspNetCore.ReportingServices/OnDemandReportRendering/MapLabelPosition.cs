@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapLabelPosition
+	public enum MapLabelPosition
 	{
 		Near,
 		OneQuarter,

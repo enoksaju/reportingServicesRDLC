@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal static class FlagUtils
+	public static class FlagUtils
 	{
 		public static bool HasFlag(DataActions value, DataActions flagToTest)
 		{

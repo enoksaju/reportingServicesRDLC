@@ -5,15 +5,15 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class CommonElements
+	public class CommonElements
 	{
 		private MapGraphics graph;
 
-		internal IServiceContainer container;
+		public IServiceContainer container;
 
-		internal bool processModePaint = true;
+		public bool processModePaint = true;
 
-		internal bool processModeRegions;
+		public bool processModeRegions;
 
 		private int width;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private MapCore mapCore;
 
-		internal Size Size
+		public Size Size
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool ProcessModePaint
+		public bool ProcessModePaint
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool ProcessModeRegions
+		public bool ProcessModeRegions
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ImageLoader ImageLoader
+		public ImageLoader ImageLoader
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapCore MapCore
+		public MapCore MapCore
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapControl MapControl
+		public MapControl MapControl
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool IsGraphicsInitialized
+		public bool IsGraphicsInitialized
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapGraphics Graph
+		public MapGraphics Graph
 		{
 			get
 			{
@@ -97,7 +97,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int Width
+		public int Width
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal int Height
+		public int Height
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal BorderTypeRegistry BorderTypeRegistry
+		public BorderTypeRegistry BorderTypeRegistry
 		{
 			get
 			{
@@ -129,32 +129,32 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal CommonElements(IServiceContainer container)
+		public CommonElements(IServiceContainer container)
 		{
 			this.container = container;
 		}
 
-		internal void InvokePrePaint(NamedElement sender)
+		public void InvokePrePaint(NamedElement sender)
 		{
 			this.MapControl.OnPrePaint(this.MapControl, new MapPaintEventArgs(this.MapControl, sender, this.graph));
 		}
 
-		internal void InvokePostPaint(NamedElement sender)
+		public void InvokePostPaint(NamedElement sender)
 		{
 			this.MapControl.OnPostPaint(this.MapControl, new MapPaintEventArgs(this.MapControl, sender, this.graph));
 		}
 
-		internal void InvokeElementAdded(NamedElement sender)
+		public void InvokeElementAdded(NamedElement sender)
 		{
 			this.MapControl.OnElementAdded(this.MapControl, new ElementEventArgs(this.MapControl, sender));
 		}
 
-		internal void InvokeElementRemoved(NamedElement sender)
+		public void InvokeElementRemoved(NamedElement sender)
 		{
 			this.MapControl.OnElementRemoved(this.MapControl, new ElementEventArgs(this.MapControl, sender));
 		}
 
-		internal static double ParseDouble(string stringToParse)
+		public static double ParseDouble(string stringToParse)
 		{
 			double num = 0.0;
 			try
@@ -167,7 +167,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal static float ParseFloat(string stringToParse)
+		public static float ParseFloat(string stringToParse)
 		{
 			float num = 0f;
 			try

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum KnobStyle
+	public enum KnobStyle
 	{
 		Style1,
 		Style2,

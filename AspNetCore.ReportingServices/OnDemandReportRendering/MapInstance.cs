@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapInstance : ReportItemInstance, IDynamicImageInstance
+	public sealed class MapInstance : ReportItemInstance, IDynamicImageInstance
 	{
 		private float m_dpiX = 96f;
 
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapInstance(Map reportItemDef)
+		public MapInstance(Map reportItemDef)
 			: base(reportItemDef)
 		{
 		}

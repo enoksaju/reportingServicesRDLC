@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum KeepWithGroupTypes
+	public enum KeepWithGroupTypes
 	{
 		None,
 		Before,

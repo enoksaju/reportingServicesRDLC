@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Field
+	public sealed class Field
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.Field m_fieldDef;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Field(AspNetCore.ReportingServices.ReportIntermediateFormat.Field fieldDef)
+		public Field(AspNetCore.ReportingServices.ReportIntermediateFormat.Field fieldDef)
 		{
 			this.m_fieldDef = fieldDef;
 		}

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class PageReportItems
+	public sealed class PageReportItems
 	{
 		private ArrayList m_innerArrayList = new ArrayList();
 

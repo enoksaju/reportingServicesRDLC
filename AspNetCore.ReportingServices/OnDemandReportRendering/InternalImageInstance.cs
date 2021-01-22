@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalImageInstance : ImageInstance
+	public sealed class InternalImageInstance : ImageInstance
 	{
 		private ActionInfoWithDynamicImageMapCollection m_actionInfoImageMapAreas;
 
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override string ImageDataId
+		public override string ImageDataId
 		{
 			get
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override bool IsNullImage
+		public override bool IsNullImage
 		{
 			get
 			{
@@ -99,13 +99,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalImageInstance(Image reportItemDef)
+		public InternalImageInstance(Image reportItemDef)
 			: base(reportItemDef)
 		{
 			this.m_imageDataHandler = ImageDataHandlerFactory.Create(base.m_reportElementDef, reportItemDef);
 		}
 
-		internal override List<string> GetFieldsUsedInValueExpression()
+		public override List<string> GetFieldsUsedInValueExpression()
 		{
 			return this.m_imageDataHandler.FieldsUsedInValue;
 		}
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			this.m_imageDataHandler.ClearCache();
 		}
 
-		internal string LoadAndCacheTransparentImage(out string mimeType, out byte[] imageData)
+		public string LoadAndCacheTransparentImage(out string mimeType, out byte[] imageData)
 		{
 			return this.m_imageDataHandler.LoadAndCacheTransparentImage(out mimeType, out imageData);
 		}

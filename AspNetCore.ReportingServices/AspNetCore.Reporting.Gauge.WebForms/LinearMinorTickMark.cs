@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class LinearMinorTickMark : TickMark
+	public class LinearMinorTickMark : TickMark
 	{
 		[NotifyParentProperty(true)]
 		[SRDescription("DescriptionAttributeShape3")]

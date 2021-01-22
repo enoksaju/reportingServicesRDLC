@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum LabelPosition
+	public enum LabelPosition
 	{
 		Near,
 		OneQuarter,

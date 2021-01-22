@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapCustomColorCollection : MapObjectCollectionBase<MapCustomColor>
+	public sealed class MapCustomColorCollection : MapObjectCollectionBase<MapCustomColor>
 	{
 		private Map m_map;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapCustomColorCollection(MapCustomColorRule customColorRule, Map map)
+		public MapCustomColorCollection(MapCustomColorRule customColorRule, Map map)
 		{
 			this.m_customColorRule = customColorRule;
 			this.m_map = map;

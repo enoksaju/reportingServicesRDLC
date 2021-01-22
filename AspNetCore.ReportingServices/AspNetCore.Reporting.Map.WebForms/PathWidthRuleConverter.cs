@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PathWidthRuleConverter : CollectionItemTypeConverter
+	public class PathWidthRuleConverter : CollectionItemTypeConverter
 	{
 		public PathWidthRuleConverter()
 		{

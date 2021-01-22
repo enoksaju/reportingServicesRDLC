@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[AttributeUsage(AttributeTargets.Property)]
-	internal sealed class DoubleConverterHint : Attribute
+	public sealed class DoubleConverterHint : Attribute
 	{
 		private double bound;
 

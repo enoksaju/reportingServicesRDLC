@@ -2,13 +2,13 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal class ProcessingRIFObjectCreator : IRIFObjectCreator
+	public class ProcessingRIFObjectCreator : IRIFObjectCreator
 	{
 		private IDOwner m_parentIDOwner;
 
 		private ReportItem m_parentReportItem;
 
-		internal ProcessingRIFObjectCreator(IDOwner parentIDOwner, ReportItem parentReportItem)
+		public ProcessingRIFObjectCreator(IDOwner parentIDOwner, ReportItem parentReportItem)
 		{
 			this.m_parentIDOwner = parentIDOwner;
 			this.m_parentReportItem = parentReportItem;

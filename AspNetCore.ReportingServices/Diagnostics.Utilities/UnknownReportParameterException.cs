@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class UnknownReportParameterException : ReportCatalogException
+	public sealed class UnknownReportParameterException : ReportCatalogException
 	{
 		public UnknownReportParameterException(string parameterName)
 			: base(ErrorCode.rsUnknownReportParameter, ErrorStrings.rsUnknownReportParameter(parameterName), null, null)

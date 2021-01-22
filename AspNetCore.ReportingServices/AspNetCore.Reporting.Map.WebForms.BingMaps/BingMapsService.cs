@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Json;
 
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
-	internal sealed class BingMapsService
+	public sealed class BingMapsService
 	{
 		private class InternalAsyncRequestState
 		{

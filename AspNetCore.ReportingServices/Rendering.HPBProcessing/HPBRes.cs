@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
 	[CompilerGenerated]
-	internal class HPBRes
+	public class HPBRes
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string RenderSubreportError = "RenderSubreportError";
 

@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal interface IScalabilityCache : PersistenceHelper, IDisposable
+	public interface IScalabilityCache : PersistenceHelper, IDisposable
 	{
 		long SerializationDurationMs
 		{

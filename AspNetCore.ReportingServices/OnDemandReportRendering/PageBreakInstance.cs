@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PageBreakInstance : BaseInstance
+	public sealed class PageBreakInstance : BaseInstance
 	{
 		private bool? m_resetPageNumber;
 
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PageBreakInstance(IReportScope reportScope, PageBreak pageBreakDef)
+		public PageBreakInstance(IReportScope reportScope, PageBreak pageBreakDef)
 			: base(reportScope)
 		{
 			this.m_pageBreakDef = pageBreakDef;

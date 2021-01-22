@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLPageContent
+	public sealed class RPLPageContent
 	{
 		private RPLSizes[] m_reportSectionSizes;
 
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal long[] SectionOffsets
+		public long[] SectionOffsets
 		{
 			set
 			{
@@ -68,7 +68,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal int SectionCount
+		public int SectionCount
 		{
 			set
 			{
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLPageContent(long endOffset, RPLContext context, Version rplVersion)
+		public RPLPageContent(long endOffset, RPLContext context, Version rplVersion)
 		{
 			this.m_endOffset = endOffset;
 			this.m_context = context;
@@ -96,13 +96,13 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLPageContent(int sectionCount, RPLPageLayout pageLayout)
+		public RPLPageContent(int sectionCount, RPLPageLayout pageLayout)
 		{
 			this.m_reportSectionSizes = new RPLSizes[sectionCount];
 			this.m_pageLayout = pageLayout;
 		}
 
-		internal RPLPageContent(int sectionCount)
+		public RPLPageContent(int sectionCount)
 		{
 			this.m_reportSectionSizes = new RPLSizes[sectionCount];
 		}
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return RPLReader.ReadReportSection(this.m_sectionOffsets[this.m_sectionOffsets.Length - this.m_sectionCount - 1], this.m_context);
 		}
 
-		internal void AddReportSection(RPLReportSection section)
+		public void AddReportSection(RPLReportSection section)
 		{
 			if (this.m_sections == null)
 			{

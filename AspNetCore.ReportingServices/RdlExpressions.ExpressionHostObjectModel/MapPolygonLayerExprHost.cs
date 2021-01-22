@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<MapPolygonExprHost> m_mapPolygonsHostsRemotable;
 
-		internal IList<MapPolygonExprHost> MapPolygonsHostsRemotable
+		public IList<MapPolygonExprHost> MapPolygonsHostsRemotable
 		{
 			get
 			{

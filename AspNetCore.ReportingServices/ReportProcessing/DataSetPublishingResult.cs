@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class DataSetPublishingResult
+	public sealed class DataSetPublishingResult
 	{
 		private DataSetDefinition m_dataSetDefinition;
 
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataSetPublishingResult(DataSetDefinition dataSetDefinition, DataSourceInfo dataSourceInfo, UserLocationFlags userReferenceLocation, ProcessingMessageList warnings)
+		public DataSetPublishingResult(DataSetDefinition dataSetDefinition, DataSourceInfo dataSourceInfo, UserLocationFlags userReferenceLocation, ProcessingMessageList warnings)
 		{
 			this.m_dataSetDefinition = dataSetDefinition;
 			this.m_dataSourceInfo = dataSourceInfo;

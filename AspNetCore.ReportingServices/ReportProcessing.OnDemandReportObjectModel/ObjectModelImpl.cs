@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel
 {
-	internal class ObjectModelImpl : OnDemandObjectModel, IConvertible, IStaticReferenceable
+	public class ObjectModelImpl : OnDemandObjectModel, IConvertible, IStaticReferenceable
 	{
 		public sealed class SecondaryFieldsCollectionWithAutomaticRestore : IDisposable
 		{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 
 			private FieldsContext m_fieldsContext;
 
-			internal SecondaryFieldsCollectionWithAutomaticRestore(ObjectModelImpl reportOM, FieldsContext fieldsContext)
+			public SecondaryFieldsCollectionWithAutomaticRestore(ObjectModelImpl reportOM, FieldsContext fieldsContext)
 			{
 				this.m_reportOM = reportOM;
 				this.m_fieldsContext = fieldsContext;
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal const string NamespacePrefix = "AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel.";
+		public const string NamespacePrefix = "AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectModel.";
 
 		private FieldsContext m_currentFields;
 
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 
 		private int m_id = -2147483648;
 
-		internal virtual bool UseDataSetFieldsCache
+		public virtual bool UseDataSetFieldsCache
 		{
 			get
 			{
@@ -148,7 +148,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal FieldsContext CurrentFields
+		public FieldsContext CurrentFields
 		{
 			get
 			{
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal FieldsImpl FieldsImpl
+		public FieldsImpl FieldsImpl
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal ParametersImpl ParametersImpl
+		public ParametersImpl ParametersImpl
 		{
 			get
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal GlobalsImpl GlobalsImpl
+		public GlobalsImpl GlobalsImpl
 		{
 			get
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal UserImpl UserImpl
+		public UserImpl UserImpl
 		{
 			get
 			{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal ReportItemsImpl ReportItemsImpl
+		public ReportItemsImpl ReportItemsImpl
 		{
 			get
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal AggregatesImpl AggregatesImpl
+		public AggregatesImpl AggregatesImpl
 		{
 			get
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal LookupsImpl LookupsImpl
+		public LookupsImpl LookupsImpl
 		{
 			get
 			{
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal DataSetsImpl DataSetsImpl
+		public DataSetsImpl DataSetsImpl
 		{
 			get
 			{
@@ -248,7 +248,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal DataSourcesImpl DataSourcesImpl
+		public DataSourcesImpl DataSourcesImpl
 		{
 			get
 			{
@@ -260,7 +260,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal VariablesImpl VariablesImpl
+		public VariablesImpl VariablesImpl
 		{
 			get
 			{
@@ -272,7 +272,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal OnDemandProcessingContext OdpContext
+		public OnDemandProcessingContext OdpContext
 		{
 			get
 			{
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal bool AllFieldsCleared
+		public bool AllFieldsCleared
 		{
 			get
 			{
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal ObjectModelImpl(OnDemandProcessingContext odpContext)
+		public ObjectModelImpl(OnDemandProcessingContext odpContext)
 		{
 			this.m_currentFields = null;
 			this.m_parameters = null;
@@ -310,7 +310,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_odpContext = odpContext;
 		}
 
-		internal ObjectModelImpl(ObjectModelImpl copy, OnDemandProcessingContext odpContext)
+		public ObjectModelImpl(ObjectModelImpl copy, OnDemandProcessingContext odpContext)
 		{
 			this.m_odpContext = odpContext;
 			this.m_currentFields = new FieldsContext(this);
@@ -324,7 +324,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_lookups = null;
 		}
 
-		internal void Initialize(DataSetDefinition dataSetDefinition)
+		public void Initialize(DataSetDefinition dataSetDefinition)
 		{
 			int size = 0;
 			if (dataSetDefinition.DataSetCore != null && dataSetDefinition.DataSetCore.Query != null && dataSetDefinition.DataSetCore.Query.Parameters != null)
@@ -342,7 +342,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_lookups = new LookupsImpl();
 		}
 
-		internal void Initialize(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
+		public void Initialize(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportInstance reportInstance)
 		{
 			int size = 0;
 			if (report.Parameters != null)
@@ -402,7 +402,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void Initialize(ParameterInfoCollection parameters)
+		public void Initialize(ParameterInfoCollection parameters)
 		{
 			this.m_parameters = new ParametersImpl(parameters.Count);
 			if (parameters != null && parameters.Count > 0)
@@ -415,7 +415,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void SetForNewSubReportContext(ParametersImpl parameters)
+		public void SetForNewSubReportContext(ParametersImpl parameters)
 		{
 			this.m_parameters = parameters;
 			if (this.m_variables != null)
@@ -437,18 +437,18 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.InitOrUpdateDataSetCollection(this.m_odpContext.ReportDefinition, this.m_odpContext.CurrentReportInstance, false);
 		}
 
-		internal void SetupEmptyTopLevelFields()
+		public void SetupEmptyTopLevelFields()
 		{
 			this.m_currentFields = new FieldsContext(this);
 		}
 
-		internal void SetupPageSectionDataSetFields(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset)
+		public void SetupPageSectionDataSetFields(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset)
 		{
 			this.m_currentFields = new FieldsContext(this, dataset.DataSetCore, false, true);
 			this.m_currentFields.Fields.NeedsInlineSetup = true;
 		}
 
-		internal void SetupFieldsForNewDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset, bool addRowIndex, bool noRows, bool forceNewFieldsContext)
+		public void SetupFieldsForNewDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset, bool addRowIndex, bool noRows, bool forceNewFieldsContext)
 		{
 			this.m_currentFields.ResetFieldFlags();
 			this.SetupFieldsForNewDataSetWithoutResettingOldFieldFlags(dataset, addRowIndex, noRows, forceNewFieldsContext);
@@ -464,12 +464,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_currentFields = new FieldsContext(this, dataset.DataSetCore, addRowIndex, noRows);
 		}
 
-		internal void CreateNoRows()
+		public void CreateNoRows()
 		{
 			this.m_currentFields.CreateNoRows();
 		}
 
-		internal void ResetFieldValues()
+		public void ResetFieldValues()
 		{
 			if (this.m_odpContext.IsTablixProcessingMode || this.m_odpContext.StreamingMode)
 			{
@@ -481,39 +481,39 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal void PerformPendingFieldValueUpdate()
+		public void PerformPendingFieldValueUpdate()
 		{
 			this.m_currentFields.PerformPendingFieldValueUpdate(this, this.UseDataSetFieldsCache);
 		}
 
-		internal void RegisterOnDemandFieldValueUpdate(long firstRowOffsetInScope, DataSetInstance dataSetInstance, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataReader)
+		public void RegisterOnDemandFieldValueUpdate(long firstRowOffsetInScope, DataSetInstance dataSetInstance, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataReader)
 		{
 			this.m_currentFields.RegisterOnDemandFieldValueUpdate(firstRowOffsetInScope, dataSetInstance, dataReader);
 		}
 
-		internal void UpdateFieldValues(long firstRowOffsetInScope)
+		public void UpdateFieldValues(long firstRowOffsetInScope)
 		{
 			this.m_currentFields.UpdateFieldValues(this, this.UseDataSetFieldsCache, firstRowOffsetInScope);
 		}
 
-		internal void UpdateFieldValues(bool reuseFieldObjects, AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow row, DataSetInstance dataSetInstance, bool readerExtensionsSupported)
+		public void UpdateFieldValues(bool reuseFieldObjects, AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow row, DataSetInstance dataSetInstance, bool readerExtensionsSupported)
 		{
 			this.m_currentFields.UpdateFieldValues(this, this.UseDataSetFieldsCache, reuseFieldObjects, row, dataSetInstance, readerExtensionsSupported);
 		}
 
-		internal void ResetFieldsUsedInExpression()
+		public void ResetFieldsUsedInExpression()
 		{
 			this.FieldsImpl.ResetFieldsUsedInExpression();
 			this.AggregatesImpl.ResetFieldsUsedInExpression();
 		}
 
-		internal void AddFieldsUsedInExpression(List<string> fieldsUsedInExpression)
+		public void AddFieldsUsedInExpression(List<string> fieldsUsedInExpression)
 		{
 			this.FieldsImpl.AddFieldsUsedInExpression(fieldsUsedInExpression);
 			this.AggregatesImpl.AddFieldsUsedInExpression(this.m_odpContext, fieldsUsedInExpression);
 		}
 
-		internal SecondaryFieldsCollectionWithAutomaticRestore SetupNewFieldsWithBackup(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset, DataSetInstance dataSetInstance, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataChunkReader)
+		public SecondaryFieldsCollectionWithAutomaticRestore SetupNewFieldsWithBackup(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataset, DataSetInstance dataSetInstance, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ChunkManager.DataChunkReader dataChunkReader)
 		{
 			SecondaryFieldsCollectionWithAutomaticRestore result = new SecondaryFieldsCollectionWithAutomaticRestore(this, this.m_currentFields);
 			bool addRowIndex = this.m_currentFields.Fields.Count != this.m_currentFields.Fields.CountWithRowIndex;
@@ -522,13 +522,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			return result;
 		}
 
-		internal void RestoreFields(FieldsContext fieldsContext)
+		public void RestoreFields(FieldsContext fieldsContext)
 		{
 			this.m_currentFields = fieldsContext;
 			this.m_currentFields.AttachToDataSetCache(this);
 		}
 
-		internal FieldsImpl GetFieldsImplForUpdate(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet currentDataSet)
+		public FieldsImpl GetFieldsImplForUpdate(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet currentDataSet)
 		{
 			if (currentDataSet.DataSetCore != this.m_currentFields.DataSet)
 			{

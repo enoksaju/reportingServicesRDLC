@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlRunPropertiesModel : OpenXmlParagraphModel.IParagraphContent
+	public sealed class OpenXmlRunPropertiesModel : OpenXmlParagraphModel.IParagraphContent
 	{
 		private bool _rightToLeft;
 

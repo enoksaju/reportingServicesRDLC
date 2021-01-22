@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class PageItemRepeatWithHelper : PageItemHelper
+	public class PageItemRepeatWithHelper : PageItemHelper
 	{
 		private double m_relativeTop;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private ItemSizes m_renderItemSize;
 
-		internal double RelativeTop
+		public double RelativeTop
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double RelativeBottom
+		public double RelativeBottom
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal double RelativeTopToBottom
+		public double RelativeTopToBottom
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal int DataRegionIndex
+		public int DataRegionIndex
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal ItemSizes RenderItemSize
+		public ItemSizes RenderItemSize
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal PageItemRepeatWithHelper(byte type)
+		public PageItemRepeatWithHelper(byte type)
 			: base(type)
 		{
 		}

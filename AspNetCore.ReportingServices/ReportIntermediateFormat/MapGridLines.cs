@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapGridLines : MapStyleContainer, IPersistable
+	public sealed class MapGridLines : MapStyleContainer, IPersistable
 	{
 		[NonSerialized]
 		private MapGridLinesExprHost m_exprHost;
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_labelPosition;
 
-		internal ExpressionInfo Hidden
+		public ExpressionInfo Hidden
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Interval
+		public ExpressionInfo Interval
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo ShowLabels
+		public ExpressionInfo ShowLabels
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo LabelPosition
+		public ExpressionInfo LabelPosition
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapGridLinesExprHost ExprHost
+		public MapGridLinesExprHost ExprHost
 		{
 			get
 			{
@@ -91,16 +91,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapGridLines()
+		public MapGridLines()
 		{
 		}
 
-		internal MapGridLines(Map map)
+		public MapGridLines(Map map)
 			: base(map)
 		{
 		}
 
-		internal void Initialize(InitializationContext context, bool isMeridian)
+		public void Initialize(InitializationContext context, bool isMeridian)
 		{
 			context.ExprHostBuilder.MapGridLinesStart(isMeridian);
 			base.Initialize(context);
@@ -127,7 +127,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapGridLinesEnd(isMeridian);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapGridLines mapGridLines = (MapGridLines)base.PublishClone(context);
 			if (this.m_hidden != null)
@@ -149,14 +149,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapGridLines;
 		}
 
-		internal void SetExprHost(MapGridLinesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapGridLinesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			base.SetExprHost(exprHost, reportObjectModel);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Hidden, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -225,25 +225,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapGridLines;
 		}
 
-		internal bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateHidden(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapGridLinesHiddenExpression(this, base.m_map.Name);
 		}
 
-		internal double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateInterval(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapGridLinesIntervalExpression(this, base.m_map.Name);
 		}
 
-		internal bool EvaluateShowLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public bool EvaluateShowLabels(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapGridLinesShowLabelsExpression(this, base.m_map.Name);
 		}
 
-		internal MapLabelPosition EvaluateLabelPosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public MapLabelPosition EvaluateLabelPosition(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return EnumTranslator.TranslateLabelPosition(context.ReportRuntime.EvaluateMapGridLinesLabelPositionExpression(this, base.m_map.Name), context.ReportRuntime);

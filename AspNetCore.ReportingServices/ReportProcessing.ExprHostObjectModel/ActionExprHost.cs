@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 			}
 		}
 
-		internal IList<ParamExprHost> DrillThroughParameterHostsRemotable
+		public IList<ParamExprHost> DrillThroughParameterHostsRemotable
 		{
 			get
 			{

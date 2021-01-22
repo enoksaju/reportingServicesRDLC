@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class RdlVersionedFeatures
+	public sealed class RdlVersionedFeatures
 	{
 		private sealed class FeatureDescriptor
 		{
@@ -43,12 +43,12 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_rdlFeatureVersioningStructure = new FeatureDescriptor[length];
 		}
 
-		internal void Add(RdlFeatures featureType, int addedInCompatVersion, RenderMode allowedRenderModes)
+		public void Add(RdlFeatures featureType, int addedInCompatVersion, RenderMode allowedRenderModes)
 		{
 			this.m_rdlFeatureVersioningStructure[(int)featureType] = new FeatureDescriptor(addedInCompatVersion, allowedRenderModes);
 		}
 
-		internal bool IsRdlFeatureAllowed(RdlFeatures feature, int configVersion, RenderMode renderMode)
+		public bool IsRdlFeatureAllowed(RdlFeatures feature, int configVersion, RenderMode renderMode)
 		{
 			FeatureDescriptor featureDescriptor = this.m_rdlFeatureVersioningStructure[(int)feature];
 			bool flag = configVersion == 0 || featureDescriptor.AddedInCompatVersion <= configVersion;
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal void VerifyAllFeaturesAreAdded()
+		public void VerifyAllFeaturesAreAdded()
 		{
 		}
 

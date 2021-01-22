@@ -8,7 +8,7 @@ using System.Drawing.Imaging;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(BackFrameConverter))]
-	internal class BackFrame : GaugeObject
+	public class BackFrame : GaugeObject
 	{
 		private XamlRenderer xamlRenderer;
 
@@ -512,7 +512,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal XamlRenderer GetCachedXamlRenderer(GaugeGraphics g)
+		public XamlRenderer GetCachedXamlRenderer(GaugeGraphics g)
 		{
 			if (this.xamlRenderer != null)
 			{
@@ -535,7 +535,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.xamlRenderer;
 		}
 
-		internal void ResetCachedXamlRenderer()
+		public void ResetCachedXamlRenderer()
 		{
 			if (this.xamlRenderer != null)
 			{
@@ -544,7 +544,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GraphicsPath GetFramePath(GaugeGraphics g, float shrinkBy)
+		public GraphicsPath GetFramePath(GaugeGraphics g, float shrinkBy)
 		{
 			RectangleF frameRectangle = this.GetFrameRectangle(g);
 			float absoluteDimension = g.GetAbsoluteDimension(shrinkBy);
@@ -604,7 +604,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath4;
 		}
 
-		internal GraphicsPath GetBackPath(GaugeGraphics g)
+		public GraphicsPath GetBackPath(GaugeGraphics g)
 		{
 			if (this.FrameShape == BackFrameShape.AutoShape)
 			{
@@ -724,7 +724,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			path.CloseFigure();
 		}
 
-		internal static float GetXamlFrameAspectRatio(BackFrameShape shape)
+		public static float GetXamlFrameAspectRatio(BackFrameShape shape)
 		{
 			float result = 1f;
 			if (shape >= (BackFrameShape)2000 && shape <= (BackFrameShape)2199)
@@ -738,7 +738,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return result;
 		}
 
-		internal GraphicsPath GetShadowPath(GaugeGraphics g)
+		public GraphicsPath GetShadowPath(GaugeGraphics g)
 		{
 			GraphicsPath framePath = this.GetFramePath(g, 0f);
 			using (Matrix matrix = new Matrix())
@@ -749,7 +749,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void DrawFrameImage(GaugeGraphics g)
+		public void DrawFrameImage(GaugeGraphics g)
 		{
 			GraphicsPath graphicsPath = null;
 			Pen pen = null;
@@ -831,7 +831,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal bool IsCustomXamlFrame()
+		public bool IsCustomXamlFrame()
 		{
 			if (this.FrameShape != 0 && this.FrameShape != BackFrameShape.Rectangular && this.FrameShape != BackFrameShape.RoundedRectangular && this.FrameShape != BackFrameShape.AutoShape)
 			{
@@ -840,7 +840,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return false;
 		}
 
-		internal void RenderFrame(GaugeGraphics g)
+		public void RenderFrame(GaugeGraphics g)
 		{
 			if (this.Image.Length != 0)
 			{
@@ -959,7 +959,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderShadow(GaugeGraphics g)
+		public void RenderShadow(GaugeGraphics g)
 		{
 			if (this.ShadowOffset != 0.0)
 			{
@@ -973,7 +973,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal Brush GetBrush(GaugeGraphics g, RectangleF rect, GaugeHatchStyle hatchStyle, GradientType gradientType, Color fillColor, Color gradientEndColor, bool frame, float frameWidth)
+		public Brush GetBrush(GaugeGraphics g, RectangleF rect, GaugeHatchStyle hatchStyle, GradientType gradientType, Color fillColor, Color gradientEndColor, bool frame, float frameWidth)
 		{
 			Brush brush = null;
 			if (hatchStyle != 0)
@@ -1032,7 +1032,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return brush;
 		}
 
-		internal RectangleF GetFrameRectangle(GaugeGraphics g)
+		public RectangleF GetFrameRectangle(GaugeGraphics g)
 		{
 			RectangleF result;
 			if (this.Parent is GaugeCore)
@@ -1155,7 +1155,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return result;
 		}
 
-		internal void RenderGlassEffect(GaugeGraphics g)
+		public void RenderGlassEffect(GaugeGraphics g)
 		{
 			if (this.GlassEffect != 0 && this.FrameStyle != 0)
 			{

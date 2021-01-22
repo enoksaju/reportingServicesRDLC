@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class ExecutedQueryCache
+	public sealed class ExecutedQueryCache
 	{
 		private readonly List<ExecutedQuery> m_queries;
 
-		internal ExecutedQueryCache()
+		public ExecutedQueryCache()
 		{
 			this.m_queries = new List<ExecutedQuery>();
 		}
 
-		internal void Add(ExecutedQuery query)
+		public void Add(ExecutedQuery query)
 		{
 			int indexInCollection = query.DataSet.IndexInCollection;
 			for (int i = this.m_queries.Count - 1; i <= indexInCollection; i++)
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_queries[indexInCollection] = query;
 		}
 
-		internal void Extract(DataSet dataSet, out ExecutedQuery query)
+		public void Extract(DataSet dataSet, out ExecutedQuery query)
 		{
 			int indexInCollection = dataSet.IndexInCollection;
 			if (indexInCollection >= this.m_queries.Count)
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void Close()
+		public void Close()
 		{
 			for (int i = 0; i < this.m_queries.Count; i++)
 			{

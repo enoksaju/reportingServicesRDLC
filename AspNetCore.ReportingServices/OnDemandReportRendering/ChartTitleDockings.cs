@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartTitleDockings
+	public enum ChartTitleDockings
 	{
 		Top,
 		Right,

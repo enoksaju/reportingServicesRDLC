@@ -8,7 +8,7 @@ using System.Drawing.Text;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(MapLabelConverter))]
-	internal class MapLabel : AutoSizePanel
+	public class MapLabel : AutoSizePanel
 	{
 		private ContentAlignment textAlignment = ContentAlignment.TopCenter;
 
@@ -307,7 +307,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Position Position
+		public Position Position
 		{
 			get
 			{
@@ -315,7 +315,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override bool IsEmpty
+		public override bool IsEmpty
 		{
 			get
 			{
@@ -332,7 +332,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal MapLabel(CommonElements common)
+		public MapLabel(CommonElements common)
 			: base(common)
 		{
 			this.BackShadowOffset = 0;
@@ -347,12 +347,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.Name;
 		}
 
-		internal override bool ShouldRenderBackground()
+		public override bool ShouldRenderBackground()
 		{
 			return true;
 		}
 
-		internal override void Render(MapGraphics g)
+		public override void Render(MapGraphics g)
 		{
 			if (this.IsVisible())
 			{
@@ -510,7 +510,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return stringFormat;
 		}
 
-		internal GraphicsPath GetPath(MapGraphics g)
+		public GraphicsPath GetPath(MapGraphics g)
 		{
 			if (!this.IsVisible())
 			{
@@ -533,7 +533,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return graphicsPath;
 		}
 
-		internal Brush GetBackBrush(MapGraphics g)
+		public Brush GetBackBrush(MapGraphics g)
 		{
 			RectangleF absoluteRectangle = g.GetAbsoluteRectangle(new RectangleF(0f, 0f, 100f, 100f));
 			Brush brush = null;
@@ -573,7 +573,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return brush;
 		}
 
-		internal Pen GetPen()
+		public Pen GetPen()
 		{
 			if (this.BorderWidth > 0 && this.BorderStyle != 0)
 			{
@@ -588,7 +588,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return null;
 		}
 
-		internal override object GetDefaultPropertyValue(string prop, object currentValue)
+		public override object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object obj = null;
 			switch (prop)
@@ -612,7 +612,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override SizeF GetOptimalSize(MapGraphics g, SizeF maxSizeAbs)
+		public override SizeF GetOptimalSize(MapGraphics g, SizeF maxSizeAbs)
 		{
 			SizeF result = this.DetermineTextSizeAfterRotation(g);
 			SizeF sizeF;
@@ -646,7 +646,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.CalculateRotatedSize(unrotatedSize, this.DetermineAngle());
 		}
 
-		internal SizeF CalculateRotatedSize(SizeF unrotatedSize, float andgleOfRotation)
+		public SizeF CalculateRotatedSize(SizeF unrotatedSize, float andgleOfRotation)
 		{
 			andgleOfRotation = (float)(andgleOfRotation % 180.0);
 			if (andgleOfRotation > 90.0)
@@ -662,7 +662,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new SizeF((float)Math.Abs((double)unrotatedSize.Width * num2 + (double)unrotatedSize.Height * num3), (float)Math.Abs((double)unrotatedSize.Height * num2 + (double)unrotatedSize.Width * num3));
 		}
 
-		internal float DetermineAngle()
+		public float DetermineAngle()
 		{
 			if (double.IsNaN((double)this.Angle))
 			{

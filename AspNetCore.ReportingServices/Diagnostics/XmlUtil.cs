@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class XmlUtil
+	public static class XmlUtil
 	{
 		public static void SafeOpenXmlDocumentFile(XmlDocument doc, string pathToXmlFile)
 		{

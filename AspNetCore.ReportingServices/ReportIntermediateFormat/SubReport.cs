@@ -14,9 +14,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class SubReport : ReportItem, IPersistable, IIndexedInCollection, IGloballyReferenceable, IGlobalIDOwner
+	public class SubReport : ReportItem, IPersistable, IIndexedInCollection, IGloballyReferenceable, IGlobalIDOwner
 	{
-		internal enum Status
+		public enum Status
 		{
 			NotRetrieved,
 			DataRetrieveFailed,
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			ParametersNotSpecified
 		}
 
-		internal const uint MaxSubReportLevel = 20u;
+		public const uint MaxSubReportLevel = 20u;
 
 		private string m_reportName;
 
@@ -96,7 +96,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private IReference<SubReportInstance> m_currentSubReportInstance;
 
-		internal override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
+		public override AspNetCore.ReportingServices.ReportProcessing.ObjectType ObjectType
 		{
 			get
 			{
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OriginalCatalogPath
+		public string OriginalCatalogPath
 		{
 			get
 			{
@@ -116,7 +116,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ParameterValue> Parameters
+		public List<ParameterValue> Parameters
 		{
 			get
 			{
@@ -128,7 +128,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo NoRowsMessage
+		public ExpressionInfo NoRowsMessage
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool MergeTransactions
+		public bool MergeTransactions
 		{
 			get
 			{
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GroupingList ContainingScopes
+		public GroupingList ContainingScopes
 		{
 			get
 			{
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Status RetrievalStatus
+		public Status RetrievalStatus
 		{
 			get
 			{
@@ -176,7 +176,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string ReportName
+		public string ReportName
 		{
 			get
 			{
@@ -188,7 +188,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Description
+		public string Description
 		{
 			get
 			{
@@ -200,7 +200,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Report Report
+		public Report Report
 		{
 			get
 			{
@@ -212,7 +212,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ICatalogItemContext ReportContext
+		public ICatalogItemContext ReportContext
 		{
 			get
 			{
@@ -224,7 +224,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ParameterInfoCollection ParametersFromCatalog
+		public ParameterInfoCollection ParametersFromCatalog
 		{
 			get
 			{
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SubreportExprHost SubReportExprHost
+		public SubreportExprHost SubReportExprHost
 		{
 			get
 			{
@@ -244,7 +244,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsTablixCellScope
+		public bool IsTablixCellScope
 		{
 			get
 			{
@@ -252,7 +252,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsDetailScope
+		public bool IsDetailScope
 		{
 			get
 			{
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<SubReport> DetailScopeSubReports
+		public List<SubReport> DetailScopeSubReports
 		{
 			get
 			{
@@ -276,7 +276,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SubReportInfo OdpSubReportInfo
+		public SubReportInfo OdpSubReportInfo
 		{
 			get
 			{
@@ -288,7 +288,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool KeepTogether
+		public bool KeepTogether
 		{
 			get
 			{
@@ -300,7 +300,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool OmitBorderOnPageBreak
+		public bool OmitBorderOnPageBreak
 		{
 			get
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal OnDemandProcessingContext OdpContext
+		public OnDemandProcessingContext OdpContext
 		{
 			get
 			{
@@ -324,7 +324,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ExceededMaxLevel
+		public bool ExceededMaxLevel
 		{
 			get
 			{
@@ -336,7 +336,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool InDataRegion
+		public bool InDataRegion
 		{
 			get
 			{
@@ -364,7 +364,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IReference<SubReportInstance> CurrentSubReportInstance
+		public IReference<SubReportInstance> CurrentSubReportInstance
 		{
 			get
 			{
@@ -376,12 +376,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal SubReport(ReportItem parent)
+		public SubReport(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal SubReport(int id, ReportItem parent)
+		public SubReport(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_parameters = new List<ParameterValue>();
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new InstancePathItem(InstancePathItemType.SubReport, this.IndexInCollection);
 		}
 
-		internal ReportSection GetContainingSection(OnDemandProcessingContext parentReportOdpContext)
+		public ReportSection GetContainingSection(OnDemandProcessingContext parentReportOdpContext)
 		{
 			if (this.m_containingSection == null)
 			{
@@ -401,12 +401,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_containingSection;
 		}
 
-		internal void SetContainingSection(ReportSection section)
+		public void SetContainingSection(ReportSection section)
 		{
 			this.m_containingSection = section;
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			this.m_location = context.Location;
 			context.ObjectType = this.ObjectType;
@@ -450,7 +450,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal override void InitializeRVDirectionDependentItems(InitializationContext context)
+		public override void InitializeRVDirectionDependentItems(InitializationContext context)
 		{
 			this.m_containingScopes = context.GetContainingScopes();
 			for (int i = 0; i < this.m_containingScopes.Count; i++)
@@ -463,7 +463,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UpdateSubReportScopes(AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.UserSortFilterContext context)
+		public void UpdateSubReportScopes(AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing.UserSortFilterContext context)
 		{
 			if (this.m_containingScopes != null && 0 < this.m_containingScopes.Count && this.m_containingScopes.LastEntry == null)
 			{
@@ -518,7 +518,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void UpdateSubReportEventSourceGlobalDataSetIds(SubReportInfo subReportInfo)
+		public void UpdateSubReportEventSourceGlobalDataSetIds(SubReportInfo subReportInfo)
 		{
 			this.m_odpSubReportInfo = subReportInfo;
 			if (this.m_report != null && this.m_report.EventSources != null)
@@ -535,7 +535,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Parameters, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.RIFObjectList, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ParameterValue));
@@ -697,7 +697,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.SubReport;
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			SubReport subReport = (SubReport)base.PublishClone(context);
 			context.AddSubReport(subReport);
@@ -720,7 +720,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return subReport;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -738,7 +738,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string EvaulateNoRowMessage(IReportScopeInstance subReportInstance, OnDemandProcessingContext odpContext)
+		public string EvaulateNoRowMessage(IReportScopeInstance subReportInstance, OnDemandProcessingContext odpContext)
 		{
 			odpContext.SetupContext(this, subReportInstance);
 			return odpContext.ReportRuntime.EvaluateSubReportNoRowsExpression(this, "Subreport", "NoRowsMessage");

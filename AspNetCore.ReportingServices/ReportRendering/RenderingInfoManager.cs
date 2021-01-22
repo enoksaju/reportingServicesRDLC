@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class RenderingInfoManager
+	public sealed class RenderingInfoManager
 	{
 		private const string RenderingInfoChunkPrefix = "RenderingInfo_";
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 		private string m_chunkName;
 
-		internal Hashtable RenderingInfo
+		public Hashtable RenderingInfo
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Hashtable SharedRenderingInfo
+		public Hashtable SharedRenderingInfo
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal Hashtable PageSectionRenderingInfo
+		public Hashtable PageSectionRenderingInfo
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal PaginationInfo PaginationInfo
+		public PaginationInfo PaginationInfo
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal RenderingInfoManager(string rendererID, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk getChunkCallback, bool retrieveRenderingInfo)
+		public RenderingInfoManager(string rendererID, AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.GetReportChunk getChunkCallback, bool retrieveRenderingInfo)
 		{
 			this.m_chunkName = "RenderingInfo_" + rendererID;
 			if (retrieveRenderingInfo)
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal void Save(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.CreateReportChunk createChunkCallback)
+		public void Save(AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.CreateReportChunk createChunkCallback)
 		{
 			if (this.m_renderingInfoRoot != null)
 			{

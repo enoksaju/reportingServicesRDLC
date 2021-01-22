@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum PageBreakLocation
+	public enum PageBreakLocation
 	{
 		None,
 		Start,

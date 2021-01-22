@@ -3,7 +3,7 @@ using System.Drawing.Imaging;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal interface IChartAnimationEngine
+	public interface IChartAnimationEngine
 	{
 		void DrawLineA(Pen pen, ColorA color, PointA point1, PointA point2);
 

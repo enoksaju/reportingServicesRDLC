@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class TextLine
+	public sealed class TextLine
 	{
 		private List<TextRun> m_prefix;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private bool m_calculatedHeight;
 
-		internal string Text
+		public string Text
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal List<TextRun> VisualRuns
+		public List<TextRun> VisualRuns
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal List<TextRun> LogicalRuns
+		public List<TextRun> LogicalRuns
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal List<TextRun> Prefix
+		public List<TextRun> Prefix
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool LastLine
+		public bool LastLine
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal bool FirstLine
+		public bool FirstLine
 		{
 			get
 			{
@@ -99,18 +99,18 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal TextLine()
+		public TextLine()
 		{
 		}
 
-		internal void ResetHeight()
+		public void ResetHeight()
 		{
 			this.m_calculatedHeight = false;
 			this.m_ascent = 0;
 			this.m_descent = 0;
 		}
 
-		internal int GetHeight(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetHeight(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			if (!this.m_calculatedHeight)
 			{
@@ -150,30 +150,30 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return this.m_ascent + this.m_descent;
 		}
 
-		internal int GetAscent(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetAscent(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			this.CalculateDimensions(hdc, fontCache, true);
 			return this.m_ascent;
 		}
 
-		internal int GetDescent(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetDescent(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			this.CalculateDimensions(hdc, fontCache, true);
 			return this.m_descent;
 		}
 
-		internal int GetWidth(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetWidth(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			return this.GetWidth(hdc, fontCache, true);
 		}
 
-		internal int GetWidth(Win32DCSafeHandle hdc, FontCache fontCache, bool useVisualRunsIfAvailable)
+		public int GetWidth(Win32DCSafeHandle hdc, FontCache fontCache, bool useVisualRunsIfAvailable)
 		{
 			this.CalculateDimensions(hdc, fontCache, useVisualRunsIfAvailable);
 			return this.m_width;
 		}
 
-		internal int GetPrefixWidth(Win32DCSafeHandle hdc, FontCache fontCache)
+		public int GetPrefixWidth(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			if (this.m_prefix == null)
 			{
@@ -247,7 +247,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal void ScriptLayout(Win32DCSafeHandle hdc, FontCache fontCache)
+		public void ScriptLayout(Win32DCSafeHandle hdc, FontCache fontCache)
 		{
 			if (this.m_visualRuns == null)
 			{

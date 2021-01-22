@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 
 		public ChartElementPositionExprHost ChartElementPositionHost;
 
-		internal IList<ChartLegendCustomItemExprHost> ChartLegendCustomItemsHostsRemotable
+		public IList<ChartLegendCustomItemExprHost> ChartLegendCustomItemsHostsRemotable
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<ChartLegendColumnExprHost> ChartLegendColumnsHostsRemotable
+		public IList<ChartLegendColumnExprHost> ChartLegendColumnsHostsRemotable
 		{
 			get
 			{

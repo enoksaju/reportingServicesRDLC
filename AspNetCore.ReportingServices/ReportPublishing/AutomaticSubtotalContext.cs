@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal struct AutomaticSubtotalContext
+	public struct AutomaticSubtotalContext
 	{
 		private string m_objectName;
 
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 
 		private Holder<int> m_textboxSequenceIdCounter;
 
-		internal LocationFlags Location
+		public LocationFlags Location
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal ObjectType ObjectType
+		public ObjectType ObjectType
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal string ObjectName
+		public string ObjectName
 		{
 			get
 			{
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion CurrentDataRegion
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion CurrentDataRegion
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal IRIFDataScope CurrentDataScope
+		public IRIFDataScope CurrentDataScope
 		{
 			get
 			{
@@ -157,7 +157,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion CurrentDataRegionClone
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataRegion CurrentDataRegionClone
 		{
 			get
 			{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal Map CurrentMapClone
+		public Map CurrentMapClone
 		{
 			get
 			{
@@ -181,7 +181,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal MapVectorLayer CurrentMapVectorLayerClone
+		public MapVectorLayer CurrentMapVectorLayerClone
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal string CurrentScope
+		public string CurrentScope
 		{
 			get
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal string CurrentScopeBeingCloned
+		public string CurrentScopeBeingCloned
 		{
 			get
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool[] HeaderLevelHasStaticArray
+		public bool[] HeaderLevelHasStaticArray
 		{
 			get
 			{
@@ -229,7 +229,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal List<ICreateSubtotals> CreateSubtotalsDefinitions
+		public List<ICreateSubtotals> CreateSubtotalsDefinitions
 		{
 			get
 			{
@@ -237,7 +237,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal List<AspNetCore.ReportingServices.ReportIntermediateFormat.Grouping> DomainScopeGroups
+		public List<AspNetCore.ReportingServices.ReportIntermediateFormat.Grouping> DomainScopeGroups
 		{
 			get
 			{
@@ -245,7 +245,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int StartIndex
+		public int StartIndex
 		{
 			get
 			{
@@ -257,7 +257,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int CurrentIndex
+		public int CurrentIndex
 		{
 			get
 			{
@@ -269,7 +269,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal List<CellList> CellLists
+		public List<CellList> CellLists
 		{
 			get
 			{
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal List<TablixColumn> TablixColumns
+		public List<TablixColumn> TablixColumns
 		{
 			get
 			{
@@ -293,7 +293,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal RowList Rows
+		public RowList Rows
 		{
 			get
 			{
@@ -305,7 +305,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal bool DynamicWithStaticPeerEncountered
+		public bool DynamicWithStaticPeerEncountered
 		{
 			get
 			{
@@ -317,7 +317,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int HeaderLevel
+		public int HeaderLevel
 		{
 			get
 			{
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int OriginalColumnCount
+		public int OriginalColumnCount
 		{
 			get
 			{
@@ -341,7 +341,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal int OriginalRowCount
+		public int OriginalRowCount
 		{
 			get
 			{
@@ -353,7 +353,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo OuterAggregate
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo OuterAggregate
 		{
 			get
 			{
@@ -365,7 +365,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal Dictionary<string, IRIFDataScope> ScopeNamesToClone
+		public Dictionary<string, IRIFDataScope> ScopeNamesToClone
 		{
 			get
 			{
@@ -373,7 +373,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			}
 		}
 
-		internal AutomaticSubtotalContext(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, List<ICreateSubtotals> createSubtotals, List<AspNetCore.ReportingServices.ReportIntermediateFormat.Grouping> domainScopeGroups, NameValidator reportItemNameValidator, NameValidator scopeNameValidator, NameValidator variableNameValidator, Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.ISortFilterScope> reportScopes, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection> reportItemCollections, List<AspNetCore.ReportingServices.ReportIntermediateFormat.IAggregateHolder> aggregateHolders, List<AspNetCore.ReportingServices.ReportIntermediateFormat.IRunningValueHolder> runningValueHolders, Holder<int> variableSequenceIdCounter, Holder<int> textboxSequenceIdCounter, ScopeTree scopeTree)
+		public AutomaticSubtotalContext(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, List<ICreateSubtotals> createSubtotals, List<AspNetCore.ReportingServices.ReportIntermediateFormat.Grouping> domainScopeGroups, NameValidator reportItemNameValidator, NameValidator scopeNameValidator, NameValidator variableNameValidator, Dictionary<string, AspNetCore.ReportingServices.ReportIntermediateFormat.ISortFilterScope> reportScopes, List<AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection> reportItemCollections, List<AspNetCore.ReportingServices.ReportIntermediateFormat.IAggregateHolder> aggregateHolders, List<AspNetCore.ReportingServices.ReportIntermediateFormat.IRunningValueHolder> runningValueHolders, Holder<int> variableSequenceIdCounter, Holder<int> textboxSequenceIdCounter, ScopeTree scopeTree)
 		{
 			this.m_createSubtotals = createSubtotals;
 			this.m_domainScopeGroups = domainScopeGroups;
@@ -421,17 +421,17 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_currentMapVectorLayerClone = null;
 		}
 
-		internal int GenerateVariableSequenceID()
+		public int GenerateVariableSequenceID()
 		{
 			return this.m_variableSequenceIdCounter.Value++;
 		}
 
-		internal int GenerateTextboxSequenceID()
+		public int GenerateTextboxSequenceID()
 		{
 			return this.m_textboxSequenceIdCounter.Value++;
 		}
 
-		internal bool HasStaticPeerWithHeader(TablixMember member, out int spanDifference)
+		public bool HasStaticPeerWithHeader(TablixMember member, out int spanDifference)
 		{
 			spanDifference = 0;
 			if (member.HeaderLevel == -1)
@@ -455,27 +455,27 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return false;
 		}
 
-		internal void AddReportItemCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection collection)
+		public void AddReportItemCollection(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItemCollection collection)
 		{
 			this.m_reportItemCollections.Add(collection);
 		}
 
-		internal void AddAggregateHolder(AspNetCore.ReportingServices.ReportIntermediateFormat.IAggregateHolder aggregateHolder)
+		public void AddAggregateHolder(AspNetCore.ReportingServices.ReportIntermediateFormat.IAggregateHolder aggregateHolder)
 		{
 			this.m_aggregateHolders.Add(aggregateHolder);
 		}
 
-		internal void AddRunningValueHolder(AspNetCore.ReportingServices.ReportIntermediateFormat.IRunningValueHolder runningValueHolder)
+		public void AddRunningValueHolder(AspNetCore.ReportingServices.ReportIntermediateFormat.IRunningValueHolder runningValueHolder)
 		{
 			this.m_runningValueHolders.Add(runningValueHolder);
 		}
 
-		internal string CreateUniqueReportItemName(string oldName, bool isClone)
+		public string CreateUniqueReportItemName(string oldName, bool isClone)
 		{
 			return this.CreateUniqueReportItemName(oldName, false, isClone);
 		}
 
-		internal string CreateUniqueReportItemName(string oldName, bool emptyRectangle, bool isClone)
+		public string CreateUniqueReportItemName(string oldName, bool emptyRectangle, bool isClone)
 		{
 			string text = null;
 			if (!emptyRectangle && this.m_reportItemNameMap.TryGetValue(oldName, out text))
@@ -523,7 +523,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return text;
 		}
 
-		internal string GetNewReportItemName(string oldName)
+		public string GetNewReportItemName(string oldName)
 		{
 			string result = default(string);
 			if (this.m_reportItemNameMap.TryGetValue(oldName, out result))
@@ -533,12 +533,12 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return oldName;
 		}
 
-		internal string CreateAndRegisterUniqueGroupName(string oldName, bool isClone)
+		public string CreateAndRegisterUniqueGroupName(string oldName, bool isClone)
 		{
 			return this.CreateAndRegisterUniqueGroupName(oldName, isClone, false);
 		}
 
-		internal string CreateAndRegisterUniqueGroupName(string oldName, bool isClone, bool isDomainScope)
+		public string CreateAndRegisterUniqueGroupName(string oldName, bool isClone, bool isDomainScope)
 		{
 			string text = null;
 			if (this.m_scopeNameMap.TryGetValue(oldName, out text))
@@ -576,7 +576,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return text;
 		}
 
-		internal string CreateUniqueVariableName(string oldName, bool isClone)
+		public string CreateUniqueVariableName(string oldName, bool isClone)
 		{
 			StringBuilder stringBuilder = null;
 			string text = null;
@@ -607,7 +607,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return text;
 		}
 
-		internal string GetNewVariableName(string oldVariableName)
+		public string GetNewVariableName(string oldVariableName)
 		{
 			string result = default(string);
 			if (oldVariableName != null && oldVariableName.Length > 0 && this.m_variableNameMap.TryGetValue(oldVariableName, out result))
@@ -617,7 +617,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return oldVariableName;
 		}
 
-		internal string GetNewScopeName(string oldScopeName)
+		public string GetNewScopeName(string oldScopeName)
 		{
 			string result = default(string);
 			if (oldScopeName != null && oldScopeName.Length > 0 && this.m_scopeNameMap.TryGetValue(oldScopeName, out result))
@@ -627,7 +627,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return oldScopeName;
 		}
 
-		internal string GetNewScopeNameForInnerOrOuterAggregate(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo originalAggregate)
+		public string GetNewScopeNameForInnerOrOuterAggregate(AspNetCore.ReportingServices.ReportIntermediateFormat.DataAggregateInfo originalAggregate)
 		{
 			string scope = originalAggregate.PublishingInfo.Scope;
 			IRIFDataScope iRIFDataScope = default(IRIFDataScope);
@@ -687,20 +687,20 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return true;
 		}
 
-		internal void RegisterScopeName(string name)
+		public void RegisterScopeName(string name)
 		{
 			Global.Tracer.Assert(!this.m_scopeNameMap.ContainsKey(name), "(!m_scopeNameMap.ContainsKey(name))");
 			this.m_scopeNameMap.Add(name, this.m_currentScope);
 			this.m_currentScopeBeingCloned = name;
 		}
 
-		internal void RegisterClonedScopeName(string oldName, string newName)
+		public void RegisterClonedScopeName(string oldName, string newName)
 		{
 			Global.Tracer.Assert(!this.m_scopeNameMap.ContainsKey(oldName), "(!m_scopeNameMap.ContainsKey(oldName))");
 			this.m_scopeNameMap.Add(oldName, newName);
 		}
 
-		internal string CreateAggregateID(string oldID)
+		public string CreateAggregateID(string oldID)
 		{
 			this.m_report.LastAggregateID++;
 			string text = "Aggregate" + this.m_report.LastAggregateID;
@@ -709,7 +709,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return text;
 		}
 
-		internal string CreateLookupID(string oldID)
+		public string CreateLookupID(string oldID)
 		{
 			this.m_report.LastLookupID++;
 			string text = "Lookup" + this.m_report.LastLookupID;
@@ -718,7 +718,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return text;
 		}
 
-		internal string GetNewAggregateID(string oldID)
+		public string GetNewAggregateID(string oldID)
 		{
 			string result = default(string);
 			if (this.m_aggregateMap.TryGetValue(oldID, out result))
@@ -728,7 +728,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return oldID;
 		}
 
-		internal string GetNewLookupID(string oldID)
+		public string GetNewLookupID(string oldID)
 		{
 			string result = default(string);
 			if (this.m_lookupMap.TryGetValue(oldID, out result))
@@ -738,13 +738,13 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return oldID;
 		}
 
-		internal int GenerateID()
+		public int GenerateID()
 		{
 			this.m_report.LastID++;
 			return this.m_report.LastID;
 		}
 
-		internal void AdjustReferences()
+		public void AdjustReferences()
 		{
 			if (this.m_expressionsWithReportItemReferences.Count > 0)
 			{
@@ -786,39 +786,39 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			this.m_scopeNamesToClone.Clear();
 		}
 
-		internal void AddSortTarget(string scopeName, AspNetCore.ReportingServices.ReportIntermediateFormat.ISortFilterScope target)
+		public void AddSortTarget(string scopeName, AspNetCore.ReportingServices.ReportIntermediateFormat.ISortFilterScope target)
 		{
 			Global.Tracer.Assert(!this.m_reportScopes.ContainsKey(scopeName), "(!m_reportScopes.ContainsKey(scopeName))");
 			this.m_reportScopes.Add(scopeName, target);
 		}
 
-		internal bool TryGetNewSortTarget(string scopeName, out AspNetCore.ReportingServices.ReportIntermediateFormat.ISortFilterScope target)
+		public bool TryGetNewSortTarget(string scopeName, out AspNetCore.ReportingServices.ReportIntermediateFormat.ISortFilterScope target)
 		{
 			target = null;
 			return this.m_reportScopes.TryGetValue(scopeName, out target);
 		}
 
-		internal void AddExpressionThatReferencesReportItems(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public void AddExpressionThatReferencesReportItems(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 		{
 			this.m_expressionsWithReportItemReferences.Add(expression);
 		}
 
-		internal void AddVisibilityWithToggleToUpdate(AspNetCore.ReportingServices.ReportIntermediateFormat.Visibility visibility)
+		public void AddVisibilityWithToggleToUpdate(AspNetCore.ReportingServices.ReportIntermediateFormat.Visibility visibility)
 		{
 			this.m_visibilitiesWithToggleToUpdate.Add(visibility);
 		}
 
-		internal void AddReportItemWithRepeatWithToUpdate(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItem)
+		public void AddReportItemWithRepeatWithToUpdate(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem reportItem)
 		{
 			this.m_reportItemsWithRepeatWithToUpdate.Add(reportItem);
 		}
 
-		internal void AddEndUserSort(AspNetCore.ReportingServices.ReportIntermediateFormat.EndUserSort endUserSort)
+		public void AddEndUserSort(AspNetCore.ReportingServices.ReportIntermediateFormat.EndUserSort endUserSort)
 		{
 			this.m_endUserSortWithTarget.Add(endUserSort);
 		}
 
-		internal void AddSubReport(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
+		public void AddSubReport(AspNetCore.ReportingServices.ReportIntermediateFormat.SubReport subReport)
 		{
 			this.m_report.SubReports.Add(subReport);
 		}

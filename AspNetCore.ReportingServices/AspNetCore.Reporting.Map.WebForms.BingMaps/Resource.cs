@@ -11,7 +11,7 @@ namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 	[KnownType(typeof(SeaLevelData))]
 	[KnownType(typeof(CompressedPointList))]
 	[KnownType(typeof(GeospatialEndpointResponse))]
-	internal class Resource
+	public class Resource
 	{
 		[DataMember(Name = "bbox", EmitDefaultValue = false)]
 		public double[] BoundingBox

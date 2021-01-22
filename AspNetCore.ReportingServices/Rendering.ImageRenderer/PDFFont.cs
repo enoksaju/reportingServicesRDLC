@@ -5,17 +5,17 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class PDFFont
+	public sealed class PDFFont
 	{
-		internal sealed class GlyphData : IComparable
+		public sealed class GlyphData : IComparable
 		{
-			internal ushort Glyph;
+			public ushort Glyph;
 
-			internal float Width;
+			public float Width;
 
-			internal char? Character;
+			public char? Character;
 
-			internal GlyphData(ushort glyph, float width)
+			public GlyphData(ushort glyph, float width)
 			{
 				this.Glyph = glyph;
 				this.Width = width;
@@ -37,41 +37,41 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal CachedFont CachedFont;
+		public CachedFont CachedFont;
 
-		internal readonly string FontFamily;
+		public readonly string FontFamily;
 
-		internal string FontPDFFamily;
+		public string FontPDFFamily;
 
-		internal int FontId = -1;
+		public int FontId = -1;
 
-		internal List<GlyphData> UniqueGlyphs = new List<GlyphData>();
+		public List<GlyphData> UniqueGlyphs = new List<GlyphData>();
 
-		internal string FontCMap;
+		public string FontCMap;
 
-		internal string Registry;
+		public string Registry;
 
-		internal string Ordering;
+		public string Ordering;
 
-		internal string Supplement;
+		public string Supplement;
 
-		internal readonly FontStyle GDIFontStyle;
+		public readonly FontStyle GDIFontStyle;
 
-		internal readonly int EMHeight;
+		public readonly int EMHeight;
 
-		internal readonly float GridHeight;
+		public readonly float GridHeight;
 
-		internal readonly float EMGridConversion;
+		public readonly float EMGridConversion;
 
-		internal readonly bool InternalFont;
+		public readonly bool InternalFont;
 
-		internal readonly bool SimulateItalic;
+		public readonly bool SimulateItalic;
 
-		internal readonly bool SimulateBold;
+		public readonly bool SimulateBold;
 
-		internal EmbeddedFont EmbeddedFont;
+		public EmbeddedFont EmbeddedFont;
 
-		internal bool IsComposite
+		public bool IsComposite
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal PDFFont(CachedFont cachedFont, string fontFamily, string pdfFontFamily, string fontCMap, string registry, string ordering, string supplement, FontStyle gdiFontStyle, int emHeight, float gridHeight, bool internalFont, bool simulateItalic, bool simulateBold)
+		public PDFFont(CachedFont cachedFont, string fontFamily, string pdfFontFamily, string fontCMap, string registry, string ordering, string supplement, FontStyle gdiFontStyle, int emHeight, float gridHeight, bool internalFont, bool simulateItalic, bool simulateBold)
 		{
 			this.CachedFont = cachedFont;
 			this.FontFamily = fontFamily;
@@ -97,7 +97,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			this.SimulateBold = simulateBold;
 		}
 
-		internal GlyphData AddUniqueGlyph(ushort glyph, float width)
+		public GlyphData AddUniqueGlyph(ushort glyph, float width)
 		{
 			GlyphData glyphData = new GlyphData(glyph, width);
 			if (this.UniqueGlyphs.BinarySearch(glyphData) >= 0)

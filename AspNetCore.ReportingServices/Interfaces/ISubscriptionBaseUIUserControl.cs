@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface ISubscriptionBaseUIUserControl : IExtension
+	public interface ISubscriptionBaseUIUserControl : IExtension
 	{
 		Setting[] UserData
 		{

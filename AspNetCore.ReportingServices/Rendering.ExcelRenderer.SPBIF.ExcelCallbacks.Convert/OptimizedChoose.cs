@@ -2,11 +2,11 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert
 {
-	internal sealed class OptimizedChoose : Operator
+	public sealed class OptimizedChoose : Operator
 	{
 		private ArrayList m_gotoLabels;
 
-		internal ArrayList GotoLabelList
+		public ArrayList GotoLabelList
 		{
 			get
 			{
@@ -18,12 +18,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallba
 			}
 		}
 
-		internal OptimizedChoose(string op, int precedence, OperatorType ot, ushort biffCode)
+		public OptimizedChoose(string op, int precedence, OperatorType ot, ushort biffCode)
 			: base(op, precedence, ot, biffCode)
 		{
 		}
 
-		internal OptimizedChoose(OptimizedChoose oc)
+		public OptimizedChoose(OptimizedChoose oc)
 			: base(oc.Name, oc.Precedence, oc.Type, oc.BCode)
 		{
 		}

@@ -5,11 +5,11 @@ using System.ComponentModel.Design;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal class KeywordsRegistry : IServiceProvider
+	public class KeywordsRegistry : IServiceProvider
 	{
 		private IServiceContainer serviceContainer;
 
-		internal ArrayList registeredKeywords = new ArrayList();
+		public ArrayList registeredKeywords = new ArrayList();
 
 		private KeywordsRegistry()
 		{

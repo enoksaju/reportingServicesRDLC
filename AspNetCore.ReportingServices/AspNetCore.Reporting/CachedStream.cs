@@ -5,7 +5,7 @@ using System.Text;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class CachedStream : IDisposable
+	public sealed class CachedStream : IDisposable
 	{
 		private Stream m_stream;
 

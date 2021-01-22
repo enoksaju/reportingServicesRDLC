@@ -5,13 +5,13 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class PaginationInfo
+	public sealed class PaginationInfo
 	{
 		private ArrayList m_pages;
 
 		private int m_totalPageNumber;
 
-		internal int TotalPageNumber
+		public int TotalPageNumber
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Page this[int pageNumber]
+		public Page this[int pageNumber]
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int CurrentPageCount
+		public int CurrentPageCount
 		{
 			get
 			{
@@ -43,27 +43,27 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PaginationInfo()
+		public PaginationInfo()
 		{
 			this.m_pages = new ArrayList();
 		}
 
-		internal void AddPage(Page page)
+		public void AddPage(Page page)
 		{
 			this.m_pages.Add(page);
 		}
 
-		internal void Clear()
+		public void Clear()
 		{
 			this.m_pages.Clear();
 		}
 
-		internal void InsertPage(int pageNumber, Page page)
+		public void InsertPage(int pageNumber, Page page)
 		{
 			this.m_pages.Insert(pageNumber, page);
 		}
 
-		internal void RemovePage(int pageNumber)
+		public void RemovePage(int pageNumber)
 		{
 			this.m_pages.RemoveAt(pageNumber);
 		}

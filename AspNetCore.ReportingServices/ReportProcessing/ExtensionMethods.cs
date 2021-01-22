@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal static class ExtensionMethods
+	public static class ExtensionMethods
 	{
 		public static bool HasFlag(this CompareOptions value, CompareOptions flag)
 		{

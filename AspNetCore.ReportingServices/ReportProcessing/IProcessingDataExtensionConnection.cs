@@ -5,7 +5,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal interface IProcessingDataExtensionConnection
+	public interface IProcessingDataExtensionConnection
 	{
 		bool MustResolveSharedDataSources
 		{

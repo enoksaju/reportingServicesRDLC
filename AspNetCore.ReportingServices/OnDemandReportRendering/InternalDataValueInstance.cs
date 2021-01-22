@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalDataValueInstance : DataValueInstance
+	public sealed class InternalDataValueInstance : DataValueInstance
 	{
 		private DataValue m_dataValueDef;
 
@@ -35,7 +35,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal InternalDataValueInstance(IReportScope reportScope, DataValue dataValueDef)
+		public InternalDataValueInstance(IReportScope reportScope, DataValue dataValueDef)
 			: base(reportScope)
 		{
 			this.m_dataValueDef = dataValueDef;

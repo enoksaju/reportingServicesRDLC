@@ -4,7 +4,7 @@ using System.Drawing.Design;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class SwatchColor : NamedElement
+	public class SwatchColor : NamedElement
 	{
 		private Color color = Color.White;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private string textValue = "";
 
-		internal bool automaticallyAdded;
+		public bool automaticallyAdded;
 
 		private ColorSwatchPanel owner;
 
@@ -190,7 +190,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ColorSwatchPanel Owner
+		public ColorSwatchPanel Owner
 		{
 			get
 			{
@@ -227,7 +227,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal SwatchColor(CommonElements common, string name, double fromValue, double toValue, string textValue)
+		public SwatchColor(CommonElements common, string name, double fromValue, double toValue, string textValue)
 			: base(common)
 		{
 			this.Name = name;

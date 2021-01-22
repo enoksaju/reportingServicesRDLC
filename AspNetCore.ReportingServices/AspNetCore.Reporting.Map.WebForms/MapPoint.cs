@@ -6,7 +6,7 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(MapPointConverter))]
-	internal struct MapPoint
+	public struct MapPoint
 	{
 		private double x;
 

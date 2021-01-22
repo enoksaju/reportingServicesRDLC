@@ -7,15 +7,15 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 {
 	public abstract class ReportItemImpl : AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel.ReportItem
 	{
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem m_item;
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem m_item;
 
-		internal AspNetCore.ReportingServices.RdlExpressions.ReportRuntime m_reportRT;
+		public AspNetCore.ReportingServices.RdlExpressions.ReportRuntime m_reportRT;
 
-		internal IErrorContext m_iErrorContext;
+		public IErrorContext m_iErrorContext;
 
-		internal IScope m_scope;
+		public IScope m_scope;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal IScope Scope
+		public IScope Scope
 		{
 			set
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal ReportItemImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem itemDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, IErrorContext iErrorContext)
+		public ReportItemImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.ReportItem itemDef, AspNetCore.ReportingServices.RdlExpressions.ReportRuntime reportRT, IErrorContext iErrorContext)
 		{
 			Global.Tracer.Assert(null != itemDef, "(null != itemDef)");
 			Global.Tracer.Assert(null != reportRT, "(null != reportRT)");
@@ -41,8 +41,8 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			this.m_iErrorContext = iErrorContext;
 		}
 
-		internal abstract void Reset();
+		public abstract void Reset();
 
-		internal abstract void Reset(AspNetCore.ReportingServices.RdlExpressions.VariantResult aResult);
+		public abstract void Reset(AspNetCore.ReportingServices.RdlExpressions.VariantResult aResult);
 	}
 }

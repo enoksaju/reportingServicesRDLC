@@ -19,7 +19,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-    internal sealed class HTMLRenderer
+    public sealed class HTMLRenderer
     {
         public static NameValueCollection CreateDeviceInfo( int pageNumber, string findString, string replacementRoot, string linkTarget, string browserMode, bool useImageConsolidation, bool enablePowerBIFeatures)
         {

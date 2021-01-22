@@ -1,12 +1,12 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class RomanNumeral
+	public sealed class RomanNumeral
 	{
-		internal int ArabicNumber;
+		public int ArabicNumber;
 
-		internal string RomanNumeralString;
+		public string RomanNumeralString;
 
-		internal static RomanNumeral[] RomanNumerals = new RomanNumeral[16]
+		public static RomanNumeral[] RomanNumerals = new RomanNumeral[16]
 		{
 			new RomanNumeral(1000, "m"),
 			new RomanNumeral(500, "d"),
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			new RomanNumeral(1, "i")
 		};
 
-		internal RomanNumeral(int arabicNumber, string romanNumeralString)
+		public RomanNumeral(int arabicNumber, string romanNumeralString)
 		{
 			this.ArabicNumber = arabicNumber;
 			this.RomanNumeralString = romanNumeralString;

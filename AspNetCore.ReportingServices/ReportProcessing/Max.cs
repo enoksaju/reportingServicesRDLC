@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class Max : DataAggregate
+	public sealed class Max : DataAggregate
 	{
 		private DataTypeCode m_expressionType;
 
@@ -13,19 +13,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private CompareOptions m_compareOptions;
 
-		internal Max(CompareInfo compareInfo, CompareOptions compareOptions)
+		public Max(CompareInfo compareInfo, CompareOptions compareOptions)
 		{
 			this.m_currentMax = null;
 			this.m_compareInfo = compareInfo;
 			this.m_compareOptions = compareOptions;
 		}
 
-		internal override void Init()
+		public override void Init()
 		{
 			this.m_currentMax = null;
 		}
 
-		internal override void Update(object[] expressions, IErrorContext iErrorContext)
+		public override void Update(object[] expressions, IErrorContext iErrorContext)
 		{
 			Global.Tracer.Assert(null != expressions);
 			Global.Tracer.Assert(1 == expressions.Length);
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal override object Result()
+		public override object Result()
 		{
 			return this.m_currentMax;
 		}

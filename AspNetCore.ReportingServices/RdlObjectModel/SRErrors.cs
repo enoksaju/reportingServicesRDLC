@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[CompilerGenerated]
-	internal class SRErrors
+	public class SRErrors
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string InvalidParamGreaterThan = "InvalidParamGreaterThan";
 

@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
 	[XmlRoot(IsNullable = false)]
-	internal sealed class AdditionalInfo
+	public sealed class AdditionalInfo
 	{
 		private readonly object m_dataExtensionSync = new object();
 
@@ -163,11 +163,11 @@ namespace AspNetCore.ReportingServices.Diagnostics.Internal
 			set;
 		}
 
-		internal AdditionalInfo()
+		public AdditionalInfo()
 		{
 		}
 
-		internal void IncrementDataExtensionOperationCounter(string operation)
+		public void IncrementDataExtensionOperationCounter(string operation)
 		{
 			if (!string.IsNullOrEmpty(operation))
 			{

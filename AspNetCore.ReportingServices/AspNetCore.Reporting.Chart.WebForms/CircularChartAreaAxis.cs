@@ -2,15 +2,15 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class CircularChartAreaAxis
+	public class CircularChartAreaAxis
 	{
-		internal float AxisPosition;
+		public float AxisPosition;
 
-		internal float AxisSectorSize;
+		public float AxisSectorSize;
 
-		internal string Title = string.Empty;
+		public string Title = string.Empty;
 
-		internal Color TitleColor = Color.Empty;
+		public Color TitleColor = Color.Empty;
 
 		public CircularChartAreaAxis()
 		{

@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal class CellList : ArrayList
+	public class CellList : ArrayList
 	{
-		internal new Cell this[int index]
+		public new Cell this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CellList()
+		public CellList()
 		{
 		}
 
-		internal CellList(int capacity)
+		public CellList(int capacity)
 			: base(capacity)
 		{
 		}

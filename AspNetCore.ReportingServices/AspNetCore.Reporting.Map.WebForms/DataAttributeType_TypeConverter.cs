@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DataAttributeType_TypeConverter : TypeConverter
+	public class DataAttributeType_TypeConverter : TypeConverter
 	{
 		private static Type[] types;
 

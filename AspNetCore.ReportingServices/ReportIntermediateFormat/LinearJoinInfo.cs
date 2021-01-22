@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class LinearJoinInfo : JoinInfo
+	public sealed class LinearJoinInfo : JoinInfo
 	{
 		[Reference]
 		private DataSet m_parentDataSet;
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = LinearJoinInfo.GetDeclaration();
 
-		internal DataSet ParentDataSet
+		public DataSet ParentDataSet
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal override bool ValidateRelationships(ScopeTree scopeTree, ErrorContext errorContext, DataSet ourDataSet, ParentDataSetContainer parentDataSets, IRIFReportDataScope currentScope)
+		public override bool ValidateRelationships(ScopeTree scopeTree, ErrorContext errorContext, DataSet ourDataSet, ParentDataSetContainer parentDataSets, IRIFReportDataScope currentScope)
 		{
 			Global.Tracer.Assert(parentDataSets != null && parentDataSets.Count == 1, "LinearJoinInfo can only be used with exactly one parent data set");
 			this.m_parentDataSet = parentDataSets.ParentDataSet;
@@ -95,30 +95,30 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			errorContext.Register(ProcessingErrorCode.rsInvalidInnerDataSetName, severity, currentScope.DataScopeObjectType, currentScope.Name, "DataSetName", this.m_parentDataSet.Name.MarkAsPrivate(), ourDataSet.Name.MarkAsPrivate());
 		}
 
-		internal Relationship GetActiveRelationship(DataSet ourDataSet)
+		public Relationship GetActiveRelationship(DataSet ourDataSet)
 		{
 			return base.GetActiveRelationship(ourDataSet, this.m_parentDataSet);
 		}
 
-		internal override void CheckContainerJoinForNaturalJoin(IRIFDataScope startScope, ErrorContext errorContext, IRIFDataScope scope)
+		public override void CheckContainerJoinForNaturalJoin(IRIFDataScope startScope, ErrorContext errorContext, IRIFDataScope scope)
 		{
 			base.CheckContainerRelationshipForNaturalJoin(startScope, errorContext, scope, this.GetActiveRelationship(scope.DataScopeInfo.DataSet));
 		}
 
-		internal override void ValidateScopeRulesForIdcNaturalJoin(InitializationContext context, IRIFDataScope scope)
+		public override void ValidateScopeRulesForIdcNaturalJoin(InitializationContext context, IRIFDataScope scope)
 		{
 			Relationship activeRelationship = this.GetActiveRelationship(scope.DataScopeInfo.DataSet);
 			base.ValidateScopeRulesForIdcNaturalJoin(context, scope, activeRelationship);
 		}
 
-		internal override void AddMappedFieldIndices(List<int> parentFieldIndices, DataSet parentDataSet, DataSet ourDataSet, List<int> ourFieldIndices)
+		public override void AddMappedFieldIndices(List<int> parentFieldIndices, DataSet parentDataSet, DataSet ourDataSet, List<int> ourFieldIndices)
 		{
 			Global.Tracer.Assert(DataSet.AreEqualById(this.m_parentDataSet, parentDataSet), "Invalid parent data set");
 			Relationship activeRelationship = this.GetActiveRelationship(ourDataSet);
 			JoinInfo.AddMappedFieldIndices(activeRelationship, parentFieldIndices, ourFieldIndices);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ParentDataSet, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.DataSet, Token.Reference));

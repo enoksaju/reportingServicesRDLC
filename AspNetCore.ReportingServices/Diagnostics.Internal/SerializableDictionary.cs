@@ -6,18 +6,18 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
-    internal sealed class SerializableDictionary : Dictionary<string, int>, IXmlSerializable
+    public sealed class SerializableDictionary : Dictionary<string, int>, IXmlSerializable
 	{
-		internal SerializableDictionary()
+		public SerializableDictionary()
 		{
 		}
 
-		internal SerializableDictionary(IDictionary<string, int> dictionary)
+		public SerializableDictionary(IDictionary<string, int> dictionary)
 			: base(dictionary)
 		{
 		}
 
-		internal SerializableDictionary(IEqualityComparer<string> comparer)
+		public SerializableDictionary(IEqualityComparer<string> comparer)
 			: base(comparer)
 		{
 		}

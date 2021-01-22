@@ -7,7 +7,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models.Relationships
 {
-	internal sealed class OPCRelationshipTree
+	public sealed class OPCRelationshipTree
 	{
 		private Dictionary<string, RelPart> _parts;
 

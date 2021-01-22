@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.Common
 {
 	[Flags]
-	internal enum ScopeIDType
+	public enum ScopeIDType
 	{
 		None = 0,
 		SortValues = 1,

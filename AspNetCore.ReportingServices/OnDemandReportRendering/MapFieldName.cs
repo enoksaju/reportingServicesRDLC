@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapFieldName : MapObjectCollectionItem
+	public sealed class MapFieldName : MapObjectCollectionItem
 	{
 		private Map m_map;
 
@@ -22,7 +22,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map MapDef
+		public Map MapDef
 		{
 			get
 			{
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapFieldName MapFieldNameDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapFieldName MapFieldNameDef
 		{
 			get
 			{
@@ -54,13 +54,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapFieldName(AspNetCore.ReportingServices.ReportIntermediateFormat.MapFieldName defObject, Map map)
+		public MapFieldName(AspNetCore.ReportingServices.ReportIntermediateFormat.MapFieldName defObject, Map map)
 		{
 			this.m_defObject = defObject;
 			this.m_map = map;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			if (base.m_instance != null)
 			{

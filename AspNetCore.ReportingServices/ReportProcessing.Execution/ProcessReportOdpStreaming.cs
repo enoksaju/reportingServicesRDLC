@@ -6,7 +6,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class ProcessReportOdpStreaming : ProcessReportOdpInitial
+	public class ProcessReportOdpStreaming : ProcessReportOdpInitial
 	{
 		private readonly IAbortHelper m_abortHelper;
 

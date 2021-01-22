@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class BackgroundImageInstance : BaseInstance, IImageInstance
+	public abstract class BackgroundImageInstance : BaseInstance, IImageInstance
 	{
 		public abstract byte[] ImageData
 		{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal BackgroundImageInstance(IReportScope reportScope)
+		public BackgroundImageInstance(IReportScope reportScope)
 			: base(reportScope)
 		{
 		}

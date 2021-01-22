@@ -12,7 +12,7 @@ using System.IO;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapShapefile : MapSpatialData, IPersistable
+	public sealed class MapShapefile : MapSpatialData, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapShapefile.GetDeclaration();
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private List<MapFieldName> m_mapFieldNames;
 
-		internal ExpressionInfo Source
+		public ExpressionInfo Source
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<MapFieldName> MapFieldNames
+		public List<MapFieldName> MapFieldNames
 		{
 			get
 			{
@@ -45,7 +45,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapShapefileExprHost ExprHost
+		public new MapShapefileExprHost ExprHost
 		{
 			get
 			{
@@ -53,16 +53,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapShapefile()
+		public MapShapefile()
 		{
 		}
 
-		internal MapShapefile(MapVectorLayer mapVectorLayer, Map map)
+		public MapShapefile(MapVectorLayer mapVectorLayer, Map map)
 			: base(mapVectorLayer, map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapShapefileStart();
 			base.Initialize(context);
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapShapefileEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapShapefile mapShapefile = (MapShapefile)base.PublishClone(context);
 			if (this.m_source != null)
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapShapefile;
 		}
 
-		internal override void SetExprHost(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapSpatialDataExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHostInternal(exprHost, reportObjectModel);
@@ -120,7 +120,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Source, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -175,13 +175,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapShapefile;
 		}
 
-		internal string EvaluateSource(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateSource(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_map, reportScopeInstance);
 			return context.ReportRuntime.EvaluateMapShapefileSourceExpression(this, base.m_map.Name);
 		}
 
-		internal string GetFileStreamName(AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext, string url)
+		public string GetFileStreamName(AspNetCore.ReportingServices.OnDemandReportRendering.RenderingContext renderingContext, string url)
 		{
 			string text = null;
 			OnDemandMetadata odpMetadata = renderingContext.OdpContext.OdpMetadata;

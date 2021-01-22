@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ActionInfo
+	public sealed class ActionInfo
 	{
 		private MemberBase m_members;
 
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.Action ActionInfoDef
+		public AspNetCore.ReportingServices.ReportProcessing.Action ActionInfoDef
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ActionInstance ActionInfoInstance
+		public ActionInstance ActionInfoInstance
 		{
 			get
 			{
@@ -132,7 +132,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			Global.Tracer.Assert(this.m_members.IsCustomControl);
 		}
 
-		internal ActionInfo(AspNetCore.ReportingServices.ReportProcessing.Action actionDef, ActionInstance actionInstance, string ownerUniqueName, RenderingContext renderingContext)
+		public ActionInfo(AspNetCore.ReportingServices.ReportProcessing.Action actionDef, ActionInstance actionInstance, string ownerUniqueName, RenderingContext renderingContext)
 		{
 			this.m_members = new ActionInfoRendering();
 			Global.Tracer.Assert(!this.m_members.IsCustomControl);
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.Rendering.m_ownerUniqueName = ownerUniqueName;
 		}
 
-		internal ActionInfo DeepClone()
+		public ActionInfo DeepClone()
 		{
 			if (!this.IsCustomControl)
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			return actionInfo;
 		}
 
-		internal void Deconstruct(int uniqueName, ref AspNetCore.ReportingServices.ReportProcessing.Action action, out ActionInstance actionInstance, AspNetCore.ReportingServices.ReportProcessing.CustomReportItem context)
+		public void Deconstruct(int uniqueName, ref AspNetCore.ReportingServices.ReportProcessing.Action action, out ActionInstance actionInstance, AspNetCore.ReportingServices.ReportProcessing.CustomReportItem context)
 		{
 			Global.Tracer.Assert(this.IsCustomControl && null != context);
 			actionInstance = null;

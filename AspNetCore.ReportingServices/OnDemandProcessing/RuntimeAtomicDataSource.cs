@@ -6,14 +6,14 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal abstract class RuntimeAtomicDataSource : RuntimeDataSource
+	public abstract class RuntimeAtomicDataSource : RuntimeDataSource
 	{
 		protected RuntimeAtomicDataSource(AspNetCore.ReportingServices.ReportIntermediateFormat.Report report, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, OnDemandProcessingContext processingContext, bool mergeTransactions)
 			: base(report, dataSource, processingContext, mergeTransactions)
 		{
 		}
 
-		internal void ProcessConcurrent(object threadSet)
+		public void ProcessConcurrent(object threadSet)
 		{
 			try
 			{

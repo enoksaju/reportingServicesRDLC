@@ -8,17 +8,17 @@ using System.Globalization;
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeAnnotations3")]
-	internal class AnnotationCollection : CollectionBase
+	public class AnnotationCollection : CollectionBase
 	{
-		internal Chart chart;
+		public Chart chart;
 
 		private IServiceContainer serviceContainer;
 
 		private PointF movingResizingStartPoint = PointF.Empty;
 
-		internal Annotation lastClickedAnnotation;
+		public Annotation lastClickedAnnotation;
 
-		internal AnnotationGroup annotationGroup;
+		public AnnotationGroup annotationGroup;
 
 		private Chart Chart
 		{
@@ -398,7 +398,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Invalidate();
 		}
 
-		internal void Paint(ChartGraphics chartGraph, bool drawAnnotationOnly)
+		public void Paint(ChartGraphics chartGraph, bool drawAnnotationOnly)
 		{
 			foreach (Annotation item in base.List)
 			{
@@ -437,7 +437,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal void AssignUniqueName(Annotation annotation)
+		public void AssignUniqueName(Annotation annotation)
 		{
 			AnnotationCollection annotationCollection = this;
 			if (this.Chart != null)
@@ -461,7 +461,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			return this.FindByName(name, ref annotationGroup);
 		}
 
-		internal Annotation FindByName(string name, ref AnnotationGroup group)
+		public Annotation FindByName(string name, ref AnnotationGroup group)
 		{
 			Annotation annotation = null;
 			group = null;

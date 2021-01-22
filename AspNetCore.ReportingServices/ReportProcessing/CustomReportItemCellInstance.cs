@@ -4,7 +4,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class CustomReportItemCellInstance
+	public sealed class CustomReportItemCellInstance
 	{
 		private int m_rowIndex;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private DataValueInstanceList m_dataValueInstances;
 
-		internal int RowIndex
+		public int RowIndex
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ColumnIndex
+		public int ColumnIndex
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataValueInstanceList DataValueInstances
+		public DataValueInstanceList DataValueInstances
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal CustomReportItemCellInstance(int rowIndex, int colIndex, CustomReportItem definition, ReportProcessing.ProcessingContext pc)
+		public CustomReportItemCellInstance(int rowIndex, int colIndex, CustomReportItem definition, ReportProcessing.ProcessingContext pc)
 		{
 			this.m_rowIndex = rowIndex;
 			this.m_columnIndex = colIndex;
@@ -59,11 +59,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			Global.Tracer.Assert(null != this.m_dataValueInstances);
 		}
 
-		internal CustomReportItemCellInstance()
+		public CustomReportItemCellInstance()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.RowIndex, Token.Int32));

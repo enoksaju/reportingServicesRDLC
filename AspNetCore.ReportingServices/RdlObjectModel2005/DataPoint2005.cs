@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class DataPoint2005 : ChartDataPoint
+	public class DataPoint2005 : ChartDataPoint
 	{
-		internal new class Definition : DefinitionStore<DataPoint2005, Definition.Properties>
+		public new class Definition : DefinitionStore<DataPoint2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Action = 11,
 				DataLabel,

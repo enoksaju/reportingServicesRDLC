@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class InternalFullOdpDynamicMemberLogic : InternalDynamicMemberLogic
+	public sealed class InternalFullOdpDynamicMemberLogic : InternalDynamicMemberLogic
 	{
 		private readonly DataRegionMember m_memberDef;
 
@@ -64,17 +64,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return context < this.m_memberDef.DataRegionMemberDefinition.InstanceCount;
 		}
 
-		internal override ScopeID GetScopeID()
+		public override ScopeID GetScopeID()
 		{
 			throw new RenderingObjectModelException(ProcessingErrorCode.rsNotSupportedInStreamingMode, "GetScopeID");
 		}
 
-		internal override ScopeID GetLastScopeID()
+		public override ScopeID GetLastScopeID()
 		{
 			throw new RenderingObjectModelException(ProcessingErrorCode.rsNotSupportedInStreamingMode, "GetLastScopeID");
 		}
 
-		internal override void SetScopeID(ScopeID scopeID)
+		public override void SetScopeID(ScopeID scopeID)
 		{
 			throw new RenderingObjectModelException(ProcessingErrorCode.rsNotSupportedInStreamingMode, "SetScopeID");
 		}

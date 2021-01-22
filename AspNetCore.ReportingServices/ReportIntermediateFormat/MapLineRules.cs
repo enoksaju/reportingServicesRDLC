@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapLineRules : IPersistable
+	public sealed class MapLineRules : IPersistable
 	{
 		[NonSerialized]
 		private MapLineRulesExprHost m_exprHost;
@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private MapColorRule m_mapColorRule;
 
-		internal MapSizeRule MapSizeRule
+		public MapSizeRule MapSizeRule
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapColorRule MapColorRule
+		public MapColorRule MapColorRule
 		{
 			get
 			{
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLineRulesExprHost ExprHost
+		public MapLineRulesExprHost ExprHost
 		{
 			get
 			{
@@ -67,16 +67,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapLineRules()
+		public MapLineRules()
 		{
 		}
 
-		internal MapLineRules(Map map)
+		public MapLineRules(Map map)
 		{
 			this.m_map = map;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapLineRulesStart();
 			if (this.m_mapSizeRule != null)
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapLineRulesEnd();
 		}
 
-		internal void InitializeMapMember(InitializationContext context)
+		public void InitializeMapMember(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapLineRulesStart();
 			if (this.m_mapSizeRule != null)
@@ -104,7 +104,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapLineRulesEnd();
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapLineRules mapLineRules = (MapLineRules)base.MemberwiseClone();
 			mapLineRules.m_map = context.CurrentMapClone;
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapLineRules;
 		}
 
-		internal void SetExprHost(MapLineRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(MapLineRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -134,7 +134,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void SetExprHostMapMember(MapLineRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHostMapMember(MapLineRulesExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHostMapMember = exprHost;
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapSizeRule, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapSizeRule));

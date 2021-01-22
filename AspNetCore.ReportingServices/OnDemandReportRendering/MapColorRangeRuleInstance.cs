@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapColorRangeRuleInstance : MapColorRuleInstance
+	public sealed class MapColorRangeRuleInstance : MapColorRuleInstance
 	{
 		private MapColorRangeRule m_defObject;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapColorRangeRuleInstance(MapColorRangeRule defObject)
+		public MapColorRangeRuleInstance(MapColorRangeRule defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

@@ -2,11 +2,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ParameterValue : ReportObject
+	public class ParameterValue : ReportObject
 	{
-		internal class Definition : DefinitionStore<ParameterValue, Definition.Properties>
+		public class Definition : DefinitionStore<ParameterValue, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Value,
 				Label,
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ParameterValue(IPropertyStore propertyStore)
+		public ParameterValue(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

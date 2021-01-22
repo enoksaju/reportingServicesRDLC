@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface IContentElement
+	public interface IContentElement
 	{
 		bool IsVisible(MapGraphics g, Layer layer, bool allLayers, RectangleF clipRect);
 

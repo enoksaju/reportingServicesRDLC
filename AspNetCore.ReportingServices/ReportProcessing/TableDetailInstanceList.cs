@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class TableDetailInstanceList : ArrayList
+	public sealed class TableDetailInstanceList : ArrayList
 	{
-		internal new TableDetailInstance this[int index]
+		public new TableDetailInstance this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal TableDetailInstanceList()
+		public TableDetailInstanceList()
 		{
 		}
 
-		internal TableDetailInstanceList(int capacity)
+		public TableDetailInstanceList(int capacity)
 			: base(capacity)
 		{
 		}

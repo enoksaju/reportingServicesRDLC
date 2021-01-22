@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class CannotValidateEncryptedDataException : ReportCatalogException
+	public sealed class CannotValidateEncryptedDataException : ReportCatalogException
 	{
 		public CannotValidateEncryptedDataException()
 			: base(ErrorCode.rsCannotValidateEncryptedData, ErrorStrings.rsCannotValidateEncryptedData, null, null)

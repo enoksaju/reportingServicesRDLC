@@ -3,9 +3,9 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal abstract class IScopeReference : Reference<IScope>
+	public abstract class IScopeReference : Reference<IScope>
 	{
-		internal IScopeReference()
+		public IScopeReference()
 		{
 		}
 

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum WritingModes
+	public enum WritingModes
 	{
 		Default,
 		Horizontal,

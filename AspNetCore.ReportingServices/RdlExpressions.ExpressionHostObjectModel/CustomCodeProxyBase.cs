@@ -4,7 +4,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 	{
 		private IReportObjectModelProxyForCustomCode m_reportObjectModel;
 
-		internal IReportObjectModelProxyForCustomCode Report
+		public IReportObjectModelProxyForCustomCode Report
 		{
 			get
 			{
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-        internal CustomCodeProxyBase(IReportObjectModelProxyForCustomCode reportObjectModel)
+        public CustomCodeProxyBase(IReportObjectModelProxyForCustomCode reportObjectModel)
 		{
 			this.m_reportObjectModel = reportObjectModel;
 		}
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		{
 		}
 
-		internal void CallOnInit()
+		public void CallOnInit()
 		{
 			this.OnInit();
 		}

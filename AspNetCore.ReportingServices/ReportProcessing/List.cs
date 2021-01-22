@@ -7,7 +7,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class List : DataRegion
+	public sealed class List : DataRegion
 	{
 		private ReportHierarchyNode m_hierarchyDef;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private int m_keepWithChildFirstPage = -1;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Grouping Grouping
+		public Grouping Grouping
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Sorting Sorting
+		public Sorting Sorting
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportHierarchyNode HierarchyDef
+		public ReportHierarchyNode HierarchyDef
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool FillPage
+		public bool FillPage
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ListContentID
+		public int ListContentID
 		{
 			get
 			{
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string DataInstanceName
+		public string DataInstanceName
 		{
 			get
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataElementOutputTypes DataInstanceElementOutput
+		public DataElementOutputTypes DataInstanceElementOutput
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsListMostInner
+		public bool IsListMostInner
 		{
 			get
 			{
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PropagatedPageBreakAtStart
+		public bool PropagatedPageBreakAtStart
 		{
 			get
 			{
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PropagatedPageBreakAtEnd
+		public bool PropagatedPageBreakAtEnd
 		{
 			get
 			{
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ListExprHost ListExprHost
+		public ListExprHost ListExprHost
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ContentStartPage
+		public int ContentStartPage
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int KeepWithChildFirstPage
+		public int KeepWithChildFirstPage
 		{
 			get
 			{
@@ -206,25 +206,25 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal List(ReportItem parent)
+		public List(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal List(int id, int idForListContent, int idForReportItems, ReportItem parent)
+		public List(int id, int idForListContent, int idForReportItems, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_hierarchyDef = new ReportHierarchyNode(idForListContent, this);
 			this.m_reportItems = new ReportItemCollection(idForReportItems, true);
 		}
 
-		internal override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
+		public override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
 		{
 			base.CalculateSizes(width, height, context, overwrite);
 			this.m_reportItems.CalculateSizes(context, false);
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			CLSNameValidator.ValidateDataElementName(ref this.m_dataInstanceName, "Item", context.ObjectType, context.ObjectName, "DataInstanceName", context.ErrorContext);
 		}
 
-		internal override void RegisterReceiver(InitializationContext context)
+		public override void RegisterReceiver(InitializationContext context)
 		{
 			context.RegisterReportItems(this.m_reportItems);
 			if (base.m_visibility != null)
@@ -296,7 +296,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			context.UnRegisterReportItems(this.m_reportItems);
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.HierarchyDef, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportHierarchyNode));

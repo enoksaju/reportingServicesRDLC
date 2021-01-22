@@ -4,11 +4,11 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class InstancePathItem
+	public sealed class InstancePathItem
 	{
-		internal const char DefinitionInstanceDelimiter = 'i';
+		public const char DefinitionInstanceDelimiter = 'i';
 
-		internal const char InstancePathDelimiter = 'x';
+		public const char InstancePathDelimiter = 'x';
 
 		private const char m_0 = '0';
 
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private int m_hash;
 
-		internal bool IsDynamicMember
+		public bool IsDynamicMember
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsScope
+		public bool IsScope
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsEmpty
+		public bool IsEmpty
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int IndexInCollection
+		public int IndexInCollection
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int InstanceIndex
+		public int InstanceIndex
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal InstancePathItemType Type
+		public InstancePathItemType Type
 		{
 			get
 			{
@@ -98,18 +98,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal InstancePathItem()
+		public InstancePathItem()
 		{
 			this.m_indexType = InstancePathItemType.None;
 		}
 
-		internal InstancePathItem(InstancePathItemType type, int id)
+		public InstancePathItem(InstancePathItemType type, int id)
 		{
 			this.m_indexType = type;
 			this.m_indexInCollection = id;
 		}
 
-		internal InstancePathItem(InstancePathItem original)
+		public InstancePathItem(InstancePathItem original)
 		{
 			this.m_indexType = original.m_indexType;
 			this.m_instanceIndex = original.m_instanceIndex;
@@ -127,23 +127,23 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_hash;
 		}
 
-		internal void ResetContext()
+		public void ResetContext()
 		{
 			this.SetContext(-1);
 		}
 
-		internal void MoveNext()
+		public void MoveNext()
 		{
 			this.SetContext(this.m_instanceIndex + 1);
 		}
 
-		internal void SetContext(int index)
+		public void SetContext(int index)
 		{
 			this.m_instanceIndex = index;
 			this.m_hash = 0;
 		}
 
-		internal static void DeepCopyPath(List<InstancePathItem> instancePath, ref List<InstancePathItem> copy)
+		public static void DeepCopyPath(List<InstancePathItem> instancePath, ref List<InstancePathItem> copy)
 		{
 			if (instancePath != null)
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static bool IsSameScopePath(IInstancePath originalRIFObject, IInstancePath lastRIFObject)
+		public static bool IsSameScopePath(IInstancePath originalRIFObject, IInstancePath lastRIFObject)
 		{
 			if (null == originalRIFObject != (null == lastRIFObject))
 			{
@@ -240,7 +240,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal static bool IsSamePath(List<InstancePathItem> path1, List<InstancePathItem> path2)
+		public static bool IsSamePath(List<InstancePathItem> path1, List<InstancePathItem> path2)
 		{
 			if (null == path1 != (null == path2))
 			{
@@ -259,13 +259,13 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return result;
 		}
 
-		internal static int GetSharedPathIndex(int startIndexForNewPath, List<InstancePathItem> oldPath, List<InstancePathItem> newPath)
+		public static int GetSharedPathIndex(int startIndexForNewPath, List<InstancePathItem> oldPath, List<InstancePathItem> newPath)
 		{
 			bool flag = default(bool);
 			return InstancePathItem.GetSharedPathIndex(startIndexForNewPath, oldPath, newPath, false, out flag);
 		}
 
-		internal static int GetSharedPathIndex(int startIndexForNewPath, List<InstancePathItem> oldPath, List<InstancePathItem> newPath, bool returnPreviousIndex, out bool identicalPaths)
+		public static int GetSharedPathIndex(int startIndexForNewPath, List<InstancePathItem> oldPath, List<InstancePathItem> newPath, bool returnPreviousIndex, out bool identicalPaths)
 		{
 			identicalPaths = false;
 			int result = -1;
@@ -324,7 +324,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return num;
 		}
 
-		internal static bool IsEmptyPath(int startIndex, List<InstancePathItem> path)
+		public static bool IsEmptyPath(int startIndex, List<InstancePathItem> path)
 		{
 			if (path == null)
 			{
@@ -354,7 +354,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return startIndex == count;
 		}
 
-		internal static bool IsValidContext(List<InstancePathItem> path)
+		public static bool IsValidContext(List<InstancePathItem> path)
 		{
 			for (int i = 0; i < path.Count; i++)
 			{
@@ -367,7 +367,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return true;
 		}
 
-		internal static List<InstancePathItem> CombineRowColPath(List<InstancePathItem> rowPath, List<InstancePathItem> columnPath)
+		public static List<InstancePathItem> CombineRowColPath(List<InstancePathItem> rowPath, List<InstancePathItem> columnPath)
 		{
 			int parentDataRegionIndex = InstancePathItem.GetParentDataRegionIndex(rowPath);
 			int parentDataRegionIndex2 = InstancePathItem.GetParentDataRegionIndex(columnPath);
@@ -386,7 +386,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return list;
 		}
 
-		internal static int GetParentDataRegionIndex(List<InstancePathItem> instancePath)
+		public static int GetParentDataRegionIndex(List<InstancePathItem> instancePath)
 		{
 			if (instancePath != null && instancePath.Count != 0)
 			{
@@ -402,7 +402,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return -1;
 		}
 
-		internal static int GetParentReportIndex(List<InstancePathItem> instancePath, bool isSubreport)
+		public static int GetParentReportIndex(List<InstancePathItem> instancePath, bool isSubreport)
 		{
 			if (instancePath != null && instancePath.Count != 0)
 			{
@@ -423,12 +423,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return 0;
 		}
 
-		internal static string GenerateUniqueNameString(int id, List<InstancePathItem> instancePath)
+		public static string GenerateUniqueNameString(int id, List<InstancePathItem> instancePath)
 		{
 			return InstancePathItem.GenerateUniqueNameString(id.ToString(CultureInfo.InvariantCulture), instancePath);
 		}
 
-		internal static string GenerateUniqueNameString(string idString, List<InstancePathItem> instancePath)
+		public static string GenerateUniqueNameString(string idString, List<InstancePathItem> instancePath)
 		{
 			if (instancePath != null && instancePath.Count != 0)
 			{
@@ -437,7 +437,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return idString;
 		}
 
-		internal static string GenerateUniqueNameString(int id, List<InstancePathItem> instancePath, int parentInstanceIndex)
+		public static string GenerateUniqueNameString(int id, List<InstancePathItem> instancePath, int parentInstanceIndex)
 		{
 			string text = id.ToString(CultureInfo.InvariantCulture);
 			if (instancePath != null && instancePath.Count != 0)
@@ -447,7 +447,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return text;
 		}
 
-		internal static string GenerateInstancePathString(List<InstancePathItem> instancePath)
+		public static string GenerateInstancePathString(List<InstancePathItem> instancePath)
 		{
 			return InstancePathItem.GenerateInstancePathString(instancePath, -1);
 		}

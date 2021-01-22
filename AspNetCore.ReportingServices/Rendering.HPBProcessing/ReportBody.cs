@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class ReportBody : PageItemContainer
+	public sealed class ReportBody : PageItemContainer
 	{
 		[StaticReference]
 		private new Body m_source;
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 		private static Declaration m_declaration = ReportBody.GetDeclaration();
 
-		internal override string SourceID
+		public override string SourceID
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override string SourceUniqueName
+		public override string SourceUniqueName
 		{
 			get
 			{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override double OriginalLeft
+		public override double OriginalLeft
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override double OriginalWidth
+		public override double OriginalWidth
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override Style SharedStyle
+		public override Style SharedStyle
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override StyleInstance NonSharedStyle
+		public override StyleInstance NonSharedStyle
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override byte RPLFormatType
+		public override byte RPLFormatType
 		{
 			get
 			{
@@ -80,11 +80,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal ReportBody()
+		public ReportBody()
 		{
 		}
 
-		internal ReportBody(Body source, ReportSize width)
+		public ReportBody(Body source, ReportSize width)
 			: base(null)
 		{
 			base.m_itemPageSizes = new ItemSizes(0.0, 0.0, width.ToMillimeters(), source.Height.ToMillimeters());
@@ -96,12 +96,12 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			base.UnresolvedKTV = unresolvedKTV;
 		}
 
-		internal override RPLElement CreateRPLElement()
+		public override RPLElement CreateRPLElement()
 		{
 			return new RPLBody();
 		}
 
-		internal override RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext)
+		public override RPLElement CreateRPLElement(RPLElementProps props, PageContext pageContext)
 		{
 			RPLItemProps props2 = props as RPLItemProps;
 			return new RPLBody(props2);
@@ -162,7 +162,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.ReportBody;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (ReportBody.m_declaration == null)
 			{

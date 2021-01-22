@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CompiledParagraphInstance : ParagraphInstance, ICompiledParagraphInstance
+	public sealed class CompiledParagraphInstance : ParagraphInstance, ICompiledParagraphInstance
 	{
 		private CompiledRichTextInstance m_compiledRichTextInstance;
 
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TextRun TextRunDefinition
+		public TextRun TextRunDefinition
 		{
 			get
 			{
@@ -266,7 +266,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CompiledParagraphInstance(CompiledRichTextInstance compiledRichTextInstance)
+		public CompiledParagraphInstance(CompiledRichTextInstance compiledRichTextInstance)
 			: base(compiledRichTextInstance.ParagraphDefinition)
 		{
 			this.m_compiledRichTextInstance = compiledRichTextInstance;

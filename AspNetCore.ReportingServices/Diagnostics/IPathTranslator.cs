@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IPathTranslator
+	public interface IPathTranslator
 	{
 		string PathToInternal(string source);
 

@@ -4,95 +4,95 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ProgressivePackaging
 {
-	internal class ProgressiveTypeDictionary
+	public class ProgressiveTypeDictionary
 	{
-		internal const string DummyContent = ".";
+		public const string DummyContent = ".";
 
-		internal const string KeyRdlx = "rdlx";
+		public const string KeyRdlx = "rdlx";
 
-		internal const string KeyRdlxPath = "rdlxPath";
+		public const string KeyRdlxPath = "rdlxPath";
 
-		internal const string KeyDataSegmentationQuery = "dsq";
+		public const string KeyDataSegmentationQuery = "dsq";
 
-		internal const string KeyExecuteQueriesRequest = "eqr";
+		public const string KeyExecuteQueriesRequest = "eqr";
 
-		internal const string KeyInteractiveState = "is";
+		public const string KeyInteractiveState = "is";
 
-		internal const string KeyGetExternalImagesRequest = "getExternalImagesRequest";
+		public const string KeyGetExternalImagesRequest = "getExternalImagesRequest";
 
-		internal const string KeyLogClientTraceEventsRequest = "logClientTraceEventsRequest";
+		public const string KeyLogClientTraceEventsRequest = "logClientTraceEventsRequest";
 
-		internal const string KeySessionId = "sessionId";
+		public const string KeySessionId = "sessionId";
 
-		internal const string KeyPublishingWarnings = "publishingWarnings";
+		public const string KeyPublishingWarnings = "publishingWarnings";
 
-		internal const string KeyProcessingWarnings = "processingWarnings";
+		public const string KeyProcessingWarnings = "processingWarnings";
 
-		internal const string KeyRpds = "rpds";
+		public const string KeyRpds = "rpds";
 
-		internal const string KeyModelDefinition = "modelDefinition";
+		public const string KeyModelDefinition = "modelDefinition";
 
-		internal const string KeyDataSources = "dataSources";
+		public const string KeyDataSources = "dataSources";
 
-		internal const string KeyGetExternalImagesResponse = "getExternalImagesResponse";
+		public const string KeyGetExternalImagesResponse = "getExternalImagesResponse";
 
-		internal const string KeyLogClientTraceEventsResponse = "processedTraceEvents";
+		public const string KeyLogClientTraceEventsResponse = "processedTraceEvents";
 
-		internal const string KeyNumCancellableJobs = "numCancellableJobs";
+		public const string KeyNumCancellableJobs = "numCancellableJobs";
 
-		internal const string KeyNumCancelledJobs = "numCancelledJobs";
+		public const string KeyNumCancelledJobs = "numCancelledJobs";
 
-		internal const string KeyWasReportLastModifiedByCurrentUser = "wasReportLastModifiedByCurrentUser";
+		public const string KeyWasReportLastModifiedByCurrentUser = "wasReportLastModifiedByCurrentUser";
 
-		internal const string KeyAdditionalInformation = "additionalInformation";
+		public const string KeyAdditionalInformation = "additionalInformation";
 
-		internal const string KeyAdditionalModelMetadata = "additionalModelMetadata";
+		public const string KeyAdditionalModelMetadata = "additionalModelMetadata";
 
-		internal const string KeyServerError = "serverError";
+		public const string KeyServerError = "serverError";
 
-		internal const string KeyServerErrorCode = "serverErrorCode";
+		public const string KeyServerErrorCode = "serverErrorCode";
 
-		internal const string ServerErrorCodeInvalidReportArchiveFormat = "rsInvalidReportArchiveFormat";
+		public const string ServerErrorCodeInvalidReportArchiveFormat = "rsInvalidReportArchiveFormat";
 
-		internal const string ServerErrorCodeSessionNotFound = "SessionNotFound";
+		public const string ServerErrorCodeSessionNotFound = "SessionNotFound";
 
-		internal const string ServerErrorCodeInvalidSessionId = "InvalidSessionId";
+		public const string ServerErrorCodeInvalidSessionId = "InvalidSessionId";
 
-		internal const string ServerErrorCodeProcessingError = "rsProcessingError";
+		public const string ServerErrorCodeProcessingError = "rsProcessingError";
 
-		internal const string ServerErrorCodeRenderingError = "rsRenderingError";
+		public const string ServerErrorCodeRenderingError = "rsRenderingError";
 
-		internal const string ServerErrorCodeCommandExecutionError = "rsErrorExecutingCommand";
+		public const string ServerErrorCodeCommandExecutionError = "rsErrorExecutingCommand";
 
-		internal const string ServerErrorCodeMissingExecuteQueriesRequest = "MissingExecuteQueriesRequest";
+		public const string ServerErrorCodeMissingExecuteQueriesRequest = "MissingExecuteQueriesRequest";
 
-		internal const string ServerErrorCodeInvalidConcurrentRenderEditSessionRequest = "InvalidConcurrentRenderEditSessionRequest";
+		public const string ServerErrorCodeInvalidConcurrentRenderEditSessionRequest = "InvalidConcurrentRenderEditSessionRequest";
 
-		internal const string ServerErrorCodeMissingGetExternalImagesRequest = "MissingGetExternalImagesRequest";
+		public const string ServerErrorCodeMissingGetExternalImagesRequest = "MissingGetExternalImagesRequest";
 
-		internal const string ServerErrorCodeExternalImageInvalidUri = "ExternalImageInvalidUri";
+		public const string ServerErrorCodeExternalImageInvalidUri = "ExternalImageInvalidUri";
 
-		internal const string ServerErrorCodeExternalImageHttpError = "ExternalImageHttpError";
+		public const string ServerErrorCodeExternalImageHttpError = "ExternalImageHttpError";
 
-		internal const string ServerErrorCodeExternalImageNetworkError = "ExternalImageNetworkError";
+		public const string ServerErrorCodeExternalImageNetworkError = "ExternalImageNetworkError";
 
-		internal const string ServerErrorCodeExternalImageInvalidContent = "ExternalImageInvalidContent";
+		public const string ServerErrorCodeExternalImageInvalidContent = "ExternalImageInvalidContent";
 
-		internal const string ServerErrorCodeExternalImageUnexpectedError = "ExternalImageUnexpectedError";
+		public const string ServerErrorCodeExternalImageUnexpectedError = "ExternalImageUnexpectedError";
 
-		internal const string ServerErrorCodeExternalImageDisallowedError = "ExternalImageDisallowedError";
+		public const string ServerErrorCodeExternalImageDisallowedError = "ExternalImageDisallowedError";
 
-		internal const string ServerErrorCodeMissingLogClientTraceEventsRequest = "MissingLogClientTraceEventsRequest";
+		public const string ServerErrorCodeMissingLogClientTraceEventsRequest = "MissingLogClientTraceEventsRequest";
 
-		internal const string ServerErrorCodeReadingNextDataRowError = "rsErrorReadingNextDataRow";
+		public const string ServerErrorCodeReadingNextDataRowError = "rsErrorReadingNextDataRow";
 
-		internal const string ServerErrorCodeReadingDataFieldError = "rsErrorReadingDataField";
+		public const string ServerErrorCodeReadingDataFieldError = "rsErrorReadingDataField";
 
-		internal const string ServerErrorCodeASCloudConnectionError = "ASCloudConnectionError";
+		public const string ServerErrorCodeASCloudConnectionError = "ASCloudConnectionError";
 
-		internal const string ServerErrorCodeASQueryExceededMemoryLimitError = "ASQueryExceededMemoryLimitError";
+		public const string ServerErrorCodeASQueryExceededMemoryLimitError = "ASQueryExceededMemoryLimitError";
 
-		internal const string ServerErrorCodeGatewayCommunicationError = "gwCommunicationError";
+		public const string ServerErrorCodeGatewayCommunicationError = "gwCommunicationError";
 
 		private static readonly Dictionary<string, Type> m_TypeDictionary;
 
@@ -122,7 +122,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			ProgressiveTypeDictionary.m_TypeDictionary.Add("additionalModelMetadata", typeof(Stream));
 		}
 
-		internal static Type GetType(string name)
+		public static Type GetType(string name)
 		{
 			if (ProgressiveTypeDictionary.m_TypeDictionary.ContainsKey(name))
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ProgressivePackaging
 			return null;
 		}
 
-		internal static bool IsErrorMessageElement(MessageElement messageElement)
+		public static bool IsErrorMessageElement(MessageElement messageElement)
 		{
 			if (messageElement == null)
 			{

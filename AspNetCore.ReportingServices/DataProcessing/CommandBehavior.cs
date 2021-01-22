@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.DataProcessing
 {
-	internal enum CommandBehavior
+	public enum CommandBehavior
 	{
 		SchemaOnly = 2,
 		SingleResult = 1

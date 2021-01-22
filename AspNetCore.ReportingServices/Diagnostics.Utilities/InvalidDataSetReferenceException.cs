@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class InvalidDataSetReferenceException : ReportCatalogException
+	public sealed class InvalidDataSetReferenceException : ReportCatalogException
 	{
 		public InvalidDataSetReferenceException(string dataSetName)
 			: base(ErrorCode.rsInvalidDataSetReference, ErrorStrings.rsInvalidDataSetReference(dataSetName), null, null)

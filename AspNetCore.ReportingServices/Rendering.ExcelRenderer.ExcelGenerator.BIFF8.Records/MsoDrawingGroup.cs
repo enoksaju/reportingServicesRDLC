@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BIFF8.Records
 {
-	internal static class MsoDrawingGroup
+	public static class MsoDrawingGroup
 	{
 		private const int MaxRecordLength = 8224;
 
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			while (num2 > 0);
 		}
 
-		internal static void WriteToStream(BinaryWriter output, Escher.DrawingGroupContainer dggContainer)
+		public static void WriteToStream(BinaryWriter output, Escher.DrawingGroupContainer dggContainer)
 		{
 			if (dggContainer != null)
 			{

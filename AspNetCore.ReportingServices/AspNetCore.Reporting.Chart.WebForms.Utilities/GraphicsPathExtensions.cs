@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal static class GraphicsPathExtensions
+	public static class GraphicsPathExtensions
 	{
 		public static bool IsSuperSetOf(this GraphicsPath path1, GraphicsPath path2, Graphics graphics)
 		{

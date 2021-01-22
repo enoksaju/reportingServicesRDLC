@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapMember : HierarchyMember, IHierarchy, IHierarchyMember
+	public class MapMember : HierarchyMember, IHierarchy, IHierarchyMember
 	{
-		internal class Definition : DefinitionStore<MapMember, Definition.Properties>
+		public class Definition : DefinitionStore<MapMember, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Group,
 				ChildMapMember,
@@ -81,7 +81,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapMember(IPropertyStore propertyStore)
+		public MapMember(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

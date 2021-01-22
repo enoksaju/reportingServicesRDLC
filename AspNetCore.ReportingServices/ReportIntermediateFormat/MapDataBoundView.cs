@@ -8,12 +8,12 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapDataBoundView : MapView, IPersistable
+	public sealed class MapDataBoundView : MapView, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapDataBoundView.GetDeclaration();
 
-		internal new MapDataBoundViewExprHost ExprHost
+		public new MapDataBoundViewExprHost ExprHost
 		{
 			get
 			{
@@ -21,28 +21,28 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapDataBoundView()
+		public MapDataBoundView()
 		{
 		}
 
-		internal MapDataBoundView(Map map)
+		public MapDataBoundView(Map map)
 			: base(map)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapDataBoundViewStart();
 			base.Initialize(context);
 			context.ExprHostBuilder.MapDataBoundViewEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			return (MapDataBoundView)base.PublishClone(context);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> memberInfoList = new List<MemberInfo>();
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapDataBoundView, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapView, memberInfoList);

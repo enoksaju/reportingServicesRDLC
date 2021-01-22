@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal static class NativeLoggingMethods
+	public static class NativeLoggingMethods
 	{
 		private const string ReportingServiceExe = "ReportingServicesService.exe";
         /*

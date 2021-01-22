@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class ImageDataHandler
+	public abstract class ImageDataHandler
 	{
 		protected readonly IBaseImage m_image;
 

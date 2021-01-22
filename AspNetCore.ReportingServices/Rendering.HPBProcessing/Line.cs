@@ -8,15 +8,15 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class Line : PageItem, IStorable, IPersistable
+	public sealed class Line : PageItem, IStorable, IPersistable
 	{
 		private static Declaration m_declaration = Line.GetDeclaration();
 
-		internal Line()
+		public Line()
 		{
 		}
 
-		internal Line(AspNetCore.ReportingServices.OnDemandReportRendering.Line source)
+		public Line(AspNetCore.ReportingServices.OnDemandReportRendering.Line source)
 			: base(source)
 		{
 			base.m_itemPageSizes = new ItemSizes(source);
@@ -49,7 +49,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.Line;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (Line.m_declaration == null)
 			{
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return Line.m_declaration;
 		}
 
-		internal override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (rplWriter != null)
 			{
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (((AspNetCore.ReportingServices.OnDemandReportRendering.Line)base.m_source).Slant)
 			{
@@ -92,7 +92,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
 		{
 			((RPLLinePropsDef)sharedProps).Slant = ((AspNetCore.ReportingServices.OnDemandReportRendering.Line)base.m_source).Slant;
 		}

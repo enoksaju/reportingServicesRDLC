@@ -10,7 +10,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CircularScaleConverter))]
-	internal sealed class CircularScale : ScaleBase, ISelectable
+	public sealed class CircularScale : ScaleBase, ISelectable
 	{
 		private float radius = 37f;
 
@@ -209,12 +209,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			base.minimumPin = new CircularSpecialPosition(this);
 		}
 
-		internal float GetRadius()
+		public float GetRadius()
 		{
 			return 100f;
 		}
 
-		internal PointF GetPivotPoint()
+		public PointF GetPivotPoint()
 		{
 			return new PointF(50f, 50f);
 		}
@@ -317,7 +317,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Common.GaugeCore.HotRegionList.SetHotRegion(this, g.GetAbsolutePoint(this.GetPivotPoint()), barPath);
 		}
 
-		internal GraphicsPath GetCompoundPath(GaugeGraphics g)
+		public GraphicsPath GetCompoundPath(GaugeGraphics g)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			PointF location = new PointF(this.GetPivotPoint().X - this.GetRadius(), this.GetPivotPoint().Y - this.GetRadius());
@@ -345,7 +345,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal GraphicsPath GetShadowPath(GaugeGraphics g)
+		public GraphicsPath GetShadowPath(GaugeGraphics g)
 		{
 			if (base.Visible && base.ShadowOffset != 0.0 && this.Width > 0.0)
 			{
@@ -384,7 +384,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void DrawTickMark(GaugeGraphics g, CustomTickMark tickMark, double value, float offset)
+		public override void DrawTickMark(GaugeGraphics g, CustomTickMark tickMark, double value, float offset)
 		{
 			float num = this.GetPositionFromValueNormalized(value);
 			PointF absolutePoint = g.GetAbsolutePoint(this.GetPoint(num, offset));
@@ -399,7 +399,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override LinearLabelStyle GetLabelStyle()
+		public override LinearLabelStyle GetLabelStyle()
 		{
 			return this.LabelStyle;
 		}
@@ -563,7 +563,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void DrawCustomLabel(CustomLabel label)
+		public override void DrawCustomLabel(CustomLabel label)
 		{
 			if (base.staticRendering)
 			{
@@ -578,7 +578,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.DrawTickMark(this.Common.Graph, label.TickMarkStyle, label.Value, base.GetTickMarkOffset(label.TickMarkStyle));
 		}
 
-		internal override void DrawSpecialPosition(GaugeGraphics g, SpecialPosition label, float angle)
+		public override void DrawSpecialPosition(GaugeGraphics g, SpecialPosition label, float angle)
 		{
 			if (label.Enable)
 			{
@@ -596,7 +596,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderStaticElements(GaugeGraphics g)
+		public void RenderStaticElements(GaugeGraphics g)
 		{
 			if (base.Visible)
 			{
@@ -636,7 +636,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderDynamicElements(GaugeGraphics g)
+		public void RenderDynamicElements(GaugeGraphics g)
 		{
 			if (base.Visible && base.TickMarksOnTop)
 			{
@@ -659,7 +659,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void SetDrawRegion(GaugeGraphics g)
+		public void SetDrawRegion(GaugeGraphics g)
 		{
 			RectangleF rect = new RectangleF(this.GetGauge().PivotPoint.ToPoint(), new SizeF(0f, 0f));
 			rect.Inflate((float)(this.radius / 2.0), (float)(this.radius / 2.0));
@@ -702,7 +702,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return array[0];
 		}
 
-		internal override double GetValue(PointF c, PointF p)
+		public override double GetValue(PointF c, PointF p)
 		{
 			Math.Sqrt(Math.Pow((double)(p.X - c.X), 2.0) + Math.Pow((double)(p.Y - c.Y), 2.0));
 			float num = (float)(Math.Atan2((double)(c.X - p.X), (double)(c.Y - p.Y)) * 180.0 / 3.1415926535897931);
@@ -716,7 +716,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.GetValueFromPosition(num);
 		}
 
-		internal float GetLargestRadius(GaugeGraphics g)
+		public float GetLargestRadius(GaugeGraphics g)
 		{
 			float num = 0f;
 			if (this.MajorTickMark.Visible)
@@ -757,7 +757,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (float)(this.Radius + num * this.Radius / 100.0);
 		}
 
-		internal float GetCustomLabelOffset(GaugeGraphics g, CustomLabel customLabel)
+		public float GetCustomLabelOffset(GaugeGraphics g, CustomLabel customLabel)
 		{
 			float num = (float)((customLabel.FontUnit != 0) ? (g.GetRelativeSize(new SizeF((float)(customLabel.Font.Size * 1.2999999523162842), 0f)).Width * (100.0 / this.Radius)) : customLabel.Font.Size);
 			float num2 = 0f;
@@ -766,7 +766,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return Math.Max(num2, val);
 		}
 
-		internal float GetTickMarkOffset(GaugeGraphics g, TickMark tickMark)
+		public float GetTickMarkOffset(GaugeGraphics g, TickMark tickMark)
 		{
 			if (tickMark.Placement == Placement.Inside)
 			{
@@ -779,7 +779,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return tickMark.DistanceFromScale + tickMark.Length;
 		}
 
-		internal float GetLabelsOffset(GaugeGraphics g)
+		public float GetLabelsOffset(GaugeGraphics g)
 		{
 			float num = 0f;
 			float num2 = (float)((this.LabelStyle.FontUnit != 0) ? (g.GetRelativeSize(new SizeF((float)(this.LabelStyle.Font.Size * 1.2999999523162842), 0f)).Width * (100.0 / this.Radius)) : this.LabelStyle.Font.Size);
@@ -888,7 +888,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal PointF[] GetSelectionMarkers(GaugeGraphics g, float barOffsetInside, float barOffsetOutside, float angularMargin)
+		public PointF[] GetSelectionMarkers(GaugeGraphics g, float barOffsetInside, float barOffsetOutside, float angularMargin)
 		{
 			PointF location = new PointF(this.GetPivotPoint().X - this.GetRadius(), this.GetPivotPoint().Y - this.GetRadius());
 			RectangleF relative = new RectangleF(location, new SizeF((float)(this.GetRadius() * 2.0), (float)(this.GetRadius() * 2.0)));
@@ -999,7 +999,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return (PointF[])arrayList.ToArray(typeof(PointF));
 		}
 
-		internal void GetBoundsFromPoints(PointF[] points, out PointF minPoint, out PointF maxPoint)
+		public void GetBoundsFromPoints(PointF[] points, out PointF minPoint, out PointF maxPoint)
 		{
 			minPoint = new PointF(3.40282347E+38f, 3.40282347E+38f);
 			maxPoint = new PointF(-3.40282347E+38f, -3.40282347E+38f);

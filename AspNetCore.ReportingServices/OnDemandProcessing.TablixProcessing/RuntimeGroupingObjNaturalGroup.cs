@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeGroupingObjNaturalGroup : RuntimeGroupingObjLinkedList
+	public sealed class RuntimeGroupingObjNaturalGroup : RuntimeGroupingObjLinkedList
 	{
 		private object m_lastValue;
 
@@ -24,16 +24,16 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeGroupingObjNaturalGroup()
+		public RuntimeGroupingObjNaturalGroup()
 		{
 		}
 
-		internal RuntimeGroupingObjNaturalGroup(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeGroupingObjNaturalGroup(RuntimeHierarchyObj owner, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(owner, objectType)
 		{
 		}
 
-		internal override void NextRow(object keyValue, bool hasParent, object parentKey)
+		public override void NextRow(object keyValue, bool hasParent, object parentKey)
 		{
 			if (this.m_lastChild != null && base.m_owner.OdpContext.EqualityComparer.Equals(this.m_lastValue, keyValue))
 			{

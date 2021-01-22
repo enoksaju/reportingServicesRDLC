@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.drawingml.x2006.main
 {
-	internal class CT_RelativeRect : OoxmlComplexType
+	public class CT_RelativeRect : OoxmlComplexType
 	{
 		private string _l_attr;
 

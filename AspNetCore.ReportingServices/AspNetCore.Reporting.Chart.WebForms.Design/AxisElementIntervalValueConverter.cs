@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class AxisElementIntervalValueConverter : AxisIntervalValueConverter
+	public class AxisElementIntervalValueConverter : AxisIntervalValueConverter
 	{
 		public AxisElementIntervalValueConverter()
 		{

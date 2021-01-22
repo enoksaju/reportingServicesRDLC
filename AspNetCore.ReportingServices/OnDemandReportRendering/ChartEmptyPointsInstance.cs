@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartEmptyPointsInstance : BaseInstance
+	public sealed class ChartEmptyPointsInstance : BaseInstance
 	{
 		private ChartEmptyPoints m_chartEmptyPointsDef;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartEmptyPointsInstance(ChartEmptyPoints chartEmptyPointsDef)
+		public ChartEmptyPointsInstance(ChartEmptyPoints chartEmptyPointsDef)
 			: base(chartEmptyPointsDef.ReportScope)
 		{
 			this.m_chartEmptyPointsDef = chartEmptyPointsDef;

@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class HighlightTextRun : TextRun
+	public class HighlightTextRun : TextRun
 	{
 		private int m_highlightStart = -1;
 
@@ -12,7 +12,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 
 		private int m_charIndexInOriginal;
 
-		internal override int HighlightStart
+		public override int HighlightStart
 		{
 			get
 			{
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal override int HighlightEnd
+		public override int HighlightEnd
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal override Color HighlightColor
+		public override Color HighlightColor
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal override bool IsHighlightTextRun
+		public override bool IsHighlightTextRun
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal override int CharacterIndexInOriginal
+		public override int CharacterIndexInOriginal
 		{
 			get
 			{
@@ -68,18 +68,18 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal HighlightTextRun(string text, ITextRunProps props)
+		public HighlightTextRun(string text, ITextRunProps props)
 			: base(text, props)
 		{
 		}
 
-		internal HighlightTextRun(string text, TextRun textRun)
+		public HighlightTextRun(string text, TextRun textRun)
 			: base(text, textRun.TextRunProperties)
 		{
 			this.m_charIndexInOriginal = textRun.CharacterIndexInOriginal;
 		}
 
-		internal HighlightTextRun(string text, HighlightTextRun textRun)
+		public HighlightTextRun(string text, HighlightTextRun textRun)
 			: base(text, textRun)
 		{
 			this.m_highlightStart = textRun.m_highlightStart;
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.m_charIndexInOriginal = textRun.CharacterIndexInOriginal;
 		}
 
-		internal HighlightTextRun(string text, HighlightTextRun textRun, SCRIPT_LOGATTR[] scriptLogAttr)
+		public HighlightTextRun(string text, HighlightTextRun textRun, SCRIPT_LOGATTR[] scriptLogAttr)
 			: base(text, textRun, scriptLogAttr)
 		{
 			this.m_highlightStart = textRun.m_highlightStart;
@@ -97,12 +97,12 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			this.m_charIndexInOriginal = textRun.CharacterIndexInOriginal;
 		}
 
-		internal override TextRun Split(string text, SCRIPT_LOGATTR[] scriptLogAttr)
+		public override TextRun Split(string text, SCRIPT_LOGATTR[] scriptLogAttr)
 		{
 			return new HighlightTextRun(text, this, scriptLogAttr);
 		}
 
-		internal override TextRun GetSubRun(int startIndex, int length)
+		public override TextRun GetSubRun(int startIndex, int length)
 		{
 			if (length == base.m_text.Length)
 			{

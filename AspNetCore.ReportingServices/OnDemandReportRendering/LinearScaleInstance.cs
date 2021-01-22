@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class LinearScaleInstance : GaugeScaleInstance
+	public sealed class LinearScaleInstance : GaugeScaleInstance
 	{
 		private LinearScale m_defObject;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal LinearScaleInstance(LinearScale defObject)
+		public LinearScaleInstance(LinearScale defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

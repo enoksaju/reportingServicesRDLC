@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
 	[XmlElementClass("Field")]
-	internal class FieldEx : Field
+	public class FieldEx : Field
 	{
 		private string m_typeName;
 

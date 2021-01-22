@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class MapSubItemInstance : BaseInstance
+	public abstract class MapSubItemInstance : BaseInstance
 	{
 		private MapSubItem m_defObject;
 
@@ -88,7 +88,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapSubItemInstance(MapSubItem defObject)
+		public MapSubItemInstance(MapSubItem defObject)
 			: base(defObject.MapDef.ReportScope)
 		{
 			this.m_defObject = defObject;

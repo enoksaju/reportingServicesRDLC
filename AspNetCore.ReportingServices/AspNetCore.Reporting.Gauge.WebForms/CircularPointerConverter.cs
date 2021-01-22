@@ -4,7 +4,7 @@ using System.Drawing.Design;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CircularPointerConverter : CollectionItemTypeConverter
+	public class CircularPointerConverter : CollectionItemTypeConverter
 	{
 		private class NullUIEditor : UITypeEditor
 		{

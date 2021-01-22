@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal enum SecurityItemType
+	public enum SecurityItemType
 	{
 		Unknown,
 		Catalog,

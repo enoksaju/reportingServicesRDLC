@@ -10,9 +10,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class Image : PageItem, IStorable, IPersistable
+	public sealed class Image : PageItem, IStorable, IPersistable
 	{
-		internal sealed class AutosizeImageProps
+		public sealed class AutosizeImageProps
 		{
 			private bool m_invalidImage;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 
 			private int m_height;
 
-			internal bool InvalidImage
+			public bool InvalidImage
 			{
 				get
 				{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal int Width
+			public int Width
 			{
 				get
 				{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 				}
 			}
 
-			internal int Height
+			public int Height
 			{
 				get
 				{
@@ -78,11 +78,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Image()
+		public Image()
 		{
 		}
 
-		internal Image(AspNetCore.ReportingServices.OnDemandReportRendering.Image source)
+		public Image(AspNetCore.ReportingServices.OnDemandReportRendering.Image source)
 			: base(source)
 		{
 			base.m_itemPageSizes = new ItemSizes(source);
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.Image;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (Image.m_declaration == null)
 			{
@@ -211,7 +211,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void CacheNonSharedProperties(PageContext pageContext)
+		public override void CacheNonSharedProperties(PageContext pageContext)
 		{
 			if (pageContext.CacheNonSharedProps)
 			{
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			base.m_itemPageSizes.AdjustWidthTo(num2 + this.m_padHorizontal);
 		}
 
-		internal override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			if (rplWriter != null)
 			{
@@ -347,7 +347,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Image image = (AspNetCore.ReportingServices.OnDemandReportRendering.Image)base.m_source;
 			switch (image.Sizing)
@@ -367,7 +367,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
+		public override void WriteCustomSharedItemProps(RPLElementPropsDef sharedProps, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Image image = (AspNetCore.ReportingServices.OnDemandReportRendering.Image)base.m_source;
 			RPLImagePropsDef rPLImagePropsDef = (RPLImagePropsDef)sharedProps;
@@ -388,7 +388,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, PageContext pageContext)
+		public override void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Image image = (AspNetCore.ReportingServices.OnDemandReportRendering.Image)base.m_source;
 			ImageInstance imageInstance = (ImageInstance)image.Instance;
@@ -406,7 +406,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			base.WriteActionInfo(image.ActionInfo, spbifWriter);
 		}
 
-		internal override void WriteCustomNonSharedItemProps(RPLElementProps nonSharedProps, PageContext pageContext)
+		public override void WriteCustomNonSharedItemProps(RPLElementProps nonSharedProps, PageContext pageContext)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Image image = (AspNetCore.ReportingServices.OnDemandReportRendering.Image)base.m_source;
 			ImageInstance imageInstance = (ImageInstance)image.Instance;
@@ -422,7 +422,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			rPLImageProps.ActionInfo = PageItem.WriteActionInfo(image.ActionInfo);
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.PaddingBottom, 18);
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.PaddingLeft, 15);
@@ -430,7 +430,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.PaddingTop, 17);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps rplStyleProps, Style style, PageContext pageContext)
 		{
 			PageItem.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.PaddingBottom, 18);
 			PageItem.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.PaddingLeft, 15);
@@ -438,7 +438,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			PageItem.WriteStyleProp(style, rplStyleProps, StyleAttributeNames.PaddingTop, 17);
 		}
 
-		internal override void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProps(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{
@@ -457,7 +457,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProps(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAtt, PageContext pageContext)
 		{
 			switch (styleAtt)
 			{

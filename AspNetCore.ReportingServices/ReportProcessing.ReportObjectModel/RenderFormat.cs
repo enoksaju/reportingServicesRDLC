@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal RenderFormat(RenderFormatImplBase renderFormatImpl)
+		public RenderFormat(RenderFormatImplBase renderFormatImpl)
 		{
 			this.m_renderFormatImpl = renderFormatImpl;
 		}

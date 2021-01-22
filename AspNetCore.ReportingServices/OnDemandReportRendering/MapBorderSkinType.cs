@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapBorderSkinType
+	public enum MapBorderSkinType
 	{
 		None,
 		Emboss,

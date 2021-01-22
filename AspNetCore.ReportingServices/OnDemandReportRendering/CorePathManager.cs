@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class CorePathManager : CoreSpatialElementManager
+	public class CorePathManager : CoreSpatialElementManager
 	{
 		protected override NamedCollection SpatialElements
 		{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override AspNetCore.Reporting.Map.WebForms.FieldCollection FieldDefinitions
+		public override AspNetCore.Reporting.Map.WebForms.FieldCollection FieldDefinitions
 		{
 			get
 			{
@@ -22,23 +22,23 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CorePathManager(MapControl mapControl, MapVectorLayer mapVectorLayer)
+		public CorePathManager(MapControl mapControl, MapVectorLayer mapVectorLayer)
 			: base(mapControl, mapVectorLayer)
 		{
 		}
 
-		internal override void AddSpatialElement(ISpatialElement spatialElement)
+		public override void AddSpatialElement(ISpatialElement spatialElement)
 		{
 			((NamedElement)spatialElement).Name = base.m_coreMap.Paths.Count.ToString(CultureInfo.InvariantCulture);
 			base.m_coreMap.Paths.Add((Path)spatialElement);
 		}
 
-		internal override void RemoveSpatialElement(ISpatialElement spatialElement)
+		public override void RemoveSpatialElement(ISpatialElement spatialElement)
 		{
 			base.m_coreMap.Paths.Remove((Path)spatialElement);
 		}
 
-		internal override ISpatialElement CreateSpatialElement()
+		public override ISpatialElement CreateSpatialElement()
 		{
 			Path path = new Path();
 			path.BorderColor = Color.Black;

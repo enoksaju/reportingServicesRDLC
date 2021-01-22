@@ -19,11 +19,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal LookupsImpl()
+		public LookupsImpl()
 		{
 		}
 
-		internal void Add(LookupImpl lookup)
+		public void Add(LookupImpl lookup)
 		{
 			if (this.m_collection == null)
 			{

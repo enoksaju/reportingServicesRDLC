@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface IZOrderedObject
+	public interface IZOrderedObject
 	{
 		int GetZOrder();
 	}

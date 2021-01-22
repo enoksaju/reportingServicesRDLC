@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
 	[CompilerGenerated]
-	internal class RenderErrors
+	public class RenderErrors
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string rrInvalidPageNumber = "rrInvalidPageNumber";
 

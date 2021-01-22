@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Interfaces
 {
-	internal interface ICatalogConfiguredExtension
+	public interface ICatalogConfiguredExtension
 	{
 		void SetCatalogConfiguration(IDictionary<string, string> configuration);
 

@@ -5,9 +5,9 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class RenderingEngine : IMapRenderingEngine
+	public class RenderingEngine : IMapRenderingEngine
 	{
-		internal bool shadowDrawingMode;
+		public bool shadowDrawingMode;
 
 		private RenderingType activeRenderingType;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private string documentTitle = string.Empty;
 
-		internal IMapRenderingEngine RenderingObject
+		public IMapRenderingEngine RenderingObject
 		{
 			get
 			{
@@ -27,7 +27,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal RenderingType ActiveRenderingType
+		public RenderingType ActiveRenderingType
 		{
 			get
 			{

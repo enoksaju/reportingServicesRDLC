@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreads
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IBorderPartModel
+	public interface IBorderPartModel
 	{
 		ColorModel Color
 		{

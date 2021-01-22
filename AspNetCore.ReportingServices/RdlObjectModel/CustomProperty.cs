@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class CustomProperty : ReportObject
+	public class CustomProperty : ReportObject
 	{
-		internal class Definition : DefinitionStore<CustomProperty, Definition.Properties>
+		public class Definition : DefinitionStore<CustomProperty, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Value
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal CustomProperty(IPropertyStore propertyStore)
+		public CustomProperty(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

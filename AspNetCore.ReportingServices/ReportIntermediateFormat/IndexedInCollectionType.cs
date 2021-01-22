@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal enum IndexedInCollectionType
+	public enum IndexedInCollectionType
 	{
 		DataRegion,
 		Member,

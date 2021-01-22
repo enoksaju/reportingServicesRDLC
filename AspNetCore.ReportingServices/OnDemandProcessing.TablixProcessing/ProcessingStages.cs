@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal enum ProcessingStages
+	public enum ProcessingStages
 	{
 		Grouping = 1,
 		SortAndFilter,

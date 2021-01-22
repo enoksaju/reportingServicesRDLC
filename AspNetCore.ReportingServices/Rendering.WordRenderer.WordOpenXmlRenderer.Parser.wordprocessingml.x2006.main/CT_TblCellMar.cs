@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.wordprocessingml.x2006.main
 {
-	internal class CT_TblCellMar : OoxmlComplexType, IOoxmlComplexType
+	public class CT_TblCellMar : OoxmlComplexType, IOoxmlComplexType
 	{
 		private CT_TblWidth _top;
 

@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Interfaces
 {
-    internal abstract class Report
+    public abstract class Report
 	{
 		public abstract string Name
 		{

@@ -6,13 +6,13 @@ using System.Reflection;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal abstract class ReportObject : ReportObjectBase
+	public abstract class ReportObject : ReportObjectBase
 	{
 		protected ReportObject()
 		{
 		}
 
-		internal ReportObject(IPropertyStore propertyStore)
+		public ReportObject(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}
@@ -66,11 +66,11 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			return list;
 		}
 
-		internal virtual void OnSetObject(int propertyIndex)
+		public virtual void OnSetObject(int propertyIndex)
 		{
 		}
 
-		internal T GetAncestor<T>() where T : class
+		public T GetAncestor<T>() where T : class
 		{
 			for (IContainedObject parent = base.Parent; parent != null; parent = parent.Parent)
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			return null;
 		}
 
-		internal IList<ReportObject> GetDependencies()
+		public IList<ReportObject> GetDependencies()
 		{
 			IList<ReportObject> list = new List<ReportObject>();
 			this.GetDependenciesCore(list);

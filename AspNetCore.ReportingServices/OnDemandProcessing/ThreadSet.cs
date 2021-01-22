@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class ThreadSet : IDisposable
+	public sealed class ThreadSet : IDisposable
 	{
 		private int m_runningThreadCount;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 
 		private object m_counterLock = new object();
 
-		internal ThreadSet(int expectedThreadCount)
+		public ThreadSet(int expectedThreadCount)
 		{
 			if (Global.Tracer.TraceVerbose)
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			this.m_allThreadsDone = new ManualResetEvent(true);
 		}
 
-		internal void TryQueueWorkItem(OnDemandProcessingContext processingContext, WaitCallback workItemCallback)
+		public void TryQueueWorkItem(OnDemandProcessingContext processingContext, WaitCallback workItemCallback)
 		{
 			try
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void QueueWorkItem(OnDemandProcessingContext processingContext, WaitCallback workItemCallback)
+		public void QueueWorkItem(OnDemandProcessingContext processingContext, WaitCallback workItemCallback)
 		{
 			try
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void ThreadCompleted()
+		public void ThreadCompleted()
 		{
 			int num = default(int);
 			lock (this.m_counterLock)
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal void WaitForCompletion()
+		public void WaitForCompletion()
 		{
 			this.m_waitCalled = true;
 			lock (this.m_counterLock)

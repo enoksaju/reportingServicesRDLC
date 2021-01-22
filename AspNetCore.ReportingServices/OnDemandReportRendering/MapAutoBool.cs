@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum MapAutoBool
+	public enum MapAutoBool
 	{
 		Auto,
 		True,

@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class CandleStickChart : StockChart
+	public class CandleStickChart : StockChart
 	{
 		public override string Name
 		{

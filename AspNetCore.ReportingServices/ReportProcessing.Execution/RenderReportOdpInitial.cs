@@ -6,7 +6,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class RenderReportOdpInitial : RenderReportOdp
+	public class RenderReportOdpInitial : RenderReportOdp
 	{
 		private readonly DateTime m_executionTimeStamp;
 

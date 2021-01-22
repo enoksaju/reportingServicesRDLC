@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Interfaces;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IExtensionFactory
+	public interface IExtensionFactory
 	{
 		bool IsRegisteredCustomReportItemExtension(string extensionType);
 

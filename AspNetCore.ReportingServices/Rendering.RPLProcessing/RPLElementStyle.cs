@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLElementStyle : IRPLStyle
+	public sealed class RPLElementStyle : IRPLStyle
 	{
 		private RPLStyleProps m_sharedProperties;
 

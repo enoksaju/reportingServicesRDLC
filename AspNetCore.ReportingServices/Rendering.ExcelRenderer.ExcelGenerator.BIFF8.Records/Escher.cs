@@ -10,17 +10,17 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BIFF8.Records
 {
-	internal sealed class Escher
+	public sealed class Escher
 	{
-		internal class EscherHeader
+		public class EscherHeader
 		{
-			internal const uint CbLengthOffset = 4u;
+			public const uint CbLengthOffset = 4u;
 
 			private uint m_escherHeader;
 
 			private uint m_cbLength;
 
-			internal uint Instance
+			public uint Instance
 			{
 				set
 				{
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal virtual uint Length
+			public virtual uint Length
 			{
 				get
 				{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal EscherHeader(ushort ver, uint inst, EscherType fbt, uint cbLength)
+			public EscherHeader(ushort ver, uint inst, EscherType fbt, uint cbLength)
 			{
 				if (ver < 16)
 				{
@@ -61,7 +61,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				this.m_cbLength = cbLength;
 			}
 
-			internal virtual byte[] GetData()
+			public virtual byte[] GetData()
 			{
 				byte[] array = new byte[8];
 				LittleEndianHelper.WriteIntU(this.m_escherHeader, array, 0);
@@ -70,15 +70,15 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class DrawingGroupContainer : EscherHeader
+		public sealed class DrawingGroupContainer : EscherHeader
 		{
-			internal sealed class CheckSumImage
+			public sealed class CheckSumImage
 			{
 				private byte[] m_checkSum;
 
 				private int m_streamIndex;
 
-				internal byte[] CheckSum
+				public byte[] CheckSum
 				{
 					get
 					{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 					}
 				}
 
-				internal int StreamIndex
+				public int StreamIndex
 				{
 					get
 					{
@@ -94,14 +94,14 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 					}
 				}
 
-				internal CheckSumImage(byte[] checkSum, int streamIndex)
+				public CheckSumImage(byte[] checkSum, int streamIndex)
 				{
 					this.m_checkSum = checkSum;
 					this.m_streamIndex = streamIndex;
 				}
 			}
 
-			internal class ImageStream
+			public class ImageStream
 			{
 				private Stream m_stream;
 
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 				private int m_offset;
 
-				internal Stream Stream
+				public Stream Stream
 				{
 					get
 					{
@@ -117,7 +117,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 					}
 				}
 
-				internal string Name
+				public string Name
 				{
 					get
 					{
@@ -125,7 +125,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 					}
 				}
 
-				internal int Offset
+				public int Offset
 				{
 					get
 					{
@@ -138,7 +138,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 					}
 				}
 
-				internal ImageStream(Stream stream, string name, EscherType escherType)
+				public ImageStream(Stream stream, string name, EscherType escherType)
 				{
 					this.m_stream = stream;
 					this.m_name = name;
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal const int BitmapFileHeaderSize = 14;
+			public const int BitmapFileHeaderSize = 14;
 
 			private DrawingGroup m_drawingGroup;
 
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private Dictionary<string, CheckSumImage> m_imageTable;
 
-			internal List<ImageStream> StreamList
+			public List<ImageStream> StreamList
 			{
 				get
 				{
@@ -169,7 +169,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal override uint Length
+			public override uint Length
 			{
 				get
 				{
@@ -177,7 +177,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal byte[] DrawingGroupContainerData
+			public byte[] DrawingGroupContainerData
 			{
 				get
 				{
@@ -186,7 +186,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal byte[] DrawingGroupData
+			public byte[] DrawingGroupData
 			{
 				get
 				{
@@ -198,7 +198,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal byte[] BStoreContainerData
+			public byte[] BStoreContainerData
 			{
 				get
 				{
@@ -210,7 +210,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal Hashtable BSEList
+			public Hashtable BSEList
 			{
 				get
 				{
@@ -222,7 +222,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal ArrayList BlipList
+			public ArrayList BlipList
 			{
 				get
 				{
@@ -234,7 +234,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal byte[] ShapePropertyData
+			public byte[] ShapePropertyData
 			{
 				get
 				{
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal DrawingGroupContainer()
+			public DrawingGroupContainer()
 				: base(15, 0u, EscherType.MSOFBTDGGCONTAINER, 0u)
 			{
 				this.m_drawingGroup = new DrawingGroup();
@@ -270,7 +270,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				streamIndex = this.m_images.Count - 1;
 			}
 
-			internal uint AddImage(Stream imageData, ImageFormat format, string imageName, int workSheetId, out uint startSPID, out ushort dgID)
+			public uint AddImage(Stream imageData, ImageFormat format, string imageName, int workSheetId, out uint startSPID, out ushort dgID)
 			{
 				EscherType escherType = EscherType.MSOFBTUNKNOWN;
 				BlipType blipType = BlipType.MSOBLIPUNKNOWN;
@@ -357,20 +357,20 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class FIDCL
+		public sealed class FIDCL
 		{
-			internal uint m_dgid;
+			public uint m_dgid;
 
-			internal uint m_cspidCurr;
+			public uint m_cspidCurr;
 
-			internal FIDCL(uint dgid, uint cspidCurr)
+			public FIDCL(uint dgid, uint cspidCurr)
 			{
 				this.m_dgid = dgid;
 				this.m_cspidCurr = cspidCurr;
 			}
 		}
 
-		internal sealed class DrawingGroup : EscherHeader
+		public sealed class DrawingGroup : EscherHeader
 		{
 			private const uint FixedRecordLength = 16u;
 
@@ -378,7 +378,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private uint m_cdgSaved;
 
-			internal override uint Length
+			public override uint Length
 			{
 				get
 				{
@@ -386,12 +386,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal DrawingGroup()
+			public DrawingGroup()
 				: base(0, 0u, EscherType.MSOFBTDGG, 0u)
 			{
 			}
 
-			internal uint GetStartingSPID(int dgID)
+			public uint GetStartingSPID(int dgID)
 			{
 				if (this.m_dgCluster != null && dgID >= 1)
 				{
@@ -404,7 +404,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				return 0u;
 			}
 
-			internal void AddCluster(int dgID)
+			public void AddCluster(int dgID)
 			{
 				if (this.m_dgCluster == null)
 				{
@@ -425,7 +425,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				this.m_cdgSaved += 1u;
 			}
 
-			internal uint GetCurrentSpid(int dgID)
+			public uint GetCurrentSpid(int dgID)
 			{
 				if (this.m_dgCluster != null && dgID >= 1 && dgID <= this.m_dgCluster.Count)
 				{
@@ -435,7 +435,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				return 0u;
 			}
 
-			internal void IncrementShapeCount(int dgID)
+			public void IncrementShapeCount(int dgID)
 			{
 				if (this.m_dgCluster != null && dgID >= 1 && dgID <= this.m_dgCluster.Count)
 				{
@@ -451,7 +451,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				byte[] array = new byte[this.Length + 8];
 				base.Length = this.Length;
@@ -495,7 +495,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal class BlipStoreContainer : EscherHeader
+		public class BlipStoreContainer : EscherHeader
 		{
 			private const int BSELength = 44;
 
@@ -505,7 +505,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private int m_totalLength;
 
-			internal Hashtable BSEList
+			public Hashtable BSEList
 			{
 				get
 				{
@@ -513,7 +513,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal ArrayList BlipList
+			public ArrayList BlipList
 			{
 				get
 				{
@@ -521,7 +521,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal override uint Length
+			public override uint Length
 			{
 				get
 				{
@@ -529,7 +529,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal uint ShapeCount
+			public uint ShapeCount
 			{
 				get
 				{
@@ -537,12 +537,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal BlipStoreContainer()
+			public BlipStoreContainer()
 				: base(15, 0u, EscherType.MSOFBTBSTORECONTAINER, 0u)
 			{
 			}
 
-			internal uint AddImage(byte[] checkSum, int streamIndex, int imageLength, EscherType escherType, BlipType blipType, BlipSignature blipSignature)
+			public uint AddImage(byte[] checkSum, int streamIndex, int imageLength, EscherType escherType, BlipType blipType, BlipSignature blipSignature)
 			{
 				if (this.m_bSEList == null)
 				{
@@ -568,7 +568,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				return (uint)this.m_blipList.Count;
 			}
 
-			internal int GetStreamPosFromCheckSum(byte[] checkSum)
+			public int GetStreamPosFromCheckSum(byte[] checkSum)
 			{
 				if (this.m_bSEList != null && this.m_bSEList.ContainsKey(Encoding.ASCII.GetString(checkSum)))
 				{
@@ -578,7 +578,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				return -1;
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				if (this.m_blipList == null)
 				{
@@ -589,7 +589,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class BlipStoreEntry : EscherHeader
+		public sealed class BlipStoreEntry : EscherHeader
 		{
 			private const ushort RecordLength = 36;
 
@@ -617,7 +617,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private uint m_referenceIndex;
 
-			internal uint ReferenceIndex
+			public uint ReferenceIndex
 			{
 				get
 				{
@@ -625,7 +625,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal uint ReferenceCount
+			public uint ReferenceCount
 			{
 				get
 				{
@@ -637,7 +637,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal BlipStoreEntry(byte[] checkSum, BlipType blipType, uint atomLength, uint referenceIndex)
+			public BlipStoreEntry(byte[] checkSum, BlipType blipType, uint atomLength, uint referenceIndex)
 				: base(2, (uint)blipType, EscherType.MSOFBTBSE, (ushort)(atomLength + 36 + 8))
 			{
 				this.m_btWin32 = (byte)blipType;
@@ -648,7 +648,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				this.m_cRef = 1u;
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				byte[] array = new byte[44];
 				int num = 0;
@@ -684,7 +684,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class Blip : EscherHeader
+		public sealed class Blip : EscherHeader
 		{
 			private byte[] m_rgbUID;
 
@@ -694,7 +694,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private int m_streamIndex = -1;
 
-			internal int StreamIndex
+			public int StreamIndex
 			{
 				get
 				{
@@ -702,7 +702,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal override uint Length
+			public override uint Length
 			{
 				get
 				{
@@ -710,7 +710,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal byte[] CheckSum
+			public byte[] CheckSum
 			{
 				get
 				{
@@ -718,7 +718,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal Blip(byte[] checkSum, int streamIndex, int imageLength, EscherType escherType, BlipSignature blipSignature)
+			public Blip(byte[] checkSum, int streamIndex, int imageLength, EscherType escherType, BlipSignature blipSignature)
 				: base(0, (uint)blipSignature, escherType, (uint)(imageLength + 16 + 1))
 			{
 				this.m_rgbUID = checkSum;
@@ -727,7 +727,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				this.m_imageLength = imageLength;
 			}
 
-			internal byte[] GetHeaderData()
+			public byte[] GetHeaderData()
 			{
 				byte[] array = new byte[8 + this.m_rgbUID.Length + 1];
 				int num = 0;
@@ -741,9 +741,9 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class ShapeProperty
+		public sealed class ShapeProperty
 		{
-			internal static byte[] GetData()
+			public static byte[] GetData()
 			{
 				return new byte[50]
 				{
@@ -801,7 +801,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class DrawingContainer : EscherHeader
+		public sealed class DrawingContainer : EscherHeader
 		{
 			private Drawing m_drawing;
 
@@ -809,14 +809,14 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private ArrayList m_shapeContainer;
 
-			internal DrawingContainer(ushort drawingID)
+			public DrawingContainer(ushort drawingID)
 				: base(15, 0u, EscherType.MSOFBTDGCONTAINER, 0u)
 			{
 				this.m_drawing = new Drawing(drawingID);
 				this.m_shapeGroupContainer = new ShapeGroupContainer();
 			}
 
-			internal int AddShape(uint spid, string imageName, ClientAnchor.SPRC clientAnchorInfo, uint referenceIndex)
+			public int AddShape(uint spid, string imageName, ClientAnchor.SPRC clientAnchorInfo, uint referenceIndex)
 			{
 				if (this.m_shapeContainer == null)
 				{
@@ -833,7 +833,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				return this.m_shapeContainer.Count;
 			}
 
-			internal int AddShape(uint spid, string imageName, ClientAnchor.SPRC clientAnchorInfo, uint referenceIndex, string hyperLinkName, HyperlinkType hyperLinkType)
+			public int AddShape(uint spid, string imageName, ClientAnchor.SPRC clientAnchorInfo, uint referenceIndex, string hyperLinkName, HyperlinkType hyperLinkType)
 			{
 				if (this.m_shapeContainer == null)
 				{
@@ -850,12 +850,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				return this.m_shapeContainer.Count;
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				return null;
 			}
 
-			internal void WriteToStream(BinaryWriter output)
+			public void WriteToStream(BinaryWriter output)
 			{
 				if (this.m_shapeContainer != null)
 				{
@@ -912,13 +912,13 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class Drawing : EscherHeader
+		public sealed class Drawing : EscherHeader
 		{
 			private uint m_csp;
 
 			private uint m_spidCur;
 
-			internal uint LastSPID
+			public uint LastSPID
 			{
 				set
 				{
@@ -926,7 +926,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal uint ShapeCount
+			public uint ShapeCount
 			{
 				set
 				{
@@ -934,12 +934,12 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal Drawing(ushort drawingID)
+			public Drawing(ushort drawingID)
 				: base(0, drawingID, EscherType.MSOFBTDG, 8u)
 			{
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				byte[] array = new byte[16];
 				int num = 0;
@@ -955,14 +955,14 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class ShapeGroupContainer : EscherHeader
+		public sealed class ShapeGroupContainer : EscherHeader
 		{
-			internal ShapeGroupContainer()
+			public ShapeGroupContainer()
 				: base(15, 0u, EscherType.MSOFBTSPGRCONTAINER, 0u)
 			{
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				byte[] array = new byte[8];
 				int index = 0;
@@ -972,7 +972,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class ShapeContainer : EscherHeader
+		public sealed class ShapeContainer : EscherHeader
 		{
 			private ShapeGroup m_shapeGroup;
 
@@ -984,14 +984,14 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private ClientData m_clientData;
 
-			internal ShapeContainer(uint spid, ShapeType shapeType, ShapeFlag shapeFlags)
+			public ShapeContainer(uint spid, ShapeType shapeType, ShapeFlag shapeFlags)
 				: base(15, 0u, EscherType.MSOFBTSPCONTAINER, 0u)
 			{
 				this.m_shapeGroup = new ShapeGroup(0u, 0u, 0u, 0u);
 				this.m_shape = new Shape(shapeType, shapeFlags, spid);
 			}
 
-			internal ShapeContainer(uint spid, ShapeType shapeType, ShapeFlag shapeFlags, ClientAnchor.SPRC clientAnchorInfo, uint refIndex, string imageName)
+			public ShapeContainer(uint spid, ShapeType shapeType, ShapeFlag shapeFlags, ClientAnchor.SPRC clientAnchorInfo, uint refIndex, string imageName)
 				: base(15, 0u, EscherType.MSOFBTSPCONTAINER, 0u)
 			{
 				this.m_shape = new Shape(shapeType, shapeFlags, spid);
@@ -1000,7 +1000,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				this.m_clientData = new ClientData();
 			}
 
-			internal ShapeContainer(uint spid, ShapeType shapeType, ShapeFlag shapeFlags, ClientAnchor.SPRC clientAnchorInfo, uint refIndex, string imageName, string hyperLinkName, HyperlinkType hyperLinkType)
+			public ShapeContainer(uint spid, ShapeType shapeType, ShapeFlag shapeFlags, ClientAnchor.SPRC clientAnchorInfo, uint refIndex, string imageName, string hyperLinkName, HyperlinkType hyperLinkType)
 				: base(15, 0u, EscherType.MSOFBTSPCONTAINER, 0u)
 			{
 				this.m_shape = new Shape(shapeType, shapeFlags, spid);
@@ -1009,7 +1009,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				this.m_clientData = new ClientData();
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				MemoryStream memoryStream = new MemoryStream();
 				byte[] data = base.GetData();
@@ -1040,7 +1040,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class ShapeGroup : EscherHeader
+		public sealed class ShapeGroup : EscherHeader
 		{
 			private uint m_left;
 
@@ -1050,7 +1050,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private uint m_bottom;
 
-			internal override uint Length
+			public override uint Length
 			{
 				get
 				{
@@ -1058,7 +1058,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal ShapeGroup(uint left, uint right, uint top, uint bottom)
+			public ShapeGroup(uint left, uint right, uint top, uint bottom)
 				: base(1, 0u, EscherType.MSOFBTSPGR, 16u)
 			{
 				this.m_left = left;
@@ -1067,7 +1067,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				this.m_bottom = bottom;
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				byte[] array = new byte[24];
 				int num = 0;
@@ -1089,13 +1089,13 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class Shape : EscherHeader
+		public sealed class Shape : EscherHeader
 		{
 			private uint m_spid;
 
 			private ShapeFlag m_shapeFlag;
 
-			internal override uint Length
+			public override uint Length
 			{
 				get
 				{
@@ -1103,14 +1103,14 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal Shape(ShapeType shapeType, ShapeFlag shapeFlags, uint spid)
+			public Shape(ShapeType shapeType, ShapeFlag shapeFlags, uint spid)
 				: base(2, (uint)shapeType, EscherType.MSOFBTSP, 8u)
 			{
 				this.m_spid = spid;
 				this.m_shapeFlag = shapeFlags;
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				byte[] array = new byte[16];
 				int num = 0;
@@ -1126,7 +1126,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class DrawingOpt : EscherHeader
+		public sealed class DrawingOpt : EscherHeader
 		{
 			private const ushort PropertyIDShapeCount = 16644;
 
@@ -1148,14 +1148,14 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private HyperlinkType m_hyperLinkType;
 
-			internal DrawingOpt(string imageName, uint refIndex)
+			public DrawingOpt(string imageName, uint refIndex)
 				: base(3, 2u, EscherType.MSOFBTOPT, 0u)
 			{
 				this.m_imageName = imageName;
 				this.m_referenceIndex = refIndex;
 			}
 
-			internal DrawingOpt(string imageName, uint refIndex, string hyperLinkName, HyperlinkType hyperLinkType)
+			public DrawingOpt(string imageName, uint refIndex, string hyperLinkName, HyperlinkType hyperLinkType)
 				: base(3, 5u, EscherType.MSOFBTOPT, 0u)
 			{
 				this.m_imageName = imageName;
@@ -1164,7 +1164,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				this.m_hyperLinkType = hyperLinkType;
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				int num = 14 + this.m_imageName.Length * 2;
 				if (this.m_hyperLinkName != null && this.m_hyperLinkName.Length > 0)
@@ -1269,34 +1269,34 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class ClientAnchor : EscherHeader
+		public sealed class ClientAnchor : EscherHeader
 		{
-			internal sealed class SPRC
+			public sealed class SPRC
 			{
-				internal sealed class ORC
+				public sealed class ORC
 				{
-					internal ushort m_colL;
+					public ushort m_colL;
 
-					internal short m_dxL;
+					public short m_dxL;
 
-					internal ushort m_rwT;
+					public ushort m_rwT;
 
-					internal short m_dyT;
+					public short m_dyT;
 
-					internal ushort m_colR;
+					public ushort m_colR;
 
-					internal short m_dxR;
+					public short m_dxR;
 
-					internal ushort m_rwB;
+					public ushort m_rwB;
 
-					internal short m_dyB;
+					public short m_dyB;
 				}
 
-				internal ushort wFlags;
+				public ushort wFlags;
 
-				internal ORC m_orc;
+				public ORC m_orc;
 
-				internal SPRC(ushort leftTopColumn, short leftTopOffset, ushort topLeftRow, short topLeftOffset, ushort rightBottomColumn, short rightBottomOffset, ushort bottomRightRow, short bottomRightOffset)
+				public SPRC(ushort leftTopColumn, short leftTopOffset, ushort topLeftRow, short topLeftOffset, ushort rightBottomColumn, short rightBottomOffset, ushort bottomRightRow, short bottomRightOffset)
 				{
 					this.m_orc = new ORC();
 					this.m_orc.m_colL = leftTopColumn;
@@ -1314,7 +1314,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 
 			private SPRC m_sprc;
 
-			internal override uint Length
+			public override uint Length
 			{
 				get
 				{
@@ -1322,13 +1322,13 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 				}
 			}
 
-			internal ClientAnchor(SPRC clientAnchorInfo)
+			public ClientAnchor(SPRC clientAnchorInfo)
 				: base(0, 0u, EscherType.MSOFBTCLIENTANCHOR, 18u)
 			{
 				this.m_sprc = clientAnchorInfo;
 			}
 
-			internal override byte[] GetData()
+			public override byte[] GetData()
 			{
 				byte[] array = new byte[26];
 				int num = 0;
@@ -1365,15 +1365,15 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			}
 		}
 
-		internal sealed class ClientData : EscherHeader
+		public sealed class ClientData : EscherHeader
 		{
-			internal ClientData()
+			public ClientData()
 				: base(0, 0u, EscherType.MSOFBTCLIENTDATA, 0u)
 			{
 			}
 		}
 
-		internal enum EscherType : ushort
+		public enum EscherType : ushort
 		{
 			MSOFBTUNKNOWN,
 			MSOFBTDGGCONTAINER = 61440,
@@ -1397,7 +1397,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			MSOFBTCLIENTDATA
 		}
 
-		internal enum BlipType
+		public enum BlipType
 		{
 			MSOBLIPERROR,
 			MSOBLIPUNKNOWN,
@@ -1413,14 +1413,14 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			MSLBLIPLASTCLIENT = 0xFF
 		}
 
-		internal enum BlipUsage
+		public enum BlipUsage
 		{
 			MSOBLIPUSAGEDEFAULT,
 			MSOBLIPUSAGETEXTURE,
 			MSOBLIPUSAGEMAX = 0xFF
 		}
 
-		internal enum BlipSignature
+		public enum BlipSignature
 		{
 			MSOBIUNKNOWN,
 			MSOBIWMF = 534,
@@ -1435,13 +1435,13 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			MSOBICLIENT = 0x800
 		}
 
-		internal enum ShapeType
+		public enum ShapeType
 		{
 			MSOSPTMIN,
 			MSOSPTPICTUREFRAME = 75
 		}
 
-		internal enum ShapeFlag
+		public enum ShapeFlag
 		{
 			NONE,
 			GROUP,
@@ -1458,7 +1458,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			HAVESPT = 0x800
 		}
 
-		internal enum HyperlinkType
+		public enum HyperlinkType
 		{
 			URL,
 			LOCALFILE,
@@ -1466,13 +1466,13 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BI
 			BOOKMARK
 		}
 
-		internal const ushort RecordHeaderLength = 8;
+		public const ushort RecordHeaderLength = 8;
 
 		private const int ClusterSize = 1024;
 
 		private const ushort ContainerVersion = 15;
 
-		internal static byte[] CheckSum(Stream imageBits)
+		public static byte[] CheckSum(Stream imageBits)
 		{
 			if (imageBits == null)
 			{

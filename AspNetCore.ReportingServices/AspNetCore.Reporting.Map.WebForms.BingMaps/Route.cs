@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.Reporting.Map.WebForms.BingMaps
 {
 	[DataContract(Namespace = "http://schemas.microsoft.com/search/local/ws/rest/v1")]
-	internal class Route : Resource
+	public class Route : Resource
 	{
 		[DataMember(Name = "id", EmitDefaultValue = false)]
 		public string Id

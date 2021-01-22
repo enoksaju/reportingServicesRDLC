@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.ReportPublishing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal class ScopeTreeBuilder : IRIFScopeVisitor
+	public class ScopeTreeBuilder : IRIFScopeVisitor
 	{
 		protected ScopeTree m_tree;
 
-		internal ScopeTree Tree
+		public ScopeTree Tree
 		{
 			get
 			{

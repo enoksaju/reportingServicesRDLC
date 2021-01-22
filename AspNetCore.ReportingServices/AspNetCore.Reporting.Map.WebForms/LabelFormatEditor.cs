@@ -5,7 +5,7 @@ using System.Windows.Forms.Design;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LabelFormatEditor : UITypeEditor
+	public class LabelFormatEditor : UITypeEditor
 	{
 		private IWindowsFormsEditorService edSvc;
 

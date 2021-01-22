@@ -6,7 +6,7 @@ using System.Drawing.Text;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Svg
 {
-	internal class SvgChartGraphics : SvgRendering, IChartRenderingEngine
+	public class SvgChartGraphics : SvgRendering, IChartRenderingEngine
 	{
 		private Graphics graphics;
 

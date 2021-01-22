@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportSectionInstance : BaseInstance, IReportScopeInstance
+	public sealed class ReportSectionInstance : BaseInstance, IReportScopeInstance
 	{
 		private bool m_isNewContext;
 
-		internal ReportSection SectionDef
+		public ReportSection SectionDef
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportSectionInstance(ReportSection sectionDef)
+		public ReportSectionInstance(ReportSection sectionDef)
 			: base(sectionDef)
 		{
 		}
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 		{
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			this.m_isNewContext = true;
 			base.SetNewContext();

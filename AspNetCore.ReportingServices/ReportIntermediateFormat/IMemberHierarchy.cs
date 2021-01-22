@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal interface IMemberHierarchy
+	public interface IMemberHierarchy
 	{
 		IList<DataRegionMemberInstance> GetChildMemberInstances(bool isRowMember, int memberIndexInCollection);
 

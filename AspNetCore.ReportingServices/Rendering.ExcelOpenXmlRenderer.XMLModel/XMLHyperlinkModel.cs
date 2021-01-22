@@ -6,7 +6,7 @@ using System.IO.Packaging;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLHyperlinkModel : IOoxmlCtWrapperModel
+	public class XMLHyperlinkModel : IOoxmlCtWrapperModel
 	{
 		private readonly CT_Hyperlink _link;
 

@@ -1,24 +1,24 @@
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal class EscherPropertyMetaData
+	public class EscherPropertyMetaData
 	{
-		internal static byte TYPE_UNKNOWN = 0;
+		public static byte TYPE_UNKNOWN = 0;
 
-		internal static byte TYPE_BOOLEAN = 1;
+		public static byte TYPE_BOOLEAN = 1;
 
-		internal static byte TYPE_RGB = 2;
+		public static byte TYPE_RGB = 2;
 
-		internal static byte TYPE_SHAPEPATH = 3;
+		public static byte TYPE_SHAPEPATH = 3;
 
-		internal static byte TYPE_SIMPLE = 4;
+		public static byte TYPE_SIMPLE = 4;
 
-		internal static byte TYPE_ARRAY = 5;
+		public static byte TYPE_ARRAY = 5;
 
 		private string description;
 
 		private byte type;
 
-		internal virtual string Description
+		public virtual string Description
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal virtual byte Type
+		public virtual byte Type
 		{
 			get
 			{
@@ -34,12 +34,12 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			}
 		}
 
-		internal EscherPropertyMetaData(string description)
+		public EscherPropertyMetaData(string description)
 		{
 			this.description = description;
 		}
 
-		internal EscherPropertyMetaData(string description, byte type)
+		public EscherPropertyMetaData(string description, byte type)
 		{
 			this.description = description;
 			this.type = type;

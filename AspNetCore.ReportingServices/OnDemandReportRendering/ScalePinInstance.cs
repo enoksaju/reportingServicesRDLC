@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ScalePinInstance : TickMarkStyleInstance
+	public sealed class ScalePinInstance : TickMarkStyleInstance
 	{
 		private double? m_location;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ScalePinInstance(ScalePin defObject)
+		public ScalePinInstance(ScalePin defObject)
 			: base(defObject)
 		{
 			base.m_defObject = defObject;

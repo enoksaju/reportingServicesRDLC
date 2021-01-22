@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class MatrixMemberCollection
+	public sealed class MatrixMemberCollection
 	{
 		private Matrix m_owner;
 
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MatrixHeading MatrixHeadingDef
+		public MatrixHeading MatrixHeadingDef
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal MatrixMemberCollection(Matrix owner, MatrixMember parent, MatrixHeading headingDef, MatrixHeadingInstanceList headingInstances, List<int> memberMapping, bool isParentSubTotal)
+		public MatrixMemberCollection(Matrix owner, MatrixMember parent, MatrixHeading headingDef, MatrixHeadingInstanceList headingInstances, List<int> memberMapping, bool isParentSubTotal)
 		{
 			this.m_owner = owner;
 			this.m_parent = parent;

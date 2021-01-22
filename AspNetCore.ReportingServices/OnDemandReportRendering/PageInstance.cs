@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PageInstance : ReportElementInstance, IReportScopeInstance
+	public sealed class PageInstance : ReportElementInstance, IReportScopeInstance
 	{
 		private bool m_isNewContext;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Page PageDefinition
+		public Page PageDefinition
 		{
 			get
 			{
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PageInstance(Page pageDef)
+		public PageInstance(Page pageDef)
 			: base(pageDef)
 		{
 		}

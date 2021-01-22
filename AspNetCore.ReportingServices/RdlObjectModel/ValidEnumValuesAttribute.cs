@@ -7,7 +7,7 @@ using System.Reflection;
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[AttributeUsage(AttributeTargets.Property)]
-	internal sealed class ValidEnumValuesAttribute : Attribute
+	public sealed class ValidEnumValuesAttribute : Attribute
 	{
 		private IList<int> m_validValues;
 

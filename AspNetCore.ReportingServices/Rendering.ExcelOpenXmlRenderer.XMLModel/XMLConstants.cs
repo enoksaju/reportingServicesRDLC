@@ -6,11 +6,11 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal static class XMLConstants
+	public static class XMLConstants
 	{
-		internal static class ContentTypes
+		public static class ContentTypes
 		{
-			internal static class Http
+			public static class Http
 			{
 				public const string Xlsx = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 			public const string Xml = "application/xml";
 		}
 
-		internal static class RelationshipTypes
+		public static class RelationshipTypes
 		{
 			public const string ExtendedProperties = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties";
 
@@ -83,7 +83,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 			public const string CalculationChain = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/calcChain";
 		}
 
-		internal static class DefaultPaths
+		public static class DefaultPaths
 		{
 			public const string Styles = "xl/styles.xml";
 
@@ -106,7 +106,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 			public const string Images = "xl/media/image{0}.";
 		}
 
-		internal static class StyleIds
+		public static class StyleIds
 		{
 			public const uint FirstNumberFormat = 82u;
 
@@ -117,9 +117,9 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 			public const uint FirstBorder = 0u;
 		}
 
-		internal static class Margins
+		public static class Margins
 		{
-			internal static class Default
+			public static class Default
 			{
 				public const double LeftRight = 0.7;
 
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 			public const double MaxExclusive = 49.0;
 		}
 
-		internal static class ZoomSettings
+		public static class ZoomSettings
 		{
 			public const uint DefaultZoom = 100u;
 
@@ -156,7 +156,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 			public const int ZoomMax = 400;
 		}
 
-		internal static class DefinedNames
+		public static class DefinedNames
 		{
 			public const int NameMinLength = 1;
 

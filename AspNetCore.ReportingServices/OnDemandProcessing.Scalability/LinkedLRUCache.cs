@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class LinkedLRUCache<T> where T : ItemHolder
+	public sealed class LinkedLRUCache<T> where T : ItemHolder
 	{
 		private int m_count;
 

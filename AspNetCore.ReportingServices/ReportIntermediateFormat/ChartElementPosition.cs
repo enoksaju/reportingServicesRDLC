@@ -11,9 +11,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class ChartElementPosition : IPersistable
+	public sealed class ChartElementPosition : IPersistable
 	{
-		internal enum Position
+		public enum Position
 		{
 			Top,
 			Left,
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 
 		private ExpressionInfo m_width;
 
-		internal ExpressionInfo Top
+		public ExpressionInfo Top
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Left
+		public ExpressionInfo Left
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Height
+		public ExpressionInfo Height
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo Width
+		public ExpressionInfo Width
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string OwnerName
+		public string OwnerName
 		{
 			get
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartElementPositionExprHost ExprHost
+		public ChartElementPositionExprHost ExprHost
 		{
 			get
 			{
@@ -102,21 +102,21 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ChartElementPosition()
+		public ChartElementPosition()
 		{
 		}
 
-		internal ChartElementPosition(Chart chart)
+		public ChartElementPosition(Chart chart)
 		{
 			this.m_chart = chart;
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			this.Initialize(context, false);
 		}
 
-		internal void Initialize(InitializationContext context, bool innerPlot)
+		public void Initialize(InitializationContext context, bool innerPlot)
 		{
 			context.ExprHostBuilder.ChartElementPositionStart(innerPlot);
 			if (this.m_top != null)
@@ -142,7 +142,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.ChartElementPositionEnd(innerPlot);
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context)
+		public object PublishClone(AutomaticSubtotalContext context)
 		{
 			ChartElementPosition chartElementPosition = (ChartElementPosition)base.MemberwiseClone();
 			chartElementPosition.m_chart = (Chart)context.CurrentDataRegionClone;
@@ -165,14 +165,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return chartElementPosition;
 		}
 
-		internal void SetExprHost(ChartElementPositionExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(ChartElementPositionExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
 			this.m_exprHost.SetReportObjectModel(reportObjectModel);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Top, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -267,25 +267,25 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ChartElementPosition;
 		}
 
-		internal double EvaluateTop(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateTop(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartElementPositionExpression(this.Top, "Top", this.ExprHost, Position.Top, this.m_chart.Name);
 		}
 
-		internal double EvaluateLeft(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateLeft(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartElementPositionExpression(this.Left, "Left", this.ExprHost, Position.Left, this.m_chart.Name);
 		}
 
-		internal double EvaluateHeight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateHeight(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartElementPositionExpression(this.Height, "Height", this.ExprHost, Position.Height, this.m_chart.Name);
 		}
 
-		internal double EvaluateWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public double EvaluateWidth(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_chart, reportScopeInstance);
 			return context.ReportRuntime.EvaluateChartElementPositionExpression(this.Width, "Width", this.ExprHost, Position.Width, this.m_chart.Name);

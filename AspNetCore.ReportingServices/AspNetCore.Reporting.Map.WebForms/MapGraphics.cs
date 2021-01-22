@@ -7,9 +7,9 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MapGraphics : RenderingEngine
+	public class MapGraphics : RenderingEngine
 	{
-		internal CommonElements common;
+		public CommonElements common;
 
 		private Pen pen;
 
@@ -21,13 +21,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 
 		private int height;
 
-		internal bool softShadows = true;
+		public bool softShadows = true;
 
 		private AntiAliasing antiAliasing = AntiAliasing.All;
 
-		internal bool IsMetafile;
+		public bool IsMetafile;
 
-		internal PointF InitialOffset = new PointF(0f, 0f);
+		public PointF InitialOffset = new PointF(0f, 0f);
 
 		private Stack graphicStates = new Stack();
 
@@ -51,7 +51,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal AntiAliasing AntiAliasing
+		public AntiAliasing AntiAliasing
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float ScaleFactorX
+		public float ScaleFactorX
 		{
 			get
 			{
@@ -82,7 +82,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal float ScaleFactorY
+		public float ScaleFactorY
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal MapGraphics(CommonElements common)
+		public MapGraphics(CommonElements common)
 		{
 			if (common != null)
 			{
@@ -101,12 +101,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.solidBrush = new SolidBrush(Color.Black);
 		}
 
-		internal void DrawLineRel(Color color, int width, MapDashStyle style, PointF firstPointF, PointF secondPointF)
+		public void DrawLineRel(Color color, int width, MapDashStyle style, PointF firstPointF, PointF secondPointF)
 		{
 			this.DrawLineAbs(color, width, style, this.GetAbsolutePoint(firstPointF), this.GetAbsolutePoint(secondPointF));
 		}
 
-		internal void DrawLineAbs(Color color, int width, MapDashStyle style, PointF firstPoint, PointF secondPoint)
+		public void DrawLineAbs(Color color, int width, MapDashStyle style, PointF firstPoint, PointF secondPoint)
 		{
 			if (width != 0 && style != 0)
 			{
@@ -132,12 +132,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawLineRel(Color color, int width, MapDashStyle style, PointF firstPoint, PointF secondPoint, Color shadowColor, int shadowOffset)
+		public void DrawLineRel(Color color, int width, MapDashStyle style, PointF firstPoint, PointF secondPoint, Color shadowColor, int shadowOffset)
 		{
 			this.DrawLineAbs(color, width, style, this.GetAbsolutePoint(firstPoint), this.GetAbsolutePoint(secondPoint), shadowColor, shadowOffset);
 		}
 
-		internal void DrawLineAbs(Color color, int width, MapDashStyle style, PointF firstPoint, PointF secondPoint, Color shadowColor, int shadowOffset)
+		public void DrawLineAbs(Color color, int width, MapDashStyle style, PointF firstPoint, PointF secondPoint, Color shadowColor, int shadowOffset)
 		{
 			Color color2 = (shadowColor.A == 255) ? Color.FromArgb((int)color.A / 2, shadowColor) : shadowColor;
 			PointF firstPoint2 = new PointF(firstPoint.X + (float)shadowOffset, firstPoint.Y + (float)shadowOffset);
@@ -148,13 +148,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.DrawLineAbs(color, width, style, firstPoint, secondPoint);
 		}
 
-		internal static Brush GetHatchBrush(MapHatchStyle hatchStyle, Color backColor, Color foreColor)
+		public static Brush GetHatchBrush(MapHatchStyle hatchStyle, Color backColor, Color foreColor)
 		{
 			HatchStyle hatchstyle = (HatchStyle)Enum.Parse(typeof(HatchStyle), ((Enum)(object)hatchStyle).ToString((IFormatProvider)CultureInfo.InvariantCulture));
 			return new HatchBrush(hatchstyle, foreColor, backColor);
 		}
 
-		internal Brush GetTextureBrush(string name, Color backImageTranspColor, MapImageWrapMode mode)
+		public Brush GetTextureBrush(string name, Color backImageTranspColor, MapImageWrapMode mode)
 		{
 			Image image = this.common.ImageLoader.LoadImage(name);
 			ImageAttributes imageAttributes = new ImageAttributes();
@@ -166,18 +166,18 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new TextureBrush(image, new RectangleF(0f, 0f, (float)image.Width, (float)image.Height), imageAttributes);
 		}
 
-		internal Brush GetShadowBrush()
+		public Brush GetShadowBrush()
 		{
 			return new SolidBrush(this.GetShadowColor());
 		}
 
-		internal Color GetShadowColor()
+		public Color GetShadowColor()
 		{
 			int alpha = (int)(255.0 * this.common.MapCore.ShadowIntensity / 100.0);
 			return Color.FromArgb(alpha, Color.Black);
 		}
 
-		internal Brush GetGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor, GradientType type)
+		public Brush GetGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor, GradientType type)
 		{
 			rectangle.Inflate(1f, 1f);
 			Brush brush = null;
@@ -302,7 +302,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new SolidBrush(Color.Black);
 		}
 
-		internal Brush GetPieGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor)
+		public Brush GetPieGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			graphicsPath.AddEllipse(rectangle);
@@ -321,7 +321,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return pathGradientBrush;
 		}
 
-		internal Brush CreateBrush(RectangleF rect, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor)
+		public Brush CreateBrush(RectangleF rect, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor)
 		{
 			Brush brush = new SolidBrush(backColor);
 			if (!string.IsNullOrEmpty(backImage) && backImageMode != MapImageWrapMode.Unscaled && backImageMode != MapImageWrapMode.Scaled)
@@ -339,7 +339,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new SolidBrush(backColor);
 		}
 
-		internal static DashStyle GetPenStyle(MapDashStyle style)
+		public static DashStyle GetPenStyle(MapDashStyle style)
 		{
 			switch (style)
 			{
@@ -356,7 +356,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal GraphicsPath WidenPath(GraphicsPath path, float amount)
+		public GraphicsPath WidenPath(GraphicsPath path, float amount)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			GraphicsPath graphicsPath2 = (GraphicsPath)path.Clone();
@@ -394,7 +394,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal GraphicsPath Union(GraphicsPath pathA, GraphicsPath pathB)
+		public GraphicsPath Union(GraphicsPath pathA, GraphicsPath pathB)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			pathA.Flatten();
@@ -467,7 +467,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return -1;
 		}
 
-		internal Brush GetMarkerBrush(GraphicsPath path, MarkerStyle markerStyle, PointF pointOrigin, float angle, Color fillColor, GradientType fillGradientType, Color fillSecondaryColor, MapHatchStyle fillHatchStyle)
+		public Brush GetMarkerBrush(GraphicsPath path, MarkerStyle markerStyle, PointF pointOrigin, float angle, Color fillColor, GradientType fillGradientType, Color fillSecondaryColor, MapHatchStyle fillHatchStyle)
 		{
 			Brush brush = null;
 			if (fillHatchStyle != 0)
@@ -529,7 +529,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return brush;
 		}
 
-		internal GraphicsPath CreateMarker(PointF point, float markerWidth, float markerHeight, MarkerStyle markerStyle)
+		public GraphicsPath CreateMarker(PointF point, float markerWidth, float markerHeight, MarkerStyle markerStyle)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			RectangleF empty = RectangleF.Empty;
@@ -717,7 +717,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return graphicsPath;
 		}
 
-		internal PointF[] CreateStarPolygon(RectangleF rectReal, int numberOfCorners)
+		public PointF[] CreateStarPolygon(RectangleF rectReal, int numberOfCorners)
 		{
 			bool flag = true;
 			PointF[] array = new PointF[numberOfCorners * 2];
@@ -744,12 +744,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawMarkerRel(PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, GradientType markerGradientType, MapHatchStyle markerHatchStyle, Color markerSecondaryColor, MapDashStyle markerBorderStyle, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect)
+		public void DrawMarkerRel(PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, GradientType markerGradientType, MapHatchStyle markerHatchStyle, Color markerSecondaryColor, MapDashStyle markerBorderStyle, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect)
 		{
 			this.DrawMarkerAbs(this.GetAbsolutePoint(point), markerStyle, markerSize, markerColor, markerGradientType, markerHatchStyle, markerSecondaryColor, markerBorderStyle, markerBorderColor, markerBorderSize, markerImage, markerImageTranspColor, shadowSize, shadowColor, imageScaleRect, false, 0f);
 		}
 
-		internal void DrawMarkerAbs(PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, GradientType markerGradientType, MapHatchStyle markerHatchStyle, Color markerSecondaryColor, MapDashStyle markerBorderStyle, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect, bool forceAntiAlias, float angle)
+		public void DrawMarkerAbs(PointF point, MarkerStyle markerStyle, int markerSize, Color markerColor, GradientType markerGradientType, MapHatchStyle markerHatchStyle, Color markerSecondaryColor, MapDashStyle markerBorderStyle, Color markerBorderColor, int markerBorderSize, string markerImage, Color markerImageTranspColor, int shadowSize, Color shadowColor, RectangleF imageScaleRect, bool forceAntiAlias, float angle)
 		{
 			if (!string.IsNullOrEmpty(markerImage))
 			{
@@ -861,19 +861,19 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal Size MeasureStringAbs(string text, Font font)
+		public Size MeasureStringAbs(string text, Font font)
 		{
 			SizeF sizeF = base.MeasureString(text, font);
 			return new Size((int)Math.Ceiling((double)sizeF.Width), (int)Math.Ceiling((double)sizeF.Height));
 		}
 
-		internal Size MeasureStringAbs(string text, Font font, SizeF layoutArea, StringFormat stringFormat)
+		public Size MeasureStringAbs(string text, Font font, SizeF layoutArea, StringFormat stringFormat)
 		{
 			SizeF sizeF = base.MeasureString(text, font, layoutArea, stringFormat);
 			return new Size((int)Math.Ceiling((double)sizeF.Width), (int)Math.Ceiling((double)sizeF.Height));
 		}
 
-		internal void DrawStringAbs(string text, Font font, Brush brush, PointF absPosition, StringFormat format, int angle)
+		public void DrawStringAbs(string text, Font font, Brush brush, PointF absPosition, StringFormat format, int angle)
 		{
 			this.myMatrix = base.Transform.Clone();
 			this.myMatrix.RotateAt((float)angle, absPosition);
@@ -883,7 +883,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.Restore(gstate);
 		}
 
-		internal void DrawStringAbs(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format)
+		public void DrawStringAbs(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format)
 		{
 			if (layoutRectangle.Width != 0.0 && layoutRectangle.Height != 0.0)
 			{
@@ -891,25 +891,25 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal SizeF MeasureStringRel(string text, Font font)
+		public SizeF MeasureStringRel(string text, Font font)
 		{
 			SizeF size = base.MeasureString(text, font);
 			return this.GetRelativeSize(size);
 		}
 
-		internal SizeF MeasureStringRel(string text, Font font, SizeF layoutArea, StringFormat stringFormat)
+		public SizeF MeasureStringRel(string text, Font font, SizeF layoutArea, StringFormat stringFormat)
 		{
 			SizeF absoluteSize = this.GetAbsoluteSize(layoutArea);
 			SizeF size = base.MeasureString(text, font, absoluteSize, stringFormat);
 			return this.GetRelativeSize(size);
 		}
 
-		internal void DrawStringRel(string text, Font font, Brush brush, PointF position, StringFormat format, int angle)
+		public void DrawStringRel(string text, Font font, Brush brush, PointF position, StringFormat format, int angle)
 		{
 			this.DrawStringAbs(text, font, brush, this.GetAbsolutePoint(position), format, angle);
 		}
 
-		internal void DrawStringRel(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format)
+		public void DrawStringRel(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format)
 		{
 			if (layoutRectangle.Width != 0.0 && layoutRectangle.Height != 0.0)
 			{
@@ -918,7 +918,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawStringRel(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format, int angle)
+		public void DrawStringRel(string text, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format, int angle)
 		{
 			PointF empty = PointF.Empty;
 			if (layoutRectangle.Width != 0.0 && layoutRectangle.Height != 0.0)
@@ -949,12 +949,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void FillRectangleRel(RectangleF rectF, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment)
+		public void FillRectangleRel(RectangleF rectF, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment)
 		{
 			this.FillRectangleRel(rectF, backColor, backHatchStyle, backImage, backImageMode, backImageTranspColor, backImageAlign, backGradientType, backSecondaryColor, borderColor, borderWidth, borderStyle, shadowColor, shadowOffset, penAlignment, false, 0, false);
 		}
 
-		internal void FillRectangleRel(RectangleF rectF, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment, bool circular, int circularSectorsCount, bool circle3D)
+		public void FillRectangleRel(RectangleF rectF, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, Color shadowColor, int shadowOffset, PenAlignment penAlignment, bool circular, int circularSectorsCount, bool circle3D)
 		{
 			Brush brush = null;
 			Brush brush2 = null;
@@ -1123,12 +1123,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.SmoothingMode = smoothingMode;
 		}
 
-		internal void FillRectangleShadowAbs(RectangleF rect, Color shadowColor, float shadowOffset, Color backColor)
+		public void FillRectangleShadowAbs(RectangleF rect, Color shadowColor, float shadowOffset, Color backColor)
 		{
 			this.FillRectangleShadowAbs(rect, shadowColor, shadowOffset, backColor, false, 0);
 		}
 
-		internal void FillRectangleShadowAbs(RectangleF rect, Color shadowColor, float shadowOffset, Color backColor, bool circular, int circularSectorsCount)
+		public void FillRectangleShadowAbs(RectangleF rect, Color shadowColor, float shadowOffset, Color backColor, bool circular, int circularSectorsCount)
 		{
 			if (rect.Height != 0.0 && rect.Width != 0.0 && shadowOffset != 0.0)
 			{
@@ -1209,7 +1209,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawCircleAbs(Pen pen, Brush brush, RectangleF position, int polygonSectorsNumber, bool circle3D)
+		public void DrawCircleAbs(Pen pen, Brush brush, RectangleF position, int polygonSectorsNumber, bool circle3D)
 		{
 			bool flag = circle3D && brush != null;
 			if (polygonSectorsNumber <= 2 && !flag)
@@ -1283,13 +1283,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawRectangleRel(Pen pen, RectangleF rect)
+		public void DrawRectangleRel(Pen pen, RectangleF rect)
 		{
 			RectangleF absoluteRectangle = this.GetAbsoluteRectangle(rect);
 			base.DrawRectangle(pen, absoluteRectangle.X, absoluteRectangle.Y, absoluteRectangle.Width, absoluteRectangle.Height);
 		}
 
-		internal Brush GetSector3DBrush(Brush brush, float curentSector, float sectorSize)
+		public Brush GetSector3DBrush(Brush brush, float curentSector, float sectorSize)
 		{
 			Color beginColor = Color.Gray;
 			if (brush is HatchBrush)
@@ -1322,7 +1322,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new SolidBrush(beginColor);
 		}
 
-		internal Color GetBrightGradientColor(Color beginColor, double position)
+		public Color GetBrightGradientColor(Color beginColor, double position)
 		{
 			double num = 0.5;
 			if (position < num)
@@ -1336,7 +1336,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return Color.FromArgb(beginColor.A, 0, 0, 0);
 		}
 
-		internal void FillRectangleAbs(RectangleF rect, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, PenAlignment penAlignment)
+		public void FillRectangleAbs(RectangleF rect, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, PenAlignment penAlignment)
 		{
 			Brush brush = null;
 			Brush brush2 = null;
@@ -1467,7 +1467,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.SmoothingMode = smoothingMode;
 		}
 
-		internal void DrawPathShadowAbs(GraphicsPath path, Color shadowColor, float shadowWidth)
+		public void DrawPathShadowAbs(GraphicsPath path, Color shadowColor, float shadowWidth)
 		{
 			if (shadowWidth != 0.0)
 			{
@@ -1492,7 +1492,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawPathAbs(GraphicsPath path, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, PenAlignment penAlignment)
+		public void DrawPathAbs(GraphicsPath path, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, PenAlignment penAlignment)
 		{
 			Brush brush = null;
 			Brush brush2 = null;
@@ -1636,42 +1636,42 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return this.GetAbsolutePoint(relative);
 		}
 
-		internal float GetRelativeX(float absoluteX)
+		public float GetRelativeX(float absoluteX)
 		{
 			return (float)(absoluteX * 100.0 / (float)(this.width - 1));
 		}
 
-		internal float GetRelativeY(float absoluteY)
+		public float GetRelativeY(float absoluteY)
 		{
 			return (float)(absoluteY * 100.0 / (float)(this.height - 1));
 		}
 
-		internal float GetRelativeWidth(float absoluteWidth)
+		public float GetRelativeWidth(float absoluteWidth)
 		{
 			return (float)(absoluteWidth * 100.0 / (float)this.width);
 		}
 
-		internal float GetRelativeHeight(float absoluteHeight)
+		public float GetRelativeHeight(float absoluteHeight)
 		{
 			return (float)(absoluteHeight * 100.0 / (float)this.height);
 		}
 
-		internal float GetAbsoluteX(float relativeX)
+		public float GetAbsoluteX(float relativeX)
 		{
 			return (float)(relativeX * (float)(this.width - 1) / 100.0);
 		}
 
-		internal float GetAbsoluteY(float relativeY)
+		public float GetAbsoluteY(float relativeY)
 		{
 			return (float)(relativeY * (float)(this.height - 1) / 100.0);
 		}
 
-		internal float GetAbsoluteWidth(float relativeWidth)
+		public float GetAbsoluteWidth(float relativeWidth)
 		{
 			return (float)(relativeWidth * (float)this.width / 100.0);
 		}
 
-		internal float GetAbsoluteHeight(float relativeHeight)
+		public float GetAbsoluteHeight(float relativeHeight)
 		{
 			return (float)(relativeHeight * (float)this.height / 100.0);
 		}
@@ -1702,7 +1702,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return empty;
 		}
 
-		internal float GetAbsoluteDimension(float relative)
+		public float GetAbsoluteDimension(float relative)
 		{
 			if (this.width < this.height)
 			{
@@ -1737,7 +1737,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return empty;
 		}
 
-		internal RectangleF GetBorder3DAdjustedRect(Frame frameAttr)
+		public RectangleF GetBorder3DAdjustedRect(Frame frameAttr)
 		{
 			RectangleF relative = new RectangleF(0f, 0f, 100f, 100f);
 			if (frameAttr.FrameStyle != 0)
@@ -1755,7 +1755,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return absoluteRectangle;
 		}
 
-		internal GraphicsPath CreateRoundedRectPath(RectangleF rect, float[] cornerRadius)
+		public GraphicsPath CreateRoundedRectPath(RectangleF rect, float[] cornerRadius)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			graphicsPath.AddLine(rect.X + cornerRadius[0], rect.Y, rect.Right - cornerRadius[1], rect.Y);
@@ -1769,7 +1769,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return graphicsPath;
 		}
 
-		internal void DrawRoundedRectShadowAbs(RectangleF rect, float[] cornerRadius, float radius, Color centerColor, Color surroundColor, float shadowScale)
+		public void DrawRoundedRectShadowAbs(RectangleF rect, float[] cornerRadius, float radius, Color centerColor, Color surroundColor, float shadowScale)
 		{
 			GraphicsPath graphicsPath = this.CreateRoundedRectPath(rect, cornerRadius);
 			PathGradientBrush pathGradientBrush = new PathGradientBrush(graphicsPath);
@@ -1788,22 +1788,22 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void Draw3DBorderRel(Frame borderSkin, RectangleF rect, Color borderColor, Color backColor)
+		public void Draw3DBorderRel(Frame borderSkin, RectangleF rect, Color borderColor, Color backColor)
 		{
 			this.Draw3DBorderAbs(borderSkin, this.GetAbsoluteRectangle(rect), borderColor, backColor);
 		}
 
-		internal void Draw3DBorderAbs(Frame borderSkin, RectangleF absRect, Color borderColor, Color backColor)
+		public void Draw3DBorderAbs(Frame borderSkin, RectangleF absRect, Color borderColor, Color backColor)
 		{
 			this.Draw3DBorderAbs(borderSkin, absRect, backColor, MapHatchStyle.None, "", MapImageWrapMode.Tile, Color.Empty, MapImageAlign.Center, GradientType.None, Color.Empty, borderColor, 1, MapDashStyle.Dot);
 		}
 
-		internal void Draw3DBorderRel(Frame borderSkin, RectangleF rect, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle)
+		public void Draw3DBorderRel(Frame borderSkin, RectangleF rect, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle)
 		{
 			this.Draw3DBorderAbs(borderSkin, this.GetAbsoluteRectangle(rect), backColor, backHatchStyle, backImage, backImageMode, backImageTranspColor, backImageAlign, backGradientType, backSecondaryColor, borderColor, borderWidth, borderStyle);
 		}
 
-		internal void Draw3DBorderAbs(Frame borderSkin, RectangleF absRect, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle)
+		public void Draw3DBorderAbs(Frame borderSkin, RectangleF absRect, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle)
 		{
 			if (this.common != null && borderSkin.FrameStyle != 0 && absRect.Width != 0.0 && absRect.Height != 0.0)
 			{
@@ -1819,7 +1819,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void DrawPieRel(RectangleF rect, float startAngle, float sweepAngle, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, PenAlignment penAlignment, bool shadow, double shadowOffset, bool doughnut, float doughnutRadius, bool explodedShadow)
+		public void DrawPieRel(RectangleF rect, float startAngle, float sweepAngle, Color backColor, MapHatchStyle backHatchStyle, string backImage, MapImageWrapMode backImageMode, Color backImageTranspColor, MapImageAlign backImageAlign, GradientType backGradientType, Color backSecondaryColor, Color borderColor, int borderWidth, MapDashStyle borderStyle, PenAlignment penAlignment, bool shadow, double shadowOffset, bool doughnut, float doughnutRadius, bool explodedShadow)
 		{
 			Pen pen = null;
 			RectangleF absoluteRectangle = this.GetAbsoluteRectangle(rect);
@@ -1936,7 +1936,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.shadowDrawingMode = false;
 		}
 
-		internal void DrawImageRel(string name, RectangleF position)
+		public void DrawImageRel(string name, RectangleF position)
 		{
 			RectangleF absoluteRectangle = this.GetAbsoluteRectangle(position);
 			ImageLoader imageLoader = this.common.ImageLoader;
@@ -1944,18 +1944,18 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.DrawImage(image, absoluteRectangle);
 		}
 
-		internal static RectangleF Round(RectangleF rect)
+		public static RectangleF Round(RectangleF rect)
 		{
 			return new RectangleF((float)Math.Round((double)rect.X), (float)Math.Round((double)rect.Y), (float)Math.Round((double)rect.Width), (float)Math.Round((double)rect.Height));
 		}
 
-		internal void SetPictureSize(int width, int height)
+		public void SetPictureSize(int width, int height)
 		{
 			this.width = width;
 			this.height = height;
 		}
 
-		internal void CreateDrawRegion(RectangleF rect)
+		public void CreateDrawRegion(RectangleF rect)
 		{
 			this.graphicStates.Push(new MapGraphState(base.Save(), this.width, this.height));
 			RectangleF absoluteRectangle = this.GetAbsoluteRectangle(rect);
@@ -1967,7 +1967,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.SetPictureSize((int)Math.Round((double)absoluteRectangle.Size.Width), (int)Math.Round((double)absoluteRectangle.Size.Height));
 		}
 
-		internal void CreateContentDrawRegion(Viewport viewport, PointF gridSectionOffset)
+		public void CreateContentDrawRegion(Viewport viewport, PointF gridSectionOffset)
 		{
 			this.graphicStates.Push(new MapGraphState(base.Save(), this.width, this.height));
 			if (base.Transform == null)
@@ -1984,7 +1984,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.SetPictureSize((int)(contentSizeInPixels.Width * viewport.Zoom / 100.0), (int)(contentSizeInPixels.Height * viewport.Zoom / 100.0));
 		}
 
-		internal void RestoreDrawRegion()
+		public void RestoreDrawRegion()
 		{
 			MapGraphState mapGraphState = (MapGraphState)this.graphicStates.Pop();
 			base.Restore(mapGraphState.state);
@@ -1997,7 +1997,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.Close();
 		}
 
-		internal void Dispose()
+		public void Dispose()
 		{
 			if (this.pen != null)
 			{
@@ -2009,12 +2009,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal new void SetClip(RectangleF region)
+		public new void SetClip(RectangleF region)
 		{
 			base.SetClip(this.GetAbsoluteRectangle(region));
 		}
 
-		internal static Color GetGradientColor(Color beginColor, Color endColor, double dPosition)
+		public static Color GetGradientColor(Color beginColor, Color endColor, double dPosition)
 		{
 			if (!(dPosition < 0.0) && !(dPosition > 1.0) && !double.IsNaN(dPosition))
 			{
@@ -2056,7 +2056,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return beginColor;
 		}
 
-		internal Pen GetSelectionPen(bool designTimeSelection, Color borderColor)
+		public Pen GetSelectionPen(bool designTimeSelection, Color borderColor)
 		{
 			Pen pen = null;
 			if (designTimeSelection)
@@ -2083,12 +2083,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return pen;
 		}
 
-		internal Brush GetDesignTimeSelectionFillBrush()
+		public Brush GetDesignTimeSelectionFillBrush()
 		{
 			return new SolidBrush(Color.White);
 		}
 
-		internal Pen GetDesignTimeSelectionBorderPen()
+		public Pen GetDesignTimeSelectionBorderPen()
 		{
 			Pen pen = null;
 			pen = new Pen(Color.Black);
@@ -2096,12 +2096,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return pen;
 		}
 
-		internal void DrawSelection(RectangleF rect, bool designTimeSelection, Color borderColor, Color markerColor)
+		public void DrawSelection(RectangleF rect, bool designTimeSelection, Color borderColor, Color markerColor)
 		{
 			this.DrawSelection(rect, (float)(3.0 / this.ScaleFactorX), designTimeSelection, borderColor, markerColor);
 		}
 
-		internal void DrawSelection(RectangleF rect, float inflateBy, bool designTimeSelection, Color borderColor, Color markerColor)
+		public void DrawSelection(RectangleF rect, float inflateBy, bool designTimeSelection, Color borderColor, Color markerColor)
 		{
 			rect.Inflate(inflateBy, inflateBy);
 			RectangleF visibleClipBounds = this.Graphics.VisibleClipBounds;
@@ -2141,7 +2141,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.DrawSelectionMarkers((PointF[])arrayList.ToArray(typeof(PointF)), designTimeSelection, borderColor, markerColor);
 		}
 
-		internal void DrawSelectionMarkers(PointF[] markerPositions, bool designTimeSelection, Color borderColor, Color markerColor)
+		public void DrawSelectionMarkers(PointF[] markerPositions, bool designTimeSelection, Color borderColor, Color markerColor)
 		{
 			float num = (float)(6.0 / this.ScaleFactorX);
 			float num2 = (float)(6.0 / this.ScaleFactorY);

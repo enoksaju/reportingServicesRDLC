@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal abstract class BucketedAggregatesCollection<T> : IEnumerable<T>, IEnumerable, IPersistable where T : IPersistable
+	public abstract class BucketedAggregatesCollection<T> : IEnumerable<T>, IEnumerable, IPersistable where T : IPersistable
 	{
 		private List<AggregateBucket<T>> m_buckets;
 

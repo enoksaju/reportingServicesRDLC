@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class OperationNotSupportedNativeModeException : ReportCatalogException
+	public sealed class OperationNotSupportedNativeModeException : ReportCatalogException
 	{
 		public OperationNotSupportedNativeModeException()
 			: base(ErrorCode.rsOperationNotSupportedNativeMode, ErrorStrings.rsOperationNotSupportedNativeMode, null, null)

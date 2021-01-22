@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapRow : Row, IPersistable
+	public sealed class MapRow : Row, IPersistable
 	{
 		[NonSerialized]
 		private CellList m_cells;
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapRow.GetDeclaration();
 
-		internal override CellList Cells
+		public override CellList Cells
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapCell Cell
+		public MapCell Cell
 		{
 			get
 			{
@@ -50,18 +50,18 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapRow()
+		public MapRow()
 		{
 		}
 
-		internal MapRow(int id, MapDataRegion mapDataRegion)
+		public MapRow(int id, MapDataRegion mapDataRegion)
 			: base(id)
 		{
 			this.m_mapDataRegion = mapDataRegion;
 		}
 
 		[SkipMemberStaticValidation(MemberName.MapCell)]
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapCell, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapCell));
@@ -69,7 +69,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return new Declaration(AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapRow, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Row, list);
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapRow mapRow = (MapRow)base.PublishClone(context);
 			if (this.m_cells != null)

@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Model
 {
-	internal interface IBorderModel
+	public interface IBorderModel
 	{
 		bool HasBeenModified
 		{

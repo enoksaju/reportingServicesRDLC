@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ExprHostObjectModel
 
 		public StyleExprHost PlotAreaHost;
 
-		internal IList<ChartDataPointExprHost> ChartDataPointHostsRemotable
+		public IList<ChartDataPointExprHost> ChartDataPointHostsRemotable
 		{
 			get
 			{

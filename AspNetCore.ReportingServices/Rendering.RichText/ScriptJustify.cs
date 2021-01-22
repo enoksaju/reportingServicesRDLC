@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal enum ScriptJustify
+	public enum ScriptJustify
 	{
 		SCRIPT_JUSTIFY_NONE,
 		SCRIPT_JUSTIFY_ARABIC_BLANK,

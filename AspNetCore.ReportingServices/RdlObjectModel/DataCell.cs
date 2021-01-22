@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class DataCell : RdlCollection<DataValue>
+	public class DataCell : RdlCollection<DataValue>
 	{
 	}
 }

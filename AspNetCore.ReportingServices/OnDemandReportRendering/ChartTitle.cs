@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartTitle : ChartObjectCollectionItem<ChartTitleInstance>, IROMStyleDefinitionContainer, IROMActionOwner
+	public sealed class ChartTitle : ChartObjectCollectionItem<ChartTitleInstance>, IROMStyleDefinitionContainer, IROMActionOwner
 	{
 		private Chart m_chart;
 
@@ -227,7 +227,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -235,7 +235,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartTitle ChartTitleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartTitle ChartTitleDef
 		{
 			get
 			{
@@ -243,7 +243,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportProcessing.ChartTitleInstance RenderChartTitleInstance
+		public AspNetCore.ReportingServices.ReportProcessing.ChartTitleInstance RenderChartTitleInstance
 		{
 			get
 			{
@@ -267,20 +267,20 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartTitle(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartTitle chartTitleDef, Chart chart)
+		public ChartTitle(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartTitle chartTitleDef, Chart chart)
 		{
 			this.m_chart = chart;
 			this.m_chartTitleDef = chartTitleDef;
 		}
 
-		internal ChartTitle(AspNetCore.ReportingServices.ReportProcessing.ChartTitle renderChartTitleDef, AspNetCore.ReportingServices.ReportProcessing.ChartTitleInstance renderChartTitleInstance, Chart chart)
+		public ChartTitle(AspNetCore.ReportingServices.ReportProcessing.ChartTitle renderChartTitleDef, AspNetCore.ReportingServices.ReportProcessing.ChartTitleInstance renderChartTitleInstance, Chart chart)
 		{
 			this.m_chart = chart;
 			this.m_renderChartTitleDef = renderChartTitleDef;
 			this.m_renderChartTitleInstance = renderChartTitleInstance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_style != null)

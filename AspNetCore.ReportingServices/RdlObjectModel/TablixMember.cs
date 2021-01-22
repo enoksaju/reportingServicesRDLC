@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class TablixMember : HierarchyMember, IHierarchyMember
+	public class TablixMember : HierarchyMember, IHierarchyMember
 	{
-		internal class Definition : DefinitionStore<TablixMember, Definition.Properties>
+		public class Definition : DefinitionStore<TablixMember, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Group,
 				SortExpressions,
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal TablixMember(IPropertyStore propertyStore)
+		public TablixMember(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

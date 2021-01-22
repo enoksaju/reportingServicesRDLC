@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum GroupingFunction
+	public enum GroupingFunction
 	{
 		None,
 		Min,

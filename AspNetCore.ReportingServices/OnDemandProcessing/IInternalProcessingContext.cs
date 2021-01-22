@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal interface IInternalProcessingContext
+	public interface IInternalProcessingContext
 	{
 		ErrorContext ErrorContext
 		{

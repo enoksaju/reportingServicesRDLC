@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class ReportDataSourceInfo
+	public sealed class ReportDataSourceInfo
 	{
 		private string m_name;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal ReportDataSourceInfo(string name, string prompt)
+		public ReportDataSourceInfo(string name, string prompt)
 		{
 			this.m_name = name;
 			this.m_prompt = prompt;

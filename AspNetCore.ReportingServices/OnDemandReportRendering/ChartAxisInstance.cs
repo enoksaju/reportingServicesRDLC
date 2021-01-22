@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartAxisInstance : BaseInstance
+	public sealed class ChartAxisInstance : BaseInstance
 	{
 		private ChartAxis m_axisDef;
 
@@ -531,7 +531,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartAxisInstance(ChartAxis axisDef)
+		public ChartAxisInstance(ChartAxis axisDef)
 			: base(axisDef.ChartDef)
 		{
 			this.m_axisDef = axisDef;

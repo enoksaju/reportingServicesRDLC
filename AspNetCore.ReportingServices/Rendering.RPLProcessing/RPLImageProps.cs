@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLImageProps : RPLItemProps
+	public sealed class RPLImageProps : RPLItemProps
 	{
 		private RPLImageData m_image;
 
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLImageProps()
+		public RPLImageProps()
 		{
 		}
 	}

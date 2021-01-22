@@ -8,7 +8,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal class RendererBase : IRenderingExtension, IExtension
+	public class RendererBase : IRenderingExtension, IExtension
 	{
 		public virtual string LocalizedName
 		{

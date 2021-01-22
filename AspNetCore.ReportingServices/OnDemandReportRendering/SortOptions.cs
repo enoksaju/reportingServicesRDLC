@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum SortOptions
+	public enum SortOptions
 	{
 		None,
 		Ascending,

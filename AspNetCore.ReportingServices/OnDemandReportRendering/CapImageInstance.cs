@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class CapImageInstance : BaseGaugeImageInstance
+	public sealed class CapImageInstance : BaseGaugeImageInstance
 	{
 		private ReportColor m_hueColor;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal CapImageInstance(CapImage defObject)
+		public CapImageInstance(CapImage defObject)
 			: base(defObject)
 		{
 		}

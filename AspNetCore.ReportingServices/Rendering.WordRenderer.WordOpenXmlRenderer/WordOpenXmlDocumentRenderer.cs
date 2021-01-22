@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.Rendering.SPBProcessing;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer
 {
-	internal class WordOpenXmlDocumentRenderer : WordDocumentRendererBase
+	public class WordOpenXmlDocumentRenderer : WordDocumentRendererBase
 	{
 		public override string LocalizedName
 		{
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			}
 		}
 
-		internal override IWordWriter NewWordWriter()
+		public override IWordWriter NewWordWriter()
 		{
 			return new WordOpenXmlWriter();
 		}

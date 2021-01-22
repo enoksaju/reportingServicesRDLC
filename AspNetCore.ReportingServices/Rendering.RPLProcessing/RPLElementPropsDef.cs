@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal abstract class RPLElementPropsDef
+	public abstract class RPLElementPropsDef
 	{
 		protected string m_id;
 

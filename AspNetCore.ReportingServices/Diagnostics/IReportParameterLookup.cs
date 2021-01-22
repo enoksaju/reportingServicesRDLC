@@ -2,7 +2,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal interface IReportParameterLookup
+	public interface IReportParameterLookup
 	{
 		string GetReportParamsInstanceId(NameValueCollection reportParameters);
 	}

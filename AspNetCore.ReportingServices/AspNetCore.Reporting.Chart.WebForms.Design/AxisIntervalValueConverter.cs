@@ -5,9 +5,9 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Design
 {
-	internal class AxisIntervalValueConverter : DoubleConverter
+	public class AxisIntervalValueConverter : DoubleConverter
 	{
-		internal bool hideNotSet = true;
+		public bool hideNotSet = true;
 
 		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
 		{

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Utils
 {
-	internal class ReadOnlyStream : Stream
+	public class ReadOnlyStream : Stream
 	{
 		private readonly Stream m_underlyingStream;
 

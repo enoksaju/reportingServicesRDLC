@@ -2,11 +2,11 @@ using AspNetCore.ReportingServices.RdlObjectModel.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ReportParametersLayout : ReportObject, IShouldSerialize
+	public class ReportParametersLayout : ReportObject, IShouldSerialize
 	{
-		internal class Definition : DefinitionStore<GridLayoutDefinition, Definition.Properties>
+		public class Definition : DefinitionStore<GridLayoutDefinition, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				GridLayoutDefinition
 			}
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			this.GridLayoutDefinition = new GridLayoutDefinition();
 		}
 
-		internal ReportParametersLayout(IPropertyStore propertyStore)
+		public ReportParametersLayout(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

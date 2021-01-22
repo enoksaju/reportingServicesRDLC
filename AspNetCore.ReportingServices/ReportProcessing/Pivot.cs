@@ -6,9 +6,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class Pivot : DataRegion, IAggregateHolder, IRunningValueHolder
+	public abstract class Pivot : DataRegion, IAggregateHolder, IRunningValueHolder
 	{
-		internal enum ProcessingInnerGroupings
+		public enum ProcessingInnerGroupings
 		{
 			Column,
 			Row
@@ -52,17 +52,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		protected bool m_processOutermostSTCellRunningValues;
 
-		internal abstract PivotHeading PivotColumns
+		public abstract PivotHeading PivotColumns
 		{
 			get;
 		}
 
-		internal abstract PivotHeading PivotRows
+		public abstract PivotHeading PivotRows
 		{
 			get;
 		}
 
-		internal int ColumnCount
+		public int ColumnCount
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int RowCount
+		public int RowCount
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList CellAggregates
+		public DataAggregateInfoList CellAggregates
 		{
 			get
 			{
@@ -98,7 +98,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfoList CellPostSortAggregates
+		public DataAggregateInfoList CellPostSortAggregates
 		{
 			get
 			{
@@ -110,12 +110,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract RunningValueInfoList PivotCellRunningValues
+		public abstract RunningValueInfoList PivotCellRunningValues
 		{
 			get;
 		}
 
-		internal ProcessingInnerGroupings ProcessingInnerGrouping
+		public ProcessingInnerGroupings ProcessingInnerGrouping
 		{
 			get
 			{
@@ -127,17 +127,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal abstract PivotHeading PivotStaticColumns
+		public abstract PivotHeading PivotStaticColumns
 		{
 			get;
 		}
 
-		internal abstract PivotHeading PivotStaticRows
+		public abstract PivotHeading PivotStaticRows
 		{
 			get;
 		}
 
-		internal RunningValueInfoList RunningValues
+		public RunningValueInfoList RunningValues
 		{
 			get
 			{
@@ -149,7 +149,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataElementOutputTypes CellDataElementOutput
+		public DataElementOutputTypes CellDataElementOutput
 		{
 			get
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int InnermostRowFilterLevel
+		public int InnermostRowFilterLevel
 		{
 			get
 			{
@@ -173,7 +173,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int InnermostColumnFilterLevel
+		public int InnermostColumnFilterLevel
 		{
 			get
 			{
@@ -185,7 +185,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int[] OuterGroupingIndexes
+		public int[] OuterGroupingIndexes
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ProcessCellRunningValues
+		public bool ProcessCellRunningValues
 		{
 			get
 			{
@@ -205,7 +205,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ProcessOutermostSTCellRunningValues
+		public bool ProcessOutermostSTCellRunningValues
 		{
 			get
 			{
@@ -217,7 +217,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.RuntimePivotGroupRootObj CurrentOuterHeadingGroupRoot
+		public ReportProcessing.RuntimePivotGroupRootObj CurrentOuterHeadingGroupRoot
 		{
 			get
 			{
@@ -229,12 +229,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Pivot(ReportItem parent)
+		public Pivot(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Pivot(int id, ReportItem parent)
+		public Pivot(int id, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_runningValues = new RunningValueInfoList();
@@ -242,7 +242,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_cellPostSortAggregates = new DataAggregateInfoList();
 		}
 
-		internal void CopyHeadingAggregates(PivotHeading heading)
+		public void CopyHeadingAggregates(PivotHeading heading)
 		{
 			if (heading != null)
 			{
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static void CopyAggregates(DataAggregateInfoList srcAggregates, DataAggregateInfoList targetAggregates)
+		public static void CopyAggregates(DataAggregateInfoList srcAggregates, DataAggregateInfoList targetAggregates)
 		{
 			for (int i = 0; i < srcAggregates.Count; i++)
 			{
@@ -319,7 +319,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SubtotalInInnerHeading(ref PivotHeading innerHeading, ref PivotHeading staticHeading)
+		public bool SubtotalInInnerHeading(ref PivotHeading innerHeading, ref PivotHeading staticHeading)
 		{
 			this.SkipStaticHeading(ref innerHeading, ref staticHeading);
 			if (innerHeading != null && innerHeading.Subtotal != null)
@@ -329,7 +329,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal void SkipStaticHeading(ref PivotHeading pivotHeading, ref PivotHeading staticHeading)
+		public void SkipStaticHeading(ref PivotHeading pivotHeading, ref PivotHeading staticHeading)
 		{
 			if (pivotHeading != null && pivotHeading.Grouping == null)
 			{
@@ -342,7 +342,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void GetHeadingDefState(out PivotHeading outermostColumn, out bool outermostColumnSubtotal, out PivotHeading staticColumn, out PivotHeading outermostRow, out bool outermostRowSubtotal, out PivotHeading staticRow)
+		public void GetHeadingDefState(out PivotHeading outermostColumn, out bool outermostColumnSubtotal, out PivotHeading staticColumn, out PivotHeading outermostRow, out bool outermostRowSubtotal, out PivotHeading staticRow)
 		{
 			outermostRowSubtotal = false;
 			outermostColumnSubtotal = false;
@@ -362,7 +362,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal PivotHeading GetPivotHeading(bool outerHeading)
+		public PivotHeading GetPivotHeading(bool outerHeading)
 		{
 			if (outerHeading && this.m_processingInnerGrouping == ProcessingInnerGroupings.Column)
 			{
@@ -377,7 +377,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return this.PivotRows;
 		}
 
-		internal PivotHeading GetOuterHeading(int level)
+		public PivotHeading GetOuterHeading(int level)
 		{
 			PivotHeading pivotHeading = this.GetPivotHeading(true);
 			PivotHeading pivotHeading2 = null;
@@ -392,7 +392,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return pivotHeading;
 		}
 
-		internal int GetDynamicHeadingCount(bool outerGroupings)
+		public int GetDynamicHeadingCount(bool outerGroupings)
 		{
 			if (outerGroupings && this.m_processingInnerGrouping == ProcessingInnerGroupings.Column)
 			{
@@ -419,7 +419,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return num;
 		}
 
-		internal int CreateOuterGroupingIndexList()
+		public int CreateOuterGroupingIndexList()
 		{
 			int dynamicHeadingCount = this.GetDynamicHeadingCount(true);
 			if (this.m_outerGroupingIndexes == null)
@@ -430,7 +430,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return dynamicHeadingCount;
 		}
 
-		internal Hashtable GetOuterScopeNames(int dynamicLevel)
+		public Hashtable GetOuterScopeNames(int dynamicLevel)
 		{
 			Hashtable hashtable = new Hashtable();
 			PivotHeading pivotHeading = this.GetPivotHeading(true);
@@ -447,7 +447,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return hashtable;
 		}
 
-		internal void SavePivotAggregateRowInfo(ReportProcessing.ProcessingContext pc)
+		public void SavePivotAggregateRowInfo(ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_pivotAggregateRowInfo == null)
 			{
@@ -456,7 +456,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_pivotAggregateRowInfo.SaveAggregateInfo(pc);
 		}
 
-		internal void RestorePivotAggregateRowInfo(ReportProcessing.ProcessingContext pc)
+		public void RestorePivotAggregateRowInfo(ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_pivotAggregateRowInfo != null)
 			{
@@ -464,7 +464,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SaveOuterGroupingAggregateRowInfo(int headingLevel, ReportProcessing.ProcessingContext pc)
+		public void SaveOuterGroupingAggregateRowInfo(int headingLevel, ReportProcessing.ProcessingContext pc)
 		{
 			Global.Tracer.Assert(null != this.m_outerGroupingAggregateRowInfo);
 			if (this.m_outerGroupingAggregateRowInfo[headingLevel] == null)
@@ -474,13 +474,13 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_outerGroupingAggregateRowInfo[headingLevel].SaveAggregateInfo(pc);
 		}
 
-		internal void SetCellAggregateRowInfo(int headingLevel, ReportProcessing.ProcessingContext pc)
+		public void SetCellAggregateRowInfo(int headingLevel, ReportProcessing.ProcessingContext pc)
 		{
 			Global.Tracer.Assert(this.m_outerGroupingAggregateRowInfo != null && null != this.m_pivotAggregateRowInfo);
 			this.m_pivotAggregateRowInfo.CombineAggregateInfo(pc, this.m_outerGroupingAggregateRowInfo[headingLevel]);
 		}
 
-		internal void ResetOutergGroupingAggregateRowInfo()
+		public void ResetOutergGroupingAggregateRowInfo()
 		{
 			Global.Tracer.Assert(null != this.m_outerGroupingAggregateRowInfo);
 			for (int i = 0; i < this.m_outerGroupingAggregateRowInfo.Length; i++)
@@ -489,7 +489,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ColumnCount, Token.Int32));

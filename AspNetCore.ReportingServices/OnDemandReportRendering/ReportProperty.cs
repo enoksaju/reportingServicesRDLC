@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class ReportProperty
+	public abstract class ReportProperty
 	{
 		private bool m_isExpression;
 
@@ -22,13 +22,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportProperty()
+		public ReportProperty()
 		{
 			this.m_isExpression = false;
 			this.m_expressionString = null;
 		}
 
-		internal ReportProperty(bool isExpression, string expressionString)
+		public ReportProperty(bool isExpression, string expressionString)
 		{
 			this.m_isExpression = isExpression;
 			this.m_expressionString = expressionString;

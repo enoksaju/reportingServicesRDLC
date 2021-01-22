@@ -7,9 +7,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal class DataAggregateInfo
+	public class DataAggregateInfo
 	{
-		internal enum AggregateTypes
+		public enum AggregateTypes
 		{
 			First,
 			Last,
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private List<string> m_fieldsUsedInValueExpression;
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregateTypes AggregateType
+		public AggregateTypes AggregateType
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfo[] Expressions
+		public ExpressionInfo[] Expressions
 		{
 			get
 			{
@@ -99,7 +99,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal StringList DuplicateNames
+		public StringList DuplicateNames
 		{
 			get
 			{
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal string ExpressionText
+		public string ExpressionText
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal AggregateParamExprHost[] ExpressionHosts
+		public AggregateParamExprHost[] ExpressionHosts
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ExprHostInitialized
+		public bool ExprHostInitialized
 		{
 			get
 			{
@@ -143,7 +143,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool Recursive
+		public bool Recursive
 		{
 			get
 			{
@@ -155,7 +155,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsCopied
+		public bool IsCopied
 		{
 			get
 			{
@@ -167,7 +167,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool SuppressExceptions
+		public bool SuppressExceptions
 		{
 			get
 			{
@@ -175,7 +175,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal List<string> FieldsUsedInValueExpression
+		public List<string> FieldsUsedInValueExpression
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataAggregateInfo DeepClone(InitializationContext context)
+		public DataAggregateInfo DeepClone(InitializationContext context)
 		{
 			DataAggregateInfo dataAggregateInfo = new DataAggregateInfo();
 			this.DeepCloneInternal(dataAggregateInfo, context);
@@ -217,19 +217,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetScope(string scope)
+		public void SetScope(string scope)
 		{
 			this.m_hasScope = true;
 			this.m_scope = scope;
 		}
 
-		internal bool GetScope(out string scope)
+		public bool GetScope(out string scope)
 		{
 			scope = this.m_scope;
 			return this.m_hasScope;
 		}
 
-		internal void SetExprHosts(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHosts(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(reportExprHost != null && reportObjectModel != null);
 			if (!this.m_exprHostInitialized)
@@ -264,7 +264,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool IsPostSortAggregate()
+		public bool IsPostSortAggregate()
 		{
 			if (this.m_aggregateType != 0 && AggregateTypes.Last != this.m_aggregateType && AggregateTypes.Previous != this.m_aggregateType)
 			{
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.Name, Token.String));

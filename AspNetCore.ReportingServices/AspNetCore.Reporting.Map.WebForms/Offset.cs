@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class Offset : MapObject, ICloneable
+	public class Offset : MapObject, ICloneable
 	{
 		private MapPoint point = new MapPoint(0.0, 0.0);
 
@@ -63,12 +63,12 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal Offset(object parent)
+		public Offset(object parent)
 			: base(parent)
 		{
 		}
 
-		internal Offset(object parent, double x, double y)
+		public Offset(object parent, double x, double y)
 			: this(parent)
 		{
 			this.point.X = x;
@@ -104,7 +104,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return new Offset(this.Parent, this.X, this.Y);
 		}
 
-		internal void InvalidateCachedBounds()
+		public void InvalidateCachedBounds()
 		{
 			if (this.Parent is Shape)
 			{
@@ -120,7 +120,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void ResetCachedPaths()
+		public void ResetCachedPaths()
 		{
 			if (this.Parent is Shape)
 			{

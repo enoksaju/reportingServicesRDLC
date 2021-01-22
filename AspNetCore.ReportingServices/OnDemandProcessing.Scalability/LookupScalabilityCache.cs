@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 {
-	internal sealed class LookupScalabilityCache : PartitionedTreeScalabilityCache
+	public sealed class LookupScalabilityCache : PartitionedTreeScalabilityCache
 	{
 		private const long CacheExpansionIntervalMs = 2000L;
 
@@ -16,12 +16,12 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.Scalability
 			}
 		}
 
-		internal LookupScalabilityCache(TreePartitionManager partitionManager, IStorage storage)
+		public LookupScalabilityCache(TreePartitionManager partitionManager, IStorage storage)
 			: base(partitionManager, storage, 2000L, 0.3, 2097152L)
 		{
 		}
 
-		internal override BaseReference TransferTo(BaseReference reference)
+		public override BaseReference TransferTo(BaseReference reference)
 		{
 			IStorable storable = reference.InternalValue();
 			BaseReference baseReference = base.AllocateAndPin(storable, ItemSizes.SizeOf(storable));

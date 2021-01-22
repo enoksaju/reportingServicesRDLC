@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class SizeProperty : ComparablePropertyDefinition<ReportSize>
+	public class SizeProperty : ComparablePropertyDefinition<ReportSize>
 	{
 		public SizeProperty(string name, ReportSize? defaultValue)
 			: base(name, defaultValue)

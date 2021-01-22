@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartBorderSkinTypes
+	public enum ChartBorderSkinTypes
 	{
 		None,
 		Emboss,

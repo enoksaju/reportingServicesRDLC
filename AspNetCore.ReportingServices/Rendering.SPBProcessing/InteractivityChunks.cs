@@ -3,9 +3,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal class InteractivityChunks
+	public class InteractivityChunks
 	{
-		internal enum Token : byte
+		public enum Token : byte
 		{
 			BookmarkInformation,
 			LabelInformation,
@@ -14,9 +14,9 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			EndObject
 		}
 
-		internal const string LabelsChunk = "Labels";
+		public const string LabelsChunk = "Labels";
 
-		internal const string BookmarksChunk = "Bookmarks";
+		public const string BookmarksChunk = "Bookmarks";
 
 		protected BinaryWriter m_writer;
 
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 
 		private Stream m_stream;
 
-		internal int Page
+		public int Page
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal static int FindBoomark(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, string bookmarkId, ref string uniqueName, ref int lastPageCollected, ref bool reportDone)
+		public static int FindBoomark(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, string bookmarkId, ref string uniqueName, ref int lastPageCollected, ref bool reportDone)
 		{
 			int result = 0;
 			string text = null;
@@ -80,7 +80,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return result;
 		}
 
-		internal static int FindDocumentMapLabel(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, string documentMapId, ref int lastPageCollected, ref bool reportDone)
+		public static int FindDocumentMapLabel(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, string documentMapId, ref int lastPageCollected, ref bool reportDone)
 		{
 			int result = 0;
 			string text = null;
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return stream;
 		}
 
-		internal static Bookmarks GetBookmarksStream(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, int page)
+		public static Bookmarks GetBookmarksStream(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, int page)
 		{
 			int page2 = 0;
 			Stream interactivityChunck = InteractivityChunks.GetInteractivityChunck(report, "Bookmarks", page, out page2);
@@ -165,7 +165,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return null;
 		}
 
-		internal static DocumentMapLabels GetLabelsStream(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, int page)
+		public static DocumentMapLabels GetLabelsStream(AspNetCore.ReportingServices.OnDemandReportRendering.Report report, int page)
 		{
 			int page2 = 0;
 			Stream interactivityChunck = InteractivityChunks.GetInteractivityChunck(report, "Labels", page, out page2);
@@ -176,13 +176,13 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return null;
 		}
 
-		internal InteractivityChunks(Stream stream, int page)
+		public InteractivityChunks(Stream stream, int page)
 		{
 			this.m_stream = stream;
 			this.m_page = page;
 		}
 
-		internal void Flush(bool reportDone)
+		public void Flush(bool reportDone)
 		{
 			if (this.m_writer != null)
 			{

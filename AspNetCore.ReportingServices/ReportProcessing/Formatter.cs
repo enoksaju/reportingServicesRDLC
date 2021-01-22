@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal class Formatter
+	public class Formatter
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.Style m_styleClass;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private Calendar m_formattingCalendar;
 
-		internal Formatter(AspNetCore.ReportingServices.ReportIntermediateFormat.Style styleClass, OnDemandProcessingContext context, ObjectType objectType, string objectName)
+		public Formatter(AspNetCore.ReportingServices.ReportIntermediateFormat.Style styleClass, OnDemandProcessingContext context, ObjectType objectType, string objectName)
 		{
 			this.m_context = context;
 			this.m_styleClass = styleClass;
@@ -34,24 +34,24 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.m_objectName = objectName;
 		}
 
-		internal static string FormatWithClientCulture(object value)
+		public static string FormatWithClientCulture(object value)
 		{
 			bool flag = default(bool);
 			return Formatter.FormatWithSpecificCulture(value, Localization.ClientPrimaryCulture, out flag);
 		}
 
-		internal static string FormatWithInvariantCulture(object value)
+		public static string FormatWithInvariantCulture(object value)
 		{
 			bool flag = default(bool);
 			return Formatter.FormatWithInvariantCulture(value, out flag);
 		}
 
-		internal static string FormatWithInvariantCulture(object value, out bool errorOccurred)
+		public static string FormatWithInvariantCulture(object value, out bool errorOccurred)
 		{
 			return Formatter.FormatWithSpecificCulture(value, CultureInfo.InvariantCulture, out errorOccurred);
 		}
 
-		internal static string FormatWithSpecificCulture(object value, CultureInfo culture, out bool errorOccurred)
+		public static string FormatWithSpecificCulture(object value, CultureInfo culture, out bool errorOccurred)
 		{
 			errorOccurred = false;
 			if (value == null)
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal static string Format(object value, ref Formatter formatter, AspNetCore.ReportingServices.ReportIntermediateFormat.Style reportItemStyle, AspNetCore.ReportingServices.ReportIntermediateFormat.Style reportElementStyle, OnDemandProcessingContext context, ObjectType objectType, string objectName)
+		public static string Format(object value, ref Formatter formatter, AspNetCore.ReportingServices.ReportIntermediateFormat.Style reportItemStyle, AspNetCore.ReportingServices.ReportIntermediateFormat.Style reportElementStyle, OnDemandProcessingContext context, ObjectType objectType, string objectName)
 		{
 			if (formatter == null)
 			{
@@ -107,17 +107,17 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return formatter.FormatValue(value, formatString, typeCode);
 		}
 
-		internal string FormatValue(object value, TypeCode typeCode)
+		public string FormatValue(object value, TypeCode typeCode)
 		{
 			return this.FormatValue(value, null, typeCode);
 		}
 
-		internal string FormatValue(object value, string formatString, TypeCode typeCode)
+		public string FormatValue(object value, string formatString, TypeCode typeCode)
 		{
 			return this.FormatValue(value, formatString, typeCode, false);
 		}
 
-		internal string FormatValue(object value, string formatString, TypeCode typeCode, bool addDateTimeOffsetSuffix)
+		public string FormatValue(object value, string formatString, TypeCode typeCode, bool addDateTimeOffsetSuffix)
 		{
 			CultureInfo cultureInfo = null;
 			string text = null;
@@ -280,7 +280,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return text2;
 		}
 
-		internal CultureInfo GetCulture(string language)
+		public CultureInfo GetCulture(string language)
 		{
 			bool flag = false;
 			int num = 0;

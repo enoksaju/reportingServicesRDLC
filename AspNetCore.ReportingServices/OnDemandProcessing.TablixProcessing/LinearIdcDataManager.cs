@@ -4,7 +4,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
-	internal abstract class LinearIdcDataManager : BaseIdcDataManager
+	public abstract class LinearIdcDataManager : BaseIdcDataManager
 	{
 		private readonly Relationship m_activeRelationship;
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class Map : ReportItem, IROMActionOwner, IPageBreakItem
+	public sealed class Map : ReportItem, IROMActionOwner, IPageBreakItem
 	{
 		private MapDataRegionCollection m_mapDataRegions;
 
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private ActionInfo m_actionInfo;
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.Map MapDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.Map MapDef
 		{
 			get
 			{
@@ -313,12 +313,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Map(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Map reportItemDef, RenderingContext renderingContext)
+		public Map(IReportScope reportScope, IDefinitionPath parentDefinitionPath, int indexIntoParentCollectionDef, AspNetCore.ReportingServices.ReportIntermediateFormat.Map reportItemDef, RenderingContext renderingContext)
 			: base(reportScope, parentDefinitionPath, indexIntoParentCollectionDef, reportItemDef, renderingContext)
 		{
 		}
 
-		internal override ReportItemInstance GetOrCreateInstance()
+		public override ReportItemInstance GetOrCreateInstance()
 		{
 			if (base.m_instance == null)
 			{
@@ -327,7 +327,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContextChildren()
+		public override void SetNewContextChildren()
 		{
 			if (base.m_instance != null)
 			{

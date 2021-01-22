@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[DebuggerStepThrough]
-	internal class ValuesRowChangeEventArgs : EventArgs
+	public class ValuesRowChangeEventArgs : EventArgs
 	{
 		private ValuesRow eventRow;
 

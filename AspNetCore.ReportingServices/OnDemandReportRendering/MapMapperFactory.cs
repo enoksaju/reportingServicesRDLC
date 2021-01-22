@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal static class MapMapperFactory
+	public static class MapMapperFactory
 	{
-		internal static IMapMapper CreateMapMapperInstance(Map map, string defaultFontFamily)
+		public static IMapMapper CreateMapMapperInstance(Map map, string defaultFontFamily)
 		{
 			return new MapMapper(map, defaultFontFamily);
 		}

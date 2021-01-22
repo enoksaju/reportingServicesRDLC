@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class FieldInstance
+	public sealed class FieldInstance
 	{
 		private RecordField m_recordField;
 
@@ -90,13 +90,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal FieldInstance(FieldInfo fieldInfo, RecordField recordField)
+		public FieldInstance(FieldInfo fieldInfo, RecordField recordField)
 		{
 			this.m_fieldInfo = fieldInfo;
 			this.m_recordField = recordField;
 		}
 
-		internal void UpdateRecordField(RecordField field)
+		public void UpdateRecordField(RecordField field)
 		{
 			this.m_recordField = field;
 			if (this.m_extendedProperties != null)

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class LiteralInfo
+	public sealed class LiteralInfo
 	{
 		private readonly object m_value;
 

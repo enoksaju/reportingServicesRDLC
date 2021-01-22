@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class NumericIndicatorInstance : GaugePanelItemInstance
+	public sealed class NumericIndicatorInstance : GaugePanelItemInstance
 	{
 		private NumericIndicator m_defObject;
 
-		internal NumericIndicatorInstance(NumericIndicator defObject)
+		public NumericIndicatorInstance(NumericIndicator defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace AspNetCore.ReportingServices.DataExtensions
 {
-	internal sealed class ReportDataSource
+	public sealed class ReportDataSource
 	{
 		private readonly string m_dataSourceType;
 

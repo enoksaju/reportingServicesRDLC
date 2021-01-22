@@ -6,9 +6,9 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class DocumentMapNode : IPersistable
+	public sealed class DocumentMapNode : IPersistable
 	{
-		internal const char IdLevelSeparator = '_';
+		public const char IdLevelSeparator = '_';
 
 		private string m_id;
 
@@ -17,7 +17,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = DocumentMapNode.GetDeclaration();
 
-		internal string Label
+		public string Label
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string Id
+		public string Id
 		{
 			get
 			{
@@ -42,11 +42,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DocumentMapNode()
+		public DocumentMapNode()
 		{
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ID, Token.String));

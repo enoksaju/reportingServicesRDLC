@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal class RadarChart : IChartType, ICircularChartType
+	public class RadarChart : IChartType, ICircularChartType
 	{
 		protected CommonElements common;
 
@@ -469,7 +469,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			}
 		}
 
-		internal void AddSelectionPath(ChartArea area, GraphicsPath selectionPath, PointF[] dataPointPos, int firstPointIndex, int secondPointIndex, PointF centerPoint, int borderWidth)
+		public void AddSelectionPath(ChartArea area, GraphicsPath selectionPath, PointF[] dataPointPos, int firstPointIndex, int secondPointIndex, PointF centerPoint, int borderWidth)
 		{
 			PointF middlePoint = this.GetMiddlePoint(dataPointPos[firstPointIndex], dataPointPos[secondPointIndex]);
 			PointF pointF = PointF.Empty;
@@ -558,7 +558,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return array;
 		}
 
-		internal void DrawLabels(ChartArea area, ChartGraphics graph, CommonElements common, PointF markerPosition, int markerSize, DataPoint point, Series ser, int pointIndex)
+		public void DrawLabels(ChartArea area, ChartGraphics graph, CommonElements common, PointF markerPosition, int markerSize, DataPoint point, Series ser, int pointIndex)
 		{
 			string label = point.Label;
 			bool showLabelAsValue = point.ShowLabelAsValue;
@@ -828,7 +828,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 			return point.YValues[yValueIndex];
 		}
 
-		internal double GetEmptyPointValue(DataPoint point, int pointIndex)
+		public double GetEmptyPointValue(DataPoint point, int pointIndex)
 		{
 			Series series = point.series;
 			double num = 0.0;

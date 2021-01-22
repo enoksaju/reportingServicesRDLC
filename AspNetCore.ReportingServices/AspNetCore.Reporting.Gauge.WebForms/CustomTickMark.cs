@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CustomTickMark : GaugeObject
+	public class CustomTickMark : GaugeObject
 	{
 		private bool visible = true;
 

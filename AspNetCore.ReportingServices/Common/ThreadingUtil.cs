@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class ThreadingUtil
+	public static class ThreadingUtil
 	{
-		internal static T ReturnOnDemandValue<T>(ref T valueStorage, object valueLock, CreatorGetter<T> getValue)
+		public static T ReturnOnDemandValue<T>(ref T valueStorage, object valueLock, CreatorGetter<T> getValue)
 		{
 			if (valueStorage != null)
 			{

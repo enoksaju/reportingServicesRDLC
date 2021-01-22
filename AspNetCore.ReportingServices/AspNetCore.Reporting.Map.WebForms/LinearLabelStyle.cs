@@ -5,7 +5,7 @@ using System.Drawing.Design;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LinearLabelStyle : MapObject
+	public class LinearLabelStyle : MapObject
 	{
 		private string formatStr = string.Empty;
 
@@ -246,7 +246,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal string GetFormatStr()
+		public string GetFormatStr()
 		{
 			if (string.IsNullOrEmpty(this.formatStr))
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum Unit
+	public enum Unit
 	{
 		Percentage,
 		Inch,

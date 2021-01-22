@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal abstract class RuntimeCellWithContents : RuntimeCell
+	public abstract class RuntimeCellWithContents : RuntimeCell
 	{
 		private RuntimeRICollection m_cellContents;
 
@@ -23,11 +23,11 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal RuntimeCellWithContents()
+		public RuntimeCellWithContents()
 		{
 		}
 
-		internal RuntimeCellWithContents(RuntimeDataTablixGroupLeafObjReference owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, bool innermost)
+		public RuntimeCellWithContents(RuntimeDataTablixGroupLeafObjReference owner, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode outerGroupingMember, AspNetCore.ReportingServices.ReportIntermediateFormat.ReportHierarchyNode innerGroupingMember, bool innermost)
 			: base(owner, outerGroupingMember, innerGroupingMember, innermost)
 		{
 		}
@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			}
 		}
 
-		internal override bool NextRow()
+		public override bool NextRow()
 		{
 			bool result = base.NextRow();
 			if (this.m_cellContents != null)
@@ -154,7 +154,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 			base.ResolveReferences(memberReferencesCollection, referenceableItems);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (RuntimeCellWithContents.m_declaration == null)
 			{

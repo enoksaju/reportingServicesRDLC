@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal sealed class NativeMethods
+	public sealed class NativeMethods
 	{
 		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
 		public struct DATA_BLOB
@@ -21,12 +21,12 @@ namespace AspNetCore.ReportingServices.Diagnostics
 		public const int LocalMachine = 4;
 
 		[DllImport("crypt32", CharSet = CharSet.Unicode, SetLastError = true)]
-		internal static extern bool CryptProtectData(SafeCryptoBlobIn dataIn, string szDataDescr, IntPtr optionalEntropy, IntPtr pvReserved, IntPtr pPromptStruct, int dwFlags, SafeCryptoBlobOut pDataOut);
+		public static extern bool CryptProtectData(SafeCryptoBlobIn dataIn, string szDataDescr, IntPtr optionalEntropy, IntPtr pvReserved, IntPtr pPromptStruct, int dwFlags, SafeCryptoBlobOut pDataOut);
 
 		[DllImport("crypt32", CharSet = CharSet.Unicode, SetLastError = true)]
-		internal static extern bool CryptUnprotectData(SafeCryptoBlobIn dataIn, StringBuilder ppszDataDescr, IntPtr optionalEntropy, IntPtr pvReserved, IntPtr pPromptStruct, int dwFlags, SafeCryptoBlobOut pDataOut);
+		public static extern bool CryptUnprotectData(SafeCryptoBlobIn dataIn, StringBuilder ppszDataDescr, IntPtr optionalEntropy, IntPtr pvReserved, IntPtr pPromptStruct, int dwFlags, SafeCryptoBlobOut pDataOut);
 
 		[DllImport("kernel32.dll")]
-		internal static extern IntPtr LocalFree(IntPtr hMem);
+		public static extern IntPtr LocalFree(IntPtr hMem);
 	}
 }

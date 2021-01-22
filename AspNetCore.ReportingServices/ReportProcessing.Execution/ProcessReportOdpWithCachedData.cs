@@ -6,7 +6,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal sealed class ProcessReportOdpWithCachedData : ProcessReportOdpInitial
+	public sealed class ProcessReportOdpWithCachedData : ProcessReportOdpInitial
 	{
 		private readonly OnDemandMetadata m_odpMetadataFromDataCache;
 

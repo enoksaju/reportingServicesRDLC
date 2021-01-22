@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class PathRuleCollection : NamedCollection
+	public class PathRuleCollection : NamedCollection
 	{
 		private PathRuleBase this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal PathRuleCollection(NamedElement parent, CommonElements common)
+		public PathRuleCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(PathRuleBase);
@@ -82,7 +82,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			base.List.Remove(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			if (el is PathWidthRule)
 			{
@@ -91,7 +91,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return "PathRule1";
 		}
 
-		internal override string GetElementNameFormat(NamedElement el)
+		public override string GetElementNameFormat(NamedElement el)
 		{
 			if (el is PathWidthRule)
 			{

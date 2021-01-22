@@ -7,9 +7,9 @@ using System.Globalization;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GaugeGraphics : RenderingEngine
+	public class GaugeGraphics : RenderingEngine
 	{
-		internal CommonElements common;
+		public CommonElements common;
 
 		private Pen pen;
 
@@ -19,13 +19,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private float height;
 
-		internal bool softShadows = true;
+		public bool softShadows = true;
 
 		private AntiAliasing antiAliasing = AntiAliasing.All;
 
-		internal bool IsMetafile;
+		public bool IsMetafile;
 
-		internal PointF InitialOffset = new PointF(0f, 0f);
+		public PointF InitialOffset = new PointF(0f, 0f);
 
 		private Stack graphicStates = new Stack();
 
@@ -49,7 +49,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal AntiAliasing AntiAliasing
+		public AntiAliasing AntiAliasing
 		{
 			get
 			{
@@ -72,13 +72,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal static Brush GetHatchBrush(GaugeHatchStyle hatchStyle, Color backColor, Color foreColor)
+		public static Brush GetHatchBrush(GaugeHatchStyle hatchStyle, Color backColor, Color foreColor)
 		{
 			HatchStyle hatchstyle = (HatchStyle)Enum.Parse(typeof(HatchStyle), ((Enum)(object)hatchStyle).ToString((IFormatProvider)CultureInfo.InvariantCulture));
 			return new HatchBrush(hatchstyle, foreColor, backColor);
 		}
 
-		internal Brush GetTextureBrush(string name, Color backImageTranspColor, GaugeImageWrapMode mode)
+		public Brush GetTextureBrush(string name, Color backImageTranspColor, GaugeImageWrapMode mode)
 		{
 			Image image = this.common.ImageLoader.LoadImage(name);
 			ImageAttributes imageAttributes = new ImageAttributes();
@@ -90,18 +90,18 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return new TextureBrush(image, new RectangleF(0f, 0f, (float)image.Width, (float)image.Height), imageAttributes);
 		}
 
-		internal Brush GetShadowBrush()
+		public Brush GetShadowBrush()
 		{
 			return new SolidBrush(this.GetShadowColor());
 		}
 
-		internal Color GetShadowColor()
+		public Color GetShadowColor()
 		{
 			int alpha = (int)(255.0 * this.common.GaugeCore.ShadowIntensity / 100.0);
 			return Color.FromArgb(alpha, Color.Black);
 		}
 
-		internal Brush GetGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor, GradientType type)
+		public Brush GetGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor, GradientType type)
 		{
 			rectangle.Inflate(1f, 1f);
 			Brush brush = null;
@@ -165,7 +165,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return new SolidBrush(Color.Black);
 		}
 
-		internal Brush GetPieGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor)
+		public Brush GetPieGradientBrush(RectangleF rectangle, Color firstColor, Color secondColor)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			graphicsPath.AddEllipse(rectangle);
@@ -184,7 +184,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return pathGradientBrush;
 		}
 
-		internal DashStyle GetPenStyle(GaugeDashStyle style)
+		public DashStyle GetPenStyle(GaugeDashStyle style)
 		{
 			switch (style)
 			{
@@ -201,7 +201,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal Brush GetMarkerBrush(GraphicsPath path, MarkerStyle markerStyle, PointF pointOrigin, float angle, Color fillColor, GradientType fillGradientType, Color fillGradientEndColor, GaugeHatchStyle fillHatchStyle)
+		public Brush GetMarkerBrush(GraphicsPath path, MarkerStyle markerStyle, PointF pointOrigin, float angle, Color fillColor, GradientType fillGradientType, Color fillGradientEndColor, GaugeHatchStyle fillHatchStyle)
 		{
 			Brush brush = null;
 			if (fillHatchStyle != 0)
@@ -271,7 +271,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return brush;
 		}
 
-		internal GraphicsPath CreateMarker(PointF point, float markerWidth, float markerHeight, MarkerStyle markerStyle)
+		public GraphicsPath CreateMarker(PointF point, float markerWidth, float markerHeight, MarkerStyle markerStyle)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			RectangleF empty = RectangleF.Empty;
@@ -401,7 +401,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal PointF[] CreateStarPolygon(RectangleF rectReal, int numberOfCorners)
+		public PointF[] CreateStarPolygon(RectangleF rectReal, int numberOfCorners)
 		{
 			bool flag = true;
 			PointF[] array = new PointF[numberOfCorners * 2];
@@ -428,7 +428,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void DrawPathShadowAbs(GraphicsPath path, Color shadowColor, float shadowWidth)
+		public void DrawPathShadowAbs(GraphicsPath path, Color shadowColor, float shadowWidth)
 		{
 			if (shadowWidth != 0.0)
 			{
@@ -445,7 +445,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void DrawPathAbs(GraphicsPath path, Color backColor, GaugeHatchStyle backHatchStyle, string backImage, GaugeImageWrapMode backImageMode, Color backImageTranspColor, GaugeImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, GaugeDashStyle borderStyle, PenAlignment penAlignment)
+		public void DrawPathAbs(GraphicsPath path, Color backColor, GaugeHatchStyle backHatchStyle, string backImage, GaugeImageWrapMode backImageMode, Color backImageTranspColor, GaugeImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor, Color borderColor, int borderWidth, GaugeDashStyle borderStyle, PenAlignment penAlignment)
 		{
 			Brush brush = null;
 			Brush brush2 = null;
@@ -557,7 +557,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal Brush CreateBrush(RectangleF rect, Color backColor, GaugeHatchStyle backHatchStyle, string backImage, GaugeImageWrapMode backImageMode, Color backImageTranspColor, GaugeImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor)
+		public Brush CreateBrush(RectangleF rect, Color backColor, GaugeHatchStyle backHatchStyle, string backImage, GaugeImageWrapMode backImageMode, Color backImageTranspColor, GaugeImageAlign backImageAlign, GradientType backGradientType, Color backGradientEndColor)
 		{
 			Brush result = new SolidBrush(backColor);
 			if (backImage.Length > 0 && backImageMode != GaugeImageWrapMode.Unscaled && backImageMode != GaugeImageWrapMode.Scaled)
@@ -595,42 +595,42 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.GetAbsoluteSize(sizeInPercents);
 		}
 
-		internal float GetRelativeX(float absoluteX)
+		public float GetRelativeX(float absoluteX)
 		{
 			return (float)(absoluteX * 100.0 / (float)(this.width - 1.0));
 		}
 
-		internal float GetRelativeY(float absoluteY)
+		public float GetRelativeY(float absoluteY)
 		{
 			return (float)(absoluteY * 100.0 / (float)(this.height - 1.0));
 		}
 
-		internal float GetRelativeWidth(float absoluteWidth)
+		public float GetRelativeWidth(float absoluteWidth)
 		{
 			return (float)(absoluteWidth * 100.0 / (float)(this.width - 1.0));
 		}
 
-		internal float GetRelativeHeight(float absoluteHeight)
+		public float GetRelativeHeight(float absoluteHeight)
 		{
 			return (float)(absoluteHeight * 100.0 / (float)(this.height - 1.0));
 		}
 
-		internal float GetAbsoluteX(float relativeX)
+		public float GetAbsoluteX(float relativeX)
 		{
 			return (float)(relativeX * (float)(this.width - 1.0) / 100.0);
 		}
 
-		internal float GetAbsoluteY(float relativeY)
+		public float GetAbsoluteY(float relativeY)
 		{
 			return (float)(relativeY * (float)(this.height - 1.0) / 100.0);
 		}
 
-		internal float GetAbsoluteWidth(float relativeWidth)
+		public float GetAbsoluteWidth(float relativeWidth)
 		{
 			return (float)(relativeWidth * (float)(this.width - 1.0) / 100.0);
 		}
 
-		internal float GetAbsoluteHeight(float relativeHeight)
+		public float GetAbsoluteHeight(float relativeHeight)
 		{
 			return (float)(relativeHeight * (float)(this.height - 1.0) / 100.0);
 		}
@@ -661,7 +661,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return empty;
 		}
 
-		internal float GetAbsoluteDimension(float relative)
+		public float GetAbsoluteDimension(float relative)
 		{
 			if (this.width < this.height)
 			{
@@ -670,7 +670,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.GetAbsoluteHeight(relative);
 		}
 
-		internal float GetRelativeDimension(float absolute)
+		public float GetRelativeDimension(float absolute)
 		{
 			if (this.width < this.height)
 			{
@@ -705,7 +705,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return empty;
 		}
 
-		internal GraphicsPath CreateRoundedRectPath(RectangleF rect, float[] cornerRadius)
+		public GraphicsPath CreateRoundedRectPath(RectangleF rect, float[] cornerRadius)
 		{
 			GraphicsPath graphicsPath = new GraphicsPath();
 			graphicsPath.AddLine(rect.X + cornerRadius[0], rect.Y, rect.Right - cornerRadius[1], rect.Y);
@@ -719,7 +719,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal Brush GetCircularRangeBrush(RectangleF rect, float startAngle, float sweepAngle, Color backColor, GaugeHatchStyle backHatchStyle, string backImage, GaugeImageWrapMode backImageMode, Color backImageTranspColor, GaugeImageAlign backImageAlign, RangeGradientType backGradientType, Color backGradientEndColor)
+		public Brush GetCircularRangeBrush(RectangleF rect, float startAngle, float sweepAngle, Color backColor, GaugeHatchStyle backHatchStyle, string backImage, GaugeImageWrapMode backImageMode, Color backImageTranspColor, GaugeImageAlign backImageAlign, RangeGradientType backGradientType, Color backGradientEndColor)
 		{
 			Brush brush = null;
 			RectangleF absoluteRectangle = this.GetAbsoluteRectangle(rect);
@@ -761,7 +761,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return new SolidBrush(backColor);
 		}
 
-		internal GraphicsPath GetCircularRangePath(RectangleF rect, float startAngle, float sweepAngle, float startRadius, float endRadius, Placement placement)
+		public GraphicsPath GetCircularRangePath(RectangleF rect, float startAngle, float sweepAngle, float startRadius, float endRadius, Placement placement)
 		{
 			if (rect.Width != 0.0 && rect.Height != 0.0)
 			{
@@ -885,7 +885,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return null;
 		}
 
-		internal Color[] GetSurroundColors(Color startColor, Color endColor, int colorCount)
+		public Color[] GetSurroundColors(Color startColor, Color endColor, int colorCount)
 		{
 			Color[] array = new Color[colorCount];
 			array[0] = startColor;
@@ -909,7 +909,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return array;
 		}
 
-		internal GraphicsPath GetLinearRangePath(float startPosition, float endPosition, float startWidth, float endWidth, float scalePosition, GaugeOrientation orientation, float distanceFromScale, Placement placement, float scaleBarWidth)
+		public GraphicsPath GetLinearRangePath(float startPosition, float endPosition, float startWidth, float endWidth, float scalePosition, GaugeOrientation orientation, float distanceFromScale, Placement placement, float scaleBarWidth)
 		{
 			PointF[] array = new PointF[4];
 			array[0].X = endPosition;
@@ -956,7 +956,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal Brush GetLinearRangeBrush(RectangleF absRect, Color backColor, GaugeHatchStyle backHatchStyle, RangeGradientType backGradientType, Color backGradientEndColor, GaugeOrientation orientation, bool reversedScale, double startValue, double endValue)
+		public Brush GetLinearRangeBrush(RectangleF absRect, Color backColor, GaugeHatchStyle backHatchStyle, RangeGradientType backGradientType, Color backGradientEndColor, GaugeOrientation orientation, bool reversedScale, double startValue, double endValue)
 		{
 			Brush brush = null;
 			if (backHatchStyle != 0)
@@ -997,7 +997,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GraphicsPath GetThermometerPath(float startPosition, float endPosition, float barWidth, float scalePosition, GaugeOrientation orientation, float distanceFromScale, Placement placement, bool reversedScale, float scaleBarWidth, float bulbOffset, float bulbSize, ThermometerStyle thermometerStyle)
+		public GraphicsPath GetThermometerPath(float startPosition, float endPosition, float barWidth, float scalePosition, GaugeOrientation orientation, float distanceFromScale, Placement placement, bool reversedScale, float scaleBarWidth, float bulbOffset, float bulbSize, ThermometerStyle thermometerStyle)
 		{
 			PointF[] array = new PointF[4];
 			array[0].X = endPosition;
@@ -1110,7 +1110,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return graphicsPath;
 		}
 
-		internal void GetCircularEdgeReflection(RectangleF bounds, float angle, int alpha, PointF pointOrigin, out GraphicsPath pathResult, out Brush brushResult)
+		public void GetCircularEdgeReflection(RectangleF bounds, float angle, int alpha, PointF pointOrigin, out GraphicsPath pathResult, out Brush brushResult)
 		{
 			pathResult = null;
 			brushResult = null;
@@ -1156,13 +1156,13 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void SetPictureSize(float width, float height)
+		public void SetPictureSize(float width, float height)
 		{
 			this.width = Math.Max(width, 2f);
 			this.height = Math.Max(height, 2f);
 		}
 
-		internal void CreateDrawRegion(RectangleF rect)
+		public void CreateDrawRegion(RectangleF rect)
 		{
 			this.graphicStates.Push(new GaugeGraphState(base.Save(), this.width, this.height));
 			RectangleF absoluteRectangle = this.GetAbsoluteRectangle(rect);
@@ -1174,14 +1174,14 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.SetPictureSize(absoluteRectangle.Size.Width, absoluteRectangle.Size.Height);
 		}
 
-		internal void RestoreDrawRegion()
+		public void RestoreDrawRegion()
 		{
 			GaugeGraphState gaugeGraphState = (GaugeGraphState)this.graphicStates.Pop();
 			base.Restore(gaugeGraphState.state);
 			this.SetPictureSize(gaugeGraphState.width, gaugeGraphState.height);
 		}
 
-		internal GaugeGraphics(CommonElements common)
+		public GaugeGraphics(CommonElements common)
 		{
 			this.common = common;
 			common.Graph = this;
@@ -1195,7 +1195,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			base.Close();
 		}
 
-		internal Pen GetSelectionPen(bool designTimeSelection, Color borderColor)
+		public Pen GetSelectionPen(bool designTimeSelection, Color borderColor)
 		{
 			Pen pen = null;
 			if (designTimeSelection)
@@ -1222,12 +1222,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return pen;
 		}
 
-		internal Brush GetDesignTimeSelectionFillBrush()
+		public Brush GetDesignTimeSelectionFillBrush()
 		{
 			return new SolidBrush(Color.White);
 		}
 
-		internal Pen GetDesignTimeSelectionBorderPen()
+		public Pen GetDesignTimeSelectionBorderPen()
 		{
 			Pen pen = null;
 			pen = new Pen(Color.Black);
@@ -1235,12 +1235,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return pen;
 		}
 
-		internal void DrawSelection(RectangleF rect, bool designTimeSelection, Color borderColor, Color markerColor)
+		public void DrawSelection(RectangleF rect, bool designTimeSelection, Color borderColor, Color markerColor)
 		{
 			this.DrawSelection(rect, (float)(3.0 / this.Graphics.PageScale), designTimeSelection, borderColor, markerColor);
 		}
 
-		internal void DrawSelection(RectangleF rect, float inflateBy, bool designTimeSelection, Color borderColor, Color markerColor)
+		public void DrawSelection(RectangleF rect, float inflateBy, bool designTimeSelection, Color borderColor, Color markerColor)
 		{
 			float num = 20f;
 			rect.Inflate(inflateBy, inflateBy);
@@ -1315,7 +1315,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void DrawRadialSelection(GaugeGraphics g, GraphicsPath selectionPath, PointF[] markerPositions, bool designTimeSelection, Color borderColor, Color markerColor)
+		public void DrawRadialSelection(GaugeGraphics g, GraphicsPath selectionPath, PointF[] markerPositions, bool designTimeSelection, Color borderColor, Color markerColor)
 		{
 			base.DrawPath(this.GetSelectionPen(designTimeSelection, borderColor), selectionPath);
 			float num = (float)(6.0 / this.Graphics.PageScale);

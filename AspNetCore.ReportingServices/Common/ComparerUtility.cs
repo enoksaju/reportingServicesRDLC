@@ -2,9 +2,9 @@ using System;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal static class ComparerUtility
+	public static class ComparerUtility
 	{
-		internal static Type GetNumericDateTypeFromDataTypeCode(DataTypeCode typeCode)
+		public static Type GetNumericDateTypeFromDataTypeCode(DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static DataTypeCode GetCommonVariantConversionType(DataTypeCode x, DataTypeCode y)
+		public static DataTypeCode GetCommonVariantConversionType(DataTypeCode x, DataTypeCode y)
 		{
 			if (y == DataTypeCode.Double && ComparerUtility.IsComparableToReal(x))
 			{
@@ -93,7 +93,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static bool IsNumericVariant(DataTypeCode typeCode)
+		public static bool IsNumericVariant(DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -107,7 +107,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static bool IsNumericDateVariant(DataTypeCode typeCode)
+		public static bool IsNumericDateVariant(DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static bool IsNonNumericVariant(DataTypeCode typeCode)
+		public static bool IsNonNumericVariant(DataTypeCode typeCode)
 		{
 			DataTypeCode dataTypeCode = typeCode;
 			if (dataTypeCode != DataTypeCode.Boolean && dataTypeCode != DataTypeCode.String)
@@ -133,7 +133,7 @@ namespace AspNetCore.ReportingServices.Common
 			return true;
 		}
 
-		internal static bool IsNumericLessThanZero(object value)
+		public static bool IsNumericLessThanZero(object value)
 		{
 			if (value is int)
 			{
@@ -182,7 +182,7 @@ namespace AspNetCore.ReportingServices.Common
 			return false;
 		}
 
-		internal static bool IsLessThanReal(DataTypeCode typeCode)
+		public static bool IsLessThanReal(DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -195,7 +195,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static bool IsLessThanCurrency(DataTypeCode typeCode)
+		public static bool IsLessThanCurrency(DataTypeCode typeCode)
 		{
 			switch (typeCode)
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal static bool IsLessThanInt64(DataTypeCode typeCode)
+		public static bool IsLessThanInt64(DataTypeCode typeCode)
 		{
 			return typeCode == DataTypeCode.Int32;
 		}

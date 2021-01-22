@@ -6,9 +6,9 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
 	[ArrayOfReferences]
-	internal sealed class DataRegionList : ArrayList
+	public sealed class DataRegionList : ArrayList
 	{
-		internal new DataRegion this[int index]
+		public new DataRegion this[int index]
 		{
 			get
 			{
@@ -16,11 +16,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal DataRegionList()
+		public DataRegionList()
 		{
 		}
 
-		internal DataRegionList(int capacity)
+		public DataRegionList(int capacity)
 			: base(capacity)
 		{
 		}

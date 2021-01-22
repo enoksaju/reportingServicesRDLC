@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal abstract class VisibilityInstance : BaseInstance
+	public abstract class VisibilityInstance : BaseInstance
 	{
 		protected bool m_cachedStartHidden;
 
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			get;
 		}
 
-		internal VisibilityInstance(IReportScope reportScope)
+		public VisibilityInstance(IReportScope reportScope)
 			: base(reportScope)
 		{
 		}

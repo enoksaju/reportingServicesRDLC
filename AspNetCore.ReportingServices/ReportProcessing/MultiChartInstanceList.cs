@@ -4,9 +4,9 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class MultiChartInstanceList : ArrayList
+	public sealed class MultiChartInstanceList : ArrayList
 	{
-		internal new MultiChartInstance this[int index]
+		public new MultiChartInstance this[int index]
 		{
 			get
 			{
@@ -14,11 +14,11 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal MultiChartInstanceList()
+		public MultiChartInstanceList()
 		{
 		}
 
-		internal MultiChartInstanceList(int capacity)
+		public MultiChartInstanceList(int capacity)
 			: base(capacity)
 		{
 		}

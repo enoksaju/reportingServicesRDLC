@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum TextVisibility
+	public enum TextVisibility
 	{
 		Shown,
 		Hidden,

@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Common
 {
-	internal sealed class CommonDataComparer : IDataComparer, IEqualityComparer, IEqualityComparer<object>, IComparer, IComparer<object>
+	public sealed class CommonDataComparer : IDataComparer, IEqualityComparer, IEqualityComparer<object>, IComparer, IComparer<object>
 	{
 		private const bool DefaultThrowExceptionOnComparisonFailure = false;
 
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.Common
 			}
 		}
 
-		internal CommonDataComparer(CompareInfo compareInfo, CompareOptions compareOptions, bool nullsAsBlanks)
+		public CommonDataComparer(CompareInfo compareInfo, CompareOptions compareOptions, bool nullsAsBlanks)
 		{
 			this.m_compareInfo = compareInfo;
 			if (this.m_compareInfo == null)

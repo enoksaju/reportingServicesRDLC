@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapLegend : MapDockableSubItem
+	public sealed class MapLegend : MapDockableSubItem
 	{
 		private ReportEnumProperty<MapLegendLayout> m_layout;
 
@@ -129,7 +129,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapLegend MapLegendDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapLegend MapLegendDef
 		{
 			get
 			{
@@ -145,12 +145,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapLegend(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLegend defObject, Map map)
+		public MapLegend(AspNetCore.ReportingServices.ReportIntermediateFormat.MapLegend defObject, Map map)
 			: base(defObject, map)
 		{
 		}
 
-		internal override MapSubItemInstance GetInstance()
+		public override MapSubItemInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -163,7 +163,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return (MapSubItemInstance)base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

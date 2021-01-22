@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal class RenderReportYukonInitial : RenderReportYukon
+	public class RenderReportYukonInitial : RenderReportYukon
 	{
 		private readonly DateTime m_executionTimeStamp;
 

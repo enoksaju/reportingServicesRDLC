@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Common;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class GaugeDynamicMemberInstance : GaugeMemberInstance, IDynamicInstance, IReportScopeInstance
+	public class GaugeDynamicMemberInstance : GaugeMemberInstance, IDynamicInstance, IReportScopeInstance
 	{
 		private readonly InternalDynamicMemberLogic m_memberLogic;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeDynamicMemberInstance(GaugePanel owner, GaugeMember memberDef, InternalDynamicMemberLogic memberLogic)
+		public GaugeDynamicMemberInstance(GaugePanel owner, GaugeMember memberDef, InternalDynamicMemberLogic memberLogic)
 			: base(owner, memberDef)
 		{
 			this.m_memberLogic = memberLogic;
@@ -91,12 +91,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_memberLogic.GetInstanceIndex();
 		}
 
-		internal ScopeID GetScopeID()
+		public ScopeID GetScopeID()
 		{
 			return this.m_memberLogic.GetScopeID();
 		}
 
-		internal void SetScopeID(ScopeID scopeID)
+		public void SetScopeID(ScopeID scopeID)
 		{
 			this.m_memberLogic.SetScopeID(scopeID);
 		}

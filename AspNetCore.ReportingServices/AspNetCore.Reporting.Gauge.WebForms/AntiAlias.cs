@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum AntiAlias
+	public enum AntiAlias
 	{
 		On,
 		Off

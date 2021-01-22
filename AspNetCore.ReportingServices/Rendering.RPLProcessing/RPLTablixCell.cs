@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal class RPLTablixCell
+	public class RPLTablixCell
 	{
 		private IRPLItemFactory m_cellElement;
 
@@ -101,17 +101,17 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTablixCell()
+		public RPLTablixCell()
 		{
 		}
 
-		internal RPLTablixCell(RPLItem element, byte elementState)
+		public RPLTablixCell(RPLItem element, byte elementState)
 		{
 			this.m_cellElement = element;
 			this.m_cellElementState = elementState;
 		}
 
-		internal void SetOffset(long offset, RPLContext context)
+		public void SetOffset(long offset, RPLContext context)
 		{
 			if (offset >= 0)
 			{

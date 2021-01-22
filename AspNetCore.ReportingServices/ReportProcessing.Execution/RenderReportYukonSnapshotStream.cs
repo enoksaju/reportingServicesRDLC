@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.ReportProcessing.Execution
 {
-	internal sealed class RenderReportYukonSnapshotStream : RenderReportYukonSnapshot
+	public sealed class RenderReportYukonSnapshotStream : RenderReportYukonSnapshot
 	{
 		private readonly string m_streamName;
 

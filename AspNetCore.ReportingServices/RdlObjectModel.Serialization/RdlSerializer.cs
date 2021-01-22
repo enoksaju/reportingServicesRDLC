@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel.Serialization
 {
-	internal class RdlSerializer
+	public class RdlSerializer
 	{
 		private RdlSerializerSettings m_settings;
 

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal sealed class EmbeddedFont
+	public sealed class EmbeddedFont
 	{
 		private int m_objectId;
 
@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 
 		private List<PDFFont> m_fonts = new List<PDFFont>();
 
-		internal int ObjectId
+		public int ObjectId
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal int ToUnicodeId
+		public int ToUnicodeId
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal List<PDFFont> PDFFonts
+		public List<PDFFont> PDFFonts
 		{
 			get
 			{
@@ -34,13 +34,13 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal EmbeddedFont(int objectId, int toUnicodeId)
+		public EmbeddedFont(int objectId, int toUnicodeId)
 		{
 			this.m_objectId = objectId;
 			this.m_toUnicodeId = toUnicodeId;
 		}
 
-		internal ushort[] GetGlyphIdArray()
+		public ushort[] GetGlyphIdArray()
 		{
 			int num = 0;
 			foreach (PDFFont font in this.m_fonts)
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			return array;
 		}
 
-		internal IEnumerable<CMapMapping> GetGlyphIdToUnicodeMapping()
+		public IEnumerable<CMapMapping> GetGlyphIdToUnicodeMapping()
 		{
 			int num = 0;
 			foreach (PDFFont font in this.m_fonts)

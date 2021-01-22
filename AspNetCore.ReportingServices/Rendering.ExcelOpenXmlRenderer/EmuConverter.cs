@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer
 {
-	internal static class EmuConverter
+	public static class EmuConverter
 	{
 		private const uint EmusPerPoint = 12700u;
 

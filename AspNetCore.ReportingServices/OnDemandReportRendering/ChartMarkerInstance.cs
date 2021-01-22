@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartMarkerInstance : BaseInstance
+	public sealed class ChartMarkerInstance : BaseInstance
 	{
 		private ChartMarker m_markerDef;
 
@@ -46,7 +46,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartMarkerInstance(ChartMarker markerDef)
+		public ChartMarkerInstance(ChartMarker markerDef)
 			: base(markerDef.ReportScope)
 		{
 			this.m_markerDef = markerDef;

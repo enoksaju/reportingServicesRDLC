@@ -2,7 +2,7 @@ using System.Collections;
 
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class RuntimeUserSortTargetInfo
+	public sealed class RuntimeUserSortTargetInfo
 	{
 		private ReportProcessing.BTreeNode m_sortTree;
 
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 
 		private Hashtable m_targetForDetailSort;
 
-		internal ReportProcessing.BTreeNode SortTree
+		public ReportProcessing.BTreeNode SortTree
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportProcessing.AggregateRowList AggregateRows
+		public ReportProcessing.AggregateRowList AggregateRows
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal IntList SortFilterInfoIndices
+		public IntList SortFilterInfoIndices
 		{
 			get
 			{
@@ -50,7 +50,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool TargetForNonDetailSort
+		public bool TargetForNonDetailSort
 		{
 			get
 			{
@@ -58,12 +58,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal RuntimeUserSortTargetInfo(ReportProcessing.IHierarchyObj owner, int sortInfoIndex, RuntimeSortFilterEventInfo sortInfo)
+		public RuntimeUserSortTargetInfo(ReportProcessing.IHierarchyObj owner, int sortInfoIndex, RuntimeSortFilterEventInfo sortInfo)
 		{
 			this.AddSortInfo(owner, sortInfoIndex, sortInfo);
 		}
 
-		internal void AddSortInfo(ReportProcessing.IHierarchyObj owner, int sortInfoIndex, RuntimeSortFilterEventInfo sortInfo)
+		public void AddSortInfo(ReportProcessing.IHierarchyObj owner, int sortInfoIndex, RuntimeSortFilterEventInfo sortInfo)
 		{
 			if (sortInfo.EventSource.UserSort.SortExpressionScope != null || owner.IsDetail)
 			{
@@ -94,7 +94,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void AddSortInfoIndex(int sortInfoIndex, RuntimeSortFilterEventInfo sortInfo)
+		public void AddSortInfoIndex(int sortInfoIndex, RuntimeSortFilterEventInfo sortInfo)
 		{
 			Global.Tracer.Assert(sortInfo.EventSource.UserSort.SortExpressionScope == null || !sortInfo.TargetSortFilterInfoAdded);
 			if (this.m_sortFilterInfoIndices == null)
@@ -105,12 +105,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			sortInfo.TargetSortFilterInfoAdded = true;
 		}
 
-		internal void ResetTargetForNonDetailSort()
+		public void ResetTargetForNonDetailSort()
 		{
 			this.m_targetForNonDetailSort = null;
 		}
 
-		internal bool IsTargetForSort(int index, bool detailSort)
+		public bool IsTargetForSort(int index, bool detailSort)
 		{
 			Hashtable hashtable = this.m_targetForNonDetailSort;
 			if (detailSort)
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return false;
 		}
 
-		internal void MarkSortInfoProcessed(RuntimeSortFilterEventInfoList runtimeSortFilterInfo, ReportProcessing.IHierarchyObj sortTarget)
+		public void MarkSortInfoProcessed(RuntimeSortFilterEventInfoList runtimeSortFilterInfo, ReportProcessing.IHierarchyObj sortTarget)
 		{
 			if (this.m_targetForNonDetailSort != null)
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void EnterProcessUserSortPhase(ReportProcessing.ProcessingContext pc)
+		public void EnterProcessUserSortPhase(ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_sortFilterInfoIndices != null)
 			{
@@ -161,7 +161,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void LeaveProcessUserSortPhase(ReportProcessing.ProcessingContext pc)
+		public void LeaveProcessUserSortPhase(ReportProcessing.ProcessingContext pc)
 		{
 			if (this.m_sortFilterInfoIndices != null)
 			{

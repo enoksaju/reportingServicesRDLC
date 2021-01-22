@@ -3,17 +3,17 @@ using System.ComponentModel.Design;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CommonElements
+	public class CommonElements
 	{
 		private GaugeGraphics graph;
 
-		internal IServiceContainer container;
+		public IServiceContainer container;
 
-		internal bool processModePaint = true;
+		public bool processModePaint = true;
 
-		internal bool processModeRegions;
+		public bool processModeRegions;
 
-		internal ObjectLinker objectLinker;
+		public ObjectLinker objectLinker;
 
 		private int width;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 
 		private GaugeCore gaugeCore;
 
-		internal ImageLoader ImageLoader
+		public ImageLoader ImageLoader
 		{
 			get
 			{
@@ -29,7 +29,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GaugeCore GaugeCore
+		public GaugeCore GaugeCore
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GaugeContainer GaugeContainer
+		public GaugeContainer GaugeContainer
 		{
 			get
 			{
@@ -49,7 +49,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal GaugeGraphics Graph
+		public GaugeGraphics Graph
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal ObjectLinker ObjectLinker
+		public ObjectLinker ObjectLinker
 		{
 			get
 			{
@@ -73,7 +73,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal int Width
+		public int Width
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal int Height
+		public int Height
 		{
 			get
 			{
@@ -97,19 +97,19 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal CommonElements(IServiceContainer container)
+		public CommonElements(IServiceContainer container)
 		{
 			this.container = container;
 			this.objectLinker = new ObjectLinker(this.GaugeCore);
 			this.objectLinker.Common = this;
 		}
 
-		internal void InvokePrePaint(object sender)
+		public void InvokePrePaint(object sender)
 		{
 			this.GaugeContainer.OnPrePaint(sender, new GaugePaintEventArgs(this.GaugeContainer, this.graph));
 		}
 
-		internal void InvokePostPaint(object sender)
+		public void InvokePostPaint(object sender)
 		{
 			this.GaugeContainer.OnPostPaint(sender, new GaugePaintEventArgs(this.GaugeContainer, this.graph));
 		}

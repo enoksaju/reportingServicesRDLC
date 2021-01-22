@@ -8,9 +8,9 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CircularGaugeConverter))]
-	internal sealed class CircularGauge : GaugeBase, ISelectable
+	public sealed class CircularGauge : GaugeBase, ISelectable
 	{
-		internal RectangleF absoluteRect = RectangleF.Empty;
+		public RectangleF absoluteRect = RectangleF.Empty;
 
 		private CircularScaleCollection scales;
 
@@ -84,7 +84,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override CommonElements Common
+		public override CommonElements Common
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.Name;
 		}
 
-		internal void RenderTopImage(GaugeGraphics g)
+		public void RenderTopImage(GaugeGraphics g)
 		{
 			if (base.TopImage != "")
 			{
@@ -141,7 +141,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override RectangleF GetAspectRatioBounds()
+		public override RectangleF GetAspectRatioBounds()
 		{
 			if (double.IsNaN((double)base.AspectRatio))
 			{
@@ -189,7 +189,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return rectangle;
 		}
 
-		internal override void BeginInit()
+		public override void BeginInit()
 		{
 			base.BeginInit();
 			this.Scales.BeginInit();
@@ -198,7 +198,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Knobs.BeginInit();
 		}
 
-		internal override void EndInit()
+		public override void EndInit()
 		{
 			base.EndInit();
 			this.Scales.EndInit();
@@ -216,14 +216,14 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Knobs.Dispose();
 		}
 
-		internal override void ReconnectData(bool exact)
+		public override void ReconnectData(bool exact)
 		{
 			base.ReconnectData(exact);
 			this.Pointers.ReconnectData(exact);
 			this.Knobs.ReconnectData(exact);
 		}
 
-		internal override void Notify(MessageType msg, NamedElement element, object param)
+		public override void Notify(MessageType msg, NamedElement element, object param)
 		{
 			base.Notify(msg, element, param);
 			this.Scales.Notify(msg, element, param);
@@ -232,12 +232,12 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Knobs.Notify(msg, element, param);
 		}
 
-		internal override IEnumerable GetRanges()
+		public override IEnumerable GetRanges()
 		{
 			return this.ranges;
 		}
 
-		internal override void PointerValueChanged(PointerBase sender)
+		public override void PointerValueChanged(PointerBase sender)
 		{
 			ScaleBase scaleBase = sender.GetScaleBase();
 			if (scaleBase != null)
@@ -253,7 +253,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override RectangleF GetBoundRect(GaugeGraphics g)
+		public override RectangleF GetBoundRect(GaugeGraphics g)
 		{
 			if (this.Common != null)
 			{
@@ -291,7 +291,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return base.Position.Rectangle;
 		}
 
-		internal override void RenderStaticElements(GaugeGraphics g)
+		public override void RenderStaticElements(GaugeGraphics g)
 		{
 			if (base.Visible)
 			{
@@ -337,7 +337,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void RenderDynamicElements(GaugeGraphics g)
+		public override void RenderDynamicElements(GaugeGraphics g)
 		{
 			if (base.Visible)
 			{
@@ -380,7 +380,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderDynamicShadows(GaugeGraphics g)
+		public void RenderDynamicShadows(GaugeGraphics g)
 		{
 			using (GraphicsPath graphicsPath = new GraphicsPath())
 			{
@@ -408,7 +408,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderStaticShadows(GaugeGraphics g)
+		public void RenderStaticShadows(GaugeGraphics g)
 		{
 			using (GraphicsPath graphicsPath = new GraphicsPath())
 			{

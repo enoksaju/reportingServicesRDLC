@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class PointerImage : BaseGaugeImage
+	public sealed class PointerImage : BaseGaugeImage
 	{
 		private ReportColorProperty m_hueColor;
 
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.PointerImage PointerImageDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.PointerImage PointerImageDef
 		{
 			get
 			{
@@ -81,14 +81,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal PointerImage(AspNetCore.ReportingServices.ReportIntermediateFormat.PointerImage defObject, GaugePanel gaugePanel)
+		public PointerImage(AspNetCore.ReportingServices.ReportIntermediateFormat.PointerImage defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override BaseGaugeImageInstance GetInstance()
+		public override BaseGaugeImageInstance GetInstance()
 		{
 			if (base.m_gaugePanel.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -101,7 +101,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

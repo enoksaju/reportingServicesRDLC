@@ -4,11 +4,11 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal abstract class InstanceInfoOwner
+	public abstract class InstanceInfoOwner
 	{
 		protected InfoBase m_instanceInfo;
 
-		internal OffsetInfo OffsetInfo
+		public OffsetInfo OffsetInfo
 		{
 			get
 			{
@@ -25,7 +25,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal long ChunkOffset
+		public long ChunkOffset
 		{
 			get
 			{
@@ -37,12 +37,12 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void SetOffset(long offset)
+		public void SetOffset(long offset)
 		{
 			this.m_instanceInfo = new OffsetInfo(offset);
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.OffsetInfo, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.OffsetInfo));

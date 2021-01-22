@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_CellAlignment : OoxmlComplexType
+	public class CT_CellAlignment : OoxmlComplexType
 	{
 		private ST_HorizontalAlignment _horizontal_attr;
 

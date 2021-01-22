@@ -10,7 +10,7 @@ using System.IO;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(LinearScaleConverter))]
-	internal sealed class LinearScale : ScaleBase, ISelectable
+	public sealed class LinearScale : ScaleBase, ISelectable
 	{
 		private float position = 50f;
 
@@ -181,7 +181,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal LinearGauge ParentGauge
+		public LinearGauge ParentGauge
 		{
 			get
 			{
@@ -312,7 +312,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.Common.GaugeCore.HotRegionList.SetHotRegion(this, PointF.Empty, barPath);
 		}
 
-		internal GraphicsPath GetShadowPath()
+		public GraphicsPath GetShadowPath()
 		{
 			if (base.Visible && base.ShadowOffset != 0.0 && this.Width > 0.0)
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void DrawTickMark(GaugeGraphics g, CustomTickMark tickMark, double value, float offset)
+		public override void DrawTickMark(GaugeGraphics g, CustomTickMark tickMark, double value, float offset)
 		{
 			float num = this.GetPositionFromValue(value);
 			PointF absolutePoint = g.GetAbsolutePoint(this.GetPoint(num, offset));
@@ -353,7 +353,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override LinearLabelStyle GetLabelStyle()
+		public override LinearLabelStyle GetLabelStyle()
 		{
 			return this.LabelStyle;
 		}
@@ -535,7 +535,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal override void DrawCustomLabel(CustomLabel label)
+		public override void DrawCustomLabel(CustomLabel label)
 		{
 			if (base.staticRendering)
 			{
@@ -550,7 +550,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.DrawTickMark(this.Common.Graph, label.TickMarkStyle, label.Value, base.GetTickMarkOffset(label.TickMarkStyle));
 		}
 
-		internal override void DrawSpecialPosition(GaugeGraphics g, SpecialPosition label, float angle)
+		public override void DrawSpecialPosition(GaugeGraphics g, SpecialPosition label, float angle)
 		{
 			if (label.Enable)
 			{
@@ -568,7 +568,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderStaticElements(GaugeGraphics g)
+		public void RenderStaticElements(GaugeGraphics g)
 		{
 			if (base.Visible)
 			{
@@ -606,7 +606,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void RenderDynamicElements(GaugeGraphics g)
+		public void RenderDynamicElements(GaugeGraphics g)
 		{
 			if (base.Visible && base.TickMarksOnTop)
 			{
@@ -666,7 +666,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return empty;
 		}
 
-		internal override double GetValue(PointF c, PointF p)
+		public override double GetValue(PointF c, PointF p)
 		{
 			if (this.Common != null)
 			{

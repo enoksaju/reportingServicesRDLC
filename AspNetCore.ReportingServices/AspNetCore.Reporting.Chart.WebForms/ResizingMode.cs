@@ -1,7 +1,7 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeResizingMode")]
-	internal enum ResizingMode
+	public enum ResizingMode
 	{
 		TopLeftHandle,
 		TopHandle,

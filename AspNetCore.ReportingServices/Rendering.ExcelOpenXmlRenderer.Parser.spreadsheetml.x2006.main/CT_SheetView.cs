@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.Parser.spreadsheetml.x2006.main
 {
-	internal class CT_SheetView : OoxmlComplexType
+	public class CT_SheetView : OoxmlComplexType
 	{
 		private OoxmlBool _windowProtection_attr;
 

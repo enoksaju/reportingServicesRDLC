@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum BackgroundGradientTypes
+	public enum BackgroundGradientTypes
 	{
 		StartToEnd,
 		None,

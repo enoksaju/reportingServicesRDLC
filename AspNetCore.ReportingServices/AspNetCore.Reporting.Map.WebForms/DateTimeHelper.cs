@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal static class DateTimeHelper
+	public static class DateTimeHelper
 	{
 		public static string ToOdataJson(DateTime dateTime)
 		{

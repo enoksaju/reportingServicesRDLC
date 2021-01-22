@@ -3,7 +3,7 @@ using System;
 namespace AspNetCore.ReportingServices.Interfaces
 {
 	[AttributeUsage(AttributeTargets.All)]
-	internal class LocalizedNameAttribute : Attribute
+	public class LocalizedNameAttribute : Attribute
 	{
 		private string m_name;
 

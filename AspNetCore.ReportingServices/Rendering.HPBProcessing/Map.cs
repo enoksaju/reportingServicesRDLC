@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class Map : DynamicImage, IStorable, IPersistable
+	public sealed class Map : DynamicImage, IStorable, IPersistable
 	{
 		private static Declaration m_declaration = Map.GetDeclaration();
 
@@ -27,11 +27,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal Map()
+		public Map()
 		{
 		}
 
-		internal Map(AspNetCore.ReportingServices.OnDemandReportRendering.Map source, PageContext pageContext)
+		public Map(AspNetCore.ReportingServices.OnDemandReportRendering.Map source, PageContext pageContext)
 			: base(source)
 		{
 			AspNetCore.ReportingServices.OnDemandReportRendering.Map map = (AspNetCore.ReportingServices.OnDemandReportRendering.Map)base.m_source;
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.Map;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (Map.m_declaration == null)
 			{

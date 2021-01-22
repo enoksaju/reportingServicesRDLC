@@ -4,7 +4,7 @@ using System.Collections;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ProcessingMessageList : ArrayList
+	public sealed class ProcessingMessageList : ArrayList
 	{
 		public new ProcessingMessage this[int index]
 		{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		{
 		}
 
-		internal ProcessingMessageList(int capacity)
+		public ProcessingMessageList(int capacity)
 			: base(capacity)
 		{
 		}

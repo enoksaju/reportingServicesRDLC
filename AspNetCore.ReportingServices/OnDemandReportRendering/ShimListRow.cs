@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportRendering;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimListRow : TablixRow
+	public sealed class ShimListRow : TablixRow
 	{
 		private ReportSize m_height;
 
@@ -41,13 +41,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimListRow(Tablix owner)
+		public ShimListRow(Tablix owner)
 			: base(owner, 0)
 		{
 			this.m_cell = new ShimListCell(owner);
 		}
 
-		internal void UpdateCells(ListContent renderContents)
+		public void UpdateCells(ListContent renderContents)
 		{
 			this.m_cell.SetCellContents(renderContents);
 		}

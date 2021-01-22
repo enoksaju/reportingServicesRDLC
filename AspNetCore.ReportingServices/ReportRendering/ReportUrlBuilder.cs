@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ReportUrlBuilder
+	public sealed class ReportUrlBuilder
 	{
 		private string m_replacementRoot;
 
@@ -15,7 +15,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 
 		private bool m_useRepacementRoot = true;
 
-		internal ReportUrlBuilder(RenderingContext reportContext, ICatalogItemContext changedContext, string initialUrl, string replacementRoot)
+		public ReportUrlBuilder(RenderingContext reportContext, ICatalogItemContext changedContext, string initialUrl, string replacementRoot)
 		{
 			ICatalogItemContext currentICatalogItemContext = (changedContext == null) ? reportContext.TopLevelReportContext : changedContext;
 			ICatalogItemContext catalogItemContext = default(ICatalogItemContext);
@@ -24,7 +24,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_replacementRoot = replacementRoot;
 		}
 
-		internal ReportUrlBuilder(RenderingContext reportContext, string initialUrl, string replacementRoot)
+		public ReportUrlBuilder(RenderingContext reportContext, string initialUrl, string replacementRoot)
 		{
 			ICatalogItemContext topLevelReportContext = reportContext.TopLevelReportContext;
 			ICatalogItemContext catalogItemContext = default(ICatalogItemContext);
@@ -33,7 +33,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			this.m_replacementRoot = replacementRoot;
 		}
 
-		internal ReportUrlBuilder(RenderingContext reportContext, string initialUrl, bool useReplacementRoot, bool addReportParameters)
+		public ReportUrlBuilder(RenderingContext reportContext, string initialUrl, bool useReplacementRoot, bool addReportParameters)
 		{
 			ICatalogItemContext topLevelReportContext = reportContext.TopLevelReportContext;
 			ICatalogItemContext catalogItemContext = default(ICatalogItemContext);

@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Body2005 : Body
+	public class Body2005 : Body
 	{
 		public new class Definition : DefinitionStore<Body2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Columns = 3,
 				ColumnSpacing,

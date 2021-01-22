@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartLegendColumn : ChartObjectCollectionItem<ChartLegendColumnInstance>, IROMStyleDefinitionContainer, IROMActionOwner
+	public sealed class ChartLegendColumn : ChartObjectCollectionItem<ChartLegendColumnInstance>, IROMStyleDefinitionContainer, IROMActionOwner
 	{
 		private Chart m_chart;
 
@@ -166,7 +166,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal Chart ChartDef
+		public Chart ChartDef
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendColumn ChartLegendColumnDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendColumn ChartLegendColumnDef
 		{
 			get
 			{
@@ -198,13 +198,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartLegendColumn(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendColumn chartLegendColumnDef, Chart chart)
+		public ChartLegendColumn(AspNetCore.ReportingServices.ReportIntermediateFormat.ChartLegendColumn chartLegendColumnDef, Chart chart)
 		{
 			this.m_chartLegendColumnDef = chartLegendColumnDef;
 			this.m_chart = chart;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (this.m_style != null)

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapColorPaletteRule : MapColorRule
+	public sealed class MapColorPaletteRule : MapColorRule
 	{
 		private ReportEnumProperty<MapPalette> m_palette;
 
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorPaletteRule MapColorPaletteRuleDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorPaletteRule MapColorPaletteRuleDef
 		{
 			get
 			{
@@ -34,12 +34,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapColorPaletteRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorPaletteRule defObject, MapVectorLayer mapVectorLayer, Map map)
+		public MapColorPaletteRule(AspNetCore.ReportingServices.ReportIntermediateFormat.MapColorPaletteRule defObject, MapVectorLayer mapVectorLayer, Map map)
 			: base(defObject, mapVectorLayer, map)
 		{
 		}
 
-		internal override MapAppearanceRuleInstance GetInstance()
+		public override MapAppearanceRuleInstance GetInstance()
 		{
 			if (base.m_map.RenderingContext.InstanceAccessDisallowed)
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return base.m_instance;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

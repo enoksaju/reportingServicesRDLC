@@ -2,13 +2,13 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ChartSeriesDataPoints
+	public sealed class ChartSeriesDataPoints
 	{
 		private int m_count;
 
 		private ChartDataPoint[] m_seriesCells;
 
-		internal ChartDataPoint this[int index]
+		public ChartDataPoint this[int index]
 		{
 			get
 			{
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ChartSeriesDataPoints(int count)
+		public ChartSeriesDataPoints(int count)
 		{
 			this.m_count = count;
 		}

@@ -10,7 +10,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 		[CLSCompliant(false)]
 		protected IList<ChartFormulaParameterExprHost> m_formulaParametersHostsRemotable;
 
-		internal IList<ChartFormulaParameterExprHost> ChartFormulaParametersHostsRemotable
+		public IList<ChartFormulaParameterExprHost> ChartFormulaParametersHostsRemotable
 		{
 			get
 			{

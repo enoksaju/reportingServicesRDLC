@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class LinearMinorTickMark : TickMark
+	public class LinearMinorTickMark : TickMark
 	{
 		[NotifyParentProperty(true)]
 		[SRCategory("CategoryAttribute_Appearance")]

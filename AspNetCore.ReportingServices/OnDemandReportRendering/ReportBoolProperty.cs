@@ -3,7 +3,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ReportBoolProperty : ReportProperty
+	public sealed class ReportBoolProperty : ReportProperty
 	{
 		private bool m_value;
 
@@ -15,17 +15,17 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportBoolProperty()
+		public ReportBoolProperty()
 		{
 			this.m_value = false;
 		}
 
-		internal ReportBoolProperty(bool value)
+		public ReportBoolProperty(bool value)
 		{
 			this.m_value = value;
 		}
 
-		internal ReportBoolProperty(AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo expression)
+		public ReportBoolProperty(AspNetCore.ReportingServices.ReportProcessing.ExpressionInfo expression)
 			: base(expression != null && expression.IsExpression, (expression == null) ? null : expression.OriginalText)
 		{
 			if (expression != null && !expression.IsExpression)
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportBoolProperty(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
+		public ReportBoolProperty(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression)
 			: base(expression != null && expression.IsExpression, (expression == null) ? null : expression.OriginalText)
 		{
 			if (expression != null && !expression.IsExpression)
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ReportBoolProperty(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression, bool value)
+		public ReportBoolProperty(AspNetCore.ReportingServices.ReportIntermediateFormat.ExpressionInfo expression, bool value)
 			: base(expression != null && expression.IsExpression, (expression == null) ? null : expression.OriginalText)
 		{
 			if (expression != null && !expression.IsExpression)

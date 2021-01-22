@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
-    internal sealed class DataSource
+    public sealed class DataSource
 	{
 		public string Name
 		{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Internal
 			set;
 		}
 
-		internal DataSource()
+		public DataSource()
 		{
 		}
 	}

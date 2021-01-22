@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class PlaybackStateChangedEventArgs : EventArgs
+	public class PlaybackStateChangedEventArgs : EventArgs
 	{
 		private double value;
 

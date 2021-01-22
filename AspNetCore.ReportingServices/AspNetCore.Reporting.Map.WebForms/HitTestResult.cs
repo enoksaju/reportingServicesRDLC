@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class HitTestResult
+	public class HitTestResult
 	{
 		private PointF htPoint;
 
@@ -48,7 +48,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal HotRegion Region
+		public HotRegion Region
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal HitTestResult(HotRegion region, PointF hitTestPoint)
+		public HitTestResult(HotRegion region, PointF hitTestPoint)
 		{
 			this.region = region;
 			if (region != null)

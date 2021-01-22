@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal enum ProcessingEngine
+	public enum ProcessingEngine
 	{
 		YukonEngine = 1,
 		OnDemandEngine

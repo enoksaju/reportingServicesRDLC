@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal class HitTestResult
+	public class HitTestResult
 	{
 		private object obj;
 

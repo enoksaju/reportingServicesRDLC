@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLTablix : RPLItem
+	public sealed class RPLTablix : RPLItem
 	{
 		private int m_columnHeaderRows;
 
@@ -152,7 +152,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal long NextRowStart
+		public long NextRowStart
 		{
 			set
 			{
@@ -160,7 +160,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal Queue<RPLTablixRow> Rows
+		public Queue<RPLTablixRow> Rows
 		{
 			set
 			{
@@ -168,7 +168,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTablixMemberDef[] TablixRowMembersDef
+		public RPLTablixMemberDef[] TablixRowMembersDef
 		{
 			get
 			{
@@ -180,7 +180,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTablixMemberDef[] TablixColMembersDef
+		public RPLTablixMemberDef[] TablixColMembersDef
 		{
 			get
 			{
@@ -192,18 +192,18 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			}
 		}
 
-		internal RPLTablix()
+		public RPLTablix()
 		{
 			base.m_rplElementProps = new RPLItemProps();
 			base.m_rplElementProps.Definition = new RPLItemPropsDef();
 		}
 
-		internal RPLTablix(long startOffset, RPLContext context)
+		public RPLTablix(long startOffset, RPLContext context)
 			: base(startOffset, context)
 		{
 		}
 
-		internal RPLTablix(RPLItemProps rplElementProps)
+		public RPLTablix(RPLItemProps rplElementProps)
 			: base(rplElementProps)
 		{
 		}
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 			return null;
 		}
 
-		internal void AddRow(RPLTablixRow row)
+		public void AddRow(RPLTablixRow row)
 		{
 			if (this.m_rows == null)
 			{

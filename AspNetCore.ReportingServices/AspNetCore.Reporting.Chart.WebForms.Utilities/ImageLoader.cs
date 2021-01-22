@@ -9,7 +9,7 @@ using System.Resources;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 {
-	internal class ImageLoader : IDisposable, IServiceProvider
+	public class ImageLoader : IDisposable, IServiceProvider
 	{
 		private Hashtable imageData;
 
@@ -159,7 +159,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal bool GetAdjustedImageSize(string name, Graphics graphics, ref SizeF size)
+		public bool GetAdjustedImageSize(string name, Graphics graphics, ref SizeF size)
 		{
 			Image image = this.LoadImage(name);
 			if (image == null)
@@ -170,7 +170,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return true;
 		}
 
-		internal static void GetAdjustedImageSize(Image image, Graphics graphics, ref SizeF size)
+		public static void GetAdjustedImageSize(Image image, Graphics graphics, ref SizeF size)
 		{
 			if (graphics != null)
 			{
@@ -184,7 +184,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			}
 		}
 
-		internal static bool DoDpisMatch(Image image, Graphics graphics)
+		public static bool DoDpisMatch(Image image, Graphics graphics)
 		{
 			if (graphics.DpiX == image.HorizontalResolution)
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Utilities
 			return false;
 		}
 
-		internal static Image GetScaledImage(Image image, Graphics graphics)
+		public static Image GetScaledImage(Image image, Graphics graphics)
 		{
 			return new Bitmap(image, new Size((int)((float)image.Width * graphics.DpiX / image.HorizontalResolution), (int)((float)image.Height * graphics.DpiY / image.VerticalResolution)));
 		}

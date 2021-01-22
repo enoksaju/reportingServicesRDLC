@@ -5,15 +5,15 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal class Utility
+	public class Utility
 	{
-		internal const int TextBufferSize = 16384;
+		public const int TextBufferSize = 16384;
 
 		private Utility()
 		{
 		}
 
-		internal static void CopyStream(Stream source, Stream sink)
+		public static void CopyStream(Stream source, Stream sink)
 		{
 			byte[] array = new byte[4096];
 			for (int num = source.Read(array, 0, array.Length); num != 0; num = source.Read(array, 0, array.Length))
@@ -22,22 +22,22 @@ namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 			}
 		}
 
-		internal static string MmToPxAsString(double size)
+		public static string MmToPxAsString(double size)
 		{
 			return Convert.ToInt64(size * 3.7795275590551185).ToString(CultureInfo.InvariantCulture);
 		}
 
-		internal static long MMToPx(double size)
+		public static long MMToPx(double size)
 		{
 			return Convert.ToInt64(size * 3.7795275590551185);
 		}
 
-		internal static BufferedStream CreateBufferedStream(TextWriter sourceWriter)
+		public static BufferedStream CreateBufferedStream(TextWriter sourceWriter)
 		{
 			return Utility.CreateBufferedStream(((StreamWriter)sourceWriter).BaseStream);
 		}
 
-		internal static BufferedStream CreateBufferedStream(Stream sourceStream)
+		public static BufferedStream CreateBufferedStream(Stream sourceStream)
 		{
 			return new BufferedStream(sourceStream, 16384);
 		}

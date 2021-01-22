@@ -11,14 +11,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class TopImage : BaseGaugeImage, IPersistable
+	public sealed class TopImage : BaseGaugeImage, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = TopImage.GetDeclaration();
 
 		private ExpressionInfo m_hueColor;
 
-		internal ExpressionInfo HueColor
+		public ExpressionInfo HueColor
 		{
 			get
 			{
@@ -30,16 +30,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal TopImage()
+		public TopImage()
 		{
 		}
 
-		internal TopImage(GaugePanel gaugePanel)
+		public TopImage(GaugePanel gaugePanel)
 			: base(gaugePanel)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.TopImageStart();
 			base.Initialize(context);
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.TopImageEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			TopImage topImage = (TopImage)base.PublishClone(context);
 			if (this.m_hueColor != null)
@@ -61,14 +61,14 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return topImage;
 		}
 
-		internal void SetExprHost(TopImageExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(TopImageExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null);
 			base.SetExprHost(exprHost, reportObjectModel);
 			base.m_exprHost = exprHost;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.HueColor, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.ExpressionInfo));
@@ -108,7 +108,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.TopImage;
 		}
 
-		internal string EvaluateHueColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
+		public string EvaluateHueColor(IReportScopeInstance reportScopeInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(base.m_gaugePanel, reportScopeInstance);
 			return context.ReportRuntime.EvaluateTopImageHueColorExpression(this, base.m_gaugePanel.Name);

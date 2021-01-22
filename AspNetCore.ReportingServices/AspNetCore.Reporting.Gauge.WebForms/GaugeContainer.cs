@@ -12,23 +12,23 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[SRDescription("DescriptionAttributeGaugeContainer_GaugeContainer")]
 	[DisplayName("Dundas Gauge")]
-	internal class GaugeContainer : IDisposable
+	public class GaugeContainer : IDisposable
 	{
 		private const string smartClientDll = "DundasWinGauge.dll";
 
 		private const string jsFilename = "DundasGauge1.js";
 
-		internal GaugeCore gauge;
+		public GaugeCore gauge;
 
-		internal string webFormDocumentURL = "";
+		public string webFormDocumentURL = "";
 
-		internal string applicationDocumentURL = "";
+		public string applicationDocumentURL = "";
 
-		internal static ITypeDescriptorContext controlCurrentContext = null;
+		public static ITypeDescriptorContext controlCurrentContext = null;
 
 		private string cachedImageUrl = string.Empty;
 
-		internal static string productID = "DG-WC";
+		public static string productID = "DG-WC";
 
 		private bool pollServer;
 
@@ -724,7 +724,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal ISelectable SelectedDesignTimeElement
+		public ISelectable SelectedDesignTimeElement
 		{
 			get
 			{
@@ -832,7 +832,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			this.gauge.SaveTo(fileName, format, compression, this.ImageResolution, this.ImageResolution);
 		}
 
-		internal void SaveAsImage(Stream stream, GaugeImageFormat format)
+		public void SaveAsImage(Stream stream, GaugeImageFormat format)
 		{
 			this.SaveAsImage(stream, format, this.Compression);
 		}
@@ -911,7 +911,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return text.Replace("GaugeContainer1", gaugeContainerID);
 		}
 
-		internal void SaveFiles(string fullImagePath)
+		public void SaveFiles(string fullImagePath)
 		{
 			string directoryName = Path.GetDirectoryName(fullImagePath);
 			DirectoryInfo directoryInfo = new DirectoryInfo(directoryName);
@@ -953,11 +953,11 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return text2.Replace("\r\nvar", "var");
 		}
 
-		internal void Invalidate()
+		public void Invalidate()
 		{
 		}
 
-		internal void Refresh()
+		public void Refresh()
 		{
 		}
 
@@ -994,7 +994,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			throw new ArgumentException(Utils.SRGetStr("ExceptionInvalidImageFormat"), "imageUrl");
 		}
 
-		internal bool IsDesignMode()
+		public bool IsDesignMode()
 		{
 			return false;
 		}
@@ -1010,7 +1010,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void OnPrePaint(object sender, GaugePaintEventArgs e)
+		public void OnPrePaint(object sender, GaugePaintEventArgs e)
 		{
 			if (this.PrePaint != null)
 			{
@@ -1018,7 +1018,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void OnPostPaint(object sender, GaugePaintEventArgs e)
+		public void OnPostPaint(object sender, GaugePaintEventArgs e)
 		{
 			if (this.PostPaint != null)
 			{
@@ -1030,7 +1030,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 		{
 		}
 
-		internal void OnRealTimeData(object sender, RealTimeDataEventArgs e)
+		public void OnRealTimeData(object sender, RealTimeDataEventArgs e)
 		{
 			if (this.RealTimeData != null)
 			{
@@ -1038,7 +1038,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void OnCallback(object sender, CallbackEventArgs e)
+		public void OnCallback(object sender, CallbackEventArgs e)
 		{
 			if (this.Callback != null)
 			{
@@ -1046,43 +1046,43 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal void OnValueChanged(object sender, ValueChangedEventArgs e)
+		public void OnValueChanged(object sender, ValueChangedEventArgs e)
 		{
 		}
 
-		internal void OnPlaybackStateChanged(object sender, PlaybackStateChangedEventArgs e)
+		public void OnPlaybackStateChanged(object sender, PlaybackStateChangedEventArgs e)
 		{
 		}
 
-		internal void OnValueLimitOverflow(object sender, ValueChangedEventArgs e)
+		public void OnValueLimitOverflow(object sender, ValueChangedEventArgs e)
 		{
 		}
 
-		internal void OnValueRateOfChangeExceed(object sender, ValueChangedEventArgs e)
+		public void OnValueRateOfChangeExceed(object sender, ValueChangedEventArgs e)
 		{
 		}
 
-		internal void OnValueRangeEnter(object sender, ValueRangeEventArgs e)
+		public void OnValueRangeEnter(object sender, ValueRangeEventArgs e)
 		{
 		}
 
-		internal void OnValueRangeLeave(object sender, ValueRangeEventArgs e)
+		public void OnValueRangeLeave(object sender, ValueRangeEventArgs e)
 		{
 		}
 
-		internal void OnValueRangeTimeOut(object sender, ValueRangeEventArgs e)
+		public void OnValueRangeTimeOut(object sender, ValueRangeEventArgs e)
 		{
 		}
 
-		internal void OnValueScaleEnter(object sender, ValueRangeEventArgs e)
+		public void OnValueScaleEnter(object sender, ValueRangeEventArgs e)
 		{
 		}
 
-		internal void OnValueScaleLeave(object sender, ValueRangeEventArgs e)
+		public void OnValueScaleLeave(object sender, ValueRangeEventArgs e)
 		{
 		}
 
-		internal void OnPointerPositionChange(object sender, PointerPositionChangeEventArgs e)
+		public void OnPointerPositionChange(object sender, PointerPositionChangeEventArgs e)
 		{
 		}
 	}

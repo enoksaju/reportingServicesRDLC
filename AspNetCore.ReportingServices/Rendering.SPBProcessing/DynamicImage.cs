@@ -7,7 +7,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal abstract class DynamicImage : PageItem
+	public abstract class DynamicImage : PageItem
 	{
 		protected abstract PaginationInfoItems PaginationInfoEnum
 		{
@@ -19,7 +19,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			get;
 		}
 
-		internal DynamicImage(ReportItem source, PageContext pageContext, bool createForRepeat)
+		public DynamicImage(ReportItem source, PageContext pageContext, bool createForRepeat)
 			: base(source)
 		{
 			if (pageContext != null)
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
+		public override bool CalculatePage(RPLWriter rplWriter, PageItemHelper lastPageInfo, PageContext pageContext, PageItem[] siblings, RepeatWithItem[] repeatWithItems, double parentTopInPage, ref double parentPageHeight, Interactivity interactivity)
 		{
 			base.AdjustOriginFromItemsAbove(siblings, repeatWithItems);
 			if (!this.HitsCurrentPage(pageContext, parentTopInPage))
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			return true;
 		}
 
-		internal Stream LoadDynamicImage(PageContext pageContext, ref string streamName, out ActionInfoWithDynamicImageMapCollection actionImageMaps, out System.Drawing.Rectangle offsets)
+		public Stream LoadDynamicImage(PageContext pageContext, ref string streamName, out ActionInfoWithDynamicImageMapCollection actionImageMaps, out System.Drawing.Rectangle offsets)
 		{
 			IDynamicImageInstance dynamicImageInstance = (IDynamicImageInstance)base.m_source.Instance;
 			Stream result = null;
@@ -119,7 +119,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal void WriteItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public void WriteItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 			BinaryWriter binaryWriter = rplWriter.BinaryWriter;
 			if (binaryWriter != null)
@@ -140,7 +140,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WritePaginationInfo(BinaryWriter reportPageInfo)
+		public override void WritePaginationInfo(BinaryWriter reportPageInfo)
 		{
 			if (reportPageInfo != null)
 			{
@@ -150,7 +150,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override PageItemHelper WritePaginationInfo()
+		public override PageItemHelper WritePaginationInfo()
 		{
 			PageItemHelper pageItemHelper = new PageItemHelper((byte)this.PaginationInfoEnum);
 			base.WritePaginationInfoProperties(pageItemHelper);
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomNonSharedItemProps(BinaryWriter spbifWriter, RPLWriter rplWriter, PageContext pageContext)
 		{
 			ActionInfoWithDynamicImageMapCollection actionInfoWithDynamicImageMapCollection = null;
 			string text = null;
@@ -236,7 +236,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteCustomNonSharedItemProps(RPLElementProps nonSharedProps, RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteCustomNonSharedItemProps(RPLElementProps nonSharedProps, RPLWriter rplWriter, PageContext pageContext)
 		{
 			ActionInfoWithDynamicImageMapCollection actionInfoWithDynamicImageMapCollection = null;
 			RPLDynamicImageProps rPLDynamicImageProps = (RPLDynamicImageProps)nonSharedProps;
@@ -251,17 +251,17 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(BinaryWriter spbifWriter, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, spbifWriter, StyleAttributeNames.BackgroundColor, 34);
 		}
 
-		internal override void WriteItemSharedStyleProps(RPLStyleProps styleProps, Style style, PageContext pageContext)
+		public override void WriteItemSharedStyleProps(RPLStyleProps styleProps, Style style, PageContext pageContext)
 		{
 			base.WriteStyleProp(style, styleProps, StyleAttributeNames.BackgroundColor, 34);
 		}
 
-		internal override void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			if (!this.SpecialBorderHandling)
 			{
@@ -273,7 +273,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(BinaryWriter spbifWriter, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			if (styleAttribute == StyleAttributeNames.BackgroundColor)
 			{
@@ -281,7 +281,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			if (!this.SpecialBorderHandling)
 			{
@@ -293,7 +293,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
+		public override void WriteItemNonSharedStyleProp(RPLStyleProps rplStyleProps, Style styleDef, StyleInstance style, StyleAttributeNames styleAttribute, PageContext pageContext)
 		{
 			if (styleAttribute == StyleAttributeNames.BackgroundColor)
 			{
@@ -301,7 +301,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteBorderProps(BinaryWriter spbifWriter, Style style)
+		public override void WriteBorderProps(BinaryWriter spbifWriter, Style style)
 		{
 			if (!this.SpecialBorderHandling)
 			{
@@ -309,7 +309,7 @@ namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 			}
 		}
 
-		internal override void WriteBorderProps(RPLStyleProps rplStyleProps, Style style)
+		public override void WriteBorderProps(RPLStyleProps rplStyleProps, Style style)
 		{
 			if (!this.SpecialBorderHandling)
 			{

@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class Line : ReportItem
+	public class Line : ReportItem
 	{
-		internal new class Definition : DefinitionStore<Line, Definition.Properties>
+		public new class Definition : DefinitionStore<Line, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				Name,
@@ -36,7 +36,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal Line(IPropertyStore propertyStore)
+		public Line(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

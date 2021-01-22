@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal sealed class DataSetResult
+	public sealed class DataSetResult
 	{
 		private ParameterInfoCollection m_parameters;
 

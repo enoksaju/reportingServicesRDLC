@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.RPLProcessing
 {
-	internal sealed class RPLChartProps : RPLDynamicImageProps
+	public sealed class RPLChartProps : RPLDynamicImageProps
 	{
-		internal RPLChartProps()
+		public RPLChartProps()
 		{
 		}
 	}

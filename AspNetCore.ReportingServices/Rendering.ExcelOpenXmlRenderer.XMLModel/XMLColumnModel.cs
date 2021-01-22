@@ -7,7 +7,7 @@ using System;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelOpenXmlRenderer.XMLModel
 {
-	internal class XMLColumnModel : IColumnModel, IOoxmlCtWrapperModel
+	public class XMLColumnModel : IColumnModel, IOoxmlCtWrapperModel
 	{
 		private readonly ColumnProperties _interface;
 

@@ -4,9 +4,9 @@ using System.Runtime.InteropServices;
 
 namespace AspNetCore.ReportingServices.Diagnostics
 {
-	internal class NativeLogonMethods
+	public class NativeLogonMethods
 	{
-		internal sealed class SafeUserToken : SafeHandle
+		public sealed class SafeUserToken : SafeHandle
 		{
 			public override bool IsInvalid
 			{
@@ -32,6 +32,6 @@ namespace AspNetCore.ReportingServices.Diagnostics
 		}
 
 		[DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-		internal static extern bool LogonUser(string lpszUsername, string lpszDomain, string lpszPassword, int dwLogonType, int dwLogonProvider, out SafeUserToken hToken);
+		public static extern bool LogonUser(string lpszUsername, string lpszDomain, string lpszPassword, int dwLogonType, int dwLogonProvider, out SafeUserToken hToken);
 	}
 }

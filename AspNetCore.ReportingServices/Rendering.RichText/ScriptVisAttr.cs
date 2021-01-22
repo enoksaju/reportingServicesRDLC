@@ -1,18 +1,18 @@
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class ScriptVisAttr
+	public sealed class ScriptVisAttr
 	{
 		private ushort m_value;
 
-		internal int uJustification;
+		public int uJustification;
 
-		internal int fClusterStart;
+		public int fClusterStart;
 
-		internal int fDiacritic;
+		public int fDiacritic;
 
-		internal int fZeroWidth;
+		public int fZeroWidth;
 
-		internal ScriptVisAttr(ushort value)
+		public ScriptVisAttr(ushort value)
 		{
 			this.m_value = value;
 			this.uJustification = (this.m_value & 0xF);

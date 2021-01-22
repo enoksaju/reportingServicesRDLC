@@ -1,9 +1,9 @@
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
-	internal struct BooleanResult
+	public struct BooleanResult
 	{
-		internal bool ErrorOccurred;
+		public bool ErrorOccurred;
 
-		internal bool Value;
+		public bool Value;
 	}
 }

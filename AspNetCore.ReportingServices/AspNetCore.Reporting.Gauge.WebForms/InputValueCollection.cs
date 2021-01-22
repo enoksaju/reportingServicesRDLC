@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class InputValueCollection : NamedCollection
+	public class InputValueCollection : NamedCollection
 	{
 		private InputValue this[string name]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal InputValueCollection(NamedElement parent, CommonElements common)
+		public InputValueCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(InputValue);

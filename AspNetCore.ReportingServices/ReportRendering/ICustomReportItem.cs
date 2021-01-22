@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal interface ICustomReportItem
+	public interface ICustomReportItem
 	{
 		CustomReportItem CustomItem
 		{

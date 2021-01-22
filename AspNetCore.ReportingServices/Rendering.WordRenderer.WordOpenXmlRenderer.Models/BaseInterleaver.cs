@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal abstract class BaseInterleaver : IInterleave, IStorable, IPersistable
+	public abstract class BaseInterleaver : IInterleave, IStorable, IPersistable
 	{
 		private int _index;
 
@@ -109,7 +109,7 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRendere
 			return ObjectType.WordOpenXmlBaseInterleaver;
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			return BaseInterleaver._declaration;
 		}

@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 {
-	internal class ReportTextRun : ITextRunProps
+	public class ReportTextRun : ITextRunProps
 	{
 		private string m_uniqueName;
 
@@ -124,14 +124,14 @@ namespace AspNetCore.ReportingServices.Rendering.ImageRenderer
 			}
 		}
 
-		internal ReportTextRun(RPLElementStyle sourceStyle, Dictionary<string, float> cachedReportSizes, Dictionary<string, Color> cachedReportColors)
+		public ReportTextRun(RPLElementStyle sourceStyle, Dictionary<string, float> cachedReportSizes, Dictionary<string, Color> cachedReportColors)
 		{
 			this.m_sourceStyle = sourceStyle;
 			this.SetFontSize(cachedReportSizes);
 			this.SetFontColor(cachedReportColors);
 		}
 
-		internal ReportTextRun(RPLElementStyle sourceStyle, string uniqueName, RPLActionInfo sourceActionInfo, Dictionary<string, float> cachedReportSizes, Dictionary<string, Color> cachedReportColors)
+		public ReportTextRun(RPLElementStyle sourceStyle, string uniqueName, RPLActionInfo sourceActionInfo, Dictionary<string, float> cachedReportSizes, Dictionary<string, Color> cachedReportColors)
 			: this(sourceStyle, cachedReportSizes, cachedReportColors)
 		{
 			this.m_uniqueName = uniqueName;

@@ -10,7 +10,7 @@ using System.Text;
 namespace AspNetCore.Reporting.Map.WebForms
 {
 	[TypeConverter(typeof(LayerConverter))]
-	internal class Layer : NamedElement, ISelectable
+	public class Layer : NamedElement, ISelectable
 	{
 		private LayerVisibility visibility;
 
@@ -254,7 +254,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal ImageryProvider[] TileImageryProviders
+		public ImageryProvider[] TileImageryProviders
 		{
 			get
 			{
@@ -266,7 +266,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string TileImageUriFormat
+		public string TileImageUriFormat
 		{
 			get
 			{
@@ -278,7 +278,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string[] TileImageUriSubdomains
+		public string[] TileImageUriSubdomains
 		{
 			get
 			{
@@ -290,7 +290,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal string TileError
+		public string TileError
 		{
 			get
 			{
@@ -302,13 +302,13 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override void OnRemove()
+		public override void OnRemove()
 		{
 			base.OnRemove();
 			this.UpdateLayerElements(this.Name, string.Empty);
 		}
 
-		internal string GetAttributionStrings()
+		public string GetAttributionStrings()
 		{
 			if (this.TileImageryProviders == null)
 			{
@@ -344,7 +344,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return stringBuilder.ToString();
 		}
 
-		internal List<ILayerElement> GetLayerElements()
+		public List<ILayerElement> GetLayerElements()
 		{
 			List<ILayerElement> list = new List<ILayerElement>();
 			if (this.Common != null && this.Common.MapCore != null)
@@ -432,7 +432,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			return rectangleF;
 		}
 
-		internal bool IsVirtualEarthServiceQueried()
+		public bool IsVirtualEarthServiceQueried()
 		{
 			lock (this.TileImageUriFormat)
 			{
@@ -440,7 +440,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal void ResetStoredVirtualEarthParameters()
+		public void ResetStoredVirtualEarthParameters()
 		{
 			lock (this.TileImageUriFormat)
 			{
@@ -454,7 +454,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal bool QueryVirtualEarthService(bool asyncQuery)
+		public bool QueryVirtualEarthService(bool asyncQuery)
 		{
 			if (!string.IsNullOrEmpty(this.Common.MapCore.TileServerAppId) && !(this.Common.MapCore.TileServerAppId.ToUpper(CultureInfo.InvariantCulture) == "(DEFAULT)"))
 			{

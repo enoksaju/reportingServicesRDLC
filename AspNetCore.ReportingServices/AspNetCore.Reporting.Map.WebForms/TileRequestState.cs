@@ -3,7 +3,7 @@ using System.Net;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class TileRequestState
+	public class TileRequestState
 	{
 		public HttpWebRequest Request;
 

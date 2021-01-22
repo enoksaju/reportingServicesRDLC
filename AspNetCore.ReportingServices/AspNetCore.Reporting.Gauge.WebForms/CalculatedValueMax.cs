@@ -4,9 +4,9 @@ using System.ComponentModel;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(CalculatedValueMaxConverter))]
-	internal class CalculatedValueMax : CalculatedValue
+	public class CalculatedValueMax : CalculatedValue
 	{
-		internal override void CalculateValue(double value, DateTime timestamp)
+		public override void CalculateValue(double value, DateTime timestamp)
 		{
 			GaugeDuration aggregateDuration = base.aggregateDuration;
 			if (aggregateDuration.IsEmpty || ((IValueConsumer)this).GetProvider() == null)

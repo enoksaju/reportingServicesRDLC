@@ -9,7 +9,7 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimPageEvaluation : PageEvaluation
+	public sealed class ShimPageEvaluation : PageEvaluation
 	{
 		private AspNetCore.ReportingServices.ReportProcessing.Report m_report;
 
@@ -21,20 +21,20 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 
 		private AspNetCore.ReportingServices.ReportProcessing.ReportProcessing.ProcessingContext m_processingContext;
 
-		internal ShimPageEvaluation(Report report)
+		public ShimPageEvaluation(Report report)
 			: base(report)
 		{
 			this.InitializeEnvironment();
 			this.PageInit();
 		}
 
-		internal override void Reset(ReportSection section, int newPageNumber, int newTotalPages, int newOverallPageNumber, int newOverallTotalPages)
+		public override void Reset(ReportSection section, int newPageNumber, int newTotalPages, int newOverallPageNumber, int newOverallTotalPages)
 		{
 			base.Reset(section, newPageNumber, newTotalPages, newOverallPageNumber, newOverallTotalPages);
 			this.PageInit();
 		}
 
-		internal override void Add(string textboxName, object textboxValue)
+		public override void Add(string textboxName, object textboxValue)
 		{
 			if (textboxName == null)
 			{
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal override void UpdatePageSections(ReportSection section)
+		public override void UpdatePageSections(ReportSection section)
 		{
 			AspNetCore.ReportingServices.ReportRendering.PageSection header = null;
 			AspNetCore.ReportingServices.ReportRendering.PageSection footer = null;

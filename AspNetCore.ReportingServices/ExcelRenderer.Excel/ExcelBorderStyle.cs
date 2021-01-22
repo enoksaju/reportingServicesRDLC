@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel
 {
-	internal enum ExcelBorderStyle
+	public enum ExcelBorderStyle
 	{
 		None,
 		Thin,

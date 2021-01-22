@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MarkupType
+	public enum MarkupType
 	{
 		None,
 		HTML

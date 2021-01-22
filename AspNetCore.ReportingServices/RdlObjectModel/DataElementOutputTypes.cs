@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum DataElementOutputTypes
+	public enum DataElementOutputTypes
 	{
 		Auto,
 		Output,

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal class SectionItemizedData
+	public class SectionItemizedData
 	{
-		internal Dictionary<string, List<TextRunItemizedData>> HeaderFooter;
+		public Dictionary<string, List<TextRunItemizedData>> HeaderFooter;
 
 		private List<Dictionary<string, List<TextRunItemizedData>>> m_columns;
 
-		internal List<Dictionary<string, List<TextRunItemizedData>>> Columns
+		public List<Dictionary<string, List<TextRunItemizedData>>> Columns
 		{
 			get
 			{

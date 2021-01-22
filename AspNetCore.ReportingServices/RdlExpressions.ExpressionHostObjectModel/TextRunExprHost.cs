@@ -48,7 +48,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal void SetTextRun(TextRun textRun)
+		public void SetTextRun(TextRun textRun)
 		{
 			this.m_textRun = textRun;
 		}

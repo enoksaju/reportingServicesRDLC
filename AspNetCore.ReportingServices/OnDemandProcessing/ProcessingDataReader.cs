@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class ProcessingDataReader : IProcessingDataReader, IDisposable
+	public sealed class ProcessingDataReader : IProcessingDataReader, IDisposable
 	{
 		private RecordSetInfo m_recordSetInfo;
 
@@ -71,13 +71,13 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal ProcessingDataReader(OnDemandProcessingContext odpContext, DataSetInstance dataSetInstance, string dataSetName, IDataReader sourceReader, bool hasServerAggregateMetadata, string[] aliases, string[] names, DataSourceErrorInspector errorInspector)
+		public ProcessingDataReader(OnDemandProcessingContext odpContext, DataSetInstance dataSetInstance, string dataSetName, IDataReader sourceReader, bool hasServerAggregateMetadata, string[] aliases, string[] names, DataSourceErrorInspector errorInspector)
 		{
 			this.m_recordSetInfo = new RecordSetInfo(hasServerAggregateMetadata, odpContext.IsSharedDataSetExecutionOnly, dataSetInstance, odpContext.ExecutionTime);
 			this.m_dataSourceDataReader = new MappingDataReader(dataSetName, sourceReader, aliases, names, errorInspector);
 		}
 
-		internal ProcessingDataReader(DataSetInstance dataSetInstance, DataSet dataSet, OnDemandProcessingContext odpContext, bool overrideWithSharedDataSetChunkSettings)
+		public ProcessingDataReader(DataSetInstance dataSetInstance, DataSet dataSet, OnDemandProcessingContext odpContext, bool overrideWithSharedDataSetChunkSettings)
 		{
 			if (odpContext.IsSharedDataSetExecutionOnly)
 			{

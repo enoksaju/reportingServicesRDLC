@@ -4,15 +4,15 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices.ReportPublishing
 {
-	internal sealed class DataSetValidator
+	public sealed class DataSetValidator
 	{
-		internal static uint LOCALE_SYSTEM_DEFAULT = 2048u;
+		public static uint LOCALE_SYSTEM_DEFAULT = 2048u;
 
 		private DataSetValidator()
 		{
 		}
 
-		internal static bool ValidateCollation(string collation, out uint lcid)
+		public static bool ValidateCollation(string collation, out uint lcid)
 		{
 			lcid = DataSetValidator.LOCALE_SYSTEM_DEFAULT;
 			if (collation == null)
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return true;
 		}
 
-		internal static uint LCIDfromRDLCollation(string collation)
+		public static uint LCIDfromRDLCollation(string collation)
 		{
 			uint result = default(uint);
 			if (collation != null && DataSetValidator.ValidateCollation(collation, out result))
@@ -38,7 +38,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return (uint)Thread.CurrentThread.CurrentCulture.LCID;
 		}
 
-		internal static uint GetSQLSortCompareMask(bool caseSensitivity, bool accentSensitivity, bool kanatypeSensitivity, bool widthSensitivity)
+		public static uint GetSQLSortCompareMask(bool caseSensitivity, bool accentSensitivity, bool kanatypeSensitivity, bool widthSensitivity)
 		{
 			uint num = 0u;
 			if (!caseSensitivity)
@@ -60,7 +60,7 @@ namespace AspNetCore.ReportingServices.ReportPublishing
 			return num;
 		}
 
-		internal static void GetCompareFlagsfromAutoDetectedCollation(string autoCollation, out bool caseSensitivity, out bool accentSensitivity, out bool kanatypeSensitivity, out bool widthSensitivity)
+		public static void GetCompareFlagsfromAutoDetectedCollation(string autoCollation, out bool caseSensitivity, out bool accentSensitivity, out bool kanatypeSensitivity, out bool widthSensitivity)
 		{
 			caseSensitivity = false;
 			accentSensitivity = false;

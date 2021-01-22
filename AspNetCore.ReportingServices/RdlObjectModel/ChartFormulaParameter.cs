@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartFormulaParameter : ReportObject, INamedObject
+	public class ChartFormulaParameter : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<ChartFormulaParameter, Definition.Properties>
+		public class Definition : DefinitionStore<ChartFormulaParameter, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Value,
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartFormulaParameter(IPropertyStore propertyStore)
+		public ChartFormulaParameter(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

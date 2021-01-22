@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class Grouping : IAggregateHolder, ISortFilterScope, IReferenceable, IPageBreakOwner, IPersistable
+	public sealed class Grouping : IAggregateHolder, ISortFilterScope, IReferenceable, IPageBreakOwner, IPersistable
 	{
 		private string m_name;
 
@@ -111,7 +111,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = Grouping.GetDeclaration();
 
-		internal string Name
+		public string Name
 		{
 			get
 			{
@@ -123,7 +123,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo GroupLabel
+		public ExpressionInfo GroupLabel
 		{
 			get
 			{
@@ -135,7 +135,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<bool> SortDirections
+		public List<bool> SortDirections
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> GroupExpressions
+		public List<ExpressionInfo> GroupExpressions
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DomainScope
+		public string DomainScope
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int ScopeIDForDomainScope
+		public int ScopeIDForDomainScope
 		{
 			get
 			{
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsDetail
+		public bool IsDetail
 		{
 			get
 			{
@@ -199,7 +199,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsClone
+		public bool IsClone
 		{
 			get
 			{
@@ -207,7 +207,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ExpressionInfo PageName
+		public ExpressionInfo PageName
 		{
 			get
 			{
@@ -219,7 +219,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal PageBreak PageBreak
+		public PageBreak PageBreak
 		{
 			get
 			{
@@ -267,7 +267,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> Aggregates
+		public List<DataAggregateInfo> Aggregates
 		{
 			get
 			{
@@ -279,7 +279,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool GroupAndSort
+		public bool GroupAndSort
 		{
 			get
 			{
@@ -291,7 +291,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<Filter> Filters
+		public List<Filter> Filters
 		{
 			get
 			{
@@ -303,7 +303,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool SimpleGroupExpressions
+		public bool SimpleGroupExpressions
 		{
 			get
 			{
@@ -323,7 +323,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ReportItem> ReportItemsWithHideDuplicates
+		public List<ReportItem> ReportItemsWithHideDuplicates
 		{
 			get
 			{
@@ -335,7 +335,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> Parent
+		public List<ExpressionInfo> Parent
 		{
 			get
 			{
@@ -347,7 +347,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IndexedExprHost ParentExprHost
+		public IndexedExprHost ParentExprHost
 		{
 			get
 			{
@@ -359,7 +359,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal IndexedExprHost VariableValueHosts
+		public IndexedExprHost VariableValueHosts
 		{
 			get
 			{
@@ -371,7 +371,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> RecursiveAggregates
+		public List<DataAggregateInfo> RecursiveAggregates
 		{
 			get
 			{
@@ -383,7 +383,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<DataAggregateInfo> PostSortAggregates
+		public List<DataAggregateInfo> PostSortAggregates
 		{
 			get
 			{
@@ -395,7 +395,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string DataElementName
+		public string DataElementName
 		{
 			get
 			{
@@ -407,7 +407,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DataElementOutputTypes DataElementOutput
+		public DataElementOutputTypes DataElementOutput
 		{
 			get
 			{
@@ -419,7 +419,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool SaveGroupExprValues
+		public bool SaveGroupExprValues
 		{
 			get
 			{
@@ -431,7 +431,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<ExpressionInfo> UserSortExpressions
+		public List<ExpressionInfo> UserSortExpressions
 		{
 			get
 			{
@@ -443,7 +443,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal InScopeSortFilterHashtable NonDetailSortFiltersInScope
+		public InScopeSortFilterHashtable NonDetailSortFiltersInScope
 		{
 			get
 			{
@@ -455,7 +455,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal InScopeSortFilterHashtable DetailSortFiltersInScope
+		public InScopeSortFilterHashtable DetailSortFiltersInScope
 		{
 			get
 			{
@@ -467,7 +467,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<int> HideDuplicatesReportItemIDs
+		public List<int> HideDuplicatesReportItemIDs
 		{
 			get
 			{
@@ -479,7 +479,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal GroupExprHost ExprHost
+		public GroupExprHost ExprHost
 		{
 			get
 			{
@@ -487,7 +487,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Hashtable ScopeNames
+		public Hashtable ScopeNames
 		{
 			get
 			{
@@ -499,7 +499,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int RecursiveLevel
+		public int RecursiveLevel
 		{
 			get
 			{
@@ -511,7 +511,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<object> CurrentGroupExpressionValues
+		public List<object> CurrentGroupExpressionValues
 		{
 			get
 			{
@@ -523,7 +523,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal ReportHierarchyNode Owner
+		public ReportHierarchyNode Owner
 		{
 			get
 			{
@@ -535,7 +535,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<object>[] SortFilterScopeInfo
+		public List<object>[] SortFilterScopeInfo
 		{
 			get
 			{
@@ -547,7 +547,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal int[] SortFilterScopeIndex
+		public int[] SortFilterScopeIndex
 		{
 			get
 			{
@@ -559,7 +559,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool[] NeedScopeInfoForSortFilterExpression
+		public bool[] NeedScopeInfoForSortFilterExpression
 		{
 			get
 			{
@@ -571,7 +571,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool[] IsSortFilterTarget
+		public bool[] IsSortFilterTarget
 		{
 			get
 			{
@@ -583,7 +583,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool[] IsSortFilterExpressionScope
+		public bool[] IsSortFilterExpressionScope
 		{
 			get
 			{
@@ -595,7 +595,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool[] SortFilterScopeMatched
+		public bool[] SortFilterScopeMatched
 		{
 			get
 			{
@@ -680,7 +680,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal List<Variable> Variables
+		public List<Variable> Variables
 		{
 			get
 			{
@@ -692,7 +692,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool NaturalGroup
+		public bool NaturalGroup
 		{
 			get
 			{
@@ -712,12 +712,12 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal Grouping(ConstructionPhase phase)
+		public Grouping(ConstructionPhase phase)
 			: this(-1, phase)
 		{
 		}
 
-		internal Grouping(int id, ConstructionPhase phase)
+		public Grouping(int id, ConstructionPhase phase)
 		{
 			if (phase == ConstructionPhase.Publishing)
 			{
@@ -729,7 +729,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_ID = id;
 		}
 
-		internal bool IsAtomic(InitializationContext context)
+		public bool IsAtomic(InitializationContext context)
 		{
 			if (!context.EvaluateAtomicityCondition(!this.m_naturalGroup && !this.IsDetail, this.m_owner, AtomicityReason.NonNaturalGroup) && !context.EvaluateAtomicityCondition(this.m_domainScope != null, this.m_owner, AtomicityReason.DomainScope) && !context.EvaluateAtomicityCondition(this.m_parent != null, this.m_owner, AtomicityReason.RecursiveParent))
 			{
@@ -753,7 +753,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			reportOmAggregates.ResetAll(this.m_postSortAggregates);
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.GroupStart(this.m_name);
 			this.m_saveGroupExprValues = context.HasPreviousAggregates;
@@ -861,7 +861,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			AspNetCore.ReportingServices.ReportPublishing.CLSNameValidator.ValidateDataElementName(ref this.m_dataElementName, this.m_name, context.ObjectType, context.ObjectName, "DataElementName", context.ErrorContext);
 		}
 
-		internal void AddReportItemWithHideDuplicates(ReportItem reportItem)
+		public void AddReportItemWithHideDuplicates(ReportItem reportItem)
 		{
 			if (this.m_reportItemsWithHideDuplicates == null)
 			{
@@ -870,7 +870,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			this.m_reportItemsWithHideDuplicates.Add(reportItem);
 		}
 
-		internal void ResetReportItemsWithHideDuplicates()
+		public void ResetReportItemsWithHideDuplicates()
 		{
 			if (this.m_reportItemsWithHideDuplicates != null)
 			{
@@ -883,7 +883,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool IsOnPathToSortFilterSource(int index)
+		public bool IsOnPathToSortFilterSource(int index)
 		{
 			if (this.m_sortFilterScopeInfo != null && this.m_sortFilterScopeIndex != null && -1 != this.m_sortFilterScopeIndex[index])
 			{
@@ -892,7 +892,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return false;
 		}
 
-		internal int[] GetGroupExpressionFieldIndices()
+		public int[] GetGroupExpressionFieldIndices()
 		{
 			if (this.m_groupExpressionFieldIndices == null && this.m_groupExpressions != null && 0 < this.m_groupExpressions.Count)
 			{
@@ -915,7 +915,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.m_groupExpressionFieldIndices;
 		}
 
-		internal Grouping CloneForDomainScope(AutomaticSubtotalContext context, ReportHierarchyNode cloneOwner)
+		public Grouping CloneForDomainScope(AutomaticSubtotalContext context, ReportHierarchyNode cloneOwner)
 		{
 			Grouping grouping = new Grouping(ConstructionPhase.Publishing);
 			grouping.m_isClone = true;
@@ -928,7 +928,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return grouping;
 		}
 
-		internal object PublishClone(AutomaticSubtotalContext context, ReportHierarchyNode owner)
+		public object PublishClone(AutomaticSubtotalContext context, ReportHierarchyNode owner)
 		{
 			Grouping grouping = (Grouping)base.MemberwiseClone();
 			grouping.m_isClone = true;
@@ -1081,7 +1081,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.Name, Token.String));
@@ -1320,7 +1320,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.Grouping;
 		}
 
-		internal void SetExprHost(GroupExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public void SetExprHost(GroupExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			this.m_exprHost = exprHost;
@@ -1352,30 +1352,30 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string EvaluateGroupingLabelExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public string EvaluateGroupingLabelExpression(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_owner, romInstance);
 			return context.ReportRuntime.EvaluateGroupingLabelExpression(this, AspNetCore.ReportingServices.ReportProcessing.ObjectType.Tablix, this.m_name);
 		}
 
-		internal int GetRecursiveLevel(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public int GetRecursiveLevel(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_owner, romInstance);
 			return this.m_recursiveLevel;
 		}
 
-		internal void SetGroupInstanceExpressionValues(object[] exprValues)
+		public void SetGroupInstanceExpressionValues(object[] exprValues)
 		{
 			this.m_groupInstanceExprValues = exprValues;
 		}
 
-		internal object[] GetGroupInstanceExpressionValues(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public object[] GetGroupInstanceExpressionValues(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_owner, romInstance);
 			return this.m_groupInstanceExprValues;
 		}
 
-		internal string EvaluatePageName(IReportScopeInstance romInstance, OnDemandProcessingContext context)
+		public string EvaluatePageName(IReportScopeInstance romInstance, OnDemandProcessingContext context)
 		{
 			context.SetupContext(this.m_owner, romInstance);
 			return context.ReportRuntime.EvaluateGroupingPageNameExpression(this, this.m_pageName, this.m_name);

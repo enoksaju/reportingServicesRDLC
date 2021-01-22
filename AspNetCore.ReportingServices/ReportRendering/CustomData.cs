@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class CustomData
+	public sealed class CustomData
 	{
 		private CustomReportItem m_owner;
 
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal CustomData(CustomReportItem owner)
+		public CustomData(CustomReportItem owner)
 		{
 			this.m_owner = owner;
 		}

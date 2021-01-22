@@ -5,11 +5,11 @@ using System;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class RuntimeIdcIncrementalDataSet : RuntimeIncrementalDataSet
+	public sealed class RuntimeIdcIncrementalDataSet : RuntimeIncrementalDataSet
 	{
 		private AspNetCore.ReportingServices.ReportIntermediateFormat.RecordRow m_currentRow;
 
-		internal RuntimeIdcIncrementalDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, DataSetInstance dataSetInstance, OnDemandProcessingContext odpContext)
+		public RuntimeIdcIncrementalDataSet(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSource, AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, DataSetInstance dataSetInstance, OnDemandProcessingContext odpContext)
 			: base(dataSource, dataSet, dataSetInstance, odpContext)
 		{
 		}

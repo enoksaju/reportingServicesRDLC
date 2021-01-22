@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class CustomLabelCollection : NamedCollection
+	public class CustomLabelCollection : NamedCollection
 	{
 		private CustomLabel this[int index]
 		{
@@ -58,7 +58,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			}
 		}
 
-		internal CustomLabelCollection(NamedElement parent, CommonElements common)
+		public CustomLabelCollection(NamedElement parent, CommonElements common)
 			: base(parent, common)
 		{
 			base.elementType = typeof(CustomLabel);
@@ -97,7 +97,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return base.List.IndexOf(value);
 		}
 
-		internal override string GetDefaultElementName(NamedElement el)
+		public override string GetDefaultElementName(NamedElement el)
 		{
 			return "CustomLabel1";
 		}

@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapCustomViewInstance : MapViewInstance
+	public sealed class MapCustomViewInstance : MapViewInstance
 	{
 		private MapCustomView m_defObject;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapCustomViewInstance(MapCustomView defObject)
+		public MapCustomViewInstance(MapCustomView defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

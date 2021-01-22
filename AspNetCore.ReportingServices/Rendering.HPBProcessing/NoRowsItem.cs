@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 {
-	internal sealed class NoRowsItem : PageItem, IStorable, IPersistable
+	public sealed class NoRowsItem : PageItem, IStorable, IPersistable
 	{
 		private static Declaration m_declaration = NoRowsItem.GetDeclaration();
 
-		internal override bool ContentOnPage
+		public override bool ContentOnPage
 		{
 			get
 			{
@@ -18,11 +18,11 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			}
 		}
 
-		internal NoRowsItem()
+		public NoRowsItem()
 		{
 		}
 
-		internal NoRowsItem(ReportItem source)
+		public NoRowsItem(ReportItem source)
 			: base(source)
 		{
 			base.m_itemPageSizes = new ItemSizes(source);
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			base.m_itemPageSizes.AdjustWidthTo(0.0);
 		}
 
-		internal override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
+		public override void WriteStartItemToStream(RPLWriter rplWriter, PageContext pageContext)
 		{
 		}
 
@@ -73,7 +73,7 @@ namespace AspNetCore.ReportingServices.Rendering.HPBProcessing
 			return ObjectType.NoRowsItem;
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			if (NoRowsItem.m_declaration == null)
 			{

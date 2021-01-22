@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class MapSpatialDataSet : MapSpatialData
+	public class MapSpatialDataSet : MapSpatialData
 	{
-		internal class Definition : DefinitionStore<MapSpatialDataSet, Definition.Properties>
+		public class Definition : DefinitionStore<MapSpatialDataSet, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				DataSetName,
 				SpatialField,
@@ -62,7 +62,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapSpatialDataSet(IPropertyStore propertyStore)
+		public MapSpatialDataSet(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

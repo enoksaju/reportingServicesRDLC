@@ -7,9 +7,9 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandProcessing
 {
-	internal sealed class OnDemandStateManagerDefinitionOnly : OnDemandStateManager
+	public sealed class OnDemandStateManagerDefinitionOnly : OnDemandStateManager
 	{
-		internal override IReportScopeInstance LastROMInstance
+		public override IReportScopeInstance LastROMInstance
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override IRIFReportScope LastTablixProcessingReportScope
+		public override IRIFReportScope LastTablixProcessingReportScope
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override IInstancePath LastRIFObject
+		public override IInstancePath LastRIFObject
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override QueryRestartInfo QueryRestartInfo
+		public override QueryRestartInfo QueryRestartInfo
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		internal override ExecutedQueryCache ExecutedQueryCache
+		public override ExecutedQueryCache ExecutedQueryCache
 		{
 			get
 			{
@@ -65,67 +65,67 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 		{
 		}
 
-		internal override ExecutedQueryCache SetupExecutedQueryCache()
+		public override ExecutedQueryCache SetupExecutedQueryCache()
 		{
 			return this.ExecutedQueryCache;
 		}
 
-		internal override void ResetOnDemandState()
+		public override void ResetOnDemandState()
 		{
 		}
 
-		internal override int RecursiveLevel(string scopeName)
+		public override int RecursiveLevel(string scopeName)
 		{
 			this.FireAssert("RecursiveLevel");
 			return -1;
 		}
 
-		internal override bool InScope(string scopeName)
+		public override bool InScope(string scopeName)
 		{
 			this.FireAssert("InScope");
 			return false;
 		}
 
-		internal override Dictionary<string, object> GetCurrentSpecialGroupingValues()
+		public override Dictionary<string, object> GetCurrentSpecialGroupingValues()
 		{
 			this.FireAssert("GetCurrentSpecialGroupingValues");
 			return null;
 		}
 
-		internal override void RestoreContext(IInstancePath originalObject)
+		public override void RestoreContext(IInstancePath originalObject)
 		{
 			this.FireAssert("RestoreContext");
 		}
 
-		internal override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance)
+		public override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance)
 		{
 			this.FireAssert("SetupContext");
 		}
 
-		internal override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
+		public override void SetupContext(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
 		{
 			this.FireAssert("SetupContext");
 		}
 
-		internal override bool CalculateAggregate(string aggregateName)
+		public override bool CalculateAggregate(string aggregateName)
 		{
 			this.FireAssert("CalculateAggregate");
 			return false;
 		}
 
-		internal override bool CalculateLookup(LookupInfo lookup)
+		public override bool CalculateLookup(LookupInfo lookup)
 		{
 			this.FireAssert("CalculateLookup");
 			return false;
 		}
 
-		internal override bool PrepareFieldsCollectionForDirectFields()
+		public override bool PrepareFieldsCollectionForDirectFields()
 		{
 			this.FireAssert("PrepareFieldsCollectionForDirectFields");
 			return false;
 		}
 
-		internal override void EvaluateScopedFieldReference(string scopeName, int fieldIndex, ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
+		public override void EvaluateScopedFieldReference(string scopeName, int fieldIndex, ref AspNetCore.ReportingServices.RdlExpressions.VariantResult result)
 		{
 			this.FireAssert("EvaluateScopedFieldReference");
 		}
@@ -135,37 +135,37 @@ namespace AspNetCore.ReportingServices.OnDemandProcessing
 			Global.Tracer.Assert(false, methodOrPropertyName + " should not be called in Definition-only mode.");
 		}
 
-		internal override IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance)
+		public override IRecordRowReader CreateSequentialDataReader(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSet dataSet, out AspNetCore.ReportingServices.ReportIntermediateFormat.DataSetInstance dataSetInstance)
 		{
 			this.FireAssert("CreateSequentialDataReader");
 			throw new InvalidOperationException("This method is not valid for this StateManager type.");
 		}
 
-		internal override void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
+		public override void BindNextMemberInstance(IInstancePath rifObject, IReportScopeInstance romInstance, int moveNextInstanceIndex)
 		{
 			this.FireAssert("BindNextMemberInstance");
 			throw new InvalidOperationException("This method is not valid for this StateManager type.");
 		}
 
-		internal override bool ShouldStopPipelineAdvance(bool rowAccepted)
+		public override bool ShouldStopPipelineAdvance(bool rowAccepted)
 		{
 			this.FireAssert("ShouldStopPipelineAdvance");
 			throw new InvalidOperationException("This method is not valid for this StateManager type.");
 		}
 
-		internal override void CreatedScopeInstance(IRIFReportDataScope scope)
+		public override void CreatedScopeInstance(IRIFReportDataScope scope)
 		{
 			this.FireAssert("CreateScopeInstance");
 			throw new InvalidOperationException("This method is not valid for this StateManager type.");
 		}
 
-		internal override bool ProcessOneRow(IRIFReportDataScope scope)
+		public override bool ProcessOneRow(IRIFReportDataScope scope)
 		{
 			this.FireAssert("ProcessOneRow");
 			throw new InvalidOperationException("This method is not valid for this StateManager type.");
 		}
 
-		internal override bool CheckForPrematureServerAggregate(string aggregateName)
+		public override bool CheckForPrematureServerAggregate(string aggregateName)
 		{
 			this.FireAssert("CheckForPrematureServerAggregate");
 			throw new InvalidOperationException("This method is not valid for this StateManager type.");

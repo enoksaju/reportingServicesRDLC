@@ -2,15 +2,15 @@ using System.Drawing.Drawing2D;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class GaugeGraphState
+	public class GaugeGraphState
 	{
-		internal GraphicsState state;
+		public GraphicsState state;
 
-		internal float width;
+		public float width;
 
-		internal float height;
+		public float height;
 
-		internal GaugeGraphState(GraphicsState state, float width, float height)
+		public GaugeGraphState(GraphicsState state, float width, float height)
 		{
 			this.state = state;
 			this.width = width;

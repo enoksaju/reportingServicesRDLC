@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class NoBackgroundRepeat : IBackgroundRepeatAttribute
+	public sealed class NoBackgroundRepeat : IBackgroundRepeatAttribute
 	{
 		public void Render(IOutputStream outputStream)
 		{

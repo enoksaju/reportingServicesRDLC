@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal interface ISpatialElement : IImageMapProvider
+	public interface ISpatialElement : IImageMapProvider
 	{
 		string Name
 		{

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum LinearPointerType
+	public enum LinearPointerType
 	{
 		Marker,
 		Bar,

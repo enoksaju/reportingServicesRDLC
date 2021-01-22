@@ -2,13 +2,13 @@ using System.Drawing;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal sealed class PlaceholderTextRun : HighlightTextRun
+	public sealed class PlaceholderTextRun : HighlightTextRun
 	{
 		private Color m_placeholderBorderColor = Color.Empty;
 
 		private bool m_allowColorInversion = true;
 
-		internal override bool IsPlaceholderTextRun
+		public override bool IsPlaceholderTextRun
 		{
 			get
 			{
@@ -16,7 +16,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal Color PlaceholderBorderColor
+		public Color PlaceholderBorderColor
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal override bool AllowColorInversion
+		public override bool AllowColorInversion
 		{
 			get
 			{
@@ -40,34 +40,34 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			}
 		}
 
-		internal PlaceholderTextRun(string text, ITextRunProps props)
+		public PlaceholderTextRun(string text, ITextRunProps props)
 			: base(text, props)
 		{
 		}
 
-		internal PlaceholderTextRun(string text, TextRun textRun)
+		public PlaceholderTextRun(string text, TextRun textRun)
 			: base(text, textRun.TextRunProperties)
 		{
 		}
 
-		internal PlaceholderTextRun(string text, PlaceholderTextRun textRun)
+		public PlaceholderTextRun(string text, PlaceholderTextRun textRun)
 			: base(text, textRun)
 		{
 			this.m_placeholderBorderColor = textRun.PlaceholderBorderColor;
 		}
 
-		internal PlaceholderTextRun(string text, PlaceholderTextRun textRun, SCRIPT_LOGATTR[] scriptLogAttr)
+		public PlaceholderTextRun(string text, PlaceholderTextRun textRun, SCRIPT_LOGATTR[] scriptLogAttr)
 			: base(text, textRun, scriptLogAttr)
 		{
 			this.m_placeholderBorderColor = textRun.PlaceholderBorderColor;
 		}
 
-		internal override TextRun Split(string text, SCRIPT_LOGATTR[] scriptLogAttr)
+		public override TextRun Split(string text, SCRIPT_LOGATTR[] scriptLogAttr)
 		{
 			return new PlaceholderTextRun(text, this, scriptLogAttr);
 		}
 
-		internal override TextRun GetSubRun(int startIndex, int length)
+		public override TextRun GetSubRun(int startIndex, int length)
 		{
 			if (length == base.m_text.Length)
 			{

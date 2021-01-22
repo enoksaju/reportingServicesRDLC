@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AspNetCore.ReportingServices.ReportRendering
 {
-	internal sealed class ReportParameter
+	public sealed class ReportParameter
 	{
 		private ParameterInfo m_underlyingParam;
 
@@ -89,7 +89,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal string StringValues
+		public string StringValues
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ParameterInfo UnderlyingParam
+		public ParameterInfo UnderlyingParam
 		{
 			get
 			{
@@ -118,7 +118,7 @@ namespace AspNetCore.ReportingServices.ReportRendering
 			}
 		}
 
-		internal ReportParameter(ParameterInfo param)
+		public ReportParameter(ParameterInfo param)
 		{
 			this.m_underlyingParam = param;
 		}

@@ -2,26 +2,26 @@ using System.Globalization;
 
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
-	internal class TextBoxContext
+	public class TextBoxContext
 	{
-		internal int ParagraphIndex;
+		public int ParagraphIndex;
 
-		internal int TextRunIndex;
+		public int TextRunIndex;
 
-		internal int TextRunCharacterIndex;
+		public int TextRunCharacterIndex;
 
-		internal TextBoxContext()
+		public TextBoxContext()
 		{
 		}
 
-		internal void IncrementParagraph()
+		public void IncrementParagraph()
 		{
 			this.ParagraphIndex++;
 			this.TextRunIndex = 0;
 			this.TextRunCharacterIndex = 0;
 		}
 
-		internal TextBoxContext Clone()
+		public TextBoxContext Clone()
 		{
 			TextBoxContext textBoxContext = new TextBoxContext();
 			textBoxContext.ParagraphIndex = this.ParagraphIndex;
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.Rendering.RichText
 			return textBoxContext;
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.ParagraphIndex = 0;
 			this.TextRunIndex = 0;

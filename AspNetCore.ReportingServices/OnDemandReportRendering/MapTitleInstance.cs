@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class MapTitleInstance : MapDockableSubItemInstance
+	public sealed class MapTitleInstance : MapDockableSubItemInstance
 	{
 		private MapTitle m_defObject;
 
@@ -51,7 +51,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal MapTitleInstance(MapTitle defObject)
+		public MapTitleInstance(MapTitle defObject)
 			: base(defObject)
 		{
 			this.m_defObject = defObject;

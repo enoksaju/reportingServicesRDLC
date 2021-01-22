@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal class LinearMajorTickMark : TickMark
+	public class LinearMajorTickMark : TickMark
 	{
 		[SRCategory("CategoryAppearance")]
 		[DefaultValue(MarkerStyle.Rectangle)]

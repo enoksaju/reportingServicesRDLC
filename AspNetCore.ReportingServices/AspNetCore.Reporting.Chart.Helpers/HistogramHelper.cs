@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.Reporting.Chart.Helpers
 {
-	internal class HistogramHelper
+	public class HistogramHelper
 	{
 		public int SegmentIntervalNumber = 20;
 
@@ -142,7 +142,7 @@ namespace AspNetCore.Reporting.Chart.Helpers
 			}
 		}
 
-		internal double RoundInterval(double interval)
+		public double RoundInterval(double interval)
 		{
 			if (interval == 0.0)
 			{

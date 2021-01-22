@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal class SpatialElementKey
+	public class SpatialElementKey
 	{
 		private List<object> m_keyValues;
 
-		internal List<object> KeyValues
+		public List<object> KeyValues
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal SpatialElementKey(List<object> values)
+		public SpatialElementKey(List<object> values)
 		{
 			this.m_keyValues = values;
 		}

@@ -9,7 +9,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class ParameterDef : ParameterBase, IParameterDef
+	public sealed class ParameterDef : ParameterBase, IParameterDef
 	{
 		private ParameterDataSource m_validValuesDataSource;
 
@@ -30,7 +30,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ReportParamExprHost m_exprHost;
 
-		internal ExpressionInfoList DefaultExpressions
+		public ExpressionInfoList DefaultExpressions
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterDataSource ValidValuesDataSource
+		public ParameterDataSource ValidValuesDataSource
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList ValidValuesValueExpressions
+		public ExpressionInfoList ValidValuesValueExpressions
 		{
 			get
 			{
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ExpressionInfoList ValidValuesLabelExpressions
+		public ExpressionInfoList ValidValuesLabelExpressions
 		{
 			get
 			{
@@ -78,7 +78,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterDataSource DefaultDataSource
+		public ParameterDataSource DefaultDataSource
 		{
 			get
 			{
@@ -90,7 +90,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ParameterDefList DependencyList
+		public ParameterDefList DependencyList
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ExprHostID
+		public int ExprHostID
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportParamExprHost ExprHost
+		public ReportParamExprHost ExprHost
 		{
 			get
 			{
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return base.ValidateValueForBlank(newValue, errorContext, parameterValueProperty);
 		}
 
-		internal void Initialize(InitializationContext context)
+		public void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.ReportParameterStart(base.Name);
 			if (this.m_defaultExpressions != null)
@@ -292,7 +292,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			this.ExprHostID = context.ExprHostBuilder.ReportParameterEnd();
 		}
 
-		internal void SetExprHost(ReportExprHost reportExprHost, ObjectModel reportObjectModel)
+		public void SetExprHost(ReportExprHost reportExprHost, ObjectModel reportObjectModel)
 		{
 			Global.Tracer.Assert(reportExprHost != null && reportObjectModel != null, "(reportExprHost != null && reportObjectModel != null)");
 			if (this.ExprHostID >= 0)
@@ -310,7 +310,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal void Parse(string name, List<string> defaultValues, string type, string nullable, string prompt, string promptUser, string allowBlank, string multiValue, string usedInQuery, bool hidden, ErrorContext errorContext, CultureInfo language)
+		public void Parse(string name, List<string> defaultValues, string type, string nullable, string prompt, string promptUser, string allowBlank, string multiValue, string usedInQuery, bool hidden, ErrorContext errorContext, CultureInfo language)
 		{
 			base.Parse(name, defaultValues, type, nullable, prompt, promptUser, allowBlank, multiValue, usedInQuery, hidden, errorContext, language);
 			if (hidden)
@@ -367,7 +367,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			throw new ReportParameterTypeMismatchException(name);
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ValidValuesDataSource, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ParameterDataSource));

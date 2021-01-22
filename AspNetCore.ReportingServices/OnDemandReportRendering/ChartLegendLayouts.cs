@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal enum ChartLegendLayouts
+	public enum ChartLegendLayouts
 	{
 		AutoTable,
 		Column,

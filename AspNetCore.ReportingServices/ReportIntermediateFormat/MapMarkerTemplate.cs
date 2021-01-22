@@ -9,14 +9,14 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class MapMarkerTemplate : MapPointTemplate, IPersistable
+	public sealed class MapMarkerTemplate : MapPointTemplate, IPersistable
 	{
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = MapMarkerTemplate.GetDeclaration();
 
 		private MapMarker m_mapMarker;
 
-		internal MapMarker MapMarker
+		public MapMarker MapMarker
 		{
 			get
 			{
@@ -28,7 +28,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new MapMarkerTemplateExprHost ExprHost
+		public new MapMarkerTemplateExprHost ExprHost
 		{
 			get
 			{
@@ -36,16 +36,16 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal MapMarkerTemplate()
+		public MapMarkerTemplate()
 		{
 		}
 
-		internal MapMarkerTemplate(MapVectorLayer mapVectorLayer, Map map, int id)
+		public MapMarkerTemplate(MapVectorLayer mapVectorLayer, Map map, int id)
 			: base(mapVectorLayer, map, id)
 		{
 		}
 
-		internal override void Initialize(InitializationContext context)
+		public override void Initialize(InitializationContext context)
 		{
 			context.ExprHostBuilder.MapMarkerTemplateStart();
 			base.Initialize(context);
@@ -56,7 +56,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			context.ExprHostBuilder.MapMarkerTemplateEnd();
 		}
 
-		internal override object PublishClone(AutomaticSubtotalContext context)
+		public override object PublishClone(AutomaticSubtotalContext context)
 		{
 			MapMarkerTemplate mapMarkerTemplate = (MapMarkerTemplate)base.PublishClone(context);
 			if (this.m_mapMarker != null)
@@ -66,7 +66,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return mapMarkerTemplate;
 		}
 
-		internal override void SetExprHost(MapPointTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(MapPointTemplateExprHost exprHost, ObjectModelImpl reportObjectModel)
 		{
 			Global.Tracer.Assert(exprHost != null && reportObjectModel != null, "(exprHost != null && reportObjectModel != null)");
 			base.SetExprHost(exprHost, reportObjectModel);
@@ -76,7 +76,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.MapMarker, AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence.ObjectType.MapMarker));

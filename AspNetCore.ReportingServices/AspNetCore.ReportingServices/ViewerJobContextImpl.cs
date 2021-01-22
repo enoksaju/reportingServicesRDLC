@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace AspNetCore.ReportingServices
 {
-	internal class ViewerJobContextImpl : IJobContext
+	public class ViewerJobContextImpl : IJobContext
 	{
 		private readonly object m_sync = new object();
 

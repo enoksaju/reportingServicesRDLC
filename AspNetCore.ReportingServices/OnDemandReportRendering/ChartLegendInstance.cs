@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ChartLegendInstance : BaseInstance
+	public sealed class ChartLegendInstance : BaseInstance
 	{
 		private ChartLegend m_legendDef;
 
@@ -256,7 +256,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ChartLegendInstance(ChartLegend legendDef)
+		public ChartLegendInstance(ChartLegend legendDef)
 			: base(legendDef.ChartDef)
 		{
 			this.m_legendDef = legendDef;

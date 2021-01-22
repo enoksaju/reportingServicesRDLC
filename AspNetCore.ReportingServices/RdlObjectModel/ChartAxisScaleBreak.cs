@@ -1,10 +1,10 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartAxisScaleBreak : ReportObject
+	public class ChartAxisScaleBreak : ReportObject
 	{
-		internal class Definition : DefinitionStore<ChartAxisScaleBreak, Definition.Properties>
+		public class Definition : DefinitionStore<ChartAxisScaleBreak, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Enabled,
 				BreakLineType,
@@ -115,7 +115,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartAxisScaleBreak(IPropertyStore propertyStore)
+		public ChartAxisScaleBreak(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

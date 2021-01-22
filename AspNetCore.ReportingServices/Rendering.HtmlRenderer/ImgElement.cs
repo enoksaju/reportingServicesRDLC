@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal sealed class ImgElement : HtmlElement
+	public sealed class ImgElement : HtmlElement
 	{
 		public string AltText
 		{

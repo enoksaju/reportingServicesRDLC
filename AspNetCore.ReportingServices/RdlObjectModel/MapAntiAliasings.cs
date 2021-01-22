@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum MapAntiAliasings
+	public enum MapAntiAliasings
 	{
 		All,
 		None,

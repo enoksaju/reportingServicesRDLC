@@ -3,11 +3,11 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence;
 
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer
 {
-	internal class ExcelReferenceCreator : IReferenceCreator
+	public class ExcelReferenceCreator : IReferenceCreator
 	{
 		private static ExcelReferenceCreator m_instance = new ExcelReferenceCreator();
 
-		internal static ExcelReferenceCreator Instance
+		public static ExcelReferenceCreator Instance
 		{
 			get
 			{

@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
-	internal sealed class GaugeRowList : RowList
+	public sealed class GaugeRowList : RowList
 	{
-		internal new GaugeRow this[int index]
+		public new GaugeRow this[int index]
 		{
 			get
 			{
@@ -14,7 +14,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		{
 		}
 
-		internal GaugeRowList(int capacity)
+		public GaugeRowList(int capacity)
 			: base(capacity)
 		{
 		}

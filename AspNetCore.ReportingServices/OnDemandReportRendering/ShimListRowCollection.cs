@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ShimListRowCollection : TablixRowCollection
+	public sealed class ShimListRowCollection : TablixRowCollection
 	{
 		private ShimListRow m_row;
 
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ShimListRowCollection(Tablix owner)
+		public ShimListRowCollection(Tablix owner)
 			: base(owner)
 		{
 			this.m_row = new ShimListRow(owner);

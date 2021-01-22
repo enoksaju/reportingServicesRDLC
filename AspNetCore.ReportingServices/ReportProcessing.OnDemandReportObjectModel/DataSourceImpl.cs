@@ -27,7 +27,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.OnDemandReportObjectMode
 			}
 		}
 
-		internal DataSourceImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSourceDef)
+		public DataSourceImpl(AspNetCore.ReportingServices.ReportIntermediateFormat.DataSource dataSourceDef)
 		{
 			this.m_dataSource = dataSourceDef;
 		}

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal enum PathLabelPosition
+	public enum PathLabelPosition
 	{
 		Above,
 		Below,

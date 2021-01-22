@@ -1,7 +1,7 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeArrowStyle_ArrowStyle")]
-	internal enum ArrowStyle
+	public enum ArrowStyle
 	{
 		Simple,
 		DoubleArrow,

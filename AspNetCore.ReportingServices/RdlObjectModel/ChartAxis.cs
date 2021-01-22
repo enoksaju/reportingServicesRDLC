@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal class ChartAxis : ReportObject, INamedObject
+	public class ChartAxis : ReportObject, INamedObject
 	{
-		internal class Definition : DefinitionStore<ChartAxis, Definition.Properties>
+		public class Definition : DefinitionStore<ChartAxis, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Name,
 				Visible,
@@ -659,7 +659,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal ChartAxis(IPropertyStore propertyStore)
+		public ChartAxis(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

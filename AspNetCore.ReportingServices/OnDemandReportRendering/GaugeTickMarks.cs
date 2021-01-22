@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class GaugeTickMarks : TickMarkStyle
+	public sealed class GaugeTickMarks : TickMarkStyle
 	{
 		private ReportDoubleProperty m_interval;
 
@@ -32,7 +32,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeTickMarks GaugeTickMarksDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeTickMarks GaugeTickMarksDef
 		{
 			get
 			{
@@ -56,14 +56,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugeTickMarks(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeTickMarks defObject, GaugePanel gaugePanel)
+		public GaugeTickMarks(AspNetCore.ReportingServices.ReportIntermediateFormat.GaugeTickMarks defObject, GaugePanel gaugePanel)
 			: base(defObject, gaugePanel)
 		{
 			base.m_defObject = defObject;
 			base.m_gaugePanel = gaugePanel;
 		}
 
-		internal override void SetNewContext()
+		public override void SetNewContext()
 		{
 			base.SetNewContext();
 			if (base.m_instance != null)

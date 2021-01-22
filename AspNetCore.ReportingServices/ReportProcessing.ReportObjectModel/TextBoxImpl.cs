@@ -19,19 +19,19 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			}
 		}
 
-		internal TextBoxImpl(TextBox itemDef, ReportRuntime reportRT, IErrorContext iErrorContext)
+		public TextBoxImpl(TextBox itemDef, ReportRuntime reportRT, IErrorContext iErrorContext)
 			: base(itemDef, reportRT, iErrorContext)
 		{
 			this.m_textBox = itemDef;
 		}
 
-		internal void SetResult(VariantResult result)
+		public void SetResult(VariantResult result)
 		{
 			this.m_result = result;
 			this.m_isValueReady = true;
 		}
 
-		internal VariantResult GetResult()
+		public VariantResult GetResult()
 		{
 			if (!this.m_isValueReady)
 			{
@@ -57,7 +57,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel
 			return this.m_result;
 		}
 
-		internal void Reset()
+		public void Reset()
 		{
 			this.m_isValueReady = false;
 		}

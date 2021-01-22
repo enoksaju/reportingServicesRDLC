@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms
 {
-	internal enum PointsSortOrder
+	public enum PointsSortOrder
 	{
 		Ascending,
 		Descending

@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class MultiPoint
+	public class MultiPoint
 	{
 		public double[] Box = new double[4];
 

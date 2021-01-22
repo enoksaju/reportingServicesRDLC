@@ -10,41 +10,41 @@ namespace AspNetCore.Reporting.Chart.WebForms
 {
 	[SRDescription("DescriptionAttributeGrid_Grid")]
 	[DefaultProperty("Enabled")]
-	internal class Grid
+	public class Grid
 	{
 		protected const double NumberOfIntervals = 5.0;
 
 		protected const double NumberOfDateTimeIntervals = 4.0;
 
-		internal Axis axis;
+		public Axis axis;
 
-		internal bool intervalOffsetChanged;
+		public bool intervalOffsetChanged;
 
-		internal bool intervalChanged;
+		public bool intervalChanged;
 
-		internal bool intervalTypeChanged;
+		public bool intervalTypeChanged;
 
-		internal bool intervalOffsetTypeChanged;
+		public bool intervalOffsetTypeChanged;
 
-		internal bool enabledChanged;
+		public bool enabledChanged;
 
-		internal double intervalOffset;
+		public double intervalOffset;
 
-		internal double interval;
+		public double interval;
 
-		internal DateTimeIntervalType intervalType;
+		public DateTimeIntervalType intervalType;
 
-		internal DateTimeIntervalType intervalOffsetType;
+		public DateTimeIntervalType intervalOffsetType;
 
-		internal Color borderColor = Color.Black;
+		public Color borderColor = Color.Black;
 
-		internal int borderWidth = 1;
+		public int borderWidth = 1;
 
-		internal ChartDashStyle borderStyle = ChartDashStyle.Solid;
+		public ChartDashStyle borderStyle = ChartDashStyle.Solid;
 
-		internal bool enabled = true;
+		public bool enabled = true;
 
-		internal bool majorGridTick;
+		public bool majorGridTick;
 
 		[DefaultValue(double.NaN)]
 		[SRDescription("DescriptionAttributeIntervalOffset3")]
@@ -318,7 +318,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.Initialize(axis, major);
 		}
 
-		internal void Initialize(Axis axis, bool major)
+		public void Initialize(Axis axis, bool major)
 		{
 			if (!this.enabledChanged && this.axis == null && !major)
 			{
@@ -367,11 +367,11 @@ namespace AspNetCore.Reporting.Chart.WebForms
 			this.majorGridTick = major;
 		}
 
-		internal void Invalidate()
+		public void Invalidate()
 		{
 		}
 
-		internal void Paint(ChartGraphics graph)
+		public void Paint(ChartGraphics graph)
 		{
 			if (this.enabled)
 			{
@@ -583,7 +583,7 @@ namespace AspNetCore.Reporting.Chart.WebForms
 		{
 		}
 
-		internal void PaintCustom(ChartGraphics graph)
+		public void PaintCustom(ChartGraphics graph)
 		{
 			CommonElements common = this.axis.Common;
 			PointF empty = PointF.Empty;

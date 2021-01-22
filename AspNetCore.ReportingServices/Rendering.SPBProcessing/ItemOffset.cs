@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.SPBProcessing
 {
-	internal interface ItemOffset
+	public interface ItemOffset
 	{
 		long Offset
 		{

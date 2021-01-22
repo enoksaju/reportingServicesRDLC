@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class TextRunCollection : ReportElementCollectionBase<TextRun>
+	public sealed class TextRunCollection : ReportElementCollectionBase<TextRun>
 	{
 		private Paragraph m_paragraph;
 
@@ -44,7 +44,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal TextRunCollection(Paragraph paragraph)
+		public TextRunCollection(Paragraph paragraph)
 		{
 			this.m_paragraph = paragraph;
 			if (this.m_paragraph.IsOldSnapshot)
@@ -65,7 +65,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			for (int i = 0; i < this.m_textRuns.Length; i++)
 			{

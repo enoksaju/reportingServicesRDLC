@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.Reporting
 {
-	internal class DataSetProcessingCommand : IDbCommand, IDisposable
+	public class DataSetProcessingCommand : IDbCommand, IDisposable
 	{
 		private IDataReader m_dataReader;
 
@@ -37,7 +37,7 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal DataSetProcessingCommand(IDataReader dataReader)
+		public DataSetProcessingCommand(IDataReader dataReader)
 		{
 			this.m_dataReader = dataReader;
 			this.m_parameters = new DataSetProcessingParameters();

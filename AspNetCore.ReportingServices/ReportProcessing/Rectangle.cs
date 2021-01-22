@@ -7,7 +7,7 @@ using System;
 namespace AspNetCore.ReportingServices.ReportProcessing
 {
 	[Serializable]
-	internal sealed class Rectangle : ReportItem, IPageBreakItem, IIndexInto
+	public sealed class Rectangle : ReportItem, IPageBreakItem, IIndexInto
 	{
 		private ReportItemCollection m_reportItems;
 
@@ -23,7 +23,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 		[NonSerialized]
 		private ReportItemExprHost m_exprHost;
 
-		internal override ObjectType ObjectType
+		public override ObjectType ObjectType
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal ReportItemCollection ReportItems
+		public ReportItemCollection ReportItems
 		{
 			get
 			{
@@ -43,7 +43,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageBreakAtEnd
+		public bool PageBreakAtEnd
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool PageBreakAtStart
+		public bool PageBreakAtStart
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int LinkToChild
+		public int LinkToChild
 		{
 			get
 			{
@@ -79,24 +79,24 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal Rectangle(ReportItem parent)
+		public Rectangle(ReportItem parent)
 			: base(parent)
 		{
 		}
 
-		internal Rectangle(int id, int idForReportItems, ReportItem parent)
+		public Rectangle(int id, int idForReportItems, ReportItem parent)
 			: base(id, parent)
 		{
 			this.m_reportItems = new ReportItemCollection(idForReportItems, true);
 		}
 
-		internal override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
+		public override void CalculateSizes(double width, double height, InitializationContext context, bool overwrite)
 		{
 			base.CalculateSizes(width, height, context, overwrite);
 			this.m_reportItems.CalculateSizes(context, false);
 		}
 
-		internal override bool Initialize(InitializationContext context)
+		public override bool Initialize(InitializationContext context)
 		{
 			context.ObjectType = this.ObjectType;
 			context.ObjectName = base.m_name;
@@ -124,7 +124,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			base.DataRendererInitialize(context);
 		}
 
-		internal override void RegisterReceiver(InitializationContext context)
+		public override void RegisterReceiver(InitializationContext context)
 		{
 			if (base.m_visibility != null)
 			{
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal bool ContainsDataRegionOrSubReport()
+		public bool ContainsDataRegionOrSubReport()
 		{
 			for (int i = 0; i < this.m_reportItems.Count; i++)
 			{
@@ -193,7 +193,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		internal override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
+		public override void SetExprHost(ReportExprHost reportExprHost, ObjectModelImpl reportObjectModel)
 		{
 			if (base.ExprHostID >= 0)
 			{
@@ -203,7 +203,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal new static Declaration GetDeclaration()
+		public new static Declaration GetDeclaration()
 		{
 			MemberInfoList memberInfoList = new MemberInfoList();
 			memberInfoList.Add(new MemberInfo(MemberName.ReportItems, AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemCollection));
@@ -213,7 +213,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return new Declaration(AspNetCore.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItem, memberInfoList);
 		}
 
-		internal object SearchChildren(int targetUniqueName, ref NonComputedUniqueNames nonCompNames, ChunkManager.RenderingChunkManager chunkManager)
+		public object SearchChildren(int targetUniqueName, ref NonComputedUniqueNames nonCompNames, ChunkManager.RenderingChunkManager chunkManager)
 		{
 			if (nonCompNames.ChildrenUniqueNames == null)
 			{
@@ -239,7 +239,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			return null;
 		}
 
-		internal override void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, NonComputedUniqueNames nonCompNames)
+		public override void ProcessDrillthroughAction(ReportProcessing.ProcessingContext processingContext, NonComputedUniqueNames nonCompNames)
 		{
 			if (nonCompNames != null && nonCompNames.ChildrenUniqueNames != null)
 			{
@@ -253,7 +253,7 @@ namespace AspNetCore.ReportingServices.ReportProcessing
 			}
 		}
 
-		internal int ProcessNavigationChildren(ReportProcessing.NavigationInfo navigationInfo, NonComputedUniqueNames nonCompNames, int startPage)
+		public int ProcessNavigationChildren(ReportProcessing.NavigationInfo navigationInfo, NonComputedUniqueNames nonCompNames, int startPage)
 		{
 			if (nonCompNames.ChildrenUniqueNames == null)
 			{

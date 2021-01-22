@@ -18,7 +18,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 
 		public IndexedExprHost UserSortExpressionsHost;
 
-		internal IList<CalcFieldExprHost> FieldHostsRemotable
+		public IList<CalcFieldExprHost> FieldHostsRemotable
 		{
 			get
 			{
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<JoinConditionExprHost> JoinConditionExprHostsRemotable
+		public IList<JoinConditionExprHost> JoinConditionExprHostsRemotable
 		{
 			get
 			{
@@ -42,7 +42,7 @@ namespace AspNetCore.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			}
 		}
 
-		internal IList<FilterExprHost> FilterHostsRemotable
+		public IList<FilterExprHost> FilterHostsRemotable
 		{
 			get
 			{

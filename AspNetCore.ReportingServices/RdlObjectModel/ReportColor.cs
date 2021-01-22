@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[TypeConverter(typeof(ReportColorConverter))]
-	internal struct ReportColor : IXmlSerializable, IFormattable, IShouldSerialize
+	public struct ReportColor : IXmlSerializable, IFormattable, IShouldSerialize
 	{
 		private Color m_color;
 
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			}
 		}
 
-		internal static Color RdlStringToColor(string value)
+		public static Color RdlStringToColor(string value)
 		{
 			if (value[0] == '#')
 			{
@@ -170,7 +170,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			this.m_color = Color.Empty;
 		}
 
-		internal static Color FromName(string name)
+		public static Color FromName(string name)
 		{
 			if (string.Equals(name, "LightGrey", StringComparison.OrdinalIgnoreCase))
 			{
@@ -179,7 +179,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 			return Color.FromName(name);
 		}
 
-		internal static string ToName(Color color)
+		public static string ToName(Color color)
 		{
 			string text = color.Name;
 			if (text == "LightGray")

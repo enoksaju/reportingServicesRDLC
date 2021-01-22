@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 {
-	internal sealed class FormulaHandler
+	public sealed class FormulaHandler
 	{
-		internal enum GlobalExpressionType
+		public enum GlobalExpressionType
 		{
 			PageNumber,
 			TotalPages,
@@ -13,15 +13,15 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			Unknown
 		}
 
-		internal const string GLOBALS_PAGENUMBER = "PAGENUMBER";
+		public const string GLOBALS_PAGENUMBER = "PAGENUMBER";
 
-		internal const string GLOBALS_TOTALPAGES = "TOTALPAGES";
+		public const string GLOBALS_TOTALPAGES = "TOTALPAGES";
 
-		internal const string GLOBALS_OVERALLPAGENUMBER = "OVERALLPAGENUMBER";
+		public const string GLOBALS_OVERALLPAGENUMBER = "OVERALLPAGENUMBER";
 
-		internal const string GLOBALS_OVERALLTOTALPAGES = "OVERALLTOTALPAGES";
+		public const string GLOBALS_OVERALLTOTALPAGES = "OVERALLTOTALPAGES";
 
-		internal const string GLOBALS_REPORTNAME = "REPORTNAME";
+		public const string GLOBALS_REPORTNAME = "REPORTNAME";
 
 		private static Regex m_RegexGlobalOnly;
 
@@ -53,11 +53,11 @@ namespace AspNetCore.ReportingServices.Rendering.WordRenderer
 			FormulaHandler.m_RegexAmpDetection = new Regex("\\s*" + text + "\\s*|(?<detected>" + text4 + ")", FormulaHandler.m_regexOptions);
 		}
 
-		internal FormulaHandler()
+		public FormulaHandler()
 		{
 		}
 
-		internal static ArrayList ProcessHeaderFooterFormula(string formulaExpression)
+		public static ArrayList ProcessHeaderFooterFormula(string formulaExpression)
 		{
 			if (formulaExpression == null)
 			{

@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal enum SerializationVisibility
+	public enum SerializationVisibility
 	{
 		Hidden,
 		Attribute,

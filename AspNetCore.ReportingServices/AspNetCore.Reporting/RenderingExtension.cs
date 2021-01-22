@@ -5,7 +5,7 @@ using System;
 namespace AspNetCore.Reporting
 {
 	[Serializable]
-	internal sealed class RenderingExtension
+	public sealed class RenderingExtension
 	{
 		private string m_name;
 
@@ -37,14 +37,14 @@ namespace AspNetCore.Reporting
 			}
 		}
 
-		internal RenderingExtension(string name, string localizedName, bool isVisible)
+		public RenderingExtension(string name, string localizedName, bool isVisible)
 		{
 			this.m_name = name;
 			this.m_localizedName = localizedName;
 			this.m_isVisible = isVisible;
 		}
 
-		internal static RenderingExtension[] FromSoapExtensions(Extension[] soapExtensions)
+		public static RenderingExtension[] FromSoapExtensions(Extension[] soapExtensions)
 		{
 			if (soapExtensions == null)
 			{

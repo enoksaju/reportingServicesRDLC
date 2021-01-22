@@ -7,11 +7,11 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal struct ReportItemIndexer : IPersistable
+	public struct ReportItemIndexer : IPersistable
 	{
-		internal bool IsComputed;
+		public bool IsComputed;
 
-		internal int Index;
+		public int Index;
 
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = ReportItemIndexer.GetDeclaration();
@@ -21,7 +21,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			return this.MemberwiseClone();
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.IsComputed, Token.Boolean));

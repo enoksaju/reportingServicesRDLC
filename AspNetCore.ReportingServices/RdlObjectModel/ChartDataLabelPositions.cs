@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
-	internal enum ChartDataLabelPositions
+	public enum ChartDataLabelPositions
 	{
 		Auto,
 		Top,

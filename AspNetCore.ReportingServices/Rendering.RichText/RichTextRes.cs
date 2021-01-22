@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 namespace AspNetCore.ReportingServices.Rendering.RichText
 {
 	[CompilerGenerated]
-	internal class RichTextRes
+	public class RichTextRes
 	{
 		[CompilerGenerated]
-		internal class Keys
+		public class Keys
 		{
 			public const string Win32ErrorInfo = "Win32ErrorInfo";
 

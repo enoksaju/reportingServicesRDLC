@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Diagnostics.Internal
 {
-    internal sealed class QueryParameter
+    public sealed class QueryParameter
 	{
 		public string Name
 		{
@@ -20,7 +20,7 @@ namespace AspNetCore.ReportingServices.Diagnostics.Internal
 			set;
 		}
 
-		internal QueryParameter()
+		public QueryParameter()
 		{
 		}
 	}

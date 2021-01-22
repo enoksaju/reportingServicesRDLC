@@ -4,11 +4,11 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.RdlObjectModel
 {
 	[XmlElementClass("MapMarkerTemplate", typeof(MapMarkerTemplate))]
-	internal abstract class MapPointTemplate : MapSpatialElementTemplate
+	public abstract class MapPointTemplate : MapSpatialElementTemplate
 	{
-		internal new class Definition : DefinitionStore<MapPointTemplate, Definition.Properties>
+		public new class Definition : DefinitionStore<MapPointTemplate, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Style,
 				ActionInfo,
@@ -59,7 +59,7 @@ namespace AspNetCore.ReportingServices.RdlObjectModel
 		{
 		}
 
-		internal MapPointTemplate(IPropertyStore propertyStore)
+		public MapPointTemplate(IPropertyStore propertyStore)
 			: base(propertyStore)
 		{
 		}

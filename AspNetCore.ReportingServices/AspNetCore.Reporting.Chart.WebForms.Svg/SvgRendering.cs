@@ -9,9 +9,9 @@ using System.Xml;
 
 namespace AspNetCore.Reporting.Chart.WebForms.Svg
 {
-	internal class SvgRendering : ChartParameters
+	public class SvgRendering : ChartParameters
 	{
-		internal XmlTextWriter output;
+		public XmlTextWriter output;
 
 		private int gradientIDNum;
 
@@ -25,7 +25,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Svg
 
 		private bool antiAlias;
 
-		internal bool antiAliasText;
+		public bool antiAliasText;
 
 		private bool transformOpen;
 
@@ -101,7 +101,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Svg
 			throw new ArgumentException(SR.ExceptionSvgPictureSizeInvalid, "pictureSize");
 		}
 
-		internal void Validate()
+		public void Validate()
 		{
 			if (this.output == null)
 			{
@@ -772,7 +772,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Svg
 			return false;
 		}
 
-		internal bool NoTransformMatrix()
+		public bool NoTransformMatrix()
 		{
 			if (this.Transform == null)
 			{
@@ -931,13 +931,13 @@ namespace AspNetCore.Reporting.Chart.WebForms.Svg
 			}
 		}
 
-		internal string GetAlpha(Color color)
+		public string GetAlpha(Color color)
 		{
 			double number = (double)(int)color.A / 255.0;
 			return base.ToUSString(number);
 		}
 
-		internal string ColorToString(Color color)
+		public string ColorToString(Color color)
 		{
 			string str = color.R.ToString("x2", CultureInfo.InvariantCulture);
 			string str2 = color.G.ToString("x2", CultureInfo.InvariantCulture);
@@ -945,7 +945,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Svg
 			return "#" + str + str2 + str3;
 		}
 
-		internal void SetStringAlignment(StringFormat stringFormat)
+		public void SetStringAlignment(StringFormat stringFormat)
 		{
 			bool flag = false;
 			if ((stringFormat.FormatFlags & StringFormatFlags.DirectionVertical) == StringFormatFlags.DirectionVertical)
@@ -970,7 +970,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Svg
 			}
 		}
 
-		internal void Transformations()
+		public void Transformations()
 		{
 			if (this.MatrixChanged())
 			{
@@ -1056,7 +1056,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Svg
 			this.toolTipsText = string.Empty;
 		}
 
-		internal void SetToolTip()
+		public void SetToolTip()
 		{
 			if (this.toolTipsText.Length > 0)
 			{
@@ -1066,7 +1066,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Svg
 			}
 		}
 
-		internal void StartGraphicsParameters(bool fill, bool outline)
+		public void StartGraphicsParameters(bool fill, bool outline)
 		{
 			this.SVGDefine(fill, outline);
 			this.Transformations();
@@ -1123,7 +1123,7 @@ namespace AspNetCore.Reporting.Chart.WebForms.Svg
 			}
 		}
 
-		internal void EndGraphicsParameters()
+		public void EndGraphicsParameters()
 		{
 			this.output.WriteEndElement();
 		}

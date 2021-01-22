@@ -1,8 +1,8 @@
 namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 {
-	internal static class BitField32
+	public static class BitField32
 	{
-		internal static int GetValue(int aValue, int aMask)
+		public static int GetValue(int aValue, int aMask)
 		{
 			int num = aValue & aMask;
 			while ((aMask & 1) != 1)
@@ -13,7 +13,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return num;
 		}
 
-		internal static int PutValue(int aDst, int aMask, int aValue)
+		public static int PutValue(int aDst, int aMask, int aValue)
 		{
 			int num = aMask;
 			while ((num & 1) != 1)
@@ -26,7 +26,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return aDst;
 		}
 
-		internal static uint GetValue(uint aValue, uint aMask)
+		public static uint GetValue(uint aValue, uint aMask)
 		{
 			uint num = aValue & aMask;
 			while ((aMask & 1) != 1)
@@ -37,7 +37,7 @@ namespace AspNetCore.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 			return num;
 		}
 
-		internal static uint PutValue(uint aDst, uint aMask, uint aValue)
+		public static uint PutValue(uint aDst, uint aMask, uint aValue)
 		{
 			uint num = aMask;
 			while ((num & 1) != 1)

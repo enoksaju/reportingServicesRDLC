@@ -1,6 +1,6 @@
 namespace AspNetCore.ReportingServices.Rendering.HtmlRenderer
 {
-	internal enum ActionType
+	public enum ActionType
 	{
 		HyperLink,
 		DrillThrough,

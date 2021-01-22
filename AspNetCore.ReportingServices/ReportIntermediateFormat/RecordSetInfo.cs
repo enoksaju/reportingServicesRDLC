@@ -7,7 +7,7 @@ using System.Globalization;
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 {
 	[Serializable]
-	internal sealed class RecordSetInfo : IPersistable
+	public sealed class RecordSetInfo : IPersistable
 	{
 		private bool m_readerExtensionsSupported;
 
@@ -31,7 +31,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 		[NonSerialized]
 		private static readonly Declaration m_Declaration = RecordSetInfo.GetDeclaration();
 
-		internal bool ReaderExtensionsSupported
+		public bool ReaderExtensionsSupported
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RecordSetPropertyNamesList FieldPropertyNames
+		public RecordSetPropertyNamesList FieldPropertyNames
 		{
 			get
 			{
@@ -47,7 +47,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal CompareOptions CompareOptions
+		public CompareOptions CompareOptions
 		{
 			get
 			{
@@ -55,7 +55,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string[] FieldNames
+		public string[] FieldNames
 		{
 			get
 			{
@@ -63,7 +63,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string CommandText
+		public string CommandText
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string RewrittenCommandText
+		public string RewrittenCommandText
 		{
 			get
 			{
@@ -79,7 +79,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal string CultureName
+		public string CultureName
 		{
 			get
 			{
@@ -87,7 +87,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal DateTime ExecutionTime
+		public DateTime ExecutionTime
 		{
 			get
 			{
@@ -95,7 +95,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal bool ValidCompareOptions
+		public bool ValidCompareOptions
 		{
 			get
 			{
@@ -103,11 +103,11 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal RecordSetInfo()
+		public RecordSetInfo()
 		{
 		}
 
-		internal RecordSetInfo(bool readerExtensionsSupported, bool persistCalculatedFields, DataSetInstance dataSetInstance, DateTime reportExecutionTime)
+		public RecordSetInfo(bool readerExtensionsSupported, bool persistCalculatedFields, DataSetInstance dataSetInstance, DateTime reportExecutionTime)
 		{
 			this.m_readerExtensionsSupported = readerExtensionsSupported;
 			this.m_compareOptions = dataSetInstance.DataSetDef.GetCLRCompareOptions();
@@ -137,7 +137,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal void PopulateExtendedFieldsProperties(DataSetInstance dataSetInstance)
+		public void PopulateExtendedFieldsProperties(DataSetInstance dataSetInstance)
 		{
 			if (dataSetInstance.FieldInfos != null)
 			{
@@ -158,7 +158,7 @@ namespace AspNetCore.ReportingServices.ReportIntermediateFormat
 			}
 		}
 
-		internal static Declaration GetDeclaration()
+		public static Declaration GetDeclaration()
 		{
 			List<MemberInfo> list = new List<MemberInfo>();
 			list.Add(new MemberInfo(MemberName.ReaderExtensionsSupported, Token.Boolean));

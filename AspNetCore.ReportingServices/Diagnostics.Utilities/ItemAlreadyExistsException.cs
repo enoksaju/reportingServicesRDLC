@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace AspNetCore.ReportingServices.Diagnostics.Utilities
 {
 	[Serializable]
-	internal sealed class ItemAlreadyExistsException : ReportCatalogException
+	public sealed class ItemAlreadyExistsException : ReportCatalogException
 	{
 		public ItemAlreadyExistsException(string itemPath)
 			: base(ErrorCode.rsItemAlreadyExists, ErrorStrings.rsItemAlreadyExists(itemPath), null, null)

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ActionInstance : BaseInstance, IPersistable, IActionInstance
+	public sealed class ActionInstance : BaseInstance, IPersistable, IActionInstance
 	{
 		[NonSerialized]
 		private bool m_isOldSnapshot;
@@ -155,14 +155,14 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ActionInstance(IReportScope reportScope, Action actionDef)
+		public ActionInstance(IReportScope reportScope, Action actionDef)
 			: base(reportScope)
 		{
 			this.m_isOldSnapshot = false;
 			this.m_actionDef = actionDef;
 		}
 
-		internal ActionInstance(AspNetCore.ReportingServices.ReportRendering.Action renderAction)
+		public ActionInstance(AspNetCore.ReportingServices.ReportRendering.Action renderAction)
 			: base(null)
 		{
 			this.m_isOldSnapshot = true;
@@ -187,7 +187,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal void Update(AspNetCore.ReportingServices.ReportRendering.Action newAction)
+		public void Update(AspNetCore.ReportingServices.ReportRendering.Action newAction)
 		{
 			this.m_renderAction = newAction;
 			this.m_label = null;

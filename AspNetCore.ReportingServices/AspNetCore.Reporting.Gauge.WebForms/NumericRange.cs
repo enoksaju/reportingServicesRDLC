@@ -4,7 +4,7 @@ using System.Drawing;
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
 	[TypeConverter(typeof(NumericRangeConverter))]
-	internal class NumericRange : Range
+	public class NumericRange : Range
 	{
 		private const double DEFAULT_START_VALUE = 7000.0;
 
@@ -138,7 +138,7 @@ namespace AspNetCore.Reporting.Gauge.WebForms
 			return this.Name;
 		}
 
-		internal override void OnAdded()
+		public override void OnAdded()
 		{
 			NumericIndicator numericIndicator = (NumericIndicator)this.ParentElement;
 			((IValueConsumer)numericIndicator.Data).Refresh();

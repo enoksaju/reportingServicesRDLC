@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.Common;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class DataDynamicMemberInstance : DataMemberInstance, IDynamicInstance, IReportScopeInstance
+	public sealed class DataDynamicMemberInstance : DataMemberInstance, IDynamicInstance, IReportScopeInstance
 	{
 		private readonly InternalDynamicMemberLogic m_memberLogic;
 
@@ -34,7 +34,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal DataDynamicMemberInstance(CustomReportItem owner, DataMember memberDef, InternalDynamicMemberLogic memberLogic)
+		public DataDynamicMemberInstance(CustomReportItem owner, DataMember memberDef, InternalDynamicMemberLogic memberLogic)
 			: base(owner, memberDef)
 		{
 			this.m_memberLogic = memberLogic;
@@ -91,12 +91,12 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			return this.m_memberLogic.SetInstanceIndex(index);
 		}
 
-		internal ScopeID GetScopeID()
+		public ScopeID GetScopeID()
 		{
 			return this.m_memberLogic.GetScopeID();
 		}
 
-		internal void SetScopeID(ScopeID scopeID)
+		public void SetScopeID(ScopeID scopeID)
 		{
 			this.m_memberLogic.SetScopeID(scopeID);
 		}

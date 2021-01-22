@@ -8,16 +8,16 @@ using System.Collections.Generic;
 namespace AspNetCore.ReportingServices.OnDemandProcessing.TablixProcessing
 {
 	[PersistedWithinRequestOnly]
-	internal sealed class RuntimeTablixGroupLeafObj : RuntimeDataTablixWithScopedItemsGroupLeafObj
+	public sealed class RuntimeTablixGroupLeafObj : RuntimeDataTablixWithScopedItemsGroupLeafObj
 	{
 		[NonSerialized]
 		private static Declaration m_declaration = RuntimeTablixGroupLeafObj.GetDeclaration();
 
-		internal RuntimeTablixGroupLeafObj()
+		public RuntimeTablixGroupLeafObj()
 		{
 		}
 
-		internal RuntimeTablixGroupLeafObj(RuntimeDataTablixGroupRootObjReference groupRootRef, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
+		public RuntimeTablixGroupLeafObj(RuntimeDataTablixGroupRootObjReference groupRootRef, AspNetCore.ReportingServices.ReportProcessing.ObjectType objectType)
 			: base(groupRootRef, objectType)
 		{
 		}

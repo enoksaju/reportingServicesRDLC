@@ -2,16 +2,16 @@ using AspNetCore.ReportingServices.ReportProcessing;
 
 namespace AspNetCore.ReportingServices.ReportIntermediateFormat.Persistence
 {
-	internal class PersistenceConstants
+	public class PersistenceConstants
 	{
-		internal const int NullReferenceID = -2;
+		public const int NullReferenceID = -2;
 
-		internal const int UndefinedCompatVersion = 0;
+		public const int UndefinedCompatVersion = 0;
 
-		internal static readonly int MajorVersion = 12;
+		public static readonly int MajorVersion = 12;
 
-		internal static readonly int MinorVersion = 3;
+		public static readonly int MinorVersion = 3;
 
-		internal static readonly int CurrentCompatVersion = ReportProcessingCompatibilityVersion.CurrentVersion;
+		public static readonly int CurrentCompatVersion = ReportProcessingCompatibilityVersion.CurrentVersion;
 	}
 }

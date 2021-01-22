@@ -1,6 +1,6 @@
 namespace AspNetCore.Reporting.Chart.WebForms.ChartTypes
 {
-	internal enum FunnelLabelStyle
+	public enum FunnelLabelStyle
 	{
 		Inside,
 		Outside,

@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace AspNetCore.Reporting.Gauge.WebForms
 {
-	internal interface IRenderable
+	public interface IRenderable
 	{
 		void RenderStaticElements(GaugeGraphics g);
 

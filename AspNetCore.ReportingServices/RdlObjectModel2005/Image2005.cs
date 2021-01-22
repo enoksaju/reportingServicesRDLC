@@ -4,11 +4,11 @@ using AspNetCore.ReportingServices.RdlObjectModel2005.Upgrade;
 
 namespace AspNetCore.ReportingServices.RdlObjectModel2005
 {
-	internal class Image2005 : Image, IReportItem2005, IUpgradeable
+	public class Image2005 : Image, IReportItem2005, IUpgradeable
 	{
-		internal new class Definition : DefinitionStore<Image2005, Definition.Properties>
+		public new class Definition : DefinitionStore<Image2005, Definition.Properties>
 		{
-			internal enum Properties
+			public enum Properties
 			{
 				Action = 24,
 				PropertyCount

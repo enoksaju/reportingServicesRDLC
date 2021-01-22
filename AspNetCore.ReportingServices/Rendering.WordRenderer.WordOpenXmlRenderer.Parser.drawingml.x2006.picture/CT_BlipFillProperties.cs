@@ -4,9 +4,9 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Parser.drawingml.x2006.picture
 {
-	internal class CT_BlipFillProperties : OoxmlComplexType, IOoxmlComplexType
+	public class CT_BlipFillProperties : OoxmlComplexType, IOoxmlComplexType
 	{
-		internal enum ChoiceBucket_0
+		public enum ChoiceBucket_0
 		{
 			tile,
 			stretch

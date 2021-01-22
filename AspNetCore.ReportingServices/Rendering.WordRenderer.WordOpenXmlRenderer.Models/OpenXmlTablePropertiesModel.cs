@@ -2,7 +2,7 @@ using System.IO;
 
 namespace AspNetCore.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer.Models
 {
-	internal sealed class OpenXmlTablePropertiesModel : IHaveABorderAndShading
+	public sealed class OpenXmlTablePropertiesModel : IHaveABorderAndShading
 	{
 		private string _bgColor;
 

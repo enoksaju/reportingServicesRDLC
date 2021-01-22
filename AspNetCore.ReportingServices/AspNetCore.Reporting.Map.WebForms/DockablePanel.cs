@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace AspNetCore.Reporting.Map.WebForms
 {
-	internal class DockablePanel : Panel
+	public class DockablePanel : Panel
 	{
 		private PanelDockStyle dockStyle;
 
@@ -120,7 +120,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 		{
 		}
 
-		internal DockablePanel(CommonElements common)
+		public DockablePanel(CommonElements common)
 			: base(common)
 		{
 			this.Dock = (PanelDockStyle)this.GetDefaultPropertyValue("Dock", null);
@@ -128,7 +128,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			this.DockedInsideViewport = (bool)this.GetDefaultPropertyValue("DockedInsideViewport", null);
 		}
 
-		internal override void SizeLocationChanged(SizeLocationChangeInfo info)
+		public override void SizeLocationChanged(SizeLocationChangeInfo info)
 		{
 			base.SizeLocationChanged(info);
 			switch (info)
@@ -145,7 +145,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override object GetDefaultPropertyValue(string prop, object currentValue)
+		public override object GetDefaultPropertyValue(string prop, object currentValue)
 		{
 			object obj = null;
 			switch (prop)
@@ -161,7 +161,7 @@ namespace AspNetCore.Reporting.Map.WebForms
 			}
 		}
 
-		internal override bool IsVisible()
+		public override bool IsVisible()
 		{
 			MapCore mapCore = base.GetMapCore();
 			bool result = true;

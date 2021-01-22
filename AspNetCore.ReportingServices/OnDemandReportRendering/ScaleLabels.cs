@@ -2,7 +2,7 @@ using AspNetCore.ReportingServices.ReportIntermediateFormat;
 
 namespace AspNetCore.ReportingServices.OnDemandReportRendering
 {
-	internal sealed class ScaleLabels : IROMStyleDefinitionContainer
+	public sealed class ScaleLabels : IROMStyleDefinitionContainer
 	{
 		private GaugePanel m_gaugePanel;
 
@@ -164,7 +164,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal GaugePanel GaugePanelDef
+		public GaugePanel GaugePanelDef
 		{
 			get
 			{
@@ -172,7 +172,7 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal AspNetCore.ReportingServices.ReportIntermediateFormat.ScaleLabels ScaleLabelsDef
+		public AspNetCore.ReportingServices.ReportIntermediateFormat.ScaleLabels ScaleLabelsDef
 		{
 			get
 			{
@@ -196,13 +196,13 @@ namespace AspNetCore.ReportingServices.OnDemandReportRendering
 			}
 		}
 
-		internal ScaleLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ScaleLabels defObject, GaugePanel gaugePanel)
+		public ScaleLabels(AspNetCore.ReportingServices.ReportIntermediateFormat.ScaleLabels defObject, GaugePanel gaugePanel)
 		{
 			this.m_defObject = defObject;
 			this.m_gaugePanel = gaugePanel;
 		}
 
-		internal void SetNewContext()
+		public void SetNewContext()
 		{
 			if (this.m_instance != null)
 			{
